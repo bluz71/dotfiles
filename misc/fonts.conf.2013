@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Arial</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Arimo</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Courier</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Cousine</string></edit>
+  </match>
+  
+  <match target="pattern">
+    <test qual="any" name="family"><string>Helvetica</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Helvetica Neue</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Lucida Grande</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Droid Sans</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Monospace</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Inconsolata</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Sans</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Arimo</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Sans-Serif</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Arimo</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Serif</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Tinos</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Times New Roman</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Tinos</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Verdana</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
+  </match>
+
+</fontconfig>
