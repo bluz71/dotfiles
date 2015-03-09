@@ -1,0 +1,99 @@
+! Set up xterm colors and characterics.
+!
+! Note to reload Xdefaults the following is required:
+!   % xrdb -merge .Xdefaults
+
+! Dim gray.
+xterm-moonfly*color0: #373c40
+
+! Red
+xterm-moonfly*color1: #ff5454
+
+! Green
+xterm-moonfly*color2: #89bb25
+
+! Khaki
+xterm-moonfly*color3: #dcd08c
+
+! Blue
+xterm-moonfly*color4: #80a0ff
+
+! Magenta
+xterm-moonfly*color5: #ee82ee
+
+! Turquoise
+xterm-moonfly*color6: #7ee0ce
+
+! Orange
+xterm-moonfly*color7: #de935f
+
+! Coral 
+xterm-moonfly*color8: #f09479
+
+! Crimson
+xterm-moonfly*color9: #ed246c
+
+! Emerald
+xterm-moonfly*color10: #42cf89
+
+! Wheat
+xterm-moonfly*color11: #e9d4ab
+
+! Light blue
+xterm-moonfly*color12: #89d2ef
+
+! Purple
+xterm-moonfly*color13: #ae81ff
+
+! Light green
+xterm-moonfly*color14: #85dc85
+
+! Violet.
+xterm-moonfly*color15: #e2637f
+
+xterm-moonfly*allowTitleOps: false
+xterm-moonfly*background: #080808
+xterm-moonfly*charClass: 33:48,35:48,37:48,42:48,45-47:48,58:48,64:48,95:48,126:48
+xterm-moonfly*colorBD: #80a0ff
+xterm-moonfly*colorBDMode: on
+xterm-moonfly*colorUL: #42cf89
+xterm-moonfly*colorULMode: on
+xterm-moonfly*cutNewline: false
+xterm-moonfly*cutToBeginningOfLine: false
+xterm-moonfly*faceName: Inconsolata
+xterm-moonfly*faceSize: 10.5
+xterm-moonfly*fastScroll: true
+xterm-moonfly*foreground: #b2b2b2
+xterm-moonfly*geometry: 84x32
+xterm-moonfly*highlightSelection: true
+xterm-moonfly*loginShell: true
+xterm-moonfly*rightScrollBar: true
+xterm-moonfly*saveLines: 9999
+xterm-moonfly*scrollBar: true
+xterm-moonfly*scrollbar*background: #292929
+xterm-moonfly*scrollbar*foreground: #b2b2b2
+xterm-moonfly*scrollbar*width: 10
+xterm-moonfly*termName: xterm-256color
+
+! Get nice keys such as delete/home/end working in xterms.
+! Shift-Control C/V for copy/paste to CLIPBOARD.
+! Shift Up/Down arrow for scrolling one line at a time.
+*VT100.Translations: #override \
+    <Key>BackSpace: string(0x7F)\n\
+    <Key>Delete: string("\033[3~")\n\
+    <Key>Home: string("\033[1~")\n\
+    <Key>End: string("\033[4~")\n\
+    Shift Ctrl <Key>C: copy-selection(CLIPBOARD)\n\
+    Shift Ctrl <Key>V: insert-selection(CLIPBOARD)\n\
+    Shift <Key>Up: scroll-back(1)\n\
+    Shift <Key>Down: scroll-forw(1)
+*ttyModes: erase ^?
+
+! Font related settings.
+Xft.antialias: 1
+Xft.autohint: 0
+Xft.dpi: 96
+Xft.hinting: 1
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb

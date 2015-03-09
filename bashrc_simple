@@ -1,0 +1,111 @@
+# Remove all previous environment defined aliases.
+#
+unalias -a
+
+# General aliases.
+#
+alias ackm='ack --pager=less'
+alias agm='ag --pager=less'
+alias cp='/bin/cp -i'
+alias dir='ls -l'
+alias du='du -b'
+alias gv=gvim
+alias gvd=gvimdiff
+alias h=history
+alias l='ls -l'
+alias l1='ls -1'
+alias ll='ls -l'
+alias lla='ls -la'
+alias ls='ls --color -F --si'
+alias lss='ls -la --sort=size | less'
+alias lst='ls -la --sort=time | less'
+alias m='less'
+alias meld='meld 2>/dev/null'
+alias mv='/bin/mv -i'
+alias p='pygmentize -g'
+alias psu='ps -u $USER -f'
+alias rm='/bin/rm -i'
+alias src='. ~/.bashrc'
+alias v='stty -ixon && vimx'
+alias vd='stty -ixon && vimdiff'
+alias x=exit
+
+
+# General environment variables.
+#
+export EDITOR=vimx
+export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;51:pi=38;5;43:bd=38;5;212:cd=38;5;223:or=30;48;5;202:ow=38;5;203:so=38;5;169:su=36;48;5;63:ex=38;5;156:mi=30;48;5;83:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:*.tbz2=38;5;205:*.zip=38;5;206:*.7z=38;5;206:*.gz=38;5;205:*.bz2=38;5;205:*.rar=38;5;205:*.rpm=38;5;173:*.jpg=38;5;141:*.png=38;5;147:*.mpg=38;5;151:*.avi=38;5;151:*.mov=38;5;216:*.wmv=38;5;216:*.mp4=38;5;217:*.mkv=38;5;216:*.flac=38;5;222:*.mp3=38;5;218:*akefile=38;5;177:*.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:*.doc=38;5;224:*.xls=38;5;146:*.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.conf=38;5;121"
+export PAGER=less
+export LESS='-R -X -F -s -i -g'
+export LESSHISTFILE=-
+
+# The operating system in use.
+#
+export OS=`uname`
+
+# By default bash saves away too much history, set the history size to a saner
+# value.
+#
+HISTSIZE=200
+HISTFILESIZE=0
+
+# Set the appropriate umask.
+#
+umask 002
+
+# Enable the useful Bash 4 autocd (no need to type 'cd') and globstar (**
+# recursive glob) features.
+#
+shopt -s autocd globstar
+
+
+# Functions.
+#
+libraryPath()
+{
+    export LD_LIBRARY_PATH=~/local/lib:/usr/local/lib
+}
+
+path()
+{
+    PATH=/usr/local/bin:/bin:/usr/bin:/usr/sbin
+    export MANPATH=~/local/man:/usr/local/man:/usr/man:/usr/share/man
+    if [ $OSTYPE = cygwin ]; then
+        PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
+    fi
+    PATH=~/local/bin:~/scripts:'.':$PATH
+}
+
+prompt()
+{
+    open-color() { echo -ne "\e[38;5;$1m"; }
+    close-color () { echo -ne '\e[m'; }
+
+    local COLOR_TERMINAL=off
+    if [ $TERM = xterm-256color ]; then
+        COLOR_TERMINAL=on
+    fi
+
+    if [ $# = 1 ]; then
+        if [ $COLOR_TERMINAL = on ]; then
+            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 78`\] $1\[`close-color`\]\[`open-color 174`\] \w\[`close-color`\] > "
+        else
+            PS1="\h $1 \w > "
+        fi
+    else
+        if [ $COLOR_TERMINAL = on ]; then
+            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\] \w\[`close-color`\] > "
+        else
+            PS1='\h \w > '
+        fi
+    fi
+}
+
+
+# Set the environment.
+#
+if [ $OS = Linux ]; then
+    libraryPath
+fi
+path
+prompt

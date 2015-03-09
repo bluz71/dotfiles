@@ -1,0 +1,14 @@
+"\e[1~": beginning-of-line
+"\e[3~": delete-char
+"\e[4~": end-of-line
+set bell-style none
+set show-all-if-ambiguous On
+#
+# Useful shortcuts
+#
+# A-f: forward word
+# A-b: backward word
+# A-d: delete word
+# C-k: delete till end of line
+# C-u: delete till start of line
+# C-_: undo last edit

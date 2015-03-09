@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/mnt/nas1/users/dennis/ttsrc/ACE/compression/minizip'
+let g:netrw_dirhist_2='/mnt/nas1/users/dennis/backup'
+let g:netrw_dirhist_3='/mnt/nas1/users/dennis/configs'
+let g:netrw_dirhist_4='/usr/local/gcc-4.7.2/include/c++/4.7.2/backward'
+let g:netrw_dirhist_5='/usr/local/gcc-4.7.2/include/c++/4.7.2/bits'
+let g:netrw_dirhist_6='/mnt/nas1/teratext_support/report'
+let g:netrw_dirhist_7='/mnt/nas1/users/dennis/.vim'
