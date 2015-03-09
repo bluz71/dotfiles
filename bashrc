@@ -7,10 +7,6 @@ unalias -a
 alias ackm='ack --pager=less'
 alias agm='ag --pager=less'
 alias cp='/bin/cp -i'
-alias dbs54='dbsxy 5.4'
-alias dbs60='dbsxy 6.0'
-alias dbs61='dbsxy 6.1'
-alias dbs62='dbsxy 6.2'
 alias dir='ls -l'
 alias du='du -b'
 alias g=git
@@ -31,13 +27,7 @@ alias meld='meld 2>/dev/null'
 alias mv='/bin/mv -i'
 alias p='pygmentize -g'
 alias psu='ps -u $USER -f'
-alias rel54='ssh -f -X rel5.4@rel54-linux-x64 xterm -T rel54-linux-x64 -fa "Monospace" -fs 9.5 -g 80x35 -sl 5000 2> /dev/null'
-alias rel60='ssh -f -X rel6.0@rel60-linux-x64 xterm -T rel60-linux-x64 -fa "Monospace" -fs 9.5 -g 80x35 -sl 5000 2> /dev/null'
-alias rel61='ssh -f -X rel6.1@rel61-linux-x64 xterm -T rel61-linux-x64 -fa "Monospace" -fs 9.5 -g 80x35 -sl 5000 2> /dev/null'
-alias rel62='ssh -f -X rel6.2@rel62vm-lin-x64 xterm -T rel62vm-lin-x64 -fa "Monospace" -fs 9.5 -g 80x35 -sl 5000 2> /dev/null'
 alias rm='/bin/rm -i'
-alias rsync-configs='rsync --archive --verbose --compress mimas:configs/ ~/configs'
-alias rsync-scripts='rsync --archive --verbose --compress --delete mimas:scripts/ ~/scripts'
 alias src='. ~/.bashrc'
 alias v='stty -ixon && vimx'
 alias vd='stty -ixon && vimdiff'
@@ -328,20 +318,8 @@ winTtEnv()
 
 # Carry out machine specific specializations.
 #
-if [ $HOST = mimas ]; then
-    gcc-debug
-elif [ $HOST = itami ]; then
-    alias gv='HOME=$USERPROFILE gvim'
-    msvc
-    cd $TT_SRC
-elif [ $HOST = dbsvm-sol11 ]; then
-    TERM=xterm-color
-    path
-    prompt
-else
-    if [ $OS = Linux ] || [ $OS = SunOS ]; then
-        libraryPath
-    fi
-    path
-    prompt
+if [ $OS = Linux ]; then
+    libraryPath
 fi
+path
+prompt
