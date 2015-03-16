@@ -51,8 +51,6 @@ export ARCH=x86_64
 #
 if [ $OS = Linux ]; then
     export HOST=`hostname -s`
-elif [ $OS = SunOS ]; then
-    export HOST=`hostname`
 elif [ $OSTYPE = cygwin ]; then
     export CYGWIN=nodosfilewarning
     export HOST=`hostname`
@@ -117,22 +115,6 @@ clean()
     prompt
 }
 
-dbsxy()
-{
-    clean
-    prompt dbs"$1"
-    if [ $OSTYPE = cygwin ]; then
-        export TT_ACE_PATH="q:\TeraText\DBS\r"$1"\lib;."
-        export TT_ENTITY_PATH="q:\TeraText\DBS\r"$1"\entity"
-        PATH=/cygdrive/q/TeraText/DBS/r$1/bin:$PATH
-    else
-        export TT_ACE_PATH=/opt/TeraText/DBS/r$1/lib:.
-        export TT_ENTITY_PATH=/opt/TeraText/DBS/r$1/entity
-        PATH=/opt/TeraText/DBS/r$1/bin:$PATH
-        MANPATH=/opt/TeraText/DBS/r$1/man:$MANPATH
-    fi
-}
-
 gcc-debug()
 {
     gcc-common lin-gcc-$ARCH
@@ -189,9 +171,6 @@ path()
     export MANPATH=~/local/man:/usr/local/man:/usr/man:/usr/share/man
     if [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
-    elif [ $OS = SunOS ]; then
-        PATH=/usr/sfw/bin:/opt/sfw/bin:$PATH:/usr/ccs/bin
-        MANPATH=/usr/sfw/man:/opt/sfw/man:$MANPATH
     fi
     PATH=~/local/bin:~/scripts:'.':$PATH
 }
