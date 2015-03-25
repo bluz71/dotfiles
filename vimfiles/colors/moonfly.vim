@@ -11,6 +11,7 @@ let s:dim_gray    = "#373c40"
 let s:medium_gray = "#303030"
 let s:gray        = "#444444"
 let s:dark_gray   = "#1c1c1c"
+let s:shadow_gray = "#121212"
 let s:wheat       = "#e9d4ab"
 let s:khaki       = "#dcd08c"
 let s:orange      = "#de935f"
@@ -58,6 +59,7 @@ let s:red         = "#ff5454"
 " medium_gray = 236
 " gray        = 238
 " dark_gray   = 234
+" shadow_gray = 233
 " wheat       = 11
 " khaki       = 3
 " orange      = 7
@@ -189,7 +191,7 @@ exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=12 guifg=" . s:light_blue
 exec "highlight MatchParen ctermbg=31"
 
 " Colums after line 80.
-exec "highlight ColorColumn ctermbg=234 guibg=" . s:dark_gray
+exec "highlight ColorColumn ctermbg=233 guibg=" . s:shadow_gray
 
 " For C/C++.
 "
