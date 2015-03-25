@@ -181,7 +181,7 @@ prompt()
     close-color () { echo -ne '\e[m'; }
 
     local COLOR_TERMINAL=0
-    if [ $TERM = xterm-256color ] || [ $TERM = xterm-color ]; then
+    if [ $TERM = xterm-256color ] || [ $TERM = "screen-256color" ]; then
         COLOR_TERMINAL=1
     fi
 
