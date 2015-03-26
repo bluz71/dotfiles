@@ -22,6 +22,7 @@ set laststatus=2
 set lazyredraw
 set listchars=eol:$,tab:>-,trail:-
 set makeprg=tmake
+set mouse=a
 set mousehide
 set nobackup
 set nocompatible
@@ -43,6 +44,7 @@ set t_Co=256
 set tabstop=4
 set textwidth=79
 set ttimeoutlen=0
+set ttymouse=xterm2
 set viminfo=
 
 
@@ -216,6 +218,11 @@ endfunction
 "
 noremap <C-Right> ;
 noremap <C-Left> ,
+if &term == 'screen-256color'
+    " Make CTRL-Left/Right work inside tmux.
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 noremap ; :
 let mapleader = ","
 " Simpler keyboard navigation between splits.
