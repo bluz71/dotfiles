@@ -4,8 +4,8 @@ unalias -a
 
 # General aliases.
 #
-alias ackm='ack --pager=less'
 alias agm='ag --pager=less'
+alias c='clear'
 alias cp='/bin/cp -i'
 alias dir='ls -l'
 alias du='du -b'
@@ -29,6 +29,7 @@ alias p='pygmentize -g'
 alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
+alias tnew='tmux new -s $(basename $(pwd))'
 alias v='stty -ixon && vimx'
 alias vd='stty -ixon && vimdiff'
 alias x=exit

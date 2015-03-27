@@ -230,8 +230,8 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-" Need to remap existing Ctrl-l (refresh), use leader-L instead. 
-noremap <leader>L :redraw!<CR>
+" Need to remap existing Ctrl-l (refresh), use leader-c instead. 
+noremap <leader>cl :redraw!<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
 " Move vertically by visual line.
@@ -384,6 +384,17 @@ if has("unix") && system("uname") == "Linux\n" && v:progname != "vi"
     " Hit <enter> on a file line, in the status window, to open.
     " Hit '-' to 'git add' the file on the current line.
     noremap <leader>gs :Gstatus<CR>
+
+    " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
+    " Note, only set up mappings if running inside tmux.
+    Bundle "christoomey/vim-tmux-navigator"
+    if &term == 'screen-256color'
+        let g:tmux_navigator_no_mappings = 1
+        nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+        nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+        nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+        nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+    endif
 elseif has("win32") && v:progname != "vi"
     filetype off
     set runtimepath+=~/vimfiles/bundle/vundle/
