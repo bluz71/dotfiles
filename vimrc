@@ -32,7 +32,7 @@ set noswapfile
 set nowrap
 set nowrapscan
 set novisualbell
-set path=.,~/ttsrc/**
+set path=.,~/projects/**
 set ruler
 set shiftwidth=4
 set showcmd
