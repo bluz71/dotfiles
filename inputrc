@@ -2,10 +2,11 @@
 "\e[3~": delete-char
 "\e[4~": end-of-line
 "\el": clear-screen
+"\C-l": abort
 set bell-style none
 set show-all-if-ambiguous On
 #
-# Useful shortcuts
+# Useful shortcuts (invoke 'bind -p' for full listing):
 #
 # A-f: forward word
 # A-b: backward word
