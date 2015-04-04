@@ -1,6 +1,7 @@
 "\e[1~": beginning-of-line
 "\e[3~": delete-char
 "\e[4~": end-of-line
+"\el": clear-screen
 set bell-style none
 set show-all-if-ambiguous On
 #

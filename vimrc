@@ -230,8 +230,12 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-" Need to remap existing Ctrl-l (refresh), use leader-c instead. 
-noremap <leader>cl :redraw!<CR>
+" Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
+if has("gui_running")
+    noremap <A-l> :redraw!<CR>
+else
+    noremap l :redraw!<CR>
+endif
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
 " Move vertically by visual line.

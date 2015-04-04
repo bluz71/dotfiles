@@ -5,7 +5,6 @@ unalias -a
 # General aliases.
 #
 alias agm='ag --pager=less'
-alias c='clear'
 alias cp='/bin/cp -i'
 alias dir='ls -l'
 alias du='du -b'
