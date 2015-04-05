@@ -12,7 +12,7 @@ alias g=git
 # This is required for bash completion to work with the g alias.
 complete -o default -o nospace -F _git g
 alias gv=gvim
-alias gvd=gvimdiff
+alias gvdi=gvimdiff
 alias h=history
 alias l='ls -l'
 alias l1='ls -1'
@@ -30,7 +30,7 @@ alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias tnew='tmux new -s $(basename $(pwd))'
 alias v='stty -ixon && vimx'
-alias vd='stty -ixon && vimdiff'
+alias vdi='stty -ixon && vimdiff'
 alias x=exit
 
 
@@ -74,6 +74,9 @@ umask 002
 #
 shopt -s autocd globstar
 
+# Only display up to four directory components in the prompt.
+PROMPT_DIRTRIM=4
+
 
 # Functions.
 #
@@ -109,19 +112,24 @@ prompt()
         . /usr/share/git-core/contrib/completion/git-prompt.sh
     fi
 
+    # 147: Purple
+    # 150: Dark Sea Green
+    # 174: Light Pink
+    # 187: Light Yellow
+    # 255: White
     if [ $# = 1 ]; then
         if [ $COLOR_TERMINAL = 1 ] && [ $GIT_PROMPT = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 78`\] $1\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 174`\] \w\[`close-color`\] > "
+            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\] $1\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
         elif [ $COLOR_TERMINAL = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 78`\] $1\[`close-color`\]\[`open-color 174`\] \w\[`close-color`\] > "
+            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\] $1\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
         else
             PS1="\h $1 \w > "
         fi
     else
         if [ $COLOR_TERMINAL = 1 ] && [ $GIT_PROMPT = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 174`\] \w\[`close-color`\] > "
+            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
         elif [ $COLOR_TERMINAL = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\] \w\[`close-color`\] > "
+            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
         else
             PS1='\h \w > '
         fi
