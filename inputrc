@@ -4,6 +4,7 @@
 "\el": clear-screen
 "\C-l": abort
 set bell-style none
+set echo-control-characters off
 
 # Improve completions. Refer to 'man bash', "Readline Variables" section.
 #
@@ -18,6 +19,10 @@ set completion-prefix-display-length 2
 set show-all-if-ambiguous on
 # Control-t to cycle through matches.
 "\C-t": menu-complete
+# Up and down arrow will now intelligently complete partially completed
+# commands by searching through the existing history.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
 
 # Useful shortcuts; invoke 'bind -p' for full listing:
 #
