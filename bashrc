@@ -14,6 +14,7 @@ complete -o default -o nospace -F _git g
 alias gv=gvim
 alias gvdi=gvimdiff
 alias h=history
+alias ha='history | ag'
 alias l='ls -l'
 alias l1='ls -1'
 alias ll='ls -l'
@@ -64,15 +65,16 @@ fi
 #
 HISTSIZE=200
 HISTFILESIZE=0
+HISTCONTROL=ignoreboth
 
 # Set the appropriate umask.
 #
 umask 002
 
-# Enable the useful Bash 4 autocd (no need to type 'cd') and globstar (**
-# recursive glob) features.
+# Enable the useful Bash 4 autocd (no need to type 'cd'), globstar (**
+# recursive glob) and cdspell (fix small directory typos) features.
 #
-shopt -s autocd globstar
+shopt -s autocd globstar cdspell
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4

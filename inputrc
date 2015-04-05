@@ -4,9 +4,22 @@
 "\el": clear-screen
 "\C-l": abort
 set bell-style none
-set show-all-if-ambiguous On
+
+# Improve completions. Refer to 'man bash', "Readline Variables" section.
 #
-# Useful shortcuts (invoke 'bind -p' for full listing):
+set colored-stats on
+# Ignore case when completing.
+set completion-ignore-case on
+# Treat hypen and underscores as equivalent.
+set completion-map-case on
+# When completion matches multiple items, replace the common prefix with "...".
+set completion-prefix-display-length 2
+# Immediately display completion matches.
+set show-all-if-ambiguous on
+# Control-t to cycle through matches.
+"\C-t": menu-complete
+
+# Useful shortcuts; invoke 'bind -p' for full listing:
 #
 # A-f: forward word
 # A-b: backward word
