@@ -65,7 +65,7 @@ fi
 #
 HISTSIZE=200
 HISTFILESIZE=0
-HISTCONTROL=ignoreboth
+HISTCONTROL='erasedups:ignoreboth'
 
 # Set the appropriate umask.
 #
