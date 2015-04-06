@@ -15,6 +15,8 @@ set completion-ignore-case on
 set completion-map-case on
 # When completion matches multiple items, replace the common prefix with "...".
 set completion-prefix-display-length 2
+# Don't automatically match files beginning with dot.
+set match-hidden-files off
 # Immediately display completion matches.
 set show-all-if-ambiguous on
 # Control-t to cycle through matches.
