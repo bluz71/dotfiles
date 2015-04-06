@@ -30,14 +30,14 @@ alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias tnew='tmux new -s $(basename $(pwd))'
+alias v='stty -ixon && vimx'
+alias vdi='stty -ixon && vimdiff'
+alias x=exit
 alias ..='cd ..'
 alias ..2='..; ..'
 alias ..3='..2; ..'
 alias ..4='..3; ..'
 alias ..5='..4; ..'
-alias v='stty -ixon && vimx'
-alias vdi='stty -ixon && vimdiff'
-alias x=exit
 
 
 # General environment variables.
