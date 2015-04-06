@@ -30,6 +30,11 @@ alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias tnew='tmux new -s $(basename $(pwd))'
+alias ..='cd ..'
+alias ..2='..; ..'
+alias ..3='..2; ..'
+alias ..4='..3; ..'
+alias ..5='..4; ..'
 alias v='stty -ixon && vimx'
 alias vdi='stty -ixon && vimdiff'
 alias x=exit
@@ -71,10 +76,12 @@ HISTCONTROL='erasedups:ignoreboth'
 #
 umask 002
 
-# Enable the useful Bash 4 autocd (no need to type 'cd'), globstar (**
-# recursive glob) and cdspell (fix small directory typos) features.
-#
-shopt -s autocd globstar cdspell
+# Enable the useful Bash 4 features:
+#  autocd, no need to type 'cd' when changing directory
+#  cdable_vars, 'cd FOO' where FOO is an environment variable
+#  cdspell, automatically fix small directory typos when changing directory
+#  globstar, ** recursive glob
+shopt -s autocd cdable_vars cdspell globstar
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4
