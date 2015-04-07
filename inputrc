@@ -34,3 +34,4 @@ set show-all-if-ambiguous on
 # C-k: delete till end of line
 # C-u: delete till start of line
 # C-_: undo last edit
+# A-.: append parameters from last command
