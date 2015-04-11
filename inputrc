@@ -4,6 +4,10 @@
 "\el": clear-screen
 "\e$": kill-line
 "\e0": backward-kill-line
+"\eb": vi-backward-bigword
+"\ef": vi-forward-bigword
+"\ed": "\ef\C-w"
+"\eu": undo
 "\C-l": abort
 "\C-k": abort
 set bell-style none
@@ -22,7 +26,7 @@ set completion-prefix-display-length 2
 set match-hidden-files off
 # Immediately display completion matches.
 set show-all-if-ambiguous on
-# Control-t to cycle through matches.
+# Control-t to cycle through completions choices.
 "\C-t": menu-complete
 # Up and down arrow will now intelligently complete partially completed
 # commands by searching through the existing history.
@@ -34,7 +38,7 @@ set show-all-if-ambiguous on
 # A-f: forward word
 # A-b: backward word
 # A-d: delete word
-# C-k: delete till end of line
-# C-u: delete till start of line
-# C-_: undo last edit
+# A-$: delete till end of line
+# A-0: delete till start of line
+# A-u: undo last edit
 # A-.: append parameters from last command

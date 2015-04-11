@@ -1,0 +1,34 @@
+[user]
+	name = Dennis
+	email = dennis@example.com
+[push]
+	default = simple
+[core]
+	autocrlf = input
+[color]
+	ui = auto
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "vd"]
+	cmd = stty -ixon && vimdiff "$LOCAL" "$REMOTE"
+[mergetool]
+	keepBackup = false
+[alias]
+	ls = log --format=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue (%an)\"
+	ll = log --graph --format=format:\"%C(yellow)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)(%an)%Creset\"
+	st = status --short --branch
+	rso = remote show origin
+	bb = branch -vv
+	update = !git fetch && git checkout master && git merge --ff-only origin/master
+	join = !git fetch && git checkout master && git merge --no-ff $1
+	co = checkout
+	cob = checkout -b
+	ci = commit
+	di = difftool
+	vdi = difftool -t vd --patience
+	dis = difftool --staged
+	vdis = difftool -t vd --patience --staged
