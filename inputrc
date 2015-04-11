@@ -2,7 +2,10 @@
 "\e[3~": delete-char
 "\e[4~": end-of-line
 "\el": clear-screen
+"\e$": kill-line
+"\e0": backward-kill-line
 "\C-l": abort
+"\C-k": abort
 set bell-style none
 set echo-control-characters off
 
