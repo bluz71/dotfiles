@@ -161,7 +161,7 @@ function! StatusLine(mode)
     endif
     setlocal statusline+=%5*%=%-14.(%l,%c%V%)
     setlocal statusline+=%6*[%L]\ 
-    setlocal statusline+=%*%P
+    setlocal statusline+=%7*%P
 endfunction
 
 " A windows focus event has been triggered.
