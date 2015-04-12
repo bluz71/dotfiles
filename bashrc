@@ -22,7 +22,7 @@ alias lla='ls -la'
 alias ls='ls --color --classify --human-readable'
 alias lss='ls -la --sort=size | less'
 alias lst='ls -la --sort=time | less'
-alias lsfs='lsByGivenSize(){ find . -maxdepth 1 -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; };lsByGivenSize'
+alias lsfs='findBySize(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; findBySize'
 alias m='less'
 alias meld='meld 2>/dev/null'
 alias mv='/bin/mv -i'
@@ -52,7 +52,6 @@ export LESSHISTFILE=-
 # Custom environment variables.
 #
 export OS=`uname`
-export ARCH=x86_64
 
 # Custom environment variables per platform.
 #
