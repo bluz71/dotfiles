@@ -1,5 +1,16 @@
+# Useful shortcuts; invoke 'bind -p' for full listing:
+#
+# Alt-l: clear screen
+# Alt-f: move forward a word
+# Alt-b: move backward a word
+# Alt-d: delete forward word
+# Alt-<backspace>: delete backward word
+# Alt-$: delete till end of line
+# Alt-0: delete till start of line
+# Alt-u: undo last edit
+# Alt-.: append parameters from last command
+
 "\e[1~": beginning-of-line
-"\e[3~": delete-char
 "\e[4~": end-of-line
 "\el": clear-screen
 "\e$": kill-line
@@ -7,6 +18,7 @@
 "\eb": vi-backward-bigword
 "\ef": vi-forward-bigword
 "\ed": "\ef\C-w"
+"\e\d": "\ef\C-w"
 "\eu": undo
 "\C-l": abort
 "\C-k": abort
@@ -32,13 +44,3 @@ set show-all-if-ambiguous on
 # commands by searching through the existing history.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-
-# Useful shortcuts; invoke 'bind -p' for full listing:
-#
-# A-f: forward word
-# A-b: backward word
-# A-d: delete word
-# A-$: delete till end of line
-# A-0: delete till start of line
-# A-u: undo last edit
-# A-.: append parameters from last command
