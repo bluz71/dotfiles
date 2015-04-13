@@ -53,7 +53,7 @@ xterm-moonfly*color15: #e2637f
 
 xterm-moonfly*allowTitleOps: false
 xterm-moonfly*background: #080808
-xterm-moonfly*charClass: 33:48,35:48,37:48,42:48,45-47:48,58:48,64:48,95:48,126:48
+xterm-moonfly*charClass: 33:48,35:48,37:48,42:48,45-47:48,58:48,61:48,63-64:48,95:48,126:48
 xterm-moonfly*colorBD: #80a0ff
 xterm-moonfly*colorBDMode: on
 xterm-moonfly*colorUL: #42cf89
@@ -75,19 +75,16 @@ xterm-moonfly*scrollbar*foreground: #b2b2b2
 xterm-moonfly*scrollbar*width: 10
 xterm-moonfly*termName: xterm-256color
 
-! Get nice keys such as delete/home/end working in xterms.
+! Get nice keys such as home/end working in xterms.
 ! Shift-Control C/V for copy/paste to CLIPBOARD.
 ! Shift Up/Down arrow for scrolling one line at a time.
 *VT100.Translations: #override \
-    <Key>BackSpace: string(0x7F)\n\
-    <Key>Delete: string("\033[3~")\n\
     <Key>Home: string("\033[1~")\n\
     <Key>End: string("\033[4~")\n\
     Shift Ctrl <Key>C: copy-selection(CLIPBOARD)\n\
     Shift Ctrl <Key>V: insert-selection(CLIPBOARD)\n\
     Shift <Key>Up: scroll-back(1)\n\
     Shift <Key>Down: scroll-forw(1)
-*ttyModes: erase ^?
 
 ! Font related settings.
 Xft.antialias: 1
