@@ -270,7 +270,7 @@ noremap <leader>q :close<CR>
 " Equalize split sizes.
 noremap <leader>= <C-w>=
 " Other leader shortcuts.
-noremap <leader>el :setlocal spell!<CR>
+noremap <leader>$ :setlocal spell!<CR>
 noremap <leader>r :source $MYVIMRC<CR>
 " 'x' register copy and paste mappings.
 noremap <leader>x :let @x=getreg('*')<CR>
