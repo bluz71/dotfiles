@@ -26,7 +26,7 @@ let s:turquoise   = "#7ee0ce"
 let s:purple      = "#ae81ff"
 let s:violet      = "#e2637f"
 let s:magenta     = "#ee82ee"
-let s:pink        = "#ff87ff"
+let s:pink        = "#ff87d7"
 let s:crimson     = "#ed246c"
 let s:red         = "#ff5454"
 
@@ -75,7 +75,7 @@ let s:red         = "#ff5454"
 " purple      = 13
 " violet      = 15
 " magenta     = 5
-" pink        = 213
+" pink        = 212
 " crimson     = 9
 " red         = 1
 
@@ -122,7 +122,7 @@ exec "highlight Constant ctermfg=13 guifg=" . s:purple
 exec "highlight PreProc ctermfg=15 guifg=" . s:violet
 
 " Status and split lines.
-exec "highlight StatusLine ctermbg=213 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:pink . " gui=none"
+exec "highlight StatusLine ctermbg=212 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:pink . " gui=none"
 exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:dark_gray
