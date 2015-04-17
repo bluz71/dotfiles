@@ -1,9 +1,12 @@
 # Useful shortcuts; invoke 'bind -p' for full listing:
 #
 # Alt-l: clear screen
-# Alt-f: move forward a word
+# Alt-f: move forward a word (punctuation symbols are delimiters) 
 # Alt-b: move backward a word
+# Alt-F: move forward a big word (only whitespaces are delimiters)
+# Alt-B: move backward a big word
 # Alt-d: delete forward word
+# Alt-D: delete forward a big word
 # Alt-<backspace>: delete backward word
 # Alt-$: delete till end of line
 # Alt-0: delete till start of line
@@ -15,10 +18,9 @@
 "\el": clear-screen
 "\e$": kill-line
 "\e0": backward-kill-line
-"\eb": vi-backward-bigword
-"\ef": vi-forward-bigword
-"\ed": "\ef\C-w"
-"\e\d": "\ef\C-w"
+"\eB": vi-backward-bigword
+"\eF": vi-forward-bigword
+"\eD": "\eF\C-w"
 "\eu": undo
 "\C-l": abort
 "\C-k": abort
