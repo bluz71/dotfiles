@@ -399,7 +399,7 @@ if has("unix") && system("uname") == "Linux\n" && v:progname != "vi"
         nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     endif
-elseif has("win32") && v:progname != "vi"
+elseif has("win32") || has("win32unix") && v:progname != "vi"
     filetype off
     set runtimepath+=~/vimfiles/bundle/vundle/
     let path='~/vimfiles/bundle'
