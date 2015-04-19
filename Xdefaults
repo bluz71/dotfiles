@@ -3,7 +3,7 @@
 ! Note to reload Xdefaults the following is required:
 !   % xrdb -merge .Xdefaults
 
-! Dim gray.
+! Dim gray (usually defined as 'Black')
 xterm-moonfly*color0: #373c40
 
 ! Red
@@ -12,7 +12,7 @@ xterm-moonfly*color1: #ff5454
 ! Green
 xterm-moonfly*color2: #89bb25
 
-! Khaki
+! Khaki (usually defined as 'Yellow')
 xterm-moonfly*color3: #dcd08c
 
 ! Blue
@@ -21,34 +21,34 @@ xterm-moonfly*color4: #80a0ff
 ! Magenta
 xterm-moonfly*color5: #ee82ee
 
-! Turquoise
+! Turquoise (usually defined as 'Cyan')
 xterm-moonfly*color6: #7ee0ce
 
-! Orange
+! Orange (usally defined as 'White')
 xterm-moonfly*color7: #de935f
 
-! Coral 
+! Coral (usually defined as 'Bold Black')
 xterm-moonfly*color8: #f09479
 
-! Crimson
+! Crimson (usally defined as 'Bold Red')
 xterm-moonfly*color9: #ed246c
 
-! Emerald
+! Emerald (usually defined as 'Bold Green')
 xterm-moonfly*color10: #42cf89
 
-! Wheat
+! Wheat (usually defined as 'Bold Yellow')
 xterm-moonfly*color11: #e9d4ab
 
-! Light blue
+! Light blue (usually defined as 'Bold Blue')
 xterm-moonfly*color12: #89d2ef
 
-! Purple
+! Purple (usually defined as 'Bold Magenta')
 xterm-moonfly*color13: #ae81ff
 
-! Light green
+! Light green (usually defined as 'Bold Cyan')
 xterm-moonfly*color14: #85dc85
 
-! Violet.
+! Violet (usually defined as 'Bold Violet')
 xterm-moonfly*color15: #e2637f
 
 xterm-moonfly*allowTitleOps: false
