@@ -23,12 +23,10 @@
 	st = status --short --branch
 	rso = remote show origin
 	bb = branch -vv
-	update = !git fetch && git checkout master && git merge --ff-only origin/master
-	join = !git fetch && git checkout master && git merge --no-ff $1
 	co = checkout
 	cob = checkout -b
 	ci = commit
 	di = difftool
-	vdi = difftool -t vd --patience
+	vdi = difftool -t vd
 	dis = difftool --staged
-	vdis = difftool -t vd --patience --staged
+	vdis = difftool -t vd --staged
