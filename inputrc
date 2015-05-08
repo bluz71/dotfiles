@@ -12,6 +12,8 @@
 # Alt-0: delete till start of line
 # Alt-u: undo last edit
 # Alt-.: append parameters from last command
+# Ctrl-a: go to start of line
+# Ctrl-e: go to end of line
 
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
