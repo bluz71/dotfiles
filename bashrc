@@ -1,3 +1,7 @@
+# What platform are we running on.
+#
+export OS=`uname`
+
 # Remove all previous environment defined aliases.
 #
 unalias -a
@@ -30,8 +34,13 @@ alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias tnew='tmux new -s $(basename $(pwd))'
-alias v='stty -ixon && vimx'
-alias vdi='stty -ixon && vimdiff'
+if [ $OS = Darwin ]; then
+    alias v='stty -ixon && mvim -v'
+    alias vdi='stty -ixon && mvimdiff -v'
+else
+    alias v='stty -ixon && vimx'
+    alias vdi='stty -ixon && vimdiff'
+fi
 alias x=exit
 alias ..='cd ..'
 alias ..2='..; ..'
@@ -42,22 +51,21 @@ alias ..5='..4; ..'
 
 # General environment variables.
 #
-export EDITOR=vimx
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;51:pi=38;5;43:bd=38;5;212:cd=38;5;223:or=30;48;5;202:ow=38;5;203:so=38;5;169:su=36;48;5;63:ex=38;5;156:mi=30;48;5;83:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:*.tbz2=38;5;205:*.zip=38;5;206:*.7z=38;5;206:*.gz=38;5;205:*.bz2=38;5;205:*.rar=38;5;205:*.rpm=38;5;173:*.jpg=38;5;141:*.png=38;5;147:*.mpg=38;5;151:*.avi=38;5;151:*.mov=38;5;216:*.wmv=38;5;216:*.mp4=38;5;217:*.mkv=38;5;216:*.flac=38;5;222:*.mp3=38;5;218:*akefile=38;5;177:*.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:*.doc=38;5;224:*.xls=38;5;146:*.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.conf=38;5;121"
 export PAGER=less
 export LESS='-R -X -F -s -i -g'
 export LESSHISTFILE=-
 
-# Custom environment variables.
-#
-export OS=`uname`
-
 # Custom environment variables per platform.
 #
 if [ $OS = Linux ]; then
+    export EDITOR=vimx
     export HOST=`hostname -s`
+elif [ $OS = Darwin ]; then
+    export EDITOR='mvim -v'
 elif [ $OSTYPE = cygwin ]; then
     export CYGWIN=nodosfilewarning
+    export EDITOR='vim'
     export HOST=`hostname`
     if [ $TERM = cygwin ]; then
         unset LS_COLORS
