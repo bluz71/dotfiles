@@ -105,7 +105,10 @@ path()
 {
     PATH=/usr/local/bin:/bin:/usr/bin:/usr/sbin
     export MANPATH=~/local/man:/usr/local/man:/usr/man:/usr/share/man
-    if [ $OSTYPE = cygwin ]; then
+    if [ $OS = Darwin ]; then
+        PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+        MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+    elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
     fi
     PATH=~/local/bin:~/scripts:'.':$PATH
