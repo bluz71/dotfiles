@@ -317,7 +317,7 @@ noremap <leader>P "xP
 "
 "   :BundleInstall!
 "
-if has("unix") && system("uname") == "Linux\n" && v:progname != "vi"
+if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" && v:progname != "vi"
     filetype off
     set runtimepath+=~/.vim/bundle/vundle/
     call vundle#rc()
