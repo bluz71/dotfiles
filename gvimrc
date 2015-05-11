@@ -23,6 +23,8 @@ endif
 set lines=65
 if has("gui_gtk2")
     set guifont=Inconsolata\ 10.5
+elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h12
 elseif has("win32")
     set guifont=Consolas:h11
 endif
