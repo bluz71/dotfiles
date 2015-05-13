@@ -301,34 +301,34 @@ noremap <leader>P "xP
 "
 " Note, on Unix Vundle is installed via:
 "
-"   % git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"   % git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
 " On Windows please make sure msysgit is installed AND git/curl are available
 " in the PATH. Vundle is then installed via:
 "
 "   C:\> cd %USERPROFILE%
-"   C:\> git clone https://github.com/gmarik/vundle.git vimfiles/bundle/vundle
+"   C:\> git clone https://github.com/gmarik/Vundle.vim.git vimfiles/bundle/Vundle.vim
 "
 " Plugins are installed in Vim via:
 "
-"   :BundleInstall
+"   :PluginInstall
 "
 " Plugins are updated in Vim via:
 "
-"   :BundleInstall!
+"   :PluginInstall!
 "
 if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" && v:progname != "vi"
+    " Initialize Vundle.
     filetype off
-    set runtimepath+=~/.vim/bundle/vundle/
-    call vundle#rc()
-    filetype plugin indent on
+    set runtimepath+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
-    Bundle "gmarik/vundle"
-    Bundle "majutsushi/tagbar"
-    Bundle "tpope/vim-fugitive"
-    Bundle "stefandtw/quickfix-reflector.vim"
+    Plugin 'gmarik/Vundle.vim'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'stefandtw/quickfix-reflector.vim'
 
-    Bundle "kien/ctrlp.vim"
+    Plugin 'kien/ctrlp.vim'
     " Use ag in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     " Using ag is fast, we don't need to cache.
@@ -336,19 +336,19 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
 
-    Bundle "mileszs/ack.vim"
+    Plugin 'mileszs/ack.vim'
     " Use ag instead of ack, ag is faster.
     let g:ackprg = 'ag --nogroup --nocolor --column'
     " Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
     " particular file extension.
 
-    Bundle "Rip-Rip/clang_complete"
+    Plugin 'Rip-Rip/clang_complete'
     " Set this variable if clang is in a non-standard place.
     "let g:clang_library_path = "/usr/local/clang/lib/"
     " Don't autocomplete, use tab character (from supertab) to complete.
     let g:clang_complete_auto = 0
 
-    Bundle "rhysd/vim-clang-format"
+    Plugin 'rhysd/vim-clang-format'
     " Set this variable if clang-format is in a non-standard place.
     "let g:clang_format#command = "/usr/local/clang/bin/clang-format"
     " Refer to http://clang.llvm.org/docs/ClangFormatStyleOptions.html
@@ -391,7 +391,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
 
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
-    Bundle "christoomey/vim-tmux-navigator"
+    Plugin 'christoomey/vim-tmux-navigator'
     if &term == 'screen-256color'
         let g:tmux_navigator_no_mappings = 1
         nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -400,38 +400,38 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     endif
 elseif has("win32") || has("win32unix") && v:progname != "vi"
+    " Initialize Vundle.
     filetype off
-    set runtimepath+=~/vimfiles/bundle/vundle/
+    set runtimepath+=~/vimfiles/bundle/Vundle.vim
     let path='~/vimfiles/bundle'
-    call vundle#rc(path)
-    filetype plugin indent on
+    call vundle#begin(path)
 
-    Bundle "gmarik/vundle"
+    Plugin 'gmarik/Vundle.vim'
 
-    Bundle "kien/ctrlp.vim"
+    Plugin 'kien/ctrlp.vim'
     " CtrlP, the match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
     " Note, use F5 to refresh CtrlP cache.
 endif
 
 " Platform independent plugins and customizations.
-if exists("g:bundles")
-    Bundle "corntrace/bufexplorer"
-    Bundle "nelstrom/vim-visual-star-search"
+if exists("g:vundle#bundles")
+    Plugin 'corntrace/bufexplorer'
+    Plugin 'nelstrom/vim-visual-star-search'
 
-    Bundle "Yggdroot/indentLine"
+    Plugin 'Yggdroot/indentLine'
     " Lighten the indent marker color.
     let g:indentLine_color_term = 236
     let g:indentLine_color_gui = "#303030"
 
-    Bundle "scrooloose/nerdtree"
+    Plugin 'scrooloose/nerdtree'
     " Show line numbers and make the NERDTree window a little wider.
     let NERDTreeShowLineNumbers = 1
     let NERDTreeWinSize = 35
     let NERDTreeDirArrows = 0
     " Note, use 'C' to change the tree root to the selected directory.
 
-    Bundle "ervandew/supertab"
+    Plugin 'ervandew/supertab'
     " Play nice with clang-complete and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
@@ -439,6 +439,10 @@ if exists("g:bundles")
     " Platform independent mappings for certain plugins.
     noremap <leader>n :NERDTreeToggle<CR>
     noremap <leader>l :BufExplorer<CR>
+
+    " Finalize Vundle.
+    call vundle#end()
+    filetype plugin indent on
 endif
 
 
@@ -484,6 +488,7 @@ augroup visualCustomizations
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=""
     autocmd FilterWritePre * call DiffMode()
+    autocmd FileType * IndentLinesReset
 augroup END
 
 

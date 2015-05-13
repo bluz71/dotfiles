@@ -1,7 +1,3 @@
-# What platform are we running on.
-#
-export OS=`uname`
-
 # Remove all previous environment defined aliases.
 #
 unalias -a
@@ -34,13 +30,6 @@ alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias tnew='tmux new -s $(basename $(pwd))'
-if [ $OS = Darwin ]; then
-    alias v='stty -ixon && mvim -v'
-    alias vdi='stty -ixon && mvimdiff -v'
-else
-    alias v='stty -ixon && vimx'
-    alias vdi='stty -ixon && vimdiff'
-fi
 alias x=exit
 alias ..='cd ..'
 alias ..2='..; ..'
@@ -56,14 +45,25 @@ export PAGER=less
 export LESS='-R -X -F -s -i -g'
 export LESSHISTFILE=-
 
+# What platform are we running on.
+#
+export OS=`uname`
+
 # Custom environment variables per platform.
 #
 if [ $OS = Linux ]; then
+    alias v='stty -ixon && vimx'
+    alias vdi='stty -ixon && vimdiff'
     export EDITOR=vimx
     export HOST=`hostname -s`
 elif [ $OS = Darwin ]; then
+    alias v='stty -ixon && mvim -v'
+    alias vdi='stty -ixon && mvimdiff -v'
     export EDITOR='mvim -v'
+    . /usr/local/etc/bash_completion
 elif [ $OSTYPE = cygwin ]; then
+    alias v='stty -ixon && vim'
+    alias vdi='stty -ixon && vimdiff'
     export CYGWIN=nodosfilewarning
     export EDITOR='vim'
     export HOST=`hostname`
@@ -125,10 +125,15 @@ prompt()
     fi
 
     local GIT_PROMPT=0
-    if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+    if [ $OS = Darwin ]; then
+        local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
+    else
+        local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
+    fi
+    if [ -f $GIT_PROMPT_PATH ]; then
         GIT_PROMPT=1
         GIT_PS1_SHOWUPSTREAM="auto"
-        . /usr/share/git-core/contrib/completion/git-prompt.sh
+        . $GIT_PROMPT_PATH
     fi
 
     # 147: Purple
