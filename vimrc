@@ -19,7 +19,6 @@ set formatoptions=cq
 set ignorecase
 set incsearch
 set laststatus=2
-set lazyredraw
 set listchars=eol:$,tab:>-,trail:-
 set makeprg=tmake
 set mouse=a
@@ -44,6 +43,7 @@ set t_Co=256
 set tabstop=4
 set textwidth=79
 set ttimeoutlen=0
+set ttyfast
 set ttymouse=xterm2
 set viminfo=
 
