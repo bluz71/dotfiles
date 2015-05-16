@@ -62,7 +62,7 @@ if v:progname != "vi"
     if version >= 703
         " Certain options are only available in Vim 7.3 and later.
         let &colorcolumn = join(range(81,300),",")
-        set cryptmethod=blowfish
+        set cryptmethod=blowfish2
         set relativenumber
     endif
 endif
