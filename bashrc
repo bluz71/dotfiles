@@ -30,6 +30,7 @@ alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias tnew='tmux new -s $(basename $(pwd))'
+alias vdi='stty -ixon && vimdiff'
 alias x=exit
 alias ..='cd ..'
 alias ..2='..; ..'
@@ -53,19 +54,17 @@ export OS=`uname`
 #
 if [ $OS = Linux ]; then
     alias v='stty -ixon && vimx'
-    alias vdi='stty -ixon && vimdiff'
     export EDITOR=vimx
     export HOST=`hostname -s`
 elif [ $OS = Darwin ]; then
-    alias v='stty -ixon && mvim -v'
-    alias vdi='stty -ixon && mvimdiff -v'
-    export EDITOR='mvim -v'
+    alias v='stty -ixon && vim'
+    export EDITOR=vim
+    export HOST=`hostname -s`
     . /usr/local/etc/bash_completion
 elif [ $OSTYPE = cygwin ]; then
     alias v='stty -ixon && vim'
-    alias vdi='stty -ixon && vimdiff'
     export CYGWIN=nodosfilewarning
-    export EDITOR='vim'
+    export EDITOR=vim
     export HOST=`hostname`
     if [ $TERM = cygwin ]; then
         unset LS_COLORS
