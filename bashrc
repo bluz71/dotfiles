@@ -55,8 +55,10 @@ export OS=`uname`
 # Custom environment variables per platform.
 #
 if [ $OS = Linux ]; then
+    alias di=meld
     alias vim=vimx
 elif [ $OS = Darwin ]; then
+    alias di=opendiff
     . /usr/local/etc/bash_completion
 elif [ $OSTYPE = cygwin ]; then
     export CYGWIN=nodosfilewarning
