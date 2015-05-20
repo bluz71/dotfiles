@@ -30,7 +30,6 @@ set noshowmode
 set noswapfile
 set nowrap
 set nowrapscan
-set novisualbell
 set path=.,~/projects/**
 set ruler
 set shiftwidth=4
@@ -46,6 +45,8 @@ set ttimeoutlen=0
 set ttyfast
 set ttymouse=xterm2
 set viminfo=
+" Disable beeps and flashes.
+set visualbell t_vb=
 
 
 " Some options should not be set in 'vi' or old versions of Vim.
