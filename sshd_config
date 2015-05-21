@@ -1,0 +1,14 @@
+# Strong security settings for SSH servers,
+#
+# Append these values to the end of /etc/ssh/sshd_config
+#
+# Background information: 
+#   https://stribika.github.io/2015/01/04/secure-secure-shell.html
+#   http://chr4.org/blog/2014/09/13/howto-secure-openssh-newer-versions/
+
+PasswordAuthentication no
+UseDNS no
+HostKey /etc/ssh/ssh_host_ed25519_key
+KexAlgorithms curve25519-sha256@libssh.org
+Ciphers chacha20-poly1305@openssh.com
+MACs hmac-sha2-256-etm@openssh.com
