@@ -9,10 +9,10 @@
 	ui = auto
 [diff]
 	tool = meld
-	# tool = opendiff (on OS X)
+	# tool = opendiff (on Mac)
 [merge]
 	tool = meld
-	# tool = opendiff (on OS X)
+	# tool = opendiff (on Mac)
 [difftool]
 	prompt = false
 [difftool "vd"]
