@@ -9,7 +9,7 @@
 	ui = auto
 [diff]
 	tool = meld
-	# tool = opendiff (on OS X )
+	# tool = opendiff (on OS X)
 [merge]
 	tool = meld
 	# tool = opendiff (on OS X)
