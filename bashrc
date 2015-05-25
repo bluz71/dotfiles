@@ -98,7 +98,7 @@ libraryPath()
 
 path()
 {
-    PATH=/usr/local/bin:/bin:/usr/bin:/usr/sbin
+    PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
     export MANPATH=~/local/man:/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
     if [ $OS = Darwin ]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
