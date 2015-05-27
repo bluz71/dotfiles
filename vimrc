@@ -344,8 +344,12 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " particular file extension.
 
     Plugin 'Rip-Rip/clang_complete'
-    " Set this variable if clang is in a non-standard place.
-    "let g:clang_library_path = "/usr/local/clang/lib/"
+    " Set this clang_library_path if clang is in a non-standard place.
+    if system("uname") == "Darwin\n"
+        let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
+    "else
+    "    let g:clang_library_path = "/usr/local/clang/lib/"
+    endif
     " Don't autocomplete, use tab character (from supertab) to complete.
     let g:clang_complete_auto = 0
 

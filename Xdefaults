@@ -48,7 +48,7 @@ xterm-moonfly*color13: #ae81ff
 ! Light green (usually defined as 'Bold Cyan')
 xterm-moonfly*color14: #85dc85
 
-! Violet (usually defined as 'Bold Violet')
+! Violet (usually defined as 'Bold White')
 xterm-moonfly*color15: #e2637f
 
 xterm-moonfly*allowTitleOps: false
