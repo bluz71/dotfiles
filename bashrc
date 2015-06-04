@@ -15,6 +15,7 @@ alias gv=gvim
 alias gvdi=gvimdiff
 alias h=history
 alias ha='history | ag'
+alias irb='irb --simple-prompt -r irb/completion'
 alias l1='ls -1'
 alias ll='ls -l'
 alias lla='ls -la'

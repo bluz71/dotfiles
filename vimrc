@@ -466,8 +466,10 @@ augroup languagePreferences
     autocmd FileType c,cpp set cindent
     autocmd FileType java set cindent cinoptions+=j1
     autocmd FileType msg set noautoindent noexpandtab nosmarttab
+    autocmd FileType ruby set shiftwidth=2
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
+    autocmd FileType xml set shiftwidth=2
 augroup END
 
 " Custom file to syntax mappings.
