@@ -224,14 +224,6 @@ exec "highlight shVariable ctermfg=6 guifg=" . s:turquoise
 exec "highlight shAlias ctermfg=6 guifg=" . s:turquoise
 exec "highlight shSetList ctermfg=6 guifg=" . s:turquoise
 
-" For Ace.
-exec "highlight aceConstant ctermfg=6 guifg=" . s:turquoise
-exec "highlight aceStatement ctermfg=8 guifg=" . s:coral
-exec "highlight aceStructure ctermfg=4 guifg=" . s:blue
-
-" For DDM.
-exec "highlight ddmType ctermfg=4 guifg=" . s:blue
-
 " For Python.
 exec "highlight pythonBuiltin ctermfg=4 guifg=" . s:blue
 exec "highlight pythonException ctermfg=9 guifg=" . s:crimson
@@ -295,13 +287,6 @@ exec "highlight groovyScopeDecl ctermfg=4 guifg=" . s:blue
 exec "highlight groovyStatement ctermfg=6 guifg=" . s:turquoise
 exec "highlight groovyTypedef ctermfg=14 guifg=" . s:light_green
 let groovy_allow_cpp_keywords = 1
-
-" For Nim.
-exec "highlight nimBuiltin ctermfg=12 guifg=" . s:light_blue
-exec "highlight nimException ctermfg=2 guifg=" . s:green
-exec "highlight nimFunction ctermfg=4 guifg=" . s:blue
-exec "highlight nimKeyword ctermfg=14 guifg=" . s:light_green
-exec "highlight nimOperator ctermfg=9 guifg=" . s:crimson
 
 " For vimdiff.
 exec "highlight DiffAdd ctermbg=10 guibg=" . s:emerald . " ctermfg=bg guifg=bg"
