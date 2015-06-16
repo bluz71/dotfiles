@@ -20,7 +20,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set listchars=eol:$,tab:>-,trail:-
-set makeprg=tmake
 set mouse=a
 set mousehide
 set nobackup
@@ -462,10 +461,8 @@ augroup languagePreferences
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
-    autocmd FileType ace set include=^\s*import includeexpr=substitute(v:fname,'\\.','/','g') suffixesadd+=.ace makeprg=ttace\ -c\ % errorformat=E%n-ACE:\ %f:%l:%m
     autocmd FileType c,cpp set cindent
     autocmd FileType java set cindent cinoptions+=j1
-    autocmd FileType msg set noautoindent noexpandtab nosmarttab
     autocmd FileType ruby set shiftwidth=2
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
@@ -477,11 +474,6 @@ augroup END
 augroup syntaxMappings
     autocmd!
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
-    autocmd BufEnter *.ace,*/API/utils/ttcs*,*/CS/utils/ttcs*,*/CS/test/test.*,*/ACE/utils/[tu]* set filetype=ace
-    autocmd BufEnter Tmakefile,Trules,*/TCONFIG/*{api,clang,gcc,version,win}* set filetype=tmake
-    autocmd BufEnter *.{ddm,ds} set filetype=ddm
-    autocmd BufEnter *.{w3f,w3p,w3t} set filetype=ace
-    autocmd BufEnter *.msg set filetype=msg
     autocmd BufEnter *.html set filetype=xml
 augroup END
 
