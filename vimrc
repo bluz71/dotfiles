@@ -403,6 +403,12 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
         nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     endif
+
+    " Ruby support including code completion.
+    Plugin 'vim-ruby/vim-ruby'
+    let g:rubycomplete_buffer_loading = 1
+    let g:rubycomplete_rails = 1
+    let g:rubycomplete_classes_in_global = 1
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
     filetype off
