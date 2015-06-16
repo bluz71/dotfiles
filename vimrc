@@ -324,7 +324,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     call vundle#begin()
 
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'majutsushi/tagbar'
     Plugin 'tpope/vim-fugitive'
     Plugin 'stefandtw/quickfix-reflector.vim'
 
@@ -336,9 +335,13 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
 
-    Plugin 'mileszs/ack.vim'
-    " Use ag instead of ack, ag is faster.
-    let g:ackprg = 'ag --nogroup --nocolor --column'
+    Plugin 'majutsushi/tagbar'
+    noremap <leader>tb :TagbarToggle<CR>
+
+    Plugin 'rking/ag.vim'
+    let g:ag_mapping_message = 0
+    let g:ag_highlight = 1
+    noremap <leader>a :Ag<Space>
     " Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
     " particular file extension.
 
@@ -367,17 +370,12 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
                 \ "BreakBeforeBinaryOperators" : "true",
                 \ "AlwaysBreakTemplateDeclarations" : "true",
                 \ "MaxEmptyLinesToKeep" : 2}
-
-    " Plugin mappings specific to this platform.
-    noremap <leader>a :Ack<Space>
-    noremap <leader>tb :TagbarToggle<CR>
     noremap <leader>cf :ClangFormat<CR>
     noremap <leader>ce :call g:ClangUpdateQuickFix()<CR>
-    "
     " Useful clang navigation mappings.
     " CTRL-] find function definition.
     " CTRL-t return back from function definition.
-    "
+
     " Git shortcuts.
     noremap <leader>gb :Gblame<CR>
     noremap <leader>gc :Gcommit<CR>
