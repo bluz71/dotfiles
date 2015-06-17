@@ -123,9 +123,22 @@ function! ColorColumn()
     if g:colorColumn
         set colorcolumn=""
         let g:colorColumn = 0
+        " When enabling search highlighting change the cursor to an underline
+        " in terminal Vim. This helps avoid cursor color issues with the
+        " highlighted text.
+        if !has("gui_running")
+            silent execute "!echo -e -n '\x1b[\x34 q'"
+            redraw!
+        endif
     else
         let &colorcolumn = join(range(81,300),",")
         let g:colorColumn = 1
+        " When disabling highlighting change the cursor back to a block in
+        " terminal Vim.
+        if !has("gui_running")
+            silent execute "!echo -e -n '\x1b[\x32 q'"
+            redraw!
+        endif
     endif
 endfunction
 
@@ -345,7 +358,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
 
     Plugin 'rking/ag.vim'
     let g:ag_mapping_message = 0
-    let g:ag_highlight = 1
     noremap <leader>a :Ag<Space>
     " Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
     " particular file extension.
