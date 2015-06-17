@@ -1,5 +1,6 @@
 " gvim specific settings.
 "
+set guicursor+=a:blinkon0
 set guifontset=
 " Disable menu.
 set guioptions-=m

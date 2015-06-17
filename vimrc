@@ -236,6 +236,11 @@ if has("gui_running")
 else
     noremap l :redraw!<CR>
 endif
+" For terminal Vim change the cursor to an I-beam when in insert mode.
+if !has("gui_running")
+    let &t_SI = "\<Esc>[6 q"
+    let &t_EI = "\<Esc>[2 q"
+endif
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
 " Move vertically by visual line.

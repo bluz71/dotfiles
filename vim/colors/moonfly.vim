@@ -184,6 +184,8 @@ exec "highlight SpellLocal ctermbg=12 guibg=" . s:light_blue . " ctermfg=236 gui
 exec "highlight Question ctermfg=14 guifg=" . s:light_green . " gui=none"
 exec "highlight MoreMsg ctermfg=1 guifg=" . s:red . " gui=none"
 exec "highlight LineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray
+exec "highlight Cursor guifg=bg guibg=" . s:pale_white
+exec "highlight lCursor guifg=bg guibg=" . s:pale_white
 exec "highlight CursorLineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray . " gui=none"
 exec "highlight CursorLine ctermbg=238 guibg=" . s:gray . " cterm=none"
 exec "highlight Folded ctermbg=234 guibg=" . s:dark_gray . " ctermfg=14 guifg=". s:light_green
