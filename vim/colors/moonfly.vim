@@ -312,7 +312,8 @@ exec "highlight NERDTreePart ctermfg=0 guifg=" . s:dim_gray
 exec "highlight NERDTreePartFile ctermfg=0 guifg=" . s:dim_gray
 exec "highlight NERDTreeDir ctermfg=12 guifg=" . s:light_blue
 exec "highlight NERDTreeUp ctermfg=8 guifg=" . s:coral
-exec "highlight NERDTreeLink ctermfg=4 guifg=" . s:blue
+exec "highlight NERDTreeLinkFile ctermfg=4 guifg=" . s:blue
+exec "highlight NERDTreeLinkDir ctermfg=4 guifg=" . s:blue
 exec "highlight NERDTreeExecFile ctermfg=11 guifg=" . s:wheat
 exec "highlight NERDTreeOpenable ctermfg=2 guifg=" . s:green
 exec "highlight NERDTreeClosable ctermfg=8 guifg=" . s:coral
