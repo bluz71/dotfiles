@@ -20,7 +20,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set listchars=eol:$,tab:>-,trail:-
-set mouse=a
 set mousehide
 set nobackup
 set nocompatible

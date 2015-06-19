@@ -233,7 +233,13 @@ exec "highlight pythonRepeat ctermfg=7 guifg=" . s:orange
 exec "highlight pythonStatement ctermfg=14 guifg=" s:light_green
 
 " For Ruby.
+exec "highlight rubyAccess ctermfg=3 guifg=" . s:khaki
+exec "highlight rubyAttribute ctermfg=14 guifg=" . s:light_green
 exec "highlight rubyClass ctermfg=7 guifg=" . s:orange
+exec "highlight rubyControl ctermfg=8 guifg=" . s:coral
+exec "highlight rubyException ctermfg=9 guifg=" . s:crimson
+exec "highlight rubyExceptional ctermfg=8 guifg=" . s:coral
+exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 
 " For Go.
 exec "highlight goBuiltins ctermfg=9 guifg=" . s:crimson
