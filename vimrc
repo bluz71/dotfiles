@@ -124,22 +124,9 @@ function! Highlighting()
     if g:highlighting == 0
         set colorcolumn=""
         let g:highlighting = 1
-        " When enabling search highlighting change the cursor to an underline
-        " in terminal Vim. This helps avoid cursor color issues with the
-        " highlighted text.
-        if !has("gui_running")
-            silent execute "!echo -e '\033[3 q'"
-            redraw!
-        endif
     else
         let &colorcolumn = join(range(81,300),",")
         let g:highlighting = 0
-        " When disabling highlighting change the cursor back to a block in
-        " terminal Vim.
-        if !has("gui_running")
-            silent execute "!echo -e '\033[2 q'"
-            redraw!
-        endif
     endif
 endfunction
 
@@ -228,15 +215,28 @@ function! DiffMode()
 endfunction
 
 
+" Terminal specific tweaks.
+"
+if !has("gui_running")
+    if &term == 'screen-256color'
+        " Change the cursor to an I-beam when in insert mode
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+        " Make CTRL-Left/Right work inside tmux.
+        execute "set <xRight>=\e[1;*C"
+        execute "set <xLeft>=\e[1;*D"
+    else
+        " Change the cursor to an I-beam when in insert mode
+        let &t_SI = "\e[6 q"
+        let &t_EI = "\e[2 q"
+    endif
+endif
+
+
 " Keyboard mappings.
 "
 noremap <C-Right> ;
 noremap <C-Left> ,
-if &term == 'screen-256color'
-    " Make CTRL-Left/Right work inside tmux.
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-endif
 noremap ; :
 let mapleader = ","
 " Simpler keyboard navigation between splits.
@@ -245,15 +245,30 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
-if has("gui_running")
-    noremap <A-l> :redraw!<CR>
-else
-    noremap l :redraw!<CR>
-endif
-" For terminal Vim change the cursor to an I-beam when in insert mode.
 if !has("gui_running")
-    let &t_SI = "\<Esc>[6 q"
-    let &t_EI = "\<Esc>[2 q"
+    noremap l :redraw!<CR>
+else
+    noremap <A-l> :redraw!<CR>
+endif
+" Terminal specific tweaks.
+if !has("gui_running")
+    " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
+    noremap l :redraw!<CR>
+    if &term == 'screen-256color'
+        " Change the cursor to an I-beam when in insert mode
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
+        " Make CTRL-Left/Right work inside tmux.
+        execute "set <xRight>=\e[1;*C"
+        execute "set <xLeft>=\e[1;*D"
+    else
+        " Change the cursor to an I-beam when in insert mode
+        let &t_SI = "\e[6 q"
+        let &t_EI = "\e[2 q"
+    endif
+else
+    " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
+    noremap <A-l> :redraw!<CR>
 endif
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
@@ -510,11 +525,6 @@ augroup visualCustomizations
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=""
     autocmd FilterWritePre * call DiffMode()
     autocmd FileType * IndentLinesReset
-    if !has("gui_running")
-        " Always restore the cursor shape back to normal upon exiting terminal
-        " Vim. 
-        autocmd VimLeave * silent !echo -e '\033[2 q'
-    endif
 augroup END
 
 
