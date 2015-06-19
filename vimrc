@@ -71,7 +71,7 @@ endif
 " Set default value for the global variables.
 "
 let g:blockFolds = 0
-let g:colorColumn = 1
+let g:highlighting = 0
 let g:normalMode = 1
 
 " Fold up all functions of the active buffer.
@@ -112,31 +112,32 @@ function! FileOpen(extension)
     endif
 endfunction
 
-" Toggle the color column. Highlight search colors are all screwed up with the
-" color column, same with text wrapping.
+" Change color column, and possibly the cursor shape, if search highlighting 
+" has been enabled since highlighting may result in weird display issues. If
+" highlighting is disabled then restore display back to normal.
 "
-function! ColorColumn()
+function! Highlighting()
     if version < 703
         " Only Vim 7.3 (and later) support the color column.
         return
     endif
-    if g:colorColumn
+    if g:highlighting == 0
         set colorcolumn=""
-        let g:colorColumn = 0
+        let g:highlighting = 1
         " When enabling search highlighting change the cursor to an underline
         " in terminal Vim. This helps avoid cursor color issues with the
         " highlighted text.
         if !has("gui_running")
-            silent execute "!echo -e -n '\x1b[\x34 q'"
+            silent execute "!echo -e '\033[3 q'"
             redraw!
         endif
     else
         let &colorcolumn = join(range(81,300),",")
-        let g:colorColumn = 1
+        let g:highlighting = 0
         " When disabling highlighting change the cursor back to a block in
         " terminal Vim.
         if !has("gui_running")
-            silent execute "!echo -e -n '\x1b[\x32 q'"
+            silent execute "!echo -e '\033[2 q'"
             redraw!
         endif
     endif
@@ -274,7 +275,7 @@ noremap <F6> :call FileOpen(".icc")<CR>
 noremap <F7> :call FileOpen(".cc")<CR>
 noremap <F8> :call FileOpen(".tcc")<CR>
 noremap <F9> :call BlockFolds()<CR>
-noremap <F11> :set hlsearch!<CR> :call ColorColumn()<CR>
+noremap <F11> :set hlsearch!<CR> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Compilation related mappings.
 noremap <A-F5> :make<CR>
@@ -509,6 +510,11 @@ augroup visualCustomizations
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=""
     autocmd FilterWritePre * call DiffMode()
     autocmd FileType * IndentLinesReset
+    if !has("gui_running")
+        " Always restore the cursor shape back to normal upon exiting terminal
+        " Vim. 
+        autocmd VimLeave * silent !echo -e '\033[2 q'
+    endif
 augroup END
 
 
