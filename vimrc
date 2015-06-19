@@ -71,7 +71,6 @@ endif
 " Set default value for the global variables.
 "
 let g:blockFolds = 0
-let g:highlighting = 0
 let g:normalMode = 1
 
 " Fold up all functions of the active buffer.
@@ -112,21 +111,19 @@ function! FileOpen(extension)
     endif
 endfunction
 
-" Change color column, and possibly the cursor shape, if search highlighting 
-" has been enabled since highlighting may result in weird display issues. If
-" highlighting is disabled then restore display back to normal.
+" Change color column if search highlighting has been enabled since
+" highlighting may result in weird display issues. If highlighting is
+" disabled then restore display back to normal.
 "
 function! Highlighting()
     if version < 703
         " Only Vim 7.3 (and later) support the color column.
         return
     endif
-    if g:highlighting == 0
-        set colorcolumn=""
-        let g:highlighting = 1
-    else
+    if &hlsearch == "nohlsearch"
         let &colorcolumn = join(range(81,300),",")
-        let g:highlighting = 0
+    else
+        set colorcolumn=""
     endif
 endfunction
 
@@ -292,11 +289,11 @@ noremap <F8> :call FileOpen(".tcc")<CR>
 noremap <F9> :call BlockFolds()<CR>
 noremap <F11> :set hlsearch!<CR> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
-" Compilation related mappings.
-noremap <A-F5> :make<CR>
-noremap <A-F6> :cp<CR>
-noremap <A-F7> :cn<CR>
-noremap <A-F8> :copen 15<CR>
+" Quickfix related mappings.
+noremap <leader>m :make<CR>
+noremap <leader><Left> :cp<CR>
+noremap <leader><Right> :cn<CR>
+noremap <leader>o : copen 15<CR>
 " Splitting/tabbing and closing.
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
@@ -374,6 +371,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
 
     Plugin 'rking/ag.vim'
     let g:ag_mapping_message = 0
+    let g:ag_highlight = 1
     noremap <leader>a :Ag<Space>
     " Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
     " particular file extension.
