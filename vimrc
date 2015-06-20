@@ -60,7 +60,7 @@ if v:progname != "vi"
     set pumheight=35
     if version >= 703
         " Certain options are only available in Vim 7.3 and later.
-        let &colorcolumn = join(range(81,300),",")
+        let &colorcolumn = join(range(81,86),",")
         set cryptmethod=blowfish2
         set relativenumber
     endif
@@ -112,7 +112,7 @@ endfunction
 
 " Change color column if search highlighting has been enabled since
 " highlighting may result in weird display issues. If highlighting is
-" disabled then restore display back to normal.
+" disabled then restore the color column.
 "
 function! Highlighting()
     if version < 703
@@ -120,7 +120,7 @@ function! Highlighting()
         return
     endif
     if &hlsearch == "nohlsearch"
-        let &colorcolumn = join(range(81,300),",")
+        let &colorcolumn = join(range(81,86),",")
     else
         set colorcolumn=""
     endif
@@ -202,7 +202,7 @@ function! DiffMode()
         setlocal conceallevel=0
     else
         if version >= 703 && &colorcolumn == ""
-            let &colorcolumn = join(range(81,300),",")
+            let &colorcolumn = join(range(81,86),",")
         endif
         if &conceallevel == 0
             setlocal conceallevel=2
@@ -275,8 +275,7 @@ noremap k gk
 noremap <Space><Right> :n<CR>
 noremap <Space><Left> :N<CR>
 noremap <C-q> :confirm qall<CR>
-noremap <F1> :call ColorColumn()<CR>
-noremap <leader>1 :set relativenumber!<CR>
+noremap <F1> :set relativenumber!<CR>
 noremap <F2> :w<CR>
 noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
 " 'qa' starts a macro recording, 'q' stops it, <F4> runs the macro.
