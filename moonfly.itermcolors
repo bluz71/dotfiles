@@ -143,7 +143,7 @@
 		<key>Green Component</key>
 		<real>0.54199331998825073</real>
 		<key>Red Component</key>
-		<real>0.42888784408569336</real>
+		<real>0.42888790369033813</real>
 	</dict>
 	<key>Ansi 5 Color</key>
 	<dict>
@@ -254,13 +254,13 @@
 		<key>Alpha Component</key>
 		<real>1</real>
 		<key>Blue Component</key>
-		<real>0.73333334922790527</real>
+		<real>0.72798430919647217</real>
 		<key>Color Space</key>
 		<string>Calibrated</string>
 		<key>Green Component</key>
-		<real>0.73333334922790527</real>
+		<real>0.72797197103500366</real>
 		<key>Red Component</key>
-		<real>0.73333334922790527</real>
+		<real>0.72799408435821533</real>
 	</dict>
 	<key>Cursor Guide Color</key>
 	<dict>
@@ -280,13 +280,13 @@
 		<key>Alpha Component</key>
 		<real>1</real>
 		<key>Blue Component</key>
-		<real>1</real>
+		<real>0.035267762839794159</real>
 		<key>Color Space</key>
 		<string>Calibrated</string>
 		<key>Green Component</key>
-		<real>1</real>
+		<real>0.035267166793346405</real>
 		<key>Red Component</key>
-		<real>1</real>
+		<real>0.035268228501081467</real>
 	</dict>
 	<key>Foreground Color</key>
 	<dict>
