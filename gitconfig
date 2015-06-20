@@ -20,7 +20,7 @@
 [mergetool]
 	keepBackup = false
 [alias]
-	ls = log --format=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue (%an)\"
+	ls = log --format=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue <%an>\"
 	ll = log --graph --format=format:\"%C(yellow)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%Creset\"
 	st = status --short --branch
 	rso = remote show origin
