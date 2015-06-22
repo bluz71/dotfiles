@@ -8,3 +8,4 @@ FancyIrb.start :colorize => {
     :stdout        => nil,
     :input         => nil,
   }
+IRB.conf[:SAVE_HISTORY] = 0
