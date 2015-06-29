@@ -1,3 +1,10 @@
+# Please install irbtools-more
+#
+# On Linux:
+#   % sudo gem install irbtools-more
+# On Mac:
+#   % gem install irbtools-more
+
 require 'irbtools/more'
 
 FancyIrb.start :colorize => {
