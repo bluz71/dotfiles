@@ -440,6 +440,8 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:rubycomplete_classes_in_global = 1
     " Golang support.
     Plugin 'fatih/vim-go'
+    " The 'gd' mapping (enabled by default) will jump to the declaration
+    " under the cursor, use CTRL-O to return back.
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
     filetype off
