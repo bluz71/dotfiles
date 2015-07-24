@@ -244,6 +244,7 @@ exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight goBuiltins ctermfg=9 guifg=" . s:crimson
 exec "highlight goConditional ctermfg=5 guifg=" . s:magenta
 exec "highlight goDeclaration ctermfg=14 guifg=" . s:light_green
+exec "highlight goDeclType ctermfg=2 guifg=" . s:green
 exec "highlight goDirective ctermfg=15 guifg=" . s:violet
 exec "highlight goFloats ctermfg=13 guifg=" . s:purple
 exec "highlight goFunction ctermfg=4 guifg=" . s:blue
@@ -252,11 +253,14 @@ exec "highlight goMethod ctermfg=12 guifg=" . s:light_blue
 exec "highlight goRepeat ctermfg=7 guifg=" . s:orange
 exec "highlight goSignedInts ctermfg=13 guifg=" . s:purple
 exec "highlight goStatement ctermfg=6 guifg=" . s:turquoise
-exec "highlight goStruct ctermfg=7 guifg=" . s:orange
+exec "highlight goStruct ctermfg=8 guifg=" . s:coral
+exec "highlight goStructDef ctermfg=8 guifg=" . s:coral
 exec "highlight goUnsignedInts ctermfg=13 guifg=" . s:purple
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " For Rust.
 exec "highlight rustCommentBlockDoc ctermfg=247 guifg=" . s:light_gray
