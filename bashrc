@@ -12,7 +12,7 @@ alias g=git
 # This is required for bash completion to work with the g alias.
 complete -o default -o nospace -F _git g
 # Support for golang development.
-alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH'
+alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
 alias gv=gvim
 alias gvdi=gvimdiff
 alias h=history
