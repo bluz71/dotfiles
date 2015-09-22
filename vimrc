@@ -505,8 +505,8 @@ augroup languagePreferences
     autocmd!
     autocmd FileType c,cpp set cindent
     autocmd FileType java set cindent cinoptions+=j1
-    autocmd FileType ruby set shiftwidth=2 makeprg=ruby\ -w\ %
-    autocmd FileType eruby set shiftwidth=2
+    autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
+    autocmd FileType eruby set formatoptions=cq shiftwidth=2
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
     autocmd FileType xml set shiftwidth=2
