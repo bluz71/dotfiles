@@ -478,7 +478,7 @@ if exists("g:vundle#bundles")
     " Only display the base directory name in the NERDTree status line.
     " Displaying the full working path, which is the NERDTree default, results
     " in ugly scrolling.
-    let NERDTreeStatusline = "%{ fnamemodify(getcwd(), ':t') }"
+    let NERDTreeStatusline = " %{ fnamemodify(getcwd(), ':t') }"
     " Note, use 'C' to change the tree root to the selected directory.
 
     Plugin 'ervandew/supertab'
