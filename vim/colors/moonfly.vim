@@ -230,7 +230,7 @@ exec "highlight pythonStatement ctermfg=14 guifg=" s:light_green
 
 " For Ruby.
 exec "highlight rubyAccess ctermfg=3 guifg=" . s:khaki
-exec "highlight rubyAttribute ctermfg=8 guifg=" . s:coral
+exec "highlight rubyAttribute ctermfg=3 guifg=" . s:khaki
 exec "highlight rubyBlockParameter ctermfg=2 guifg=" . s:green
 exec "highlight rubyClass ctermfg=7 guifg=" . s:orange
 exec "highlight rubyControl ctermfg=8 guifg=" . s:coral
