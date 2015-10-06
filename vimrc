@@ -438,6 +438,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_rails = 1
     let g:rubycomplete_classes_in_global = 1
+    let g:ruby_indent_access_modifier_style = 'indent'
     " Ruby on Rails support. Use 'gf' mapping to navigate around a Rails 
     " project, use CTRL-O to return back.
     Plugin 'tpope/vim-rails'
