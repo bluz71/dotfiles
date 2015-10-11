@@ -286,18 +286,6 @@ exec "highlight javaStatement ctermfg=6 guifg=" . s:turquoise
 let java_highlight_java_lang_ids = 1
 let java_highlight_debug = 1
 
-" For Groovy.
-exec "highlight groovyAssert ctermfg=2 guifg=" . s:green
-exec "highlight groovyClassDecl ctermfg=4 guifg=" . s:blue
-exec "highlight groovyCommentString ctermfg=247 guifg=" . s:light_gray
-exec "highlight groovyComment2String ctermfg=247 guifg=" . s:light_gray
-exec "highlight groovyJDKBuiltin ctermfg=14 guifg=" . s:light_green
-exec "highlight groovyOperator ctermfg=9 guifg=" . s:crimson
-exec "highlight groovyScopeDecl ctermfg=4 guifg=" . s:blue
-exec "highlight groovyStatement ctermfg=6 guifg=" . s:turquoise
-exec "highlight groovyTypedef ctermfg=14 guifg=" . s:light_green
-let groovy_allow_cpp_keywords = 1
-
 " For vimdiff.
 exec "highlight DiffAdd ctermbg=10 guibg=" . s:emerald . " ctermfg=bg guifg=bg"
 exec "highlight DiffChange ctermbg=236 guibg=" . s:medium_gray
