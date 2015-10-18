@@ -39,6 +39,7 @@ set splitbelow
 set t_Co=256
 set tabstop=4
 set textwidth=79
+set timeoutlen=2500
 set ttimeoutlen=0
 set ttyfast
 set ttymouse=xterm2
