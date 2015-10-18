@@ -439,9 +439,16 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:rubycomplete_rails = 1
     let g:rubycomplete_classes_in_global = 1
     let g:ruby_indent_access_modifier_style = 'indent'
-    " Ruby on Rails support. Use 'gf' mapping to navigate around a Rails 
+    " Ruby on Rails support. Note, use 'gf' mapping to navigate around a Rails 
     " project, use CTRL-O to return back.
     Plugin 'tpope/vim-rails'
+    noremap <leader>em :Emodel<CR>
+    noremap <leader>emn :Emodel<Space>
+    noremap <leader>ev :Eview<CR>
+    noremap <leader>evn :Eview<Space>
+    noremap <leader>ec :Econtroller<CR>
+    noremap <leader>ecn :Econtroller<Space>
+
     " Golang support.
     Plugin 'fatih/vim-go'
     " The 'gd' mapping (enabled by default) will jump to the declaration
