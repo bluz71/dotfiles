@@ -239,6 +239,7 @@ exec "highlight rubyException ctermfg=9 guifg=" . s:crimson
 exec "highlight rubyExceptional ctermfg=8 guifg=" . s:coral
 exec "highlight rubyInstanceVariable ctermfg=14 guifg=" . s:light_green
 exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
+exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
 " For Go.
 exec "highlight goBuiltins ctermfg=9 guifg=" . s:crimson
