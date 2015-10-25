@@ -290,8 +290,8 @@ noremap <F11> :set hlsearch!<CR> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
 noremap <leader>m :make<CR>
-noremap <leader><Left> :cp<CR>
-noremap <leader><Right> :cn<CR>
+noremap <leader><Up> :cp<CR>
+noremap <leader><Down> :cn<CR>
 noremap <leader>o : copen 15<CR>
 " Splitting/tabbing and closing.
 noremap <leader>s :split<CR>
