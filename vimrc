@@ -440,8 +440,14 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:rubycomplete_classes_in_global = 1
     let g:rubycomplete_rails = 1
     let g:ruby_indent_access_modifier_style = 'indent'
-    " Ruby on Rails support. Note, use 'gf' mapping to navigate inside a Rails 
-    " project, use CTRL-O to return back.
+
+    " Ruby on Rails support.
+    "
+    " Use 'gf' mapping to navigate objects inside a Rails project, use CTRL-O
+    " and CTRL-I to navigate backward and forward.
+    "
+    " Use a visual selection in conjunction with ":Rextract <<partial-name>>"
+    " to move a block of code from a view to a new partial.
     Plugin 'tpope/vim-rails'
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
