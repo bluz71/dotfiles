@@ -53,7 +53,8 @@ set visualbell t_vb=
 if v:progname != "vi"
     set autoindent
     set completeopt-=preview
-    set foldmethod=manual
+    set foldlevelstart=20
+    set foldmethod=indent
     set foldtext=""
     set history=200
     set mouse=a
@@ -70,31 +71,7 @@ endif
 
 " Set default value for the global variables.
 "
-let g:blockFolds = 0
 let g:normalMode = 1
-
-" Fold up all functions of the active buffer.
-"
-function! BlockFolds()
-    if g:blockFolds
-        set foldcolumn=0
-        set foldmethod=manual
-        %foldopen!
-        let g:blockFolds = 0
-    else
-        set foldcolumn=1
-        if &filetype == "cxx"
-            set foldmethod=syntax
-        else
-            set foldmethod=indent
-        endif
-        %foldclose!
-        if &filetype == "java" || &filetype == "cs"
-            set foldlevel=1
-        endif
-        let g:blockFolds = 1
-    endif
-endfunction
 
 " Open up a related file, with a different file extension, of the current
 " active buffer file.
@@ -281,11 +258,11 @@ noremap <F2> :w<CR>
 noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
 " 'qa' starts a macro recording, 'q' stops it, <F4> runs the macro.
 noremap <F4> @a
-noremap <F5> :call FileOpen(".hh")<CR>
-noremap <F6> :call FileOpen(".icc")<CR>
-noremap <F7> :call FileOpen(".cc")<CR>
-noremap <F8> :call FileOpen(".tcc")<CR>
-noremap <F9> :call BlockFolds()<CR>
+"noremap <F5>
+"noremap <F6>
+"noremap <F7>
+"noremap <F8>
+"noremap <F9>
 noremap <F11> :set hlsearch!<CR> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
@@ -297,6 +274,8 @@ noremap <leader>o : copen 15<CR>
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
+" Folding.
+nnoremap <leader><Space> za
 " Equalize split sizes.
 noremap <leader>= <C-w>=
 " Other leader shortcuts.
@@ -306,13 +285,13 @@ noremap <leader>r :source $MYVIMRC<CR>
 noremap <leader>x :let @x=getreg('*')<CR>
 noremap <leader>p "xp
 noremap <leader>P "xP
-"
+
 " Useful fold commands.
 "   zf in visual mode to create a fold.
 "   zd to delete a fold.
 "
 " Useful cursor positioning commands.
-"   xt move text under cursor to the top.
+"   zt move text under cursor to the top.
 "   zz move text under cursor to the center.
 "   xb move text under cursor to the bottom.
 "   H move to top of screen
@@ -434,8 +413,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     endif
 
-    " Ruby support, including code completion.
+    " Ruby support, including code completion and automatic end insertion.
     Plugin 'vim-ruby/vim-ruby'
+    Plugin 'tpope/vim-endwise'
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
     let g:rubycomplete_rails = 1
