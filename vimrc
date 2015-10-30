@@ -503,10 +503,10 @@ augroup languagePreferences
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
-    autocmd FileType c,cpp set cindent
+    autocmd FileType c,cpp set cindent foldmethod=syntax
     autocmd FileType eruby set formatoptions=cq shiftwidth=2 omnifunc=htmlcomplete#CompleteTags
     autocmd FileType html set shiftwidth=2
-    autocmd FileType java set cindent cinoptions+=j1
+    autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
