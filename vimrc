@@ -504,9 +504,10 @@ augroup languagePreferences
     " reload.
     autocmd!
     autocmd FileType c,cpp set cindent
+    autocmd FileType eruby set formatoptions=cq shiftwidth=2 omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType html set shiftwidth=2
     autocmd FileType java set cindent cinoptions+=j1
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
-    autocmd FileType eruby set formatoptions=cq shiftwidth=2
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
     autocmd FileType xml set shiftwidth=2
@@ -517,7 +518,6 @@ augroup END
 augroup syntaxMappings
     autocmd!
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
-    autocmd BufEnter *.html set filetype=xml
 augroup END
 
 " Visual customizations for certain modes and window types.
