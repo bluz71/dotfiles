@@ -24,6 +24,7 @@ set mousehide
 set nobackup
 set nocompatible
 set nohlsearch
+set noshowmatch
 set noshowmode
 set noswapfile
 set nowrap
@@ -32,7 +33,6 @@ set path=.,~/projects/**
 set ruler
 set shiftwidth=4
 set showcmd
-set showmatch
 set smartcase
 set smarttab
 set splitbelow
