@@ -492,20 +492,22 @@ if exists("g:vundle#bundles")
 endif
 
 
-" Load up the match it plugin which provides smart % XML matching.
+" Load up the match it plugin which provides smart % XML/HTML matching.
 runtime macros/matchit.vim
 
 
-" Custom settings per language.
+" Custom settings per language by file type.
 "
-augroup languagePreferences
+augroup languageCustomizationsByType
     " Note, 'autocmd!' is used to clear out any existing definitions in
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
     autocmd FileType c,cpp set cindent foldmethod=syntax
-    autocmd FileType eruby set formatoptions=cq shiftwidth=2 omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType html set shiftwidth=2
+    autocmd FileType eruby set formatoptions=cq shiftwidth=2
+    " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
+    autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
+    autocmd FileType html set shiftwidth=2 
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType sh set textwidth=999
@@ -513,11 +515,12 @@ augroup languagePreferences
     autocmd FileType xml set shiftwidth=2
 augroup END
 
-" Custom file to syntax mappings.
+" Custom settings per language by file extension.
 "
-augroup syntaxMappings
+augroup languageCustomizationsByExtension
     autocmd!
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
+    autocmd BufEnter *.html.erb set omnifunc=htmlcomplete#CompleteTags
 augroup END
 
 " Visual customizations for certain modes and window types.

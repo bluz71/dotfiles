@@ -288,6 +288,16 @@ exec "highlight javaStatement ctermfg=6 guifg=" . s:turquoise
 let java_highlight_java_lang_ids = 1
 let java_highlight_debug = 1
 
+" For HTML.
+exec "highlight htmlArg ctermfg=13 guifg=" . s:purple
+exec "highlight htmlBoldItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral " cterm=none gui=none"
+exec "highlight htmlBoldUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral
+exec "highlight htmlItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray " cterm=none gui=none"
+exec "highlight htmlLink ctermfg=4 guifg=" . s:blue
+exec "highlight htmlTag ctermfg=14 guifg=" . s:light_green
+exec "highlight htmlTagName ctermfg=12 guifg=" . s:light_blue
+exec "highlight htmlUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray
+
 " For vimdiff.
 exec "highlight DiffAdd ctermbg=10 guibg=" . s:emerald . " ctermfg=bg guifg=bg"
 exec "highlight DiffChange ctermbg=236 guibg=" . s:medium_gray
