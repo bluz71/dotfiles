@@ -24,6 +24,7 @@ set mousehide
 set nobackup
 set nocompatible
 set nohlsearch
+set noshowcmd
 set noshowmatch
 set noshowmode
 set noswapfile
@@ -32,7 +33,6 @@ set nowrapscan
 set path=.,~/projects/**
 set ruler
 set shiftwidth=4
-set showcmd
 set smartcase
 set smarttab
 set splitbelow
@@ -40,7 +40,9 @@ set t_Co=256
 set tabstop=4
 set textwidth=79
 set timeoutlen=2500
-set ttimeoutlen=0
+" Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
+" to I-beam and back functionality set by the t_SI and t_EI variables below.
+set ttimeoutlen=10
 set ttyfast
 set ttymouse=xterm2
 set viminfo=
@@ -218,28 +220,16 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-" Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
+" Remap refresh from Ctrl-l, no taken by above split navigation, to Alt-l.
 if !has("gui_running")
     noremap l :redraw!<CR>
 else
     noremap <A-l> :redraw!<CR>
 endif
-" Terminal specific tweaks.
+" Terminal specific mappings.
 if !has("gui_running")
     " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
     noremap l :redraw!<CR>
-    if &term == 'screen-256color'
-        " Change the cursor to an I-beam when in insert mode
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-        " Make CTRL-Left/Right work inside tmux.
-        execute "set <xRight>=\e[1;*C"
-        execute "set <xLeft>=\e[1;*D"
-    else
-        " Change the cursor to an I-beam when in insert mode
-        let &t_SI = "\e[6 q"
-        let &t_EI = "\e[2 q"
-    endif
 else
     " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
     noremap <A-l> :redraw!<CR>
