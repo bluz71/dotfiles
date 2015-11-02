@@ -523,7 +523,9 @@ augroup visualCustomizations
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=""
     autocmd FilterWritePre * call DiffMode()
-    autocmd FileType * IndentLinesReset
+    if v:progname != "vi"
+        autocmd FileType * IndentLinesReset
+    endif
 augroup END
 
 
