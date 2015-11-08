@@ -5,6 +5,7 @@ unalias -a
 # General aliases.
 #
 alias agm='ag --pager=less'
+alias be='bundle exec'
 alias cp='/bin/cp -i'
 alias dir='ls -l'
 alias du='du -b'
