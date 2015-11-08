@@ -20,15 +20,15 @@
 [mergetool]
 	keepBackup = false
 [alias]
-	ls = log --format=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue <%an>\"
-	ll = log --graph --format=format:\"%C(yellow)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%Creset\"
+	ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
+	ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
 	st = status --short --branch
 	rso = remote show origin
 	bb = branch -vv
 	co = checkout
 	cob = checkout -b
 	ci = commit
-    sh = show
+	sh = show
 	di = difftool
 	vdi = difftool -t vd
 	dis = difftool --staged
