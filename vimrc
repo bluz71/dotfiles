@@ -75,21 +75,6 @@ endif
 "
 let g:normalMode = 1
 
-" Open up a related file, with a different file extension, of the current
-" active buffer file.
-"
-function! FileOpen(extension)
-    let s:basefile = substitute(bufname("%"), "\\.[a-zA-Z]\\+$", "", "")
-    let s:newfile = s:basefile . a:extension
-    if bufexists(s:newfile)
-        execute "buffer" s:newfile
-    elseif filereadable(s:newfile)
-        execute "edit" s:newfile
-    else
-        echo s:newfile ": no such file."
-    endif
-endfunction
-
 " Change color column if search highlighting has been enabled since
 " highlighting may result in weird display issues. If highlighting is
 " disabled then restore the color column.
@@ -229,10 +214,10 @@ endif
 " Terminal specific mappings.
 if !has("gui_running")
     " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
-    noremap l :redraw!<CR>
+    noremap l :redraw!<CR> :echo "Screen has been redrawn"<CR>
 else
     " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
-    noremap <A-l> :redraw!<CR>
+    noremap <A-l> :redraw!<CR> :echo "Screen has been redrawn"<CR>
 endif
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
@@ -252,7 +237,7 @@ noremap <F4> @a
 "noremap <F6>
 "noremap <F7>
 "noremap <F8>
-"noremap <F9>
+noremap <F9> :set paste!<CR> :set lazyredraw!<CR> :echo "Toggled paste and lazyredraw to:" &lazyredraw<CR>
 noremap <F11> :set hlsearch!<CR> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
@@ -270,7 +255,7 @@ nnoremap <leader><Space> za
 noremap <leader>= <C-w>=
 " Other leader shortcuts.
 noremap <leader>$ :setlocal spell!<CR>
-noremap <leader>r :source $MYVIMRC<CR>
+noremap <leader>r :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 " 'x' register copy and paste mappings.
 noremap <leader>x :let @x=getreg('*')<CR>
 noremap <leader>p "xp
