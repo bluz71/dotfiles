@@ -408,9 +408,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     noremap <leader>ev :Eview<Space>
     noremap <leader>ec :Econtroller<Space>
     noremap <leader>eh :Ehelper<Space>
-    noremap <leader>ef :Efunctionaltest<Space>
-    noremap <leader>ei :Eintegrationtest<Space>
-    noremap <leader>eu :Eunittest<Space>
+    noremap <leader>etc :Efunctionaltest<Space>
+    noremap <leader>eti :Eintegrationtest<Space>
+    noremap <leader>etm :Eunittest<Space>
 
     " Golang support.
     Plugin 'fatih/vim-go'
