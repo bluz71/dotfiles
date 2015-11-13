@@ -441,6 +441,10 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     Plugin 'fatih/vim-go'
     " The 'gd' mapping (enabled by default) will jump to the declaration
     " under the cursor, use CTRL-O to return back.
+    "
+    " Note, when upgrading to a new version of Golang please run 
+    " :GoUpdateBinaries to obtain the latest necessary auxiliary binaries
+    " for the vim-go plugin.
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
     filetype off
