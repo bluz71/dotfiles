@@ -3,9 +3,9 @@
 "   Ctrl-r for insertion from a named register
 "
 " Useful cursor positioning commands:
-"   zt: move text under cursor to the top.
-"   zz: move text under cursor to the center.
-"   xb: move text under cursor to the bottom.
+"   zt: move text under cursor to the top
+"   zz: move text under cursor to the center
+"   xb: move text under cursor to the bottom
 "   H: move to top of screen
 "   M:  move to middle of screen
 "   L:  move to end of screen
@@ -19,11 +19,15 @@
 "   Ctrl-]: tag completion
 "
 " Spelling commands:
-"   z=: Suggest spelling correction.
+"   z=: Suggest spelling correction
 "   ]s: Move to next spelling error
 "   [s: Move to previous spelling error
 "   zg: Add current word to dictionary
 "   zw: Delete current word from dictionary
+"
+" Tag navigation:
+"   Ctrl-]: find definition under cursor
+"   Ctrl-t: return back from definition
 
 
 " We want syntax highlighting on.
@@ -304,6 +308,8 @@ noremap <leader>r :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 noremap <leader>x :let @x=getreg('*')<CR>
 noremap <leader>p "xp
 noremap <leader>P "xP
+" Regenerate tags file.
+noremap <leader>tt :!ctags -R --exclude=.git --exclude=log .<CR>
 
 
 " Plugins via Vundle.
@@ -383,9 +389,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
                 \ "MaxEmptyLinesToKeep" : 2}
     noremap <leader>cf :ClangFormat<CR>
     noremap <leader>ce :call g:ClangUpdateQuickFix()<CR>
-    " Useful clang navigation mappings.
-    " CTRL-] find function definition.
-    " CTRL-t return back from function definition.
 
     " Git shortcuts.
     noremap <leader>gb :Gblame<CR>
