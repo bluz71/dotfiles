@@ -1,3 +1,31 @@
+" Useful insert mode commands:
+"   Ctrl-o for one time normal mode command (zz being most useful)
+"   Ctrl-r for insertion from a named register
+"
+" Useful cursor positioning commands:
+"   zt: move text under cursor to the top.
+"   zz: move text under cursor to the center.
+"   xb: move text under cursor to the bottom.
+"   H: move to top of screen
+"   M:  move to middle of screen
+"   L:  move to end of screen
+"   gi: move back to where you were last editing
+"
+" Completion sub-types when in insert completion-mode initiated via Ctrl-x:
+"   Ctrl-f: file name completion based on files in the CWD
+"   Ctrl-k: dictionary completion
+"   Ctrl-l: line completion
+"   Ctrl-o: omni completion
+"   Ctrl-]: tag completion
+"
+" Spelling commands:
+"   z=: Suggest spelling correction.
+"   ]s: Move to next spelling error
+"   [s: Move to previous spelling error
+"   zg: Add current word to dictionary
+"   zw: Delete current word from dictionary
+
+
 " We want syntax highlighting on.
 "
 syntax on
@@ -75,11 +103,12 @@ endif
 "
 let g:normalMode = 1
 
-" Change color column if search highlighting has been enabled since
-" highlighting may result in weird display issues. If highlighting is
-" disabled then restore the color column.
+" Toggle highlighting and change color column if search highlighting has been
+" enabled since highlighting may result in weird display issues. If
+" highlighting is disabled then restore the color column.
 "
 function! Highlighting()
+    set hlsearch!
     if version < 703
         " Only Vim 7.3 (and later) support the color column.
         return
@@ -88,6 +117,21 @@ function! Highlighting()
         let &colorcolumn = join(range(81,86),",")
     else
         set colorcolumn=""
+    endif
+endfunction
+
+" Toggle spelling mode and add the dictionary to the completion list of
+" sources if spelling mode has been entered, otherwise remove it when
+" leaving spelling mode.
+"
+function! Spelling()
+    setlocal spell!
+    if &spell
+        set complete+=kspell
+        echo "Spell mode enabled"
+    else
+        set complete-=kspell
+        echo "Spell mode disabled"
     endif
 endfunction
 
@@ -238,7 +282,7 @@ noremap <F4> @a
 "noremap <F7>
 "noremap <F8>
 noremap <F9> :set paste!<CR> :set lazyredraw!<CR> :echo "Toggled paste and lazyredraw to:" &lazyredraw<CR>
-noremap <F11> :set hlsearch!<CR> :call Highlighting()<CR>
+noremap <F11> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
 noremap <leader>m :make<CR>
@@ -254,31 +298,12 @@ nnoremap <leader><Space> za
 " Equalize split sizes.
 noremap <leader>= <C-w>=
 " Other leader shortcuts.
-noremap <leader>$ :setlocal spell!<CR>
+noremap <leader>$ :call Spelling()<CR>
 noremap <leader>r :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 " 'x' register copy and paste mappings.
 noremap <leader>x :let @x=getreg('*')<CR>
 noremap <leader>p "xp
 noremap <leader>P "xP
-
-" Useful fold commands.
-"   zf in visual mode to create a fold.
-"   zd to delete a fold.
-"
-" Useful cursor positioning commands.
-"   zt move text under cursor to the top.
-"   zz move text under cursor to the center.
-"   xb move text under cursor to the bottom.
-"   H move to top of screen
-"   M move to middle of screen
-"   L move to end of screen
-"
-" Spelling commands.
-"   z= Suggest spelling correction.
-"   ]s Move to next spelling error
-"   [s Move to previous spelling error
-"   zg Add current word to dictionary
-"   zw Delete current word from dictionary
 
 
 " Plugins via Vundle.
