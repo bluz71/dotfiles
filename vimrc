@@ -2,14 +2,16 @@
 "   Ctrl-o for one time normal mode command (zz being most useful)
 "   Ctrl-r for insertion from a named register
 "
-" Useful cursor positioning commands:
+" Useful cursor positioning and movement commands:
 "   zt: move text under cursor to the top
 "   zz: move text under cursor to the center
 "   xb: move text under cursor to the bottom
-"   H: move to top of screen
+"   H:  move to top of screen
 "   M:  move to middle of screen
 "   L:  move to end of screen
 "   gi: move back to where you were last editing
+"   Ctrl-e: scroll file up one line at a time
+"   Ctrl-y: scroll file down one line at a time
 "
 " Completion sub-types when in insert completion-mode initiated via Ctrl-x:
 "   Ctrl-f: file name completion based on files in the CWD
@@ -279,8 +281,8 @@ noremap <C-q> :confirm qall<CR>
 noremap <F1> :set relativenumber!<CR>
 noremap <F2> :w<CR>
 noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
-" 'qa' starts a macro recording, 'q' stops it, <F4> runs the macro.
-noremap <F4> @a
+" 'qq' starts a macro recording, 'q' stops it, <F4> runs the macro.
+noremap <F4> @q
 "noremap <F5>
 "noremap <F6>
 "noremap <F7>
@@ -304,10 +306,10 @@ noremap <leader>= <C-w>=
 " Other leader shortcuts.
 noremap <leader>$ :call Spelling()<CR>
 noremap <leader>r :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
-" 'x' register copy and paste mappings.
-noremap <leader>x :let @x=getreg('*')<CR>
-noremap <leader>p "xp
-noremap <leader>P "xP
+" 'y' register copy and paste mappings.
+noremap <leader>y :let @y=getreg('*')<CR>
+noremap <leader>p "yp
+noremap <leader>P "yP
 " Regenerate tags file.
 noremap <leader>tt :!ctags -R --exclude=.git --exclude=log .<CR>
 
