@@ -30,6 +30,9 @@
 " Tag navigation:
 "   Ctrl-]: find definition under cursor
 "   Ctrl-t: return back from definition
+"
+" Substitute in visual block:
+"   '<,'>s/\%Vfoo/bar/gc
 
 
 " We want syntax highlighting on.
@@ -283,8 +286,8 @@ noremap <F2> :w<CR>
 noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
 " 'qq' starts a macro recording, 'q' stops it, <F4> runs the macro.
 noremap <F4> @q
-"noremap <F5>
-"noremap <F6>
+noremap <F5> :call Spelling()<CR>
+noremap <F6> :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 "noremap <F7>
 "noremap <F8>
 noremap <F9> :set paste!<CR> :set lazyredraw!<CR> :echo "Toggled paste and lazyredraw to:" &lazyredraw<CR>
@@ -294,7 +297,6 @@ noremap <F12> :set list!<CR>
 noremap <leader>m :make<CR>
 noremap <leader><Up> :cp<CR>
 noremap <leader><Down> :cn<CR>
-noremap <leader>o : copen 15<CR>
 " Splitting/tabbing and closing.
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
@@ -303,9 +305,6 @@ noremap <leader>q :close<CR>
 nnoremap <leader><Space> za
 " Equalize split sizes.
 noremap <leader>= <C-w>=
-" Other leader shortcuts.
-noremap <leader>$ :call Spelling()<CR>
-noremap <leader>r :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 " 'y' register copy and paste mappings.
 noremap <leader>y :let @y=getreg('*')<CR>
 noremap <leader>p "yp
@@ -341,7 +340,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     call vundle#begin()
 
     Plugin 'gmarik/Vundle.vim'
-    Plugin 'tpope/vim-fugitive'
     Plugin 'stefandtw/quickfix-reflector.vim'
 
     Plugin 'kien/ctrlp.vim'
@@ -392,6 +390,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     noremap <leader>cf :ClangFormat<CR>
     noremap <leader>ce :call g:ClangUpdateQuickFix()<CR>
 
+    Plugin 'tpope/vim-fugitive'
     " Git shortcuts.
     noremap <leader>gb :Gblame<CR>
     noremap <leader>gc :Gcommit<CR>
@@ -467,8 +466,10 @@ endif
 
 " Platform independent plugins and customizations.
 if exists("g:vundle#bundles")
-    Plugin 'corntrace/bufexplorer'
     Plugin 'nelstrom/vim-visual-star-search'
+
+    Plugin 'jlanzarotta/bufexplorer'
+    noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'
     " Lighten the indent marker color.
@@ -484,16 +485,12 @@ if exists("g:vundle#bundles")
     " Displaying the full working path, which is the NERDTree default, results
     " in ugly scrolling.
     let NERDTreeStatusline = " %{ fnamemodify(getcwd(), ':t') }"
-    " Note, use 'C' to change the tree root to the selected directory.
+    noremap <leader>n :NERDTreeToggle<CR>
 
     Plugin 'ervandew/supertab'
     " Play nice with clang-complete and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
-    " Platform independent mappings for certain plugins.
-    noremap <leader>n :NERDTreeToggle<CR>
-    noremap <leader>l :BufExplorer<CR>
 
     " Finalize Vundle.
     call vundle#end()
