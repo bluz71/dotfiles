@@ -441,6 +441,13 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     noremap <leader>eti :Eintegrationtest<Space>
     noremap <leader>etm :Eunittest<Space>
 
+    " Rspec support.
+    Plugin 'thoughtbot/vim-rspec'
+    noremap <leader>rs :call RunNearestSpec()<CR>
+    noremap <leader>rt :call RunCurrentSpecFile()<CR>
+    noremap <leader>rl :call RunLastSpec()<CR>
+    noremap <leader>ra :call RunAllSpecs()<CR>
+
     " Golang support.
     Plugin 'fatih/vim-go'
     " The 'gd' mapping (enabled by default) will jump to the declaration
