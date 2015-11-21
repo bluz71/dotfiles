@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <!-- Font rendering settings -->
+
+  <match target="font" >
+    <edit mode="assign" name="antialias"><bool>true</bool></edit>
+  </match>
+
+  <match target="pattern">
+    <edit mode="assign" name="dpi"><double>96</double></edit>
+  </match>
+
+  <match target="font" >
+    <edit mode="assign" name="hinting"><bool>true</bool></edit>
+  </match>
+
+  <match target="font" >
+    <edit mode="assign" name="hintstyle"><const>hintslight</const></edit>
+  </match>
+
+  <match target="font">
+    <edit mode="assign" name="lcdfilter"><const>lcddefault</const></edit>
+  </match>
+
+  <match target="font" >
+    <edit mode="assign" name="rgba"><const>rgb</const></edit>
+  </match>
+
+  <!-- Font substitution settings -->
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Consolas</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Inconsolata</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Constantia</string></test>
+    <edit name="family" mode="assign" binding="same"><string>DejaVu Serif</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Geneva</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Helvetica</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Liberation Sans</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Helvetica Neue</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Open Sans</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Monospace</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Inconsolata</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Segoe UI</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Noto Sans UI</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Times New Roman</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Tinos</string></edit>
+  </match>
+</fontconfig>
