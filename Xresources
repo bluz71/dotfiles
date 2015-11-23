@@ -68,6 +68,7 @@ xterm-moonfly*foreground: #b2b2b2
 xterm-moonfly*geometry: 84x32
 xterm-moonfly*highlightSelection: true
 xterm-moonfly*loginShell: true
+xterm-moonfly*metaSendsEscape: true
 xterm-moonfly*rightScrollBar: true
 xterm-moonfly*saveLines: 9999
 xterm-moonfly*scrollBar: true
