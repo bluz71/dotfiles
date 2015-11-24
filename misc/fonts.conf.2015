@@ -43,9 +43,4 @@
     <test qual="any" name="family"><string>Helvetica</string></test>
     <edit name="family" mode="assign" binding="same"><string>Liberation Sans</string></edit>
   </match>
-
-  <match target="pattern">
-    <test qual="any" name="family"><string>Times New Roman</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Tinos</string></edit>
-  </match>
 </fontconfig>
