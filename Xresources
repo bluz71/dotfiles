@@ -62,14 +62,14 @@ xterm-moonfly*cursorColor: #c6c6c6
 xterm-moonfly*cutNewline: false
 xterm-moonfly*cutToBeginningOfLine: false
 xterm-moonfly*faceName: Inconsolata
-xterm-moonfly*faceSize: 10.5
+xterm-moonfly*faceSize: 12
 xterm-moonfly*fastScroll: true
 xterm-moonfly*foreground: #b2b2b2
-xterm-moonfly*geometry: 84x32
+xterm-moonfly*geometry: 84x50
 xterm-moonfly*highlightSelection: true
 xterm-moonfly*loginShell: true
 xterm-moonfly*metaSendsEscape: true
-xterm-moonfly*rightScrollBar: true
+xterm-moonfly*rightScrollBar: false
 xterm-moonfly*saveLines: 9999
 xterm-moonfly*scrollBar: true
 xterm-moonfly*scrollbar*background: #292929

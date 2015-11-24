@@ -40,23 +40,8 @@
   </match>
 
   <match target="pattern">
-    <test qual="any" name="family"><string>Geneva</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
-  </match>
-
-  <match target="pattern">
     <test qual="any" name="family"><string>Helvetica</string></test>
     <edit name="family" mode="assign" binding="same"><string>Liberation Sans</string></edit>
-  </match>
-
-  <match target="pattern">
-    <test qual="any" name="family"><string>Helvetica Neue</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Open Sans</string></edit>
-  </match>
-
-  <match target="pattern">
-    <test qual="any" name="family"><string>Segoe UI</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Noto Sans UI</string></edit>
   </match>
 
   <match target="pattern">

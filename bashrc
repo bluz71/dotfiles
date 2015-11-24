@@ -131,7 +131,7 @@ prompt()
     local GIT_PROMPT=0
     if [ $OS = Darwin ]; then
         local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
-    elif [ -f /etc/debian_version ]; then
+    elif [ -f /etc/bash_completion.d/git-prompt ]; then
         local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
     else
         local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
