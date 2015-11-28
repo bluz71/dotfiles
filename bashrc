@@ -111,6 +111,10 @@ path()
     if [ $OS = Darwin ]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+    elif [ -d ~/.linuxbrew ]; then
+        PATH=~/.linuxbrew/bin:$PATH
+        MANPATH=~/.linuxbrew/share/man:$MANPATH
+    fi
     elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
     fi
