@@ -65,7 +65,6 @@ export OS=`uname`
 #
 if [ $OS = Linux ]; then
     alias di='meld 2>/dev/null'
-    alias vim=vimx
 elif [ $OS = Darwin ]; then
     alias di='opendiff 2>/dev/null'
     . /usr/local/etc/bash_completion
