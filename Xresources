@@ -91,6 +91,6 @@ xterm-moonfly*termName: xterm-256color
 Xft.antialias: 1
 Xft.dpi: 96
 Xft.hinting: 1
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintmedium
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb

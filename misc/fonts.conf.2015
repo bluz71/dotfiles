@@ -16,7 +16,7 @@
   </match>
 
   <match target="font" >
-    <edit mode="assign" name="hintstyle"><const>hintslight</const></edit>
+    <edit mode="assign" name="hintstyle"><const>hintmedium</const></edit>
   </match>
 
   <match target="font">
@@ -40,7 +40,7 @@
   </match>
 
   <match target="pattern">
-    <test qual="any" name="family"><string>Helvetica</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Liberation Sans</string></edit>
+    <test qual="any" name="family"><string>Verdana</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Open Sans</string></edit>
   </match>
 </fontconfig>
