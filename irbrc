@@ -14,5 +14,5 @@ FancyIrb.start :colorize => {
     :stderr        => [:red],
     :stdout        => nil,
     :input         => nil,
-  }
+}
 IRB.conf[:SAVE_HISTORY] = 0
