@@ -10,7 +10,10 @@ alias cp='/bin/cp -i'
 alias dir='ls -l'
 alias du='du -b'
 alias g=git
-# This is required for bash completion to work with the g alias.
+# These statements are required for bash completion to work with the g alias.
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git
+fi
 complete -o default -o nospace -F _git g
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
