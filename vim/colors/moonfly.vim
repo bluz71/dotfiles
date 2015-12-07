@@ -30,8 +30,8 @@ let s:red         = "#ff5454"
 
 " For 256-color terminal colors.
 "
-" .Xdefaults need to be setup with the following definitions; then launch
-" xterm via 'xterm -name xterm-moonfly':
+" .Xdefaults/.Xresources need to be setup with the following definitions; then
+" launch xterm via 'xterm -name xterm-moonfly':
 "
 " xterm-moonfly*color0: #373c40
 " xterm-moonfly*color1: #ff5454

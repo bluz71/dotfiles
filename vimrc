@@ -147,7 +147,7 @@ endfunction
 " Set the local status line depending on the specified mode.
 "
 function! StatusLine(mode)
-    if &buftype != '' || bufname("%") == "[BufExplorer]"
+    if &buftype != "" || bufname("%") == "[BufExplorer]"
         " Don't set a custom status line for special buffers such as quickfix,
         " help and the file explorer.
         return
@@ -184,6 +184,14 @@ endfunction
 function! WindowFocus(mode)
     if a:mode == "Enter"
         call StatusLine("normal")
+
+        " Disable the colorcolumn for special buffer types, otherwise enable
+        " it if necessary for normal buffers.
+        if &buftype != "" || bufname("%") == "[BufExplorer]"
+            set colorcolumn=""
+        elseif &colorcolumn == ""
+            let &colorcolumn = join(range(81,86),",")
+        endif
     elseif a:mode == "Leave"
         call StatusLine("not-current")
     endif
@@ -362,34 +370,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
     " particular file extension.
 
-    Plugin 'Rip-Rip/clang_complete'
-    " Set this clang_library_path if clang is in a non-standard place.
-    if system("uname") == "Darwin\n"
-        let g:clang_library_path = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"
-    "else
-    "    let g:clang_library_path = "/usr/local/clang/lib/"
-    endif
-    " Don't autocomplete, use tab character (from supertab) to complete.
-    let g:clang_complete_auto = 0
-
-    Plugin 'rhysd/vim-clang-format'
-    " Set this variable if clang-format is in a non-standard place.
-    "let g:clang_format#command = "/usr/local/clang/bin/clang-format"
-    " Refer to http://clang.llvm.org/docs/ClangFormatStyleOptions.html
-    " for full ClangFormat details.
-    let g:clang_format#style_options = {
-                \ "UseTab" : "Never",
-                \ "ColumnLimit" : 80,
-                \ "AccessModifierOffset" : -4,
-                \ "BreakBeforeBraces" : "Allman",
-                \ "Standard" : "Cpp11",
-                \ "IndentWidth" : 4,
-                \ "BreakBeforeBinaryOperators" : "true",
-                \ "AlwaysBreakTemplateDeclarations" : "true",
-                \ "MaxEmptyLinesToKeep" : 2}
-    noremap <leader>cf :ClangFormat<CR>
-    noremap <leader>ce :call g:ClangUpdateQuickFix()<CR>
-
     Plugin 'tpope/vim-fugitive'
     " Git shortcuts.
     noremap <leader>gb :Gblame<CR>
@@ -487,7 +467,10 @@ if exists("g:vundle#bundles")
     " Show line numbers and make the NERDTree window a little wider.
     let NERDTreeShowLineNumbers = 1
     let NERDTreeWinSize = 35
-    let NERDTreeDirArrows = 0
+    " Replace arrows with text characters; not all terminal and font
+    " combinations provide arrows.
+    let g:NERDTreeDirArrowExpandable = "+"
+    let g:NERDTreeDirArrowCollapsible = "~"
     " Only display the base directory name in the NERDTree status line.
     " Displaying the full working path, which is the NERDTree default, results
     " in ugly scrolling.
@@ -520,7 +503,7 @@ augroup languageCustomizationsByType
     autocmd FileType eruby set formatoptions=cq shiftwidth=2
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
-    autocmd FileType html set shiftwidth=2 
+    autocmd FileType html set shiftwidth=2
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType sh set textwidth=999
@@ -545,6 +528,7 @@ augroup visualCustomizations
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=""
+    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=""
     autocmd FilterWritePre * call DiffMode()
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
