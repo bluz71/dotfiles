@@ -40,6 +40,11 @@
   </match>
 
   <match target="pattern">
+    <test qual="any" name="family"><string>Gotham</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Roboto</string></edit>
+  </match>
+
+  <match target="pattern">
     <test qual="any" name="family"><string>Verdana</string></test>
     <edit name="family" mode="assign" binding="same"><string>Open Sans</string></edit>
   </match>
