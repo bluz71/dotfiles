@@ -101,7 +101,6 @@ if v:progname != "vi"
     set pumheight=35
     if version >= 703
         " Certain options are only available in Vim 7.3 and later.
-        let &colorcolumn = join(range(81,86),",")
         set cryptmethod=blowfish2
         set relativenumber
     endif
@@ -123,9 +122,9 @@ function! Highlighting()
         return
     endif
     if &hlsearch == "nohlsearch"
-        let &colorcolumn = join(range(81,86),",")
+        setlocal colorcolumn=81,82,83
     else
-        set colorcolumn=""
+        setlocal colorcolumn=0
     endif
 endfunction
 
@@ -179,19 +178,30 @@ function! StatusLine(mode)
     setlocal statusline+=%7*%P
 endfunction
 
+" Intelligently set color column and indent markers based upon buffer type.
+" For special buffers like: help, file list and diff we do not want color 
+" column and indent marker styling, but for normal buffers we do.
+"
+function! Styling()
+    if &diff || &buftype != "" || bufname("%") == "[BufExplorer]"
+        setlocal conceallevel=0
+        if &diff
+            setlocal colorcolumn=0
+        endif
+    else
+        setlocal colorcolumn=81,82,83
+        if &conceallevel == 0
+            setlocal conceallevel=2
+        endif
+    endif
+endfunction
+
 " A windows focus event has been triggered.
 "
 function! WindowFocus(mode)
     if a:mode == "Enter"
         call StatusLine("normal")
-
-        " Disable the colorcolumn for special buffer types, otherwise enable
-        " it if necessary for normal buffers.
-        if &buftype != "" || bufname("%") == "[BufExplorer]"
-            set colorcolumn=""
-        elseif &colorcolumn == ""
-            let &colorcolumn = join(range(81,86),",")
-        endif
+        call Styling()
     elseif a:mode == "Leave"
         call StatusLine("not-current")
     endif
@@ -216,23 +226,6 @@ function! VisualMode()
     elseif g:normalMode == 0
         call StatusLine("normal")
         let g:normalMode = 1
-    endif
-endfunction
-
-" Toggle the color column and indent markers when entering and leaving Vim 
-" diff. In Vim diff both color column and indent markers look wrong.
-"
-function! DiffMode()
-    if &diff
-        setlocal colorcolumn=""
-        setlocal conceallevel=0
-    else
-        if version >= 703 && &colorcolumn == ""
-            let &colorcolumn = join(range(81,86),",")
-        endif
-        if &conceallevel == 0
-            setlocal conceallevel=2
-        endif
     endif
 endfunction
 
@@ -381,7 +374,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " unstaged changes.
     noremap <leader>gh :Gvdiff HEAD<CR>
     " Quit the window opened by Git diff.
-    noremap <leader>gq :diffoff!<CR><C-w>h:bd<CR> :call DiffMode()<CR>
+    noremap <leader>gq :diffoff!<CR><C-w>h:bd<CR> :call Styling()<CR>
     " Hit <enter> on a file line, in the status window, to open.
     " Hit '-' to 'git add' the file on the current line.
     noremap <leader>gs :Gstatus<CR>
@@ -473,12 +466,12 @@ if exists("g:vundle#bundles")
     let g:NERDTreeDirArrowCollapsible = "~"
     " Only display the base directory name in the NERDTree status line.
     " Displaying the full working path, which is the NERDTree default, results
-    " in ugly scrolling.
+    " in ugly scrolled text.
     let NERDTreeStatusline = " %{ fnamemodify(getcwd(), ':t') }"
     noremap <leader>n :NERDTreeToggle<CR>
 
     Plugin 'ervandew/supertab'
-    " Play nice with clang-complete and force top-to-bottom tab completion.
+    " Play nice with other plugins and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
@@ -501,6 +494,11 @@ augroup languageCustomizationsByType
     autocmd!
     autocmd FileType c,cpp set cindent foldmethod=syntax
     autocmd FileType eruby set formatoptions=cq shiftwidth=2
+    " Setup indent lines for tab formatted Golang code. Note, the indentLine 
+    " plugin will not show markers for tab formatted code, so we need to mimic
+    " what that plugin does here using listchars and highlighting.
+    autocmd FileType go set list listchars=tab:\¦\ 
+    autocmd FileType go highlight SpecialKey ctermbg=bg guibg=bg ctermfg=236 guifg=#303030
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html set shiftwidth=2
@@ -527,9 +525,9 @@ augroup visualCustomizations
     autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
-    autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=""
-    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=""
-    autocmd FilterWritePre * call DiffMode()
+    autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
+    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0
+    autocmd FilterWritePre * call Styling()
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
     endif
