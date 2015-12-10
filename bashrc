@@ -117,6 +117,12 @@ path()
     elif [ -d ~/.linuxbrew ]; then
         PATH=~/.linuxbrew/bin:$PATH
         MANPATH=~/.linuxbrew/share/man:$MANPATH
+
+        # Setup chruby if available.
+        if [ -f ~/.linuxbrew/share/chruby/chruby.sh ]; then
+            . ~/.linuxbrew/share/chruby/chruby.sh
+            chruby 2.2.2
+        fi
     elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
     fi
