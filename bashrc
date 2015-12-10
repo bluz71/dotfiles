@@ -114,6 +114,12 @@ path()
     if [ $OS = Darwin ]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
+        # Setup chruby if available.
+        if [ -f /usr/local/share/chruby/chruby.sh ]; then
+            . /usr/local/share/chruby/chruby.sh
+            chruby 2.2.2
+        fi
     elif [ -d ~/.linuxbrew ]; then
         PATH=~/.linuxbrew/bin:$PATH
         MANPATH=~/.linuxbrew/share/man:$MANPATH
