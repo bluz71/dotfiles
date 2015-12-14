@@ -1,35 +1,35 @@
 " Useful insert mode commands:
-"   Ctrl-o for one time normal mode command (zz being most useful)
-"   Ctrl-r for insertion from a named register
+"   Ctrl-o  for one time normal mode command (zz being most useful)
+"   Ctrl-r  for insertion from a named register
 "
 " Useful cursor positioning and movement commands:
-"   zt: move text under cursor to the top
-"   zz: move text under cursor to the center
-"   xb: move text under cursor to the bottom
-"   H:  move to top of screen
-"   M:  move to middle of screen
-"   L:  move to end of screen
-"   gi: move back to where you were last editing
-"   Ctrl-e: scroll file up one line at a time
-"   Ctrl-y: scroll file down one line at a time
+"   zt  move text under cursor to the top
+"   zz  move text under cursor to the center
+"   xb  move text under cursor to the bottom
+"   H   move to top of screen
+"   M   move to middle of screen
+"   L   move to end of screen
+"   gi  move back to where you were last editing
+"   Ctrl-e  scroll file up one line at a time
+"   Ctrl-y  scroll file down one line at a time
 "
 " Completion sub-types when in insert completion-mode initiated via Ctrl-x:
-"   Ctrl-f: file name completion based on files in the CWD
-"   Ctrl-k: dictionary completion
-"   Ctrl-l: line completion
-"   Ctrl-o: omni completion
-"   Ctrl-]: tag completion
+"   Ctrl-f  file name completion based on files in the CWD
+"   Ctrl-k  dictionary completion
+"   Ctrl-l  line completion
+"   Ctrl-o  omni completion
+"   Ctrl-]  tag completion
 "
 " Spelling commands:
-"   z=: Suggest spelling correction
-"   ]s: Move to next spelling error
-"   [s: Move to previous spelling error
-"   zg: Add current word to dictionary
-"   zw: Delete current word from dictionary
+"   z=  Suggest spelling correction
+"   ]s  Move to next spelling error
+"   [s  Move to previous spelling error
+"   zg  Add current word to dictionary
+"   zw  Delete current word from dictionary
 "
 " Tag navigation:
-"   Ctrl-]: find definition under cursor
-"   Ctrl-t: return back from definition
+"   Ctrl-]  find definition under cursor
+"   Ctrl-t  return back from definition
 "
 " Substitute in visual block:
 "   '<,'>s/\%Vfoo/bar/gc
@@ -445,6 +445,7 @@ elseif has("win32") || has("win32unix") && v:progname != "vi"
 endif
 
 " Platform independent plugins and customizations.
+"
 if exists("g:vundle#bundles")
     Plugin 'nelstrom/vim-visual-star-search'
 

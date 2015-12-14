@@ -8,6 +8,8 @@
  
 Host github.com
   KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
+  Hostname ssh.github.com
+  Port 443
 
 Host *
   Ciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes128-ctr
