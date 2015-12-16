@@ -45,6 +45,11 @@
   </match>
 
   <match target="pattern">
+    <test qual="any" name="family"><string>Trebuchet MS</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Fira Sans</string></edit>
+  </match>
+
+  <match target="pattern">
     <test qual="any" name="family"><string>Verdana</string></test>
     <edit name="family" mode="assign" binding="same"><string>Open Sans</string></edit>
   </match>
