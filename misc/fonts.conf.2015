@@ -31,7 +31,7 @@
 
   <match target="pattern">
     <test qual="any" name="family"><string>Consolas</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Inconsolata</string></edit>
+    <edit name="family" mode="assign" binding="same"><string>DejaVu Sans Mono</string></edit>
   </match>
 
   <match target="pattern">
