@@ -30,6 +30,16 @@
   <!-- Font substitution settings -->
 
   <match target="pattern">
+    <test qual="any" name="family"><string>Candara</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Linux Biolinum O</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Comic Sans MS</string></test>
+    <edit name="family" mode="assign" binding="same"><string>TSCu_Comic</string></edit>
+  </match>
+
+  <match target="pattern">
     <test qual="any" name="family"><string>Consolas</string></test>
     <edit name="family" mode="assign" binding="same"><string>DejaVu Sans Mono</string></edit>
   </match>
@@ -37,6 +47,11 @@
   <match target="pattern">
     <test qual="any" name="family"><string>Constantia</string></test>
     <edit name="family" mode="assign" binding="same"><string>DejaVu Serif</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Corbel</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Merriweather Sans</string></edit>
   </match>
 
   <match target="pattern">
