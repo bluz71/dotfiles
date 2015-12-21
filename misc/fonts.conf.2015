@@ -60,6 +60,11 @@
   </match>
 
   <match target="pattern">
+    <test qual="any" name="family"><string>Helvetica Neue</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Nimbus Sans L</string></edit>
+  </match>
+
+  <match target="pattern">
     <test qual="any" name="family"><string>Trebuchet MS</string></test>
     <edit name="family" mode="assign" binding="same"><string>Fira Sans</string></edit>
   </match>
