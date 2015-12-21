@@ -61,7 +61,7 @@
 
   <match target="pattern">
     <test qual="any" name="family"><string>Helvetica Neue</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Nimbus Sans L</string></edit>
+    <edit name="family" mode="assign" binding="same"><string>Noto Sans</string></edit>
   </match>
 
   <match target="pattern">
