@@ -46,7 +46,7 @@
 
   <match target="pattern">
     <test qual="any" name="family"><string>Constantia</string></test>
-    <edit name="family" mode="assign" binding="same"><string>Merrirweather</string></edit>
+    <edit name="family" mode="assign" binding="same"><string>Merriweather</string></edit>
   </match>
 
   <match target="pattern">
