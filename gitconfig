@@ -25,7 +25,7 @@
 	st = status --short --branch
 	rso = remote show origin
 	bb = branch -vv
-    bd = branch -d
+	bd = branch -d
 	co = checkout
 	cob = checkout -b
 	ci = commit
