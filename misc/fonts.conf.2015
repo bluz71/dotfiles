@@ -59,8 +59,18 @@
   </match>
 
   <match target="pattern">
+    <test qual="any" name="family"><string>Georgia</string></test>
+    <edit name="family" mode="assign" binding="same"><string>DejaVu Serif</string></edit>
+  </match>
+
+  <match target="pattern">
     <test qual="any" name="family"><string>Gotham</string></test>
     <edit name="family" mode="assign" binding="same"><string>Roboto</string></edit>
+  </match>
+
+  <match target="pattern">
+    <test qual="any" name="family"><string>Helvetica</string></test>
+    <edit name="family" mode="assign" binding="same"><string>Liberation Sans</string></edit>
   </match>
 
   <match target="pattern">
