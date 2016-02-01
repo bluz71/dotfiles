@@ -118,7 +118,7 @@ path()
         # Setup chruby if available.
         if [ -f /usr/local/share/chruby/chruby.sh ]; then
             . /usr/local/share/chruby/chruby.sh
-            chruby 2.2.3
+            chruby 2.2.4
         fi
     elif [ -d ~/.linuxbrew ]; then
         PATH=~/.linuxbrew/bin:$PATH
