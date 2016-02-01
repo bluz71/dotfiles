@@ -127,7 +127,7 @@ path()
         # Setup chruby if available.
         if [ -f ~/.linuxbrew/share/chruby/chruby.sh ]; then
             . ~/.linuxbrew/share/chruby/chruby.sh
-            chruby 2.2.3
+            chruby 2.2.4
         fi
     elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
