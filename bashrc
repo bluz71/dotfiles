@@ -90,10 +90,10 @@ HISTCONTROL='erasedups:ignoreboth'
 umask 002
 
 # Enable the useful Bash 4 features:
-#  autocd, no need to type 'cd' when changing directory
-#  cdable_vars, 'cd FOO' where FOO is an environment variable
-#  cdspell, automatically fix small directory typos when changing directory
-#  globstar, ** recursive glob
+#  - autocd, no need to type 'cd' when changing directory
+#  - cdable_vars, 'cd FOO' where FOO is an environment variable
+#  - cdspell, automatically fix small directory typos when changing directory
+#  - globstar, ** recursive glob
 shopt -s autocd cdable_vars cdspell globstar
 
 # Only display up to four directory components in the prompt.
