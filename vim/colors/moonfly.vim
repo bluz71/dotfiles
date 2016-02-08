@@ -241,6 +241,19 @@ exec "highlight rubyInstanceVariable ctermfg=14 guifg=" . s:light_green
 exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
+" For Javascript.
+exec "highlight javaScriptBoolean ctermfg=6 guifg=" . s:turquoise
+exec "highlight javaScriptExceptions ctermfg=9 guifg=" . s:crimson
+exec "highlight javaScriptFuncArg ctermfg=6 guifg=" . s:turquoise
+exec "highlight javaScriptFuncDef ctermfg=10 guifg=" . s:emerald
+exec "highlight javaScriptFuncKeyword ctermfg=4 guifg=" . s:blue
+exec "highlight javaScriptGlobalObjects ctermfg=10 guifg=" . s:emerald
+exec "highlight javaScriptIdentifier ctermfg=14 guifg=" . s:light_green
+exec "highlight javaScriptOperator ctermfg=9 guifg=" . s:crimson
+exec "highlight javaScriptParens ctermfg=fg guifg=fg"
+exec "highlight javaScriptReserved ctermfg=7 guifg=" . s:orange
+exec "highlight javaScriptStatement ctermfg=3 guifg=" . s:khaki
+
 " For Go.
 exec "highlight goBuiltins ctermfg=9 guifg=" . s:crimson
 exec "highlight goConditional ctermfg=5 guifg=" . s:magenta

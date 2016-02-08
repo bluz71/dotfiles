@@ -429,6 +429,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " Note, when upgrading to a new version of Golang please run 
     " :GoUpdateBinaries to obtain the latest necessary auxiliary binaries
     " for the vim-go plugin.
+
+    " Javascript support.
+    Plugin 'jelera/vim-javascript-syntax'
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
     filetype off
