@@ -242,6 +242,7 @@ exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
 " For Javascript.
+exec "highlight javaScript ctermfg=fg guifg=fg"
 exec "highlight javaScriptBoolean ctermfg=6 guifg=" . s:turquoise
 exec "highlight javaScriptExceptions ctermfg=9 guifg=" . s:crimson
 exec "highlight javaScriptFuncArg ctermfg=6 guifg=" . s:turquoise
