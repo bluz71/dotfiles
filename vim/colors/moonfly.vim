@@ -118,7 +118,7 @@ exec "highlight Constant ctermfg=13 guifg=" . s:purple
 exec "highlight PreProc ctermfg=15 guifg=" . s:violet
 
 " Status and split lines.
-exec "highlight StatusLine ctermbg=8 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:coral . " gui=none"
+exec "highlight StatusLine ctermbg=3 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:khaki . " gui=none"
 exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:dark_gray

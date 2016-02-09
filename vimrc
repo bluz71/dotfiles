@@ -521,9 +521,9 @@ augroup languageCustomizationsByExtension
     autocmd BufEnter *.html.erb set omnifunc=htmlcomplete#CompleteTags
 augroup END
 
-" Visual customizations for certain modes and window types.
+" Style and behaviour customizations for certain modes and window types.
 "
-augroup visualCustomizations
+augroup styleAndBehaviourCustomizations
     autocmd!
     autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
     autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
@@ -535,6 +535,7 @@ augroup visualCustomizations
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
     endif
+    autocmd InsertLeave * silent! wall
 augroup END
 
 
