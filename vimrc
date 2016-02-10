@@ -535,7 +535,7 @@ augroup styleAndBehaviourCustomizations
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
     endif
-    autocmd BufLeave,FocusLost,InsertLeave,TextChanged * silent! wall
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
 augroup END
 
 
