@@ -507,6 +507,7 @@ augroup languageCustomizationsByType
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html set shiftwidth=2
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
+    autocmd FileType javascript set shiftwidth=2
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
