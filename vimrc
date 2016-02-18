@@ -505,13 +505,13 @@ augroup languageCustomizationsByType
     autocmd FileType go highlight SpecialKey ctermbg=bg guibg=bg ctermfg=236 guifg=#303030
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
-    autocmd FileType html set shiftwidth=2
+    autocmd FileType html set shiftwidth=2 textwidth=999
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript set shiftwidth=2
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
-    autocmd FileType xml set shiftwidth=2
+    autocmd FileType xml set shiftwidth=2 textwidth=999
 augroup END
 
 " Custom settings per language by file extension.
