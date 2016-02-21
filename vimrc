@@ -430,8 +430,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " :GoUpdateBinaries to obtain the latest necessary auxiliary binaries
     " for the vim-go plugin.
 
-    " Javascript support.
+    " JavaScript and CoffeeScript support.
     Plugin 'jelera/vim-javascript-syntax'
+    Plugin 'kchmck/vim-coffee-script'
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
     filetype off
@@ -497,6 +498,7 @@ augroup languageCustomizationsByType
     " reload.
     autocmd!
     autocmd FileType c,cpp set cindent foldmethod=syntax
+    autocmd FileType coffee set shiftwidth=2
     autocmd FileType eruby set formatoptions=cq shiftwidth=2
     " Setup indent lines for tab formatted Golang code. Note, the indentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic

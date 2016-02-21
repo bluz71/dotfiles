@@ -241,7 +241,7 @@ exec "highlight rubyInstanceVariable ctermfg=14 guifg=" . s:light_green
 exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
-" For Javascript.
+" For JavaScript.
 exec "highlight javaScript ctermfg=fg guifg=fg"
 exec "highlight javaScriptBoolean ctermfg=6 guifg=" . s:turquoise
 exec "highlight javaScriptExceptions ctermfg=9 guifg=" . s:crimson
@@ -253,7 +253,15 @@ exec "highlight javaScriptIdentifier ctermfg=14 guifg=" . s:light_green
 exec "highlight javaScriptOperator ctermfg=9 guifg=" . s:crimson
 exec "highlight javaScriptParens ctermfg=fg guifg=fg"
 exec "highlight javaScriptReserved ctermfg=7 guifg=" . s:orange
-exec "highlight javaScriptStatement ctermfg=3 guifg=" . s:khaki
+exec "highlight javaScriptStatement ctermfg=8 guifg=" . s:coral
+
+" For CoffeeScript
+exec "highlight coffeeBoolean ctermfg=3 guifg=" . s:khaki
+exec "highlight coffeeException ctermfg=9 guifg=" . s:crimson
+exec "highlight coffeeKeyword ctermfg=7 guifg=" . s:orange
+exec "highlight coffeeSpecialIdent ctermfg=14 guifg=" . s:light_green
+exec "highlight coffeeSpecialVar ctermfg=4 guifg=" . s:blue
+exec "highlight coffeeStatement ctermfg=8 guifg=" . s:coral
 
 " For Go.
 exec "highlight goBuiltins ctermfg=9 guifg=" . s:crimson
