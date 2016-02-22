@@ -196,12 +196,22 @@ function! Styling()
     endif
 endfunction
 
+" Upon entering the NERDtree window do a root directoy refresh to automatically
+" pick up any file or directory changes.
+"
+function! NERDTreeRefresh()
+    if &filetype == "nerdtree"
+        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    endif
+endfunction
+
 " A windows focus event has been triggered.
 "
 function! WindowFocus(mode)
     if a:mode == "Enter"
         call StatusLine("normal")
         call Styling()
+        call NERDTreeRefresh()
     elseif a:mode == "Leave"
         call StatusLine("not-current")
     endif
