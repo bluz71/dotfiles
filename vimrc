@@ -269,19 +269,11 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-" Remap refresh from Ctrl-l, no taken by above split navigation, to Alt-l.
+" Remap refresh from Ctrl-l, now taken by above split navigation, to Alt-l.
 if !has("gui_running")
     noremap l :redraw!<CR>
 else
     noremap <A-l> :redraw!<CR>
-endif
-" Terminal specific mappings.
-if !has("gui_running")
-    " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
-    noremap l :redraw!<CR> :echo "Screen has been redrawn"<CR>
-else
-    " Need to remap existing Ctrl-l (refresh), use Alt-l instead. 
-    noremap <A-l> :redraw!<CR> :echo "Screen has been redrawn"<CR>
 endif
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
