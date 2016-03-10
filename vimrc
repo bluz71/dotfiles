@@ -454,7 +454,9 @@ endif
 "
 if exists("g:vundle#bundles")
     Plugin 'nelstrom/vim-visual-star-search'
+
     Plugin 'tpope/vim-commentary'
+    " Use 'gc' to comment or uncomment a block.
 
     Plugin 'jlanzarotta/bufexplorer'
     noremap <leader>l :BufExplorer<CR>
