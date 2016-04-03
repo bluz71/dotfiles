@@ -312,13 +312,15 @@ let java_highlight_java_lang_ids = 1
 let java_highlight_debug = 1
 
 " For HTML.
-exec "highlight htmlArg ctermfg=13 guifg=" . s:purple
+exec "highlight htmlArg ctermfg=12 guifg=" . s:light_blue
 exec "highlight htmlBoldItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral " cterm=none gui=none"
 exec "highlight htmlBoldUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral
 exec "highlight htmlItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray " cterm=none gui=none"
 exec "highlight htmlLink ctermfg=4 guifg=" . s:blue
+exec "highlight htmlEndTag ctermfg=13 guifg=" . s:purple
 exec "highlight htmlTag ctermfg=14 guifg=" . s:light_green
-exec "highlight htmlTagName ctermfg=12 guifg=" . s:light_blue
+exec "highlight htmlTagN ctermfg=4 guifg=" . s:blue
+exec "highlight htmlTagName ctermfg=4 guifg=" . s:blue
 exec "highlight htmlUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray
 
 " For vimdiff.
