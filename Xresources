@@ -37,7 +37,7 @@ xterm-moonfly*color9: #ed246c
 xterm-moonfly*color10: #42cf89
 
 ! Wheat (usually defined as 'Bold Yellow')
-xterm-moonfly*color11: #e9d4ab
+xterm-moonfly*color11: #cfcfb0
 
 ! Light blue (usually defined as 'Bold Blue')
 xterm-moonfly*color12: #89d2ef

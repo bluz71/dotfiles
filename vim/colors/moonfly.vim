@@ -11,7 +11,7 @@ let s:dim_gray    = "#373c40"
 let s:medium_gray = "#303030"
 let s:gray        = "#444444"
 let s:dark_gray   = "#1c1c1c"
-let s:wheat       = "#e9d4ab"
+let s:wheat       = "#cfcfb0"
 let s:khaki       = "#dcd08c"
 let s:orange      = "#de935f"
 let s:coral       = "#f09479"
@@ -44,7 +44,7 @@ let s:red         = "#ff5454"
 " xterm-moonfly*color8: #f09479
 " xterm-moonfly*color9: #ed246c
 " xterm-moonfly*color10: #42cf89
-" xterm-moonfly*color11: #e9d4ab
+" xterm-moonfly*color11: #cfcfb0
 " xterm-moonfly*color12: #89d2ef
 " xterm-moonfly*color13: #ae81ff
 " xterm-moonfly*color14: #85dc85
@@ -118,7 +118,7 @@ exec "highlight Constant ctermfg=13 guifg=" . s:purple
 exec "highlight PreProc ctermfg=15 guifg=" . s:violet
 
 " Status and split lines.
-exec "highlight StatusLine ctermbg=3 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:khaki . " gui=none"
+exec "highlight StatusLine ctermbg=11 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:wheat . " gui=none"
 exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:dark_gray
@@ -316,7 +316,7 @@ exec "highlight htmlArg ctermfg=12 guifg=" . s:light_blue
 exec "highlight htmlBoldItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral " cterm=none gui=none"
 exec "highlight htmlBoldUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral
 exec "highlight htmlItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray " cterm=none gui=none"
-exec "highlight htmlLink ctermfg=4 guifg=" . s:blue
+exec "highlight htmlLink ctermfg=2 guifg=" . s:green
 exec "highlight htmlEndTag ctermfg=13 guifg=" . s:purple
 exec "highlight htmlTag ctermfg=14 guifg=" . s:light_green
 exec "highlight htmlTagN ctermfg=4 guifg=" . s:blue
