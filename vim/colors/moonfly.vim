@@ -12,7 +12,7 @@ let s:medium_gray = "#303030"
 let s:gray        = "#444444"
 let s:dark_gray   = "#1c1c1c"
 let s:wheat       = "#cfcfb0"
-let s:khaki       = "#dcd08c"
+let s:khaki       = "#e3c78a"
 let s:orange      = "#de935f"
 let s:coral       = "#f09479"
 let s:light_green = "#85dc85"
@@ -25,7 +25,7 @@ let s:turquoise   = "#7ee0ce"
 let s:purple      = "#ae81ff"
 let s:violet      = "#e2637f"
 let s:magenta     = "#ee82ee"
-let s:crimson     = "#ed246c"
+let s:crimson     = "#fe3b7b"
 let s:red         = "#ff5454"
 
 " For 256-color terminal colors.
@@ -36,13 +36,13 @@ let s:red         = "#ff5454"
 " xterm-moonfly*color0: #373c40
 " xterm-moonfly*color1: #ff5454
 " xterm-moonfly*color2: #89bb25
-" xterm-moonfly*color3: #dcd08c
+" xterm-moonfly*color3: #e3c78a
 " xterm-moonfly*color4: #80a0ff
 " xterm-moonfly*color5: #ee82ee
 " xterm-moonfly*color6: #7ee0ce
 " xterm-moonfly*color7: #de935f
 " xterm-moonfly*color8: #f09479
-" xterm-moonfly*color9: #ed246c
+" xterm-moonfly*color9: #fe3b7b
 " xterm-moonfly*color10: #42cf89
 " xterm-moonfly*color11: #cfcfb0
 " xterm-moonfly*color12: #89d2ef
