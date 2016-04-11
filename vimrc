@@ -368,15 +368,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     Plugin 'tpope/vim-fugitive'
     " Git shortcuts.
     noremap <leader>gb :Gblame<CR>
-    noremap <leader>gc :Gcommit<CR>
-    " Please only lauch Git diff from the right-most split, otherwise the
-    " matching gq mapping won't close Git diff correctly.
-    noremap <leader>gd :Gvdiff<CR>
-    " Like above but compare with HEAD, this diff will show staged and
-    " unstaged changes.
-    noremap <leader>gh :Gvdiff HEAD<CR>
-    " Quit the window opened by Git diff.
-    noremap <leader>gq :diffoff!<CR><C-w>h:bd<CR> :call Styling()<CR>
     " Hit <enter> on a file line, in the status window, to open.
     " Hit '-' to 'git add' the file on the current line.
     noremap <leader>gs :Gstatus<CR>
