@@ -65,7 +65,7 @@ xterm-moonfly*faceName: Inconsolata
 xterm-moonfly*faceSize: 12
 xterm-moonfly*fastScroll: true
 xterm-moonfly*foreground: #b2b2b2
-xterm-moonfly*geometry: 84x50
+xterm-moonfly*geometry: 84x65
 xterm-moonfly*highlightSelection: true
 xterm-moonfly*loginShell: true
 xterm-moonfly*metaSendsEscape: true
