@@ -1,6 +1,7 @@
 " Useful insert mode commands:
 "   Ctrl-o  for one time normal mode command (zz being most useful)
 "   Ctrl-r  for insertion from a named register
+"   Alt-p   paste from clipboard then exit insert mode
 "
 " Useful cursor positioning and movement commands:
 "   zt  move text under cursor to the top
