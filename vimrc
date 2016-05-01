@@ -496,6 +496,7 @@ augroup languageCustomizationsByType
     autocmd!
     autocmd FileType c,cpp set cindent foldmethod=syntax
     autocmd FileType coffee set shiftwidth=2
+    autocmd FileType css set shiftwidth=2
     autocmd FileType eruby set formatoptions=cq shiftwidth=2
     " Setup indent lines for tab formatted Golang code. Note, the indentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
@@ -508,6 +509,7 @@ augroup languageCustomizationsByType
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript set shiftwidth=2
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
+    autocmd FileType scss set shiftwidth=2
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
     autocmd FileType xml set shiftwidth=2 textwidth=999
