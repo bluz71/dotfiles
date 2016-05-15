@@ -6,7 +6,9 @@
 " Useful cursor positioning and movement commands:
 "   zt  move text under cursor to the top
 "   zz  move text under cursor to the center
-"   xb  move text under cursor to the bottom
+"   zb  move text under cursor to the bottom
+"   zl  move text under cursor one character to the left
+"   zL  move text under cursor half a screen to the left
 "   H   move to top of screen
 "   M   move to middle of screen
 "   L   move to end of screen
