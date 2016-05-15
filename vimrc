@@ -513,6 +513,7 @@ augroup languageCustomizationsByType
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
     autocmd FileType xml set shiftwidth=2 textwidth=999
+    autocmd FileType yaml set shiftwidth=2 textwidth=999
 augroup END
 
 " Custom settings per language by file extension.

@@ -29,6 +29,7 @@ alias lss='ls -la --sort=size | less'
 alias lst='ls -la --sort=time | less'
 alias lsfs='findBySize(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; findBySize'
 alias m='less'
+alias mux='tmuxinator'
 # mmv usage: mmv "*.jpeg" "#1.jpg"
 alias mv='/bin/mv -i'
 alias p='pygmentize -g'
