@@ -242,6 +242,21 @@ function! VisualMode()
     endif
 endfunction
 
+" Toggle macro mode. For maximum performance, when invoking a macro, it is
+" best to enable lazyredraw and disable file auto-saving.
+"
+function! ToggleMacroMode()
+    let l:autosave = 1
+    if exists('#autoSave#TextChanged')
+        autocmd! autoSave TextChanged,InsertLeave,FocusLost *
+        let l:autosave = 0
+    else
+        autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
+    endif
+    set lazyredraw!
+    echo "Toggled lazyredraw to: " &lazyredraw "and auto-save to: " l:autosave
+endfunction
+
 
 " Terminal specific tweaks.
 "
@@ -296,7 +311,7 @@ noremap <F5> :call Spelling()<CR>
 noremap <F6> :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 "noremap <F7>
 "noremap <F8>
-noremap <F9> :set paste!<CR> :set lazyredraw!<CR> :echo "Toggled paste and lazyredraw to:" &lazyredraw<CR>
+noremap <F9> :call ToggleMacroMode()<CR>
 noremap <F11> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
@@ -540,8 +555,15 @@ augroup styleAndBehaviourCustomizations
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
     endif
+augroup END
+
+" Autosave behaviour.
+"
+augroup autoSave
+    autocmd!
     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
 augroup END
+
 
 
 " Set the color scheme
