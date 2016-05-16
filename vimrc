@@ -1,7 +1,7 @@
 " Useful insert mode commands:
 "   Ctrl-o  for one time normal mode command (zz being most useful)
 "   Ctrl-r  for insertion from a named register
-"   Alt-p   paste from clipboard then exit insert mode
+"   Alt-p   paste from clipboard then exit insert mode (iTerm2 only)
 "
 " Useful cursor positioning and movement commands:
 "   zt  move text under cursor to the top
@@ -146,6 +146,21 @@ function! Spelling()
     endif
 endfunction
 
+" Toggle macro mode. For maximum performance, when invoking a macro, it is
+" best to enable lazyredraw and disable file auto-saving.
+"
+function! MacroMode()
+    let l:autosave = 1
+    if exists('#autoSave#TextChanged')
+        autocmd! autoSave TextChanged,InsertLeave,FocusLost *
+        let l:autosave = 0
+    else
+        autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
+    endif
+    set lazyredraw!
+    echo "Toggled lazyredraw to: " &lazyredraw "and auto-save to: " l:autosave
+endfunction
+
 " Set the local status line depending on the specified mode.
 "
 function! StatusLine(mode)
@@ -242,21 +257,6 @@ function! VisualMode()
     endif
 endfunction
 
-" Toggle macro mode. For maximum performance, when invoking a macro, it is
-" best to enable lazyredraw and disable file auto-saving.
-"
-function! ToggleMacroMode()
-    let l:autosave = 1
-    if exists('#autoSave#TextChanged')
-        autocmd! autoSave TextChanged,InsertLeave,FocusLost *
-        let l:autosave = 0
-    else
-        autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
-    endif
-    set lazyredraw!
-    echo "Toggled lazyredraw to: " &lazyredraw "and auto-save to: " l:autosave
-endfunction
-
 
 " Terminal specific tweaks.
 "
@@ -310,8 +310,10 @@ noremap <F4> @q
 noremap <F5> :call Spelling()<CR>
 noremap <F6> :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 "noremap <F7>
-"noremap <F8>
-noremap <F9> :call ToggleMacroMode()<CR>
+noremap <F8> o<C-r>*<Esc>
+inoremap <F8> <C-o>o<C-r>*
+noremap <F9> :call MacroMode()<CR>
+"noremap <F10>
 noremap <F11> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
