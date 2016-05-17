@@ -1,4 +1,22 @@
-require 'hirb'
+# Useful pry features.
+#
+#   Shell commands are prepended with a dot:
+#     pry> .ls 
+#   Shell mode list path in prompt:
+#     pry> shell-mode
+#     pry :~ $ 
+#   Save an unnamed object to an object:
+#     pry> [1, 2, 3]
+#     pry> x = _
+#     pry> x 
+#     [1, 2, 3]
+#   List Rails models:
+#     pry> show-models
+#   Show Rails routes:
+#     pry> show-routes
+
+require "hirb"
+
 
 # Enable Hirb for nicer object display, especially table-based objects.
 #
@@ -45,9 +63,10 @@ end
 
 # Setup aliases.
 #
-Pry.commands.alias_command 'b', 'break'
-Pry.commands.alias_command 'c', 'continue'
-Pry.commands.alias_command 'f', 'finish'
-Pry.commands.alias_command 'n', 'next'
-Pry.commands.alias_command 's', 'step'
-Pry.commands.alias_command 'src', 'show-source'
+Pry.commands.alias_command "b", "break"
+Pry.commands.alias_command "c", "continue"
+Pry.commands.alias_command "f", "finish"
+Pry.commands.alias_command "n", "next"
+Pry.commands.alias_command "s", "step"
+Pry.commands.alias_command "src", "show-source"
+Pry.commands.alias_command "doc", "show-doc"
