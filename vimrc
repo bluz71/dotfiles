@@ -310,8 +310,8 @@ noremap <F4> @q
 noremap <F5> :call Spelling()<CR>
 noremap <F6> :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
 "noremap <F7>
-noremap <F8> o<C-r>*<Esc>
-inoremap <F8> <C-o>o<C-r>*
+noremap <F8> :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
+inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
 noremap <F9> :call MacroMode()<CR>
 "noremap <F10>
 noremap <F11> :call Highlighting()<CR>
