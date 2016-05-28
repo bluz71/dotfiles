@@ -133,7 +133,7 @@ path()
     elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
     fi
-    PATH=~/local/bin:~/scripts:'.':$PATH
+    PATH=~/local/bin:~/scripts:$PATH
 }
 
 prompt()
