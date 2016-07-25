@@ -59,6 +59,7 @@ set formatoptions=cq
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
 set listchars=eol:$,tab:>-,trail:-
 set mousehide
 set nobackup
@@ -76,7 +77,7 @@ set shiftwidth=4
 set smartcase
 set smarttab
 set splitbelow
-set synmaxcol=120
+set synmaxcol=160
 set t_Co=256
 set tabstop=4
 set textwidth=79
@@ -148,7 +149,7 @@ function! Spelling()
 endfunction
 
 " Toggle macro mode. For maximum performance, when invoking a macro, it is
-" best to enable lazyredraw and disable file auto-saving.
+" best to disable file auto-saving.
 "
 function! MacroMode()
     let l:autosave = 1
@@ -158,8 +159,11 @@ function! MacroMode()
     else
         autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
     endif
-    set lazyredraw!
-    echo "Toggled lazyredraw to: " &lazyredraw "and auto-save to: " l:autosave
+    if l:autosave == 1
+        echo "Enabled auto-save"
+    else
+        echo "Disabled auto-save"
+    endif
 endfunction
 
 " Set the local status line depending on the specified mode.
