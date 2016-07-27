@@ -77,7 +77,7 @@ set shiftwidth=4
 set smartcase
 set smarttab
 set splitbelow
-set synmaxcol=160
+set synmaxcol=200
 set t_Co=256
 set tabstop=4
 set textwidth=79
