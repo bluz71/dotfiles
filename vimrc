@@ -449,7 +449,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " for the vim-go plugin.
 
     " JavaScript and CoffeeScript support.
-    Plugin 'jelera/vim-javascript-syntax'
+    Plugin 'pangloss/vim-javascript'
     Plugin 'kchmck/vim-coffee-script'
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
