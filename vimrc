@@ -283,6 +283,8 @@ endif
 
 " Keyboard mappings.
 "
+inoremap ` <Esc>
+noremap  ` <Esc>
 noremap <C-Right> ;
 noremap <C-Left> ,
 noremap ; :
