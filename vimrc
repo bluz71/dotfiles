@@ -48,6 +48,7 @@ syntax on
 set autowrite
 set background=dark
 set backspace=indent,eol,start
+set breakindent
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 else
@@ -69,11 +70,11 @@ set noshowcmd
 set noshowmatch
 set noshowmode
 set noswapfile
-set nowrap
 set nowrapscan
 set path=.,~/projects/**
 set ruler
 set shiftwidth=4
+set showbreak=\\\\\
 set smartcase
 set smarttab
 set splitbelow
@@ -90,6 +91,7 @@ set ttymouse=xterm2
 set viminfo=
 " Disable beeps and flashes.
 set visualbell t_vb=
+set wrap
 
 
 " Some options should not be set in 'vi' or old versions of Vim.
@@ -104,11 +106,8 @@ if v:progname != "vi"
     set mouse=a
     set number
     set pumheight=35
-    if version >= 703
-        " Certain options are only available in Vim 7.3 and later.
-        set cryptmethod=blowfish2
-        set relativenumber
-    endif
+    set cryptmethod=blowfish2
+    set relativenumber
 endif
 
 
@@ -122,10 +121,6 @@ let g:normalMode = 1
 "
 function! Highlighting()
     set hlsearch!
-    if version < 703
-        " Only Vim 7.3 (and later) support the color column.
-        return
-    endif
     if &hlsearch == "nohlsearch"
         setlocal colorcolumn=81,82,83
     else
