@@ -115,13 +115,13 @@ PROMPT_DIRTRIM=4
 #
 libraryPath()
 {
-    export LD_LIBRARY_PATH=~/local/lib:/usr/local/lib
+    export LD_LIBRARY_PATH=/usr/local/lib
 }
 
 path()
 {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-    export MANPATH=~/local/man:/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
+    export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
     if [ $OS = Darwin ]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
@@ -143,7 +143,7 @@ path()
     elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
     fi
-    PATH=~/local/bin:~/scripts:$PATH
+    PATH=~/scripts:$PATH
 }
 
 prompt()
