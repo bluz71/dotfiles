@@ -71,7 +71,7 @@ set noshowmatch
 set noshowmode
 set noswapfile
 set nowrapscan
-set path=.,~/projects/**
+set path=**
 set ruler
 set shiftwidth=4
 set showbreak=\\\\\
@@ -300,6 +300,11 @@ noremap Y y$
 " Move vertically by visual line.
 noremap j gj
 noremap k gk
+" Nicer completion mappings when in insert mode.
+" ] - complete from tags file
+" l - complete line
+inoremap <C-]> <C-x><C-]>
+inoremap <C-l> <C-x><C-l>
 " Navigate between multiple opened files.
 noremap <Space><Right> :n<CR>
 noremap <Space><Left> :N<CR>
