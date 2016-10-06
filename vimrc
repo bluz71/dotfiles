@@ -341,6 +341,13 @@ noremap <leader>p "yp
 noremap <leader>P "yP
 " Regenerate tags file.
 noremap <leader>tt :!ctags -R --exclude=.git --exclude=log .<CR>
+" Skeletons/Templates support.
+if has('win32') || has ('win64')
+    let $VIMHOME = $VIM."/vimfiles"
+else
+    let $VIMHOME = $HOME."/.vim"
+endif
+nnoremap <leader>html :-1read $VIMHOME/skeletons/skeleton.html<CR>
 
 
 " Plugins via Vundle.
