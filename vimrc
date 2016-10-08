@@ -347,7 +347,7 @@ if has('win32') || has ('win64')
 else
     let $VIMHOME = $HOME."/.vim"
 endif
-nnoremap <leader>html :-1read $VIMHOME/skeletons/skeleton.html<CR>
+nnoremap <leader>khtml :read $VIMHOME/skeletons/skeleton.html<CR>
 
 
 " Plugins via Vundle.
