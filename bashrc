@@ -17,7 +17,7 @@ fi
 complete -o default -o nospace -F _git g
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
-alias gv=gvim
+alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
 alias h=history
 alias ha='history | ag'
@@ -43,7 +43,7 @@ alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd))'
 alias tt='ctags -R --exclude=.git --exclude=log .'
-alias v='stty -ixon && vim'
+alias v='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
 alias x=exit
 alias ..='cd ..'
