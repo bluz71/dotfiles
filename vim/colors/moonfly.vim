@@ -117,7 +117,7 @@ exec "highlight Constant ctermfg=13 guifg=" . s:purple
 " ifdef/endif.
 exec "highlight PreProc ctermfg=15 guifg=" . s:violet
 
-" Status and split lines.
+" Status, split and tab lines.
 exec "highlight StatusLine ctermbg=11 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:wheat . " gui=none"
 exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:dark_gray
@@ -128,6 +128,9 @@ exec "highlight User6 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=111 guifg=
 exec "highlight User7 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=2 guifg=" . s:green . " gui=none"
 exec "highlight StatusLineNC ctermbg=247 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:light_gray . " gui=none"
 exec "highlight VertSplit ctermbg=236 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:medium_gray
+exec "highlight Tabline ctermbg=236 guibg=" . s:medium_gray . " ctermfg=247 guifg=" . s:light_gray . " cterm=none gui=none"
+exec "highlight TablineSel ctermbg=236 guibg=" . s:medium_gray . " ctermfg=10 guifg=" . s:emerald
+exec "highlight TablineFill ctermbg=236 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:medium_gray
 
 " case in switch statement.
 exec "highlight Label ctermfg=6 guifg=" . s:turquoise

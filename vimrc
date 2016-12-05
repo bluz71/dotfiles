@@ -327,10 +327,21 @@ noremap <F12> :set list!<CR>
 noremap <leader>m :make<CR>
 noremap <leader><Up> :cp<CR>
 noremap <leader><Down> :cn<CR>
-" Splitting/tabbing and closing.
+" Splitting and closing.
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
+" Tabbing.
+noremap tn :tabnew<CR>
+noremap tc :tabclose<CR>
+noremap th :tabprev<CR>
+noremap tl :tabnext<CR>
+noremap t1 1gt
+noremap t2 2gt
+noremap t3 3gt
+noremap t4 4gt
+noremap t5 5gt
+noremap t6 6gt
 " Folding.
 nnoremap <leader><Space> za
 " Equalize split sizes.
@@ -509,6 +520,9 @@ if exists("g:vundle#bundles")
     " Play nice with other plugins and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+    Plugin 'gcmt/taboo.vim'
+    let g:taboo_tab_format = " %N:%P%m "
 
     " Finalize Vundle.
     call vundle#end()

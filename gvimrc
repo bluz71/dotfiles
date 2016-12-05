@@ -10,6 +10,8 @@ set guioptions-=T
 set guioptions-=r
 " Disable left scrollbar.
 set guioptions-=L
+" Disable GUI tab menu.
+set guioptions-=e
 " Enable console dialogs.
 set guioptions+=c
 " Disable beeps and flashes.
