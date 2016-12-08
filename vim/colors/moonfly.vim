@@ -129,7 +129,7 @@ exec "highlight User7 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=2 guifg=" 
 exec "highlight StatusLineNC ctermbg=247 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:light_gray . " gui=none"
 exec "highlight VertSplit ctermbg=236 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:medium_gray
 exec "highlight Tabline ctermbg=236 guibg=" . s:medium_gray . " ctermfg=247 guifg=" . s:light_gray . " cterm=none gui=none"
-exec "highlight TablineSel ctermbg=236 guibg=" . s:medium_gray . " ctermfg=10 guifg=" . s:emerald
+exec "highlight TablineSel ctermbg=236 guibg=" . s:medium_gray . " ctermfg=10 guifg=" . s:emerald . " gui=none"
 exec "highlight TablineFill ctermbg=236 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:medium_gray
 
 " case in switch statement.
