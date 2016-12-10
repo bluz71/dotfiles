@@ -428,9 +428,13 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     endif
 
-    " Ruby support, including code completion and automatic end insertion.
+    " Ruby support, including code completion, ctags for gems and automatic
+    " end insertion.
+    " 
+    " Run 'gem ctags' to generate ctags for installed gems (only required once only).
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-endwise'
+    Plugin 'tpope/vim-bundler'
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
     let g:rubycomplete_rails = 1
