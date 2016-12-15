@@ -526,7 +526,7 @@ if exists("g:vundle#bundles")
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
     Plugin 'gcmt/taboo.vim'
-    let g:taboo_tab_format = " %N:%P%m "
+    let g:taboo_tab_format = " tab:%N%m "
 
     " Finalize Vundle.
     call vundle#end()
