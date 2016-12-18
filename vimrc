@@ -325,8 +325,10 @@ noremap <F11> :call Highlighting()<CR>
 noremap <F12> :set list!<CR>
 " Quickfix related mappings.
 noremap <leader>m :make<CR>
-noremap <leader><Up> :cp<CR>
-noremap <leader><Down> :cn<CR>
+noremap <leader>co :copen<CR>
+noremap <leader>cc :cclose<CR>
+noremap <leader>cn :cn<CR>
+noremap <leader>cp :cp<CR>
 " Splitting and closing.
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
@@ -452,9 +454,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     noremap <leader>ev :Eview<Space>
     noremap <leader>ec :Econtroller<Space>
     noremap <leader>eh :Ehelper<Space>
-    noremap <leader>etc :Efunctionaltest<Space>
-    noremap <leader>eti :Eintegrationtest<Space>
-    noremap <leader>etm :Eunittest<Space>
 
     " Rspec support.
     Plugin 'thoughtbot/vim-rspec'
