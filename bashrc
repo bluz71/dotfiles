@@ -129,7 +129,7 @@ path()
         # Setup chruby if available.
         if [ -f /usr/local/share/chruby/chruby.sh ]; then
             . /usr/local/share/chruby/chruby.sh
-            chruby 2.3.1
+            chruby 2.3.3
         fi
     elif [ -d ~/.linuxbrew ]; then
         PATH=~/.linuxbrew/bin:$PATH
@@ -138,7 +138,7 @@ path()
         # Setup chruby if available.
         if [ -f ~/.linuxbrew/share/chruby/chruby.sh ]; then
             . ~/.linuxbrew/share/chruby/chruby.sh
-            chruby 2.3.1
+            chruby 2.3.3
         fi
     elif [ $OSTYPE = cygwin ]; then
         PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
