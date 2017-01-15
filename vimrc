@@ -474,6 +474,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " JavaScript and CoffeeScript support.
     Plugin 'pangloss/vim-javascript'
     Plugin 'kchmck/vim-coffee-script'
+
+    " Elixir support
+    Plugin 'elixir-lang/vim-elixir'
 elseif has("win32") || has("win32unix") && v:progname != "vi"
     " Initialize Vundle.
     filetype off
