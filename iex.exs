@@ -1,8 +1,8 @@
 IEx.configure(
-  colors: [eval_result: [:blue, :bright]],
+  colors: [eval_result: [:green, :bright]],
   default_prompt: [
     "\e[G",
-    [:green, :bright],
+    [:blue],
     "%prefix(%counter)",
     ">",
     :reset
