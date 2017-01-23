@@ -245,6 +245,9 @@ exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight rubyPseudoVariable ctermfg=2 guifg=" . s:green
 exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
+" For Elixir
+exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
+
 " For JavaScript.
 exec "highlight javaScript ctermfg=fg guifg=fg"
 exec "highlight javaScriptBoolean ctermfg=6 guifg=" . s:turquoise
