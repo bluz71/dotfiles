@@ -246,7 +246,10 @@ exec "highlight rubyPseudoVariable ctermfg=2 guifg=" . s:green
 exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
 " For Elixir
+exec "highlight elixirBlockDefinition ctermfg=7 guifg=" . s:orange
+exec "highlight elixirKernelFunction ctermfg=2 guifg=" . s:green
 exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
+exec "highlight elixirPrivateDefine ctermfg=14 guifg=" . s:light_green
 
 " For JavaScript.
 exec "highlight javaScript ctermfg=fg guifg=fg"
