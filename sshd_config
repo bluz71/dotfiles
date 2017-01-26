@@ -5,6 +5,9 @@
 # Background information: 
 #   https://stribika.github.io/2015/01/04/secure-secure-shell.html
 #   http://chr4.org/blog/2014/09/13/howto-secure-openssh-newer-versions/
+#
+# NOTE: Please comment out ALL HostKey directives at the top of the sshd_config
+# file. We only want to support Ed25519.
 
 # OVERIDES
 PasswordAuthentication no

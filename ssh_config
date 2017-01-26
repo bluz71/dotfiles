@@ -5,6 +5,10 @@
 # Background: 
 #   https://stribika.github.io/2015/01/04/secure-secure-shell.html
 #   http://chr4.org/blog/2014/09/13/howto-secure-openssh-newer-versions/
+#
+# NOTE, use the following commands when dealing with hashed known_hosts:
+#   % ssh-keygen -F myhost # Find myhost in known_hosts
+#   % ssh-keygen -R myhost # Remove myhost from known_hosts
 
 Host github.com
   KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
