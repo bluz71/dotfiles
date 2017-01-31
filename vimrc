@@ -198,10 +198,10 @@ endfunction
 
 " Intelligently set color column and indent markers based upon buffer type.
 " For special buffers like: help, file list and diff we do not want color 
-" column and indent marker styling, but for normal buffers we do.
+" column and indent marker styling, but for normal buffers we usually do.
 "
 function! Styling()
-    if &diff || &buftype != "" || bufname("%") == "[BufExplorer]"
+    if &diff || &buftype != "" || bufname("%") == "[BufExplorer]" || &filetype == "markdown"
         setlocal conceallevel=0
         if &diff
             setlocal colorcolumn=0
@@ -599,8 +599,6 @@ augroup autoSave
     autocmd!
     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
 augroup END
-
-
 
 " Set the color scheme
 "
