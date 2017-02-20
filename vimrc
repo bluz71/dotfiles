@@ -205,7 +205,9 @@ function! Styling()
         setlocal conceallevel=0
         if &diff
             setlocal colorcolumn=0
-        endif
+        elseif &filetype == "markdown"
+            setlocal colorcolumn=81,82,83
+        end
     else
         setlocal colorcolumn=81,82,83
         if &conceallevel == 0
