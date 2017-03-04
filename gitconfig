@@ -34,3 +34,4 @@
 	vdi = difftool -t vd
 	dis = difftool --staged
 	vdis = difftool -t vd --staged
+	dsf = "!f() { git diff --color \"$@\" | diff-so-fancy | less; }; f"
