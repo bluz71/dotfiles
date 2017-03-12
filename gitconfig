@@ -1,37 +1,37 @@
 [user]
-	name = Dennis B
-	email = bluz71@users.noreply.github.com
+    name = Dennis B
+    email = bluz71@users.noreply.github.com
 [push]
-	default = simple
+    default = simple
 [core]
-	autocrlf = input
+    autocrlf = input
+    pager = diff-so-fancy | less
 [color]
-	ui = auto
+    ui = auto
 [diff]
-	tool = meld
-	# tool = opendiff (on OS X)
+    tool = meld
+    # tool = opendiff (on OS X)
 [merge]
-	tool = meld
-	# tool = opendiff (on OS X)
+    tool = meld
+    # tool = opendiff (on OS X)
 [difftool]
-	prompt = false
+    prompt = false
 [difftool "vd"]
-	cmd = stty -ixon && vimdiff "$LOCAL" "$REMOTE"
+    cmd = stty -ixon && vimdiff "$LOCAL" "$REMOTE"
 [mergetool]
-	keepBackup = false
+    keepBackup = false
 [alias]
-	ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
-	ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
-	st = status --short --branch
-	rso = remote show origin
-	bb = branch -vv
-	bd = branch -d
-	co = checkout
-	cob = checkout -b
-	ci = commit
-	sh = show
-	di = difftool
-	vdi = difftool -t vd
-	dis = difftool --staged
-	vdis = difftool -t vd --staged
-	dsf = "!f() { git diff --color \"$@\" | diff-so-fancy | less; }; f"
+    ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
+    ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
+    st = status --short --branch
+    rso = remote show origin
+    bb = branch -vv
+    bd = branch -d
+    co = checkout
+    cob = checkout -b
+    ci = commit
+    sh = show
+    di = difftool
+    vdi = difftool -t vd
+    dis = difftool --staged
+    vdis = difftool -t vd --staged
