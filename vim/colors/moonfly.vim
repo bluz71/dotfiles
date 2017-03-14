@@ -247,6 +247,7 @@ exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
 
 " For Elixir
 exec "highlight elixirBlockDefinition ctermfg=7 guifg=" . s:orange
+exec "highlight elixirBoolean ctermfg=6 guifg=" . s:turquoise
 exec "highlight elixirDocTest ctermfg=247 guifg=" . s:light_gray
 exec "highlight elixirExUnitMacro ctermfg=12 guifg=" . s:light_blue
 exec "highlight elixirExUnitAssert ctermfg=14 guifg=" . s:light_green
