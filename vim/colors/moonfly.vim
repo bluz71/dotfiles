@@ -253,8 +253,9 @@ exec "highlight elixirDocTest ctermfg=247 guifg=" . s:light_gray
 exec "highlight elixirExUnitMacro ctermfg=12 guifg=" . s:light_blue
 exec "highlight elixirExUnitAssert ctermfg=14 guifg=" . s:light_green
 exec "highlight elixirKernelFunction ctermfg=2 guifg=" . s:green
+exec "highlight elixirKeyword ctermfg=9 guifg=" . s:crimson
 exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
-exec "highlight elixirPrivateDefine ctermfg=15 guifg=" . s:violet
+exec "highlight elixirPrivateDefine ctermfg=8 guifg=" . s:coral
 
 " For JavaScript.
 exec "highlight javaScript ctermfg=fg guifg=fg"
