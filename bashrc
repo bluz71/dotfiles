@@ -87,6 +87,9 @@ elif [ $OSTYPE = cygwin ]; then
     export CYGWIN=nodosfilewarning
 fi
 
+# Custom bash completions.
+. ~/dotfiles/bash_completion.d/mix.sh
+
 # By default bash saves away too much history, set the history size to a saner
 # value.
 #
