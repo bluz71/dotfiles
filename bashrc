@@ -88,7 +88,7 @@ elif [ $OSTYPE = cygwin ]; then
 fi
 
 # Custom bash completions.
-. ~/dotfiles/bash_completion.d/mix.sh
+for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
 # By default bash saves away too much history, set the history size to a saner
 # value.
