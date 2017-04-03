@@ -201,11 +201,14 @@ endfunction
 " column and indent marker styling, but for normal buffers we usually do.
 "
 function! Styling()
-    if &diff || &buftype != "" || bufname("%") == "[BufExplorer]" || &filetype == "markdown"
+    " Disable conceal for the Vim Markdown and JSON syntax highlighters which
+    " both use conceal in non-satisfactory ways.
+    if &diff || &buftype != "" || bufname("%") == "[BufExplorer]" || 
+                \ &filetype == "markdown" || &filetype == "json"
         setlocal conceallevel=0
         if &diff
             setlocal colorcolumn=0
-        elseif &filetype == "markdown"
+        elseif &filetype == "markdown" || &filetype == "json"
             setlocal colorcolumn=81,82,83
         end
     else
@@ -437,7 +440,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " 
     " Run 'gem ctags' to generate ctags for installed gems (only required once only).
     Plugin 'vim-ruby/vim-ruby'
-    Plugin 'tpope/vim-endwise'
     Plugin 'tpope/vim-bundler'
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
@@ -497,6 +499,8 @@ endif
 " Platform independent plugins and customizations.
 "
 if exists("g:vundle#bundles")
+    Plugin 'cohama/lexima.vim'
+
     Plugin 'nelstrom/vim-visual-star-search'
 
     Plugin 'tpope/vim-commentary'

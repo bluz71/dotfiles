@@ -270,6 +270,8 @@ exec "highlight javaScriptOperator ctermfg=9 guifg=" . s:crimson
 exec "highlight javaScriptParens ctermfg=fg guifg=fg"
 exec "highlight javaScriptReserved ctermfg=7 guifg=" . s:orange
 exec "highlight javaScriptStatement ctermfg=8 guifg=" . s:coral
+exec "highlight jsObjectKey ctermfg=10 guifg=" . s:emerald
+exec "highlight jsObjectValue ctermfg=10 guifg=" . s:emerald
 
 " For CoffeeScript
 exec "highlight coffeeBoolean ctermfg=3 guifg=" . s:khaki
