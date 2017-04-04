@@ -266,15 +266,17 @@ endfunction
 " Terminal specific tweaks.
 "
 if !has("gui_running")
+    " if tmux
     if &term == 'screen-256color'
-        " Change the cursor to an I-beam when in insert mode
+        " Change the cursor to an I-beam when in insert mode.
         let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
         let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
         " Make CTRL-Left/Right work inside tmux.
         execute "set <xRight>=\e[1;*C"
         execute "set <xLeft>=\e[1;*D"
+    " else not tmux
     else
-        " Change the cursor to an I-beam when in insert mode
+        " Change the cursor to an I-beam when in insert mode.
         let &t_SI = "\e[6 q"
         let &t_EI = "\e[2 q"
     endif
@@ -283,8 +285,8 @@ endif
 
 " Keyboard mappings.
 "
-inoremap ` <Esc>
-noremap  ` <Esc>
+" inoremap ` <Esc>
+" noremap  ` <Esc>
 noremap <C-Right> ;
 noremap <C-Left> ,
 noremap ; :
@@ -305,6 +307,8 @@ noremap Y y$
 " Move vertically by visual line.
 noremap j gj
 noremap k gk
+" Delete previous word when in insert mode.
+inoremap <C-b> <C-O>diw
 " Nicer completion mappings when in insert mode.
 " ] - complete from tags file
 " l - complete line
@@ -499,12 +503,24 @@ endif
 " Platform independent plugins and customizations.
 "
 if exists("g:vundle#bundles")
-    Plugin 'cohama/lexima.vim'
-
     Plugin 'nelstrom/vim-visual-star-search'
-
+    Plugin 'tpope/vim-endwise'
     Plugin 'tpope/vim-commentary'
-    " Use 'gc' to comment or uncomment a block.
+
+    Plugin 'tpope/vim-surround'
+    " Normal mode
+    " -----------
+    " ds<surround>  - delete a surround
+    " cs<old><new>  - change a surround
+    " 
+    " Visual mode
+    " -----------
+    " S - add a surround
+    " 
+    " Insert mode
+    " -----------
+    " <CTRL-s>         - add a surround
+    " <CTRL-s><CTRL-s> - add a new line + surround + indent
 
     Plugin 'jlanzarotta/bufexplorer'
     noremap <leader>l :BufExplorer<CR>
