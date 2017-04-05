@@ -523,6 +523,7 @@ if exists("g:vundle#bundles")
     " <CTRL-s><CTRL-s> - add a new line + surround + indent
 
     Plugin 'jlanzarotta/bufexplorer'
+    let g:bufExplorerFindActive = 0
     noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'
