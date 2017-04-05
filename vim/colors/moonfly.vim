@@ -16,7 +16,7 @@ let s:khaki       = "#e3c78a"
 let s:orange      = "#de935f"
 let s:coral       = "#f09479"
 let s:light_green = "#85dc85"
-let s:green       = "#89bb25"
+let s:green       = "#8cc85f"
 let s:emerald     = "#42cf89"
 let s:blue        = "#80a0ff"
 let s:sky_blue    = "#87afff"
@@ -24,7 +24,7 @@ let s:light_blue  = "#89d2ef"
 let s:turquoise   = "#7ee0ce"
 let s:purple      = "#ae81ff"
 let s:violet      = "#e2637f"
-let s:magenta     = "#ee82ee"
+let s:magenta     = "#ce76e8"
 let s:crimson     = "#fe3b7b"
 let s:red         = "#ff5454"
 
@@ -35,10 +35,10 @@ let s:red         = "#ff5454"
 "
 " xterm-moonfly*color0: #373c40
 " xterm-moonfly*color1: #ff5454
-" xterm-moonfly*color2: #89bb25
+" xterm-moonfly*color2: #8cc85f
 " xterm-moonfly*color3: #e3c78a
 " xterm-moonfly*color4: #80a0ff
-" xterm-moonfly*color5: #ee82ee
+" xterm-moonfly*color5: #ce76e8
 " xterm-moonfly*color6: #7ee0ce
 " xterm-moonfly*color7: #de935f
 " xterm-moonfly*color8: #f09479
@@ -253,23 +253,11 @@ exec "highlight elixirDocTest ctermfg=247 guifg=" . s:light_gray
 exec "highlight elixirExUnitMacro ctermfg=12 guifg=" . s:light_blue
 exec "highlight elixirExUnitAssert ctermfg=14 guifg=" . s:light_green
 exec "highlight elixirKernelFunction ctermfg=2 guifg=" . s:green
-exec "highlight elixirKeyword ctermfg=9 guifg=" . s:crimson
+exec "highlight elixirKeyword ctermfg=5 guifg=" . s:magenta
 exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
-exec "highlight elixirPrivateDefine ctermfg=8 guifg=" . s:coral
+exec "highlight elixirPrivateDefine ctermfg=2 guifg=" . s:green
 
 " For JavaScript.
-exec "highlight javaScript ctermfg=fg guifg=fg"
-exec "highlight javaScriptBoolean ctermfg=6 guifg=" . s:turquoise
-exec "highlight javaScriptExceptions ctermfg=9 guifg=" . s:crimson
-exec "highlight javaScriptFuncArg ctermfg=6 guifg=" . s:turquoise
-exec "highlight javaScriptFuncDef ctermfg=10 guifg=" . s:emerald
-exec "highlight javaScriptFuncKeyword ctermfg=4 guifg=" . s:blue
-exec "highlight javaScriptGlobalObjects ctermfg=10 guifg=" . s:emerald
-exec "highlight javaScriptIdentifier ctermfg=14 guifg=" . s:light_green
-exec "highlight javaScriptOperator ctermfg=9 guifg=" . s:crimson
-exec "highlight javaScriptParens ctermfg=fg guifg=fg"
-exec "highlight javaScriptReserved ctermfg=7 guifg=" . s:orange
-exec "highlight javaScriptStatement ctermfg=8 guifg=" . s:coral
 exec "highlight jsObjectKey ctermfg=10 guifg=" . s:emerald
 exec "highlight jsObjectValue ctermfg=10 guifg=" . s:emerald
 exec "highlight jsStorageClass ctermfg=14 guifg=" . s:light_green

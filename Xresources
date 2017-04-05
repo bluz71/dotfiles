@@ -10,7 +10,7 @@ xterm-moonfly*color0: #373c40
 xterm-moonfly*color1: #ff5454
 
 ! Green
-xterm-moonfly*color2: #89bb25
+xterm-moonfly*color2: #8cc85f
 
 ! Khaki (usually defined as 'Yellow')
 xterm-moonfly*color3: #e3c78a
@@ -19,7 +19,7 @@ xterm-moonfly*color3: #e3c78a
 xterm-moonfly*color4: #80a0ff
 
 ! Magenta
-xterm-moonfly*color5: #ee82ee
+xterm-moonfly*color5: #ce76e8
 
 ! Turquoise (usually defined as 'Cyan')
 xterm-moonfly*color6: #7ee0ce
