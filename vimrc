@@ -370,6 +370,7 @@ else
     let $VIMHOME = $HOME."/.vim"
 endif
 nnoremap <leader>khtml :read $VIMHOME/skeletons/skeleton.html<CR>
+nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 
 
 " Plugins via Vundle.
