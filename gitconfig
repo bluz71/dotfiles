@@ -11,6 +11,8 @@
 [diff]
     tool = meld
     # tool = opendiff (on OS X)
+    # see https://yousseb.github.io/meld/
+    #     https://stackoverflow.com/questions/24743707/platform-specific-git-configuration-files
 [merge]
     tool = meld
     # tool = opendiff (on OS X)
