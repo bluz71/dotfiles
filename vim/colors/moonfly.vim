@@ -1,11 +1,10 @@
 " Vim color file
 "
-" Note: Inspiration taken from: monokai, molokai, slate2, sunburst, twilight
-" and xoria256 themes.
+" Note: Inspiration taken from: monokai, molokai, slate2, sunburst, twilight,
+" xoria256 and One Dark themes.
 
 let s:black       = "#080808"
-let s:white       = "#d0d0d0"
-let s:pale_white  = "#c6c6c6"
+let s:white       = "#c6c6c6"
 let s:light_gray  = "#9e9e9e"
 let s:dim_gray    = "#373c40"
 let s:medium_gray = "#303030"
@@ -20,7 +19,7 @@ let s:green       = "#8cc85f"
 let s:emerald     = "#42cf89"
 let s:blue        = "#80a0ff"
 let s:sky_blue    = "#87afff"
-let s:light_blue  = "#89d2ef"
+let s:light_blue  = "#78c2ff"
 let s:turquoise   = "#7ee0ce"
 let s:purple      = "#ae81ff"
 let s:violet      = "#e2637f"
@@ -45,14 +44,13 @@ let s:red         = "#ff5454"
 " xterm-moonfly*color9: #fe3b7b
 " xterm-moonfly*color10: #42cf89
 " xterm-moonfly*color11: #cfcfb0
-" xterm-moonfly*color12: #89d2ef
+" xterm-moonfly*color12: #78c2ff
 " xterm-moonfly*color13: #ae81ff
 " xterm-moonfly*color14: #85dc85
 " xterm-moonfly*color15: #e2637f
 "
 " black       = 232
-" white       = 252
-" pale_white  = 251
+" white       = 251
 " light_gray  = 247
 " dim_gray    = 0
 " medium_gray = 236
@@ -85,7 +83,7 @@ let g:colors_name="moonfly"
 
 
 " Background and text.
-exec "highlight Normal ctermbg=232 guibg=" . s:black . "  ctermfg=252 guifg=" . s:white
+exec "highlight Normal ctermbg=232 guibg=" . s:black . "  ctermfg=251 guifg=" . s:white
 
 " Color of mode text, -- INSERT --
 exec "highlight ModeMsg ctermfg=247 guifg=" . s:light_gray . " gui=none"
@@ -123,7 +121,7 @@ exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:dar
 exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:dark_gray
 exec "highlight User4 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=10 guifg=" . s:emerald . " gui=none"
-exec "highlight User5 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=251 guifg=" . s:pale_white . " gui=none"
+exec "highlight User5 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=251 guifg=" . s:white . " gui=none"
 exec "highlight User6 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
 exec "highlight User7 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=2 guifg=" . s:green . " gui=none"
 exec "highlight StatusLineNC ctermbg=247 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:light_gray . " gui=none"
@@ -183,8 +181,8 @@ exec "highlight SpellLocal ctermbg=12 guibg=" . s:light_blue . " ctermfg=236 gui
 exec "highlight Question ctermfg=14 guifg=" . s:light_green . " gui=none"
 exec "highlight MoreMsg ctermfg=1 guifg=" . s:red . " gui=none"
 exec "highlight LineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray
-exec "highlight Cursor guifg=bg guibg=" . s:pale_white
-exec "highlight lCursor guifg=bg guibg=" . s:pale_white
+exec "highlight Cursor guifg=bg guibg=" . s:white
+exec "highlight lCursor guifg=bg guibg=" . s:white
 exec "highlight CursorLineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray . " gui=none"
 exec "highlight CursorLine ctermbg=238 guibg=" . s:gray . " cterm=none"
 exec "highlight Folded ctermbg=234 guibg=" . s:dark_gray . " ctermfg=14 guifg=". s:light_green
@@ -256,6 +254,7 @@ exec "highlight elixirKernelFunction ctermfg=2 guifg=" . s:green
 exec "highlight elixirKeyword ctermfg=5 guifg=" . s:magenta
 exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
 exec "highlight elixirPrivateDefine ctermfg=2 guifg=" . s:green
+exec "highlight elixirVariable ctermfg=8 guifg=" . s:coral
 
 " For JavaScript.
 exec "highlight jsObjectKey ctermfg=10 guifg=" . s:emerald
@@ -306,7 +305,7 @@ exec "highlight rustTrait ctermfg=10 guifg=" . s:emerald
 exec "highlight rustType ctermfg=8 guifg=" . s:coral
 
 " For Java.
-exec "highlight javaBraces ctermfg=252 guifg=" . s:white
+exec "highlight javaBraces ctermfg=251 guifg=" . s:white
 exec "highlight javaClassDecl ctermfg=10 guifg=" . s:emerald
 exec "highlight javaCommentTitle ctermfg=247 guifg=" . s:light_gray
 exec "highlight javaConstant ctermfg=12 guifg=" . s:light_blue
@@ -333,7 +332,7 @@ exec "highlight htmlUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=2
 " For vimdiff.
 exec "highlight DiffAdd ctermbg=10 guibg=" . s:emerald . " ctermfg=bg guifg=bg"
 exec "highlight DiffChange ctermbg=236 guibg=" . s:medium_gray
-exec "highlight DiffDelete ctermbg=236 guibg=" . s:medium_gray . " ctermfg=252 guifg=fg gui=none"
+exec "highlight DiffDelete ctermbg=236 guibg=" . s:medium_gray . " ctermfg=251 guifg=fg gui=none"
 exec "highlight DiffText ctermbg=4 guibg=" . s:blue . " ctermfg=bg guifg=bg gui=none"
 
 " For vim files.

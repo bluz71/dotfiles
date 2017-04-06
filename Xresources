@@ -40,7 +40,7 @@ xterm-moonfly*color10: #42cf89
 xterm-moonfly*color11: #cfcfb0
 
 ! Light blue (usually defined as 'Bold Blue')
-xterm-moonfly*color12: #89d2ef
+xterm-moonfly*color12: #78c2ff
 
 ! Purple (usually defined as 'Bold Magenta')
 xterm-moonfly*color13: #ae81ff
