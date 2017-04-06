@@ -540,10 +540,7 @@ if exists("g:vundle#bundles")
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable = "+"
     let g:NERDTreeDirArrowCollapsible = "~"
-    " Only display the base directory name in the NERDTree status line.
-    " Displaying the full working path, which is the NERDTree default, results
-    " in ugly scrolled text.
-    let NERDTreeStatusline = " %{ fnamemodify(getcwd(), ':t') }"
+    let NERDTreeStatusline = " NERDTree "
     noremap <leader>n :NERDTreeToggle<CR>
 
     Plugin 'ervandew/supertab'

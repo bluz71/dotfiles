@@ -256,8 +256,11 @@ exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
 exec "highlight elixirPrivateDefine ctermfg=2 guifg=" . s:green
 exec "highlight elixirVariable ctermfg=8 guifg=" . s:coral
 
-" For JavaScript.
-exec "highlight jsObjectKey ctermfg=10 guifg=" . s:emerald
+" For JavaScript 'pangloss/vim-javascript' Plugin.
+exec "highlight jsFuncBlock ctermfg=12 guifg=" . s:light_blue
+exec "highlight jsFuncCall ctermfg=12 guifg=" . s:light_blue
+exec "highlight jsGlobalObjects ctermfg=10 guifg=" . s:emerald
+exec "highlight jsObjectKey ctermfg=3 guifg=" . s:khaki
 exec "highlight jsObjectValue ctermfg=10 guifg=" . s:emerald
 exec "highlight jsStorageClass ctermfg=14 guifg=" . s:light_green
 exec "highlight jsTemplateExpression ctermfg=6 guifg=" . s:turquoise
