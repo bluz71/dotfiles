@@ -525,6 +525,7 @@ if exists("g:vundle#bundles")
 
     Plugin 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive = 0
+    let g:bufExplorerShowRelativePath=1
     noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'

@@ -230,6 +230,7 @@ exec "highlight pythonRepeat ctermfg=7 guifg=" . s:orange
 exec "highlight pythonStatement ctermfg=14 guifg=" s:light_green
 
 " For Ruby.
+exec "highlight erubyDelimiter ctermfg=9 guifg=" . s:crimson
 exec "highlight rubyAccess ctermfg=3 guifg=" . s:khaki
 exec "highlight rubyAttribute ctermfg=12 guifg=" . s:light_blue
 exec "highlight rubyBlockParameter ctermfg=2 guifg=" . s:green
@@ -242,18 +243,21 @@ exec "highlight rubyInstanceVariable ctermfg=14 guifg=" . s:light_green
 exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight rubyPseudoVariable ctermfg=2 guifg=" . s:green
 exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
+exec "highlight rubyStringDelimiter ctermfg=11 guifg=" . s:wheat
 
-" For Elixir
+" For Elixir.
+exec "highlight eelixirDelimiter ctermfg=9 guifg=" . s:crimson
 exec "highlight elixirBlockDefinition ctermfg=7 guifg=" . s:orange
 exec "highlight elixirBoolean ctermfg=6 guifg=" . s:turquoise
 exec "highlight elixirDefine ctermfg=14 guifg=" . s:light_green
 exec "highlight elixirDocTest ctermfg=247 guifg=" . s:light_gray
-exec "highlight elixirExUnitMacro ctermfg=12 guifg=" . s:light_blue
 exec "highlight elixirExUnitAssert ctermfg=14 guifg=" . s:light_green
+exec "highlight elixirExUnitMacro ctermfg=12 guifg=" . s:light_blue
 exec "highlight elixirKernelFunction ctermfg=2 guifg=" . s:green
 exec "highlight elixirKeyword ctermfg=5 guifg=" . s:magenta
 exec "highlight elixirModuleDefine ctermfg=4 guifg=" . s:blue
 exec "highlight elixirPrivateDefine ctermfg=2 guifg=" . s:green
+exec "highlight elixirStringDelimiter ctermfg=11 guifg=" . s:wheat
 exec "highlight elixirVariable ctermfg=8 guifg=" . s:coral
 
 " For JavaScript 'pangloss/vim-javascript' Plugin.
@@ -367,3 +371,5 @@ exec "highlight Directory ctermfg=10 guifg=" . s:emerald
 exec "highlight CtrlPMatch ctermfg=13 guifg=" . s:purple
 exec "highlight tagName ctermfg=6 guifg=" . s:turquoise
 exec "highlight xmlEndTag ctermfg=6 guifg=" . s:turquoise
+exec "highlight bufExplorerHelp ctermfg=247 guifg=" . s:light_gray
+exec "highlight bufExplorerSortBy ctermfg=247 guifg=" . s:light_gray
