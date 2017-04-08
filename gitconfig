@@ -10,12 +10,8 @@
     ui = auto
 [diff]
     tool = meld
-    # tool = opendiff (on OS X)
-    # see https://yousseb.github.io/meld/
-    #     https://stackoverflow.com/questions/24743707/platform-specific-git-configuration-files
 [merge]
     tool = meld
-    # tool = opendiff (on OS X)
 [difftool]
     prompt = false
 [difftool "vd"]
@@ -33,7 +29,9 @@
     cob = checkout -b
     ci = commit
     sh = show
-    di = difftool
+    di = diff
+    mdi = difftool
     vdi = difftool -t vd
-    dis = difftool --staged
+    dis = diff --staged
+    mdis = difftool --staged
     vdis = difftool -t vd --staged

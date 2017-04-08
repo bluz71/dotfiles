@@ -7,6 +7,7 @@ unalias -a
 alias agm='ag --pager=less'
 alias be='bundle exec'
 alias cp='/bin/cp -i'
+alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
 alias g=git
@@ -76,12 +77,10 @@ export OS=`uname`
 # Customizations per platform.
 #
 if [ $OS = Linux ]; then
-    alias di='meld 2>/dev/null'
     alias xr='xreader'
     alias xv='xviewer'
     . ~/.linuxbrew/etc/bash_completion
 elif [ $OS = Darwin ]; then
-    alias di='opendiff 2>/dev/null'
     . /usr/local/etc/bash_completion
 elif [ $OSTYPE = cygwin ]; then
     export CYGWIN=nodosfilewarning
