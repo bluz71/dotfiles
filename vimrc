@@ -122,7 +122,7 @@ let g:normalMode = 1
 function! Highlighting()
     set hlsearch!
     if &hlsearch == "nohlsearch"
-        setlocal colorcolumn=81,82,83
+        setlocal colorcolumn=81,82
     else
         setlocal colorcolumn=0
     endif
@@ -209,10 +209,10 @@ function! Styling()
         if &diff
             setlocal colorcolumn=0
         elseif &filetype == "markdown" || &filetype == "json"
-            setlocal colorcolumn=81,82,83
+            setlocal colorcolumn=81,82
         end
     else
-        setlocal colorcolumn=81,82,83
+        setlocal colorcolumn=81,82
         if &conceallevel == 0
             setlocal conceallevel=2
         endif
@@ -529,9 +529,11 @@ if exists("g:vundle#bundles")
     noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'
-    " Lighten the indent marker color.
-    let g:indentLine_color_term = 236
-    let g:indentLine_color_gui = "#303030"
+    let g:indentLine_char = '│'
+    let g:indentLine_color_term = 234
+    let g:indentLine_color_gui = "#1c1c1c"
+    let g:indentLine_faster = 1
+    let g:indentLine_concealcursor = ''
 
     Plugin 'scrooloose/nerdtree'
     " Show line numbers and make the NERDTree window a little wider.

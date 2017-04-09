@@ -10,6 +10,7 @@ let s:dim_gray    = "#373c40"
 let s:medium_gray = "#303030"
 let s:gray        = "#444444"
 let s:dark_gray   = "#1c1c1c"
+let s:dark_gray2  = "#121212"
 let s:wheat       = "#cfcfb0"
 let s:khaki       = "#e3c78a"
 let s:orange      = "#de935f"
@@ -56,6 +57,7 @@ let s:red         = "#ff5454"
 " medium_gray = 236
 " gray        = 238
 " dark_gray   = 234
+" dark_gray2  = 233
 " wheat       = 11
 " khaki       = 3
 " orange      = 7
@@ -184,7 +186,7 @@ exec "highlight LineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg="
 exec "highlight Cursor guifg=bg guibg=" . s:white
 exec "highlight lCursor guifg=bg guibg=" . s:white
 exec "highlight CursorLineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray . " gui=none"
-exec "highlight CursorLine ctermbg=238 guibg=" . s:gray . " cterm=none"
+exec "highlight CursorLine ctermbg=234 guibg=" . s:dark_gray . " cterm=none"
 exec "highlight Folded ctermbg=234 guibg=" . s:dark_gray . " ctermfg=14 guifg=". s:light_green
 exec "highlight FoldColumn ctermbg=236 guibg=" . s:medium_gray . " ctermfg=14 guifg=" . s:light_green
 exec "highlight SignColumn ctermbg=236 guibg=" . s:medium_gray . " ctermfg=14 guifg=" . s:light_green
@@ -193,7 +195,7 @@ exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=12 guifg=" . s:light_blue
 exec "highlight MatchParen ctermbg=31"
 
 " Color column (after line 80).
-exec "highlight ColorColumn ctermbg=234 guibg=" . s:dark_gray
+exec "highlight ColorColumn ctermbg=233 guibg=" . s:dark_gray2
 
 " For C/C++.
 "

@@ -58,7 +58,7 @@ xterm-moonfly*colorBD: #80a0ff
 xterm-moonfly*colorBDMode: on
 xterm-moonfly*colorUL: #42cf89
 xterm-moonfly*colorULMode: on
-xterm-moonfly*cursorColor: #c6c6c6
+xterm-moonfly*cursorColor: #949494
 xterm-moonfly*cutNewline: false
 xterm-moonfly*cutToBeginningOfLine: false
 xterm-moonfly*faceName: Inconsolata
