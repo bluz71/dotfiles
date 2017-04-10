@@ -63,7 +63,8 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
-set listchars=eol:$,tab:>-,trail:-
+set list
+set listchars=trail:.
 set mousehide
 set nobackup
 set nocompatible
@@ -116,6 +117,7 @@ endif
 " Set default value for the global variables.
 "
 let g:normalMode = 1
+let g:listMode = 1
 
 " Toggle highlighting and change color column if search highlighting has been
 " enabled since highlighting may result in weird display issues. If
@@ -142,6 +144,22 @@ function! Spelling()
     else
         set complete-=kspell
         echo "Spell mode disabled"
+    endif
+endfunction
+
+" Toggle special characters list display. By default we only wish to see
+" leading whitespaces as dots whilst other times we want to clearly display
+" tabs, spaces and end-of-lines.
+"
+function! Listing()
+    if g:listMode == 1
+        set listchars=eol:$,tab:>-,trail:-
+        highlight SpecialKey ctermfg=12 guifg=#78c2ff
+        let g:listMode = 0
+    else
+        set listchars=trail:.
+        highlight SpecialKey ctermfg=234 guifg=#1c1c1c
+        let g:listMode = 1
     endif
 endfunction
 
@@ -309,7 +327,7 @@ inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
 noremap <F9> :call MacroMode()<CR>
 "noremap <F10>
 noremap <F11> :call Highlighting()<CR>
-noremap <F12> :set list!<CR>
+noremap <F12> :call Listing()<CR>
 " Quickfix related mappings.
 noremap <leader>m :make<CR>
 noremap <leader>co :copen<CR>
@@ -528,7 +546,7 @@ if exists("g:vundle#bundles")
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : "*",
-                \ "Staged"    : "+",
+                \ "Staged"    : "@",
                 \ "Dirty"     : "!",
                 \ "Untracked" : "?",
                 \ "Renamed"   : ">",
@@ -567,8 +585,8 @@ augroup languageCustomizationsByType
     " Setup indent lines for tab formatted Golang code. Note, the indentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go set list listchars=tab:\¦\ 
-    autocmd FileType go highlight SpecialKey ctermbg=bg guibg=bg ctermfg=236 guifg=#303030
+    autocmd FileType go set list listchars=tab:\│\ 
+    autocmd FileType go highlight SpecialKey ctermbg=bg guibg=bg ctermfg=234 guifg=#1c1c1c
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html set shiftwidth=2 textwidth=999

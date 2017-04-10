@@ -191,7 +191,7 @@ exec "highlight Folded ctermbg=234 guibg=" . s:dark_gray . " ctermfg=14 guifg=".
 exec "highlight FoldColumn ctermbg=236 guibg=" . s:medium_gray . " ctermfg=14 guifg=" . s:light_green
 exec "highlight SignColumn ctermbg=236 guibg=" . s:medium_gray . " ctermfg=14 guifg=" . s:light_green
 exec "highlight Todo ctermbg=3 guibg=" . s:khaki . " ctermfg=bg guifg=bg"
-exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=12 guifg=" . s:light_blue
+exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=234 guifg=" . s:dark_gray
 exec "highlight MatchParen ctermbg=12 guibg=" . s:light_blue . " ctermfg=bg guifg=bg"
 
 " Color column (after line 80).
