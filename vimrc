@@ -402,7 +402,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     Plugin 'gmarik/Vundle.vim'
     Plugin 'stefandtw/quickfix-reflector.vim'
 
-    Plugin 'kien/ctrlp.vim'
+    Plugin 'ctrlpvim/ctrlp.vim'
     " Use ag in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     " Using ag is fast, we don't need to cache.
