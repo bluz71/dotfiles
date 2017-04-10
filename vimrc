@@ -54,7 +54,9 @@ if has('unnamedplus')
 else
     set clipboard=unnamed
 endif
+set colorcolumn=81,82
 set complete=.,w,b
+set conceallevel=2
 set expandtab
 set formatoptions=cq
 set ignorecase
@@ -196,29 +198,6 @@ function! StatusLine(mode)
     setlocal statusline+=%7*%P
 endfunction
 
-" Intelligently set color column and indent markers based upon buffer type.
-" For special buffers like: help, file list and diff we do not want color 
-" column and indent marker styling, but for normal buffers we usually do.
-"
-function! Styling()
-    " Disable conceal for the Vim Markdown and JSON syntax highlighters which
-    " both use conceal in non-satisfactory ways.
-    if &diff || &buftype != "" || bufname("%") == "[BufExplorer]" || 
-                \ &filetype == "markdown" || &filetype == "json"
-        setlocal conceallevel=0
-        if &diff
-            setlocal colorcolumn=0
-        elseif &filetype == "markdown" || &filetype == "json"
-            setlocal colorcolumn=81,82
-        end
-    else
-        setlocal colorcolumn=81,82
-        if &conceallevel == 0
-            setlocal conceallevel=2
-        endif
-    endif
-endfunction
-
 " Upon entering the NERDtree window do a root directoy refresh to automatically
 " pick up any file or directory changes.
 "
@@ -233,7 +212,6 @@ endfunction
 function! WindowFocus(mode)
     if a:mode == "Enter"
         call StatusLine("normal")
-        call Styling()
         call NERDTreeRefresh()
     elseif a:mode == "Leave"
         call StatusLine("not-current")
@@ -533,7 +511,8 @@ if exists("g:vundle#bundles")
     let g:indentLine_color_term = 234
     let g:indentLine_color_gui = "#1c1c1c"
     let g:indentLine_faster = 1
-    let g:indentLine_concealcursor = ''
+    let g:indentLine_concealcursor = ""
+    let g:indentLine_setConceal = 0
 
     Plugin 'scrooloose/nerdtree'
     " Show line numbers and make the NERDTree window a little wider.
@@ -610,8 +589,7 @@ augroup styleAndBehaviourCustomizations
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0
-    autocmd FilterWritePre * call Styling()
+    autocmd FileType help,json,markdown,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
     endif
