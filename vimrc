@@ -617,7 +617,8 @@ augroup styleAndBehaviourCustomizations
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,json,markdown,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
+    autocmd FileType help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
+    autocmd FileType json,markdown setlocal conceallevel=0
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
     endif
