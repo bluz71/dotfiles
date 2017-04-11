@@ -13,6 +13,7 @@
 "   M   move to middle of screen
 "   L   move to end of screen
 "   gi  move back to where you were last editing
+"   ge/gE   move to the end of the previous word/WORD
 "   Ctrl-e  scroll file up one line at a time
 "   Ctrl-y  scroll file down one line at a time
 "
@@ -445,7 +446,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " Use 'gf' mapping to navigate objects inside a Rails project, use CTRL-O
     " and CTRL-I to navigate backward and forward.
     "
-    " Use a visual selection in conjunction with ":Rextract <<partial-name>>"
+    " Use a visual selection in conjunction with ':Rextract <<partial-name>>'
     " to move a block of code from a view to a new partial.
     Plugin 'tpope/vim-rails'
     noremap <leader>em :Emodel<Space>
@@ -555,6 +556,10 @@ if exists("g:vundle#bundles")
     Plugin 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 
+    Plugin 'justinmk/vim-sneak'
+    let g:sneak#label = 1
+    " Use s<Enter> to repeat the last search.
+
     " Finalize Vundle.
     call vundle#end()
     filetype plugin indent on
@@ -576,7 +581,7 @@ augroup languageCustomizationsByType
     autocmd FileType coffee set shiftwidth=2
     autocmd FileType css set shiftwidth=2
     autocmd FileType eruby set formatoptions=cq shiftwidth=2
-    " Setup indent lines for tab formatted Golang code. Note, the indentLine 
+    " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
     autocmd FileType go set listchars=tab:\│\ 
@@ -614,7 +619,7 @@ augroup styleAndBehaviourCustomizations
     autocmd FileType help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
     if v:progname != "vi"
-        autocmd FileType * IndentLinesReset
+        autocmd Syntax * IndentLinesReset
     endif
 augroup END
 

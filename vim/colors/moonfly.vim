@@ -368,6 +368,12 @@ exec "highlight NERDTreeClosable ctermfg=8 guifg=" . s:coral
 exec "highlight NERDTreeCWD ctermfg=14 guifg=" . s:light_green
 exec "highlight NERDTreeHelp ctermfg=247 guifg=" . s:light_gray
 
+" For Sneak.
+exec "highlight Sneak ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
+exec "highlight SneakScope ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
+exec "highlight SneakLabel ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
+exec "highlight SneakLabelMask ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
+
 " Misc.
 exec "highlight Directory ctermfg=10 guifg=" . s:emerald
 exec "highlight CtrlPMatch ctermfg=13 guifg=" . s:purple
