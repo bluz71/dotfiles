@@ -171,7 +171,7 @@ exec "highlight Structure ctermfg=10 guifg=" . s:emerald
 
 " Auto-text-completion menu.
 exec "highlight Pmenu ctermbg=236 guibg=" . s:medium_gray . " ctermfg=fg guifg=fg"
-exec "highlight PmenuSel ctermbg=7 guibg=" . s:orange . " ctermfg=236 guifg=" . s:medium_gray
+exec "highlight PmenuSel ctermbg=2 guibg=" . s:green . " ctermfg=236 guifg=" . s:medium_gray
 
 " Spelling errors.
 exec "highlight SpellBad ctermbg=1 guibg=" . s:red . " ctermfg=236 guifg=" . s:medium_gray . " gui=none"
