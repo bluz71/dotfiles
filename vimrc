@@ -514,7 +514,8 @@ if exists("g:vundle#bundles")
 
     Plugin 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive = 0
-    let g:bufExplorerShowRelativePath=1
+    let g:bufExplorerShowRelativePath = 1
+    let g:bufExplorerSortBy = 'name'
     noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'
@@ -610,7 +611,7 @@ augroup styleAndBehaviourCustomizations
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType bufexplorer,help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
+    autocmd FileType help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
