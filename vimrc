@@ -325,8 +325,8 @@ noremap <F12> :call Listing()<CR>
 noremap <leader>m :make<CR>
 noremap <leader>co :copen<CR>
 noremap <leader>cc :cclose<CR>
-noremap <leader>cn :cn<CR>
-noremap <leader>cp :cp<CR>
+noremap <leader><Up> :cp<CR>
+noremap <leader><Down> :cn<CR>
 " Splitting and closing.
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
