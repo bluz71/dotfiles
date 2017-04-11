@@ -120,19 +120,6 @@ endif
 let g:normalMode = 1
 let g:listMode = 1
 
-" Toggle highlighting and change color column if search highlighting has been
-" enabled since highlighting may result in weird display issues. If
-" highlighting is disabled then restore the color column.
-"
-function! Highlighting()
-    set hlsearch!
-    if &hlsearch == "nohlsearch"
-        setlocal colorcolumn=81,82
-    else
-        setlocal colorcolumn=0
-    endif
-endfunction
-
 " Toggle spelling mode and add the dictionary to the completion list of
 " sources if spelling mode has been entered, otherwise remove it when
 " leaving spelling mode.
@@ -331,7 +318,7 @@ noremap <F8> :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
 noremap <F9> :call MacroMode()<CR>
 "noremap <F10>
-noremap <F11> :call Highlighting()<CR>
+noremap <F11> :set hlsearch!<CR>
 noremap <F12> :call Listing()<CR>
 " Quickfix related mappings.
 noremap <leader>m :make<CR>
