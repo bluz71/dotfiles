@@ -581,7 +581,8 @@ augroup languageCustomizationsByType
     autocmd FileType c,cpp set cindent foldmethod=syntax
     autocmd FileType coffee set shiftwidth=2
     autocmd FileType css set shiftwidth=2
-    autocmd FileType eruby set formatoptions=cq shiftwidth=2
+    autocmd FileType eelixir set matchpairs=(:),{:},[:]
+    autocmd FileType eruby set formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.

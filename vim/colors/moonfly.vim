@@ -5,12 +5,11 @@
 
 let s:black       = "#080808"
 let s:white       = "#c6c6c6"
-let s:light_gray  = "#9e9e9e"
-let s:dim_gray    = "#373c40"
-let s:medium_gray = "#303030"
-let s:gray        = "#444444"
-let s:dark_gray   = "#1c1c1c"
-let s:dark_gray2  = "#121212"
+let s:grey247     = "#9e9e9e"
+let s:grey0       = "#373c40"
+let s:grey236     = "#303030"
+let s:grey234     = "#1c1c1c"
+let s:grey233     = "#121212"
 let s:wheat       = "#cfcfb0"
 let s:khaki       = "#e3c78a"
 let s:orange      = "#de935f"
@@ -52,12 +51,11 @@ let s:red         = "#ff5454"
 "
 " black       = 232
 " white       = 251
-" light_gray  = 247
-" dim_gray    = 0
-" medium_gray = 236
-" gray        = 238
-" dark_gray   = 234
-" dark_gray2  = 233
+" grey247     = 247
+" grey0       = 0
+" grey236     = 236
+" grey234     = 234
+" grey233     = 233
 " wheat       = 11
 " khaki       = 3
 " orange      = 7
@@ -88,10 +86,10 @@ let g:colors_name="moonfly"
 exec "highlight Normal ctermbg=232 guibg=" . s:black . "  ctermfg=251 guifg=" . s:white
 
 " Color of mode text, -- INSERT --
-exec "highlight ModeMsg ctermfg=247 guifg=" . s:light_gray . " gui=none"
+exec "highlight ModeMsg ctermfg=247 guifg=" . s:grey247 . " gui=none"
 
 " Comments.
-exec "highlight Comment ctermfg=247 guifg=" . s:light_gray
+exec "highlight Comment ctermfg=247 guifg=" . s:grey247
 
 " Functions.
 exec "highlight Function ctermfg=12 guifg=" . s:light_blue
@@ -118,19 +116,19 @@ exec "highlight Constant ctermfg=13 guifg=" . s:purple
 exec "highlight PreProc ctermfg=15 guifg=" . s:violet
 
 " Status, split and tab lines.
-exec "highlight StatusLine ctermbg=11 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:wheat . " gui=none"
-exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:dark_gray
-exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:dark_gray
-exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:dark_gray
-exec "highlight User4 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=10 guifg=" . s:emerald . " gui=none"
-exec "highlight User5 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=251 guifg=" . s:white . " gui=none"
-exec "highlight User6 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
-exec "highlight User7 ctermbg=236 guibg=" . s:medium_gray . " ctermfg=2 guifg=" . s:green . " gui=none"
-exec "highlight StatusLineNC ctermbg=247 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:light_gray . " gui=none"
-exec "highlight VertSplit ctermbg=236 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:medium_gray
-exec "highlight Tabline ctermbg=236 guibg=" . s:medium_gray . " ctermfg=247 guifg=" . s:light_gray . " cterm=none gui=none"
-exec "highlight TablineSel ctermbg=236 guibg=" . s:medium_gray . " ctermfg=10 guifg=" . s:emerald . " gui=none"
-exec "highlight TablineFill ctermbg=236 guibg=" . s:medium_gray . " ctermfg=236 guifg=" . s:medium_gray
+exec "highlight StatusLine ctermbg=11 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:wheat . " gui=none"
+exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:grey234
+exec "highlight User2 ctermbg=10 guibg=" . s:emerald . " ctermfg=234 guifg=" . s:grey234
+exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:grey234
+exec "highlight User4 ctermbg=236 guibg=" . s:grey236 . " ctermfg=10 guifg=" . s:emerald . " gui=none"
+exec "highlight User5 ctermbg=236 guibg=" . s:grey236 . " ctermfg=251 guifg=" . s:white . " gui=none"
+exec "highlight User6 ctermbg=236 guibg=" . s:grey236 . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
+exec "highlight User7 ctermbg=236 guibg=" . s:grey236 . " ctermfg=2 guifg=" . s:green . " gui=none"
+exec "highlight StatusLineNC ctermbg=247 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey247 . " gui=none"
+exec "highlight VertSplit ctermbg=236 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey236
+exec "highlight Tabline ctermbg=236 guibg=" . s:grey236 . " ctermfg=247 guifg=" . s:grey247 . " cterm=none gui=none"
+exec "highlight TablineSel ctermbg=236 guibg=" . s:grey236 . " ctermfg=10 guifg=" . s:emerald . " gui=none"
+exec "highlight TablineFill ctermbg=236 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey236
 
 " case in switch statement.
 exec "highlight Label ctermfg=6 guifg=" . s:turquoise
@@ -155,8 +153,8 @@ exec "highlight Special ctermfg=15 guifg=" . s:violet
 exec "highlight Statement ctermfg=5 guifg=" . s:magenta . " gui=none"
 
 " Visual selection.
-exec "highlight Visual ctermbg=0 guibg=" . s:dim_gray
-exec "highlight VisualNOS ctermbg=9 guibg=" . s:dim_gray . " ctermfg=fg guifg=fg gui=none"
+exec "highlight Visual ctermbg=0 guibg=" . s:grey0
+exec "highlight VisualNOS ctermbg=9 guibg=" . s:grey0 . " ctermfg=fg guifg=fg gui=none"
 
 " Exceptions.
 exec "highlight Exception ctermfg=14 guifg=" . s:light_green
@@ -170,32 +168,33 @@ exec "highlight WarningMsg ctermbg=bg guibg=bg ctermfg=7 guifg=" . s:orange
 exec "highlight Structure ctermfg=10 guifg=" . s:emerald
 
 " Auto-text-completion menu.
-exec "highlight Pmenu ctermbg=236 guibg=" . s:medium_gray . " ctermfg=fg guifg=fg"
-exec "highlight PmenuSel ctermbg=2 guibg=" . s:green . " ctermfg=236 guifg=" . s:medium_gray
+exec "highlight Pmenu ctermbg=236 guibg=" . s:grey236 . " ctermfg=fg guifg=fg"
+exec "highlight PmenuSel ctermbg=2 guibg=" . s:green . " ctermfg=236 guifg=" . s:grey236
+exec "highlight WildMenu ctermbg=2 guibg=" . s:green . " ctermfg=236 guifg=" . s:grey236
 
 " Spelling errors.
-exec "highlight SpellBad ctermbg=1 guibg=" . s:red . " ctermfg=236 guifg=" . s:medium_gray . " gui=none"
-exec "highlight SpellCap ctermbg=4 guibg=" . s:blue . " ctermfg=236 guifg=" . s:medium_gray . " gui=none"
-exec "highlight SpellRare ctermbg=15 guibg=" . s:violet . " ctermfg=236 guifg=" . s:medium_gray . " gui=none"
-exec "highlight SpellLocal ctermbg=12 guibg=" . s:light_blue . " ctermfg=236 guifg=" . s:medium_gray . " gui=none"
+exec "highlight SpellBad ctermbg=1 guibg=" . s:red . " ctermfg=236 guifg=" . s:grey236 . " gui=none"
+exec "highlight SpellCap ctermbg=4 guibg=" . s:blue . " ctermfg=236 guifg=" . s:grey236 . " gui=none"
+exec "highlight SpellRare ctermbg=15 guibg=" . s:violet . " ctermfg=236 guifg=" . s:grey236 . " gui=none"
+exec "highlight SpellLocal ctermbg=12 guibg=" . s:light_blue . " ctermfg=236 guifg=" . s:grey236 . " gui=none"
 
 " Misc.
 exec "highlight Question ctermfg=14 guifg=" . s:light_green . " gui=none"
 exec "highlight MoreMsg ctermfg=1 guifg=" . s:red . " gui=none"
-exec "highlight LineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray
-exec "highlight Cursor guifg=bg guibg=" . s:light_gray
+exec "highlight LineNr ctermbg=234 guibg=" . s:grey234 . " ctermfg=247 guifg=" . s:grey247
+exec "highlight Cursor guifg=bg guibg=" . s:grey247
 exec "highlight lCursor guifg=bg guibg=" . s:white
-exec "highlight CursorLineNr ctermbg=234 guibg=" . s:dark_gray . " ctermfg=247 guifg=" . s:light_gray . " gui=none"
-exec "highlight CursorLine ctermbg=234 guibg=" . s:dark_gray . " cterm=none"
-exec "highlight Folded ctermbg=234 guibg=" . s:dark_gray . " ctermfg=14 guifg=". s:light_green
-exec "highlight FoldColumn ctermbg=236 guibg=" . s:medium_gray . " ctermfg=14 guifg=" . s:light_green
-exec "highlight SignColumn ctermbg=236 guibg=" . s:medium_gray . " ctermfg=14 guifg=" . s:light_green
+exec "highlight CursorLineNr ctermbg=234 guibg=" . s:grey234 . " ctermfg=247 guifg=" . s:grey247 . " gui=none"
+exec "highlight CursorLine ctermbg=234 guibg=" . s:grey234 . " cterm=none"
+exec "highlight Folded ctermbg=234 guibg=" . s:grey234 . " ctermfg=14 guifg=". s:light_green
+exec "highlight FoldColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
+exec "highlight SignColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
 exec "highlight Todo ctermbg=3 guibg=" . s:khaki . " ctermfg=bg guifg=bg"
-exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=234 guifg=" . s:dark_gray
-exec "highlight MatchParen ctermbg=238 guibg=" . s:gray . " ctermfg=bg guifg=bg"
+exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=234 guifg=" . s:grey234
+exec "highlight MatchParen ctermbg=236 guibg=" . s:grey236 . " ctermfg=bg guifg=bg"
 
 " Color column (after line 80).
-exec "highlight ColorColumn ctermbg=233 guibg=" . s:dark_gray2
+exec "highlight ColorColumn ctermbg=233 guibg=" . s:grey233
 
 " For C/C++.
 "
@@ -244,7 +243,7 @@ exec "highlight rubyExceptional ctermfg=8 guifg=" . s:coral
 exec "highlight rubyInstanceVariable ctermfg=14 guifg=" . s:light_green
 exec "highlight rubyModule ctermfg=4 guifg=" . s:blue
 exec "highlight rubyPseudoVariable ctermfg=2 guifg=" . s:green
-exec "highlight rubySharpBang ctermfg=247 guifg=" . s:light_gray
+exec "highlight rubySharpBang ctermfg=247 guifg=" . s:grey247
 exec "highlight rubyStringDelimiter ctermfg=11 guifg=" . s:wheat
 
 " For Elixir.
@@ -252,7 +251,7 @@ exec "highlight eelixirDelimiter ctermfg=9 guifg=" . s:crimson
 exec "highlight elixirBlockDefinition ctermfg=7 guifg=" . s:orange
 exec "highlight elixirBoolean ctermfg=6 guifg=" . s:turquoise
 exec "highlight elixirDefine ctermfg=14 guifg=" . s:light_green
-exec "highlight elixirDocTest ctermfg=247 guifg=" . s:light_gray
+exec "highlight elixirDocTest ctermfg=247 guifg=" . s:grey247
 exec "highlight elixirExUnitAssert ctermfg=14 guifg=" . s:light_green
 exec "highlight elixirExUnitMacro ctermfg=12 guifg=" . s:light_blue
 exec "highlight elixirKernelFunction ctermfg=2 guifg=" . s:green
@@ -302,8 +301,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " For Rust.
-exec "highlight rustCommentBlockDoc ctermfg=247 guifg=" . s:light_gray
-exec "highlight rustCommentLineDoc ctermfg=247 guifg=" . s:light_gray
+exec "highlight rustCommentBlockDoc ctermfg=247 guifg=" . s:grey247
+exec "highlight rustCommentLineDoc ctermfg=247 guifg=" . s:grey247
 exec "highlight rustConstant ctermfg=7 guifg=" . s:orange
 exec "highlight rustFuncName ctermfg=4 guifg=" . s:blue
 exec "highlight rustKeyword ctermfg=14 guifg=" . s:light_green
@@ -316,7 +315,7 @@ exec "highlight rustType ctermfg=8 guifg=" . s:coral
 " For Java.
 exec "highlight javaBraces ctermfg=251 guifg=" . s:white
 exec "highlight javaClassDecl ctermfg=10 guifg=" . s:emerald
-exec "highlight javaCommentTitle ctermfg=247 guifg=" . s:light_gray
+exec "highlight javaCommentTitle ctermfg=247 guifg=" . s:grey247
 exec "highlight javaConstant ctermfg=12 guifg=" . s:light_blue
 exec "highlight javaDebug ctermfg=12 guifg=" . s:light_blue
 exec "highlight javaMethodDecl ctermfg=3 guifg=" . s:khaki
@@ -330,18 +329,18 @@ let java_highlight_debug = 1
 exec "highlight htmlArg ctermfg=12 guifg=" . s:light_blue
 exec "highlight htmlBoldItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral " cterm=none gui=none"
 exec "highlight htmlBoldUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=8 guifg=" . s:coral
-exec "highlight htmlItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray " cterm=none gui=none"
+exec "highlight htmlItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:grey247 " cterm=none gui=none"
 exec "highlight htmlLink ctermfg=2 guifg=" . s:green
 exec "highlight htmlEndTag ctermfg=13 guifg=" . s:purple
 exec "highlight htmlTag ctermfg=14 guifg=" . s:light_green
 exec "highlight htmlTagN ctermfg=4 guifg=" . s:blue
 exec "highlight htmlTagName ctermfg=4 guifg=" . s:blue
-exec "highlight htmlUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:light_gray
+exec "highlight htmlUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:grey247
 
 " For vimdiff.
 exec "highlight DiffAdd ctermbg=10 guibg=" . s:emerald . " ctermfg=bg guifg=bg"
-exec "highlight DiffChange ctermbg=236 guibg=" . s:medium_gray
-exec "highlight DiffDelete ctermbg=236 guibg=" . s:medium_gray . " ctermfg=251 guifg=fg gui=none"
+exec "highlight DiffChange ctermbg=236 guibg=" . s:grey236
+exec "highlight DiffDelete ctermbg=236 guibg=" . s:grey236 . " ctermfg=251 guifg=fg gui=none"
 exec "highlight DiffText ctermbg=4 guibg=" . s:blue . " ctermfg=bg guifg=bg gui=none"
 
 " For vim files.
@@ -349,15 +348,15 @@ exec "highlight vimCommand ctermfg=7 guifg=" . s:orange
 exec "highlight vimOption ctermfg=14 guifg=" . s:light_green
 
 " For Tagbar.
-exec "highlight TagbarFoldIcon ctermfg=247 guifg=" . s:light_gray
+exec "highlight TagbarFoldIcon ctermfg=247 guifg=" . s:grey247
 exec "highlight TagbarVisibilityPublic ctermfg=14 guifg=" . s:light_green
 exec "highlight TagbarVisibilityProtected ctermfg=14 guifg=" . s:light_green
 exec "highlight TagbarVisibilityPrivate ctermfg=14 guifg=" . s:light_green
 exec "highlight TagbarKind ctermfg=10 guifg=" . s:emerald
 
 " For NERDTree.
-exec "highlight NERDTreePart ctermfg=0 guifg=" . s:dim_gray
-exec "highlight NERDTreePartFile ctermfg=0 guifg=" . s:dim_gray
+exec "highlight NERDTreePart ctermfg=0 guifg=" . s:grey0
+exec "highlight NERDTreePartFile ctermfg=0 guifg=" . s:grey0
 exec "highlight NERDTreeDir ctermfg=12 guifg=" . s:light_blue
 exec "highlight NERDTreeUp ctermfg=8 guifg=" . s:coral
 exec "highlight NERDTreeLinkFile ctermfg=4 guifg=" . s:blue
@@ -366,7 +365,7 @@ exec "highlight NERDTreeExecFile ctermfg=11 guifg=" . s:wheat
 exec "highlight NERDTreeOpenable ctermfg=2 guifg=" . s:green
 exec "highlight NERDTreeClosable ctermfg=8 guifg=" . s:coral
 exec "highlight NERDTreeCWD ctermfg=14 guifg=" . s:light_green
-exec "highlight NERDTreeHelp ctermfg=247 guifg=" . s:light_gray
+exec "highlight NERDTreeHelp ctermfg=247 guifg=" . s:grey247
 
 " For Sneak.
 exec "highlight Sneak ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
@@ -379,5 +378,5 @@ exec "highlight Directory ctermfg=10 guifg=" . s:emerald
 exec "highlight CtrlPMatch ctermfg=13 guifg=" . s:purple
 exec "highlight tagName ctermfg=6 guifg=" . s:turquoise
 exec "highlight xmlEndTag ctermfg=6 guifg=" . s:turquoise
-exec "highlight bufExplorerHelp ctermfg=247 guifg=" . s:light_gray
-exec "highlight bufExplorerSortBy ctermfg=247 guifg=" . s:light_gray
+exec "highlight bufExplorerHelp ctermfg=247 guifg=" . s:grey247
+exec "highlight bufExplorerSortBy ctermfg=247 guifg=" . s:grey247
