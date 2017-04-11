@@ -355,7 +355,7 @@ exec "highlight TagbarVisibilityProtected ctermfg=14 guifg=" . s:light_green
 exec "highlight TagbarVisibilityPrivate ctermfg=14 guifg=" . s:light_green
 exec "highlight TagbarKind ctermfg=10 guifg=" . s:emerald
 
-" For NERDTree
+" For NERDTree.
 exec "highlight NERDTreePart ctermfg=0 guifg=" . s:dim_gray
 exec "highlight NERDTreePartFile ctermfg=0 guifg=" . s:dim_gray
 exec "highlight NERDTreeDir ctermfg=12 guifg=" . s:light_blue

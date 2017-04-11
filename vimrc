@@ -64,7 +64,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=trail:.
+set listchars=tab:\ \ ,trail:.
 set mousehide
 set nobackup
 set nocompatible
@@ -77,6 +77,7 @@ set nowrapscan
 set path=**
 set ruler
 set shiftwidth=4
+set shortmess+=I
 set showbreak=\\\\\
 set smartcase
 set smarttab
@@ -157,7 +158,7 @@ function! Listing()
         highlight SpecialKey ctermfg=12 guifg=#78c2ff
         let g:listMode = 0
     else
-        set listchars=trail:.
+        set listchars=tab:\ \ ,trail:.
         highlight SpecialKey ctermfg=234 guifg=#1c1c1c
         let g:listMode = 1
     endif
@@ -424,6 +425,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " Hit <enter> on a file line, in the status window, to open.
     " Hit '-' to 'git add' the file on the current line.
     noremap <leader>gs :Gstatus<CR>
+    noremap <leader>gd :Gdiff<CR>
 
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
@@ -545,9 +547,9 @@ if exists("g:vundle#bundles")
 
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "*",
-                \ "Staged"    : "@",
-                \ "Dirty"     : "!",
+                \ "Modified"  : "!",
+                \ "Staged"    : "=",
+                \ "Dirty"     : "*",
                 \ "Untracked" : "?",
                 \ "Renamed"   : ">",
                 \ "Clean"     : "$"
@@ -617,7 +619,7 @@ augroup styleAndBehaviourCustomizations
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
+    autocmd FileType bufexplorer,help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
