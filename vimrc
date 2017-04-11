@@ -66,6 +66,7 @@ set laststatus=2
 set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:.
+set matchpairs=(:),{:},[:]
 set mousehide
 set nobackup
 set nocompatible
