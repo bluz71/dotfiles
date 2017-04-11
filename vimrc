@@ -619,6 +619,7 @@ augroup styleAndBehaviourCustomizations
     autocmd FileType help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
     if v:progname != "vi"
+        autocmd FileType * IndentLinesReset
         autocmd Syntax * IndentLinesReset
     endif
 augroup END
