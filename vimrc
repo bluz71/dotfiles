@@ -314,7 +314,7 @@ noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
 " 'qq' starts a macro recording, 'q' stops it, <F4> runs the macro.
 noremap <F4> @q
 noremap <F5> :call Spelling()<CR>
-noremap <F6> :source $MYVIMRC<CR> :echo "Reloaded vimrc"<CR>
+noremap <F6> :source $MYVIMRC<CR>
 "noremap <F7>
 noremap <F8> :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
@@ -335,8 +335,6 @@ noremap <leader>q :close<CR>
 " Tabbing.
 noremap tn :tabnew<CR>
 noremap tc :tabclose<CR>
-noremap th :tabprev<CR>
-noremap tl :tabnext<CR>
 noremap t1 1gt
 noremap t2 2gt
 noremap t3 3gt
@@ -594,6 +592,7 @@ augroup languageCustomizationsByType
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript set shiftwidth=2
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
+    autocmd FileType scss let g:indentLine_faster=0
     autocmd FileType scss set shiftwidth=2
     autocmd FileType sh set textwidth=999
     autocmd FileType vim set textwidth=999
