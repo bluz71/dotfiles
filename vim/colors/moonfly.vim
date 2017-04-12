@@ -191,7 +191,7 @@ exec "highlight FoldColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=
 exec "highlight SignColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
 exec "highlight Todo ctermbg=3 guibg=" . s:khaki . " ctermfg=bg guifg=bg"
 exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=234 guifg=" . s:grey234
-exec "highlight MatchParen ctermbg=236 guibg=" . s:grey236 . " ctermfg=bg guifg=bg"
+exec "highlight MatchParen ctermbg=bg guibg=bg ctermfg=10 guifg=" . s:emerald
 
 " Color column (after line 80).
 exec "highlight ColorColumn ctermbg=233 guibg=" . s:grey233
@@ -262,13 +262,15 @@ exec "highlight elixirStringDelimiter ctermfg=11 guifg=" . s:wheat
 exec "highlight elixirVariable ctermfg=8 guifg=" . s:coral
 
 " For JavaScript 'pangloss/vim-javascript' Plugin.
+exec "highlight jsClassKeyword ctermfg=7 guifg=" . s:orange
 exec "highlight jsFuncBlock ctermfg=12 guifg=" . s:light_blue
 exec "highlight jsFuncCall ctermfg=12 guifg=" . s:light_blue
 exec "highlight jsGlobalObjects ctermfg=10 guifg=" . s:emerald
-exec "highlight jsObjectKey ctermfg=3 guifg=" . s:khaki
+exec "highlight jsObjectKey ctermfg=2 guifg=" . s:green
 exec "highlight jsObjectValue ctermfg=10 guifg=" . s:emerald
 exec "highlight jsStorageClass ctermfg=14 guifg=" . s:light_green
 exec "highlight jsTemplateExpression ctermfg=6 guifg=" . s:turquoise
+exec "highlight jsThis ctermfg=2 guifg=" . s:green
 
 " For CoffeeScript
 exec "highlight coffeeBoolean ctermfg=3 guifg=" . s:khaki
@@ -366,12 +368,6 @@ exec "highlight NERDTreeOpenable ctermfg=2 guifg=" . s:green
 exec "highlight NERDTreeClosable ctermfg=8 guifg=" . s:coral
 exec "highlight NERDTreeCWD ctermfg=14 guifg=" . s:light_green
 exec "highlight NERDTreeHelp ctermfg=247 guifg=" . s:grey247
-
-" For Sneak.
-exec "highlight Sneak ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
-exec "highlight SneakScope ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
-exec "highlight SneakLabel ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
-exec "highlight SneakLabelMask ctermbg=2 guibg=" . s:green . " ctermfg=bg guifg=bg"
 
 " Misc.
 exec "highlight Directory ctermfg=10 guifg=" . s:emerald

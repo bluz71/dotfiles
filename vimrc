@@ -555,10 +555,6 @@ if exists("g:vundle#bundles")
     Plugin 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 
-    Plugin 'justinmk/vim-sneak'
-    let g:sneak#label = 1
-    " Use s<Enter> to repeat the last search.
-
     " Finalize Vundle.
     call vundle#end()
     filetype plugin indent on
