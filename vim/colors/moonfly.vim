@@ -266,7 +266,7 @@ exec "highlight jsClassKeyword ctermfg=7 guifg=" . s:orange
 exec "highlight jsFuncBlock ctermfg=12 guifg=" . s:light_blue
 exec "highlight jsFuncCall ctermfg=12 guifg=" . s:light_blue
 exec "highlight jsGlobalObjects ctermfg=10 guifg=" . s:emerald
-exec "highlight jsObjectKey ctermfg=2 guifg=" . s:green
+exec "highlight jsObjectKey ctermfg=4 guifg=" . s:blue
 exec "highlight jsObjectValue ctermfg=10 guifg=" . s:emerald
 exec "highlight jsStorageClass ctermfg=14 guifg=" . s:light_green
 exec "highlight jsTemplateExpression ctermfg=6 guifg=" . s:turquoise
