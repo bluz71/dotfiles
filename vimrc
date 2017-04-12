@@ -219,6 +219,15 @@ function! NERDTreeRefresh()
     endif
 endfunction
 
+" Don't set colorcolumn and IndentLine when in Vim diff.
+"
+function! DiffStyling()
+    if &diff
+        setlocal conceallevel=0
+        setlocal colorcolumn=0
+    endif
+endfunction
+
 " A windows focus event has been triggered.
 "
 function! WindowFocus(mode)
@@ -615,8 +624,9 @@ augroup styleAndBehaviourCustomizations
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,nerdtree,text,vim setlocal conceallevel=0 colorcolumn=0
+    autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
+    autocmd FilterWritePre * call DiffStyling()
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
         autocmd Syntax * IndentLinesReset
