@@ -340,6 +340,11 @@ exec "highlight htmlTagN ctermfg=4 guifg=" . s:blue
 exec "highlight htmlTagName ctermfg=4 guifg=" . s:blue
 exec "highlight htmlUnderlineItalic ctermbg=232 guibg=" . s:black . "  ctermfg=247 guifg=" . s:grey247
 
+" For XML.
+exec "highlight xmlTag ctermfg=14 guifg=" . s:light_green
+exec "highlight xmlTagName ctermfg=4 guifg=" . s:blue
+exec "highlight xmlEndTag ctermfg=12 guifg=" . s:light_blue
+
 " For vimdiff.
 exec "highlight DiffAdd ctermbg=10 guibg=" . s:emerald . " ctermfg=bg guifg=bg"
 exec "highlight DiffChange ctermbg=236 guibg=" . s:grey236
@@ -372,8 +377,8 @@ exec "highlight NERDTreeHelp ctermfg=247 guifg=" . s:grey247
 
 " Misc.
 exec "highlight Directory ctermfg=10 guifg=" . s:emerald
+exec "highlight jsonKeyword ctermfg=12 guifg=" . s:light_blue
 exec "highlight CtrlPMatch ctermfg=13 guifg=" . s:purple
 exec "highlight tagName ctermfg=6 guifg=" . s:turquoise
-exec "highlight xmlEndTag ctermfg=6 guifg=" . s:turquoise
 exec "highlight bufExplorerHelp ctermfg=247 guifg=" . s:grey247
 exec "highlight bufExplorerSortBy ctermfg=247 guifg=" . s:grey247

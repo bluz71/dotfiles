@@ -472,6 +472,8 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " JavaScript and CoffeeScript support.
     Plugin 'pangloss/vim-javascript'
     Plugin 'kchmck/vim-coffee-script'
+    Plugin 'mxw/vim-jsx'
+    let g:jsx_ext_required = 0
 
     " Elixir support
     Plugin 'elixir-lang/vim-elixir'
