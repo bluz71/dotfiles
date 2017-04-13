@@ -77,8 +77,7 @@ export OS=`uname`
 # Customizations per platform.
 #
 if [ $OS = Linux ]; then
-    alias xr='xreader'
-    alias xv='xviewer'
+    alias open='xdg-open'
     . ~/.linuxbrew/etc/bash_completion
 elif [ $OS = Darwin ]; then
     . /usr/local/etc/bash_completion
