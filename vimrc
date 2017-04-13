@@ -63,7 +63,6 @@ set formatoptions=cq
 set ignorecase
 set incsearch
 set laststatus=2
-set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:.
 set matchpairs=(:),{:},[:]
@@ -164,9 +163,11 @@ function! MacroMode()
     let l:autosave = 1
     if exists('#autoSave#TextChanged')
         autocmd! autoSave TextChanged,InsertLeave,FocusLost *
+        set lazyredraw
         let l:autosave = 0
     else
         autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
+        set nolazyredraw
     endif
     if l:autosave == 1
         echo "Enabled auto-save"
@@ -297,15 +298,14 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 " Remap refresh from Ctrl-l, now taken by above split navigation, to Alt-l.
-" Delete previous word, when in insert mode, via Ctrl-Backspace.
 if has("gui_running")
     noremap <A-l> :redraw!<CR>
-    inoremap <C-BS> <C-O>diw
 else
     " Tip: In insert mode use <C-v><Key-Combination> to view terminal characters.
     noremap l :redraw!<CR>
-    inoremap  <C-O>diw
 endif
+" Delete previous word, when in insert mode, via Ctrl-b.
+inoremap <C-b> <C-O>diw
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
 " Move vertically by visual line.
