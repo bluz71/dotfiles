@@ -154,7 +154,7 @@ exec "highlight Statement ctermfg=5 guifg=" . s:magenta . " gui=none"
 
 " Visual selection.
 exec "highlight Visual ctermbg=0 guibg=" . s:grey0
-exec "highlight VisualNOS ctermbg=9 guibg=" . s:grey0 . " ctermfg=fg guifg=fg gui=none"
+exec "highlight VisualNOS ctermbg=0 guibg=" . s:grey0 . " ctermfg=fg guifg=fg cterm=none gui=none"
 
 " Exceptions.
 exec "highlight Exception ctermfg=14 guifg=" . s:light_green
@@ -185,7 +185,7 @@ exec "highlight LineNr ctermbg=234 guibg=" . s:grey234 . " ctermfg=247 guifg=" .
 exec "highlight Cursor guifg=bg guibg=" . s:grey247
 exec "highlight lCursor guifg=bg guibg=" . s:white
 exec "highlight CursorLineNr ctermbg=234 guibg=" . s:grey234 . " ctermfg=247 guifg=" . s:grey247 . " gui=none"
-exec "highlight CursorLine ctermbg=234 guibg=" . s:grey234 . " cterm=none"
+exec "highlight CursorLine ctermbg=236 guibg=" . s:grey236 . " cterm=none"
 exec "highlight Folded ctermbg=234 guibg=" . s:grey234 . " ctermfg=14 guifg=". s:light_green
 exec "highlight FoldColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
 exec "highlight SignColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
@@ -353,7 +353,7 @@ exec "highlight DiffText ctermbg=4 guibg=" . s:blue . " ctermfg=bg guifg=bg gui=
 
 " For vim files.
 exec "highlight vimCommand ctermfg=7 guifg=" . s:orange
-exec "highlight vimOption ctermfg=14 guifg=" . s:light_green
+exec "highlight vimOption ctermfg=10 guifg=" . s:emerald
 
 " For Tagbar.
 exec "highlight TagbarFoldIcon ctermfg=247 guifg=" . s:grey247

@@ -225,6 +225,7 @@ function! DiffStyling()
     if &diff
         setlocal conceallevel=0
         setlocal colorcolumn=0
+        highlight Visual ctermfg=251 guifg=#c6c6c6
     endif
 endfunction
 
@@ -284,8 +285,8 @@ endif
 
 " Keyboard mappings.
 "
-" inoremap ` <Esc>
-" noremap  ` <Esc>
+inoremap `` <Esc>
+noremap  `` <Esc>
 noremap <C-Right> ;
 noremap <C-Left> ,
 noremap ; :
@@ -296,18 +297,20 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 " Remap refresh from Ctrl-l, now taken by above split navigation, to Alt-l.
-if !has("gui_running")
-    noremap l :redraw!<CR>
-else
+" Delete previous word, when in insert mode, via Ctrl-Backspace.
+if has("gui_running")
     noremap <A-l> :redraw!<CR>
+    inoremap <C-BS> <C-O>diw
+else
+    " Tip: In insert mode use <C-v><Key-Combination> to view terminal characters.
+    noremap l :redraw!<CR>
+    inoremap  <C-O>diw
 endif
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
 " Move vertically by visual line.
 noremap j gj
 noremap k gk
-" Delete previous word when in insert mode.
-inoremap <C-b> <C-O>diw
 " Nicer completion mappings when in insert mode.
 " ] - complete from tags file
 " l - complete line
@@ -409,9 +412,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " Use CtrlP to search by tag.
     nnoremap <leader>. :CtrlPTag<CR>
 
-    Plugin 'majutsushi/tagbar'
-    noremap <leader>tb :TagbarToggle<CR>
-
     Plugin 'rking/ag.vim'
     let g:ag_mapping_message = 0
     let g:ag_highlight = 1
@@ -425,7 +425,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     " Hit <enter> on a file line, in the status window, to open.
     " Hit '-' to 'git add' the file on the current line.
     noremap <leader>gs :Gstatus<CR>
-    noremap <leader>gd :Gdiff<CR>
 
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
@@ -468,15 +467,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     noremap <leader>rt :call RunCurrentSpecFile()<CR>
     noremap <leader>rl :call RunLastSpec()<CR>
     noremap <leader>ra :call RunAllSpecs()<CR>
-
-    " Golang support.
-    Plugin 'fatih/vim-go'
-    " The 'gd' mapping (enabled by default) will jump to the declaration
-    " under the cursor, use CTRL-O to return back.
-    "
-    " Note, when upgrading to a new version of Golang please run 
-    " :GoUpdateBinaries to obtain the latest necessary auxiliary binaries
-    " for the vim-go plugin.
 
     " JavaScript and CoffeeScript support.
     Plugin 'pangloss/vim-javascript'
