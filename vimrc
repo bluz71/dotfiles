@@ -93,6 +93,7 @@ set timeoutlen=2500
 set ttimeoutlen=10
 set ttyfast
 set ttymouse=xterm2
+set updatetime=1000
 set viminfo=
 " Disable beeps and flashes.
 set visualbell t_vb=
@@ -612,7 +613,7 @@ augroup styleAndBehaviourCustomizations
     autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
     autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
     autocmd InsertEnter * call InsertMode(v:insertmode)
-    autocmd CursorMoved * call VisualMode()
+    autocmd CursorMoved,CursorHold * call VisualMode()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
