@@ -63,6 +63,7 @@ set formatoptions=cq
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:.
 set matchpairs=(:),{:},[:]
@@ -93,7 +94,7 @@ set timeoutlen=2500
 set ttimeoutlen=10
 set ttyfast
 set ttymouse=xterm2
-set updatetime=3000
+set updatetime=1000
 set viminfo=
 " Disable beeps and flashes.
 set visualbell t_vb=
@@ -164,11 +165,9 @@ function! MacroMode()
     let l:autosave = 1
     if exists('#autoSave#TextChanged')
         autocmd! autoSave TextChanged,InsertLeave,FocusLost *
-        set lazyredraw
         let l:autosave = 0
     else
         autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
-        set nolazyredraw
     endif
     if l:autosave == 1
         echo "Enabled auto-save"
@@ -525,7 +524,6 @@ if exists("g:vundle#bundles")
     let g:indentLine_color_term = 234
     let g:indentLine_color_gui = "#1c1c1c"
     let g:indentLine_faster = 1
-    let g:indentLine_concealcursor = ""
     let g:indentLine_setConceal = 0
 
     Plugin 'scrooloose/nerdtree'
@@ -538,16 +536,6 @@ if exists("g:vundle#bundles")
     let g:NERDTreeDirArrowCollapsible = "~"
     let NERDTreeStatusline = " NERDTree "
     noremap <leader>n :NERDTreeToggle<CR>
-
-    Plugin 'Xuyuanp/nerdtree-git-plugin'
-    let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "!",
-                \ "Staged"    : "=",
-                \ "Dirty"     : "*",
-                \ "Untracked" : "?",
-                \ "Renamed"   : ">",
-                \ "Clean"     : "$"
-                \ }
 
     Plugin 'ervandew/supertab'
     " Play nice with other plugins and force top-to-bottom tab completion.
