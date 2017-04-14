@@ -7,6 +7,7 @@ let s:black       = "#080808"
 let s:white       = "#c6c6c6"
 let s:grey247     = "#9e9e9e"
 let s:grey0       = "#373c40"
+let s:grey237     = "#3a3a3a"
 let s:grey236     = "#303030"
 let s:grey234     = "#1c1c1c"
 let s:grey233     = "#121212"
@@ -53,6 +54,7 @@ let s:red         = "#ff5454"
 " white       = 251
 " grey247     = 247
 " grey0       = 0
+" grey237     = 237
 " grey236     = 236
 " grey234     = 234
 " grey233     = 233
@@ -185,7 +187,7 @@ exec "highlight LineNr ctermbg=234 guibg=" . s:grey234 . " ctermfg=247 guifg=" .
 exec "highlight Cursor guifg=bg guibg=" . s:grey247
 exec "highlight lCursor guifg=bg guibg=" . s:white
 exec "highlight CursorLineNr ctermbg=234 guibg=" . s:grey234 . " ctermfg=247 guifg=" . s:grey247 . " gui=none"
-exec "highlight CursorLine ctermbg=236 guibg=" . s:grey236 . " cterm=none"
+exec "highlight CursorLine ctermbg=237 guibg=" . s:grey237 . " cterm=none"
 exec "highlight Folded ctermbg=234 guibg=" . s:grey234 . " ctermfg=14 guifg=". s:light_green
 exec "highlight FoldColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
 exec "highlight SignColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green

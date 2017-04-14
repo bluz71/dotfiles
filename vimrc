@@ -93,7 +93,7 @@ set timeoutlen=2500
 set ttimeoutlen=10
 set ttyfast
 set ttymouse=xterm2
-set updatetime=1000
+set updatetime=3000
 set viminfo=
 " Disable beeps and flashes.
 set visualbell t_vb=
