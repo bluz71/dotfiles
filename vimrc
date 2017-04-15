@@ -520,7 +520,6 @@ if exists("g:vundle#bundles")
     noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'
-    let g:indentLine_char = '│'
     let g:indentLine_color_term = 234
     let g:indentLine_color_gui = "#1c1c1c"
     let g:indentLine_faster = 1
