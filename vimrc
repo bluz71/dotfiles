@@ -65,7 +65,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=tab:\ \ ,trail:.
+set listchars=tab:\ \ ,trail:-
 set matchpairs=(:),{:},[:]
 set mousehide
 set nobackup
@@ -144,16 +144,16 @@ endfunction
 "
 function! Listing()
     if g:listMode == 1
-        set listchars=eol:$,tab:>-,trail:-
+        set listchars=eol:$,tab:>-,trail:.
         highlight SpecialKey ctermfg=12 guifg=#78c2ff
         let g:listMode = 0
     elseif &filetype == "go"
-        set listchars=tab:\│\ 
-        highlight SpecialKey ctermfg=234 guifg=#1c1c1c
+        set listchars=tab:\¦\
+        highlight SpecialKey ctermfg=235 guifg=#262626
         let g:listMode = 1
     else
-        set listchars=tab:\ \ ,trail:.
-        highlight SpecialKey ctermfg=234 guifg=#1c1c1c
+        set listchars=tab:\ \ ,trail:-
+        highlight SpecialKey ctermfg=235 guifg=#262626
         let g:listMode = 1
     endif
 endfunction
@@ -520,8 +520,9 @@ if exists("g:vundle#bundles")
     noremap <leader>l :BufExplorer<CR>
 
     Plugin 'Yggdroot/indentLine'
-    let g:indentLine_color_term = 234
-    let g:indentLine_color_gui = "#1c1c1c"
+    let g:indentLine_char = '¦'
+    let g:indentLine_color_term = 235
+    let g:indentLine_color_gui = "#262626"
     let g:indentLine_faster = 1
     let g:indentLine_setConceal = 0
 
