@@ -537,6 +537,17 @@ if exists("g:vundle#bundles")
     let NERDTreeStatusline = " NERDTree "
     noremap <leader>n :NERDTreeToggle<CR>
 
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
+    let g:NERDTreeIndicatorMapCustom = {
+                \ "Modified"  : "!",
+                \ "Staged"    : "=",
+                \ "Dirty"     : "*",
+                \ "Untracked" : "?",
+                \ "Renamed"   : ">",
+                \ "Clean"     : "$"
+                \ }
+    let g:NERDTreeUpdateOnCursorHold = 0
+
     Plugin 'ervandew/supertab'
     " Play nice with other plugins and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
