@@ -335,7 +335,7 @@ noremap <F9> :call MacroMode()<CR>
 noremap <F11> :set hlsearch!<CR>
 noremap <F12> :call Listing()<CR>
 " Quickfix related mappings.
-noremap <leader>m :make<CR>
+noremap <leader>m :silent make<CR> :redraw!<CR>
 noremap <leader>co :copen<CR>
 noremap <leader>cc :cclose<CR>
 noremap <leader><Up> :cp<CR>
@@ -587,7 +587,8 @@ augroup languageCustomizationsByType
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html set shiftwidth=2 textwidth=999
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
-    autocmd FileType javascript set shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ %
+    " Setup ESLint when making JavaScript files.
+    autocmd FileType javascript set shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
     autocmd FileType scss set shiftwidth=2
