@@ -288,8 +288,6 @@ endif
 "
 inoremap `` <Esc>
 noremap  `` <Esc>
-noremap <C-Right> ;
-noremap <C-Left> ,
 noremap ; :
 let mapleader = ","
 " Simpler keyboard navigation between splits.
@@ -552,6 +550,9 @@ if exists("g:vundle#bundles")
     " Play nice with other plugins and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+    Plugin 'rhysd/clever-f.vim'
+    let g:clever_f_across_no_line = 1
 
     Plugin 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "

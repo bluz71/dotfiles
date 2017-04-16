@@ -386,3 +386,4 @@ exec "highlight CtrlPMatch ctermfg=13 guifg=" . s:purple
 exec "highlight tagName ctermfg=6 guifg=" . s:turquoise
 exec "highlight bufExplorerHelp ctermfg=247 guifg=" . s:grey247
 exec "highlight bufExplorerSortBy ctermfg=247 guifg=" . s:grey247
+exec "highlight CleverFDefaultLabel ctermfg=9 guifg=" . s:crimson
