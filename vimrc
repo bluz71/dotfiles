@@ -587,7 +587,7 @@ augroup languageCustomizationsByType
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html set shiftwidth=2 textwidth=999
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
-    autocmd FileType javascript set shiftwidth=2
+    autocmd FileType javascript set shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ %
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
     autocmd FileType scss set shiftwidth=2
@@ -617,6 +617,7 @@ augroup styleAndBehaviourCustomizations
     autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
+    autocmd QuickFixCmdPost *make* cwindow
     if v:progname != "vi"
         autocmd FileType * IndentLinesReset
         autocmd Syntax * IndentLinesReset
