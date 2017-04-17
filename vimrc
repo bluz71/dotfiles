@@ -199,16 +199,18 @@ function! StatusLine(mode)
         setlocal statusline=%2*\ insert\ 
     elseif a:mode == "visual"
         setlocal statusline=%3*\ visual\ 
+    elseif a:mode == "replace"
+        setlocal statusline=%4*\ replce\ 
     endif
 
     setlocal statusline+=%*\ %<%f\ %h%m%r
     if exists("g:loaded_fugitive")
         " Display Git branch if fugitive is loaded.
-        setlocal statusline+=%4*\ %{fugitive#statusline()}\ 
+        setlocal statusline+=%5*\ %{fugitive#statusline()}\ 
     endif
-    setlocal statusline+=%5*%=%-14.(%l,%c%V%)
-    setlocal statusline+=%6*[%L]\ 
-    setlocal statusline+=%7*%P
+    setlocal statusline+=%6*%=%-14.(%l,%c%V%)
+    setlocal statusline+=%7*[%L]\ 
+    setlocal statusline+=%8*%P
 endfunction
 
 " Upon entering the NERDtree window do a root directoy refresh to automatically
@@ -245,10 +247,13 @@ endfunction
 " mode.
 "
 function! InsertMode(mode)
-    if a:mode != "i"
+    if a:mode == "i"
+        call StatusLine("insert")
+    elseif a:mode == "r"
+        call StatusLine("replace")
+    else
         return
     endif
-    call StatusLine("insert")
 endfunction
 
 " Update the status line if entering or leaving visual mode.
