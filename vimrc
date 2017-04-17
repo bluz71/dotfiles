@@ -315,8 +315,8 @@ noremap k gk
 inoremap <C-]> <C-x><C-]>
 inoremap <C-l> <C-x><C-l>
 " Navigate between multiple opened files.
-noremap <Space><Right> :n<CR>
-noremap <Space><Left> :N<CR>
+noremap <C-Right> :n<CR>
+noremap <C-Left> :N<CR>
 noremap <C-q> :confirm qall<CR>
 noremap <F1> :set relativenumber!<CR>
 noremap <F2> :w<CR>
