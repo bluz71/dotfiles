@@ -594,7 +594,8 @@ augroup languageCustomizationsByType
     autocmd FileType html set shiftwidth=2 textwidth=999
     autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
     " Setup ESLint when making JavaScript files.
-    autocmd FileType javascript set shiftwidth=2 formatoptions=cq errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
+    autocmd FileType javascript set shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
+    autocmd FileType javascript.jsx set formatoptions=cq
     autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
     autocmd FileType scss set shiftwidth=2
@@ -616,7 +617,7 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd VimEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
+    autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
     autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved,CursorHold * call VisualMode()
