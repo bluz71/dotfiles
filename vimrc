@@ -194,13 +194,13 @@ function! StatusLine(mode)
         return
     " All cases from here on relate to the status line of the active window.
     elseif a:mode == "normal"
-        setlocal statusline=%1*\ \ normal\ \ 
+        setlocal statusline=%1*\ normal\ 
     elseif a:mode == "insert"
-        setlocal statusline=%2*\ \ insert\ \ 
+        setlocal statusline=%2*\ insert\ 
     elseif a:mode == "visual"
-        setlocal statusline=%3*\ \ visual\ \ 
+        setlocal statusline=%3*\ visual\ 
     elseif a:mode == "replace"
-        setlocal statusline=%4*\ replace\ \ 
+        setlocal statusline=%4*\ change\ 
     endif
 
     setlocal statusline+=%*\ %<%f\ %h%m%r
@@ -237,7 +237,6 @@ endfunction
 function! WindowFocus(mode)
     if a:mode == "Enter"
         call StatusLine("normal")
-        call NERDTreeRefresh()
     elseif a:mode == "Leave"
         call StatusLine("not-current")
     endif
@@ -621,6 +620,7 @@ augroup styleAndBehaviourCustomizations
     autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved,CursorHold * call VisualMode()
+    autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0
     autocmd FileType json,markdown setlocal conceallevel=0
