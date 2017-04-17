@@ -194,13 +194,13 @@ function! StatusLine(mode)
         return
     " All cases from here on relate to the status line of the active window.
     elseif a:mode == "normal"
-        setlocal statusline=%1*\ normal\ 
+        setlocal statusline=%1*\ \ normal\ \ 
     elseif a:mode == "insert"
-        setlocal statusline=%2*\ insert\ 
+        setlocal statusline=%2*\ \ insert\ \ 
     elseif a:mode == "visual"
-        setlocal statusline=%3*\ visual\ 
+        setlocal statusline=%3*\ \ visual\ \ 
     elseif a:mode == "replace"
-        setlocal statusline=%4*\ replce\ 
+        setlocal statusline=%4*\ replace\ \ 
     endif
 
     setlocal statusline+=%*\ %<%f\ %h%m%r
