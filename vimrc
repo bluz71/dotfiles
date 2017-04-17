@@ -611,7 +611,7 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
+    autocmd VimEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
     autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
     autocmd InsertEnter * call InsertMode(v:insertmode)
     autocmd CursorMoved,CursorHold * call VisualMode()
