@@ -1,7 +1,6 @@
 " Useful insert mode commands:
 "   Ctrl-o  for one time normal mode command (zz being most useful)
 "   Ctrl-r  for insertion from a named register
-"   Alt-p   paste from clipboard then exit insert mode (iTerm2 only)
 "
 " Useful cursor positioning and movement commands:
 "   zt  move text under cursor to the top
@@ -33,11 +32,17 @@
 "
 " Tag navigation:
 "   Ctrl-]  find definition under cursor
-"   Ctrl-t  return back from definition
+"   Ctrl-0  return back from definition
 "
 " Substitute in visual block:
 "   '<,'>s/\%Vfoo/bar/gc
-
+"
+" Misc commands:
+"   mm  set a mark
+"   'm  return back to 'm' mark
+"   gv  start visual mode with the previous visual selection
+"
+"   $ vim $(find **/*.txt)  edit all txt files from the current path down
 
 " We want syntax highlighting on.
 "
@@ -200,7 +205,7 @@ function! StatusLine(mode)
     elseif a:mode == "visual"
         setlocal statusline=%3*\ visual\ 
     elseif a:mode == "replace"
-        setlocal statusline=%4*\ change\ 
+        setlocal statusline=%4*\ overw'\ 
     endif
 
     setlocal statusline+=%*\ %<%f\ %h%m%r
