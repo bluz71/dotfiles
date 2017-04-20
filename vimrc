@@ -15,6 +15,8 @@
 "   ge/gE   move to the end of the previous word/WORD
 "   Ctrl-e  scroll file up one line at a time
 "   Ctrl-y  scroll file down one line at a time
+"   mm  set a mark
+"   'm  return back to 'm' mark
 "
 " Completion sub-types when in insert completion-mode initiated via Ctrl-x:
 "   Ctrl-f  file name completion based on files in the CWD
@@ -38,11 +40,13 @@
 "   '<,'>s/\%Vfoo/bar/gc
 "
 " Misc commands:
-"   mm  set a mark
-"   'm  return back to 'm' mark
 "   gv  start visual mode with the previous visual selection
+"   gu  force lowercase
+"   gU  force uppercase
+"   X   delete backwards
 "
 "   $ vim $(find **/*.txt)  edit all txt files from the current path down
+"   $ vim $(ag -l foo)      edit all files that contain foo
 
 " We want syntax highlighting on.
 "
