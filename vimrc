@@ -53,6 +53,10 @@
 " Misc commands:
 "   X            delete backwards
 "   :r !ls *.fo  read in selected filenames
+"   /<term>      search forward for 'term'
+"   ?<term>      search backward for 'term'
+"   :%s//<new>   replace last search 'term' with 'new'
+"   :%s//<new>/c replace, with confirmation, last search 'term' with 'new'
 "
 "   $ vim $(find **/*.txt)  edit all txt files from the current path down
 "   $ vim $(ag -l foo)      edit all files that contain foo
@@ -78,6 +82,7 @@ set complete=.,w,b
 set conceallevel=2
 set expandtab
 set formatoptions=cq
+set gdefault
 set ignorecase
 set incsearch
 set laststatus=2
