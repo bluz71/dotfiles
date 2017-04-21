@@ -1,21 +1,22 @@
 " Useful insert mode commands:
 "   Ctrl-o  for one time normal mode command (zz being most useful)
 "   Ctrl-r  for insertion from a named register
+"   Ctrl-b  delete backward a word
 "
 " Useful cursor positioning and movement commands:
-"   zt  move text under cursor to the top
-"   zz  move text under cursor to the center
-"   zb  move text under cursor to the bottom
-"   zl  move text under cursor one character to the left
-"   zL  move text under cursor half a screen to the left
-"   H   move to top of screen
-"   M   move to middle of screen
-"   L   move to end of screen
-"   gi  move back to where you were last editing
-"   mm  set a mark
-"   'm  return back to 'm' mark
-"   {/} move between paragraphs
-"   (/) move between sentences
+"   zt      move text under cursor to the top
+"   zz      move text under cursor to the center
+"   zb      move text under cursor to the bottom
+"   zl      move text under cursor one character to the left
+"   zL      move text under cursor half a screen to the left
+"   H       move to top of screen
+"   M       move to middle of screen
+"   L       move to end of screen
+"   gi      move back to where you were last editing
+"   mm      set a mark
+"   'm      return back to 'm' mark
+"   {/}     move between paragraphs
+"   (/)     move between sentences
 "   ge/gE   move to the end of the previous word/WORD
 "   Ctrl-e  scroll file up one line at a time
 "   Ctrl-y  scroll file down one line at a time
@@ -28,26 +29,30 @@
 "   Ctrl-]  tag completion
 "
 " Spelling commands:
-"   z=  Suggest spelling correction
-"   ]s  Move to next spelling error
-"   [s  Move to previous spelling error
-"   zg  Add current word to dictionary
-"   zw  Delete current word from dictionary
+"   z=      Suggest spelling correction
+"   ]s      Move to next spelling error
+"   [s      Move to previous spelling error
+"   zg      Add current word to dictionary
+"   zw      Delete current word from dictionary
 "
 " Tag navigation:
 "   Ctrl-]  find definition under cursor
-"   Ctrl-0  return back from definition
+"   Ctrl-o  return back from definition
+"
+" Visual mode commands:
+"   gv           repeat last visual selection
+"   u/U          change visual selection to lower or upper case
+"   vip/vap      visual select paragraph
+"   vis/vas      visual select sentence
+"   vit/vat      visual select tag
+"   :'<,'>!sort  sort visual selection
 "
 " Substitute in visual block:
 "   '<,'>s/\%Vfoo/bar/gc
 "
 " Misc commands:
-"   gv      start visual mode with the previous visual selection
-"   gu/gU   change to lower or upper case
-"   X       delete backwards
-"   vip/vap visual select paragraph
-"   vis/vas visual select sentence
-"   vit/vat visual select tag
+"   X            delete backwards
+"   :r !ls *.fo  read in selected filenames
 "
 "   $ vim $(find **/*.txt)  edit all txt files from the current path down
 "   $ vim $(ag -l foo)      edit all files that contain foo
