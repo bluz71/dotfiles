@@ -51,15 +51,28 @@
 "   '<,'>s/\%Vfoo/bar/gc
 "
 " Misc commands:
-"   X            delete backwards
-"   :r !ls *.fo  read in selected filenames
-"   /<term>      search forward for 'term'
-"   ?<term>      search backward for 'term'
-"   :%s//<new>   replace last search 'term' with 'new'
-"   :%s//<new>/c replace, with confirmation, last search 'term' with 'new'
+"   X               delete backwards
+"   gf              go to file under cursor
+"   gq              format text
+"   :r !ls *.fo     read in selected filenames
+"   /<term>         search forward for 'term'
+"   ?<term>         search backward for 'term'
+"   :%s//<new>      replace last search 'term' with 'new'
+"   :%s//<new>/c    replace, with confirmation, last search 'term' with 'new'
+"   :g/<pattern>    list all lines containing pattern
+"   :g/<pattern>/d  delete all lines containing pattern
 "
-"   $ vim $(find **/*.txt)  edit all txt files from the current path down
-"   $ vim $(ag -l foo)      edit all files that contain foo
+"   /<term>         search for 'term'
+"   cgn             replace last search match
+"   .               repeat last change
+"
+"   % vim $(find **/*.txt)  edit all txt files from the current path down
+"   % vim $(ag -l foo)      edit all files that contain foo
+"
+"   % cat do.vim
+"   :%s/term/new/g
+"   :wq
+"   % vim -es file.txt < do.vim  'sed' style scripted edits
 
 " We want syntax highlighting on.
 "
@@ -121,6 +134,7 @@ set updatetime=1000
 set viminfo=
 " Disable beeps and flashes.
 set visualbell t_vb=
+set wildmenu
 set wrap
 
 
