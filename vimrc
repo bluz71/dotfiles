@@ -583,7 +583,7 @@ if exists("g:vundle#bundles")
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : "±",
                 \ "Staged"    : "↑",
-                \ "Dirty"     : "*",
+                \ "Dirty"     : "≠",
                 \ "Untracked" : "?",
                 \ "Renamed"   : "»",
                 \ "Clean"     : "…"
