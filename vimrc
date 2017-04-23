@@ -64,6 +64,7 @@
 "
 "   /<term>         search for 'term'
 "   cgn             replace last search match
+"   dgn             delete last search match
 "   .               repeat last change
 "
 "   % vim $(find **/*.txt)  edit all txt files from the current path down
@@ -112,6 +113,7 @@ set noshowmatch
 set noshowmode
 set noswapfile
 set nowrapscan
+set nrformats=
 set path=**
 set ruler
 set shiftwidth=4
