@@ -137,6 +137,7 @@ set viminfo=
 " Disable beeps and flashes.
 set visualbell t_vb=
 set wildmenu
+set wildmode=full
 set wrap
 
 
