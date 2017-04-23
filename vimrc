@@ -253,7 +253,7 @@ function! StatusLine(mode)
     setlocal statusline+=%8*%P
 endfunction
 
-" Upon entering the NERDtree window do a root directoy refresh to automatically
+" Upon entering the NERDTree window do a root directoy refresh to automatically
 " pick up any file or directory changes.
 "
 function! NERDTreeRefresh()
@@ -581,12 +581,12 @@ if exists("g:vundle#bundles")
 
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "!",
-                \ "Staged"    : "=",
+                \ "Modified"  : "±",
+                \ "Staged"    : "↑",
                 \ "Dirty"     : "*",
                 \ "Untracked" : "?",
-                \ "Renamed"   : ">",
-                \ "Clean"     : "$"
+                \ "Renamed"   : "»",
+                \ "Clean"     : "…"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
 
@@ -662,7 +662,7 @@ augroup styleAndBehaviourCustomizations
     autocmd CursorMoved,CursorHold * call VisualMode()
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0
+    autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0 matchpairs=
     autocmd FileType json,markdown setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
