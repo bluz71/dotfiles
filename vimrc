@@ -584,11 +584,10 @@ if exists("g:vundle#bundles")
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
-                \ "Staged"    : "$",
+                \ "Staged"    : "=",
                 \ "Dirty"     : "*",
                 \ "Untracked" : "?",
-                \ "Renamed"   : "!",
-                \ "Clean"     : "="
+                \ "Renamed"   : "!"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
 
