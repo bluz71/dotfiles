@@ -381,6 +381,8 @@ exec "highlight NERDTreeOpenable ctermfg=2 guifg=" . s:green
 exec "highlight NERDTreeClosable ctermfg=8 guifg=" . s:coral
 exec "highlight NERDTreeCWD ctermfg=14 guifg=" . s:light_green
 exec "highlight NERDTreeHelp ctermfg=247 guifg=" . s:grey247
+exec "highlight NERDTreeGitStatusDirDirty ctermfg=13 guifg=" . s:purple
+exec "highlight NERDTreeGitStatusRenamed ctermfg=3 guifg=" . s:khaki
 
 " Misc.
 exec "highlight Directory ctermfg=10 guifg=" . s:emerald

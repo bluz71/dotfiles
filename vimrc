@@ -74,6 +74,8 @@
 "   :%s/term/new/g
 "   :wq
 "   % vim -es file.txt < do.vim  'sed' style scripted edits
+"
+"   :h digraph-table
 
 " We want syntax highlighting on.
 "
@@ -581,12 +583,12 @@ if exists("g:vundle#bundles")
 
     Plugin 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "±",
-                \ "Staged"    : "↑",
-                \ "Dirty"     : "≠",
+                \ "Modified"  : ">",
+                \ "Staged"    : "<",
+                \ "Dirty"     : "*",
                 \ "Untracked" : "?",
-                \ "Renamed"   : "»",
-                \ "Clean"     : "…"
+                \ "Renamed"   : "!",
+                \ "Clean"     : "="
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
 
