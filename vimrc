@@ -387,7 +387,7 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap tn :tabnew<CR>
+noremap tn :$tabnew<CR>
 noremap tc :tabclose<CR>
 noremap t1 1gt
 noremap t2 2gt
@@ -404,7 +404,7 @@ noremap <leader>y :let @y=getreg('*')<CR>
 noremap <leader>p "yp
 noremap <leader>P "yP
 " Regenerate tags file.
-noremap <leader>tt :!ctags -R --exclude=.git --exclude=log .<CR>
+noremap <leader>tt :call system("ctags -R --exclude=.git --exclude=log .")<CR>
 " Skeletons/Templates support.
 if has('win32') || has ('win64')
     let $VIMHOME = $VIM."/vimfiles"
