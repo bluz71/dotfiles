@@ -549,6 +549,20 @@ if exists("g:vundle#bundles")
     Plugin 'tpope/vim-endwise'
     Plugin 'tpope/vim-commentary'
 
+    Plugin 'tpope/vim-abolish'
+    " :S/<pattern>                     - smartly search for pattern 
+    "
+    " :%S/facilit{y,ies}/building{,s}/ - change all facilities to buildings
+    " :%S/old_name/new_description/    - old_name --> new_description
+    "                                    OldName  --> NewDescription
+    " :%S/h{2,3}/h{3,2}/               - change all h2 to h3
+    "
+    " crs - change to snake_case
+    " crc - change to camelCase
+    " crm - change to MixCase 
+    "
+    " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
+
     Plugin 'tpope/vim-surround'
     " Normal mode
     " -----------
