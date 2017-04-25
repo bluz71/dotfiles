@@ -175,6 +175,7 @@ exec "highlight Structure ctermfg=10 guifg=" . s:emerald
 " Auto-text-completion menu.
 exec "highlight Pmenu ctermbg=236 guibg=" . s:grey236 . " ctermfg=fg guifg=fg"
 exec "highlight PmenuSel ctermbg=2 guibg=" . s:green . " ctermfg=236 guifg=" . s:grey236
+exec "highlight PmenuThumb ctermbg=3 guibg=" . s:khaki
 exec "highlight WildMenu ctermbg=2 guibg=" . s:green . " ctermfg=236 guifg=" . s:grey236
 
 " Spelling errors.

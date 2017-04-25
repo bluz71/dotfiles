@@ -1,7 +1,8 @@
 " Useful insert mode commands:
-"   Ctrl-o  for one time normal mode command (zz being most useful)
-"   Ctrl-r  for insertion from a named register
-"   Ctrl-b  delete backward a word
+"   Ctrl-o       for one time normal mode command (zz being most useful)
+"   Ctrl-r<reg>  for insertion from a named register
+"   Ctrl-b       delete backward a word
+"   Ctrl-r=      expression register (eg 43 + 44 --> 87)
 "
 " Useful cursor positioning and movement commands:
 "   zt      move text under cursor to the top
@@ -12,9 +13,11 @@
 "   H       move to top of screen
 "   M       move to middle of screen
 "   L       move to end of screen
-"   gi      move back to where you were last editing
-"   mm      set a mark
-"   'm      return back to 'm' mark
+"   g;      move back to where you were last editing
+"   mm      set a mark in the current file
+"   'm      return back to 'm' mark in the current file
+"   mM      set a global mark
+"   'M      return back to the global 'M' mark
 "   {/}     move between paragraphs
 "   (/)     move between sentences
 "   ge/gE   move to the end of the previous word/WORD
@@ -59,8 +62,11 @@
 "   ?<term>         search backward for 'term'
 "   :%s//<new>      replace last search 'term' with 'new'
 "   :%s//<new>/c    replace, with confirmation, last search 'term' with 'new'
+"   :%s///n         list match count for the last search
 "   :g/<pattern>    list all lines containing pattern
 "   :g/<pattern>/d  delete all lines containing pattern
+"   :v/<pattern>    list all lines NOT containing pattern
+"   :v/<pattern>/d  delete all lines NOT containing pattern
 "
 "   /<term>         search for 'term'
 "   cgn             replace last search match
@@ -75,7 +81,7 @@
 "   :wq
 "   % vim -es file.txt < do.vim  'sed' style scripted edits
 "
-"   :h digraph-table
+"   :h digraph-table             list all displayable characters
 
 " We want syntax highlighting on.
 "
@@ -99,6 +105,7 @@ set conceallevel=2
 set expandtab
 set formatoptions=cq
 set gdefault
+set infercase
 set ignorecase
 set incsearch
 set laststatus=2
@@ -622,6 +629,7 @@ augroup languageCustomizationsByType
     autocmd FileType c,cpp set cindent foldmethod=syntax
     autocmd FileType coffee set shiftwidth=2
     autocmd FileType css set shiftwidth=2
+    autocmd FileType css,scss let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     autocmd FileType eelixir set matchpairs=(:),{:},[:]
     autocmd FileType eruby set formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
