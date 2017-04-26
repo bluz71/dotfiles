@@ -49,24 +49,25 @@
 "   vis/vas      visual select sentence
 "   vit/vat      visual select tag
 "   :'<,'>!sort  sort visual selection
+"   :'<,'>!uniq  uniq visual selection
 "
 " Substitute in visual block:
-"   '<,'>s/\%Vfoo/bar/gc
+"   '<,'>s/\%Vfoo/bar/c
 "
 " Misc commands:
 "   X               delete backwards
 "   gf              go to file under cursor
 "   gq              format text
-"   :r !ls *.fo     read in selected filenames
+"   :r !ls *.txt    read in selected filenames
 "   /<term>         search forward for 'term'
 "   ?<term>         search backward for 'term'
 "   :%s//<new>      replace last search 'term' with 'new'
 "   :%s//<new>/c    replace, with confirmation, last search 'term' with 'new'
 "   :%s///n         list match count for the last search
-"   :g/<pattern>    list all lines containing pattern
-"   :g/<pattern>/d  delete all lines containing pattern
-"   :v/<pattern>    list all lines NOT containing pattern
-"   :v/<pattern>/d  delete all lines NOT containing pattern
+"   :g/<pattern>    list all lines containing 'pattern'
+"   :g/<pattern>/d  delete all lines containing 'pattern'
+"   :v/<pattern>    list all lines NOT containing 'pattern'
+"   :v/<pattern>/d  delete all lines NOT containing 'pattern'
 "
 "   /<term>         search for 'term'
 "   cgn             replace last search match
@@ -82,6 +83,50 @@
 "   % vim -es file.txt < do.vim  'sed' style scripted edits
 "
 "   :h digraph-table             list all displayable characters
+"
+" Plugin details:
+"
+"   ag.vim: 
+"     Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
+"     particular file extension.
+"
+"   vim-bundler:
+"     Run 'gem ctags' to generate ctags for installed gems (required just once).
+"
+"   vim-rails:
+"     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
+"     to move a block of code from a view to a new partial.
+"
+"   vim-abolish:
+"     :S/<pattern>                     - smartly search for pattern 
+"
+"     :%S/facilit{y,ies}/building{,s}/ - change all facilities to buildings
+"     :%S/old_name/new_description/    - old_name --> new_description
+"                                        OldName  --> NewDescription
+"     :%S/h{2,3}/h{3,2}/               - change all h2 to h3
+"
+"     crs - change to snake_case
+"     crc - change to camelCase
+"     crm - change to MixCase 
+"
+"     ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
+"
+"   vim-commentary:
+"     gc                 - comment out a visual block
+"
+"   vim-surround:
+"     Normal mode:
+"       ds<surround>     - delete a surround
+"       cs<old><new>     - change a surround
+"       ysiw<surround>   - add a surround to the current word
+"
+"     Visual mode:
+"       S                - add a surround
+"
+"     Insert mode:
+"       <CTRL-s>         - add a surround
+"       <CTRL-s><CTRL-s> - add a new line + surround + indent
+
 
 " We want syntax highlighting on.
 "
@@ -467,14 +512,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:ag_mapping_message = 0
     let g:ag_highlight = 1
     noremap <leader>a :Ag<Space>
-    " Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
-    " particular file extension.
 
     Plugin 'tpope/vim-fugitive'
-    " Git shortcuts.
     noremap <leader>gb :Gblame<CR>
-    " Hit <enter> on a file line, in the status window, to open.
-    " Hit '-' to 'git add' the file on the current line.
     noremap <leader>gs :Gstatus<CR>
 
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
@@ -488,10 +528,7 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
         nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     endif
 
-    " Ruby support, including code completion, ctags for gems and automatic
-    " end insertion.
-    " 
-    " Run 'gem ctags' to generate ctags for installed gems (only required once only).
+    " Ruby support, including code completion, ctags for gems.
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-bundler'
     let g:rubycomplete_buffer_loading = 1
@@ -500,12 +537,6 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:ruby_indent_access_modifier_style = 'indent'
 
     " Ruby on Rails support.
-    "
-    " Use 'gf' mapping to navigate objects inside a Rails project, use CTRL-O
-    " and CTRL-I to navigate backward and forward.
-    "
-    " Use a visual selection in conjunction with ':Rextract <<partial-name>>'
-    " to move a block of code from a view to a new partial.
     Plugin 'tpope/vim-rails'
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
@@ -546,37 +577,12 @@ endif
 "
 if exists("g:vundle#bundles")
     Plugin 'nelstrom/vim-visual-star-search'
-    Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-commentary'
 
     Plugin 'tpope/vim-abolish'
-    " :S/<pattern>                     - smartly search for pattern 
-    "
-    " :%S/facilit{y,ies}/building{,s}/ - change all facilities to buildings
-    " :%S/old_name/new_description/    - old_name --> new_description
-    "                                    OldName  --> NewDescription
-    " :%S/h{2,3}/h{3,2}/               - change all h2 to h3
-    "
-    " crs - change to snake_case
-    " crc - change to camelCase
-    " crm - change to MixCase 
-    "
-    " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
-
+    Plugin 'tpope/vim-commentary'
+    Plugin 'tpope/vim-endwise'
+    Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-surround'
-    " Normal mode
-    " -----------
-    " ds<surround>  - delete a surround
-    " cs<old><new>  - change a surround
-    " 
-    " Visual mode
-    " -----------
-    " S - add a surround
-    " 
-    " Insert mode
-    " -----------
-    " <CTRL-s>         - add a surround
-    " <CTRL-s><CTRL-s> - add a new line + surround + indent
 
     Plugin 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive = 0
