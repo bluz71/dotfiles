@@ -84,6 +84,9 @@
 "
 "   :h digraph-table             list all displayable characters
 "
+"   :syntime on      start syntax performance monitoring
+"   :syntime report  display sorted list of expensive syntax patterns
+"
 " Plugin details:
 "
 "   ag.vim: 
