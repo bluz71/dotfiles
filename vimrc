@@ -584,7 +584,6 @@ if exists("g:vundle#bundles")
     Plugin 'tpope/vim-abolish'
     Plugin 'tpope/vim-commentary'
     Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-surround'
 
     Plugin 'jlanzarotta/bufexplorer'
