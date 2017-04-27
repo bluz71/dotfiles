@@ -58,6 +58,8 @@ alias ..5='..4; ..'
 #
 export EDITOR=vim
 export LESS='-Q -R -X -F -s -i -g'
+export LESS_TERMCAP_md=$(printf "\e[00;34m")
+export LESS_TERMCAP_us=$(printf "\e[01;32m")
 export LESSHISTFILE=-
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;51:pi=38;5;43:bd=38;5;212:\
 cd=38;5;223:or=30;48;5;202:ow=38;5;75:so=38;5;169:su=36;48;5;63:ex=38;5;156:\
