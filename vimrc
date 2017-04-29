@@ -177,8 +177,6 @@ set noshowcmd
 set noshowmatch
 set noshowmode
 set noswapfile
-" Disable beeps and flashes.
-set novisualbell
 set nowrapscan
 set number
 set nrformats=
@@ -206,6 +204,13 @@ set viminfo=
 set wildmenu
 set wildmode=full
 set wrap
+
+" Disable beeps and flashes.
+if system("uname") == "Darwin\n"
+    set visualbell t_vb=
+else
+    set novisualbell
+end
 
 " Certain options only work in Neovim whilst others only work in Vim.
 if has('nvim')
