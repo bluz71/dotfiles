@@ -33,6 +33,7 @@ alias m='less'
 alias mux='tmuxinator'
 # mmv usage: mmv "*.jpeg" "#1.jpg"
 alias mv='/bin/mv -i'
+alias nv='stty -ixon && nvim 2> /dev/null'
 alias p='pygmentize -g'
 alias psu='ps -u $USER -f'
 alias rm='/bin/rm -i'

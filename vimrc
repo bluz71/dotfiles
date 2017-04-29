@@ -139,6 +139,7 @@ syntax on
 
 " General vim settings.
 "
+set autoindent
 set autowrite
 set background=dark
 set backspace=indent,eol,start
@@ -149,11 +150,16 @@ else
     set clipboard=unnamed
 endif
 set colorcolumn=81,82
-set complete=.,w,b
 set conceallevel=2
+set complete=.,w,b
+set completeopt-=preview
 set expandtab
+set foldlevelstart=20
+set foldmethod=indent
+set foldtext=""
 set formatoptions=cq
 set gdefault
+set history=200
 set infercase
 set ignorecase
 set incsearch
@@ -162,6 +168,7 @@ set lazyredraw
 set list
 set listchars=tab:\ \ ,trail:-
 set matchpairs=(:),{:},[:]
+set mouse=a
 set mousehide
 set nobackup
 set nocompatible
@@ -171,8 +178,11 @@ set noshowmatch
 set noshowmode
 set noswapfile
 set nowrapscan
+set number
 set nrformats=
 set path=**
+set pumheight=35
+set relativenumber
 set ruler
 set shiftwidth=4
 set shortmess+=I
@@ -189,7 +199,6 @@ set timeoutlen=2500
 " to I-beam and back functionality set by the t_SI and t_EI variables below.
 set ttimeoutlen=10
 set ttyfast
-set ttymouse=xterm2
 set updatetime=1000
 set viminfo=
 " Disable beeps and flashes.
@@ -198,21 +207,12 @@ set wildmenu
 set wildmode=full
 set wrap
 
-
-" Some options should not be set in 'vi' or old versions of Vim.
-"
-if v:progname != "vi"
-    set autoindent
-    set completeopt-=preview
-    set foldlevelstart=20
-    set foldmethod=indent
-    set foldtext=""
-    set history=200
-    set mouse=a
-    set number
-    set pumheight=35
+" Certain options only work in Neovim whilst others only work in Vim.
+if has('nvim')
+    set inccommand=nosplit
+else
     set cryptmethod=blowfish2
-    set relativenumber
+    set ttymouse=xterm2
 endif
 
 
@@ -709,10 +709,8 @@ augroup styleAndBehaviourCustomizations
     autocmd FileType json,markdown setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
-    if v:progname != "vi"
-        autocmd FileType * IndentLinesReset
-        autocmd Syntax * IndentLinesReset
-    endif
+    autocmd FileType * IndentLinesReset
+    autocmd Syntax * IndentLinesReset
 augroup END
 
 " Autosave behaviour.
