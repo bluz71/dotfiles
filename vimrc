@@ -55,24 +55,25 @@
 "   '<,'>s/\%Vfoo/bar/c
 "
 " Misc commands:
-"   X               delete backwards
-"   gf              go to file under cursor
-"   gq              format text
-"   :r !ls *.txt    read in selected filenames
-"   /<term>         search forward for 'term'
-"   ?<term>         search backward for 'term'
-"   :%s//<new>      replace last search 'term' with 'new'
-"   :%s//<new>/c    replace, with confirmation, last search 'term' with 'new'
-"   :%s///n         list match count for the last search
-"   :g/<pattern>    list all lines containing 'pattern'
-"   :g/<pattern>/d  delete all lines containing 'pattern'
-"   :v/<pattern>    list all lines NOT containing 'pattern'
-"   :v/<pattern>/d  delete all lines NOT containing 'pattern'
+"   X                  delete backwards
+"   gf                 go to file under cursor
+"   gq                 format text
+"   :r !ls *.txt       read in selected filenames
+"   /<term>            search forward for 'term'
+"   ?<term>            search backward for 'term'
+"   :%s//<new>         replace last search 'term' with 'new'
+"   :%s//<new>/c       replace, with confirmation, last search 'term' with 'new'
+"   :%s///n            list match count for the last search
+"   :g/<pattern>       list all lines containing 'pattern'
+"   :g/<pattern>/d     delete all lines containing 'pattern'
+"   :v/<pattern>       list all lines NOT containing 'pattern'
+"   :v/<pattern>/d     delete all lines NOT containing 'pattern'
+"   :g/<pattern/normal @q execute macro 'q' over all lines that match pattern
 "
-"   /<term>         search for 'term'
-"   cgn             replace last search match
-"   dgn             delete last search match
-"   .               repeat last change
+"   /<term>            search for 'term'
+"   cgn                replace last search match
+"   dgn                delete last search match
+"   .                  repeat last change
 "
 "   % vim $(find **/*.txt)  edit all txt files from the current path down
 "   % vim $(ag -l foo)      edit all files that contain foo
@@ -420,19 +421,30 @@ noremap <C-Right> :n<CR>
 noremap <C-Left> :N<CR>
 noremap <C-q> :confirm qall<CR>
 noremap <F1> :set relativenumber!<CR>
+noremap <leader>1 :set relativenumber!<CR>
 noremap <F2> :w<CR>
 noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
+noremap <leader>3 :%retab<CR> :%s/\s\+$//<CR>
 " 'qq' starts a macro recording, 'q' stops it, <F4> runs the macro.
 noremap <F4> @q
+noremap <leader>4 @q
+" Execute macro 'q' over the visual selection.
+xnoremap @q :'<,'>:normal @q<CR>
 noremap <F5> :call Spelling()<CR>
+noremap <leader>5 :call Spelling()<CR>
 noremap <F6> :source $MYVIMRC<CR>
-"noremap <F7>
+noremap <leader>6 :source $MYVIMRC<CR>
+noremap <F7> :call MacroMode()<CR>
+noremap <leader>7 :call MacroMode()<CR>
 noremap <F8> :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
+noremap <leader>8 :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
-noremap <F9> :call MacroMode()<CR>
-"noremap <F10>
-noremap <F11> :set hlsearch!<CR>
-noremap <F12> :call Listing()<CR>
+noremap <F9> :set hlsearch!<CR>
+noremap <leader>9 :set hlsearch!<CR>
+noremap <F10> :call Listing()<CR>
+noremap <leader>0 :call Listing()<CR>
+"noremap <F11>
+"noremap <F12>
 " Quickfix related mappings.
 noremap <leader>m :silent make<CR> :redraw!<CR>
 noremap <leader>co :copen<CR>
