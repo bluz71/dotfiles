@@ -14,8 +14,6 @@ set guioptions-=L
 set guioptions-=e
 " Enable console dialogs.
 set guioptions+=c
-" Disable beeps and flashes.
-set visualbell t_vb=
 
 
 " Set the size and font.

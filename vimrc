@@ -177,6 +177,8 @@ set noshowcmd
 set noshowmatch
 set noshowmode
 set noswapfile
+" Disable beeps and flashes.
+set novisualbell
 set nowrapscan
 set number
 set nrformats=
@@ -201,8 +203,6 @@ set ttimeoutlen=10
 set ttyfast
 set updatetime=1000
 set viminfo=
-" Disable beeps and flashes.
-set visualbell t_vb=
 set wildmenu
 set wildmode=full
 set wrap
