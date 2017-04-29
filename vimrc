@@ -456,8 +456,8 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap tn :$tabnew<CR>
-noremap tc :tabclose<CR>
+noremap tc :$tabnew<CR>
+noremap tx :tabclose<CR>
 noremap t1 1gt
 noremap t2 2gt
 noremap t3 3gt
