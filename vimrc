@@ -212,6 +212,9 @@ set wrap
 if has("nvim")
     set inccommand=nosplit
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+    " Hack to get C-h working in Neovim, for reference:
+    "  https://github.com/neovim/neovim/issues/2048
+    nmap <BS> <C-W>h
 else
     set cryptmethod=blowfish2
     set ttymouse=xterm2
