@@ -425,6 +425,8 @@ inoremap <C-l> <C-x><C-l>
 noremap <C-Right> :n<CR>
 noremap <C-Left> :N<CR>
 noremap <C-q> :confirm qall<CR>
+" Double up function key mappings with <leader>+number mappings for touchbar
+" Macbooks which have no function keys.
 noremap <F1> :set relativenumber!<CR>
 noremap <leader>1 :set relativenumber!<CR>
 noremap <F2> :w<CR>

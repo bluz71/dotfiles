@@ -71,6 +71,7 @@ mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
 *.mp4=38;5;217:*.mkv=38;5;216:*.flac=38;5;222:*.mp3=38;5;218:*akefile=38;5;177:\
 *.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:*.doc=38;5;224:*.xls=38;5;146:\
 *.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.m4b=38;5;187:*.conf=38;5;121"
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export PAGER=less
 
 # What platform are we running on.
