@@ -213,8 +213,9 @@ else
 end
 
 " Certain options only work in Neovim whilst others only work in Vim.
-if has('nvim')
+if has("nvim")
     set inccommand=nosplit
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 else
     set cryptmethod=blowfish2
     set ttymouse=xterm2
@@ -371,9 +372,9 @@ function! VisualMode()
 endfunction
 
 
-" Terminal specific tweaks.
+" Terminal specific tweaks for Vim.
 "
-if !has("gui_running")
+if !has("gui_running") && !has("nvim")
     " if tmux
     if &term == 'screen-256color'
         " Change the cursor to an I-beam when in insert mode.
