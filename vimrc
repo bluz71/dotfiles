@@ -88,6 +88,8 @@
 "   :syntime on      start syntax performance monitoring
 "   :syntime report  display sorted list of expensive syntax patterns
 "
+"   :term            start nvim terminal, use C-\C-n to go into normal mode
+"
 " Plugin details:
 "
 "   ag.vim: 
@@ -143,6 +145,7 @@ set autoindent
 set autowrite
 set background=dark
 set backspace=indent,eol,start
+set belloff=all
 set breakindent
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
@@ -204,13 +207,6 @@ set viminfo=
 set wildmenu
 set wildmode=full
 set wrap
-
-" Disable beeps and flashes.
-if system("uname") == "Darwin\n"
-    set visualbell t_vb=
-else
-    set novisualbell
-end
 
 " Certain options only work in Neovim whilst others only work in Vim.
 if has("nvim")
