@@ -88,7 +88,7 @@
 "   :syntime on      start syntax performance monitoring
 "   :syntime report  display sorted list of expensive syntax patterns
 "
-"   :term            start nvim terminal, use C-\C-n to go into normal mode
+"   :term            start nvim terminal
 "
 " Plugin details:
 "
@@ -211,6 +211,10 @@ set wrap
 " Certain options only work in Neovim whilst others only work in Vim.
 if has("nvim")
     set inccommand=nosplit
+    " Make Escape work in the terminal.
+    tnoremap <Esc> <c-\><c-n>
+    tnoremap `` <c-\><c-n>
+    " This likely won't be needed in Neovim 0.2 and later.
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
     " Hack to get C-h working in Neovim, for reference:
     "  https://github.com/neovim/neovim/issues/2048
