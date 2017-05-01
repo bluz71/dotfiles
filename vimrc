@@ -721,6 +721,10 @@ augroup styleAndBehaviourCustomizations
     autocmd QuickFixCmdPost *make* cwindow
     autocmd FileType * IndentLinesReset
     autocmd Syntax * IndentLinesReset
+    if has("nvim")
+        autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0
+        autocmd TermOpen * setlocal statusline=%4*\ terminal\ %*%=%-14.(%l,%c%V%)%7*[%L]\ %8*%P
+    endif
 augroup END
 
 " Autosave behaviour.
