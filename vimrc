@@ -571,6 +571,9 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     noremap <leader>rt :call RunCurrentSpecFile()<CR>
     noremap <leader>rl :call RunLastSpec()<CR>
     noremap <leader>ra :call RunAllSpecs()<CR>
+    if has("nvim")
+        let g:rspec_command = "15split | term bundle exec rspec {spec}"
+    endif
 
     " JavaScript and CoffeeScript support.
     Plugin 'pangloss/vim-javascript'
