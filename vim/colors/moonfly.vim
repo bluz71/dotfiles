@@ -196,7 +196,8 @@ exec "highlight Folded ctermbg=234 guibg=" . s:grey234 . " ctermfg=14 guifg=". s
 exec "highlight FoldColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
 exec "highlight SignColumn ctermbg=236 guibg=" . s:grey236 . " ctermfg=14 guifg=" . s:light_green
 exec "highlight Todo ctermbg=3 guibg=" . s:khaki . " ctermfg=bg guifg=bg"
-exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=234 guifg=" . s:grey234
+exec "highlight SpecialKey ctermbg=bg guibg=bg ctermfg=12 guifg=" . s:light_blue
+exec "highlight Whitespace ctermbg=bg guibg=bg ctermfg=235 guifg=" . s:grey235
 exec "highlight MatchParen ctermbg=bg guibg=bg ctermfg=9 guifg=" . s:crimson
 exec "highlight Ignore ctermfg=12 guifg=" . s:light_blue
 exec "highlight Underlined ctermfg=10 guifg=" . s:emerald . " cterm=none gui=none"

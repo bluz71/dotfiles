@@ -168,8 +168,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
-set list
-set listchars=tab:\ \ ,trail:-
 set matchpairs=(:),{:},[:]
 set mouse=a
 set mousehide
@@ -188,7 +186,6 @@ set pumheight=35
 set relativenumber
 set ruler
 set shiftwidth=4
-set shortmess+=I
 set showbreak=\\\\\
 set smartcase
 set smarttab
@@ -209,18 +206,14 @@ set wildmode=full
 set wrap
 
 " Certain options only work in Neovim whilst others only work in Vim.
+" Neovim has a Whitespace highlight group, Vim does not.
 if has("nvim")
     set inccommand=nosplit
-    " Make Escape work in the terminal.
-    tnoremap <Esc> <c-\><c-n>
-    tnoremap `` <c-\><c-n>
-    " This likely won't be needed in Neovim 0.2 and later.
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-    " Hack to get C-h working in Neovim, for reference:
-    "  https://github.com/neovim/neovim/issues/2048
-    nmap <BS> <C-W>h
+    set list
+    set listchars=tab:\ \ ,trail:-
 else
     set cryptmethod=blowfish2
+    set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
 endif
 
@@ -245,23 +238,33 @@ function! Spelling()
     endif
 endfunction
 
-" Toggle special characters list display. By default we only wish to see
-" leading whitespaces as dots whilst other times we want to clearly display
-" tabs, spaces and end-of-lines.
+" Toggle special characters list display.
 "
 function! Listing()
-    if g:listMode == 1
-        set listchars=eol:$,tab:>-,trail:.
-        highlight SpecialKey ctermfg=12 guifg=#78c2ff
-        let g:listMode = 0
-    elseif &filetype == "go"
-        set listchars=tab:\¦\
-        highlight SpecialKey ctermfg=235 guifg=#262626
-        let g:listMode = 1
+    if &filetype == "go"
+        if g:listMode == 1
+            set listchars=eol:$,tab:>-,trail:.
+            highlight SpecialKey ctermfg=12 guifg=#78c2ff
+            let g:listMode = 0
+        else
+            set listchars=tab:\¦\ 
+            highlight SpecialKey ctermfg=235 guifg=#262626
+            let g:listMode = 1
+        endif
+        return
+    endif
+
+    " Note, Neovim has a Whitespace highlight group, Vim does not.
+    if has("nvim")
+        if g:listMode == 1
+            set listchars=eol:$,tab:>-,trail:.
+            let g:listMode = 0
+        else
+            set listchars=tab:\ \ ,trail:-
+            let g:listMode = 1
+        endif
     else
-        set listchars=tab:\ \ ,trail:-
-        highlight SpecialKey ctermfg=235 guifg=#262626
-        let g:listMode = 1
+        set list!
     endif
 endfunction
 
@@ -400,6 +403,11 @@ endif
 inoremap `` <Esc>
 noremap  `` <Esc>
 noremap ; :
+if has("nvim")
+    " Make Escape work in the terminal.
+    tnoremap <Esc> <c-\><c-n>
+    tnoremap `` <c-\><c-n>
+endif
 let mapleader = ","
 " Simpler keyboard navigation between splits.
 noremap <C-h> <C-w>h
@@ -683,7 +691,7 @@ augroup languageCustomizationsByType
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go set listchars=tab:\│\ 
+    autocmd FileType go set list listchars=tab:\¦\ 
     autocmd FileType go highlight SpecialKey ctermfg=234 guifg=#1c1c1c
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
@@ -726,7 +734,7 @@ augroup styleAndBehaviourCustomizations
     autocmd FileType * IndentLinesReset
     autocmd Syntax * IndentLinesReset
     if has("nvim")
-        autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0
+        autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * setlocal statusline=%4*\ terminal\ %*%=%-14.(%l,%c%V%)%7*[%L]\ %8*%P
     endif
 augroup END
