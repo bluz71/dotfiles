@@ -289,7 +289,7 @@ endfunction
 " Set the local status line depending on the specified mode.
 "
 function! StatusLine(mode)
-    if &buftype != "" || bufname("%") == "[BufExplorer]"
+    if &buftype == "help" || &buftype == "quickfix" || bufname("%") == "[BufExplorer]"
         " Don't set a custom status line for special buffers such as quickfix,
         " help and the file explorer.
         return
@@ -303,6 +303,8 @@ function! StatusLine(mode)
         setlocal statusline+=%*%=%-14.(%l,%c%V%)[%L]\ %P
         return
     " All cases from here on relate to the status line of the active window.
+    elseif &buftype == "terminal" || a:mode == "terminal"
+        setlocal statusline=%4*\ terminal\ 
     elseif a:mode == "normal"
         setlocal statusline=%1*\ normal\ 
     elseif a:mode == "insert"
@@ -462,8 +464,8 @@ noremap <F9> :set hlsearch!<CR>
 noremap <leader>9 :set hlsearch!<CR>
 noremap <F10> :call Listing()<CR>
 noremap <leader>0 :call Listing()<CR>
-"noremap <F11>
-"noremap <F12>
+noremap <F11> :set hlsearch!<CR>
+noremap <F12> :call Listing()<CR>
 " Quickfix related mappings.
 noremap <leader>m :silent make<CR> :redraw!<CR>
 noremap <leader>co :copen<CR>
@@ -735,7 +737,7 @@ augroup styleAndBehaviourCustomizations
     autocmd Syntax * IndentLinesReset
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-        autocmd TermOpen * setlocal statusline=%4*\ terminal\ %*%=%-14.(%l,%c%V%)%7*[%L]\ %8*%P
+        autocmd TermOpen * call StatusLine("terminal")
     endif
 augroup END
 
