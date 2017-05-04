@@ -286,12 +286,11 @@ function! MacroMode()
     endif
 endfunction
 
-" Set the local status line depending on the specified mode.
+" Set the local status line.
 "
 function! StatusLine(mode)
-    if &buftype == "help" || &buftype == "quickfix" || bufname("%") == "[BufExplorer]"
-        " Don't set a custom status line for special buffers such as quickfix,
-        " help and the file explorer.
+    if &buftype == "nofile" || bufname("%") == "[BufExplorer]"
+        " Don't set a custom status line for file explorers.
         return
     elseif a:mode == "not-current"
         " This is the status line for inactive windows.
@@ -304,7 +303,11 @@ function! StatusLine(mode)
         return
     " All cases from here on relate to the status line of the active window.
     elseif &buftype == "terminal" || a:mode == "terminal"
-        setlocal statusline=%4*\ terminal\ 
+        setlocal statusline=%5*\ terminal\ 
+    elseif &buftype == "help"
+        setlocal statusline=%5*\ help\ 
+    elseif &buftype == "quickfix"
+        setlocal statusline=%5*\ quickfix\ 
     elseif a:mode == "normal"
         setlocal statusline=%1*\ normal\ 
     elseif a:mode == "insert"
@@ -312,17 +315,17 @@ function! StatusLine(mode)
     elseif a:mode == "visual"
         setlocal statusline=%3*\ visual\ 
     elseif a:mode == "replace"
-        setlocal statusline=%4*\ overw'\ 
+        setlocal statusline=%4*\ replace\ 
     endif
 
     setlocal statusline+=%*\ %<%f\ %h%m%r
     if exists("g:loaded_fugitive")
         " Display Git branch if fugitive is loaded.
-        setlocal statusline+=%5*\ %{fugitive#statusline()}\ 
+        setlocal statusline+=%6*\ %{fugitive#statusline()}\ 
     endif
-    setlocal statusline+=%6*%=%-14.(%l,%c%V%)
-    setlocal statusline+=%7*[%L]\ 
-    setlocal statusline+=%8*%P
+    setlocal statusline+=%7*%=%-14.(%l,%c%V%)
+    setlocal statusline+=%8*[%L]\ 
+    setlocal statusline+=%9*%P
 endfunction
 
 " Upon entering the NERDTree window do a root directoy refresh to automatically
@@ -449,8 +452,9 @@ noremap <leader>3 :%retab<CR> :%s/\s\+$//<CR>
 " 'qq' starts a macro recording, 'q' stops it, <F4> runs the macro.
 noremap <F4> @q
 noremap <leader>4 @q
+nnoremap Q @q
 " Execute macro 'q' over the visual selection.
-xnoremap @q :'<,'>:normal @q<CR>
+xnoremap Q :'<,'>:normal @q<CR>
 noremap <F5> :call Spelling()<CR>
 noremap <leader>5 :call Spelling()<CR>
 noremap <F6> :source $MYVIMRC<CR>

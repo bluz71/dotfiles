@@ -124,11 +124,12 @@ exec "highlight StatusLine ctermbg=11 guibg=" . s:grey236 . " ctermfg=236 guifg=
 exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:grey234
 exec "highlight User2 ctermbg=11 guibg=" . s:wheat . " ctermfg=234 guifg=" . s:grey234
 exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User4 ctermbg=9 guibg=" . s:crimson . " ctermfg=234 guifg=" . s:green . " gui=none"
-exec "highlight User5 ctermbg=236 guibg=" . s:grey236 . " ctermfg=10 guifg=" . s:emerald . " gui=none"
-exec "highlight User6 ctermbg=236 guibg=" . s:grey236 . " ctermfg=251 guifg=" . s:white . " gui=none"
-exec "highlight User7 ctermbg=236 guibg=" . s:grey236 . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
-exec "highlight User8 ctermbg=236 guibg=" . s:grey236 . " ctermfg=2 guifg=" . s:green . " gui=none"
+exec "highlight User4 ctermbg=7 guibg=" . s:orange . " ctermfg=234 guifg=" . s:grey234
+exec "highlight User5 ctermbg=9 guibg=" . s:crimson . " ctermfg=234 guifg=" . s:grey234
+exec "highlight User6 ctermbg=236 guibg=" . s:grey236 . " ctermfg=10 guifg=" . s:emerald . " gui=none"
+exec "highlight User7 ctermbg=236 guibg=" . s:grey236 . " ctermfg=251 guifg=" . s:white . " gui=none"
+exec "highlight User8 ctermbg=236 guibg=" . s:grey236 . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
+exec "highlight User9 ctermbg=236 guibg=" . s:grey236 . " ctermfg=2 guifg=" . s:green . " gui=none"
 exec "highlight StatusLineNC ctermbg=247 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey247 . " gui=none"
 exec "highlight VertSplit ctermbg=236 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey236
 exec "highlight Tabline ctermbg=236 guibg=" . s:grey236 . " ctermfg=247 guifg=" . s:grey247 . " cterm=none gui=none"
