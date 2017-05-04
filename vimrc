@@ -547,6 +547,8 @@ if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" 
     let g:ctrlp_match_window_reversed = 0
     " Use CtrlP to search by tag.
     nnoremap <leader>. :CtrlPTag<CR>
+    " Use CtrlP to search buffers.
+    nnoremap <leader>/ :CtrlPBuffer<CR>
 
     Plugin 'rking/ag.vim'
     let g:ag_mapping_message = 0
