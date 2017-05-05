@@ -479,15 +479,15 @@ noremap <leader><Down> :cn<CR>
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
-" Tabbing.
-noremap tc :$tabnew<CR>
-noremap tx :tabclose<CR>
-noremap 1 1gt
-noremap 2 2gt
-noremap 3 3gt
-noremap 4 4gt
-noremap 5 5gt
-noremap 6 6gt
+" Tabbing/workspaces.
+noremap wc :$tabnew<CR>
+noremap wx :tabclose<CR>
+noremap w1 1gt
+noremap w2 2gt
+noremap w3 3gt
+noremap w4 4gt
+noremap w5 5gt
+noremap w6 6gt
 " Folding.
 nnoremap <leader><Space> za
 " Equalize split sizes.
