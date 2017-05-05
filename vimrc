@@ -50,6 +50,7 @@
 "   vit/vat      visual select tag
 "   :'<,'>!sort  sort visual selection
 "   :'<,'>!uniq  uniq visual selection
+"   gx           open link in a browser
 "
 " Substitute in visual block:
 "   '<,'>s/\%Vfoo/bar/c
@@ -296,10 +297,6 @@ function! StatusLine(mode)
     elseif a:mode == "not-current"
         " This is the status line for inactive windows.
         setlocal statusline=\ %*%<%f\ %h%m%r
-        if exists("g:loaded_fugitive")
-            " Display Git branch if fugitive is loaded.
-            setlocal statusline+=\ %{fugitive#statusline()}\ 
-        endif
         setlocal statusline+=%*%=%-14.(%l,%c%V%)[%L]\ %P
         return
     " All cases from here on relate to the status line of the active window.
@@ -320,10 +317,7 @@ function! StatusLine(mode)
     endif
 
     setlocal statusline+=%*\ %<%f\ %h%m%r
-    if exists("g:loaded_fugitive")
-        " Display Git branch if fugitive is loaded.
-        setlocal statusline+=%6*\ %{fugitive#statusline()}\ 
-    endif
+    setlocal statusline+=%6*\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ 
     setlocal statusline+=%7*%=%-14.(%l,%c%V%)
     setlocal statusline+=%8*[%L]\ 
     setlocal statusline+=%9*%P
@@ -414,6 +408,8 @@ if has("nvim")
     tnoremap <Esc> <c-\><c-n>
     tnoremap `` <c-\><c-n>
 endif
+" Make dot work on visual line selections.
+xnoremap . :norm.<CR>
 let mapleader = ","
 " Simpler keyboard navigation between splits.
 noremap <C-h> <C-w>h
@@ -431,9 +427,9 @@ endif
 inoremap <C-b> <C-O>diw
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
-" Move vertically by visual line.
-noremap j gj
-noremap k gk
+" Move vertically by visual line whilst also correctly handling wrapped lines.
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
 " Nicer completion mappings when in insert mode.
 " ] - complete from tags file
 " l - complete line
@@ -442,6 +438,8 @@ inoremap <C-l> <C-x><C-l>
 " Navigate between multiple opened files.
 noremap <C-Right> :n<CR>
 noremap <C-Left> :N<CR>
+" Zoom the current file into a standalone new tab.
+noremap <leader>z :tabnew %<CR>
 noremap <C-q> :confirm qall<CR>
 " Double up function key mappings with <leader>+number mappings for touchbar
 " Macbooks which have no function keys.
@@ -484,20 +482,20 @@ noremap <leader>q :close<CR>
 " Tabbing.
 noremap tc :$tabnew<CR>
 noremap tx :tabclose<CR>
-noremap t1 1gt
-noremap t2 2gt
-noremap t3 3gt
-noremap t4 4gt
-noremap t5 5gt
-noremap t6 6gt
+noremap 1 1gt
+noremap 2 2gt
+noremap 3 3gt
+noremap 4 4gt
+noremap 5 5gt
+noremap 6 6gt
 " Folding.
 nnoremap <leader><Space> za
 " Equalize split sizes.
 noremap <leader>= <C-w>=
-" 'y' register copy and paste mappings.
-noremap <leader>y :let @y=getreg('*')<CR>
-noremap <leader>p "yp
-noremap <leader>P "yP
+" Yank and put helpers.
+noremap <leader>y :let @0=getreg('*')<CR>
+noremap <leader>p "0]p
+noremap <leader>P "0]P
 " Regenerate tags file.
 noremap <leader>tt :call system("ctags -R --exclude=.git --exclude=log .")<CR>
 " Skeletons/Templates support.
