@@ -436,10 +436,9 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 inoremap <C-]> <C-x><C-]>
 inoremap <C-l> <C-x><C-l>
 " Navigate between multiple opened files.
-noremap <C-Right> :n<CR>
-noremap <C-Left> :N<CR>
+noremap <A-Right> :n<CR>
+noremap <A-Left> :N<CR>
 " Zoom the current file into a standalone new tab.
-noremap <leader>z :tabnew %<CR>
 noremap <C-q> :confirm qall<CR>
 " Double up function key mappings with <leader>+number mappings for touchbar
 " Macbooks which have no function keys.
@@ -479,15 +478,11 @@ noremap <leader><Down> :cn<CR>
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
-" Tabbing/workspaces.
-noremap wc :$tabnew<CR>
-noremap wx :tabclose<CR>
-noremap w1 1gt
-noremap w2 2gt
-noremap w3 3gt
-noremap w4 4gt
-noremap w5 5gt
-noremap w6 6gt
+" Tabbing.
+noremap <C-Left> gT<CR>
+noremap <C-Right> gt<CR>
+noremap <C-t> :$tabnew<CR>
+noremap <leader>z :tab split<CR>
 " Folding.
 nnoremap <leader><Space> za
 " Equalize split sizes.
@@ -528,119 +523,46 @@ nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 "
 "   :PluginInstall!
 "
-if has("unix") && system("uname") == "Linux\n" || system("uname") == "Darwin\n" && v:progname != "vi"
-    " Initialize Vundle.
-    filetype off
-    set runtimepath+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+" Initialize Vundle.
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-    Plugin 'gmarik/Vundle.vim'
-    Plugin 'stefandtw/quickfix-reflector.vim'
+Plugin 'gmarik/Vundle.vim'
 
-    Plugin 'ctrlpvim/ctrlp.vim'
+"===============================================================
+" Niceties.
+"===============================================================
+Plugin 'nelstrom/vim-visual-star-search'
+Plugin 'stefandtw/quickfix-reflector.vim'
+Plugin 'Yggdroot/indentLine'
+    let g:indentLine_char = '¦'
+    let g:indentLine_color_term = 235
+    let g:indentLine_color_gui = "#262626"
+    let g:indentLine_faster = 1
+    let g:indentLine_setConceal = 0
+Plugin 'ervandew/supertab'
+    " Play nice with other plugins and force top-to-bottom tab completion.
+    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabContextDefaultCompletionType = "<c-n>"
+Plugin 'rhysd/clever-f.vim'
+    let g:clever_f_across_no_line = 1
+Plugin 'gcmt/taboo.vim'
+    let g:taboo_tab_format = " tab:%N%m "
+
+"===============================================================
+" File management.
+"===============================================================
+Plugin 'ctrlpvim/ctrlp.vim'
     " Use ag in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     " Using ag is fast, we don't need to cache.
     let g:ctrlp_use_caching = 0
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
-    " Use CtrlP to search by tag.
     nnoremap <leader>. :CtrlPTag<CR>
-    " Use CtrlP to search buffers.
     nnoremap <leader>/ :CtrlPBuffer<CR>
-
-    Plugin 'rking/ag.vim'
-    let g:ag_mapping_message = 0
-    let g:ag_highlight = 1
-    noremap <leader>a :Ag<Space>
-
-    Plugin 'tpope/vim-fugitive'
-    noremap <leader>gb :Gblame<CR>
-    noremap <leader>gs :Gstatus<CR>
-
-    " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
-    " Note, only set up mappings if running inside tmux.
-    Plugin 'christoomey/vim-tmux-navigator'
-    if &term == 'screen-256color'
-        let g:tmux_navigator_no_mappings = 1
-        nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-        nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-        nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-        nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-    endif
-
-    " Ruby support, including code completion, ctags for gems.
-    Plugin 'vim-ruby/vim-ruby'
-    Plugin 'tpope/vim-bundler'
-    let g:rubycomplete_buffer_loading = 1
-    let g:rubycomplete_classes_in_global = 1
-    let g:rubycomplete_rails = 1
-    let g:ruby_indent_access_modifier_style = 'indent'
-
-    " Ruby on Rails support.
-    Plugin 'tpope/vim-rails'
-    noremap <leader>em :Emodel<Space>
-    noremap <leader>ev :Eview<Space>
-    noremap <leader>ec :Econtroller<Space>
-    noremap <leader>eh :Ehelper<Space>
-
-    " Rspec support.
-    Plugin 'thoughtbot/vim-rspec'
-    noremap <leader>rs :call RunNearestSpec()<CR>
-    noremap <leader>rt :call RunCurrentSpecFile()<CR>
-    noremap <leader>rl :call RunLastSpec()<CR>
-    noremap <leader>ra :call RunAllSpecs()<CR>
-    if has("nvim")
-        let g:rspec_command = "15split | term bundle exec rspec {spec}"
-    endif
-
-    " JavaScript and CoffeeScript support.
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'kchmck/vim-coffee-script'
-    Plugin 'mxw/vim-jsx'
-    let g:jsx_ext_required = 0
-
-    " Elixir support
-    Plugin 'elixir-lang/vim-elixir'
-elseif has("win32") || has("win32unix") && v:progname != "vi"
-    " Initialize Vundle.
-    filetype off
-    set runtimepath+=~/vimfiles/bundle/Vundle.vim
-    let path='~/vimfiles/bundle'
-    call vundle#begin(path)
-
-    Plugin 'gmarik/Vundle.vim'
-
-    Plugin 'kien/ctrlp.vim'
-    " CtrlP, the match should be at the top of the list.
-    let g:ctrlp_match_window_reversed = 0
-    " Note, use F5 to refresh CtrlP cache.
-endif
-
-" Platform independent plugins and customizations.
-"
-if exists("g:vundle#bundles")
-    Plugin 'nelstrom/vim-visual-star-search'
-
-    Plugin 'tpope/vim-abolish'
-    Plugin 'tpope/vim-commentary'
-    Plugin 'tpope/vim-endwise'
-    Plugin 'tpope/vim-surround'
-
-    Plugin 'jlanzarotta/bufexplorer'
-    let g:bufExplorerFindActive = 0
-    let g:bufExplorerShowRelativePath = 1
-    let g:bufExplorerSortBy = 'name'
-    noremap <leader>l :BufExplorer<CR>
-
-    Plugin 'Yggdroot/indentLine'
-    let g:indentLine_char = '¦'
-    let g:indentLine_color_term = 235
-    let g:indentLine_color_gui = "#262626"
-    let g:indentLine_faster = 1
-    let g:indentLine_setConceal = 0
-
-    Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
     " Show line numbers and make the NERDTree window a little wider.
     let NERDTreeShowLineNumbers = 1
     let NERDTreeWinSize = 35
@@ -650,8 +572,7 @@ if exists("g:vundle#bundles")
     let g:NERDTreeDirArrowCollapsible = "~"
     let NERDTreeStatusline = " NERDTree "
     noremap <leader>n :NERDTreeToggle<CR>
-
-    Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
                 \ "Staged"    : "=",
@@ -660,22 +581,72 @@ if exists("g:vundle#bundles")
                 \ "Renamed"   : "!"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
+Plugin 'jlanzarotta/bufexplorer'
+    let g:bufExplorerFindActive = 0
+    let g:bufExplorerShowRelativePath = 1
+    let g:bufExplorerSortBy = 'name'
+    noremap <leader>l :BufExplorer<CR>
+Plugin 'rking/ag.vim'
+    let g:ag_mapping_message = 0
+    let g:ag_highlight = 1
+    noremap <leader>a :Ag<Space>
+Plugin 'tpope/vim-fugitive'
+    noremap <leader>gb :Gblame<CR>
+    noremap <leader>gs :Gstatus<CR>
 
-    Plugin 'ervandew/supertab'
-    " Play nice with other plugins and force top-to-bottom tab completion.
-    let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"===============================================================
+" Language support.
+"===============================================================
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mxw/vim-jsx'
+    let g:jsx_ext_required = 0
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-bundler'
+    let g:rubycomplete_buffer_loading = 1
+    let g:rubycomplete_classes_in_global = 1
+    let g:rubycomplete_rails = 1
+    let g:ruby_indent_access_modifier_style = 'indent'
+Plugin 'tpope/vim-rails'
+    noremap <leader>em :Emodel<Space>
+    noremap <leader>ev :Eview<Space>
+    noremap <leader>ec :Econtroller<Space>
+    noremap <leader>eh :Ehelper<Space>
+Plugin 'thoughtbot/vim-rspec'
+    noremap <leader>ts :call RunNearestSpec()<CR>
+    noremap <leader>tf :call RunCurrentSpecFile()<CR>
+    noremap <leader>tl :call RunLastSpec()<CR>
+    noremap <leader>ta :call RunAllSpecs()<CR>
+    if has("nvim")
+        let g:rspec_command = "15split | term bundle exec rspec {spec}"
+    endif
 
-    Plugin 'rhysd/clever-f.vim'
-    let g:clever_f_across_no_line = 1
-
-    Plugin 'gcmt/taboo.vim'
-    let g:taboo_tab_format = " tab:%N%m "
-
-    " Finalize Vundle.
-    call vundle#end()
-    filetype plugin indent on
+"===============================================================
+" tmux support.
+"===============================================================
+Plugin 'christoomey/vim-tmux-navigator'
+if &term == 'screen-256color'
+    " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
+    " Note, only set up mappings if running inside tmux.
+    let g:tmux_navigator_no_mappings = 1
+    nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+    nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+    nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 endif
+
+"===============================================================
+" Tim Pope plugins.
+"===============================================================
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+
+" Finalize Vundle.
+call vundle#end()
+filetype plugin indent on
 
 
 " Load up the match it plugin which provides smart % XML/HTML matching.
