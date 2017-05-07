@@ -600,18 +600,18 @@ Plug 'tpope/vim-fugitive'
 "-----------------------------
 " Language plugins
 "-----------------------------
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'elixir-lang/vim-elixir',   { 'for': ['elixir', 'eelixir'] }
-Plug 'pangloss/vim-javascript',  { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx',              { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'kchmck/vim-coffee-script'
+Plug 'elixir-lang/vim-elixir'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
     let g:jsx_ext_required = 0
-Plug 'vim-ruby/vim-ruby',        { 'for': ['ruby', 'eruby'] }
-Plug 'tpope/vim-bundler',        { 'for': ['ruby', 'eruby'] }
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler'
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
     let g:rubycomplete_rails = 1
     let g:ruby_indent_access_modifier_style = 'indent'
-Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
+Plug 'tpope/vim-rails'
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
     noremap <leader>ec :Econtroller<Space>
