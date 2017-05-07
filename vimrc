@@ -1,3 +1,5 @@
+" TIPS & TRICKS
+"
 " Useful insert mode commands:
 "   Ctrl-o       for one time normal mode command (zz being most useful)
 "   Ctrl-r<reg>  for insertion from a named register
@@ -135,6 +137,10 @@
 "       <CTRL-s><CTRL-s> - add a new line + surround + indent
 
 
+"===========================================================
+" SETTINGS
+"===========================================================
+
 " We want syntax highlighting on.
 "
 syntax on
@@ -219,6 +225,10 @@ else
     set ttymouse=xterm2
 endif
 
+
+"===========================================================
+" FUNCTIONS
+"===========================================================
 
 " Set default value for the global variables.
 "
@@ -378,9 +388,13 @@ function! VisualMode()
 endfunction
 
 
-" Terminal specific tweaks for Vim.
-"
+"===========================================================
+" TERMINAL
+"===========================================================
+
 if !has("gui_running") && !has("nvim")
+    " Note, Neovim sets the cursor to I-beam in insert mode by default.
+
     " if tmux
     if &term == 'screen-256color'
         " Change the cursor to an I-beam when in insert mode.
@@ -398,8 +412,10 @@ if !has("gui_running") && !has("nvim")
 endif
 
 
-" Keyboard mappings.
-"
+"===========================================================
+" MAPPINGS
+"===========================================================
+
 inoremap `` <Esc>
 noremap  `` <Esc>
 noremap ; :
@@ -503,36 +519,19 @@ nnoremap <leader>khtml :read $VIMHOME/skeletons/skeleton.html<CR>
 nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 
 
-" Plugins via Vundle.
-"
-" Note, on Unix Vundle is installed via:
-"
-"   % git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"
-" On Windows please make sure msysgit is installed AND git/curl are available
-" in the PATH. Vundle is then installed via:
-"
-"   C:\> cd %USERPROFILE%
-"   C:\> git clone https://github.com/gmarik/Vundle.vim.git vimfiles/bundle/Vundle.vim
-"
-" Plugins are installed in Vim via:
-"
-"   :PluginInstall
-"
-" Plugins are updated in Vim via:
-"
-"   :PluginInstall!
-"
-" Initialize Vundle.
+"===========================================================
+" PLUGINS
+"===========================================================
+
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-"===============================================================
-" Niceties.
-"===============================================================
+"-----------------------------
+" Niceties
+"-----------------------------
 Plugin 'nelstrom/vim-visual-star-search'
 Plugin 'stefandtw/quickfix-reflector.vim'
 Plugin 'Yggdroot/indentLine'
@@ -550,9 +549,9 @@ Plugin 'rhysd/clever-f.vim'
 Plugin 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 
-"===============================================================
-" File management.
-"===============================================================
+"-----------------------------
+" File management plugins
+"-----------------------------
 Plugin 'ctrlpvim/ctrlp.vim'
     " Use ag in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -594,9 +593,9 @@ Plugin 'tpope/vim-fugitive'
     noremap <leader>gb :Gblame<CR>
     noremap <leader>gs :Gstatus<CR>
 
-"===============================================================
-" Language support.
-"===============================================================
+"-----------------------------
+" Language plugins
+"-----------------------------
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
@@ -622,9 +621,9 @@ Plugin 'thoughtbot/vim-rspec'
         let g:rspec_command = "15split | term bundle exec rspec {spec}"
     endif
 
-"===============================================================
-" tmux support.
-"===============================================================
+"-----------------------------
+" tmux support
+"-----------------------------
 Plugin 'christoomey/vim-tmux-navigator'
 if &term == 'screen-256color'
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
@@ -636,9 +635,9 @@ if &term == 'screen-256color'
     nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 endif
 
-"===============================================================
-" Tim Pope plugins.
-"===============================================================
+"-----------------------------
+" Tim Pope plugins
+"-----------------------------
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
@@ -652,6 +651,10 @@ filetype plugin indent on
 " Load up the match it plugin which provides smart % XML/HTML matching.
 runtime macros/matchit.vim
 
+
+"===========================================================
+" AUTOCMDS
+"===========================================================
 
 " Custom settings per language by file type.
 "
@@ -724,6 +727,8 @@ augroup autoSave
     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
 augroup END
 
-" Set the color scheme
-"
+"===========================================================
+" COLOR SCHEME
+"===========================================================
+
 colorscheme moonfly
