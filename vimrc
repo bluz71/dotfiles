@@ -497,8 +497,8 @@ noremap <leader>q :close<CR>
 " Tabbing.
 noremap <C-Left> gT<CR>
 noremap <C-Right> gt<CR>
-noremap <C-t> :$tabnew<CR>
-noremap <leader>z :tab split<CR>
+noremap <silent> <C-t> :$tabnew<CR>
+noremap <silent> <leader>z :tab split<CR>
 " Folding.
 nnoremap <leader><Space> za
 " Equalize split sizes.
@@ -612,13 +612,13 @@ Plugin 'tpope/vim-rails'
     noremap <leader>ev :Eview<Space>
     noremap <leader>ec :Econtroller<Space>
     noremap <leader>eh :Ehelper<Space>
-Plugin 'thoughtbot/vim-rspec'
-    noremap <leader>ts :call RunNearestSpec()<CR>
-    noremap <leader>tf :call RunCurrentSpecFile()<CR>
-    noremap <leader>tl :call RunLastSpec()<CR>
-    noremap <leader>ta :call RunAllSpecs()<CR>
+Plugin 'janko-m/vim-test'
+    noremap <silent> <leader>ts :TestNearest<CR>
+    noremap <silent> <leader>tf :TestFile<CR>
+    noremap <silent> <leader>ta :TestSuite<CR>
+    noremap <silent> <leader>tl :TestLast<CR>
     if has("nvim")
-        let g:rspec_command = "15split | term bundle exec rspec {spec}"
+        let test#strategy = "neovim"
     endif
 
 "-----------------------------
