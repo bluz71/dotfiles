@@ -507,6 +507,11 @@ noremap <leader>= <C-w>=
 noremap <leader>y :let @0=getreg('*')<CR>
 noremap <leader>p "0]p
 noremap <leader>P "0]P
+" ~/.inputrc like motions in command mode.
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <A-b> <C-Left>
+cnoremap <A-f> <C-Right>
 " Regenerate tags file.
 noremap <leader>tt :call system("ctags -R --exclude=.git --exclude=log .")<CR>
 " Skeletons/Templates support.
