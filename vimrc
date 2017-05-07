@@ -523,36 +523,40 @@ nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 " PLUGINS
 "===========================================================
 
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Automatically install vim-plug and run PlugInstall if vim-plug is not found.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'gmarik/Vundle.vim'
+" Initialize vim-plug.
+call plug#begin('~/.vim/plugged')
 
 "-----------------------------
 " Niceties
 "-----------------------------
-Plugin 'nelstrom/vim-visual-star-search'
-Plugin 'stefandtw/quickfix-reflector.vim'
-Plugin 'Yggdroot/indentLine'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'stefandtw/quickfix-reflector.vim'
+Plug 'Yggdroot/indentLine'
     let g:indentLine_char = '¦'
     let g:indentLine_color_term = 235
     let g:indentLine_color_gui = "#262626"
     let g:indentLine_faster = 1
     let g:indentLine_setConceal = 0
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
     " Play nice with other plugins and force top-to-bottom tab completion.
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
-Plugin 'rhysd/clever-f.vim'
+Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line = 1
-Plugin 'gcmt/taboo.vim'
+Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 
 "-----------------------------
 " File management plugins
 "-----------------------------
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
     " Use ag in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     " Using ag is fast, we don't need to cache.
@@ -561,7 +565,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_match_window_reversed = 0
     nnoremap <leader>. :CtrlPTag<CR>
     nnoremap <leader>/ :CtrlPBuffer<CR>
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Show line numbers and make the NERDTree window a little wider.
     let NERDTreeShowLineNumbers = 1
     let NERDTreeWinSize = 35
@@ -571,7 +575,7 @@ Plugin 'scrooloose/nerdtree'
     let g:NERDTreeDirArrowCollapsible = "~"
     let NERDTreeStatusline = " NERDTree "
     noremap <leader>n :NERDTreeToggle<CR>
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
                 \ "Staged"    : "=",
@@ -580,39 +584,39 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
                 \ "Renamed"   : "!"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
-Plugin 'jlanzarotta/bufexplorer'
+Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive = 0
     let g:bufExplorerShowRelativePath = 1
     let g:bufExplorerSortBy = 'name'
     noremap <leader>l :BufExplorer<CR>
-Plugin 'rking/ag.vim'
+Plug 'rking/ag.vim'
     let g:ag_mapping_message = 0
     let g:ag_highlight = 1
     noremap <leader>a :Ag<Space>
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
     noremap <leader>gb :Gblame<CR>
     noremap <leader>gs :Gstatus<CR>
 
 "-----------------------------
 " Language plugins
 "-----------------------------
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'elixir-lang/vim-elixir',   { 'for': ['elixir', 'eelixir'] }
+Plug 'pangloss/vim-javascript',  { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx',              { 'for': ['javascript', 'javascript.jsx'] }
     let g:jsx_ext_required = 0
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-bundler'
+Plug 'vim-ruby/vim-ruby',        { 'for': ['ruby', 'eruby'] }
+Plug 'tpope/vim-bundler',        { 'for': ['ruby', 'eruby'] }
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
     let g:rubycomplete_rails = 1
     let g:ruby_indent_access_modifier_style = 'indent'
-Plugin 'tpope/vim-rails'
+Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
     noremap <leader>ec :Econtroller<Space>
     noremap <leader>eh :Ehelper<Space>
-Plugin 'janko-m/vim-test'
+Plug 'janko-m/vim-test'
     noremap <silent> <leader>ts :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
     noremap <silent> <leader>ta :TestSuite<CR>
@@ -624,7 +628,7 @@ Plugin 'janko-m/vim-test'
 "-----------------------------
 " tmux support
 "-----------------------------
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 if &term == 'screen-256color'
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
@@ -638,14 +642,13 @@ endif
 "-----------------------------
 " Tim Pope plugins
 "-----------------------------
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
 
-" Finalize Vundle.
-call vundle#end()
-filetype plugin indent on
+" Finalize vim-plug.
+call plug#end()
 
 
 " Load up the match it plugin which provides smart % XML/HTML matching.
