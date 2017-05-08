@@ -149,6 +149,7 @@ syntax on
 " General vim settings.
 "
 set autoindent
+set autoread
 set autowrite
 set background=dark
 set backspace=indent,eol,start
@@ -729,11 +730,12 @@ augroup styleAndBehaviourCustomizations
     endif
 augroup END
 
-" Autosave behaviour.
+" Autosave and autoread behaviour.
 "
-augroup autoSave
+augroup autoSaveAndRead
     autocmd!
     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
 augroup END
 
 "===========================================================
