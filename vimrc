@@ -183,6 +183,7 @@ set nohlsearch
 set noshowcmd
 set noshowmatch
 set noshowmode
+set nosplitright
 set noswapfile
 set nowrapscan
 set number
@@ -478,9 +479,9 @@ noremap <leader>7 :call MacroMode()<CR>
 noremap <F8> :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 noremap <leader>8 :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
-noremap <F9> :set hlsearch!<CR>
+"<F9> - unused
 noremap <leader>9 :set hlsearch!<CR>
-noremap <F10> :call Listing()<CR>
+"<F10> - unused
 noremap <leader>0 :call Listing()<CR>
 noremap <F11> :set hlsearch!<CR>
 noremap <F12> :call Listing()<CR>
