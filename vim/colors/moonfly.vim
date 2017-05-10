@@ -20,7 +20,6 @@ let s:light_green = "#85dc85"
 let s:green       = "#8cc85f"
 let s:emerald     = "#42cf89"
 let s:blue        = "#80a0ff"
-let s:sky_blue    = "#87afff"
 let s:light_blue  = "#78c2ff"
 let s:turquoise   = "#7ee0ce"
 let s:purple      = "#ae81ff"
@@ -68,7 +67,6 @@ let s:red         = "#ff5454"
 " green       = 2
 " emerald     = 10
 " blue        = 4
-" sky_blue    = 111
 " light_blue  = 12
 " turquoise   = 6
 " purple      = 13
@@ -121,15 +119,6 @@ exec "highlight PreProc ctermfg=15 guifg=" . s:violet
 
 " Status, split and tab lines.
 exec "highlight StatusLine ctermbg=11 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:wheat . " gui=none"
-exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User2 ctermbg=7 guibg=" . s:orange . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User4 ctermbg=3 guibg=" . s:khaki . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User5 ctermbg=9 guibg=" . s:crimson . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User6 ctermbg=236 guibg=" . s:grey236 . " ctermfg=10 guifg=" . s:emerald . " gui=none"
-exec "highlight User7 ctermbg=236 guibg=" . s:grey236 . " ctermfg=251 guifg=" . s:white . " gui=none"
-exec "highlight User8 ctermbg=236 guibg=" . s:grey236 . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
-exec "highlight User9 ctermbg=236 guibg=" . s:grey236 . " ctermfg=2 guifg=" . s:green . " gui=none"
 exec "highlight StatusLineNC ctermbg=247 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey247 . " gui=none"
 exec "highlight VertSplit ctermbg=236 guibg=" . s:grey236 . " ctermfg=236 guifg=" . s:grey236
 exec "highlight Tabline ctermbg=236 guibg=" . s:grey236 . " ctermfg=247 guifg=" . s:grey247 . " cterm=none gui=none"
