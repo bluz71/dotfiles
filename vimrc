@@ -543,6 +543,7 @@ call plug#begin('~/.vim/plugged')
 "-----------------------------
 " Niceties
 "-----------------------------
+Plug 'bluz71/vim-moonfly-colors'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'Yggdroot/indentLine'
