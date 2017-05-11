@@ -300,41 +300,6 @@ function! MacroMode()
     endif
 endfunction
 
-" Set the local status line.
-"
-function! StatusLine(mode)
-    if &buftype == "nofile" || bufname("%") == "[BufExplorer]"
-        " Don't set a custom status line for file explorers.
-        return
-    elseif a:mode == "not-current"
-        " This is the status line for inactive windows.
-        setlocal statusline=\ %*%<%f\ %h%m%r
-        setlocal statusline+=%*%=%-14.(%l,%c%V%)[%L]\ %P
-        return
-    " All cases from here on relate to the status line of the active window.
-    elseif &buftype == "terminal" || a:mode == "terminal"
-        setlocal statusline=%5*\ terminal\ 
-    elseif &buftype == "help"
-        setlocal statusline=%5*\ help\ 
-    elseif &buftype == "quickfix"
-        setlocal statusline=%5*\ quickfix\ 
-    elseif a:mode == "normal"
-        setlocal statusline=%1*\ normal\ 
-    elseif a:mode == "insert"
-        setlocal statusline=%2*\ insert\ 
-    elseif a:mode == "visual"
-        setlocal statusline=%3*\ visual\ 
-    elseif a:mode == "replace"
-        setlocal statusline=%4*\ replace\ 
-    endif
-
-    setlocal statusline+=%*\ %<%f\ %h%m%r
-    setlocal statusline+=%6*\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}\ 
-    setlocal statusline+=%7*%=%-14.(%l,%c%V%)
-    setlocal statusline+=%8*[%L]\ 
-    setlocal statusline+=%9*%P
-endfunction
-
 " Upon entering the NERDTree window do a root directoy refresh to automatically
 " pick up any file or directory changes.
 "
@@ -351,41 +316,6 @@ function! DiffStyling()
         setlocal conceallevel=0
         setlocal colorcolumn=0
         highlight Visual ctermfg=251 guifg=#c6c6c6
-    endif
-endfunction
-
-" A windows focus event has been triggered.
-"
-function! WindowFocus(mode)
-    if a:mode == "Enter"
-        call StatusLine("normal")
-    elseif a:mode == "Leave"
-        call StatusLine("not-current")
-    endif
-endfunction
-
-" Update the status and cursor lines if the current window is now in insert
-" mode.
-"
-function! InsertMode(mode)
-    if a:mode == "i"
-        call StatusLine("insert")
-    elseif a:mode == "r"
-        call StatusLine("replace")
-    else
-        return
-    endif
-endfunction
-
-" Update the status line if entering or leaving visual mode.
-"
-function! VisualMode()
-    if mode()=~#"^[vV\<C-v>]"
-        call StatusLine("visual")
-        let g:normalMode = 0
-    elseif g:normalMode == 0
-        call StatusLine("normal")
-        let g:normalMode = 1
     endif
 endfunction
 
@@ -544,6 +474,7 @@ call plug#begin('~/.vim/plugged')
 " Niceties
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'bluz71/vim-moonfly-statusline'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'Yggdroot/indentLine'
@@ -713,10 +644,6 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter,InsertLeave * call WindowFocus("Enter")
-    autocmd WinLeave,FilterWritePost * call WindowFocus("Leave")
-    autocmd InsertEnter * call InsertMode(v:insertmode)
-    autocmd CursorMoved,CursorHold * call VisualMode()
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0 matchpairs=
@@ -727,7 +654,6 @@ augroup styleAndBehaviourCustomizations
     autocmd Syntax * IndentLinesReset
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-        autocmd TermOpen * call StatusLine("terminal")
     endif
 augroup END
 
@@ -744,24 +670,3 @@ augroup END
 "===========================================================
 
 colorscheme moonfly
-
-let s:white       = "#c6c6c6"
-let s:grey236     = "#303030"
-let s:grey234     = "#1c1c1c"
-let s:khaki       = "#e3c78a"
-let s:orange      = "#de935f"
-let s:green       = "#8cc85f"
-let s:emerald     = "#42cf89"
-let s:blue        = "#80a0ff"
-let s:sky_blue    = "#87afff"
-let s:purple      = "#ae81ff"
-let s:crimson     = "#fe3b7b"
-exec "highlight User1 ctermbg=4 guibg=" . s:blue . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User2 ctermbg=7 guibg=" . s:orange . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User3 ctermbg=13 guibg=" . s:purple . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User4 ctermbg=3 guibg=" . s:khaki . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User5 ctermbg=9 guibg=" . s:crimson . " ctermfg=234 guifg=" . s:grey234
-exec "highlight User6 ctermbg=236 guibg=" . s:grey236 . " ctermfg=10 guifg=" . s:emerald . " gui=none"
-exec "highlight User7 ctermbg=236 guibg=" . s:grey236 . " ctermfg=251 guifg=" . s:white . " gui=none"
-exec "highlight User8 ctermbg=236 guibg=" . s:grey236 . " ctermfg=111 guifg=" . s:sky_blue . " gui=none"
-exec "highlight User9 ctermbg=236 guibg=" . s:grey236 . " ctermfg=2 guifg=" . s:green . " gui=none"
