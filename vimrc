@@ -384,8 +384,8 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 inoremap <C-]> <C-x><C-]>
 inoremap <C-l> <C-x><C-l>
 " Navigate between multiple opened files.
-noremap <A-Right> :n<CR>
-noremap <A-Left> :N<CR>
+noremap <C-Right> :n<CR>
+noremap <C-Left> :N<CR>
 " Zoom the current file into a standalone new tab.
 noremap <C-q> :confirm qall<CR>
 " Double up function key mappings with <leader>+number mappings for touchbar
@@ -427,8 +427,8 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap <C-Left> gT<CR>
-noremap <C-Right> gt<CR>
+noremap <C-z> gT<CR>
+noremap <C-x> gt<CR>
 noremap <silent> <C-t> :$tabnew<CR>
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
