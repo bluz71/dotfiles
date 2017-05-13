@@ -427,8 +427,8 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap <C-z> gT<CR>
-noremap <C-x> gt<CR>
+noremap <C-n> gT<CR>
+noremap <A-n> gt<CR>
 noremap <silent> <C-t> :$tabnew<CR>
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
@@ -646,7 +646,7 @@ augroup styleAndBehaviourCustomizations
     autocmd!
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0 matchpairs=
+    autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
     autocmd FileType json,markdown setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
