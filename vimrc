@@ -95,7 +95,7 @@
 "
 " Plugin details:
 "
-"   ag.vim: 
+"   ag.vim:
 "     Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
 "     particular file extension.
 "
@@ -116,7 +116,7 @@
 "
 "     crs - change to snake_case
 "     crc - change to camelCase
-"     crm - change to MixCase 
+"     crm - change to MixCase
 "
 "     ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 "
@@ -427,9 +427,9 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap <C-n> gT<CR>
-noremap <A-n> gt<CR>
-noremap <silent> <C-t> :$tabnew<CR>
+noremap <A-n> gT
+noremap <A-m> gt
+noremap <silent> <A-t> :$tabnew<CR>
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
 nnoremap <leader><Space> za
