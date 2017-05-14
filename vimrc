@@ -427,8 +427,17 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap <A-n> gT
-noremap <A-m> gt
+noremap <A-n> gt
+noremap <A-p> gT
+noremap <leader>t1 1gt
+noremap <leader>t2 2gt
+noremap <leader>t3 3gt
+noremap <leader>t4 4gt
+noremap <leader>t5 5gt
+noremap <leader>t6 6gt
+noremap <leader>t7 7gt
+noremap <leader>t8 8gt
+noremap <leader>t9 9gt
 noremap <silent> <A-t> :$tabnew<CR>
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
@@ -445,7 +454,7 @@ cnoremap <C-e> <End>
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
 " Regenerate tags file.
-noremap <leader>tt :call system("ctags -R --exclude=.git --exclude=log .")<CR>
+noremap <leader>ct :call system("ctags -R --exclude=.git --exclude=log .")<CR>
 " Skeletons/Templates support.
 if has('win32') || has ('win64')
     let $VIMHOME = $VIM."/vimfiles"
