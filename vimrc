@@ -367,7 +367,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 " Remap refresh from Ctrl-l, now taken by above split navigation, to Alt-l.
-if has("gui_running")
+if has("gui_running") || has("nvim")
     noremap <A-l> :redraw!<CR>
 else
     " Tip: In insert mode use <C-v><Key-Combination> to view terminal characters.
