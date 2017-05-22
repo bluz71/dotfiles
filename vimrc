@@ -257,7 +257,7 @@ endfunction
 function! Listing()
     if &filetype == "go"
         if g:listMode == 1
-            set listchars=eol:$,tab:>-,trail:.
+            set listchars=eol:$,tab:>-,trail:-
             highlight SpecialKey ctermfg=12 guifg=#78c2ff
             let g:listMode = 0
         else
@@ -271,10 +271,12 @@ function! Listing()
     " Note, Neovim has a Whitespace highlight group, Vim does not.
     if has("nvim")
         if g:listMode == 1
-            set listchars=eol:$,tab:>-,trail:.
+            set listchars=eol:$,tab:>-,trail:-
+            highlight Whitespace ctermfg=12 guifg=#78c2ff
             let g:listMode = 0
         else
             set listchars=tab:\ \ ,trail:-
+            highlight Whitespace ctermfg=235 guifg=#262626
             let g:listMode = 1
         endif
     else
@@ -427,8 +429,16 @@ noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
 " Tabbing.
-noremap <A-n> gt
-noremap <A-p> gT
+if has("gui_running") || has("nvim")
+    noremap <silent> <A-t> :$tabnew<CR>
+    noremap <A-n> gt
+    noremap <A-p> gT
+" else terminal vim
+else
+    noremap t :$tabnew<CR>
+    noremap n gt
+    noremap p gT
+end
 noremap <leader>t1 1gt
 noremap <leader>t2 2gt
 noremap <leader>t3 3gt
@@ -438,7 +448,6 @@ noremap <leader>t6 6gt
 noremap <leader>t7 7gt
 noremap <leader>t8 8gt
 noremap <leader>t9 9gt
-noremap <silent> <A-t> :$tabnew<CR>
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
 nnoremap <leader><Space> za
@@ -485,7 +494,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char = '¦'
     let g:indentLine_color_term = 235
