@@ -506,6 +506,7 @@ Plug 'ervandew/supertab'
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line = 1
+    let g:clever_f_timeout_ms = 3000
 Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 
