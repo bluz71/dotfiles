@@ -95,9 +95,9 @@
 "
 " Plugin details:
 "
-"   ag.vim:
-"     Note, use '-G extension$ <searchterm>' to restrict an Ag search to a
-"     particular file extension.
+"   vim-grepper.vim:
+"     Note, use '-G extension$ <searchterm>' to restrict a GrepperAg search
+"     to a particular file extension.
 "
 "   vim-bundler:
 "     Run 'gem ctags' to generate ctags for installed gems (required just once).
@@ -422,8 +422,13 @@ noremap <F12> :call Listing()<CR>
 noremap <leader>m :silent make<CR> :redraw!<CR>
 noremap <leader>co :copen<CR>
 noremap <leader>cc :cclose<CR>
-noremap <leader><Up> :cp<CR>
-noremap <leader><Down> :cn<CR>
+if has("gui_running") || has("nvim")
+    noremap <silent> <A-Up> :cp<CR>
+    noremap <silent> <A-Down> :cn<CR>
+else
+    noremap <silent> [1;3A :cp<CR>
+    noremap <silent> [1;3B :cn<CR>
+endif
 " Splitting and closing.
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
@@ -546,10 +551,12 @@ Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerShowRelativePath = 1
     let g:bufExplorerSortBy = 'name'
     noremap <leader>l :BufExplorer<CR>
-Plug 'rking/ag.vim'
-    let g:ag_mapping_message = 0
-    let g:ag_highlight = 1
-    noremap <leader>a :Ag<Space>
+Plug 'mhinz/vim-grepper'
+    let g:grepper = {}
+    runtime autoload/grepper.vim
+    let g:grepper.highlight = 1
+    let g:grepper.jump = 1
+    noremap <leader>a :GrepperAg<Space>
 Plug 'tpope/vim-fugitive'
     noremap <leader>gb :Gblame<CR>
     noremap <leader>gs :Gstatus<CR>
@@ -664,7 +671,7 @@ augroup styleAndBehaviourCustomizations
     autocmd!
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,nerdtree,text setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
+    autocmd FileType help,nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
     autocmd FileType json,markdown setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
