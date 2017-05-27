@@ -556,6 +556,7 @@ Plug 'mhinz/vim-grepper'
     runtime autoload/grepper.vim
     let g:grepper.highlight = 1
     let g:grepper.jump = 1
+    let g:grepper.stop = 500
     noremap <leader>a :GrepperAg<Space>
 Plug 'tpope/vim-fugitive'
     noremap <leader>gb :Gblame<CR>
