@@ -219,14 +219,12 @@ set wrap
 
 " Certain options only work in Neovim whilst others only work in Vim.
 " Neovim has a Whitespace highlight group, Vim does not.
-" Neovim has superior terminal performance, hence no need for lazyredraw.
 if has("nvim")
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
 else
     set cryptmethod=blowfish2
-    set lazyredraw
     set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
 endif
