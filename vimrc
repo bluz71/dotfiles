@@ -191,6 +191,10 @@ set number
 set nrformats=
 set path=**
 set pumheight=35
+" Ruby performance is terrible with regexpengine=2, see:
+"   https://github.com/vim/vim/issues/282
+"   https://github.com/vim-ruby/vim-ruby/issues/243
+set regexpengine=1
 set relativenumber
 set ruler
 set shiftwidth=4
