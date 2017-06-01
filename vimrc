@@ -435,6 +435,10 @@ endif
 noremap <leader>s :split<CR>
 noremap <leader>v :vsplit<CR>
 noremap <leader>q :close<CR>
+" Equalize split sizes.
+noremap <leader>= <C-w>=
+" Rotate splits.
+noremap <leader>r <C-w>r
 " Tabbing.
 if has("gui_running") || has("nvim")
     noremap <silent> <A-t> :$tabnew<CR>
@@ -458,8 +462,6 @@ noremap <leader>t9 9gt
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
 nnoremap <leader><Space> za
-" Equalize split sizes.
-noremap <leader>= <C-w>=
 " Yank and put helpers.
 noremap <leader>y :let @0=getreg('*')<CR>
 noremap <leader>p "0]p
