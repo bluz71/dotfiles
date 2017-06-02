@@ -352,11 +352,9 @@ endif
 " MAPPINGS
 "===========================================================
 
-inoremap `` <Esc>
-noremap  `` <Esc>
 noremap ; :
 if has("nvim")
-    " Make Escape work in the terminal.
+    " Make escape work in the Neovim terminal.
     tnoremap <Esc> <c-\><c-n>
     tnoremap `` <c-\><c-n>
 endif
@@ -674,6 +672,8 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
+    autocmd InsertEnter * set norelativenumber
+    autocmd InsertLeave * set relativenumber
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd FileType help,nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
