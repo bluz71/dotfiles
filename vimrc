@@ -530,9 +530,6 @@ Plug 'ctrlpvim/ctrlp.vim'
     nnoremap <leader>. :CtrlPTag<CR>
     nnoremap <leader>/ :CtrlPBuffer<CR>
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    " Show line numbers and make the NERDTree window a little wider.
-    let NERDTreeShowLineNumbers = 1
-    let NERDTreeWinSize = 35
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable = "+"
@@ -570,6 +567,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+    let g:vim_markdown_conceal = 0
 Plug 'mxw/vim-jsx'
     let g:jsx_ext_required = 0
 Plug 'vim-ruby/vim-ruby'
@@ -633,31 +632,31 @@ augroup languageCustomizationsByType
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
-    autocmd FileType c,cpp set cindent foldmethod=syntax
-    autocmd FileType coffee set shiftwidth=2
-    autocmd FileType css set shiftwidth=2
+    autocmd FileType c,cpp setlocal cindent foldmethod=syntax
+    autocmd FileType coffee setlocal shiftwidth=2
+    autocmd FileType css setlocal shiftwidth=2
     autocmd FileType css,scss let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    autocmd FileType eelixir set matchpairs=(:),{:},[:]
-    autocmd FileType eruby set formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
+    autocmd FileType eelixir setlocal matchpairs=(:),{:},[:]
+    autocmd FileType eruby setlocal formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go set list listchars=tab:\¦\ 
+    autocmd FileType go setlocal list listchars=tab:\¦\ 
     autocmd FileType go highlight SpecialKey ctermfg=234 guifg=#1c1c1c
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
-    autocmd FileType html set shiftwidth=2 textwidth=999
-    autocmd FileType java set cindent cinoptions+=j1 foldmethod=syntax
+    autocmd FileType html setlocal shiftwidth=2 textwidth=999
+    autocmd FileType java setlocal cindent cinoptions+=j1 foldmethod=syntax
     " Setup ESLint when making JavaScript files.
-    autocmd FileType javascript set shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
-    autocmd FileType javascript.jsx set formatoptions=cq
-    autocmd FileType ruby set formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
+    autocmd FileType javascript setlocal shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
+    autocmd FileType javascript.jsx setlocal formatoptions=cq
+    autocmd FileType ruby setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
-    autocmd FileType scss set shiftwidth=2
-    autocmd FileType sh set textwidth=999
-    autocmd FileType vim set textwidth=999
-    autocmd FileType xml set shiftwidth=2 textwidth=999
-    autocmd FileType yaml set shiftwidth=2 textwidth=999
+    autocmd FileType scss setlocal shiftwidth=2
+    autocmd FileType sh setlocal textwidth=999
+    autocmd FileType vim setlocal textwidth=999
+    autocmd FileType xml setlocal shiftwidth=2 textwidth=999
+    autocmd FileType yaml setlocal shiftwidth=2 textwidth=999
 augroup END
 
 " Custom settings per language by file extension.
@@ -672,12 +671,12 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd InsertEnter * set norelativenumber
-    autocmd InsertLeave * set relativenumber
+    autocmd InsertEnter * setlocal norelativenumber
+    autocmd InsertLeave * setlocal relativenumber
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd FileType help,nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
-    autocmd FileType json,markdown setlocal conceallevel=0
+    autocmd FileType json setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
     autocmd FileType * IndentLinesReset
