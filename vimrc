@@ -671,8 +671,6 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd InsertEnter * setlocal norelativenumber
-    autocmd InsertLeave * setlocal relativenumber
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd FileType help,nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
