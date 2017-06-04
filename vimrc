@@ -291,11 +291,12 @@ endfunction
 "
 function! MacroMode()
     let l:autosave = 1
+    set lazyredraw!
     if exists('#autoSave#TextChanged')
-        autocmd! autoSave TextChanged,InsertLeave,FocusLost *
+        autocmd! autoSaveAndRead TextChanged,InsertLeave,FocusLost *
         let l:autosave = 0
     else
-        autocmd autoSave TextChanged,InsertLeave,FocusLost * silent! wall
+        autocmd autoSaveAndRead TextChanged,InsertLeave,FocusLost * silent! wall
     endif
     if l:autosave == 1
         echo "Enabled auto-save"
