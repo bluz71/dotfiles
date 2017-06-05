@@ -97,7 +97,8 @@
 "
 "   vim-grepper.vim:
 "     Note, use '-G extension$ <searchterm>' to restrict a GrepperAg search
-"     to a particular file extension.
+"     to a particular file extension. Use '-t<type> <searchterm>' to do
+"     the same in GrepperRg.
 "
 "   vim-bundler:
 "     Run 'gem ctags' to generate ctags for installed gems (required just once).
@@ -558,7 +559,8 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.highlight = 1
     let g:grepper.jump = 1
     let g:grepper.stop = 500
-    noremap <leader>a :GrepperAg<Space>
+    noremap <leader>ga :GrepperAg<Space>
+    noremap <leader>gr :GrepperRg<Space>
 Plug 'tpope/vim-fugitive'
     noremap <leader>gb :Gblame<CR>
     noremap <leader>gs :Gstatus<CR>
