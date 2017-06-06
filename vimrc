@@ -96,9 +96,8 @@
 " Plugin details:
 "
 "   vim-grepper.vim:
-"     Note, use '-G extension$ <searchterm>' to restrict a GrepperAg search
-"     to a particular file extension. Use '-t<type> <searchterm>' to do
-"     the same in GrepperRg.
+"     '-G extension$ <searchterm>' to restrict ag to a particular file extension
+"     '-t<type> <searchterm>' to restrict rg to a particular file type
 "
 "   vim-bundler:
 "     Run 'gem ctags' to generate ctags for installed gems (required just once).
@@ -214,6 +213,7 @@ set ttimeoutlen=10
 set ttyfast
 set updatetime=1000
 set viminfo=
+set wildignore+=*/.git/*,*/_build/*,*/cache/*,*/node_modules/*,*/log/*,*/tmp/*
 set wildmenu
 set wildmode=full
 set wrap
@@ -523,9 +523,9 @@ Plug 'gcmt/taboo.vim'
 " File management plugins
 "-----------------------------
 Plug 'ctrlpvim/ctrlp.vim'
-    " Use ag in CtrlP for listing files, very fast and respects .gitignore.
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    " Using ag is fast, we don't need to cache.
+    " Use rg in CtrlP for listing files, very fast and respects .gitignore.
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    " Using rg is fast, we don't need to cache.
     let g:ctrlp_use_caching = 0
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
