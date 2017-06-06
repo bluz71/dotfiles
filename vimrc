@@ -581,10 +581,10 @@ Plug 'tpope/vim-bundler'
     let g:rubycomplete_rails = 1
     let g:ruby_indent_access_modifier_style = 'indent'
 Plug 'tpope/vim-rails'
-    noremap <leader>em :Emodel<Space>
-    noremap <leader>ev :Eview<Space>
-    noremap <leader>ec :Econtroller<Space>
-    noremap <leader>eh :Ehelper<Space>
+    noremap <leader>rm :Emodel<Space>
+    noremap <leader>rv :Eview<Space>
+    noremap <leader>rc :Econtroller<Space>
+    noremap <leader>rh :Ehelper<Space>
 Plug 'janko-m/vim-test'
     noremap <silent> <leader>ts :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
