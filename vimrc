@@ -676,7 +676,7 @@ augroup styleAndBehaviourCustomizations
     autocmd!
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType help,nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
+    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
     autocmd FileType json setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
