@@ -443,13 +443,15 @@ noremap <leader>q :close<CR>
 " Equalize split sizes.
 noremap <leader>= <C-w>=
 " Rotate splits.
-noremap <leader>r <C-w>r
+noremap <leader>R <C-w>r
+" Format current paragraph.
+noremap<leader>Q gqip
 " Tabbing.
 if has("gui_running") || has("nvim")
     noremap <silent> <A-t> :$tabnew<CR>
     noremap <A-n> gt
     noremap <A-p> gT
-" else terminal vim
+" else terminal Vim
 else
     noremap t :$tabnew<CR>
     noremap n gt
