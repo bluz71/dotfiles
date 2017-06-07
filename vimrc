@@ -387,6 +387,9 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 " l - complete line
 inoremap <C-]> <C-x><C-]>
 inoremap <C-l> <C-x><C-l>
+" Center search matches on the screen.
+noremap n nzz
+noremap N Nzz
 " Navigate between multiple opened files.
 noremap <C-Right> :n<CR>
 noremap <C-Left> :N<CR>
@@ -690,7 +693,9 @@ augroup styleAndBehaviourCustomizations
     autocmd!
     autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0 norelativenumber matchpairs=
+    autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
+    autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
+    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0 matchpairs=
     autocmd FileType json setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
     autocmd QuickFixCmdPost *make* cwindow
