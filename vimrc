@@ -181,6 +181,7 @@ set mousehide
 set nobackup
 set nocompatible
 set nohlsearch
+set nojoinspaces
 set noshowcmd
 set noshowmatch
 set noshowmode
@@ -213,7 +214,7 @@ set ttimeoutlen=10
 set ttyfast
 set updatetime=1000
 set viminfo=
-set wildignore+=*/.git/*,*/_build/*,*/cache/*,*/node_modules/*,*/log/*,*/tmp/*
+set wildignore+=.git/**,_build/**,build/**,cache/**,node_modules/**,lib/**,log/**,tmp/**
 set wildmenu
 set wildmode=full
 set wrap
@@ -387,7 +388,8 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 " l - complete line
 inoremap <C-]> <C-x><C-]>
 inoremap <C-l> <C-x><C-l>
-" Center search matches on the screen.
+" Place current search match in the middle of the window when using n/N to
+" navigate between matches.
 noremap n nzz
 noremap N Nzz
 " Navigate between multiple opened files.
@@ -532,6 +534,8 @@ Plug 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_use_caching = 0
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
+    " Don't jump to a different tab.
+    let g:ctrlp_switch_buffer = 'e'
     nnoremap <leader>. :CtrlPTag<CR>
     nnoremap <leader>/ :CtrlPBuffer<CR>
     " Mappings to navigate model/view/controllers for certain web frameworks.
@@ -579,6 +583,7 @@ Plug 'mhinz/vim-grepper'
     noremap <leader>gr :GrepperRg<Space>
 Plug 'tpope/vim-fugitive'
     noremap <leader>gb :Gblame<CR>
+    noremap <leader>gd :Gdiff<CR>
     noremap <leader>gs :Gstatus<CR>
 
 "-----------------------------
@@ -603,9 +608,9 @@ Plug 'tpope/vim-rails'
     noremap <leader>rc :Econtroller<Space>
     noremap <leader>rh :Ehelper<Space>
 Plug 'janko-m/vim-test'
-    noremap <silent> <leader>ts :TestNearest<CR>
+    noremap <silent> <leader>T :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
-    noremap <silent> <leader>ta :TestSuite<CR>
+    noremap <silent> <leader>ts :TestSuite<CR>
     noremap <silent> <leader>tl :TestLast<CR>
     if has("nvim")
         let test#strategy = "neovim"
@@ -702,6 +707,7 @@ augroup styleAndBehaviourCustomizations
     autocmd QuickFixCmdPost *make* cwindow
     autocmd FileType * IndentLinesReset
     autocmd Syntax * IndentLinesReset
+    autocmd VimResized * wincmd =
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
     endif
