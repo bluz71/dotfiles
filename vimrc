@@ -670,6 +670,7 @@ augroup languageCustomizationsByType
     " Setup ESLint when making JavaScript files.
     autocmd FileType javascript setlocal shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
     autocmd FileType javascript.jsx setlocal formatoptions=cq
+    autocmd FileType markdown setlocal formatoptions=tqln
     autocmd FileType ruby setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
     autocmd FileType scss setlocal shiftwidth=2
