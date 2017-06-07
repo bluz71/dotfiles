@@ -531,6 +531,20 @@ Plug 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_match_window_reversed = 0
     nnoremap <leader>. :CtrlPTag<CR>
     nnoremap <leader>/ :CtrlPBuffer<CR>
+    " Mappings to navigate model/view/controllers for certain web frameworks.
+    if filereadable('config/environment.rb') && isdirectory('app')
+        " This looks like a Rails layout.
+        nnoremap <leader>ec :CtrlP app/controllers<CR>
+        nnoremap <leader>eh :CtrlP app/helpers<CR>
+        nnoremap <leader>em :CtrlP app/models<CR>
+        nnoremap <leader>ev :CtrlP app/views<CR>
+    elseif filereadable('config/config.exs') && isdirectory('web')
+        " This looks like an Elixir Phoenix layout.
+        nnoremap <leader>ec :CtrlP web/controllers<CR>
+        nnoremap <leader>em :CtrlP web/models<CR>
+        nnoremap <leader>et :CtrlP web/templates<CR>
+        nnoremap <leader>ev :CtrlP web/views<CR>
+    endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
