@@ -358,8 +358,7 @@ endif
 noremap ; :
 if has("nvim")
     " Make escape work in the Neovim terminal.
-    tnoremap <Esc> <c-\><c-n>
-    tnoremap `` <c-\><c-n>
+    tnoremap <Esc> <C-\><C-n>
 endif
 " Make dot work on visual line selections.
 xnoremap . :norm.<CR>
@@ -451,21 +450,22 @@ if has("gui_running") || has("nvim")
     noremap <silent> <A-t> :$tabnew<CR>
     noremap <A-n> gt
     noremap <A-p> gT
+    noremap <A-!> 1gt
+    noremap <A-@> 2gt
+    noremap <A-#> 3gt
+    noremap <A-$> 4gt
+    noremap <A-%> 5gt
 " else terminal Vim
 else
     noremap t :$tabnew<CR>
     noremap n gt
     noremap p gT
+    noremap ! 1gt
+    noremap @ 2gt
+    noremap # 3gt
+    noremap $ 4gt
+    noremap % 5gt
 end
-noremap <leader>t1 1gt
-noremap <leader>t2 2gt
-noremap <leader>t3 3gt
-noremap <leader>t4 4gt
-noremap <leader>t5 5gt
-noremap <leader>t6 6gt
-noremap <leader>t7 7gt
-noremap <leader>t8 8gt
-noremap <leader>t9 9gt
 noremap <silent> <leader>z :tab split<CR>
 " Folding.
 nnoremap <leader><Space> za
@@ -542,13 +542,13 @@ Plug 'ctrlpvim/ctrlp.vim'
     nnoremap <leader>/ :CtrlPBuffer<CR>
     " Mappings to navigate model/view/controllers for certain web frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
-        " This looks like a Rails layout.
+        " This looks like a Rails app.
         nnoremap <leader>ec :CtrlP app/controllers<CR>
         nnoremap <leader>eh :CtrlP app/helpers<CR>
         nnoremap <leader>em :CtrlP app/models<CR>
         nnoremap <leader>ev :CtrlP app/views<CR>
     elseif filereadable('config/config.exs') && isdirectory('web')
-        " This looks like an Elixir Phoenix layout.
+        " This looks like an Elixir/Phoenix app.
         nnoremap <leader>ec :CtrlP web/controllers<CR>
         nnoremap <leader>em :CtrlP web/models<CR>
         nnoremap <leader>et :CtrlP web/templates<CR>
