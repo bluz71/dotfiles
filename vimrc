@@ -430,11 +430,11 @@ noremap <leader>m :silent make<CR> :redraw!<CR>
 noremap <leader>co :copen<CR>
 noremap <leader>cc :cclose<CR>
 if has("gui_running") || has("nvim")
-    noremap <silent> <A-Up> :cp<CR>
-    noremap <silent> <A-Down> :cn<CR>
+    noremap <silent> <A-Up> :cp<CR>zz
+    noremap <silent> <A-Down> :cn<CR>zz
 else
-    noremap <silent> [1;3A :cp<CR>
-    noremap <silent> [1;3B :cn<CR>
+    noremap <silent> [1;3A :cp<CR>zz
+    noremap <silent> [1;3B :cn<CR>zz
 endif
 " Splitting and closing.
 noremap <leader>s :split<CR>
@@ -578,7 +578,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'mhinz/vim-grepper'
     let g:grepper = {}
     runtime autoload/grepper.vim
-    let g:grepper.highlight = 1
     let g:grepper.jump = 1
     let g:grepper.stop = 500
     noremap <leader>ga :GrepperAg<Space>
