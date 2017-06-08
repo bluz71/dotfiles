@@ -525,6 +525,8 @@ Plug 'rhysd/clever-f.vim'
     let g:clever_f_timeout_ms = 3000
 Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
+Plug 'tommcdo/vim-lion'
+    let g:lion_squeeze_spaces = 1
 
 "-----------------------------
 " File management plugins
