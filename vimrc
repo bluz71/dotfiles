@@ -595,6 +595,7 @@ Plug 'tpope/vim-fugitive'
 "-----------------------------
 " Language plugins
 "-----------------------------
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'kchmck/vim-coffee-script'
 Plug 'elixir-lang/vim-elixir'
 Plug 'pangloss/vim-javascript'
