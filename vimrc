@@ -513,6 +513,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char = '¦'
     let g:indentLine_color_term = 235
@@ -595,15 +596,9 @@ Plug 'tpope/vim-fugitive'
 "-----------------------------
 " Language plugins
 "-----------------------------
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'kchmck/vim-coffee-script'
-Plug 'elixir-lang/vim-elixir'
-Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
     let g:vim_markdown_conceal = 0
-Plug 'mxw/vim-jsx'
     let g:jsx_ext_required = 0
-Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
