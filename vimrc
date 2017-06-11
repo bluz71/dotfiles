@@ -428,15 +428,18 @@ noremap <leader>0 :call Listing()<CR>
 noremap <F11> :set hlsearch!<CR>
 noremap <F12> :call Listing()<CR>
 " Quickfix related mappings.
-noremap <leader>m :silent make<CR> :redraw!<CR>
 noremap <leader>co :copen<CR>
 noremap <leader>cc :cclose<CR>
 if has("gui_running") || has("nvim")
-    noremap <silent> <A-Up> :cp<CR>zz
-    noremap <silent> <A-Down> :cn<CR>zz
+    noremap <silent> <A-Up> :cprevious<CR>zz
+    noremap <silent> <A-Down> :cnext<CR>zz
+    noremap <silent> <S-Up> :lprevious<CR>zz
+    noremap <silent> <S-Down> :lnext<CR>zz
 else
-    noremap <silent> [1;3A :cp<CR>zz
-    noremap <silent> [1;3B :cn<CR>zz
+    noremap <silent> [1;3A :cprevious<CR>zz
+    noremap <silent> [1;3B :cnext<CR>zz
+    noremap <silent> [1;2A :lprevious<CR>zz
+    noremap <silent> [1;2B :lnext<CR>zz
 endif
 " Splitting and closing.
 noremap <leader>s :split<CR>
@@ -609,6 +612,13 @@ Plug 'tpope/vim-rails'
     noremap <leader>rv :Eview<Space>
     noremap <leader>rc :Econtroller<Space>
     noremap <leader>rh :Ehelper<Space>
+Plug 'neomake/neomake'
+    let g:neomake_open_list = 1
+    let g:neomake_error_sign = {'text': '●'}
+    let g:neomake_warning_sign = {'text': '●'}
+    let g:neomake_info_sign = {'text': '●'}
+    let g:neomake_message_sign = {'text': '●'}
+    noremap <silent> <leader>m :Neomake<CR>
 Plug 'janko-m/vim-test'
     noremap <silent> <leader>T :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
@@ -674,9 +684,9 @@ augroup languageCustomizationsByType
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html setlocal shiftwidth=2 textwidth=999
     autocmd FileType java setlocal cindent cinoptions+=j1 foldmethod=syntax
-    " Setup ESLint when making JavaScript files.
-    autocmd FileType javascript setlocal shiftwidth=2 errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m makeprg=eslint\ -f\ compact\ --quiet\ %
+    autocmd FileType javascript setlocal shiftwidth=2 makeprg=eslint\ -f\ compact\ --quiet\ %
     autocmd FileType javascript.jsx setlocal formatoptions=cq
+    autocmd FileType json setlocal conceallevel=0
     autocmd FileType markdown setlocal formatoptions=tqln
     autocmd FileType ruby setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
@@ -704,9 +714,7 @@ augroup styleAndBehaviourCustomizations
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
     autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0 matchpairs=
-    autocmd FileType json setlocal conceallevel=0
     autocmd FilterWritePre * call DiffStyling()
-    autocmd QuickFixCmdPost *make* cwindow
     autocmd FileType * IndentLinesReset
     autocmd Syntax * IndentLinesReset
     autocmd VimResized * wincmd =
