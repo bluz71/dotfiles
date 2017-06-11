@@ -684,7 +684,7 @@ augroup languageCustomizationsByType
     autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType html setlocal shiftwidth=2 textwidth=999
     autocmd FileType java setlocal cindent cinoptions+=j1 foldmethod=syntax
-    autocmd FileType javascript setlocal shiftwidth=2 makeprg=eslint\ -f\ compact\ --quiet\ %
+    autocmd FileType javascript setlocal shiftwidth=2
     autocmd FileType javascript.jsx setlocal formatoptions=cq
     autocmd FileType json setlocal conceallevel=0
     autocmd FileType markdown setlocal formatoptions=tqln
