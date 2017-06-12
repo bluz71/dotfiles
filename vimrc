@@ -614,10 +614,10 @@ Plug 'tpope/vim-rails'
     noremap <leader>rh :Ehelper<Space>
 Plug 'neomake/neomake'
     let g:neomake_open_list = 1
-    let g:neomake_error_sign = {'text': '●'}
-    let g:neomake_warning_sign = {'text': '●'}
-    let g:neomake_info_sign = {'text': '●'}
-    let g:neomake_message_sign = {'text': '●'}
+    let g:neomake_error_sign = {'text': '->'}
+    let g:neomake_warning_sign = {'text': '->'}
+    let g:neomake_info_sign = {'text': '->'}
+    let g:neomake_message_sign = {'text': '->'}
     noremap <silent> <leader>m :Neomake<CR>
 Plug 'janko-m/vim-test'
     noremap <silent> <leader>T :TestNearest<CR>

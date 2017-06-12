@@ -83,9 +83,7 @@ xterm-moonfly*termName: xterm-256color
     <Key>Home: string("\033[1~")\n\
     <Key>End: string("\033[4~")\n\
     Shift Ctrl <Key>C: copy-selection(CLIPBOARD)\n\
-    Shift Ctrl <Key>V: insert-selection(CLIPBOARD)\n\
-    Shift <Key>Up: scroll-back(1)\n\
-    Shift <Key>Down: scroll-forw(1)
+    Shift Ctrl <Key>V: insert-selection(CLIPBOARD)
 
 ! Font related settings.
 Xft.antialias: 1
