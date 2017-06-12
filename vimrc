@@ -569,7 +569,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeDirArrowExpandable = "+"
     let g:NERDTreeDirArrowCollapsible = "~"
     let NERDTreeStatusline = " NERDTree "
-    noremap <leader>n :NERDTreeToggle<CR>
+    noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
