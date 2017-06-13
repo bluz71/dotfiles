@@ -379,9 +379,10 @@ endif
 inoremap <C-b> <C-O>diw
 " Y should behave like D and C, from cursor till end of line.
 noremap Y y$
-" Move vertically by visual line whilst also correctly handling wrapped lines.
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
+" Move vertically by visual line unless preceded by a count. If a movement is
+" greater than 5 then automatically add to the jumplist.
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Nicer completion mappings when in insert mode.
 " ] - complete from tags file
 " l - complete line
@@ -552,16 +553,16 @@ Plug 'ctrlpvim/ctrlp.vim'
     " Mappings to navigate model/view/controllers for certain web frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
         " This looks like a Rails app.
-        nnoremap <leader>ec :CtrlP app/controllers<CR>
-        nnoremap <leader>eh :CtrlP app/helpers<CR>
-        nnoremap <leader>em :CtrlP app/models<CR>
-        nnoremap <leader>ev :CtrlP app/views<CR>
-    elseif filereadable('config/config.exs') && isdirectory('web')
+        nnoremap <leader>cc :CtrlP app/controllers<CR>
+        nnoremap <leader>ch :CtrlP app/helpers<CR>
+        nnoremap <leader>cm :CtrlP app/models<CR>
+        nnoremap <leader>cv :CtrlP app/views<CR>
+    elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
-        nnoremap <leader>ec :CtrlP web/controllers<CR>
-        nnoremap <leader>em :CtrlP web/models<CR>
-        nnoremap <leader>et :CtrlP web/templates<CR>
-        nnoremap <leader>ev :CtrlP web/views<CR>
+        nnoremap <leader>cc :CtrlP web/controllers<CR>
+        nnoremap <leader>cm :CtrlP web/models<CR>
+        nnoremap <leader>ct :CtrlP web/templates<CR>
+        nnoremap <leader>cv :CtrlP web/views<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
@@ -608,11 +609,44 @@ Plug 'tpope/vim-bundler'
     let g:rubycomplete_rails = 1
     let g:ruby_indent_access_modifier_style = 'indent'
 Plug 'tpope/vim-rails'
-    noremap <leader>rm :Emodel<Space>
-    noremap <leader>rv :Eview<Space>
-    noremap <leader>rc :Econtroller<Space>
-    noremap <leader>rh :Ehelper<Space>
+Plug 'tpope/vim-projectionist'
+    let g:projectionist_heuristics = {
+          \  "config/prod.exs": {
+          \    "web/controllers/*_controller.ex": {
+          \      "type": "controller",
+          \      "alternate": "test/controllers/{}_controller_test.exs"
+          \    },
+          \    "web/models/*.ex": {
+          \      "type": "model",
+          \      "alternate": "test/models/{}_test.exs"
+          \    },
+          \    "web/views/*_view.ex": {
+          \      "type": "view",
+          \      "alternate": "test/views/{}_view_test.exs"
+          \    },
+          \    "web/templates/*.html.eex": {
+          \      "type": "template",
+          \      "alternate": "web/views/{dirname|basename}_view.ex"
+          \    },
+          \    "web/channels/*_channel.ex": {
+          \      "type": "channel",
+          \      "alternate": "test/channels/{}_channel_test.exs"
+          \    },
+          \    "test/*_test.exs": {
+          \      "type": "test",
+          \      "alternate": "web/{}.ex",
+          \    }
+          \  }
+          \}
+    noremap <leader>ec :Econtroller<Space>
+    noremap <leader>em :Emodel<Space>
+    noremap <leader>ev :Eview<Space>
+    noremap <leader>eh :Ehelper<Space>
+    noremap <leader>et :Etemplate<Space>
+    noremap <leader>el :Echannel<Space>
+    noremap <leader>A :A<CR>
 Plug 'neomake/neomake'
+    "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
     let g:neomake_open_list = 1
     let g:neomake_error_sign = {'text': '->'}
     let g:neomake_warning_sign = {'text': '->'}
