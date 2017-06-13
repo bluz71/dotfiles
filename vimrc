@@ -392,9 +392,11 @@ inoremap <C-l> <C-x><C-l>
 " navigate between matches.
 noremap n nzz
 noremap N Nzz
-" Keep the cursor in the current position upon a "*" or "#" search.
-nnoremap * *``
-nnoremap # #``
+" Center dot operations as well.
+noremap . .zz
+" Replace search term under cursor, dot repeats the change.
+nnoremap <leader>x *``cgn
+nnoremap <leader>X #``cgN
 " Navigate between multiple opened files.
 noremap <C-Right> :n<CR>
 noremap <C-Left> :N<CR>
