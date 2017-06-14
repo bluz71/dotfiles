@@ -556,15 +556,17 @@ Plug 'ctrlpvim/ctrlp.vim'
     if filereadable('config/environment.rb') && isdirectory('app')
         " This looks like a Rails app.
         nnoremap <leader>cc :CtrlP app/controllers<CR>
-        nnoremap <leader>ch :CtrlP app/helpers<CR>
         nnoremap <leader>cm :CtrlP app/models<CR>
+        nnoremap <leader>ch :CtrlP app/helpers<CR>
         nnoremap <leader>cv :CtrlP app/views<CR>
+        nnoremap <leader>cs :CtrlP spec<CR>
     elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
         nnoremap <leader>cc :CtrlP web/controllers<CR>
         nnoremap <leader>cm :CtrlP web/models<CR>
-        nnoremap <leader>ct :CtrlP web/templates<CR>
         nnoremap <leader>cv :CtrlP web/views<CR>
+        nnoremap <leader>ce :CtrlP web/templates<CR>
+        nnoremap <leader>ct :CtrlP test<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
@@ -616,15 +618,18 @@ Plug 'tpope/vim-projectionist'
           \  "config/prod.exs": {
           \    "web/controllers/*_controller.ex": {
           \      "type": "controller",
-          \      "alternate": "test/controllers/{}_controller_test.exs"
+          \      "alternate": "test/controllers/{}_controller_test.exs",
+          \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}Controller do\n  use {project|basename|camelcase|capitalize}.Web, :controller\nend"
           \    },
           \    "web/models/*.ex": {
           \      "type": "model",
-          \      "alternate": "test/models/{}_test.exs"
+          \      "alternate": "test/models/{}_test.exs",
+          \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize} do\n  use {project|basename|camelcase|capitalize}.Web, :model\nend"
           \    },
           \    "web/views/*_view.ex": {
           \      "type": "view",
-          \      "alternate": "test/views/{}_view_test.exs"
+          \      "alternate": "test/views/{}_view_test.exs",
+          \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}View do\n  use {project|basename|camelcase|capitalize}.Web, :view\nend"
           \    },
           \    "web/templates/*.html.eex": {
           \      "type": "template",
@@ -644,8 +649,10 @@ Plug 'tpope/vim-projectionist'
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
     noremap <leader>eh :Ehelper<Space>
-    noremap <leader>et :Etemplate<Space>
+    noremap <leader>ee :Etemplate<Space>
     noremap <leader>el :Echannel<Space>
+    noremap <leader>es :Espec<Space>
+    noremap <leader>et :Etest<Space>
     noremap <leader>A :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
