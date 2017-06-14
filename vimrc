@@ -557,13 +557,12 @@ Plug 'ctrlpvim/ctrlp.vim'
         nnoremap <leader>cm :CtrlP app/models<CR>
         nnoremap <leader>ch :CtrlP app/helpers<CR>
         nnoremap <leader>cv :CtrlP app/views<CR>
-        nnoremap <leader>cs :CtrlP spec<CR>
+        nnoremap <leader>ct :CtrlP spec<CR>
     elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
         nnoremap <leader>cc :CtrlP web/controllers<CR>
         nnoremap <leader>cm :CtrlP web/models<CR>
         nnoremap <leader>cv :CtrlP web/views<CR>
-        nnoremap <leader>cp :CtrlP web/templates<CR>
         nnoremap <leader>ct :CtrlP test<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -647,10 +646,9 @@ Plug 'tpope/vim-projectionist'
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
     noremap <leader>eh :Ehelper<Space>
-    noremap <leader>ep :Etemplate<Space>
+    noremap <leader>et :Etemplate<Space>
     noremap <leader>el :Echannel<Space>
     noremap <leader>es :Espec<Space>
-    noremap <leader>et :Etest<Space>
     noremap <leader>A  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
