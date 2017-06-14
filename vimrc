@@ -392,8 +392,6 @@ inoremap <C-l> <C-x><C-l>
 " navigate between matches.
 noremap n nzz
 noremap N Nzz
-" Center dot operations as well.
-noremap . .zz
 " Replace search term under cursor, dot repeats the change.
 nnoremap <leader>x *``cgn
 nnoremap <leader>X #``cgN
@@ -434,9 +432,9 @@ noremap <F12> :call Listing()<CR>
 noremap <leader>co :copen<CR>
 noremap <leader>cc :cclose<CR>
 if has("gui_running") || has("nvim")
-    noremap <silent> <A-Up> :cprevious<CR>zz
+    noremap <silent> <A-Up>   :cprevious<CR>zz
     noremap <silent> <A-Down> :cnext<CR>zz
-    noremap <silent> <S-Up> :lprevious<CR>zz
+    noremap <silent> <S-Up>   :lprevious<CR>zz
     noremap <silent> <S-Down> :lnext<CR>zz
 else
     noremap <silent> [1;3A :cprevious<CR>zz
@@ -521,18 +519,18 @@ Plug 'bluz71/vim-moonfly-statusline'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Yggdroot/indentLine'
-    let g:indentLine_char = '¦'
+    let g:indentLine_char       = '¦'
     let g:indentLine_color_term = 235
-    let g:indentLine_color_gui = "#262626"
-    let g:indentLine_faster = 1
+    let g:indentLine_color_gui  = "#262626"
+    let g:indentLine_faster     = 1
     let g:indentLine_setConceal = 0
 Plug 'ervandew/supertab'
     " Play nice with other plugins and force top-to-bottom tab completion.
-    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabDefaultCompletionType        = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line = 1
-    let g:clever_f_timeout_ms = 3000
+    let g:clever_f_timeout_ms     = 3000
 Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
@@ -565,7 +563,7 @@ Plug 'ctrlpvim/ctrlp.vim'
         nnoremap <leader>cc :CtrlP web/controllers<CR>
         nnoremap <leader>cm :CtrlP web/models<CR>
         nnoremap <leader>cv :CtrlP web/views<CR>
-        nnoremap <leader>ce :CtrlP web/templates<CR>
+        nnoremap <leader>cp :CtrlP web/templates<CR>
         nnoremap <leader>ct :CtrlP test<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -606,11 +604,11 @@ Plug 'tpope/vim-fugitive'
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
     let g:vim_markdown_conceal = 0
-    let g:jsx_ext_required = 0
+    let g:jsx_ext_required     = 0
 Plug 'tpope/vim-bundler'
-    let g:rubycomplete_buffer_loading = 1
-    let g:rubycomplete_classes_in_global = 1
-    let g:rubycomplete_rails = 1
+    let g:rubycomplete_buffer_loading       = 1
+    let g:rubycomplete_classes_in_global    = 1
+    let g:rubycomplete_rails                = 1
     let g:ruby_indent_access_modifier_style = 'indent'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
@@ -649,21 +647,21 @@ Plug 'tpope/vim-projectionist'
     noremap <leader>em :Emodel<Space>
     noremap <leader>ev :Eview<Space>
     noremap <leader>eh :Ehelper<Space>
-    noremap <leader>ee :Etemplate<Space>
+    noremap <leader>ep :Etemplate<Space>
     noremap <leader>el :Echannel<Space>
     noremap <leader>es :Espec<Space>
     noremap <leader>et :Etest<Space>
-    noremap <leader>A :A<CR>
+    noremap <leader>A  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
-    let g:neomake_open_list = 1
-    let g:neomake_error_sign = {'text': '->'}
+    let g:neomake_open_list    = 1
+    let g:neomake_error_sign   = {'text': '->'}
     let g:neomake_warning_sign = {'text': '->'}
-    let g:neomake_info_sign = {'text': '->'}
+    let g:neomake_info_sign    = {'text': '->'}
     let g:neomake_message_sign = {'text': '->'}
     noremap <silent> <leader>m :Neomake<CR>
 Plug 'janko-m/vim-test'
-    noremap <silent> <leader>T :TestNearest<CR>
+    noremap <silent> <leader>T  :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
     noremap <silent> <leader>ts :TestSuite<CR>
     noremap <silent> <leader>tl :TestLast<CR>
