@@ -364,10 +364,16 @@ endif
 xnoremap . :norm.<CR>
 let mapleader = ","
 " Simpler keyboard navigation between splits.
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+if has("nvim")
+    tnoremap <C-h> <C-\><C-N><C-w>h
+    tnoremap <C-j> <C-\><C-N><C-w>j
+    tnoremap <C-k> <C-\><C-N><C-w>k
+    tnoremap <C-l> <C-\><C-N><C-w>l
+endif
 " Remap refresh from Ctrl-l, now taken by above split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     noremap <A-l> :redraw!<CR>
@@ -486,7 +492,7 @@ cnoremap <C-e> <End>
 cnoremap <A-b> <C-Left>
 cnoremap <A-f> <C-Right>
 " Regenerate tags file.
-noremap <leader>ct :call system("ctags -R --exclude=.git --exclude=log .")<CR>
+noremap <leader>tags :call system("ctags")<CR>
 " Skeletons/Templates support.
 if has('win32') || has ('win64')
     let $VIMHOME = $VIM."/vimfiles"
@@ -555,14 +561,11 @@ Plug 'ctrlpvim/ctrlp.vim'
         " This looks like a Rails app.
         nnoremap <leader>cc :CtrlP app/controllers<CR>
         nnoremap <leader>cm :CtrlP app/models<CR>
-        nnoremap <leader>ch :CtrlP app/helpers<CR>
-        nnoremap <leader>cv :CtrlP app/views<CR>
         nnoremap <leader>ct :CtrlP spec<CR>
     elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
         nnoremap <leader>cc :CtrlP web/controllers<CR>
         nnoremap <leader>cm :CtrlP web/models<CR>
-        nnoremap <leader>cv :CtrlP web/views<CR>
         nnoremap <leader>ct :CtrlP test<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -643,12 +646,12 @@ Plug 'tpope/vim-projectionist'
           \  }
           \}
     noremap <leader>ec :Econtroller<Space>
-    noremap <leader>em :Emodel<Space>
-    noremap <leader>ev :Eview<Space>
     noremap <leader>eh :Ehelper<Space>
-    noremap <leader>et :Etemplate<Space>
+    noremap <leader>ei :Einitializer<Space>
     noremap <leader>el :Echannel<Space>
-    noremap <leader>es :Espec<Space>
+    noremap <leader>em :Emodel<Space>
+    noremap <leader>et :Etemplate<Space>
+    noremap <leader>ev :Eview<Space>
     noremap <leader>A  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
@@ -759,6 +762,7 @@ augroup styleAndBehaviourCustomizations
     autocmd VimResized * wincmd =
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+        autocmd BufEnter term://* startinsert
     endif
 augroup END
 

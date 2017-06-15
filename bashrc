@@ -7,7 +7,6 @@ unalias -a
 alias agm='ag --pager=less'
 alias be='bundle exec'
 alias cp='/bin/cp -i'
-alias ct='ctags -R --exclude=.git --exclude=log .'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
