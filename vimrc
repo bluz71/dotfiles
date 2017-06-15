@@ -522,6 +522,8 @@ call plug#begin('~/.vim/plugged')
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-moonfly-statusline'
+" Plug 'rakr/vim-one'
+" set termguicolors
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Yggdroot/indentLine'
