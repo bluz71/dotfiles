@@ -564,15 +564,16 @@ Plug 'ctrlpvim/ctrlp.vim'
         nnoremap <leader>cc :CtrlP app/controllers<CR>
         nnoremap <leader>ch :CtrlP app/helpers<CR>
         nnoremap <leader>cm :CtrlP app/models<CR>
-        nnoremap <leader>ct :CtrlP spec<CR>
+        nnoremap <leader>cs :CtrlP spec<CR>
+        nnoremap <leader>ct :CtrlP test<CR>
         nnoremap <leader>cv :CtrlP app/views<CR>
     elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
         nnoremap <leader>cc :CtrlP web/controllers<CR>
-        nnoremap <leader>ce :CtrlP web/templates<CR>
         nnoremap <leader>cm :CtrlP web/models<CR>
         nnoremap <leader>ct :CtrlP test<CR>
         nnoremap <leader>cv :CtrlP views/views<CR>
+        nnoremap <leader>cx :CtrlP web/templates<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
@@ -611,7 +612,6 @@ Plug 'tpope/vim-fugitive'
 " Language/framework plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
-    let g:polyglot_disabled                 = ['rspec']
     let g:jsx_ext_required                  = 0
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
@@ -653,11 +653,13 @@ Plug 'tpope/vim-projectionist'
           \  }
           \}
     noremap <leader>ec :Econtroller<Space>
-    noremap <leader>ee :Etemplate<Space>
     noremap <leader>eh :Ehelper<Space>
     noremap <leader>el :Echannel<Space>
     noremap <leader>em :Emodel<Space>
+    noremap <leader>es :Espec<Space>
+    noremap <leader>et :Etest<Space>
     noremap <leader>ev :Eview<Space>
+    noremap <leader>ex :Etemplate<Space>
     noremap <leader>A  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
