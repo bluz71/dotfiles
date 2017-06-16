@@ -569,7 +569,7 @@ Plug 'ctrlpvim/ctrlp.vim'
     elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
         nnoremap <leader>cc :CtrlP web/controllers<CR>
-        nnoremap <leader>ce :CtrlP views/templates<CR>
+        nnoremap <leader>ce :CtrlP web/templates<CR>
         nnoremap <leader>cm :CtrlP web/models<CR>
         nnoremap <leader>ct :CtrlP test<CR>
         nnoremap <leader>cv :CtrlP views/views<CR>
