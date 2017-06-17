@@ -526,6 +526,7 @@ Plug 'rakr/vim-one'
 " set termguicolors
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char       = '¦'
     let g:indentLine_color_term = 235
