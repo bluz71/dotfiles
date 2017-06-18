@@ -238,7 +238,6 @@ endif
 
 " Set default value for the global variables.
 "
-let g:normalMode = 1
 let g:listMode = 1
 
 " Toggle spelling mode and add the dictionary to the completion list of
@@ -613,6 +612,11 @@ Plug 'tpope/vim-fugitive'
 " Language/framework plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
+    let g:go_highlight_functions            = 1
+    let g:go_highlight_methods              = 1
+    let g:go_highlight_structs              = 1
+    let g:go_highlight_operators            = 1
+    let g:go_highlight_build_constraints    = 1
     let g:jsx_ext_required                  = 0
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
