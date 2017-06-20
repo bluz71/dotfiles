@@ -674,7 +674,8 @@ Plug 'neomake/neomake'
     let g:neomake_warning_sign = {'text': '->'}
     let g:neomake_info_sign    = {'text': '->'}
     let g:neomake_message_sign = {'text': '->'}
-    noremap <silent> <leader>m :Neomake<CR>
+    noremap <silent> <leader>mn :Neomake<CR>
+    noremap <silent> <leader>mc :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
     noremap <silent> <leader>T  :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
