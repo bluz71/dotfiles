@@ -520,9 +520,9 @@ call plug#begin('~/.vim/plugged')
 " Niceties
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
+    let g:moonflySpellReversed = 1
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'rakr/vim-one'
-" set termguicolors
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
@@ -792,4 +792,5 @@ augroup END
 " COLOR SCHEME
 "===========================================================
 
+" set termguicolors
 colorscheme moonfly
