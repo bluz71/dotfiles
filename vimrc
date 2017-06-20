@@ -434,8 +434,6 @@ noremap <leader>0 :call Listing()<CR>
 noremap <F11> :set hlsearch!<CR>
 noremap <F12> :call Listing()<CR>
 " Quickfix related mappings.
-noremap <leader>co :copen<CR>
-noremap <leader>cc :cclose<CR>
 if has("gui_running") || has("nvim")
     noremap <silent> <A-Up>   :cprevious<CR>zz
     noremap <silent> <A-Down> :cnext<CR>zz
@@ -674,8 +672,8 @@ Plug 'neomake/neomake'
     let g:neomake_warning_sign = {'text': '->'}
     let g:neomake_info_sign    = {'text': '->'}
     let g:neomake_message_sign = {'text': '->'}
-    noremap <silent> <leader>mn :Neomake<CR>
-    noremap <silent> <leader>mc :sign unplace *<CR>:set signcolumn=auto<CR>
+    noremap <silent> <leader>m :Neomake<CR>
+    noremap <silent> <leader>cls :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
     noremap <silent> <leader>T  :TestNearest<CR>
     noremap <silent> <leader>tf :TestFile<CR>
