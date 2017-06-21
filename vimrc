@@ -622,6 +622,7 @@ Plug 'sheerun/vim-polyglot'
     let g:rubycomplete_rails                = 1
     let g:ruby_indent_access_modifier_style = 'indent'
     let g:vim_markdown_conceal              = 0
+Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
