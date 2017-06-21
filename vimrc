@@ -559,19 +559,19 @@ Plug 'ctrlpvim/ctrlp.vim'
     " Mappings to navigate model/view/controllers for certain web frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
         " This looks like a Rails app.
-        nnoremap <leader>cc :CtrlP app/controllers<CR>
-        nnoremap <leader>ch :CtrlP app/helpers<CR>
-        nnoremap <leader>cm :CtrlP app/models<CR>
-        nnoremap <leader>cs :CtrlP spec<CR>
-        nnoremap <leader>cT :CtrlP test<CR>
-        nnoremap <leader>cv :CtrlP app/views<CR>
+        nnoremap <leader>cpc :CtrlP app/controllers<CR>
+        nnoremap <leader>cph :CtrlP app/helpers<CR>
+        nnoremap <leader>cpm :CtrlP app/models<CR>
+        nnoremap <leader>cps :CtrlP spec<CR>
+        nnoremap <leader>cpT :CtrlP test<CR>
+        nnoremap <leader>cpv :CtrlP app/views<CR>
     elseif filereadable('config/prod.exs') && isdirectory('web')
         " This looks like an Elixir/Phoenix app.
-        nnoremap <leader>cc :CtrlP web/controllers<CR>
-        nnoremap <leader>cm :CtrlP web/models<CR>
-        nnoremap <leader>cT :CtrlP test<CR>
-        nnoremap <leader>ct :CtrlP web/templates<CR>
-        nnoremap <leader>cv :CtrlP views/views<CR>
+        nnoremap <leader>cpc :CtrlP web/controllers<CR>
+        nnoremap <leader>cpm :CtrlP web/models<CR>
+        nnoremap <leader>cpT :CtrlP test<CR>
+        nnoremap <leader>cpt :CtrlP web/templates<CR>
+        nnoremap <leader>cpv :CtrlP views/views<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
