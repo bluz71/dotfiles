@@ -623,6 +623,7 @@ Plug 'sheerun/vim-polyglot'
     let g:ruby_indent_access_modifier_style = 'indent'
     let g:vim_markdown_conceal              = 0
 Plug 'slashmili/alchemist.vim'
+"Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
@@ -792,5 +793,5 @@ augroup END
 " COLOR SCHEME
 "===========================================================
 
-" set termguicolors
+"set termguicolors
 colorscheme moonfly
