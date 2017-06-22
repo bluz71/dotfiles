@@ -327,7 +327,7 @@ endfunction
 
 
 "===========================================================
-" TERMINAL
+" TERMINAL CONFIGURATION
 "===========================================================
 
 if !has("gui_running") && !has("nvim")
@@ -354,149 +354,154 @@ endif
 " MAPPINGS
 "===========================================================
 
-noremap ; :
+"-----------------------------
+" Core mappings
+"-----------------------------
+let mapleader      = ","
+let maplocalleader = " "
+" Enter command mode via ';'
+noremap ;          :
+" Make dot work on visual line selections.
+xnoremap .         :norm.<CR>
+" Y should behave like D and C, from cursor till end of line.
+noremap Y          y$
+" Center search matches when navigating.
+noremap n          nzz
+noremap N          Nzz
+" Navigate between multiple opened files.
+noremap <C-Right>  :n<CR>
+noremap <C-Left>   :N<CR>
+" Confirm quit.
+noremap <C-q>      :confirm qall<CR>
+" Delete previous word, when in insert mode, via Ctrl-b.
+inoremap <C-b>     <C-O>diw
 if has("nvim")
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
 endif
-" Make dot work on visual line selections.
-xnoremap . :norm.<CR>
-let mapleader = ","
-" Simpler keyboard navigation between splits.
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+
+"-----------------------------
+" Navigation mappings
+"-----------------------------
+nnoremap <C-h>     <C-w>h
+nnoremap <C-j>     <C-w>j
+nnoremap <C-k>     <C-w>k
+nnoremap <C-l>     <C-w>l
 if has("nvim")
+    " Use same mappings as above to navigate Neovim terminal splits.
     tnoremap <C-h> <C-\><C-N><C-w>h
     tnoremap <C-j> <C-\><C-N><C-w>j
     tnoremap <C-k> <C-\><C-N><C-w>k
     tnoremap <C-l> <C-\><C-N><C-w>l
 endif
-" Remap refresh from Ctrl-l, now taken by above split navigation, to Alt-l.
-if has("gui_running") || has("nvim")
-    noremap <A-l> :redraw!<CR>
-else
-    " Tip: In insert mode use <C-v><Key-Combination> to view terminal characters.
-    noremap l :redraw!<CR>
-endif
-" Delete previous word, when in insert mode, via Ctrl-b.
-inoremap <C-b> <C-O>diw
-" Y should behave like D and C, from cursor till end of line.
-noremap Y y$
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+
+"-----------------------------
+" Window managment mappings
+"-----------------------------
+nnoremap <silent> <leader>s :split<CR>
+nnoremap <silent> <leader>v :vsplit<CR>
+nnoremap <silent> <leader>q :close<CR>
+nnoremap <silent> <leader>t :$tabnew<CR>
+nnoremap <leader>1          1gt
+nnoremap <leader>2          2gt
+nnoremap <leader>3          3gt
+nnoremap <leader>4          4gt
+nnoremap <leader>5          5gt
+nnoremap <leader>=          <C-w>=
+nnoremap <leader>R          <C-w>r
+" Zoom the current file into a standalone new tab.
+nnoremap <silent> <leader>z :tab split<CR>
+
+"-----------------------------
+" Function key mappings
+"-----------------------------
+"
+" Double up function key mappings with <localleader>+number mappings for
+" touchbar Macbooks which have no function keys.
+noremap <F1>            :set relativenumber!<CR>
+noremap <localleader>1  :set relativenumber!<CR>
+noremap <F2>            :w<CR>
+noremap <localleader>2  :w<CR>
+noremap <F3>            :%retab<CR> :%s/\s\+$//<CR>
+noremap <localleader>3  :%retab<CR> :%s/\s\+$//<CR>
+" 'qq' starts a macro recording, 'q' stops it, <F4> and Q runs the macro.
+noremap <F4>            @q
+noremap <localleader>4  @q
+nnoremap Q              @q
+" Execute macro 'q' over the visual selection.
+xnoremap Q              :'<,'> :normal @q<CR>
+nnoremap <F5>           :call Spelling()<CR>
+nnoremap <localleader>5 :call Spelling()<CR>
+nnoremap <F6>           :source $MYVIMRC<CR>
+nnoremap <localleader>6 :source $MYVIMRC<CR>
+nnoremap <F7>           :call MacroMode()<CR>
+nnoremap <localleader>7 :call MacroMode()<CR>
+nnoremap <F8>           :set paste<CR>o<C-r>*<Esc> :set nopaste<CR>
+nnoremap <localleader>8 :set paste<CR>o<C-r>*<Esc> :set nopaste<CR>
+inoremap <F8> <C-o>     :set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
+"<F9> - unused
+nnoremap <localleader>9 :set hlsearch!<CR>
+"<F10> - unused
+nnoremap <localleader>0 :call Listing()<CR>
+nnoremap <F11>          :set hlsearch!<CR>
+nnoremap <F12>          :call Listing()<CR>
+
+"-----------------------------
+" Quickfix related mappings
+"-----------------------------
+if has("gui_running") || has("nvim")
+    nnoremap <silent> <A-Up>   :cprevious<CR>zz
+    nnoremap <silent> <A-Down> :cnext<CR>zz
+    nnoremap <silent> <S-Up>   :lprevious<CR>zz
+    nnoremap <silent> <S-Down> :lnext<CR>zz
+else
+    nnoremap <silent> [1;3A  :cprevious<CR>zz
+    nnoremap <silent> [1;3B  :cnext<CR>zz
+    nnoremap <silent> [1;2A  :lprevious<CR>zz
+    nnoremap <silent> [1;2B  :lnext<CR>zz
+endif
+
+"-----------------------------
+" Misc mappings
+"-----------------------------
+noremap <leader>Q        gqip
+nnoremap <leader><Space> za
+" Yank and put helpers.
+noremap <leader>y        :let @0=getreg('*')<CR>
+noremap <leader>p        "0]p
+noremap <leader>P        "0]P
+" Regenerate tags file.
+nnoremap <localleader>tt :call system("ctags")<CR>
+" Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
+if has("gui_running") || has("nvim")
+    nnoremap <A-l>       :redraw!<CR>
+else
+    nnoremap l         :redraw!<CR>
+endif
 " Nicer completion mappings when in insert mode.
 " ] - complete from tags file
 " l - complete line
-inoremap <C-]> <C-x><C-]>
-inoremap <C-l> <C-x><C-l>
-" Place current search match in the middle of the window when using n/N to
-" navigate between matches.
-noremap n nzz
-noremap N Nzz
+inoremap <C-]>           <C-x><C-]>
+inoremap <C-l>           <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
-nnoremap <leader>x *``cgn
-nnoremap <leader>X #``cgN
-" Navigate between multiple opened files.
-noremap <C-Right> :n<CR>
-noremap <C-Left> :N<CR>
-" Zoom the current file into a standalone new tab.
-noremap <C-q> :confirm qall<CR>
-" Double up function key mappings with <leader>+number mappings for touchbar
-" Macbooks which have no function keys.
-noremap <F1> :set relativenumber!<CR>
-noremap <leader>1 :set relativenumber!<CR>
-noremap <F2> :w<CR>
-noremap <F3> :%retab<CR> :%s/\s\+$//<CR>
-noremap <leader>3 :%retab<CR> :%s/\s\+$//<CR>
-" 'qq' starts a macro recording, 'q' stops it, <F4> runs the macro.
-noremap <F4> @q
-noremap <leader>4 @q
-nnoremap Q @q
-" Execute macro 'q' over the visual selection.
-xnoremap Q :'<,'>:normal @q<CR>
-noremap <F5> :call Spelling()<CR>
-noremap <leader>5 :call Spelling()<CR>
-noremap <F6> :source $MYVIMRC<CR>
-noremap <leader>6 :source $MYVIMRC<CR>
-noremap <F7> :call MacroMode()<CR>
-noremap <leader>7 :call MacroMode()<CR>
-noremap <F8> :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
-noremap <leader>8 :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
-inoremap <F8> <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
-"<F9> - unused
-noremap <leader>9 :set hlsearch!<CR>
-"<F10> - unused
-noremap <leader>0 :call Listing()<CR>
-noremap <F11> :set hlsearch!<CR>
-noremap <F12> :call Listing()<CR>
-" Quickfix related mappings.
-if has("gui_running") || has("nvim")
-    noremap <silent> <A-Up>   :cprevious<CR>zz
-    noremap <silent> <A-Down> :cnext<CR>zz
-    noremap <silent> <S-Up>   :lprevious<CR>zz
-    noremap <silent> <S-Down> :lnext<CR>zz
-else
-    noremap <silent> [1;3A :cprevious<CR>zz
-    noremap <silent> [1;3B :cnext<CR>zz
-    noremap <silent> [1;2A :lprevious<CR>zz
-    noremap <silent> [1;2B :lnext<CR>zz
-endif
-" Splitting and closing.
-noremap <leader>s :split<CR>
-noremap <leader>v :vsplit<CR>
-noremap <leader>q :close<CR>
-" Equalize split sizes.
-noremap <leader>= <C-w>=
-" Rotate splits.
-noremap <leader>R <C-w>r
-" Format current paragraph.
-noremap<leader>Q gqip
-" Tabbing.
-if has("gui_running") || has("nvim")
-    noremap <silent> <A-t> :$tabnew<CR>
-    noremap <A-n> gt
-    noremap <A-p> gT
-    noremap <A-!> 1gt
-    noremap <A-@> 2gt
-    noremap <A-#> 3gt
-    noremap <A-$> 4gt
-    noremap <A-%> 5gt
-" else terminal Vim
-else
-    noremap t :$tabnew<CR>
-    noremap n gt
-    noremap p gT
-    noremap ! 1gt
-    noremap @ 2gt
-    noremap # 3gt
-    noremap $ 4gt
-    noremap % 5gt
-end
-noremap <silent> <leader>z :tab split<CR>
-" Folding.
-nnoremap <leader><Space> za
-" Yank and put helpers.
-noremap <leader>y :let @0=getreg('*')<CR>
-noremap <leader>p "0]p
-noremap <leader>P "0]P
+nnoremap <leader>x       *``cgn
+nnoremap <leader>X       #``cgN
 " ~/.inputrc like motions in command mode.
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <A-b> <C-Left>
-cnoremap <A-f> <C-Right>
-" Regenerate tags file.
-noremap <leader>tags :call system("ctags")<CR>
-" Skeletons/Templates support.
+cnoremap <C-a>           <Home>
+cnoremap <C-e>           <End>
+cnoremap <A-b>           <C-Left>
+cnoremap <A-f>           <C-Right>
+" Skeleton/snippet support.
 if has('win32') || has ('win64')
-    let $VIMHOME = $VIM."/vimfiles"
+    let $VIMHOME =       $HOME."/vimfiles"
 else
-    let $VIMHOME = $HOME."/.vim"
+    let $VIMHOME =       $HOME."/.vim"
 endif
-nnoremap <leader>khtml :read $VIMHOME/skeletons/skeleton.html<CR>
+nnoremap <leader>khtml   :read $VIMHOME/skeletons/skeleton.html<CR>
 nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 
 
@@ -547,40 +552,40 @@ Plug 'tommcdo/vim-lion'
 "-----------------------------
 Plug 'ctrlpvim/ctrlp.vim'
     " Use rg in CtrlP for listing files, very fast and respects .gitignore.
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_user_command          = 'rg %s --files --color=never --glob ""'
     " Using rg is fast, we don't need to cache.
-    let g:ctrlp_use_caching = 0
+    let g:ctrlp_use_caching           = 0
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed = 0
     " Don't jump to a different tab.
-    let g:ctrlp_switch_buffer = 'e'
-    nnoremap <leader>. :CtrlPTag<CR>
-    nnoremap <leader>/ :CtrlPBuffer<CR>
+    let g:ctrlp_switch_buffer         = 'e'
+    nnoremap <localleader>.           :CtrlPTag<CR>
+    nnoremap <localleader>/           :CtrlPBuffer<CR>
     " Mappings to navigate model/view/controllers for certain web frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
         " This looks like a Rails app.
-        nnoremap <leader>cpc :CtrlP app/controllers<CR>
-        nnoremap <leader>cph :CtrlP app/helpers<CR>
-        nnoremap <leader>cpm :CtrlP app/models<CR>
-        nnoremap <leader>cps :CtrlP spec<CR>
-        nnoremap <leader>cpT :CtrlP test<CR>
-        nnoremap <leader>cpv :CtrlP app/views<CR>
-    elseif filereadable('config/prod.exs') && isdirectory('web')
+        noremap <localleader>ec :CtrlP app/controllers<CR>
+        noremap <localleader>eh :CtrlP app/helpers<CR>
+        noremap <localleader>em :CtrlP app/models<CR>
+        noremap <localleader>es :CtrlP spec<CR>
+        noremap <localleader>eT :CtrlP test<CR>
+        noremap <localleader>ev :CtrlP app/views<CR>
+    elseif filereadable('web/router.ex')
         " This looks like an Elixir/Phoenix app.
-        nnoremap <leader>cpc :CtrlP web/controllers<CR>
-        nnoremap <leader>cpm :CtrlP web/models<CR>
-        nnoremap <leader>cpT :CtrlP test<CR>
-        nnoremap <leader>cpt :CtrlP web/templates<CR>
-        nnoremap <leader>cpv :CtrlP views/views<CR>
+        noremap <localleader>ec :CtrlP web/controllers<CR>
+        noremap <localleader>em :CtrlP web/models<CR>
+        noremap <localleader>eT :CtrlP test<CR>
+        noremap <localleader>et :CtrlP web/templates<CR>
+        noremap <localleader>ev :CtrlP web/views<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
-    let g:NERDTreeDirArrowExpandable = "+"
+    let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "~"
-    let NERDTreeStatusline = " NERDTree "
-    noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
-    noremap <leader>fn :NERDTreeFind<CR>
+    let NERDTreeStatusline            = " NERDTree "
+    noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
+    noremap <silent> <leader>fn       :NERDTreeFind<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
@@ -591,21 +596,21 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
 Plug 'jlanzarotta/bufexplorer'
-    let g:bufExplorerFindActive = 0
+    let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
-    let g:bufExplorerSortBy = 'name'
-    noremap <leader>l :BufExplorer<CR>
+    let g:bufExplorerSortBy           = 'name'
+    noremap <leader>l                 :BufExplorer<CR>
 Plug 'mhinz/vim-grepper'
-    let g:grepper = {}
+    let g:grepper      = {}
     runtime autoload/grepper.vim
     let g:grepper.jump = 1
     let g:grepper.stop = 500
     noremap <leader>ga :GrepperAg<Space>
     noremap <leader>gr :GrepperRg<Space>
 Plug 'tpope/vim-fugitive'
-    noremap <leader>gb :Gblame<CR>
-    noremap <leader>gd :Gdiff<CR>
-    noremap <leader>gs :Gstatus<CR>
+    noremap <silent> <leader>gb :Gblame<CR>
+    noremap <silent> <leader>gd :Gdiff<CR>
+    noremap <silent> <leader>gs :Gstatus<CR>
 
 "-----------------------------
 " Language/framework plugins
@@ -628,7 +633,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
     let g:projectionist_heuristics = {
-          \  "config/prod.exs": {
+          \  "web/router.ex": {
           \    "web/controllers/*_controller.ex": {
           \      "type": "controller",
           \      "alternate": "test/controllers/{}_controller_test.exs",
@@ -658,29 +663,29 @@ Plug 'tpope/vim-projectionist'
           \    }
           \  }
           \}
-    noremap <leader>ec :Econtroller<Space>
-    noremap <leader>eh :Ehelper<Space>
-    noremap <leader>el :Echannel<Space>
-    noremap <leader>em :Emodel<Space>
-    noremap <leader>es :Espec<Space>
-    noremap <leader>et :Etemplate<Space>
-    noremap <leader>eT :Etest<Space>
-    noremap <leader>ev :Eview<Space>
-    noremap <leader>A  :A<CR>
+    nnoremap <leader>ec :Econtroller<Space>
+    nnoremap <leader>eh :Ehelper<Space>
+    nnoremap <leader>el :Echannel<Space>
+    nnoremap <leader>em :Emodel<Space>
+    nnoremap <leader>es :Espec<Space>
+    nnoremap <leader>et :Etemplate<Space>
+    nnoremap <leader>eT :Etest<Space>
+    nnoremap <leader>ev :Eview<Space>
+    nnoremap <leader>A  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
-    let g:neomake_open_list    = 1
-    let g:neomake_error_sign   = {'text': '->'}
-    let g:neomake_warning_sign = {'text': '->'}
-    let g:neomake_info_sign    = {'text': '->'}
-    let g:neomake_message_sign = {'text': '->'}
-    noremap <silent> <leader>m :Neomake<CR>
-    noremap <silent> <leader>cls :sign unplace *<CR>:set signcolumn=auto<CR>
+    let g:neomake_open_list        = 1
+    let g:neomake_error_sign       = {'text': '->'}
+    let g:neomake_warning_sign     = {'text': '->'}
+    let g:neomake_info_sign        = {'text': '->'}
+    let g:neomake_message_sign     = {'text': '->'}
+    nnoremap <silent> <leader>m    :Neomake<CR>
+    nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
-    noremap <silent> <leader>T  :TestNearest<CR>
-    noremap <silent> <leader>tf :TestFile<CR>
-    noremap <silent> <leader>ts :TestSuite<CR>
-    noremap <silent> <leader>tl :TestLast<CR>
+    nnoremap <silent> <localleader>T  :TestNearest<CR>
+    nnoremap <silent> <localleader>tf :TestFile<CR>
+    nnoremap <silent> <localleader>ts :TestSuite<CR>
+    nnoremap <silent> <localleader>tl :TestLast<CR>
     if has("nvim")
         let test#strategy = "neovim"
     endif
