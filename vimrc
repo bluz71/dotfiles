@@ -368,9 +368,6 @@ noremap Y          y$
 " Center search matches when navigating.
 noremap n          nzz
 noremap N          Nzz
-" Navigate between multiple opened files.
-noremap <C-Right>  :n<CR>
-noremap <C-Left>   :N<CR>
 " Confirm quit.
 noremap <C-q>      :confirm qall<CR>
 " Delete previous word, when in insert mode, via Ctrl-b.
@@ -449,21 +446,6 @@ nnoremap <localleader>9 :set hlsearch!<CR>
 nnoremap <localleader>0 :call Listing()<CR>
 nnoremap <F11>          :set hlsearch!<CR>
 nnoremap <F12>          :call Listing()<CR>
-
-"-----------------------------
-" Quickfix related mappings
-"-----------------------------
-if has("gui_running") || has("nvim")
-    nnoremap <silent> <A-Up>   :cprevious<CR>zz
-    nnoremap <silent> <A-Down> :cnext<CR>zz
-    nnoremap <silent> <S-Up>   :lprevious<CR>zz
-    nnoremap <silent> <S-Down> :lnext<CR>zz
-else
-    nnoremap <silent> [1;3A  :cprevious<CR>zz
-    nnoremap <silent> [1;3B  :cnext<CR>zz
-    nnoremap <silent> [1;2A  :lprevious<CR>zz
-    nnoremap <silent> [1;2B  :lnext<CR>zz
-endif
 
 "-----------------------------
 " Misc mappings
@@ -607,10 +589,6 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.stop = 500
     noremap <leader>ga :GrepperAg<Space>
     noremap <leader>gr :GrepperRg<Space>
-Plug 'tpope/vim-fugitive'
-    noremap <silent> <leader>gb :Gblame<CR>
-    noremap <silent> <leader>gd :Gdiff<CR>
-    noremap <silent> <leader>gs :Gstatus<CR>
 
 "-----------------------------
 " Language/framework plugins
@@ -689,6 +667,10 @@ Plug 'janko-m/vim-test'
     if has("nvim")
         let test#strategy = "neovim"
     endif
+Plug 'tpope/vim-fugitive'
+    noremap <silent> <leader>gb :Gblame<CR>
+    noremap <silent> <leader>gd :Gdiff<CR>
+    noremap <silent> <leader>gs :Gstatus<CR>
 
 "-----------------------------
 " tmux support
@@ -711,6 +693,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 
 " Finalize vim-plug.
 call plug#end()
