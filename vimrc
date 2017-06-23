@@ -457,7 +457,8 @@ noremap <leader>y        :let @0=getreg('*')<CR>
 noremap <leader>p        "0]p
 noremap <leader>P        "0]P
 " Regenerate tags file.
-nnoremap <localleader>tt :call system("ctags")<CR>
+nnoremap <localleader>tc :call system("ctags -R")<CR>
+nnoremap <localleader>tr :call system("ripper-tags -R")<CR>
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l>       :redraw!<CR>
