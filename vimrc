@@ -561,14 +561,14 @@ Plug 'ctrlpvim/ctrlp.vim'
         noremap <localleader>et :CtrlP web/templates<CR>
         noremap <localleader>ev :CtrlP web/views<CR>
     endif
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "~"
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
-    noremap <silent> <leader>fn       :NERDTreeFind<CR>
+    noremap <silent> <leader>f        :NERDTreeFind<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
@@ -578,6 +578,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
                 \ "Renamed"   : "!"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
+Plug 'tpope/vim-vinegar'
 Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
