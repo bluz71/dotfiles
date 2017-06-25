@@ -567,6 +567,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "~"
+    let NERDTreeHijackNetrw           = 0
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
     noremap <silent> <leader>f        :NERDTreeFind<CR> <C-w>=
@@ -762,8 +763,7 @@ augroup styleAndBehaviourCustomizations
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0 matchpairs=
-    autocmd FileType nerdtree nmap <buffer> <expr> - g:NERDTreeMapUpdir
+    autocmd FileType nerdtree,netrw setlocal conceallevel=0 colorcolumn=0 matchpairs=
     autocmd FilterWritePre * call DiffStyling()
     autocmd FileType * IndentLinesReset
     autocmd Syntax * IndentLinesReset
