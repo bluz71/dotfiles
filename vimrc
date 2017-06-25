@@ -761,6 +761,7 @@ augroup styleAndBehaviourCustomizations
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
     autocmd FileType nerdtree setlocal conceallevel=0 colorcolumn=0 matchpairs=
+    autocmd FileType nerdtree nmap <buffer> <expr> - g:NERDTreeMapUpdir
     autocmd FilterWritePre * call DiffStyling()
     autocmd FileType * IndentLinesReset
     autocmd Syntax * IndentLinesReset
