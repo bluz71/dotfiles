@@ -452,6 +452,7 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 noremap <leader>Q        gqip
 nnoremap <leader><Space> za
+nnoremap <silent> <localleader>s :syntax sync fromstart<CR>
 " Yank and put helpers.
 noremap <leader>y        :let @0=getreg('*')<CR>
 noremap <leader>p        "0]p
@@ -568,7 +569,7 @@ Plug 'scrooloose/nerdtree'
     let g:NERDTreeDirArrowCollapsible = "~"
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
-    noremap <silent> <leader>f        :NERDTreeFind<CR>
+    noremap <silent> <leader>f        :NERDTreeFind<CR> <C-w>=
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
@@ -735,6 +736,7 @@ augroup languageCustomizationsByType
     autocmd FileType javascript.jsx setlocal formatoptions=cq
     autocmd FileType json setlocal conceallevel=0
     autocmd FileType markdown setlocal formatoptions=tqln
+    autocmd FileType markdown syntax sync fromstart
     autocmd FileType ruby setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
     autocmd FileType scss let g:indentLine_faster=0
     autocmd FileType scss setlocal shiftwidth=2
