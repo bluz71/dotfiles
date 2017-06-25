@@ -562,7 +562,7 @@ Plug 'ctrlpvim/ctrlp.vim'
         noremap <localleader>et :CtrlP web/templates<CR>
         noremap <localleader>ev :CtrlP web/views<CR>
     endif
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
