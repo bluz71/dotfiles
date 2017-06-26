@@ -472,8 +472,8 @@ endif
 inoremap <C-]>           <C-x><C-]>
 inoremap <C-l>           <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
-nnoremap <leader>x       *``cgn
-nnoremap <leader>X       #``cgN
+nnoremap c* *Ncgn
+nnoremap c# #NcgN
 " ~/.inputrc like motions in command mode.
 cnoremap <C-a>           <Home>
 cnoremap <C-e>           <End>
