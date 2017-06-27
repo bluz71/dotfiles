@@ -437,9 +437,9 @@ nnoremap <F6>           :source $MYVIMRC<CR>
 nnoremap <localleader>6 :source $MYVIMRC<CR>
 nnoremap <F7>           :call MacroMode()<CR>
 nnoremap <localleader>7 :call MacroMode()<CR>
-nnoremap <F8>           :set paste<CR>o<C-r>*<Esc> :set nopaste<CR>
-nnoremap <localleader>8 :set paste<CR>o<C-r>*<Esc> :set nopaste<CR>
-inoremap <F8> <C-o>     :set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
+nnoremap <F8>           :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
+nnoremap <localleader>8 :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
+inoremap <F8>           <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
 "<F9> - unused
 nnoremap <localleader>9 :set hlsearch!<CR>
 "<F10> - unused
@@ -604,6 +604,7 @@ Plug 'sheerun/vim-polyglot'
     let g:go_highlight_operators            = 1
     let g:go_highlight_build_constraints    = 1
     let g:jsx_ext_required                  = 0
+    let g:polyglot_disabled                 = ['yaml']
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
     let g:rubycomplete_rails                = 1
