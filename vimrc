@@ -95,17 +95,6 @@
 "
 " Plugin details:
 "
-"   vim-grepper.vim:
-"     '-G extension$ <searchterm>' to restrict ag to a particular file extension
-"     '-t<type> <searchterm>' to restrict rg to a particular file type
-"
-"   vim-bundler:
-"     Run 'gem ctags' to generate ctags for installed gems (required just once).
-"
-"   vim-rails:
-"     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
-"     to move a block of code from a view to a new partial.
-"
 "   vim-abolish:
 "     :S/<pattern>                     - smartly search for pattern 
 "
@@ -120,14 +109,24 @@
 "
 "     ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 "
+"   vim-bundler:
+"     Run 'gem ctags' to generate ctags for installed gems (required just once).
+"
 "   vim-commentary:
 "     gc                 - comment out a visual block
+"
+"   vim-grepper.vim:
+"     '-G extension$ <searchterm>' to restrict ag to a particular file extension
+"     '-t<type> <searchterm>' to restrict rg to a particular file type
+"
+"   vim-rails:
+"     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
+"     to move a block of code from a view to a new partial.
 "
 "   vim-surround:
 "     Normal mode:
 "       ds<surround>     - delete a surround
 "       cs<old><new>     - change a surround
-"       ysiw<surround>   - add a surround to the current word
 "
 "     Visual mode:
 "       S                - add a surround
@@ -148,13 +147,13 @@ syntax on
 
 " General vim settings.
 "
-set autoindent
-set autoread
-set autowrite
+set autoindent        " Indented text
+set autoread          " Pick up external changes to files
+set autowrite         " Write files when navigating with :next/:previous
 set background=dark
 set backspace=indent,eol,start
-set belloff=all
-set breakindent
+set belloff=all       " Bells are annoying
+set breakindent       " Wrap long lines *with* indentation
 if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 else
@@ -166,58 +165,58 @@ set complete=.,w,b
 set completeopt-=preview
 set expandtab
 set foldlevelstart=20
-set foldmethod=indent
+set foldmethod=indent " Simple and fast
 set foldtext=""
 set formatoptions=cq
-set gdefault
-set history=200
-set infercase
-set ignorecase
-set incsearch
-set laststatus=2
+set gdefault          " Always do global substitutes
+set history=200       " Keep 200 changes of undo history
+set infercase         " Smart casing when completing
+set ignorecase        " Search in case-insensitively
+set incsearch         " Go to search results immediately
+set laststatus=2      " We want a statusline
 set matchpairs=(:),{:},[:]
-set mouse=a
-set mousehide
-set nobackup
-set nocompatible
-set nohlsearch
-set nojoinspaces
-set noshowcmd
-set noshowmatch
-set noshowmode
-set nosplitright
-set noswapfile
-set nowrapscan
-set number
-set nrformats=
+set mouse=a           " Mouse support in the terminal
+set mousehide         " Hide mouse when typing text
+set nobackup          " No backup files
+set nocompatible      " No Vi support
+set nohlsearch        " Don't highlight search results by default
+set nojoinspaces      " No to double-spaces when joining lines
+set noshowcmd         " No to showing command in bottom-right corner
+set noshowmatch       " No jumping jumping cursors when matching pairs
+set noshowmode        " No to showing mode in bottom-left corner
+set nosplitright      " No to splitting a window to the right
+set noswapfile        " No backup files
+set nowrapscan        " Don't wrap searches around
+set number            " Show line numbers
+set nrformats=        " No to oct/hex support when doing CTRL-a/x
 set path=**
-set pumheight=35
+set pumheight=35      " Height of complete list
 " Ruby performance is terrible with regexpengine=2, see:
 "   https://github.com/vim/vim/issues/282
 "   https://github.com/vim-ruby/vim-ruby/issues/243
 set regexpengine=1
-set relativenumber
+set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4
-set showbreak=\\\\\
-set smartcase
+set showbreak=\\\\\   " Use this to wrap long lines
+set smartcase         " Case-smart searching
 set smarttab
-set splitbelow
-set synmaxcol=200
-set t_Co=256
+set splitbelow        " Split below current window
+set synmaxcol=200     " Only syntax highlight for 200 chars (for performance)
+set t_Co=256          " 256 color support
 set tabstop=4
 set textwidth=79
-set timeoutlen=2500
+set timeoutlen=2500   " Give some time for multi-key mappings
 " Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
 " to I-beam and back functionality set by the t_SI and t_EI variables below.
 set ttimeoutlen=10
 set ttyfast
 set updatetime=1000
-set viminfo=
+set viminfo=          " No backups
 set wildignore+=.git/**,_build/**,build/**,cache/**,node_modules/**,lib/**,log/**,tmp/**
 set wildmenu
 set wildmode=full
-set wrap
+set wrap              " Wrap long lines
 
 " Certain options only work in Neovim whilst others only work in Vim.
 " Neovim has a Whitespace highlight group, Vim does not.
@@ -418,7 +417,7 @@ nnoremap <silent> <leader>z :tab split<CR>
 "-----------------------------
 "
 " Double up function key mappings with <localleader>+number mappings for
-" touchbar Macbooks which have no function keys.
+" touchbar Macbooks which have no physical function keys.
 noremap <F1>            :set relativenumber!<CR>
 noremap <localleader>1  :set relativenumber!<CR>
 noremap <F2>            :w<CR>
