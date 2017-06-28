@@ -480,9 +480,9 @@ cnoremap <A-b>           <C-Left>
 cnoremap <A-f>           <C-Right>
 " Skeleton/snippet support.
 if has('win32') || has ('win64')
-    let $VIMHOME =       $HOME."/vimfiles"
+    let $VIMHOME = $HOME . "/vimfiles"
 else
-    let $VIMHOME =       $HOME."/.vim"
+    let $VIMHOME = $HOME . "/.vim"
 endif
 nnoremap <leader>khtml   :read $VIMHOME/skeletons/skeleton.html<CR>
 nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
