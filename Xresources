@@ -31,7 +31,7 @@ xterm-moonfly*color7: #de935f
 xterm-moonfly*color8: #f09479
 
 ! Crimson (usally defined as 'Bold Red')
-xterm-moonfly*color9: #fe3b7b
+xterm-moonfly*color9: #f74782
 
 ! Emerald (usually defined as 'Bold Green')
 xterm-moonfly*color10: #42cf89

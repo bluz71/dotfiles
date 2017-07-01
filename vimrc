@@ -330,7 +330,8 @@ endfunction
 "===========================================================
 
 if !has("gui_running") && !has("nvim")
-    " Note, Neovim sets the cursor to I-beam in insert mode by default.
+    " Note, Neovim cursor shape and 24-bit true colors functions without any
+    " help required; the following "help" is for terminal Vim only. 
 
     " if tmux
     if &term == 'screen-256color'
@@ -340,6 +341,9 @@ if !has("gui_running") && !has("nvim")
         " Make CTRL-Left/Right work inside tmux.
         execute "set <xRight>=\e[1;*C"
         execute "set <xLeft>=\e[1;*D"
+        " Make Vim *set termguicolors* work inside tmux.
+        set t_8b=[48;2;%lu;%lu;%lum
+        set t_8f=[38;2;%lu;%lu;%lum
     " else not tmux
     else
         " Change the cursor to an I-beam when in insert mode.
