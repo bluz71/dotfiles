@@ -107,8 +107,6 @@
 "     crc - change to camelCase
 "     crm - change to MixCase
 "
-"     ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
-"
 "   vim-bundler:
 "     Run 'gem ctags' to generate ctags for installed gems (required just once).
 "
@@ -618,37 +616,7 @@ Plug 'slashmili/alchemist.vim'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
-    let g:projectionist_heuristics = {
-          \  "web/router.ex": {
-          \    "web/controllers/*_controller.ex": {
-          \      "type": "controller",
-          \      "alternate": "test/controllers/{}_controller_test.exs",
-          \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}Controller do\n  use {project|basename|camelcase|capitalize}.Web, :controller\nend"
-          \    },
-          \    "web/models/*.ex": {
-          \      "type": "model",
-          \      "alternate": "test/models/{}_test.exs",
-          \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize} do\n  use {project|basename|camelcase|capitalize}.Web, :model\nend"
-          \    },
-          \    "web/views/*_view.ex": {
-          \      "type": "view",
-          \      "alternate": "test/views/{}_view_test.exs",
-          \      "template": "defmodule {project|basename|camelcase|capitalize}.{capitalize}View do\n  use {project|basename|camelcase|capitalize}.Web, :view\nend"
-          \    },
-          \    "web/templates/*.html.eex": {
-          \      "type": "template",
-          \      "alternate": "web/views/{dirname|basename}_view.ex"
-          \    },
-          \    "web/channels/*_channel.ex": {
-          \      "type": "channel",
-          \      "alternate": "test/channels/{}_channel_test.exs"
-          \    },
-          \    "test/*_test.exs": {
-          \      "type": "test",
-          \      "alternate": "web/{}.ex",
-          \    }
-          \  }
-          \}
+    " ~/dotfiles/vim/after/plugin/projectionist.vim - list of projections
     nnoremap <leader>ec :Econtroller<Space>
     nnoremap <leader>eh :Ehelper<Space>
     nnoremap <leader>el :Echannel<Space>
@@ -698,6 +666,7 @@ endif
 " Tim Pope plugins
 "-----------------------------
 Plug 'tpope/vim-abolish'
+    " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-surround'

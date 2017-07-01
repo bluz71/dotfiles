@@ -51,6 +51,4 @@ endfun
 
 " gvim specific keyboard mappings.
 "
-map <A-t> :tabnew<CR>
-map <A-w> :tabclose<CR>
-map <leader>2 :call DoubleSizeAndVsplit()<CR>
+map <localleader>2 :call DoubleSizeAndVsplit()<CR>
