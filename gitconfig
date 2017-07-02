@@ -19,19 +19,23 @@
 [mergetool]
     keepBackup = false
 [alias]
-    ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
-    ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
-    st = status --short --branch
-    rso = remote show origin
     bb = branch -vv
     bd = branch -d
+    ci = commit
     co = checkout
     cob = checkout -b
-    ci = commit
-    sh = show
     di = diff
-    mdi = difftool
-    vdi = difftool -t vd
     dis = diff --staged
+    ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
+    llb = !git ll master..HEAD
+    ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
+    lsb = !git ls master..HEAD
+    mdi = difftool
     mdis = difftool --staged
+    rso = remote show origin
+    sg = "!git add . -N && git add -p"
+    sh = show
+    st = status --short --branch
+    unci = reset --soft HEAD~1
+    vdi = difftool -t vd
     vdis = difftool -t vd --staged

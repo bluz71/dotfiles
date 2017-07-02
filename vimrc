@@ -635,6 +635,7 @@ Plug 'neomake/neomake'
     let g:neomake_message_sign     = {'text': '->'}
     nnoremap <silent> <leader>m    :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
+    autocmd! BufEnter *.{js,md} Neomake
 Plug 'janko-m/vim-test'
     nnoremap <silent> <localleader>T  :TestNearest<CR>
     nnoremap <silent> <localleader>tf :TestFile<CR>
