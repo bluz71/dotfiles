@@ -572,6 +572,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
     noremap <silent> <leader>f        :NERDTreeFind<CR> <C-w>=
+    autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
@@ -733,7 +734,6 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd BufEnter * call NERDTreeRefresh()
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
