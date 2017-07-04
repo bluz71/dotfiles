@@ -328,8 +328,8 @@ endfunction
 "===========================================================
 
 if !has("gui_running") && !has("nvim")
-    " Note, Neovim cursor shape and 24-bit true colors functions without any
-    " help required; the following "help" is for terminal Vim only. 
+    " Note, Neovim cursor shape and 24-bit true colors work without any
+    " help required; the following 'help' is for terminal Vim only. 
 
     " if tmux
     if &term == 'screen-256color'
@@ -636,7 +636,9 @@ Plug 'neomake/neomake'
     let g:neomake_message_sign     = {'text': '->'}
     nnoremap <silent> <leader>m    :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
-    autocmd! BufEnter *.{js,md} Neomake
+    if !&diff
+        autocmd! BufEnter *.{js,md} Neomake
+    endif
 Plug 'janko-m/vim-test'
     nnoremap <silent> <localleader>T  :TestNearest<CR>
     nnoremap <silent> <localleader>tf :TestFile<CR>
