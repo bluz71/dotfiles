@@ -219,6 +219,8 @@ set wrap              " Wrap long lines
 " Certain options only work in Neovim whilst others only work in Vim.
 " Neovim has a Whitespace highlight group, Vim does not.
 if has("nvim")
+    " Set 'guicursor' explicitly; needed for shape-changing to work in xterm.
+    set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
