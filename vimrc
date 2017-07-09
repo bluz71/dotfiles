@@ -220,7 +220,8 @@ set wrap              " Wrap long lines
 " Neovim has a Whitespace highlight group, Vim does not.
 if has("nvim")
     " Set 'guicursor' explicitly; needed for shape-changing to work in xterm.
-    set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+    " set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+    set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
@@ -511,6 +512,7 @@ call plug#begin('~/.vim/plugged')
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
     let g:moonflySpellReversed = 1
+    let g:moonflyCursorColored = 1
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'rakr/vim-one'
 Plug 'nelstrom/vim-visual-star-search'
@@ -764,5 +766,5 @@ augroup END
 " COLOR SCHEME
 "===========================================================
 
-" set termguicolors
+set termguicolors
 colorscheme moonfly
