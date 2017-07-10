@@ -220,8 +220,8 @@ set wrap              " Wrap long lines
 " Neovim has a Whitespace highlight group, Vim does not.
 if has("nvim")
     " Set 'guicursor' explicitly; needed for shape-changing to work in xterm.
-    " set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
-    set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+    set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+    " set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
@@ -511,8 +511,8 @@ call plug#begin('~/.vim/plugged')
 " Niceties
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-    let g:moonflySpellReversed = 1
-    let g:moonflyCursorColored = 1
+    let g:moonflySpellInverse = 1
+    let g:moonflyCursorColor  = 1
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'rakr/vim-one'
 Plug 'nelstrom/vim-visual-star-search'
@@ -751,6 +751,7 @@ augroup styleAndBehaviourCustomizations
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd BufEnter term://* startinsert
+        autocmd VimLeave * set guicursor=a:block-CursorReset
     endif
 augroup END
 
@@ -768,3 +769,4 @@ augroup END
 
 set termguicolors
 colorscheme moonfly
+highlight CursorReset guifg=#080808 guibg=#9e9e9e
