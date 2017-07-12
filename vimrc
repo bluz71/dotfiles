@@ -529,8 +529,9 @@ Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType        = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
 Plug 'rhysd/clever-f.vim'
-    let g:clever_f_across_no_line = 1
-    let g:clever_f_timeout_ms     = 3000
+    let g:clever_f_across_no_line    = 1
+    let g:clever_f_timeout_ms        = 3000
+    let g:clever_f_mark_cursor_color = "SpellBad"
 Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
@@ -751,7 +752,7 @@ augroup styleAndBehaviourCustomizations
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd BufEnter term://* startinsert
-        " autocmd VimLeave * set guicursor=a:block-CursorReset
+        " autocmd VimLeave * set guicursor=a:block-lCursor
         autocmd VimLeave * set guicursor=a:block
     endif
 augroup END
@@ -770,4 +771,3 @@ augroup END
 
 " set termguicolors
 colorscheme moonfly
-" highlight CursorReset guifg=#080808 guibg=#9e9e9e
