@@ -531,7 +531,7 @@ Plug 'ervandew/supertab'
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line    = 1
     let g:clever_f_timeout_ms        = 3000
-    let g:clever_f_mark_cursor_color = "SpellBad"
+    let g:clever_f_mark_cursor_color = "IncSearch"
 Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
@@ -641,9 +641,7 @@ Plug 'neomake/neomake'
     let g:neomake_message_sign     = {'text': '->'}
     nnoremap <silent> <leader>m    :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
-    if !&diff
-        autocmd! BufEnter *.{js,md} Neomake
-    endif
+    autocmd! BufWritePost *.{js,md} Neomake
 Plug 'janko-m/vim-test'
     nnoremap <silent> <localleader>T  :TestNearest<CR>
     nnoremap <silent> <localleader>tf :TestFile<CR>
@@ -769,5 +767,5 @@ augroup END
 " COLOR SCHEME
 "===========================================================
 
-" set termguicolors
+set termguicolors
 colorscheme moonfly
