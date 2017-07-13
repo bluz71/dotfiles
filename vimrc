@@ -767,5 +767,5 @@ augroup END
 " COLOR SCHEME
 "===========================================================
 
-set termguicolors
+" set termguicolors
 colorscheme moonfly
