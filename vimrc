@@ -407,15 +407,47 @@ nnoremap <silent> <leader>s :split<CR>
 nnoremap <silent> <leader>v :vsplit<CR>
 nnoremap <silent> <leader>q :close<CR>
 nnoremap <silent> <leader>t :$tabnew<CR>
+nnoremap <silent> <C-a>s    <C-\><C-N>:split<CR>
+nnoremap <silent> <C-a>v    <C-\><C-N>:vsplit<CR>
+nnoremap <silent> <C-a>q    <C-\><C-N>:close<CR>
+nnoremap <silent> <C-a>t    <C-\><C-N>:$tabnew<CR>
 nnoremap <leader>1          1gt
 nnoremap <leader>2          2gt
 nnoremap <leader>3          3gt
 nnoremap <leader>4          4gt
 nnoremap <leader>5          5gt
+nnoremap <leader>6          6gt
+nnoremap <leader>7          7gt
+nnoremap <leader>8          8gt
+nnoremap <leader>9          9gt
+nnoremap <C-a>1             <C-\><C-N>1gt
+nnoremap <C-a>2             <C-\><C-N>2gt
+nnoremap <C-a>3             <C-\><C-N>3gt
+nnoremap <C-a>4             <C-\><C-N>4gt
+nnoremap <C-a>5             <C-\><C-N>5gt
+nnoremap <C-a>6             <C-\><C-N>6gt
+nnoremap <C-a>7             <C-\><C-N>7gt
+nnoremap <C-a>8             <C-\><C-N>8gt
+nnoremap <C-a>9             <C-\><C-N>9gt
 nnoremap <leader>=          <C-w>=
 nnoremap <leader>R          <C-w>r
 " Zoom the current file into a standalone new tab.
 nnoremap <silent> <leader>z :tab split<CR>
+if has("nvim")
+    tnoremap <silent> <C-a>s <C-\><C-N>:split<CR>
+    tnoremap <silent> <C-a>v <C-\><C-N>:vsplit<CR>
+    tnoremap <silent> <C-a>q <C-\><C-N>:close<CR>
+    tnoremap <silent> <C-a>t <C-\><C-N>:$tabnew<CR>
+    tnoremap <C-a>1          <C-\><C-N>1gt
+    tnoremap <C-a>2          <C-\><C-N>2gt
+    tnoremap <C-a>3          <C-\><C-N>3gt
+    tnoremap <C-a>4          <C-\><C-N>4gt
+    tnoremap <C-a>5          <C-\><C-N>5gt
+    tnoremap <C-a>6          <C-\><C-N>6gt
+    tnoremap <C-a>7          <C-\><C-N>7gt
+    tnoremap <C-a>8          <C-\><C-N>8gt
+    tnoremap <C-a>9          <C-\><C-N>9gt
+endif
 
 "-----------------------------
 " Function key mappings
