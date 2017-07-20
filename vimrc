@@ -171,6 +171,7 @@ set history=200       " Keep 200 changes of undo history
 set infercase         " Smart casing when completing
 set ignorecase        " Search in case-insensitively
 set incsearch         " Go to search results immediately
+set iskeyword-=_      " Treat underscore as a word boundary
 set laststatus=2      " We want a statusline
 set matchpairs=(:),{:},[:]
 set mouse=a           " Mouse support in the terminal
