@@ -364,6 +364,9 @@ endif
 "-----------------------------
 let mapleader      = ","
 let maplocalleader = " "
+" Map Ctrl-c to be 'esc', handy for touchbar only Macbooks.
+nnoremap <C-c>     <Esc>
+inoremap <C-c>     <Esc>
 " Enter command mode via ';'
 noremap ;          :
 " Make dot work on visual line selections.
