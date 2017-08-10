@@ -676,7 +676,7 @@ Plug 'sheerun/vim-polyglot'
     let g:ruby_indent_access_modifier_style = 'indent'
     let g:vim_markdown_conceal              = 0
 Plug 'slashmili/alchemist.vim'
-" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug '1995eaton/vim-better-javascript-completion'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
@@ -773,6 +773,7 @@ augroup languageCustomizationsByType
     autocmd FileType java setlocal cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript setlocal shiftwidth=2
     autocmd FileType javascript.jsx setlocal formatoptions=cq
+    autocmd FileType javascript.jsx let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     autocmd FileType json setlocal conceallevel=0
     autocmd FileType markdown setlocal formatoptions=tqln
     autocmd FileType markdown syntax sync fromstart
