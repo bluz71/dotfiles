@@ -658,6 +658,7 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.stop = 500
     noremap <leader>ga :GrepperAg<Space>
     noremap <leader>gr :GrepperRg<Space>
+Plug 'tpope/vim-eunuch'
 
 "-----------------------------
 " Language/framework plugins
