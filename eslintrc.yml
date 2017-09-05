@@ -8,6 +8,7 @@ parserOptions:
     experimentalObjectRestSpread: true
     jsx: true
   sourceType: module
+parser: 'babel-eslint'
 plugins:
   - react
 rules:
@@ -20,7 +21,7 @@ rules:
     - unix
   quotes:
     - error
-    - double
+    - single
   semi:
     - error
     - always
