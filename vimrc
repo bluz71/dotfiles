@@ -117,6 +117,13 @@
 "     '-G extension$ <searchterm>' to restrict ag to a particular file extension
 "     '-t<type> <searchterm>' to restrict rg to a particular file type
 "
+"   vim-ragtag:
+"      <CTRL-x>/         - close the previous open tag
+"      <CTRL-x><Space>   - convert the current word into open and close tags
+"      <CTRL-x><Enter>   - Same as above except split over multiple lines
+"      <CTRL-x>_         - Add <% %> template tag
+"      <CTRL-x>+         - Add <%= %> templage tag
+"
 "   vim-rails:
 "     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
 "     to move a block of code from a view to a new partial.
@@ -735,6 +742,7 @@ Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
