@@ -120,9 +120,9 @@
 "   vim-ragtag:
 "      <CTRL-x>/         - close the previous open tag
 "      <CTRL-x><Space>   - convert the current word into open and close tags
-"      <CTRL-x><Enter>   - Same as above except split over multiple lines
-"      <CTRL-x>_         - Add <% %> template tag
-"      <CTRL-x>+         - Add <%= %> templage tag
+"      <CTRL-x><Enter>   - same as above except split over multiple lines
+"      <CTRL-x>_         - add <% %> template tag
+"      <CTRL-x>+         - add <%= %> templage tag
 "
 "   vim-rails:
 "     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
