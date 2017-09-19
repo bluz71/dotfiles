@@ -684,7 +684,7 @@ Plug 'sheerun/vim-polyglot'
     let g:ruby_indent_access_modifier_style = 'indent'
     let g:vim_markdown_conceal              = 0
 Plug 'slashmili/alchemist.vim'
-Plug '1995eaton/vim-better-javascript-completion'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
