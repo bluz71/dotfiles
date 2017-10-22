@@ -764,34 +764,34 @@ augroup languageCustomizationsByType
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
-    autocmd FileType c,cpp setlocal cindent foldmethod=syntax
-    autocmd FileType coffee setlocal shiftwidth=2
-    autocmd FileType css setlocal shiftwidth=2
+    autocmd FileType c,cpp    setlocal cindent foldmethod=syntax
+    autocmd FileType coffee   setlocal shiftwidth=2
+    autocmd FileType css      setlocal shiftwidth=2
     autocmd FileType css,scss let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    autocmd FileType eelixir setlocal matchpairs=(:),{:},[:]
-    autocmd FileType eruby setlocal formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
+    autocmd FileType eelixir  setlocal matchpairs=(:),{:},[:]
+    autocmd FileType eruby    setlocal formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go setlocal list listchars=tab:\¦\ 
-    autocmd FileType go highlight SpecialKey ctermfg=234 guifg=#1c1c1c
+    autocmd FileType go       setlocal list listchars=tab:\¦\ 
+    autocmd FileType go       highlight SpecialKey ctermfg=234 guifg=#1c1c1c
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
-    autocmd FileType html let b:match_words = '<\(\w\w*\):</\1,{:}'
-    autocmd FileType html setlocal shiftwidth=2 textwidth=999
-    autocmd FileType java setlocal cindent cinoptions+=j1 foldmethod=syntax
-    autocmd FileType javascript setlocal shiftwidth=2
+    autocmd FileType html     let b:match_words = '<\(\w\w*\):</\1,{:}'
+    autocmd FileType html     setlocal shiftwidth=2 textwidth=999
+    autocmd FileType java     setlocal cindent cinoptions+=j1 foldmethod=syntax
+    autocmd FileType javascript     setlocal shiftwidth=2
     autocmd FileType javascript.jsx setlocal formatoptions=cq
     autocmd FileType javascript.jsx let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    autocmd FileType json setlocal conceallevel=0
+    autocmd FileType json     setlocal conceallevel=0
     autocmd FileType markdown setlocal formatoptions=tqln
     autocmd FileType markdown syntax sync fromstart
-    autocmd FileType ruby setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
-    autocmd FileType scss let g:indentLine_faster=0
-    autocmd FileType scss setlocal shiftwidth=2
-    autocmd FileType sh setlocal textwidth=999
-    autocmd FileType vim setlocal textwidth=999
-    autocmd FileType xml setlocal shiftwidth=2 textwidth=999
-    autocmd FileType yaml setlocal shiftwidth=2 textwidth=999
+    autocmd FileType ruby     setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
+    autocmd FileType scss     let g:indentLine_faster=0
+    autocmd FileType scss     setlocal shiftwidth=2
+    autocmd FileType sh       setlocal textwidth=999
+    autocmd FileType vim      setlocal textwidth=999
+    autocmd FileType xml      setlocal shiftwidth=2 textwidth=999
+    autocmd FileType yaml     setlocal shiftwidth=2 textwidth=999
 augroup END
 
 " Custom settings per language by file extension.
@@ -799,24 +799,24 @@ augroup END
 augroup languageCustomizationsByExtension
     autocmd!
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
-    autocmd BufEnter *.html.erb set omnifunc=htmlcomplete#CompleteTags
+    autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
 augroup END
 
 " Style and behaviour customizations for certain modes and window types.
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
+    autocmd BufWinEnter quickfix        setlocal cursorline colorcolumn=0
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType nerdtree,netrw setlocal conceallevel=0 colorcolumn=0 matchpairs=
-    autocmd FilterWritePre * call DiffStyling()
-    autocmd FileType * IndentLinesReset
-    autocmd Syntax * IndentLinesReset
-    autocmd VimResized * wincmd =
+    autocmd FileType nerdtree,netrw     setlocal conceallevel=0 colorcolumn=0 matchpairs=
+    autocmd FilterWritePre *            call DiffStyling()
+    autocmd FileType *                  IndentLinesReset
+    autocmd Syntax *                    IndentLinesReset
+    autocmd VimResized *                wincmd =
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-        autocmd BufEnter term://* startinsert
+        autocmd BufEnter   term://* startinsert
         " autocmd VimLeave * set guicursor=a:block-lCursor
         autocmd VimLeave * set guicursor=a:block
     endif
@@ -827,7 +827,7 @@ augroup END
 augroup autoSaveAndRead
     autocmd!
     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-    autocmd CursorHold * silent! checktime
+    autocmd CursorHold *                        silent! checktime
 augroup END
 
 "===========================================================
