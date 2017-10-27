@@ -218,7 +218,6 @@ set ttimeoutlen=10
 set ttyfast
 set updatetime=1000
 set viminfo=          " No backups
-set wildignore+=*/.git/*,*/_build/*,*/build/*,*/cache/*,*/node_modules/*,*/lib/*,*/log/*,*/tmp/*
 set wildmenu
 set wildmode=full
 set wrap              " Wrap long lines
@@ -608,20 +607,19 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
     " Use rg in CtrlP for listing files, very fast and respects .gitignore.
-    let g:ctrlp_user_command          = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_user_command           = 'rg %s --files --color=never --glob ""'
     " Using rg is fast, we don't need to cache.
-    let g:ctrlp_use_caching           = 0
+    let g:ctrlp_use_caching            = 0
     " The match should be at the top of the list.
-    let g:ctrlp_match_window_reversed = 0
+    let g:ctrlp_match_window_reversed  = 0
     " Don't jump to a different tab.
-    let g:ctrlp_switch_buffer         = 'e'
+    let g:ctrlp_switch_buffer          = 'e'
+    " High quality, high performance CtrlP matcher.
+    let g:ctrlp_match_func             = { 'match': 'cpsm#CtrlPMatch' }
     " Syntax highlight funky matches
     let g:ctrlp_funky_syntax_highlight = 1
-    " High quality, high performance CtrlP matcher.
-    let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-    nnoremap <localleader>.           :CtrlPTag<CR>
-    nnoremap <localleader>/           :CtrlPBuffer<CR>
-    nnoremap <localleader>f           :CtrlPFunky<CR>
+    nnoremap <leader>/                 :CtrlPBuffer<CR>
+    nnoremap <localleader>f            :CtrlPFunky<CR>
     " Mappings to navigate model/view/controllers for certain web frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
         " This looks like a Rails app.
