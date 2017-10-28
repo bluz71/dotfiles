@@ -118,11 +118,11 @@
 "     '-t<type> <searchterm>' to restrict rg to a particular file type
 "
 "   vim-ragtag:
-"      <CTRL-x>/         - close the previous open tag
-"      <CTRL-x><Space>   - convert the current word into open and close tags
-"      <CTRL-x><Enter>   - same as above except split over multiple lines
-"      <CTRL-x>_         - add <% %> template tag
-"      <CTRL-x>+         - add <%= %> templage tag
+"     <CTRL-x>/          - close the previous open tag
+"     <CTRL-x><Space>    - convert the current word into open and close tags
+"     <CTRL-x><Enter>    - same as above except split over multiple lines
+"     <CTRL-x>_          - add <% %> template tag
+"     <CTRL-x>+          - add <%= %> templage tag
 "
 "   vim-rails:
 "     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
@@ -139,6 +139,9 @@
 "     Insert mode:
 "       <CTRL-s>         - add a surround
 "       <CTRL-s><CTRL-s> - add a new line + surround + indent
+"
+"   vim-unimpaired
+"     cox                - enable cross-hair to locate cursor
 
 
 "===========================================================
