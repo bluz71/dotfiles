@@ -619,10 +619,8 @@ Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
     let g:ctrlp_match_window_reversed  = 0
     " Don't jump to a different tab.
     let g:ctrlp_switch_buffer          = 'e'
-    if !has("gui_running")
-        " High quality, high performance CtrlP matcher.
-        let g:ctrlp_match_func         = { 'match': 'cpsm#CtrlPMatch' }
-    endif
+    " High quality, high performance CtrlP matcher.
+    let g:ctrlp_match_func             = { 'match': 'cpsm#CtrlPMatch' }
     " Syntax highlight funky matches
     let g:ctrlp_funky_syntax_highlight = 1
     nnoremap <leader>/                 :CtrlPBuffer<CR>
