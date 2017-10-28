@@ -4,7 +4,6 @@ unalias -a
 
 # General aliases.
 #
-alias agm='ag --pager=less'
 alias be='bundle exec'
 alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
@@ -21,7 +20,7 @@ alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; cd $GOPATH/src
 alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
 alias h=history
-alias ha='history | ag'
+alias hrg='history | rg'
 alias l1='ls -1'
 alias ll='ls -l'
 alias lla='ls -la'
@@ -36,6 +35,7 @@ alias mv='/bin/mv -i'
 alias nv='nvim'
 alias p='pygmentize -g'
 alias psu='ps -u $USER -f'
+alias rgm='ripgrepPaged(){ rg -p "$1" | less; }; ripgrepPaged'
 alias rm='/bin/rm -i'
 alias src='. ~/.bashrc'
 alias t='tree -C'
