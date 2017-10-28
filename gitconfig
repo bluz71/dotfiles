@@ -16,16 +16,23 @@
     prompt = false
 [difftool "vd"]
     cmd = stty -ixon && vimdiff "$LOCAL" "$REMOTE"
+[difftool "icd"]
+  cmd = icdiff --line-numbers "$LOCAL" "$REMOTE"
 [mergetool]
     keepBackup = false
 [alias]
     bb = branch -vv
     bd = branch -d
     ci = commit
+    unci = reset --soft HEAD~1
     co = checkout
     cob = checkout -b
     di = diff
     dis = diff --staged
+    vdi = difftool -t vd
+    vdis = difftool -t vd --staged
+    idi = difftool -t icd
+    idis = difftool -t icd --staged
     ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
     llb = !git ll master..HEAD
     ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
@@ -36,6 +43,3 @@
     sg = "!git add . -N && git add -p"
     sh = show
     st = status --short --branch
-    unci = reset --soft HEAD~1
-    vdi = difftool -t vd
-    vdis = difftool -t vd --staged
