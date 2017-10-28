@@ -599,6 +599,11 @@ Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
     let g:lion_squeeze_spaces = 1
+if !has("clipboard")
+    Plug 'kana/vim-fakeclip'
+    vmap y <Plug>(fakeclip-y)
+    nmap p <Plug>(fakeclip-p)
+endif
 
 "-----------------------------
 " File management plugins
