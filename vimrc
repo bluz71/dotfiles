@@ -141,7 +141,9 @@
 "       <CTRL-s><CTRL-s> - add a new line + surround + indent
 "
 "   vim-unimpaired
-"     cox                - enable cross-hair to locate cursor
+"     coh                - toggle search highlights
+"     cow                - toggle wrap
+"     cox                - toggle cursor cross-hair
 
 
 "===========================================================
