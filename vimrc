@@ -675,8 +675,8 @@ Plug 'mhinz/vim-grepper'
     runtime autoload/grepper.vim
     let g:grepper.jump = 1
     let g:grepper.stop = 500
-    noremap <leader>ga :GrepperAg<Space>
     noremap <leader>gr :GrepperRg<Space>
+    noremap <leader>gw :GrepperRg<Space>"\b<cword>\b"<CR>
 Plug 'tpope/vim-eunuch'
 
 "-----------------------------
