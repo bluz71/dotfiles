@@ -336,16 +336,6 @@ function! DiffStyling()
     endif
 endfunction
 
-" Mappings for Unimpaired, basically we want to center quickfix and location
-" list matches.
-"
-function! UnimpairedMappings()
-    nmap [l <Plug>unimpairedLPreviouszz
-    nmap ]l <Plug>unimpairedLNextzz
-    nmap [q <Plug>unimpairedQPreviouszz
-    nmap ]q <Plug>unimpairedQNextzz
-endfunction
-
 
 "===========================================================
 " TERMINAL CONFIGURATION
@@ -769,6 +759,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+    " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
 
 " Finalize vim-plug.
 call plug#end()
@@ -845,13 +836,6 @@ augroup styleAndBehaviourCustomizations
         " autocmd VimLeave * set guicursor=a:block-lCursor
         autocmd VimLeave * set guicursor=a:block
     endif
-augroup END
-
-" Mappings for Unimpaired.
-"
-augroup unimpairedMappings
-    autocmd!
-    autocmd VimEnter * call UnimpairedMappings()
 augroup END
 
 " Autosave and autoread behaviour.
