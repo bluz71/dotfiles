@@ -606,8 +606,10 @@ Plug 'tommcdo/vim-lion'
     let g:lion_squeeze_spaces = 1
 if !has("clipboard")
     Plug 'kana/vim-fakeclip'
-    vmap y <Plug>(fakeclip-y)
-    nmap p <Plug>(fakeclip-p)
+    vmap y  <Plug>(fakeclip-y)
+    nmap yy <Plug>(fakeclip-Y)
+    nmap Y  <Plug>(fakeclip-y)$
+    nmap p  <Plug>(fakeclip-p)
 endif
 
 "-----------------------------
@@ -619,7 +621,7 @@ Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
     " Use rg in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command           = 'rg %s --files --color=never --glob ""'
     " Using rg is fast, we don't need to cache.
-    let g:ctrlp_use_caching            = 0
+    let g:ctrlp_use_caching            = 1
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed  = 0
     " Don't jump to a different tab.
