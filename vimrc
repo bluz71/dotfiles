@@ -839,6 +839,7 @@ augroup styleAndBehaviourCustomizations
     autocmd VimResized *                wincmd =
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+        autocmd TermOpen * startinsert
         autocmd BufEnter   term://* startinsert
         " autocmd VimLeave * set guicursor=a:block-lCursor
         autocmd VimLeave * set guicursor=a:block
