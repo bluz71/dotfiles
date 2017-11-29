@@ -635,7 +635,8 @@ Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
     let g:ctrlp_match_func             = { 'match': 'cpsm#CtrlPMatch' }
     " Syntax highlight funky matches
     let g:ctrlp_funky_syntax_highlight = 1
-    nnoremap <leader>/                 :CtrlPBuffer<CR>
+    nnoremap <localleader>/            :CtrlPBuffer<CR>
+    nnoremap <localleader>m            :CtrlPMRUFiles<CR>
     nnoremap <localleader>f            :CtrlPFunky<CR>
     " Mappings to navigate model/view/controllers for certain web frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
