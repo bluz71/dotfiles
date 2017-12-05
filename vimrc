@@ -615,6 +615,7 @@ if !has("clipboard")
     nmap yy <Plug>(fakeclip-Y)
     nmap Y  <Plug>(fakeclip-y)$
     nmap p  <Plug>(fakeclip-p)
+    nmap dd <Plug>(fakeclip-dd)
 endif
 
 "-----------------------------
