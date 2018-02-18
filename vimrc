@@ -646,7 +646,6 @@ Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
         noremap <localleader>eh :CtrlP app/helpers<CR>
         noremap <localleader>em :CtrlP app/models<CR>
         noremap <localleader>es :CtrlP spec<CR>
-        noremap <localleader>eT :CtrlP test<CR>
         noremap <localleader>ev :CtrlP app/views<CR>
     elseif filereadable('web/router.ex')
         " This looks like an Elixir/Phoenix app.
@@ -655,6 +654,10 @@ Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
         noremap <localleader>eT :CtrlP test<CR>
         noremap <localleader>et :CtrlP web/templates<CR>
         noremap <localleader>ev :CtrlP web/views<CR>
+    elseif filereadable('src/index.js')
+        " This looks like a React app.
+        noremap <localleader>ec :CtrlP src/components<CR>
+        noremap <localleader>et :CtrlP src/__tests__/components<CR>
     endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
