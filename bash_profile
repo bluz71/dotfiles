@@ -1,9 +1,16 @@
 . ~/.bashrc
 
-# On Mac we want to use the Homebrew SSH agent (newer and better) in preference
-# to the system supplied SSH agent (older and worse).
-#
-if [ $OS = Darwin ]; then
+if [ $OS = Linux ]; then
+    # Configure the CAPSLOCK key to be ESC when pressed alone or CONTROL
+    # when held with another key.
+    #
+    # Use Karabiner Elements to achieve the same effect on Mac.
+    setxkbmap -option 'caps:ctrl_modifier'
+    xcape -e 'Caps_Lock=Escape'
+elif [ $OS = Darwin ]; then
+    # On Mac we want to use the Homebrew SSH agent (newer and better) in
+    # preference to the system supplied SSH agent (older and worse).
+
     # Use an existing Homebrew SSH agent if it is running and available.
     if [ -f ~/.ssh-agent-env.sh ]; then
         . ~/.ssh-agent-env.sh
