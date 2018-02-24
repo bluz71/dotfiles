@@ -1,6 +1,6 @@
 . ~/.bashrc
 
-if [ $OS = Linux ]; then
+if [ $OS = Linux ] && [[ $DISPLAY ]]; then
     # Configure the CAPSLOCK key to be ESC when pressed alone or CONTROL
     # when held with another key.
     #
