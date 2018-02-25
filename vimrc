@@ -62,6 +62,8 @@
 "   gf                 go to file under cursor
 "   gq                 format text
 "   :r !ls *.txt       read in selected filenames
+"   :earlier 50s       undo to 50 seconds ago
+"   :later 50s         redo to 50 seconds later
 "   /<term>            search forward for 'term'
 "   ?<term>            search backward for 'term'
 "   :%s//<new>         replace last search 'term' with 'new'
@@ -91,7 +93,7 @@
 "   :syntime on      start syntax performance monitoring
 "   :syntime report  display sorted list of expensive syntax patterns
 "
-"   :term            start nvim terminal
+"   :te              start terminal
 "
 " Plugin details:
 "
@@ -222,11 +224,11 @@ set timeoutlen=2500   " Give some time for multi-key mappings
 set ttimeoutlen=10
 set ttyfast
 " Set the persistent undo directory on temporary private fast storage.
-let s:undodir = "/tmp/.undodir_" . $USER 
-if !isdirectory(s:undodir)
-    call mkdir(s:undodir, "", 0700)
+let s:undoDir = "/tmp/.undodir_" . $USER
+if !isdirectory(s:undoDir)
+    call mkdir(s:undoDir, "", 0700)
 endif
-set undodir=s:undodir
+let &undodir=s:undoDir
 set undofile          " Maintain undo history
 set updatetime=1000
 set viminfo=          " No backups
