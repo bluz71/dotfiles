@@ -221,6 +221,13 @@ set timeoutlen=2500   " Give some time for multi-key mappings
 " to I-beam and back functionality set by the t_SI and t_EI variables below.
 set ttimeoutlen=10
 set ttyfast
+" Set the persistent undo directory on temporary private fast storage.
+let s:undodir = "/tmp/.undodir_" . $USER 
+if !isdirectory(s:undodir)
+    call mkdir(s:undodir, "", 0700)
+endif
+set undodir=s:undodir
+set undofile          " Maintain undo history
 set updatetime=1000
 set viminfo=          " No backups
 set wildmenu
@@ -548,8 +555,8 @@ nnoremap c# #NcgN
 " Nicer increment and decrement mappings.
 noremap +                <C-a>
 noremap -                <C-x>
-xnoremap g+              g<C-a>
-xnoremap g-              g<C-x>
+xnoremap +               g<C-a>
+xnoremap -               g<C-x>
 " ~/.inputrc like motions in command mode.
 cnoremap <C-a>           <Home>
 cnoremap <C-e>           <End>
