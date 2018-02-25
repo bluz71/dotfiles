@@ -701,7 +701,6 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.stop = 500
     noremap <leader>gr :GrepperRg<Space>
     noremap <leader>gw :GrepperRg<Space>"\b<cword>\b"<CR>
-Plug 'tpope/vim-eunuch'
 
 "-----------------------------
 " Language/framework plugins
