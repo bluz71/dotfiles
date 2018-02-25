@@ -616,11 +616,6 @@ Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
     let g:lion_squeeze_spaces = 1
-Plug 'machakann/vim-highlightedyank'
-if !has("nvim")
-    map y <Plug>(highlightedyank)
-endif
-    let g:highlightedyank_highlight_duration = 500
 if !has("clipboard")
     Plug 'kana/vim-fakeclip'
     vmap y  <Plug>(fakeclip-y)
