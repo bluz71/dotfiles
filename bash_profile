@@ -21,6 +21,6 @@ elif [ $OS = Darwin ]; then
     fi
 
     # Homebrew SSH agent is not running, must start it and source it.
-    ssh-agent | grep SSH_ > ~/.ssh-agent-env.sh
+    ssh-agent | grep SSH_ >| ~/.ssh-agent-env.sh
     . ~/.ssh-agent-env.sh
 fi
