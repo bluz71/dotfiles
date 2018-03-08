@@ -105,13 +105,23 @@ umask 002
 
 # Enable the useful Bash 4 features:
 #  - autocd, no need to type 'cd' when changing directory
-#  - cdable_vars, 'cd FOO' where FOO is an environment variable
 #  - cdspell, automatically fix small directory typos when changing directory
 #  - globstar, ** recursive glob
-shopt -s autocd cdable_vars cdspell globstar
+#  - nocaseglob, case-insensitive globbing
+shopt -s autocd cdable_vars cdspell globstar nocaseglob
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4
+
+# Prevent file overwrite on stdout redirection.
+# Use `>|` to force redirection to an existing file.
+set -o noclobber
+
+# Enable history expansion with space.
+bind Space:magic-space
+
+# Quick access targets for the 'cd' command.
+CDPATH=".:~:~/projects"
 
 
 # Functions.
