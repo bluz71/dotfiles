@@ -3,10 +3,10 @@
 if [ $OS = Linux ] && [[ $DISPLAY ]]; then
     # Configure the CAPSLOCK key to be ESC when pressed alone or CONTROL
     # when held with another key.
-    #
-    # Use Karabiner Elements to achieve the same effect on Mac.
     setxkbmap -option 'caps:ctrl_modifier'
     xcape -e 'Caps_Lock=Escape'
+
+    # Use Karabiner Elements to achieve the same effect on Mac.
 elif [ $OS = Darwin ]; then
     # On Mac we want to use the Homebrew SSH agent (newer and better) in
     # preference to the system supplied SSH agent (older and worse).

@@ -71,11 +71,11 @@ mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
 *.png=38;5;147:*.mpg=38;5;151:*.avi=38;5;151:*.mov=38;5;216:*.wmv=38;5;216:\
 *.mp4=38;5;217:*.mkv=38;5;216:*.flac=38;5;222:*.mp3=38;5;218:*akefile=38;5;177:\
 *.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:*.doc=38;5;224:*.xls=38;5;146:\
-*.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.mobi=38;5;105:*.m4b=38;5;187:*.conf=38;5;121"
+*.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.mobi=38;5;105:\
+*.m4b=38;5;187:*.conf=38;5;121"
 export PAGER=less
 
 # What platform are we running on.
-#
 export OS=`uname`
 
 # Customizations per platform.
@@ -92,23 +92,23 @@ fi
 # Custom bash completions.
 for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
-# By default bash saves away too much history, set the history size to a saner
-# value.
-#
-HISTSIZE=200
-HISTFILESIZE=0
-HISTCONTROL='erasedups:ignoreboth'
+# History settings.
+HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
+HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
+HISTFILESIZE=600                    # Max size of history file
+HISTSIZE=300                        # Amount of history to save
+PROMPT_COMMAND='history -a'         # Share history among all terminals
 
 # Set the appropriate umask.
-#
 umask 002
 
 # Enable the useful Bash 4 features:
 #  - autocd, no need to type 'cd' when changing directory
 #  - cdspell, automatically fix small directory typos when changing directory
 #  - globstar, ** recursive glob
+#  - histappend, append to history, don't overwrite
 #  - nocaseglob, case-insensitive globbing
-shopt -s autocd cdable_vars cdspell globstar nocaseglob
+shopt -s autocd cdspell globstar histappend nocaseglob
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4
