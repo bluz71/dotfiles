@@ -27,6 +27,7 @@ alias lla='ls -la'
 alias ls='ls --color --classify --human-readable'
 alias lss='ls -la --sort=size | less'
 alias lst='ls -la --sort=time | less'
+# usage: lsfs +1M (find all files larger than 1 megabyte) 
 alias lsfs='findBySize(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; findBySize'
 alias m='less'
 alias mux='tmuxinator'
@@ -78,29 +79,22 @@ export PAGER=less
 # What platform are we running on.
 export OS=`uname`
 
-# Customizations per platform.
-#
-if [ $OS = Linux ]; then
-    alias open='xdg-open'
-    . ~/.linuxbrew/etc/bash_completion
-elif [ $OS = Darwin ]; then
-    . /usr/local/etc/bash_completion
-elif [ $OSTYPE = cygwin ]; then
-    export CYGWIN=nodosfilewarning
-fi
+# Quick access targets for the cd command via the cdable_vars option.
+export documents="$HOME/Documents"
+export dotfiles="$HOME/dotfiles"
+export downloads="$HOME/Downloads"
+export platters="$HOME/projects/platters"
+export platters_app="$HOME/projects/platters_app"
+export projects="$HOME/projects"
 
-# Custom bash completions.
-for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
 # History settings.
+#
 HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
 HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
 HISTFILESIZE=600                    # Max size of history file
 HISTSIZE=300                        # Amount of history to save
 PROMPT_COMMAND='history -a'         # Share history among all terminals
-
-# Set the appropriate umask.
-umask 002
 
 # Enable the useful Bash 4 features:
 #  - autocd, no need to type 'cd' when changing directory
@@ -121,13 +115,23 @@ set -o noclobber
 # Enable history expansion with space.
 bind Space:magic-space
 
-# Quick access targets for the cd command via the cdable_vars option.
-export documents="$HOME/Documents"
-export dotfiles="$HOME/dotfiles"
-export downloads="$HOME/Downloads"
-export platters="$HOME/projects/platters"
-export platters_app="$HOME/projects/platters_app"
-export projects="$HOME/projects"
+# Set the appropriate umask.
+umask 002
+
+
+# Customizations per platform.
+#
+if [ $OS = Linux ]; then
+    alias open='xdg-open'
+    . ~/.linuxbrew/etc/bash_completion
+elif [ $OS = Darwin ]; then
+    . /usr/local/etc/bash_completion
+elif [ $OSTYPE = cygwin ]; then
+    export CYGWIN=nodosfilewarning
+fi
+
+# Custom bash completions.
+for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
 
 # Functions.
