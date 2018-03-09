@@ -7,7 +7,9 @@ unalias -a
 alias be='bundle exec'
 alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
-alias dir='ls -l'
+alias dir='pushd . > /dev/null; ls -l'
+# usage: cd ~1 (change to a particular pushed directory)
+alias dirs='dirs -v'
 alias du='du -b'
 alias g=git
 # These statements are required for bash completion to work with the g alias.
@@ -55,6 +57,13 @@ alias ..2='..; ..'
 alias ..3='..2; ..'
 alias ..4='..3; ..'
 alias ..5='..4; ..'
+# Quick access directory targets.
+alias documents="cd $HOME/Documents"
+alias dotfiles="cd $HOME/dotfiles"
+alias downloads="cd $HOME/Downloads"
+alias platters="cd $HOME/projects/platters"
+alias platters_app="cd $HOME/projects/platters_app"
+alias projects="cd $HOME/projects"
 
 
 # General environment variables.
@@ -79,45 +88,6 @@ export PAGER=less
 # What platform are we running on.
 export OS=`uname`
 
-# Quick access targets for the cd command via the cdable_vars option.
-export documents="$HOME/Documents"
-export dotfiles="$HOME/dotfiles"
-export downloads="$HOME/Downloads"
-export platters="$HOME/projects/platters"
-export platters_app="$HOME/projects/platters_app"
-export projects="$HOME/projects"
-
-
-# History settings.
-#
-HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
-HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
-HISTFILESIZE=600                    # Max size of history file
-HISTSIZE=300                        # Amount of history to save
-PROMPT_COMMAND='history -a'         # Share history among all terminals
-
-# Enable the useful Bash 4 features:
-#  - autocd, no need to type 'cd' when changing directory
-#  - cdable_vars, 'cd foo' where foo is an environment variable
-#  - cdspell, automatically fix small directory typos when changing directory
-#  - globstar, ** recursive glob
-#  - histappend, append to history, don't overwrite
-#  - nocaseglob, case-insensitive globbing
-shopt -s autocd cdable_vars cdspell globstar histappend nocaseglob
-
-# Only display up to four directory components in the prompt.
-PROMPT_DIRTRIM=4
-
-# Prevent file overwrite on stdout redirection.
-# Use `>|` to force redirection to an existing file.
-set -o noclobber
-
-# Enable history expansion with space.
-bind Space:magic-space
-
-# Set the appropriate umask.
-umask 002
-
 
 # Customizations per platform.
 #
@@ -132,6 +102,36 @@ fi
 
 # Custom bash completions.
 for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+
+
+# History settings.
+#
+export HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
+export HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
+export HISTFILESIZE=600                    # Max size of history file
+export HISTSIZE=300                        # Amount of history to save
+export PROMPT_COMMAND='history -a'         # Share history among all terminals
+
+# Enable the useful Bash 4 features:
+#  - autocd, no need to type 'cd' when changing directory
+#  - cdspell, automatically fix small directory typos when changing directory
+#  - globstar, ** recursive glob
+#  - histappend, append to history, don't overwrite
+#  - nocaseglob, case-insensitive globbing
+shopt -s autocd cdspell globstar histappend nocaseglob
+
+# Only display up to four directory components in the prompt.
+PROMPT_DIRTRIM=4
+
+# Prevent file overwrite on stdout redirection.
+# Use `>|` to force redirection to an existing file.
+set -o noclobber
+
+# Enable history expansion with space.
+bind Space:magic-space
+
+# Set the appropriate umask.
+umask 002
 
 
 # Functions.
