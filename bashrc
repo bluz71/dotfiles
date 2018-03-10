@@ -106,11 +106,11 @@ for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
 # History settings.
 #
-export HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
-export HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
-export HISTFILESIZE=600                    # Max size of history file
-export HISTSIZE=300                        # Amount of history to save
-export PROMPT_COMMAND='history -a'         # Share history among all terminals
+HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
+HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
+HISTFILESIZE=600                    # Max size of history file
+HISTSIZE=300                        # Amount of history to save
+PROMPT_COMMAND='history -a'         # Append to the history file immediately
 
 # Enable the useful Bash 4 features:
 #  - autocd, no need to type 'cd' when changing directory
