@@ -108,9 +108,9 @@ for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 # History settings.
 #
 HISTCONTROL='erasedups:ignoreboth'  # Erase duplicates
-HISTFILE="/tmp/.bash_history_$USER" # Use fast temporary storage
-HISTFILESIZE=600                    # Max size of history file
-HISTSIZE=300                        # Amount of history to save
+HISTFILESIZE=9999                   # Max size of history file
+HISTIGNORE="h:ll:x"                 # Commands to ignore
+HISTSIZE=9999                       # Amount of history to save
 PROMPT_COMMAND='history -a'         # Append to the history file immediately
 
 # Enable the useful Bash 4 features:
