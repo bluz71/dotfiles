@@ -52,6 +52,7 @@ alias v='stty -ixon && vim 2> /dev/null'
 alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
 alias x=exit
+# Quick parent directory navigation.
 alias ..='cd ..'
 alias ..2='..; ..'
 alias ..3='..2; ..'

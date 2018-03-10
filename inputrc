@@ -14,6 +14,8 @@
 # Alt-.: append parameters from last command
 # Ctrl-a: go to start of line
 # Ctrl-e: go to end of line
+# Ctrl-f: search backwards through shell history (Ctrl-f cycles back,
+#                                                 Ctrl-Shift-f cycles forward)
 
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
@@ -26,6 +28,7 @@
 "\eu": undo
 "\C-l": abort
 "\C-k": abort
+"\C-f": reverse-search-history
 set bell-style none
 set echo-control-characters off
 
