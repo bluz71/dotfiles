@@ -692,7 +692,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
 Plug 'tpope/vim-vinegar'
-    nmap _ <Plug>VinegarUp
+    nmap \ <Plug>VinegarUp
 Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
