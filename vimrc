@@ -509,7 +509,7 @@ Plug 'nixprime/cpsm', { 'do': 'env PY3=OFF ./install.sh' }
     nnoremap <localleader>/            :CtrlPBuffer<CR>
     nnoremap <localleader>m            :CtrlPMRUFiles<CR>
     nnoremap <localleader>f            :CtrlPFunky<CR>
-    " Mappings to navigate model/view/controllers for certain web frameworks.
+    " Mappings to navigate certain project frameworks.
     if filereadable('config/environment.rb') && isdirectory('app')
         " This looks like a Rails app.
         noremap <localleader>ec :CtrlP app/controllers<CR>
