@@ -1,152 +1,6 @@
-" TIPS & TRICKS
-"
-" Useful insert mode commands:
-"   Ctrl-o       for one time normal mode command (zz being most useful)
-"   Ctrl-r<reg>  for insertion from a named register
-"   Ctrl-b       delete backward a word
-"   Ctrl-r=      expression register (eg 43 + 44 --> 87)
-"
-" Useful cursor positioning and movement commands:
-"   zt      move text under cursor to the top
-"   zz      move text under cursor to the center
-"   zb      move text under cursor to the bottom
-"   zl      move text under cursor one character to the left
-"   zL      move text under cursor half a screen to the left
-"   H       move to top of screen
-"   M       move to middle of screen
-"   L       move to end of screen
-"   g;      move back to where you were last editing
-"   mm      set a mark in the current file
-"   'm      return back to 'm' mark in the current file
-"   mM      set a global mark
-"   'M      return back to the global 'M' mark
-"   {/}     move between paragraphs
-"   (/)     move between sentences
-"   ge/gE   move to the end of the previous word/WORD
-"   Ctrl-e  scroll file up one line at a time
-"   Ctrl-y  scroll file down one line at a time
-"
-" Completion sub-types when in insert completion-mode initiated via Ctrl-x:
-"   Ctrl-f  file name completion based on files in the CWD
-"   Ctrl-k  dictionary completion
-"   Ctrl-l  line completion
-"   Ctrl-o  omni completion
-"   Ctrl-]  tag completion
-"
-" Spelling commands:
-"   z=      Suggest spelling correction
-"   ]s      Move to next spelling error
-"   [s      Move to previous spelling error
-"   zg      Add current word to dictionary
-"   zw      Delete current word from dictionary
-"
-" Tag navigation:
-"   Ctrl-]  find definition under cursor
-"   Ctrl-o  return back from definition
-"
-" Visual mode commands:
-"   gv           repeat last visual selection
-"   u/U          change visual selection to lower or upper case
-"   vip/vap      visual select paragraph
-"   vis/vas      visual select sentence
-"   vit/vat      visual select tag
-"   :'<,'>!sort  sort visual selection
-"   :'<,'>!uniq  uniq visual selection
-"   gx           open link in a browser
-"
-" Substitute in visual block:
-"   '<,'>s/\%Vfoo/bar/c
-"
-" Misc commands:
-"   X                  delete backwards
-"   gf                 go to file under cursor
-"   gq                 format text
-"   :r !ls *.txt       read in selected filenames
-"   :earlier 50s       undo to 50 seconds ago
-"   :later 50s         redo to 50 seconds later
-"   /<term>            search forward for 'term'
-"   ?<term>            search backward for 'term'
-"   :%s//<new>         replace last search 'term' with 'new'
-"   :%s//<new>/c       replace, with confirmation, last search 'term' with 'new'
-"   :%s///n            list match count for the last search
-"   :g/<pattern>       list all lines containing 'pattern'
-"   :g/<pattern>/d     delete all lines containing 'pattern'
-"   :v/<pattern>       list all lines NOT containing 'pattern'
-"   :v/<pattern>/d     delete all lines NOT containing 'pattern'
-"   :g/<pattern/normal @q execute macro 'q' over all lines that match pattern
-"
-"   /<term>            search for 'term'
-"   cgn                replace last search match
-"   dgn                delete last search match
-"   .                  repeat last change
-"
-"   % vim $(find **/*.txt)  edit all txt files from the current path down
-"   % vim $(ag -l foo)      edit all files that contain foo
-"
-"   % cat do.vim
-"   :%s/term/new/g
-"   :wq
-"   % vim -es file.txt < do.vim  'sed' style scripted edits
-"
-"   :h digraph-table             list all displayable characters
-"
-"   :syntime on      start syntax performance monitoring
-"   :syntime report  display sorted list of expensive syntax patterns
-"
-"   :te              start terminal
-"
-" Plugin details:
-"
-"   vim-abolish:
-"     :S/<pattern>                     - smartly search for pattern 
-"
-"     :%S/facilit{y,ies}/building{,s}/ - change all facilities to buildings
-"     :%S/old_name/new_description/    - old_name --> new_description
-"                                        OldName  --> NewDescription
-"     :%S/h{2,3}/h{3,2}/               - change all h2 to h3
-"
-"     crs - change to snake_case
-"     crc - change to camelCase
-"     crm - change to MixCase
-"
-"   vim-bundler:
-"     Run 'gem ctags' to generate ctags for installed gems (required just once).
-"
-"   vim-commentary:
-"     gc                 - comment out a visual block
-"
-"   vim-grepper.vim:
-"     '-G extension$ <searchterm>' to restrict ag to a particular file extension
-"     '-t<type> <searchterm>' to restrict rg to a particular file type
-"
-"   vim-ragtag:
-"     <CTRL-x>/          - close the previous open tag
-"     <CTRL-x><Space>    - convert the current word into open and close tags
-"     <CTRL-x><Enter>    - same as above except split over multiple lines
-"     <CTRL-x>_          - add <% %> template tag
-"     <CTRL-x>+          - add <%= %> templage tag
-"
-"   vim-rails:
-"     Use a visual selection in conjunction with ':Rextract <<partial-name>>'
-"     to move a block of code from a view to a new partial.
-"
-"   vim-surround:
-"     Normal mode:
-"       ds<surround>     - delete a surround
-"       cs<old><new>     - change a surround
-"
-"     Visual mode:
-"       S                - add a surround
-"
-"     Insert mode:
-"       <CTRL-s>         - add a surround
-"       <CTRL-s><CTRL-s> - add a new line + surround + indent
-"
-"   vim-unimpaired
-"     coh                - toggle search highlights
-"     cow                - toggle wrap
-"     cox                - toggle cursor cross-hair
-
+" Hints:   https://bluz71.github.io/2018/03/12/vim-hints.html
+" Tips:    https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+" Plugins: https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html
 
 "===========================================================
 " SETTINGS
@@ -175,6 +29,7 @@ set colorcolumn=81,82
 set conceallevel=2
 set complete=.,w,b
 set completeopt-=preview
+set dictionary=/usr/share/dict/words
 set expandtab
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
@@ -551,9 +406,11 @@ else
     nnoremap l         :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
-" ] - complete from tags file
-" l - complete line
+"  ] - complete from tags file
+"  k - dictionary completion
+"  l - complete line
 inoremap <C-]>           <C-x><C-]>
+inoremap <C-k>           <C-x><C-k>
 inoremap <C-l>           <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
 nnoremap c* *Ncgn
@@ -725,6 +582,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'slashmili/alchemist.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-bundler'
+    " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - list of projections
