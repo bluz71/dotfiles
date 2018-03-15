@@ -84,7 +84,7 @@ export OS=`uname`
 #
 export HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 export HISTFILESIZE=9999                  # Max size of history file
-export HISTIGNORE="dir*:h:ll*:ls:x:..*"   # Commands to ignore
+export HISTIGNORE="dir:h:ll:ls:x:..*"     # Commands to ignore
 export HISTSIZE=9999                      # Amount of history to save
 PROMPT_COMMAND='history -a'               # Append to history file immediately
 
