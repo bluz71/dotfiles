@@ -25,12 +25,12 @@ alias h=history
 alias hrg='history | rg'
 alias l1='ls -1'
 alias ll='ls -l'
-alias lla='ls -la'
+alias ll.='ls -la'
 alias ls='ls --color --classify --human-readable'
 alias lss='ls -la --sort=size | less'
 alias lst='ls -la --sort=time | less'
 # usage: lsfs +1M (find all files larger than 1 megabyte) 
-alias lsfs='findBySize(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; findBySize'
+alias lsfs='find_by_size(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; find_by_size'
 alias m='less'
 alias mux='tmuxinator'
 # mmv usage: mmv "*.jpeg" "#1.jpg"
@@ -52,19 +52,19 @@ alias v='stty -ixon && vim 2> /dev/null'
 alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
 alias x=exit
-# Quick parent directory navigation.
+# Easy parent directory navigation.
 alias ..='cd ..'
 alias ..2='..; ..'
 alias ..3='..2; ..'
 alias ..4='..3; ..'
 alias ..5='..4; ..'
 # Quick access directory targets.
-alias documents="cd $HOME/Documents"
-alias dotfiles="cd $HOME/dotfiles"
-alias downloads="cd $HOME/Downloads"
-alias platters="cd $HOME/projects/platters"
-alias platters_app="cd $HOME/projects/platters_app"
-alias projects="cd $HOME/projects"
+alias documents="cd ~/Documents"
+alias dotfiles="cd ~/dotfiles"
+alias downloads="cd ~/Downloads"
+alias platters="cd ~/projects/platters"
+alias platters_app="cd ~/projects/platters_app"
+alias projects="cd ~/projects"
 
 
 # General environment variables.
