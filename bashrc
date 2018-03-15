@@ -7,9 +7,7 @@ unalias -a
 alias be='bundle exec'
 alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
-alias dir='pushd . > /dev/null; ls -l'
-# usage: cd ~1 (change to a particular pushed directory)
-alias dirs='dirs -v'
+alias dir='ls -l'
 alias du='du -b'
 alias g=git
 # These statements are required for bash completion to work with the g alias.
@@ -58,13 +56,6 @@ alias ..2='..; ..'
 alias ..3='..2; ..'
 alias ..4='..3; ..'
 alias ..5='..4; ..'
-# Quick access directory targets.
-alias documents="cd ~/Documents"
-alias dotfiles="cd ~/dotfiles"
-alias downloads="cd ~/Downloads"
-alias platters="cd ~/projects/platters"
-alias platters_app="cd ~/projects/platters_app"
-alias projects="cd ~/projects"
 
 
 # General environment variables.
@@ -89,29 +80,29 @@ export PAGER=less
 # What platform are we running on.
 export OS=`uname`
 
+# History settings.
+#
+export HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
+export HISTFILESIZE=9999                  # Max size of history file
+export HISTIGNORE="dir*:h:ll*:ls:x:..*"   # Commands to ignore
+export HISTSIZE=9999                      # Amount of history to save
+PROMPT_COMMAND='history -a'               # Append to history file immediately
+
 
 # Customizations per platform.
 #
 if [ $OS = Linux ]; then
     alias open='xdg-open'
     . ~/.linuxbrew/etc/bash_completion
+    . /home/dennis/.linuxbrew/etc/profile.d/z.sh
 elif [ $OS = Darwin ]; then
     . /usr/local/etc/bash_completion
-elif [ $OSTYPE = cygwin ]; then
-    export CYGWIN=nodosfilewarning
+    . /usr/local/etc/profile.d/z.sh
 fi
 
 # Custom bash completions.
 for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
-
-# History settings.
-#
-HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
-HISTFILESIZE=9999                  # Max size of history file
-HISTIGNORE="dir*:h:ll*:ls:x:..*"   # Commands to ignore
-HISTSIZE=9999                      # Amount of history to save
-PROMPT_COMMAND='history -a'        # Append to the history file immediately
 
 # Enable the useful Bash 4 features:
 #  - autocd, no need to type 'cd' when changing directory
@@ -164,8 +155,6 @@ path()
             . ~/.linuxbrew/share/chruby/chruby.sh
             chruby 2.5.0
         fi
-    elif [ $OSTYPE = cygwin ]; then
-        PATH=$PATH:/cygdrive/c/windows:/cygdrive/c/windows/system32
     fi
     PATH=~/scripts:$PATH
 }
