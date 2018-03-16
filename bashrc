@@ -2,7 +2,7 @@
 #
 unalias -a
 
-# General aliases.
+# Aliases.
 #
 alias be='bundle exec'
 alias cp='/bin/cp -i'
@@ -37,7 +37,6 @@ alias rs='rsync --archive --human-readable --progress --verbose'
 alias src='. ~/.bashrc'
 alias t='tree -C'
 alias tl='tree -C -L'
-alias ta='tree -C -a'
 alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd))'
@@ -78,28 +77,9 @@ export OS=`uname`
 # History settings.
 export HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 export HISTFILESIZE=9999                  # Max size of history file
-export HISTIGNORE="dir:h:ll:ls:x:..*"     # Commands to ignore
+export HISTIGNORE="dir:h:ll:ll.:ls:x:..*" # Commands to ignore
 export HISTSIZE=9999                      # Amount of history to save
 PROMPT_COMMAND='history -a'               # Append to history file immediately
-
-
-# Bash completions.
-#
-. $(brew --prefix)/etc/bash_completion
-. $(brew --prefix)/etc/profile.d/z.sh
-complete -o default -o nospace -F _git g
-
-# Custom bash completions.
-for f in ~/dotfiles/bash_completion.d/*; do . $f; done
-
-
-# Customizations per platform.
-#
-if [ $OS = Linux ]; then
-    alias open='xdg-open'
-# elif [ $OS = Darwin ]; then
-fi
-
 
 
 # Enable the useful Bash 4 features:
@@ -126,11 +106,6 @@ umask 002
 
 # Functions.
 #
-libraryPath()
-{
-    export LD_LIBRARY_PATH=/usr/local/lib
-}
-
 path()
 {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
@@ -138,22 +113,17 @@ path()
     if [ $OS = Darwin ]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-
-        # Setup chruby if available.
-        if [ -f /usr/local/share/chruby/chruby.sh ]; then
-            . /usr/local/share/chruby/chruby.sh
-            chruby 2.5.0
-        fi
     elif [ -d ~/.linuxbrew ]; then
         PATH=~/.linuxbrew/bin:$PATH
-        MANPATH=~/.linuxbrew/share/man:$MANPATH
-
-        # Setup chruby if available.
-        if [ -f ~/.linuxbrew/share/chruby/chruby.sh ]; then
-            . ~/.linuxbrew/share/chruby/chruby.sh
-            chruby 2.5.0
-        fi
+        MANPATH=$(brew --prefix)/share/man:$MANPATH
     fi
+
+    # Setup chruby if available.
+    if [ -f $(brew --prefix)/share/chruby/chruby.sh ]; then
+        . $(brew --prefix)/share/chruby/chruby.sh
+        chruby 2.5.0
+    fi
+
     PATH=~/scripts:$PATH
 }
 
@@ -169,7 +139,7 @@ prompt()
 
     local GIT_PROMPT=0
     if [ $OS = Darwin ]; then
-        local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
+        local GIT_PROMPT_PATH="$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
     elif [ -f /etc/bash_completion.d/git-prompt ]; then
         local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
     else
@@ -183,33 +153,35 @@ prompt()
 
     # 147: Purple
     # 150: Dark Sea Green
-    # 174: Light Pink
-    # 187: Light Yellow
     # 255: White
-    if [ $# = 1 ]; then
-        if [ $COLOR_TERMINAL = 1 ] && [ $GIT_PROMPT = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\] $1\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
-        elif [ $COLOR_TERMINAL = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 174`\] $1\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
-        else
-            PS1="\h $1 \w > "
-        fi
+    if [ $COLOR_TERMINAL = 1 ] && [ $GIT_PROMPT = 1 ]; then
+        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
+    elif [ $COLOR_TERMINAL = 1 ]; then
+        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
     else
-        if [ $COLOR_TERMINAL = 1 ] && [ $GIT_PROMPT = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
-        elif [ $COLOR_TERMINAL = 1 ]; then
-            PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
-        else
-            PS1='\h \w > '
-        fi
+        PS1='\h \w > '
     fi
 }
 
 
-# Carry out machine specific specializations.
+# Customizations per platform.
 #
 if [ $OS = Linux ]; then
-    libraryPath
+    alias open='xdg-open'
 fi
+
+
+# Set environment.
+#
 path
 prompt
+
+
+# Bash completions.
+#
+. $(brew --prefix)/etc/bash_completion
+. $(brew --prefix)/etc/profile.d/z.sh
+complete -o default -o nospace -F _git g
+
+# Custom bash completions.
+for f in ~/dotfiles/bash_completion.d/*; do . $f; done
