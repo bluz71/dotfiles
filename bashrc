@@ -11,7 +11,8 @@ alias dir='ls -l'
 alias du='du -b'
 alias g=git
 # Support for golang development.
-alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
+alias godev='export GOPATH=~/projects/go; \
+PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
 alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
 alias h=history
@@ -23,7 +24,8 @@ alias ls='ls --color --classify --human-readable'
 alias lss='ls -la --sort=size | less'
 alias lst='ls -la --sort=time | less'
 # usage: lsfs +1M (find all files larger than 1 megabyte) 
-alias lsfs='find_by_size(){ find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; }; find_by_size'
+alias lsfs='find_by_size(){ find . -type f -size "$1" -exec \
+ls --color --classify --human-readable -l {} \; ; }; find_by_size'
 alias m='less'
 alias mux='tmuxinator'
 # mmv usage: mmv "*.jpeg" "#1.jpg"
