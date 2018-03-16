@@ -34,6 +34,8 @@ set echo-control-characters off
 
 # Improve completions. Refer to 'man bash', "Readline Variables" section.
 #
+# Enable completion coloring.
+set colored-completion-prefix on
 set colored-stats on
 # Ignore case when completing.
 set completion-ignore-case on

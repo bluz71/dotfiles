@@ -10,11 +10,6 @@ alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
 alias g=git
-# These statements are required for bash completion to work with the g alias.
-if [ -f /usr/share/bash-completion/completions/git ]; then
-    . /usr/share/bash-completion/completions/git
-fi
-complete -o default -o nospace -F _git g
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
 alias gv='gvim 2> /dev/null'
@@ -81,7 +76,6 @@ export PAGER=less
 export OS=`uname`
 
 # History settings.
-#
 export HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 export HISTFILESIZE=9999                  # Max size of history file
 export HISTIGNORE="dir:h:ll:ls:x:..*"     # Commands to ignore
@@ -89,19 +83,23 @@ export HISTSIZE=9999                      # Amount of history to save
 PROMPT_COMMAND='history -a'               # Append to history file immediately
 
 
+# Bash completions.
+#
+. $(brew --prefix)/etc/bash_completion
+. $(brew --prefix)/etc/profile.d/z.sh
+complete -o default -o nospace -F _git g
+
+# Custom bash completions.
+for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+
+
 # Customizations per platform.
 #
 if [ $OS = Linux ]; then
     alias open='xdg-open'
-    . ~/.linuxbrew/etc/bash_completion
-    . /home/dennis/.linuxbrew/etc/profile.d/z.sh
-elif [ $OS = Darwin ]; then
-    . /usr/local/etc/bash_completion
-    . /usr/local/etc/profile.d/z.sh
+# elif [ $OS = Darwin ]; then
 fi
 
-# Custom bash completions.
-for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
 
 # Enable the useful Bash 4 features:
