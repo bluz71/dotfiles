@@ -41,8 +41,6 @@ set colored-stats on
 set completion-ignore-case on
 # Treat hypen and underscores as equivalent.
 set completion-map-case on
-# When completion matches multiple items, replace the common prefix with "...".
-set completion-prefix-display-length 2
 # Don't automatically match files beginning with dot.
 set match-hidden-files off
 # Immediately display completion matches.
