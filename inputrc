@@ -47,8 +47,8 @@ set completion-ignore-case on
 set completion-map-case on
 # Don't automatically match files beginning with dot.
 set match-hidden-files off
-# Perform partial completion on the first TAB press then cycle the available
-# choices on the next TAB or Shift-TAB press.
+# Display the common prefix choices on the first completion then cycle the
+# available choices on the next completion.
 set menu-complete-display-prefix on
 # Immediately display completion matches.
 set show-all-if-ambiguous on
