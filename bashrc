@@ -20,12 +20,12 @@ alias hrg='history | rg'
 alias l1='ls -1'
 alias ll='ls -l'
 alias ll.='ls -la'
-alias ls='ls --color --classify --human-readable'
-alias lss='ls -la --sort=size | less'
-alias lst='ls -la --sort=time | less'
-# usage: lsfs +1M (find all files larger than 1 megabyte) 
-alias lsfs='find_by_size(){ find . -type f -size "$1" -exec \
+# usage: llfs +1M (find all files larger than 1 megabyte) 
+alias llfs='find_by_size(){ find . -type f -size "$1" -exec \
 ls --color --classify --human-readable -l {} \; ; }; find_by_size'
+alias lls='ls -la --sort=size | less'
+alias llt='ls -la --sort=time | less'
+alias ls='ls --color --classify --human-readable'
 alias m='less'
 alias mux='tmuxinator'
 # mmv usage: mmv "*.jpeg" "#1.jpg"
@@ -77,11 +77,11 @@ export PAGER=less
 export OS=`uname`
 
 # History settings.
-export HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
-export HISTFILESIZE=9999                  # Max size of history file
-export HISTIGNORE="dir:h:ll:ll.:ls:x:..*" # Commands to ignore
-export HISTSIZE=9999                      # Amount of history to save
-PROMPT_COMMAND='history -a'               # Append to history file immediately
+HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
+HISTFILESIZE=9999                  # Max size of history file
+HISTIGNORE="dir:h:ll:ll.:ls:x:..*" # Commands to ignore
+HISTSIZE=9999                      # Amount of history to save
+PROMPT_COMMAND='history -a'        # Append to history file immediately
 
 
 # Enable the useful Bash 4 features:
