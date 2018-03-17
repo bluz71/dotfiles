@@ -29,8 +29,12 @@
 "\C-k": abort
 "\C-f": reverse-search-history
 
-set bell-style none
-set echo-control-characters off
+# TAB cycles forward through completion choices. Press an arrow key to choose a
+# selection.
+TAB: menu-complete
+# Shift-TAB cycles backward through completion choices. Press an arrow key to
+# choose a selection.
+"\e[Z": menu-complete-backward
 
 # Improve completions. Refer to 'man bash', "Readline Variables" section.
 #
@@ -43,11 +47,17 @@ set completion-ignore-case on
 set completion-map-case on
 # Don't automatically match files beginning with dot.
 set match-hidden-files off
+# Perform partial completion on the first TAB press then cycle the available
+# choices on the next TAB or Shift-TAB press.
+set menu-complete-display-prefix on
 # Immediately display completion matches.
 set show-all-if-ambiguous on
-# Control-t to cycle through completions choices.
-"\C-t": menu-complete
+
 # Up and down arrow will now intelligently complete partially completed
 # commands by searching through the existing history.
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+
+# Keep terminal quiet and clean.
+set bell-style none
+set echo-control-characters off
