@@ -79,7 +79,7 @@ export OS=`uname`
 # History settings.
 HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 HISTFILESIZE=9999                  # Max size of history file
-HISTIGNORE=?:??                    # Ignore 1 and 2 letter commands
+HISTIGNORE=?:??:???                # Ignore 1, 2 and 3 letter commands
 HISTSIZE=9999                      # Amount of history to save
 PROMPT_COMMAND='history -a'        # Append to history file immediately
 
