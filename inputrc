@@ -52,6 +52,8 @@ set match-hidden-files off
 set menu-complete-display-prefix on
 # Immediately display completion matches.
 set show-all-if-ambiguous on
+# Automatically add slash to the end of symlinked directories when completing.
+set mark-symlinked-directories on
 
 # Up and down arrow will now intelligently complete partially completed
 # commands by searching through the existing history.

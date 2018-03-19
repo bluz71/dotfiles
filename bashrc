@@ -79,18 +79,20 @@ export OS=`uname`
 # History settings.
 HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 HISTFILESIZE=9999                  # Max size of history file
-HISTIGNORE=?:??:???                # Ignore 1, 2 and 3 letter commands
+HISTIGNORE=?:??                    # Ignore one and two letter commands
 HISTSIZE=9999                      # Amount of history to save
 PROMPT_COMMAND='history -a'        # Append to history file immediately
 
 
 # Enable the useful Bash 4 features:
 #  - autocd, no need to type 'cd' when changing directory
-#  - cdspell, automatically fix small directory typos when changing directory
+#  - cdspell, automatically fix directory typos when changing directory
+#  - direxpand, automatically expand directory globs when completing
+#  - dirspell, automatically fix directory typos when completing
 #  - globstar, ** recursive glob
 #  - histappend, append to history, don't overwrite
 #  - nocaseglob, case-insensitive globbing
-shopt -s autocd cdspell globstar histappend nocaseglob
+shopt -s autocd cdspell direxpand dirspell globstar histappend nocaseglob
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4
@@ -150,6 +152,7 @@ prompt()
     if [ -f $GIT_PROMPT_PATH ]; then
         GIT_PROMPT=1
         GIT_PS1_SHOWUPSTREAM="auto"
+        GIT_PS1_SHOWSTASHSTATE=1
         . $GIT_PROMPT_PATH
     fi
 
