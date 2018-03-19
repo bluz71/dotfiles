@@ -40,6 +40,10 @@
     mdi = difftool
     mdis = difftool --staged
     rso = remote show origin
+    sa = "!sh -c 'git stash apply stash@{$1}' -"
+    sd = "!sh -c 'git stash drop stash@{$1}' -"
     sg = "!git add . -N && git add -p"
     sh = show
+    sl = stash list
+    ss = stash save
     st = status --short --branch
