@@ -63,7 +63,7 @@ export LESS_TERMCAP_us=$(printf "\e[01;32m")
 export LESSHISTFILE=-
 # Note:
 #   mi - completion option color (Bash 4.4 and later)
-#   so - common completion prefix color (Bash 4.4 and later)
+#   so - completion prefix color (Bash 4.4 and later)
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;51:pi=38;5;43:bd=38;5;212:\
 cd=38;5;223:or=30;48;5;202:ow=38;5;75:so=38;5;177:su=36;48;5;63:ex=38;5;156:\
 mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
