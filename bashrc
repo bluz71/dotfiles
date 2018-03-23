@@ -145,7 +145,7 @@ prompt()
     fi
 
     local GIT_PROMPT=0
-    if [ $OS = Darwin ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
         local GIT_PROMPT_PATH="$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
     elif [ -f /etc/bash_completion.d/git-prompt ]; then
         local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
