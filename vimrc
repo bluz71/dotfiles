@@ -388,11 +388,8 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 noremap <leader>Q        gqip
 nnoremap <leader><Space> za
-nnoremap <silent> <localleader>s :syntax sync fromstart<CR>
-" Yank and put helpers.
+nnoremap <localleader>s  :syntax sync fromstart<CR>
 noremap <leader>y        :let @0=getreg('*')<CR>
-noremap <leader>p        "0]p
-noremap <leader>P        "0]P
 " Regenerate tags file.
 if filereadable('Gemfile')
     " This looks like a Ruby project.
@@ -556,7 +553,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
-    nnoremap <leader>A  :A<CR>
+    nnoremap <leader>a  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
     let g:neomake_open_list        = 1
@@ -568,10 +565,10 @@ Plug 'neomake/neomake'
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
     autocmd! BufWritePost *.{js,md} Neomake
 Plug 'janko-m/vim-test'
-    nnoremap <silent> <localleader>T  :TestNearest<CR>
-    nnoremap <silent> <localleader>tf :TestFile<CR>
-    nnoremap <silent> <localleader>ts :TestSuite<CR>
-    nnoremap <silent> <localleader>tl :TestLast<CR>
+    nnoremap <silent> <localleader>t  :TestNearest<CR>
+    nnoremap <silent> <localleader>Tf :TestFile<CR>
+    nnoremap <silent> <localleader>Tl :TestLast<CR>
+    nnoremap <silent> <localleader>Ts :TestSuite<CR>
     if has("nvim")
         let test#strategy = "neovim"
     endif
