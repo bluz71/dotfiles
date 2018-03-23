@@ -427,11 +427,7 @@ cnoremap <C-e>           <End>
 cnoremap <A-b>           <C-Left>
 cnoremap <A-f>           <C-Right>
 " Skeleton/snippet support.
-if has('win32') || has ('win64')
-    let $VIMHOME = $HOME . "/vimfiles"
-else
-    let $VIMHOME = $HOME . "/.vim"
-endif
+let $VIMHOME = $HOME . "/.vim"
 nnoremap <leader>khtml   :read $VIMHOME/skeletons/skeleton.html<CR>
 nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 
@@ -502,26 +498,7 @@ Plug 'nixprime/cpsm', { 'do': './install.sh' }
     nnoremap <localleader>/            :CtrlPBuffer<CR>
     nnoremap <localleader>m            :CtrlPMRUFiles<CR>
     nnoremap <localleader>f            :CtrlPFunky<CR>
-    " Mappings to navigate certain project frameworks.
-    if filereadable('config/environment.rb') && isdirectory('app')
-        " This looks like a Rails app.
-        noremap <localleader>ec :CtrlP app/controllers<CR>
-        noremap <localleader>eh :CtrlP app/helpers<CR>
-        noremap <localleader>em :CtrlP app/models<CR>
-        noremap <localleader>es :CtrlP spec<CR>
-        noremap <localleader>ev :CtrlP app/views<CR>
-    elseif filereadable('web/router.ex')
-        " This looks like an Elixir/Phoenix app.
-        noremap <localleader>ec :CtrlP web/controllers<CR>
-        noremap <localleader>em :CtrlP web/models<CR>
-        noremap <localleader>eT :CtrlP test<CR>
-        noremap <localleader>et :CtrlP web/templates<CR>
-        noremap <localleader>ev :CtrlP web/views<CR>
-    elseif filereadable('src/index.js')
-        " This looks like a React app.
-        noremap <localleader>ec :CtrlP src/components<CR>
-        noremap <localleader>et :CtrlP src/__tests__/components<CR>
-    endif
+    " ~/dotfiles/vim/after/plugin/ctrlp.vim - custom mappings
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
@@ -578,15 +555,7 @@ Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
-    " ~/dotfiles/vim/after/plugin/projectionist.vim - list of projections
-    nnoremap <leader>ec :Econtroller<Space>
-    nnoremap <leader>eh :Ehelper<Space>
-    nnoremap <leader>el :Echannel<Space>
-    nnoremap <leader>em :Emodel<Space>
-    nnoremap <leader>es :Espec<Space>
-    nnoremap <leader>et :Etemplate<Space>
-    nnoremap <leader>eT :Etest<Space>
-    nnoremap <leader>ev :Eview<Space>
+    " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
     nnoremap <leader>A  :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
