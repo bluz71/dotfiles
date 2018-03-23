@@ -20,6 +20,8 @@
   cmd = icdiff --line-numbers "$LOCAL" "$REMOTE"
 [mergetool]
     keepBackup = false
+[advice]
+    waitingforeditor = false
 [alias]
     bb = branch -vv
     bd = branch -d
