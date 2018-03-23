@@ -480,20 +480,13 @@ Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
     let g:lion_squeeze_spaces = 1
-if !has("nvim") && !has("clipboard")
-    Plug 'kana/vim-fakeclip'
-    vmap y  <Plug>(fakeclip-y)
-    nmap yy <Plug>(fakeclip-Y)
-    nmap Y  <Plug>(fakeclip-y)$
-    nmap p  <Plug>(fakeclip-p)
-    nmap dd <Plug>(fakeclip-dd)
-endif
 
 "-----------------------------
 " File management plugins
 "-----------------------------
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'nixprime/cpsm', { 'do': './install.sh' }
     " Use rg in CtrlP for listing files, very fast and respects .gitignore.
     let g:ctrlp_user_command           = 'rg %s --files --color=never --glob ""'
     " Using rg is fast, we don't need to cache.
@@ -504,6 +497,8 @@ Plug 'tacahiroy/ctrlp-funky'
     let g:ctrlp_switch_buffer          = 'e'
     " Syntax highlight funky matches
     let g:ctrlp_funky_syntax_highlight = 1
+    " High quality, high performance CtrlP matcher.
+    let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
     nnoremap <localleader>/            :CtrlPBuffer<CR>
     nnoremap <localleader>m            :CtrlPMRUFiles<CR>
     nnoremap <localleader>f            :CtrlPFunky<CR>
@@ -527,11 +522,6 @@ Plug 'tacahiroy/ctrlp-funky'
         noremap <localleader>ec :CtrlP src/components<CR>
         noremap <localleader>et :CtrlP src/__tests__/components<CR>
     endif
-if has("nvim")
-    Plug 'nixprime/cpsm', { 'do': './install.sh' }
-        " High quality, high performance CtrlP matcher.
-        let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-endif
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
