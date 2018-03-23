@@ -601,6 +601,9 @@ Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-sleuth'
+    " Due to a weird interaction between sleuth and ragtag, sleuth MUST be
+    " loaded before ragtag.
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -625,34 +628,24 @@ augroup languageCustomizationsByType
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
-    autocmd FileType c,cpp    setlocal cindent foldmethod=syntax
-    autocmd FileType coffee   setlocal shiftwidth=2
-    autocmd FileType css      setlocal shiftwidth=2
-    autocmd FileType css,scss let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    autocmd FileType eelixir  setlocal matchpairs=(:),{:},[:]
-    autocmd FileType eruby    setlocal formatoptions=cq shiftwidth=2 matchpairs=(:),{:},[:]
+    autocmd FileType c,cpp          setlocal cindent foldmethod=syntax
+    autocmd FileType css,scss       let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    autocmd FileType eelixir        setlocal matchpairs=(:),{:},[:]
+    autocmd FileType eruby          setlocal formatoptions=cq matchpairs=(:),{:},[:]
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go       setlocal list listchars=tab:\¦\ 
-    autocmd FileType go       highlight SpecialKey ctermfg=234 guifg=#1c1c1c
+    autocmd FileType go             setlocal list listchars=tab:\¦\ 
+    autocmd FileType go             highlight SpecialKey ctermfg=234 guifg=#1c1c1c
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
-    autocmd FileType html     let b:match_words = '<\(\w\w*\):</\1,{:}'
-    autocmd FileType html     setlocal shiftwidth=2 textwidth=999
-    autocmd FileType java     setlocal cindent cinoptions+=j1 foldmethod=syntax
-    autocmd FileType javascript     setlocal shiftwidth=2
+    autocmd FileType html           let b:match_words = '<\(\w\w*\):</\1,{:}'
+    autocmd FileType java           setlocal cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript.jsx setlocal formatoptions=cq
-    autocmd FileType javascript.jsx let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-    autocmd FileType json     setlocal shiftwidth=2 conceallevel=0
-    autocmd FileType markdown setlocal formatoptions=tqln
-    autocmd FileType markdown syntax sync fromstart
-    autocmd FileType ruby     setlocal formatoptions=cq shiftwidth=2 makeprg=ruby\ -w\ %
-    autocmd FileType scss     let g:indentLine_faster=0
-    autocmd FileType scss     setlocal shiftwidth=2
-    autocmd FileType sh       setlocal textwidth=999
-    autocmd FileType vim      setlocal textwidth=999
-    autocmd FileType xml      setlocal shiftwidth=2 textwidth=999
-    autocmd FileType yaml     setlocal shiftwidth=2 textwidth=999
+    autocmd FileType json           setlocal conceallevel=0
+    autocmd FileType markdown       setlocal formatoptions=tqln
+    autocmd FileType markdown       syntax sync fromstart
+    autocmd FileType ruby           setlocal formatoptions=cq
+    autocmd FileType scss           let g:indentLine_faster=0
 augroup END
 
 " Custom settings per language by file extension.
