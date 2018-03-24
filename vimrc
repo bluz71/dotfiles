@@ -565,10 +565,10 @@ Plug 'neomake/neomake'
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
     autocmd! BufWritePost *.{js,md} Neomake
 Plug 'janko-m/vim-test'
-    nnoremap <silent> <localleader>t  :TestNearest<CR>
-    nnoremap <silent> <localleader>Tf :TestFile<CR>
-    nnoremap <silent> <localleader>Tl :TestLast<CR>
-    nnoremap <silent> <localleader>Ts :TestSuite<CR>
+    nnoremap <silent> <localleader>.  :TestNearest<CR>
+    nnoremap <silent> <localleader>tf :TestFile<CR>
+    nnoremap <silent> <localleader>tl :TestLast<CR>
+    nnoremap <silent> <localleader>ts :TestSuite<CR>
     if has("nvim")
         let test#strategy = "neovim"
     endif
