@@ -1,0 +1,19 @@
+name: tickets
+root: ~/projects/tickets
+windows:
+  - development:
+    - nv
+  - git: git ll
+  - misc:
+  - servers:
+      layout: even-vertical
+      panes:
+        - yarn start
+  - rails:
+      layout: even-vertical
+      panes:
+        - cd ~/projects/tickets_app && rails s
+        - postgres -D $(brew --prefix)/var/postgres
+  - other: 
+    - cd ~/projects
+    - clear
