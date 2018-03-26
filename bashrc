@@ -23,8 +23,8 @@ alias ll.='ls -la'
 # usage: llfs +1M (find all files larger than 1 megabyte) 
 alias llfs='find_by_size(){ find . -type f -size "$1" -exec \
 ls --color --classify --human-readable -l {} \; ; }; find_by_size'
-alias lls='ls -la --sort=size | less'
-alias llt='ls -la --sort=time | less'
+alias lls='ls_by_size(){ ls -la --sort=size "$@" | less; }; ls_by_size'
+alias llt='ls_by_time(){ ls -la --sort=time "$@" | less; }; ls_by_time'
 alias ls='ls --color --classify --human-readable'
 alias m='less'
 alias mux='tmuxinator'
