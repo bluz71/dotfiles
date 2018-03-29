@@ -40,6 +40,8 @@
     llom = !git ll origin/master..HEAD
     mdi = difftool
     mdis = difftool --staged
+    mg = merge
+    mgs = merge --squash
     rso = remote show origin
     sa = "!sh -c 'git stash apply stash@{$1}' -"
     sd = "!sh -c 'git stash drop stash@{$1}' -"
