@@ -15,9 +15,9 @@
 [difftool]
     prompt = false
 [difftool "vd"]
-    cmd = stty -ixon && vimdiff "$LOCAL" "$REMOTE"
+    cmd = nvim -d "$LOCAL" "$REMOTE"
 [difftool "icd"]
-  cmd = icdiff --line-numbers "$LOCAL" "$REMOTE"
+    cmd = icdiff --line-numbers "$LOCAL" "$REMOTE"
 [mergetool]
     keepBackup = false
 [advice]
@@ -36,9 +36,8 @@
     idi = difftool -t icd
     idis = difftool -t icd --staged
     ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
-    llb = !git ll master..HEAD
-    ls = log --format=format:\"%C(yellow)%h%C(red)%d %C(reset)%s%C(blue) <%an>%C(reset)\"
-    lsb = !git ls master..HEAD
+    llm = !git ll master..HEAD
+    llom = !git ll origin/master..HEAD
     mdi = difftool
     mdis = difftool --staged
     rso = remote show origin

@@ -56,7 +56,7 @@ alias ..5='..4; ..'
 
 # General environment variables.
 #
-export EDITOR=vim
+export EDITOR=nvim
 export LESS='-Q -R -X -F -s -i -g'
 export LESS_TERMCAP_md=$(printf "\e[00;34m")
 export LESS_TERMCAP_us=$(printf "\e[01;32m")
