@@ -598,10 +598,8 @@ Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-sleuth'
-    " Due to a weird interaction between sleuth and ragtag, sleuth MUST be
-    " loaded before ragtag.
 Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
