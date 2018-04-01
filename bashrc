@@ -193,3 +193,14 @@ complete -o default -o nospace -F _git g
 
 # Custom bash completions.
 for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+
+
+# FZF configuration.
+#
+. $(brew --prefix)/opt/fzf/shell/key-bindings.bash
+export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS='
+  --color hl:13,fg+:254,bg+:234,hl+:13
+  --color info:10,prompt:111,spinner:10,pointer:199,marker:175
+'
