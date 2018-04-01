@@ -480,9 +480,9 @@ Plug 'tommcdo/vim-lion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nixprime/cpsm', { 'do': './install.sh' }
-    " Use rg in CtrlP for listing files, very fast and respects .gitignore.
-    let g:ctrlp_user_command           = 'rg %s --files --color=never --glob ""'
-    " Using rg is fast, we don't need to cache.
+    " Use fd in CtrlP for listing files, very fast and respects .gitignore.
+    let g:ctrlp_user_command           = 'fd --type f --color=never "" %s'
+    " Using fd is fast, we don't need to cache.
     let g:ctrlp_use_caching            = 0
     " The match should be at the top of the list.
     let g:ctrlp_match_window_reversed  = 0
