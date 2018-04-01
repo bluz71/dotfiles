@@ -54,7 +54,7 @@ xterm-moonfly*color15: #e2637f
 xterm-moonfly*allowTitleOps: false
 xterm-moonfly*background: #080808
 xterm-moonfly*charClass: 33:48,35:48,37:48,42:48,45-47:48,58:48,61:48,63-64:48,95:48,126:48
-xterm-moonfly*colorBD: #80a0ff
+xterm-moonfly*colorBD: #eeeeee
 xterm-moonfly*colorBDMode: on
 xterm-moonfly*colorUL: #42cf89
 xterm-moonfly*colorULMode: on
