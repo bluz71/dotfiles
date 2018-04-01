@@ -14,8 +14,8 @@
 # Alt-.: append parameters from last command
 # Ctrl-a/HOME/fn-left: go to start of line
 # Ctrl-e/END/fn-right: go to end of line
-# Ctrl-f: search backwards through shell history (Ctrl-f cycles back,
-#                                                 Ctrl-Shift-f cycles forward)
+# Ctrl-r: search backwards through shell history
+#
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\el": clear-screen
@@ -27,7 +27,6 @@
 "\eu": undo
 "\C-l": abort
 "\C-k": abort
-"\C-f": reverse-search-history
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
