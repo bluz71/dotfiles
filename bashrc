@@ -110,6 +110,41 @@ umask 002
 
 # Functions.
 #
+brew_config() {
+    if ! [ -x "$(command -v brew)" ]; then
+        echo 'Note: brew is not installed.'
+        return
+    fi
+
+    local BREW_PREFIX=$(brew --prefix)
+
+    # Bash completions.
+    . $BREW_PREFIX/etc/bash_completion
+    . $BREW_PREFIX/etc/profile.d/z.sh
+    complete -o default -o nospace -F _git g
+
+    # Custom bash completions.
+    for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+
+    # Setup chruby if available.
+    if [ -f $BREW_PREFIX/share/chruby/chruby.sh ]; then
+        . $BREW_PREFIX/share/chruby/chruby.sh
+        chruby 2.5.0
+    fi
+
+    # FZF configuration.
+    . $BREW_PREFIX/opt/fzf/shell/completion.bash
+    . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
+    export FZF_DEFAULT_OPTS='
+      --height 40% --multi --reverse
+      --color hl:13,fg+:251,bg+:234,hl+:13
+      --color info:10,prompt:111,pointer:9,marker:8,spinner:10
+    '
+    export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND='fd --type d .'
+}
+
 path()
 {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
@@ -119,13 +154,7 @@ path()
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
     elif [ -d ~/.linuxbrew ]; then
         PATH=~/.linuxbrew/bin:$PATH
-        MANPATH=$(brew --prefix)/share/man:$MANPATH
-    fi
-
-    # Setup chruby if available.
-    if [ -f $(brew --prefix)/share/chruby/chruby.sh ]; then
-        . $(brew --prefix)/share/chruby/chruby.sh
-        chruby 2.5.0
+        MANPATH=~/.linuxbrew/share/man:$MANPATH
     fi
 
     PATH=~/scripts:$PATH
@@ -142,8 +171,8 @@ prompt()
     fi
 
     local GIT_PROMPT=0
-    if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-        local GIT_PROMPT_PATH="$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+    if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+        local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
     elif [ -f /etc/bash_completion.d/git-prompt ]; then
         local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
     else
@@ -180,26 +209,4 @@ fi
 #
 path
 prompt
-
-
-# Bash completions.
-#
-. $(brew --prefix)/etc/bash_completion
-. $(brew --prefix)/etc/profile.d/z.sh
-complete -o default -o nospace -F _git g
-
-# Custom bash completions.
-for f in ~/dotfiles/bash_completion.d/*; do . $f; done
-
-
-# FZF configuration.
-#
-. $(brew --prefix)/opt/fzf/shell/key-bindings.bash
-export FZF_DEFAULT_OPTS='
-  --height 40% --multi --reverse
-  --color hl:13,fg+:251,bg+:234,hl+:13
-  --color info:10,prompt:111,pointer:9,marker:8,spinner:10
-'
-export FZF_DEFAULT_COMMAND='fd --type f --color=never'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND='fd --type d .'
+brew_config
