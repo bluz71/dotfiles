@@ -104,9 +104,6 @@ PROMPT_DIRTRIM=4
 # Use `>|` to force redirection to an existing file.
 set -o noclobber
 
-# Enable history expansion with space.
-bind Space:magic-space
-
 # Set the appropriate umask.
 umask 002
 
