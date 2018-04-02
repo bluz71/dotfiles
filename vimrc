@@ -477,25 +477,19 @@ Plug 'tommcdo/vim-lion'
 "-----------------------------
 " File management plugins
 "-----------------------------
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'nixprime/cpsm', { 'do': './install.sh' }
-    " Use fd in CtrlP for listing files, very fast and respects .gitignore.
-    let g:ctrlp_user_command           = 'fd --type f --color=never "" %s'
-    " Using fd is fast, we don't need to cache.
-    let g:ctrlp_use_caching            = 0
-    " The match should be at the top of the list.
-    let g:ctrlp_match_window_reversed  = 0
-    " Don't jump to a different tab.
-    let g:ctrlp_switch_buffer          = 'e'
-    " Syntax highlight funky matches
-    let g:ctrlp_funky_syntax_highlight = 1
-    " High quality, high performance CtrlP matcher.
-    let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-    nnoremap <localleader>/            :CtrlPBuffer<CR>
-    nnoremap <localleader>m            :CtrlPMRUFiles<CR>
-    nnoremap <localleader>f            :CtrlPFunky<CR>
-    " ~/dotfiles/vim/after/plugin/ctrlp.vim - custom mappings
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf.vim'
+    " Control-v - opens in vertical split
+    " Control-x - opens in horizontal split
+    let g:fzf_layout = { 'down': '~25%' }
+    nnoremap <localleader><localleader> :Files<CR>
+    nnoremap <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
+    nnoremap <localleader>/             :Buffers<CR>
+    nnoremap <localleader>ft            :Tags<CR>
+    nnoremap <localleader>fl            :Lines<CR>
+    nnoremap <localleader>fc            :Commits<CR>:
+    " nnoremap <localleader>m            :CtrlPMRUFiles<CR>
+    " ~/dotfiles/vim/after/plugin/fzf.vim - custom mappings
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
@@ -515,8 +509,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
                 \ "Renamed"   : "!"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
-Plug 'tpope/vim-vinegar'
-    nmap \ <Plug>VinegarUp
 Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
@@ -669,6 +661,8 @@ augroup styleAndBehaviourCustomizations
         autocmd BufEnter   term://* startinsert
         " autocmd VimLeave * set guicursor=a:block-lCursor
         autocmd VimLeave * set guicursor=a:block
+        " Escape should exit FZF rather than going into terminal normal mode.
+        autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
     endif
 augroup END
 
