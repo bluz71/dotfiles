@@ -393,9 +393,9 @@ noremap <leader>y        :let @0=getreg('*')<CR>
 " Regenerate tags file.
 if filereadable('Gemfile')
     " This looks like a Ruby project.
-    nnoremap <localleader>c :call system("ripper-tags -R")<CR>
+    nnoremap <localleader>r :call system("ripper-tags -R")<CR>
 else
-    nnoremap <localleader>c :call system("ctags -R")<CR>
+    nnoremap <localleader>r :call system("ctags -R")<CR>
 endif
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
@@ -479,14 +479,14 @@ Plug 'tommcdo/vim-lion'
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
     let g:fzf_layout = { 'down': '~25%' }
     nnoremap <localleader><localleader> :Files<CR>
     nnoremap <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
     nnoremap <localleader>/             :Buffers<CR>
-    nnoremap <localleader>ft            :Tags<CR>
+    nnoremap <localleader>m             :FZFMru<CR>
+    nnoremap <localleader>fr            :Tags<CR>
     nnoremap <localleader>fl            :Lines<CR>
-    nnoremap <localleader>fc            :Commits<CR>:
-    " nnoremap <localleader>m            :CtrlPMRUFiles<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - custom mappings
 Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
