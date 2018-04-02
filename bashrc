@@ -133,7 +133,6 @@ brew_config() {
     fi
 
     # FZF configuration.
-    . $BREW_PREFIX/opt/fzf/shell/completion.bash
     . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 40% --multi --reverse
