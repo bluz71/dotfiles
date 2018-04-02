@@ -479,8 +479,6 @@ Plug 'tommcdo/vim-lion'
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
-    " Control-v - opens in vertical split
-    " Control-x - opens in horizontal split
     let g:fzf_layout = { 'down': '~25%' }
     nnoremap <localleader><localleader> :Files<CR>
     nnoremap <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
@@ -490,7 +488,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <localleader>fc            :Commits<CR>:
     " nnoremap <localleader>m            :CtrlPMRUFiles<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - custom mappings
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
