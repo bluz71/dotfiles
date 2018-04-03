@@ -499,7 +499,7 @@ Plug 'scrooloose/nerdtree'
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
     noremap <silent> <leader>f        :NERDTreeFind<CR> <C-w>=
     autocmd! BufEnter * call NERDTreeRefresh()
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
                 \ "Staged"    : "=",
