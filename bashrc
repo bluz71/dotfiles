@@ -86,8 +86,9 @@ HISTIGNORE=?:??                    # Ignore one and two letter commands
 HISTSIZE=9999                      # Amount of history to save
 PROMPT_COMMAND='history -a'        # Append to history file immediately
 
-# Disable /etc/bashrc_Apple_Terminal sessions on Mac, it can break bash_history.
-# Also, create a ~/.bash_sessions_disable file to be double sure.
+# Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
+# nice with normal bash history. Also, create a ~/.bash_sessions_disable file
+# to be double sure to disable bash sessions.
 export SHELL_SESSION_HISTORY=0
 
 # Enable the useful Bash 4 features:
