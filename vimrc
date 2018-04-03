@@ -481,12 +481,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
     let g:fzf_layout = { 'down': '~25%' }
-    nnoremap <localleader><localleader> :Files<CR>
-    nnoremap <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
-    nnoremap <localleader>/             :Buffers<CR>
-    nnoremap <localleader>m             :FZFMru<CR>
-    nnoremap <localleader>fr            :Tags<CR>
-    nnoremap <localleader>fl            :Lines<CR>
+    let g:fzf_colors = { "header":  ["fg", "CursorLineNr"] }
+    nnoremap <silent> <localleader><localleader> :Files<CR>
+    nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
+    nnoremap <silent> <localleader>/             :Buffers<CR>
+    nnoremap <silent> <localleader>m             :FZFMru<CR>
+    nnoremap <silent> <localleader>fr            :Tags<CR>
+    nnoremap <silent> <localleader>fl            :Lines<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - custom mappings
 Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
@@ -555,10 +556,8 @@ Plug 'neomake/neomake'
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
     autocmd! BufWritePost *.{js,md} Neomake
 Plug 'janko-m/vim-test'
-    nnoremap <silent> <localleader>.  :TestNearest<CR>
-    nnoremap <silent> <localleader>tf :TestFile<CR>
-    nnoremap <silent> <localleader>tl :TestLast<CR>
-    nnoremap <silent> <localleader>ts :TestSuite<CR>
+    nnoremap <silent> <localleader>t :TestNearest<CR>
+    nnoremap <silent> <localleader>l :TestLast<CR>
     if has("nvim")
         let test#strategy = "neovim"
     endif
