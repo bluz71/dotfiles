@@ -33,6 +33,10 @@ let g:projectionist_heuristics = {
   \    "src/__tests__/components/*.test.js": {
   \      "type": "test",
   \      "alternate": "src/components/{}.js"
+  \    },
+  \    "src/styles/*.css": {
+  \      "type": "stylesheet",
+  \      "alternate": "src/components/{}.js"
   \    }
   \  }
   \}
@@ -40,8 +44,10 @@ if filereadable('config/routes.rb')
     " This looks like a Rails app.
     nnoremap <leader>ec :Econtroller<Space>
     nnoremap <leader>eh :Ehelper<Space>
+    nnoremap <leader>ei :Einitializer<Space>
     nnoremap <leader>em :Emodel<Space>
-    nnoremap <leader>es :Espec<Space>
+    nnoremap <leader>es :Estylesheet<Space>
+    nnoremap <leader>et :Espec<Space>
     nnoremap <leader>ev :Eview<Space>
 elseif filereadable('web/router.ex')
     " This looks like an Elixir/Phoenix app.
@@ -53,5 +59,6 @@ elseif filereadable('web/router.ex')
 elseif filereadable('src/index.js')
     " This looks like a React app.
     nnoremap <leader>ec :Ecomponent<Space>
+    nnoremap <leader>es :Estylesheet<Space>
     nnoremap <leader>et :Etest<Space>
 endif
