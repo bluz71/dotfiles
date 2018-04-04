@@ -488,6 +488,7 @@ Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>h             :Helptags<CR>
     nnoremap <silent> <localleader>l             :BLines<CR>
     nnoremap <silent> <localleader>m             :FZFMru<CR>
+    nnoremap <localleader>gr                     :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
