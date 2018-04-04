@@ -393,9 +393,9 @@ noremap <leader>y        :let @0=getreg('*')<CR>
 " Regenerate tags file.
 if filereadable('Gemfile')
     " This looks like a Ruby project.
-    nnoremap <localleader>r :call system("ripper-tags -R")<CR>
+    nnoremap <leader>! :call system("ripper-tags -R")<CR>
 else
-    nnoremap <localleader>r :call system("ctags -R")<CR>
+    nnoremap <leader>! :call system("ctags -R")<CR>
 endif
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
@@ -486,8 +486,9 @@ Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
     nnoremap <silent> <localleader>/             :Buffers<CR>
     nnoremap <silent> <localleader>m             :FZFMru<CR>
-    nnoremap <silent> <localleader>fr            :Tags<CR>
-    nnoremap <silent> <localleader>fl            :Lines<CR>
+    nnoremap <silent> <localleader>!             :Tags<CR>
+    nnoremap <silent> <localleader>\             :BLines<CR>
+    nnoremap <silent> <localleader>h             :Helptags<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - custom mappings
 Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
@@ -556,10 +557,14 @@ Plug 'neomake/neomake'
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
     autocmd! BufWritePost *.{js,md} Neomake
 Plug 'janko-m/vim-test'
-    nnoremap <silent> <localleader>t :TestNearest<CR>
-    nnoremap <silent> <localleader>l :TestLast<CR>
+    nnoremap <silent> <localleader>tf :TestFile<CR>
+    nnoremap <silent> <localleader>tl :TestLast<CR>
+    nnoremap <silent> <localleader>ts :TestSuite<CR>
+    nnoremap <silent> <localleader>tt :TestNearest<CR>
     if has("nvim")
         let test#strategy = "neovim"
+    else
+        let test#strategy = "vimterminal"
     endif
 Plug 'tpope/vim-fugitive'
     noremap <silent> <leader>gb :Gblame<CR>
@@ -630,6 +635,8 @@ augroup languageCustomizationsByType
     autocmd FileType markdown       syntax sync fromstart
     autocmd FileType ruby           setlocal formatoptions=cq
     autocmd FileType scss           let g:indentLine_faster=0
+    autocmd FileType sh             setlocal shiftwidth=4
+    autocmd FileType vim            setlocal shiftwidth=4
 augroup END
 
 " Custom settings per language by file extension.
