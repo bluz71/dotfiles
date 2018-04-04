@@ -481,15 +481,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
     let g:fzf_layout = { 'down': '~25%' }
-    let g:fzf_colors = { "header":  ["fg", "CursorLineNr"] }
     nnoremap <silent> <localleader><localleader> :Files<CR>
     nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
     nnoremap <silent> <localleader>/             :Buffers<CR>
-    nnoremap <silent> <localleader>m             :FZFMru<CR>
     nnoremap <silent> <localleader>!             :Tags<CR>
-    nnoremap <silent> <localleader>\             :BLines<CR>
     nnoremap <silent> <localleader>h             :Helptags<CR>
-    " ~/dotfiles/vim/after/plugin/fzf.vim - custom mappings
+    nnoremap <silent> <localleader>l             :BLines<CR>
+    nnoremap <silent> <localleader>m             :FZFMru<CR>
+    " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'scrooloose/nerdtree'
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
