@@ -480,7 +480,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
-    let g:fzf_layout = { 'down': '~25%' }
+    let g:fzf_layout = { 'down': '~30%' }
     nnoremap <silent> <localleader><localleader> :Files<CR>
     nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
     nnoremap <silent> <localleader>/             :Buffers<CR>
