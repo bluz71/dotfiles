@@ -635,8 +635,6 @@ augroup languageCustomizationsByType
     autocmd FileType markdown       syntax sync fromstart
     autocmd FileType ruby           setlocal formatoptions=cq
     autocmd FileType scss           let g:indentLine_faster=0
-    autocmd FileType sh             setlocal shiftwidth=4
-    autocmd FileType vim            setlocal shiftwidth=4
 augroup END
 
 " Custom settings per language by file extension.
