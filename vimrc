@@ -483,8 +483,8 @@ Plug 'pbogut/fzf-mru.vim'
     let g:fzf_layout = { 'down': '~30%' }
     nnoremap <silent> <localleader><localleader> :Files<CR>
     nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
-    nnoremap <silent> <localleader>/             :Buffers<CR>
     nnoremap <silent> <localleader>!             :Tags<CR>
+    nnoremap <silent> <localleader>b             :Buffers<CR>
     nnoremap <silent> <localleader>h             :Helptags<CR>
     nnoremap <silent> <localleader>l             :BLines<CR>
     nnoremap <silent> <localleader>m             :FZFMru<CR>
