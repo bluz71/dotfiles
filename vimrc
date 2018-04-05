@@ -393,9 +393,9 @@ noremap <leader>y        :let @0=getreg('*')<CR>
 " Regenerate tags file.
 if filereadable('Gemfile')
     " This looks like a Ruby project.
-    nnoremap <leader>! :call system("ripper-tags -R")<CR>
+    nnoremap <leader>] :call system("ripper-tags -R")<CR>
 else
-    nnoremap <leader>! :call system("ctags -R")<CR>
+    nnoremap <leader>] :call system("ctags -R")<CR>
 endif
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
@@ -483,7 +483,8 @@ Plug 'pbogut/fzf-mru.vim'
     let g:fzf_layout = { 'down': '~30%' }
     nnoremap <silent> <localleader><localleader> :Files<CR>
     nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
-    nnoremap <silent> <localleader>!             :Tags<CR>
+    nnoremap <silent> <localleader>]             :Tags<CR>
+    nnoremap <silent> <localleader>'             :Marks<CR>
     nnoremap <silent> <localleader>b             :Buffers<CR>
     nnoremap <silent> <localleader>h             :Helptags<CR>
     nnoremap <silent> <localleader>l             :BLines<CR>
@@ -594,6 +595,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-sleuth'
+    " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
