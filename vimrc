@@ -390,13 +390,6 @@ noremap <leader>Q        gqip
 nnoremap <leader><Space> za
 nnoremap <localleader>s  :syntax sync fromstart<CR>
 noremap <leader>y        :let @0=getreg('*')<CR>
-" Regenerate tags file.
-if filereadable('Gemfile')
-    " This looks like a Ruby project.
-    nnoremap <leader>] :call system("ripper-tags -R")<CR>
-else
-    nnoremap <leader>] :call system("ctags -R")<CR>
-endif
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l>       :redraw!<CR>
