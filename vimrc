@@ -543,8 +543,9 @@ Plug 'slashmili/alchemist.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
+    " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
+Plug 'tpope/vim-projectionist', { 'for': ['elixir', 'eelixir', 'javascript.jsx'] }
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
     nnoremap <leader>a  :A<CR>
 Plug 'neomake/neomake'
