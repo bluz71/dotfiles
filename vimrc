@@ -479,6 +479,7 @@ Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>]             :Tags<CR>
     nnoremap <silent> <localleader>'             :Marks<CR>
     nnoremap <silent> <localleader>b             :Buffers<CR>
+    nnoremap <silent> <localleader>c             :Commits<CR>
     nnoremap <silent> <localleader>h             :Helptags<CR>
     nnoremap <silent> <localleader>l             :BLines<CR>
     nnoremap <silent> <localleader>m             :FZFMru<CR>
