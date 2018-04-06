@@ -485,7 +485,7 @@ Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>m             :FZFMru<CR>
     nnoremap <localleader>gr                     :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
@@ -495,7 +495,7 @@ Plug 'scrooloose/nerdtree'
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
     noremap <silent> <leader>f        :NERDTreeFind<CR> <C-w>=
     autocmd! BufEnter * call NERDTreeRefresh()
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : ">",
                 \ "Staged"    : "=",
