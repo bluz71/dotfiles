@@ -9,6 +9,7 @@ alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
+alias f='fzf --ansi'
 alias g=git
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
