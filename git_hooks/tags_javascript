@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Use Git hooks to automatically generate Vim tags for JavaScript projects.
+#
+#   % cd .git/hooks
+#   % ln -s ~/dotfiles/git_hooks/tags_javascript post-checkout
+#   % ln -s ~/dotfiles/git_hooks/tags_javascript post-merge
+
+git ls-files | ctags --languages=javascript -L - 2>/dev/null
