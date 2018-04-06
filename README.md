@@ -29,6 +29,6 @@ Installation
 Run Neovim and SSH to create the base directories for both utilities then do:
 
 ```sh
-ln dotfiles/init.vim      .config/nvim/init.vim
-cp dotfiles/ssh_config    .ssh/config
+ln -s dotfiles/init.vim .config/nvim/init.vim
+cp dotfiles/ssh_config .ssh/config
 ```

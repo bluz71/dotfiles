@@ -1,23 +1,23 @@
 #!/bin/sh
 
 cd ~
-ln dotfiles/bash_profile  .bash_profile
-ln dotfiles/bashrc        .bashrc
-ln dotfiles/eslintrc.yml  .eslintrc.yml
-ln dotfiles/gitconfig     .gitconfig
-ln dotfiles/gvimrc        .gvimrc
-ln dotfiles/iex.exs       .iex.exs
-ln dotfiles/inputrc       .inputrc
-ln dotfiles/irbrc         .irbrc
-ln dotfiles/mdlrc         .mdlrc
-ln dotfiles/pryrc         .pryrc
-ln dotfiles/tern-project  .tern-project
-ln dotfiles/tigrc         .tigrc
-ln dotfiles/tmux.conf     .tmux.conf
-ln dotfiles/vim/          .vim
-ln dotfiles/vimrc         .vimrc
+ln -s dotfiles/bash_profile  .bash_profile
+ln -s dotfiles/bashrc        .bashrc
+ln -s dotfiles/eslintrc.yml  .eslintrc.yml
+ln -s dotfiles/gitconfig     .gitconfig
+ln -s dotfiles/gvimrc        .gvimrc
+ln -s dotfiles/iex.exs       .iex.exs
+ln -s dotfiles/inputrc       .inputrc
+ln -s dotfiles/irbrc         .irbrc
+ln -s dotfiles/mdlrc         .mdlrc
+ln -s dotfiles/pryrc         .pryrc
+ln -s dotfiles/tern-project  .tern-project
+ln -s dotfiles/tigrc         .tigrc
+ln -s dotfiles/tmux.conf     .tmux.conf
+ln -s dotfiles/vim/          .vim
+ln -s dotfiles/vimrc         .vimrc
 
 if [ "$(uname)" = Linux ]; then
-    ln dotfiles/fonts.conf .fonts.conf
-    ln dotfiles/Xresources .Xresources
+    ln -s dotfiles/fonts.conf .fonts.conf
+    ln -s dotfiles/Xresources .Xresources
 fi
