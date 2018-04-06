@@ -1,5 +1,5 @@
-User configuration files
-========================
+User dotfiles
+=============
 
 Contained are dotfiles for:
 
@@ -26,7 +26,7 @@ Installation
 % ~/dotfiles/setup.sh
 ```
 
-Run Neovim and SSH to create the base directories for both utilities then do:
+Run Neovim and SSH to create their dot directories then do:
 
 ```sh
 ln -s dotfiles/init.vim .config/nvim/init.vim
