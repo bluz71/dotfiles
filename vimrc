@@ -533,9 +533,9 @@ Plug 'sheerun/vim-polyglot'
     let g:rubycomplete_rails                = 1
     let g:ruby_indent_access_modifier_style = 'indent'
     let g:vim_markdown_conceal              = 0
-Plug 'slashmili/alchemist.vim'
+Plug 'slashmili/alchemist.vim', { 'for': ['elixir', 'eelixir'] }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler', { 'for': ['ruby', 'eruby'] }
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
