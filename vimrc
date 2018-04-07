@@ -95,8 +95,7 @@ set wrap              " Wrap long lines
 " Certain options only work in Neovim whilst others only work in Vim.
 " Neovim has a Whitespace highlight group, Vim does not.
 if has("nvim")
-    " Set 'guicursor' explicitly; needed for shape-changing to work in xterm.
-    " set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor
+    " Set 'guicursor' explicitly, needed for shape-changing to work in xterm.
     set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
     set inccommand=nosplit
     set list
@@ -658,9 +657,9 @@ augroup styleAndBehaviourCustomizations
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * startinsert
         autocmd BufEnter   term://* startinsert
-        " autocmd VimLeave * set guicursor=a:block-lCursor
         autocmd VimLeave * set guicursor=a:block
-        " Escape should exit FZF rather than going into terminal normal mode.
+        " Escape inside a FZF terminal window should exit the terminal window
+        " rather than going into the terminal's normal mode.
         autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
     endif
 augroup END
