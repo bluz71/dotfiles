@@ -471,19 +471,21 @@ Plug 'tommcdo/vim-lion'
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
     let g:fzf_layout = { 'down': '~30%' }
     nnoremap <silent> <localleader><localleader> :Files<CR>
     nnoremap <silent> <localleader>-             :Files <C-r>=expand('%:h')<CR>/<CR>
     nnoremap <silent> <localleader>]             :Tags<CR>
     nnoremap <silent> <localleader>'             :Marks<CR>
-    nnoremap <silent> <localleader>b             :Buffers<CR>
+    nnoremap <silent> <localleader>,             :Buffers<CR>
     nnoremap <silent> <localleader>c             :Commits<CR>
     nnoremap <silent> <localleader>h             :Helptags<CR>
-    nnoremap <silent> <localleader>l             :BLines<CR>
-    nnoremap <silent> <localleader>m             :FZFMru<CR>
+    nnoremap <silent> <localleader>b]            :BTags<CR>
+    nnoremap <silent> <localleader>bc            :BCommits<CR>
+    nnoremap <silent> <localleader>bl            :BLines<CR>
     nnoremap <localleader>gr                     :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
+Plug 'pbogut/fzf-mru.vim'
+    nnoremap <silent> <localleader>m             :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
