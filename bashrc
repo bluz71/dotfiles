@@ -150,6 +150,13 @@ brew_config() {
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 }
 
+gfl() {
+    git ll --color=always |
+      fzf --ansi --no-sort --reverse --tiebreak=index --height 100% \
+          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                     xargs -I % sh -c 'git show --color=always % | head -$LINES'"
+}
+
 path()
 {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
