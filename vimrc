@@ -441,7 +441,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'bluz71/vim-moonfly-colors'
     let g:moonflySpellInverse   = 1
     let g:moonflyCursorColor    = 1
-    let g:moonflyTerminalColors = 1
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'rakr/vim-one'
 Plug 'nelstrom/vim-visual-star-search'
