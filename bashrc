@@ -150,7 +150,8 @@ brew_config() {
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 }
 
-gfl() {
+gfl()
+{
     git ll --color=always "$@" |
       fzf --ansi --no-sort --height 100% \
           --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
