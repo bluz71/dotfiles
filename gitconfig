@@ -35,7 +35,8 @@
     vdis = difftool -t vd --staged
     idi = difftool -t icd
     idis = difftool -t icd --staged
-    ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
+    fe = fetch
+    ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
     llm = !git ll master..HEAD
     llom = !git ll origin/master..HEAD
     mdi = difftool
@@ -43,6 +44,7 @@
     mg = merge
     mgs = merge --squash
     rso = remote show origin
+    rsu = remote show upstream
     sa = "!sh -c 'git stash apply stash@{$1}' -"
     sd = "!sh -c 'git stash drop stash@{$1}' -"
     sg = "!git add . -N && git add -p"
