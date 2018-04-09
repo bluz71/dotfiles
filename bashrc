@@ -10,6 +10,8 @@ alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
 alias f='fzf --ansi'
+alias fll='fzf_git_log'
+alias fv='fzf_edit'
 alias g=git
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
@@ -121,24 +123,24 @@ brew_config() {
         return
     fi
 
-    local BREW_PREFIX=$(brew --prefix)
+    local brew_prefix=$(brew --prefix)
 
     # Bash completions.
-    . $BREW_PREFIX/etc/bash_completion
-    . $BREW_PREFIX/etc/profile.d/z.sh
+    . $brew_prefix/etc/bash_completion
+    . $brew_prefix/etc/profile.d/z.sh
     complete -o default -o nospace -F _git g
 
     # Custom bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
 
     # Setup chruby if available.
-    if [ -f $BREW_PREFIX/share/chruby/chruby.sh ]; then
-        . $BREW_PREFIX/share/chruby/chruby.sh
+    if [ -f $brew_prefix/share/chruby/chruby.sh ]; then
+        . $brew_prefix/share/chruby/chruby.sh
         chruby 2.5.0
     fi
 
     # FZF configuration.
-    . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
+    . $brew_prefix/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 40% --multi --reverse
       --bind ctrl-f:page-down,ctrl-b:page-up
@@ -150,12 +152,18 @@ brew_config() {
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 }
 
-gfl()
-{
+fzf_edit() {
+    local file=$(fzf --no-multi)
+    if [ -n "$file" ]; then
+        $EDITOR "$file"
+    fi
+}
+
+fzf_git_log() {
     git ll --color=always "$@" |
       fzf --ansi --no-sort --height 100% \
-          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                     xargs -I % sh -c 'git show --color=always %'"
+          --preview "echo {} | grep -o '[a-f0-9]\{7\}' |
+                       xargs -I@ sh -c 'git show --color=always @'"
 }
 
 path()
@@ -178,12 +186,12 @@ prompt()
     open-color() { echo -ne "\e[38;5;$1m"; }
     close-color () { echo -ne '\e[m'; }
 
-    local COLOR_TERMINAL=0
+    local color_terminal=0
     if [ $TERM = xterm-256color ] || [ $TERM = "screen-256color" ]; then
-        COLOR_TERMINAL=1
+        color_terminal=1
     fi
 
-    local GIT_PROMPT=0
+    local git_prompt=0
     if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
         local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
     elif [ -f /etc/bash_completion.d/git-prompt ]; then
@@ -192,7 +200,7 @@ prompt()
         local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
     fi
     if [ -f $GIT_PROMPT_PATH ]; then
-        GIT_PROMPT=1
+        git_prompt=1
         GIT_PS1_SHOWUPSTREAM="auto"
         GIT_PS1_SHOWSTASHSTATE=1
         . $GIT_PROMPT_PATH
@@ -201,9 +209,9 @@ prompt()
     # 147: Purple
     # 150: Dark Sea Green
     # 255: White
-    if [ $COLOR_TERMINAL = 1 ] && [ $GIT_PROMPT = 1 ]; then
+    if [ $color_terminal = 1 ] && [ $git_prompt = 1 ]; then
         PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
-    elif [ $COLOR_TERMINAL = 1 ]; then
+    elif [ $color_terminal = 1 ]; then
         PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
     else
         PS1='\h \w > '
