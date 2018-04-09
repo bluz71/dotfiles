@@ -11,9 +11,8 @@ alias dir='ls -l'
 alias du='du -b'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
-alias fll='fzf_git_log'
-alias fv='fzf_edit'
 alias g=git
+alias gll='fzf_git_log'
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
 PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
@@ -47,6 +46,7 @@ alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd))'
 alias v='stty -ixon && vim 2> /dev/null'
+alias vf='fzf_edit'
 alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
 alias x=exit
@@ -163,15 +163,15 @@ fzf_edit() {
 fzf_git_log() {
     git ll --color=always "$@" |
       fzf --ansi --no-sort --height 100% \
-          --preview "echo {} | grep -o '[a-f0-9]\{7\}' |
+          --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
 }
 
 fzf_kill() {
-    local pid=$(ps -u $USER | sed 1d | fzf --height 80% | awk '{print $2}')
+    local pid=$(ps -f -u $USER | sed 1d | fzf --height 80% | awk '{print $2}')
 
     if [ "x$pid" != "x" ]; then
-        echo $pid | xargs kill -${1:-9}
+        echo "$pid" | xargs kill -9 "$@"
     fi
 }
 
