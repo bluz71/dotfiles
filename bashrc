@@ -10,6 +10,7 @@ alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
 alias f='fzf --ansi'
+alias fkill='fzf_kill'
 alias fll='fzf_git_log'
 alias fv='fzf_edit'
 alias g=git
@@ -164,6 +165,14 @@ fzf_git_log() {
       fzf --ansi --no-sort --height 100% \
           --preview "echo {} | grep -o '[a-f0-9]\{7\}' |
                        xargs -I@ sh -c 'git show --color=always @'"
+}
+
+fzf_kill() {
+    local pid=$(ps -u $USER | sed 1d | fzf --height 80% | awk '{print $2}')
+
+    if [ "x$pid" != "x" ]; then
+        echo $pid | xargs kill -${1:-9}
+    fi
 }
 
 path()
