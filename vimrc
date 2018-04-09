@@ -469,7 +469,7 @@ Plug 'tommcdo/vim-lion'
 " File management plugins
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
-Plug 'junegunn/fzf.vim'
+Plug 'bluz71/fzf-moonfly.vim'
     let g:fzf_layout = { 'down': '~30%' }
     nnoremap <silent> <localleader><Space> :Files<CR>
     nnoremap <silent> <localleader>-       :Files <C-r>=expand('%:h')<CR>/<CR>
