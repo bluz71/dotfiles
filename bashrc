@@ -24,8 +24,7 @@ alias l1='ls -1'
 alias ll='ls -l'
 alias ll.='ls -la'
 # usage: llfs +1M (find all files larger than 1 megabyte) 
-alias llfs='find_by_size(){ find . -type f -size "$1" -exec \
-ls --color --classify --human-readable -l {} \; ; }; find_by_size'
+alias llfs='find_by_size'
 alias lls='ls_by_size(){ ls -la --sort=size "$@" | less; }; ls_by_size'
 alias llt='ls_by_time(){ ls -la --sort=time "$@" | less; }; ls_by_time'
 alias ls='ls --color --classify --human-readable'
@@ -151,6 +150,10 @@ brew_config() {
     export FZF_DEFAULT_COMMAND='fd --type f --color=never'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+}
+
+find_by_size() {
+    find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; 
 }
 
 fzf_edit() {
