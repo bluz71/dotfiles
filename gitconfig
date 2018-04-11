@@ -10,6 +10,7 @@
     ui = auto
 [diff]
     tool = meld
+    algorithm = histogram
 [merge]
     tool = meld
 [difftool]

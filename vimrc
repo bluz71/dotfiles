@@ -561,6 +561,11 @@ Plug 'janko-m/vim-test'
     else
         let test#strategy = "vimterminal"
     endif
+Plug 'chrisbra/vim-diff-enhanced'
+if &diff
+    " Much nicer diffs result by using the histogram algorithm.
+    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
+endif
 Plug 'tpope/vim-fugitive'
     noremap <silent> <leader>gb :Gblame<CR>
     noremap <silent> <leader>gd :Gdiff<CR>
