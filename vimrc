@@ -519,7 +519,7 @@ Plug 'mhinz/vim-grepper'
     noremap <leader>gw :GrepperRg<Space>"\b<cword>\b"<CR>
 
 "-----------------------------
-" Programmer related plugins
+" Development related plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
     let g:go_highlight_functions            = 1
