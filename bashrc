@@ -45,9 +45,10 @@ alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd))'
 alias v='stty -ixon && vim 2> /dev/null'
-alias vf='fzf_edit'
+alias vf='fzf_find_edit'
 alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
+alias vrg='fzf_rg_edit'
 alias x=exit
 # Easy parent directory navigation.
 alias ..='cd ..'
@@ -156,7 +157,7 @@ find_by_size() {
     find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; 
 }
 
-fzf_edit() {
+fzf_find_edit() {
     local file=$(fzf --no-multi)
     if [ -n "$file" ]; then
         $EDITOR "$file"
@@ -175,6 +176,18 @@ fzf_kill() {
 
     if [ "x$pid" != "x" ]; then
         echo "$pid" | xargs kill -9 "$@"
+    fi
+}
+
+fzf_rg_edit(){
+    if [ $# == 0 ]; then
+        echo 'Error: search term was not provided.'
+        return
+    fi
+    local match=$(rg --color=never --line-number "$1" | fzf --no-multi)
+    local file=$(echo "$match" | cut -d':' -f1)
+    if [ -n "$file" ]; then
+        $EDITOR "$file" +$(echo "$match" | cut -d':' -f2)
     fi
 }
 
