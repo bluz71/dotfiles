@@ -247,9 +247,11 @@ noremap ;          :
 xnoremap .         :norm.<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y          y$
-" Center search matches when navigating.
+" Center search and spelling matches when navigating.
 noremap n          nzz
 noremap N          Nzz
+noremap ]s         ]szz
+noremap [s         [szz
 " Confirm quit.
 noremap <C-q>      :confirm qall<CR>
 " Delete previous word, when in insert mode, via Ctrl-b.
@@ -439,7 +441,6 @@ call plug#begin('~/.vim/plugged')
 " Niceties
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-    let g:moonflySpellInverse   = 1
     let g:moonflyCursorColor    = 1
 Plug 'bluz71/vim-moonfly-statusline'
 Plug 'rakr/vim-one'
