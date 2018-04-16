@@ -173,8 +173,7 @@ fzf_git_log() {
 
 fzf_kill() {
     local pid=$(ps -f -u $USER | sed 1d | fzf --height 80% | awk '{print $2}')
-
-    if [ "x$pid" != "x" ]; then
+    if [ -n "$pid" ]; then
         echo "$pid" | xargs kill -9 "$@"
     fi
 }
