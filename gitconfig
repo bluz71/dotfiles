@@ -44,6 +44,7 @@
     mdis = difftool --staged
     mg = merge
     mgs = merge --squash
+    rr = remote -v
     rso = remote show origin
     rsu = remote show upstream
     sa = "!sh -c 'git stash apply stash@{$1}' -"
