@@ -162,25 +162,6 @@ function! Listing()
     endif
 endfunction
 
-" Toggle macro mode. For maximum performance, when invoking a macro, it is
-" best to disable file auto-saving.
-"
-function! MacroMode()
-    let l:autosave = 1
-    set lazyredraw!
-    if exists('#autoSave#TextChanged')
-        autocmd! autoSaveAndRead TextChanged,InsertLeave,FocusLost *
-        let l:autosave = 0
-    else
-        autocmd autoSaveAndRead TextChanged,InsertLeave,FocusLost * silent! wall
-    endif
-    if l:autosave == 1
-        echo "Enabled auto-save"
-    else
-        echo "Disabled auto-save"
-    endif
-endfunction
-
 " Upon entering the NERDTree window do a root directoy refresh to automatically
 " pick up any file or directory changes.
 "
@@ -372,8 +353,8 @@ nnoremap <F5>           :call Spelling()<CR>
 nnoremap <localleader>5 :call Spelling()<CR>
 nnoremap <F6>           :source $MYVIMRC<CR>
 nnoremap <localleader>6 :source $MYVIMRC<CR>
-nnoremap <F7>           :call MacroMode()<CR>
-nnoremap <localleader>7 :call MacroMode()<CR>
+nnoremap <F7>           :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <localleader>7 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <F8>           :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 nnoremap <localleader>8 :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
 inoremap <F8>           <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
@@ -447,6 +428,11 @@ Plug 'rakr/vim-one'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
+Plug 'rstacruz/vim-closer'
+Plug '907th/vim-auto-save'
+    let g:auto_save        = 1
+    let g:auto_save_silent = 1
+    let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char       = '¦'
     let g:indentLine_color_term = 235
@@ -553,7 +539,6 @@ Plug 'neomake/neomake'
     let g:neomake_message_sign     = {'text': '->'}
     nnoremap <silent> <leader>m    :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
-    autocmd! BufWritePost *.{js,md} Neomake
 Plug 'janko-m/vim-test'
     nnoremap <silent> <localleader>tf :TestFile<CR>
     nnoremap <silent> <localleader>tl :TestLast<CR>
@@ -596,6 +581,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'tpope/vim-surround'
@@ -672,12 +658,11 @@ augroup styleAndBehaviourCustomizations
     endif
 augroup END
 
-" Autosave and autoread behaviour.
+" Auto-read behaviour.
 "
-augroup autoSaveAndRead
+augroup autoRead
     autocmd!
-    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-    autocmd CursorHold *                        silent! checktime
+    autocmd CursorHold * silent! checktime
 augroup END
 
 "===========================================================
