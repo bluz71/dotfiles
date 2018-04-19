@@ -188,7 +188,7 @@ endfunction
 
 if !has("gui_running") && !has("nvim")
     " Note, Neovim cursor shape and 24-bit true colors work without any
-    " help required; the following 'help' is for terminal Vim only. 
+    " help required; the following 'help' is for terminal Vim only.
 
     " if tmux
     if &term == 'screen-256color'
@@ -429,6 +429,8 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'rstacruz/vim-closer'
+    autocmd FileType json
+      \ let b:closer = 1 | let b:closer_flags = '([{'
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
@@ -458,8 +460,8 @@ Plug 'tommcdo/vim-lion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'bluz71/fzf-moonfly.vim'
     let g:fzf_layout = { 'down': '~30%' }
-    let g:fzf_commits_log_options = '--graph --color=always 
-      \ --format="%C(yellow)%h%C(red)%d%C(reset) 
+    let g:fzf_commits_log_options = '--graph --color=always
+      \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
     nnoremap <silent> <localleader><Space> :Files<CR>
     nnoremap <silent> <localleader>-       :Files <C-r>=expand('%:h')<CR>/<CR>
