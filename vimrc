@@ -498,6 +498,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
                 \ "Renamed"   : "!"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
+    let g:NERDTreeUpdateOnWrite      = 0
 Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
