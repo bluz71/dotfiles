@@ -429,7 +429,8 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'rstacruz/vim-closer'
-    autocmd FileType json
+    " Add in more filetypes to auto-close.
+    autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = '([{'
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
