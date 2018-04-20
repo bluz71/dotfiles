@@ -429,6 +429,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'rstacruz/vim-closer'
+Plug 'ajh17/VimCompletesMe'
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
@@ -439,10 +440,6 @@ Plug 'Yggdroot/indentLine'
     let g:indentLine_color_gui  = "#262626"
     let g:indentLine_faster     = 1
     let g:indentLine_setConceal = 0
-Plug 'ervandew/supertab'
-    " Play nice with other plugins and force top-to-bottom tab completion.
-    let g:SuperTabDefaultCompletionType        = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-n>"
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line    = 1
     let g:clever_f_timeout_ms        = 3000
@@ -609,7 +606,6 @@ augroup languageCustomizationsByType
     " reload.
     autocmd!
     autocmd FileType c,cpp          setlocal cindent foldmethod=syntax
-    autocmd FileType css,scss       let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     autocmd FileType eelixir        setlocal matchpairs=(:),{:},[:]
     autocmd FileType eruby          setlocal formatoptions=cq matchpairs=(:),{:},[:]
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
@@ -643,23 +639,31 @@ augroup styleAndBehaviourCustomizations
     autocmd BufWinEnter quickfix        setlocal cursorline colorcolumn=0
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType nerdtree,netrw     setlocal conceallevel=0 colorcolumn=0 matchpairs=
+    autocmd FileType    nerdtree,netrw  setlocal conceallevel=0 colorcolumn=0 matchpairs=
     autocmd FilterWritePre *            call DiffStyling()
-    autocmd FileType *                  IndentLinesReset
-    autocmd Syntax *                    IndentLinesReset
-    autocmd VimResized *                wincmd =
+    autocmd VimResized     *            wincmd =
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * startinsert
         autocmd BufEnter   term://* startinsert
         autocmd VimLeave * set guicursor=a:block
+    endif
+augroup END
+
+" Plugin-related behaviours.
+"
+augroup pluginBehaviours
+    autocmd!
+    autocmd FileType * IndentLinesReset
+    autocmd Syntax   * IndentLinesReset
+    autocmd FileType * let b:vcm_tab_complete = "omni"
+    autocmd FileType crystal,elixir,json
+      \ let b:closer = 1 | let b:closer_flags = "([{"
+    if has("nvim")
         " Escape inside a FZF terminal window should exit the terminal window
         " rather than going into the terminal's normal mode.
         autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
     endif
-    " Extend 'vim-closer' auto-closing to more file-types.
-    autocmd FileType crystal,elixir,json
-      \ let b:closer = 1 | let b:closer_flags = '([{'
 augroup END
 
 " Auto-read behaviour.
