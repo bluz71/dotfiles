@@ -429,7 +429,9 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'rstacruz/vim-closer'
-Plug 'ajh17/VimCompletesMe'
+Plug 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType        = "context"
+    let g:SuperTabContextDefaultCompletionType = "<c-n>"
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
@@ -636,12 +638,9 @@ augroup END
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd BufWinEnter quickfix        setlocal cursorline colorcolumn=0
-    autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
-    autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType    nerdtree,netrw  setlocal conceallevel=0 colorcolumn=0 matchpairs=
-    autocmd FilterWritePre *            call DiffStyling()
-    autocmd VimResized     *            wincmd =
+    autocmd BufWinEnter    quickfix setlocal cursorline colorcolumn=0
+    autocmd FilterWritePre *        call DiffStyling()
+    autocmd VimResized     *        wincmd =
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * startinsert
@@ -654,9 +653,14 @@ augroup END
 "
 augroup pluginBehaviours
     autocmd!
-    autocmd FileType * IndentLinesReset
-    autocmd Syntax   * IndentLinesReset
-    autocmd FileType * let b:vcm_tab_complete = "omni"
+    autocmd FileType    *               IndentLinesReset
+    autocmd Syntax      *               IndentLinesReset
+    autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
+    autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
+    autocmd FileType    nerdtree
+      \ setlocal conceallevel=0 colorcolumn=0 matchpairs=
+    autocmd FileType css,scss
+      \ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
