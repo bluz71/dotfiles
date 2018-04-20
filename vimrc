@@ -429,9 +429,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'rstacruz/vim-closer'
-    " Add in more filetypes to auto-close.
-    autocmd FileType crystal,elixir,json
-      \ let b:closer = 1 | let b:closer_flags = '([{'
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
@@ -660,6 +657,9 @@ augroup styleAndBehaviourCustomizations
         " rather than going into the terminal's normal mode.
         autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
     endif
+    " Extend 'vim-closer' auto-closing to more file-types.
+    autocmd FileType crystal,elixir,json
+      \ let b:closer = 1 | let b:closer_flags = '([{'
 augroup END
 
 " Auto-read behaviour.
