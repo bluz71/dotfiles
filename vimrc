@@ -355,9 +355,7 @@ nnoremap <F6>           :source $MYVIMRC<CR>
 nnoremap <localleader>6 :source $MYVIMRC<CR>
 nnoremap <F7>           :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <localleader>7 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap <F8>           :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
-nnoremap <localleader>8 :set paste<CR>o<C-r>*<Esc>:set nopaste<CR>
-inoremap <F8>           <C-o>:set paste<CR><C-o>o<C-r>*<C-o>:set nopaste<CR>
+"<F8> - unused
 "<F9> - unused
 nnoremap <localleader>9 :set hlsearch!<CR>
 "<F10> - unused
@@ -368,36 +366,45 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
-noremap <leader>Q        gqip
+noremap  <leader>Q       gqip
 nnoremap <leader><Space> za
 nnoremap <localleader>s  :syntax sync fromstart<CR>
-noremap <leader>y        :let @0=getreg('*')<CR>
+noremap  <leader>y       :let @0=getreg('*')<CR>
+" Various forms of normal & insert mode clipboard pasting.
+inoremap <A-p>           <C-o>"*]p
+if has("gui_running") || has("nvim")
+    nnoremap <A-o>       o<Esc>"*]p 
+    inoremap <A-o>       <C-o>o<C-o>"*]p 
+else
+    nnoremap o         o<Esc>"*]p 
+    inoremap o         <C-o>o<C-o>"*]p 
+endif
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
-    nnoremap <A-l>       :redraw!<CR>
+    nnoremap <A-l>      :redraw!<CR>
 else
-    nnoremap l         :redraw!<CR>
+    nnoremap l        :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
 "  ] - complete from tags file
 "  k - dictionary completion
 "  l - complete line
-inoremap <C-]>           <C-x><C-]>
-inoremap <C-k>           <C-x><C-k>
-inoremap <C-l>           <C-x><C-l>
+inoremap <C-]>          <C-x><C-]>
+inoremap <C-k>          <C-x><C-k>
+inoremap <C-l>          <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
 nnoremap c* *Ncgn
 nnoremap c# #NcgN
 " Nicer increment and decrement mappings.
-noremap +                <C-a>
-noremap -                <C-x>
-xnoremap +               g<C-a>
-xnoremap -               g<C-x>
+noremap +               <C-a>
+noremap -               <C-x>
+xnoremap +              g<C-a>
+xnoremap -              g<C-x>
 " ~/.inputrc like motions in command mode.
-cnoremap <C-a>           <Home>
-cnoremap <C-e>           <End>
-cnoremap <A-b>           <C-Left>
-cnoremap <A-f>           <C-Right>
+cnoremap <C-a>          <Home>
+cnoremap <C-e>          <End>
+cnoremap <A-b>          <C-Left>
+cnoremap <A-f>          <C-Right>
 " Skeleton/snippet support.
 let $VIMHOME = $HOME . "/.vim"
 nnoremap <leader>khtml   :read $VIMHOME/skeletons/skeleton.html<CR>
