@@ -373,11 +373,11 @@ noremap  <leader>y       :let @0=getreg('*')<CR>
 " Various forms of normal & insert mode clipboard pasting.
 inoremap <A-p>           <C-o>"*]p
 if has("gui_running") || has("nvim")
-    nnoremap <A-o>       o<Esc>"*]p 
-    inoremap <A-o>       <C-o>o<C-o>"*]p 
+    nnoremap <A-o>       o<Esc>"*]p
+    inoremap <A-o>       <C-o>o<C-o>"*]p
 else
-    nnoremap o         o<Esc>"*]p 
-    inoremap o         <C-o>o<C-o>"*]p 
+    nnoremap o         o<Esc>"*]p
+    inoremap o         <C-o>o<C-o>"*]p
 endif
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
