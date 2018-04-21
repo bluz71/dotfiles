@@ -226,6 +226,10 @@ inoremap <C-c>     <Esc>
 noremap ;          :
 " Make dot work on visual line selections.
 xnoremap .         :norm.<CR>
+" 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
+nnoremap Q         @q
+" Execute macro 'q' over the visual selection.
+xnoremap Q         :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y          y$
 " Center search and spelling matches when navigating.
@@ -337,18 +341,12 @@ endif
 "
 " Double up function key mappings with <localleader>+number mappings for
 " touchbar Macbooks which have no physical function keys.
-noremap <F1>            :set relativenumber!<CR>
-noremap <localleader>1  :set relativenumber!<CR>
+"<F1> - unused
 noremap <F2>            :w<CR>
 noremap <localleader>2  :w<CR>
 noremap <F3>            :%retab<CR> :%s/\s\+$//<CR>
 noremap <localleader>3  :%retab<CR> :%s/\s\+$//<CR>
-" 'qq' starts a macro recording, 'q' stops it, <F4> and Q runs the macro.
-noremap <F4>            @q
-noremap <localleader>4  @q
-nnoremap Q              @q
-" Execute macro 'q' over the visual selection.
-xnoremap Q              :'<,'> :normal @q<CR>
+"<F4> - unused
 nnoremap <F5>           :call Spelling()<CR>
 nnoremap <localleader>5 :call Spelling()<CR>
 nnoremap <F6>           :source $MYVIMRC<CR>
@@ -573,6 +571,15 @@ if &term == 'screen-256color'
     nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
     nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
     nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+endif
+
+"-----------------------------
+" Neovim specific plugins
+"-----------------------------
+if has("nvim")
+Plug 'bfredl/nvim-miniyank'
+    map p <Plug>(miniyank-autoput)
+    map P <Plug>(miniyank-autoPut)
 endif
 
 "-----------------------------
