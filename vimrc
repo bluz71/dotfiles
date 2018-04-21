@@ -369,7 +369,11 @@ nnoremap <F12>          :call Listing()<CR>
 noremap  <leader>Q       gqip
 nnoremap <leader><Space> za
 nnoremap <localleader>s  :syntax sync fromstart<CR>
+" Copy/cut/paste/register related helper mappings.
 noremap  <leader>y       :let @0=getreg('*')<CR>
+noremap  <leader>p       "0p
+noremap  <leader>P       "0P
+noremap  <leader>d       "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l>      :redraw!<CR>
