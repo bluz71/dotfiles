@@ -61,11 +61,11 @@ xterm-moonfly*colorULMode: on
 xterm-moonfly*cursorColor: #9e9e9e
 xterm-moonfly*cutNewline: false
 xterm-moonfly*cutToBeginningOfLine: false
-xterm-moonfly*faceName: Inconsolata
+xterm-moonfly*faceName: Iosevka Custom
 xterm-moonfly*faceSize: 12
 xterm-moonfly*fastScroll: true
 xterm-moonfly*foreground: #b2b2b2
-xterm-moonfly*geometry: 84x65
+xterm-moonfly*geometry: 84x59
 xterm-moonfly*highlightSelection: true
 xterm-moonfly*loginShell: true
 xterm-moonfly*metaSendsEscape: true
