@@ -437,7 +437,7 @@ Plug '907th/vim-auto-save'
     let g:auto_save_silent = 1
     let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 Plug 'Yggdroot/indentLine'
-    let g:indentLine_char       = '¦'
+    let g:indentLine_char       = '┊'
     let g:indentLine_color_term = 235
     let g:indentLine_color_gui  = "#262626"
     let g:indentLine_faster     = 1
@@ -487,11 +487,11 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : ">",
-                \ "Staged"    : "=",
-                \ "Dirty"     : "*",
+                \ "Modified"  : "»",
+                \ "Staged"    : "±",
+                \ "Dirty"     : "✗",
                 \ "Untracked" : "?",
-                \ "Renamed"   : "!"
+                \ "Renamed"   : "‼"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
     let g:NERDTreeUpdateOnWrite      = 0
