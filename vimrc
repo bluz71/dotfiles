@@ -142,7 +142,7 @@ function! Listing()
             highlight SpecialKey ctermfg=12 guifg=#78c2ff
             let g:listMode = 0
         else
-            set listchars=tab:\¦\ 
+            set listchars=tab:\┊\ 
             highlight SpecialKey ctermfg=235 guifg=#262626
             let g:listMode = 1
         endif
@@ -625,7 +625,7 @@ augroup languageCustomizationsByType
     " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go             setlocal list listchars=tab:\¦\ 
+    autocmd FileType go             setlocal list listchars=tab:\┊\ 
     autocmd FileType go             highlight SpecialKey ctermfg=234 guifg=#1c1c1c
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html           let b:match_words = '<\(\w\w*\):</\1,{:}'
