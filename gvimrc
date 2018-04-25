@@ -23,13 +23,11 @@ if &diff
 else
     set columns=87
 endif
-set lines=65
+set lines=62
 if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Iosevka\ Custom\ 12
 elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h12
-elseif has("win32")
-    set guifont=Consolas:h11
+    set guifont=Iosevka\ Custom\ Condensed:h13
 endif
 
 
