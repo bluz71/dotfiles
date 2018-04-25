@@ -533,10 +533,10 @@ Plug 'tpope/vim-rails'
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
     let g:neomake_open_list        = 1
-    let g:neomake_error_sign       = {'text': '->'}
-    let g:neomake_warning_sign     = {'text': '->'}
-    let g:neomake_info_sign        = {'text': '->'}
-    let g:neomake_message_sign     = {'text': '->'}
+    let g:neomake_error_sign       = {'text': '─❯'}
+    let g:neomake_warning_sign     = {'text': '─❯'}
+    let g:neomake_info_sign        = {'text': '─❯'}
+    let g:neomake_message_sign     = {'text': '─❯'}
     nnoremap <silent> <leader>m    :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
@@ -628,7 +628,6 @@ augroup languageCustomizationsByType
     autocmd FileType html           let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType java           setlocal cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript.jsx setlocal formatoptions=cq
-    autocmd FileType json           setlocal conceallevel=0
     autocmd FileType markdown       setlocal formatoptions=tqln
     autocmd FileType markdown       syntax sync fromstart
     autocmd FileType ruby           setlocal formatoptions=cq
@@ -643,13 +642,14 @@ augroup languageCustomizationsByExtension
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
 augroup END
 
-" Style and behaviour customizations for certain modes and window types.
+" Style and behaviour customizations.
 "
 augroup styleAndBehaviourCustomizations
     autocmd!
-    autocmd BufWinEnter    quickfix setlocal cursorline colorcolumn=0
-    autocmd FilterWritePre *        call DiffStyling()
-    autocmd VimResized     *        wincmd =
+    autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
+    autocmd FilterWritePre *         call DiffStyling()
+    autocmd VimResized     *         wincmd =
+    autocmd FileType       json,text setlocal conceallevel=0
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * startinsert
