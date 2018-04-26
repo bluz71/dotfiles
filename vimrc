@@ -482,7 +482,7 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
-    let g:NERDTreeDirArrowCollapsible = "~"
+    let g:NERDTreeDirArrowCollapsible = "⠶"
     let NERDTreeHijackNetrw           = 0
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
