@@ -425,8 +425,9 @@ call plug#begin('~/.vim/plugged')
 " Niceties
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-    let g:moonflyCursorColor    = 1
+    let g:moonflyCursorColor = 1
 Plug 'bluz71/vim-moonfly-statusline'
+    let g:moonflyWithGitBranchCharacter = 1
 Plug 'rakr/vim-one'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
