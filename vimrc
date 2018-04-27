@@ -241,7 +241,7 @@ noremap N          Nzz
 noremap ]s         ]szz
 noremap [s         [szz
 " Confirm quit.
-noremap <C-q>      :confirm qall<CR>
+noremap <silent> <C-q>      :confirm qall<CR>
 " Delete previous word, when in insert mode, via Ctrl-b.
 inoremap <C-b>     <C-O>diw
 if has("nvim")
