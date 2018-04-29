@@ -73,9 +73,12 @@ set splitright        " Split window to the right
 set synmaxcol=200     " Only syntax highlight for 200 chars (for performance)
 set t_Co=256          " 256 color support
 set tabstop=4
-if has('termguicolors')
-    set termguicolors " Enable 24-bit color support if available
-endif
+" Disable termguicolors for now since it results in `:terminal` colors that are
+" slightly off, see:
+"   https://github.com/neovim/neovim/issues/7018
+" if has('termguicolors')
+"     set termguicolors " Enable 24-bit color support if available
+" endif
 set textwidth=79
 set timeoutlen=2500   " Give some time for multi-key mappings
 " Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
