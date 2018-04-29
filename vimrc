@@ -133,17 +133,20 @@ function! Spelling()
     endif
 endfunction
 
-" Toggle special characters list display.
+" Toggle the highlighting of special characters.
 "
 function! Listing()
     if &filetype == "go"
         if g:listMode == 1
             set listchars=eol:$,tab:>-,trail:-
-            highlight SpecialKey ctermfg=12 guifg=#78c2ff
+            highlight! link SpecialKey Function
+            highlight! link Whitespace Function
             let g:listMode = 0
         else
-            set listchars=tab:\┊\ 
-            highlight SpecialKey ctermfg=235 guifg=#262626
+            " Mimic indentLine plugin markers for tab-indented Go code.
+            set listchars=tab:\┊\ ,trail:-
+            highlight! link SpecialKey Conceal
+            highlight! link Whitespace Conceal
             let g:listMode = 1
         endif
         return
@@ -153,11 +156,11 @@ function! Listing()
     if has("nvim")
         if g:listMode == 1
             set listchars=eol:$,tab:>-,trail:-
-            highlight Whitespace ctermfg=12 guifg=#78c2ff
+            highlight! link Whitespace Function
             let g:listMode = 0
         else
             set listchars=tab:\ \ ,trail:-
-            highlight Whitespace ctermfg=235 guifg=#262626
+            highlight! link Whitespace Conceal
             let g:listMode = 1
         endif
     else
@@ -174,13 +177,13 @@ function! NERDTreeRefresh()
     endif
 endfunction
 
-" Don't set colorcolumn and IndentLine when in Vim diff.
+" Don't set colorcolumn and disable IndentLine when in Vim diff.
 "
 function! DiffStyling()
     if &diff
-        setlocal conceallevel=0
+        :IndentLinesToggle
         setlocal colorcolumn=0
-        highlight Visual ctermfg=251 guifg=#c6c6c6
+        highlight! link Visual VisualInDiff
     endif
 endfunction
 
@@ -442,8 +445,7 @@ Plug '907th/vim-auto-save'
     let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 Plug 'Yggdroot/indentLine'
     let g:indentLine_char       = '┊'
-    let g:indentLine_color_term = 235
-    let g:indentLine_color_gui  = "#262626"
+    let g:indentLine_setColors  = 0
     let g:indentLine_faster     = 1
     let g:indentLine_setConceal = 0
 Plug 'rhysd/clever-f.vim'
@@ -624,11 +626,11 @@ augroup languageCustomizationsByType
     autocmd FileType c,cpp          setlocal cindent foldmethod=syntax
     autocmd FileType eelixir        setlocal matchpairs=(:),{:},[:]
     autocmd FileType eruby          setlocal formatoptions=cq matchpairs=(:),{:},[:]
-    " Setup indent lines for tab formatted Golang code. Note, the IndentLine 
+    " Setup indent markers for tab-indented Go code. Note, the IndentLine 
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go             setlocal list listchars=tab:\┊\ 
-    autocmd FileType go             highlight SpecialKey ctermfg=234 guifg=#1c1c1c
+    autocmd FileType go             setlocal list listchars=tab:\┊\ ,trail:-
+    autocmd FileType go             highlight! link SpecialKey Conceal
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html           let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType java           setlocal cindent cinoptions+=j1 foldmethod=syntax
@@ -637,6 +639,7 @@ augroup languageCustomizationsByType
     autocmd FileType markdown       syntax sync fromstart
     autocmd FileType ruby           setlocal formatoptions=cq
     autocmd FileType scss           let g:indentLine_faster=0
+    autocmd FileType vim            setlocal formatoptions=coql
 augroup END
 
 " Custom settings per language by file extension.
