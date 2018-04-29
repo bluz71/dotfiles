@@ -11,6 +11,10 @@ parserOptions:
 parser: 'babel-eslint'
 plugins:
   - react
+globals:
+  module: true
+  setImmediate: true
+  process: true
 rules:
   indent:
     - error
