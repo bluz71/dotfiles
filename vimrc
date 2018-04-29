@@ -184,8 +184,8 @@ endfunction
 "
 function! DiffStyling()
     if &diff
-        :IndentLinesToggle
         setlocal colorcolumn=0
+        :IndentLinesDisable
         highlight! link Visual VisualInDiff
     endif
 endfunction
@@ -638,6 +638,7 @@ augroup languageCustomizationsByType
     autocmd FileType html           let b:match_words = '<\(\w\w*\):</\1,{:}'
     autocmd FileType java           setlocal cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript.jsx setlocal formatoptions=cq
+    autocmd FileType json           set conceallevel=2
     autocmd FileType markdown       setlocal formatoptions=tqln
     autocmd FileType markdown       syntax sync fromstart
     autocmd FileType ruby           setlocal formatoptions=cq
@@ -677,8 +678,8 @@ augroup pluginBehaviours
     autocmd Syntax      *               IndentLinesReset
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType    nerdtree
-      \ setlocal conceallevel=0 colorcolumn=0 matchpairs=
+    autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
+    autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType css,scss
       \ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     autocmd FileType crystal,elixir,json
