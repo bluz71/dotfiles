@@ -447,10 +447,11 @@ Plug '907th/vim-auto-save'
     let g:auto_save_silent = 1
     let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 Plug 'Yggdroot/indentLine'
-    let g:indentLine_char       = '┊'
-    let g:indentLine_setColors  = 0
-    let g:indentLine_faster     = 1
-    let g:indentLine_setConceal = 0
+    let g:indentLine_char            = '┊'
+    let g:indentLine_faster          = 1
+    let g:indentLine_setColors       = 0
+    let g:indentLine_setConceal      = 0
+    let g:indentLine_fileTypeExclude = ['nerdtree']
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line    = 1
     let g:clever_f_timeout_ms        = 3000
@@ -678,8 +679,9 @@ augroup pluginBehaviours
     autocmd Syntax      *               IndentLinesReset
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
     autocmd FileType    nerdtree        IndentLinesDisable
+    autocmd FileType    nerdtree
+      \ setlocal colorcolumn=0 conceallevel=0 matchpairs=
     autocmd FileType css,scss
       \ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
     autocmd FileType crystal,elixir,json
