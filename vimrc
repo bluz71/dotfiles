@@ -447,10 +447,10 @@ Plug '907th/vim-auto-save'
     let g:auto_save_silent = 1
     let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 Plug 'Yggdroot/indentLine'
-    let g:indentLine_char            = '┊'
-    let g:indentLine_faster          = 1
-    let g:indentLine_setColors       = 0
-    let g:indentLine_setConceal      = 0
+    let g:indentLine_char       = '┊'
+    let g:indentLine_faster     = 1
+    let g:indentLine_setColors  = 0
+    let g:indentLine_setConceal = 0
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line    = 1
     let g:clever_f_timeout_ms        = 3000
@@ -542,11 +542,11 @@ Plug 'tpope/vim-rails'
     nnoremap <leader>a :A<CR>
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
-    let g:neomake_open_list        = 1
-    let g:neomake_error_sign       = {'text': '─❯'}
-    let g:neomake_warning_sign     = {'text': '─❯'}
-    let g:neomake_info_sign        = {'text': '─❯'}
-    let g:neomake_message_sign     = {'text': '─❯'}
+    let g:neomake_open_list    = 1
+    let g:neomake_error_sign   = {'text': '─❯'}
+    let g:neomake_warning_sign = {'text': '─❯'}
+    let g:neomake_info_sign    = {'text': '─❯'}
+    let g:neomake_message_sign = {'text': '─❯'}
     nnoremap <silent> <leader>m    :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
