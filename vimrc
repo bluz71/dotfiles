@@ -451,7 +451,6 @@ Plug 'Yggdroot/indentLine'
     let g:indentLine_faster          = 1
     let g:indentLine_setColors       = 0
     let g:indentLine_setConceal      = 0
-    let g:indentLine_fileTypeExclude = ['nerdtree']
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line    = 1
     let g:clever_f_timeout_ms        = 3000
@@ -601,6 +600,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
+    " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
@@ -662,7 +662,7 @@ augroup styleAndBehaviourCustomizations
     autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
     autocmd FilterWritePre *         call DiffStyling()
     autocmd VimResized     *         wincmd =
-    autocmd FileType       text setlocal conceallevel=0
+    autocmd FileType       text      setlocal conceallevel=0
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * startinsert
