@@ -496,9 +496,9 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "»",
+                \ "Modified"  : "⩾",
                 \ "Staged"    : "±",
-                \ "Dirty"     : "✗",
+                \ "Dirty"     : "✕",
                 \ "Untracked" : "?",
                 \ "Renamed"   : "‼"
                 \ }
