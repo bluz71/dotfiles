@@ -496,11 +496,11 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "⩾",
-                \ "Staged"    : "±",
+                \ "Modified"  : "±",
+                \ "Staged"    : "✓",
                 \ "Dirty"     : "✕",
                 \ "Untracked" : "?",
-                \ "Renamed"   : "‼"
+                \ "Renamed"   : "→"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
     let g:NERDTreeUpdateOnWrite      = 0
