@@ -498,7 +498,7 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : "±",
-                \ "Staged"    : "↕",
+                \ "Staged"    : "⇆",
                 \ "Dirty"     : "✕",
                 \ "Untracked" : "?",
                 \ "Renamed"   : "≫"
