@@ -377,6 +377,7 @@ noremap  <leader>Q       gqip
 nnoremap <leader><Space> za
 nnoremap <localleader>s  :syntax sync fromstart<CR>
 " Copy/cut/paste/register related helper mappings.
+noremap  <leader>x       :let @x=getreg('*')<CR>
 noremap  <leader>y       :let @0=getreg('*')<CR>
 noremap  <leader>p       "0p
 noremap  <leader>P       "0P
@@ -497,10 +498,10 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : "±",
-                \ "Staged"    : "✓",
+                \ "Staged"    : "*",
                 \ "Dirty"     : "✕",
                 \ "Untracked" : "?",
-                \ "Renamed"   : "→"
+                \ "Renamed"   : "≫"
                 \ }
     let g:NERDTreeUpdateOnCursorHold = 0
     let g:NERDTreeUpdateOnWrite      = 0
