@@ -499,7 +499,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
                 \ "Modified"  : "±",
                 \ "Staged"    : "⇆",
-                \ "Dirty"     : "✕",
+                \ "Dirty"     : "*",
                 \ "Untracked" : "?",
                 \ "Renamed"   : "≫"
                 \ }
