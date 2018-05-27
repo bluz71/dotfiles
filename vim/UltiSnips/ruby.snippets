@@ -1,12 +1,14 @@
-snippet class
+snippet cl
 class ${1:Class}
-  $2
+  def initialize${2:()}
+    $3
+  end
 end
 endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet controller
+snippet rails.c
 # frozen_string_literal: true
 
 class ${1:Controller} < ApplicationController
@@ -26,7 +28,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet model
+snippet rails.m
 # frozen_string_literal: true
 
 class ${1:Model} < ApplicationRecord
