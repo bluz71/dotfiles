@@ -391,10 +391,10 @@ else
 endif
 " Nicer completion mappings when in insert mode.
 "  ] - complete from tags file
-"  k - dictionary completion
+"  d - dictionary completion
 "  l - complete line
 inoremap <C-]>           <C-x><C-]>
-inoremap <C-k>           <C-x><C-k>
+inoremap <C-d>           <C-x><C-k>
 inoremap <C-l>           <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
 nnoremap c* *Ncgn
@@ -409,10 +409,6 @@ cnoremap <C-a>           <Home>
 cnoremap <C-e>           <End>
 cnoremap <A-b>           <C-Left>
 cnoremap <A-f>           <C-Right>
-" Skeleton/snippet support.
-let $VIMHOME = $HOME . "/.vim"
-nnoremap <leader>khtml   :read $VIMHOME/skeletons/skeleton.html<CR>
-nnoremap <leader>kscript :read $VIMHOME/skeletons/skeleton.script<CR>
 
 
 "===========================================================
@@ -461,6 +457,10 @@ Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
     let g:lion_squeeze_spaces = 1
+Plug 'SirVer/ultisnips'
+    let g:UltiSnipsExpandTrigger       = "<C-j>"
+    let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
+    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
 "-----------------------------
 " File management plugins

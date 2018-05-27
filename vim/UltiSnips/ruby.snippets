@@ -1,0 +1,35 @@
+snippet class
+class ${1:Class}
+  $2
+end
+endsnippet
+
+#-------------------------------------------------------------------------
+
+snippet controller
+# frozen_string_literal: true
+
+class ${1:Controller} < ApplicationController
+  def index
+    $2
+  end
+end
+endsnippet
+
+#-------------------------------------------------------------------------
+
+snippet it
+it "$1" do
+  $2
+end
+endsnippet
+
+#-------------------------------------------------------------------------
+
+snippet model
+# frozen_string_literal: true
+
+class ${1:Model} < ApplicationRecord
+  $2
+end
+endsnippet
