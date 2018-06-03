@@ -22,7 +22,7 @@
 [mergetool]
     keepBackup = false
 [advice]
-    waitingforeditor = false
+    waitingForEditor = false
 [alias]
     bb = branch -vv
     bd = branch -d
