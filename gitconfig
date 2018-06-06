@@ -23,6 +23,8 @@
     keepBackup = false
 [advice]
     waitingForEditor = false
+[diff-so-fancy]
+    markEmptyLines = false
 [alias]
     bb = branch -vv
     bd = branch -d
