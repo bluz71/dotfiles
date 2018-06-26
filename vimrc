@@ -471,7 +471,7 @@ Plug 'SirVer/ultisnips'
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'bluz71/fzf-moonfly.vim'
-    let g:fzf_layout = { 'down': '~30%' }
+    let g:fzf_layout = { 'window': 'silent botright 16split enew' }
     let g:fzf_commits_log_options = '--graph --color=always
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
