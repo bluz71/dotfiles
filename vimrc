@@ -636,7 +636,7 @@ augroup languageCustomizationsByType
     autocmd FileType c,cpp          setlocal cindent foldmethod=syntax
     autocmd FileType eelixir        setlocal matchpairs=(:),{:},[:]
     autocmd FileType eruby          setlocal formatoptions=cq matchpairs=(:),{:},[:]
-    " Setup indent markers for tab-indented Go code. Note, the IndentLine 
+    " Setup indent markers for tab-indented Go code. Note, the IndentLine
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
     autocmd FileType go             setlocal list listchars=tab:\┊\ ,trail:-

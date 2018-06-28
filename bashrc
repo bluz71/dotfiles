@@ -23,7 +23,7 @@ alias hrg='history | rg'
 alias l1='ls -1'
 alias ll='ls -l'
 alias ll.='ls -la'
-# usage: llfs +1M (find all files larger than 1 megabyte) 
+# usage: llfs +1M (find all files larger than 1 megabyte)
 alias llfs='find_by_size'
 alias lls='ls_by_size(){ ls -la --sort=size "$@" | less; }; ls_by_size'
 alias llt='ls_by_time(){ ls -la --sort=time "$@" | less; }; ls_by_time'
@@ -154,7 +154,7 @@ brew_config() {
 }
 
 find_by_size() {
-    find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ; 
+    find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ;
 }
 
 fzf_find_edit() {
