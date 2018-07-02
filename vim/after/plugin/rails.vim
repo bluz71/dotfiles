@@ -1,5 +1,6 @@
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
+    nnoremap <leader>a  :A<CR>
     nnoremap <leader>ec :Econtroller<Space>
     nnoremap <leader>eh :Ehelper<Space>
     nnoremap <leader>ei :Einitializer<Space>

@@ -545,7 +545,8 @@ Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
-    nnoremap <leader>a :A<CR>
+Plug 'tpope/vim-projectionist'
+    " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
     let g:neomake_open_list    = 1
