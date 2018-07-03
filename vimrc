@@ -497,8 +497,8 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeDirArrowCollapsible = "⠶"
     let NERDTreeHijackNetrw           = 0
     let NERDTreeStatusline            = " NERDTree "
-    noremap <silent> <leader>n        :NERDTreeToggle<CR> <C-w>=
-    noremap <silent> <leader>f        :NERDTreeFind<CR> <C-w>=
+    noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
+    noremap <silent> <leader>f :NERDTreeFind<CR> <C-w>=
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
@@ -514,14 +514,16 @@ Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
     let g:bufExplorerSortBy           = 'name'
-    noremap <leader>l                 :BufExplorer<CR>
+    noremap <leader>l :BufExplorer<CR>
 Plug 'mhinz/vim-grepper'
-    let g:grepper      = {}
+    let g:grepper       = {}
+    let g:grepper.tools = ['rg']
     runtime autoload/grepper.vim
-    let g:grepper.jump = 1
-    let g:grepper.stop = 500
+    let g:grepper.jump  = 1
+    let g:grepper.stop  = 500
+    xmap gr <plug>(GrepperOperator)
     noremap <leader>gr :GrepperRg<Space>
-    noremap <leader>gw :GrepperRg<Space>"\b<cword>\b"<CR>
+    noremap <leader>*  :GrepperRg<Space>"\b<cword>\b"<CR>
 
 "-----------------------------
 " Development related plugins
@@ -554,7 +556,7 @@ Plug 'neomake/neomake'
     let g:neomake_warning_sign = {'text': '❯❯'}
     let g:neomake_info_sign    = {'text': '❯❯'}
     let g:neomake_message_sign = {'text': '❯❯'}
-    nnoremap <silent> <leader>m    :Neomake<CR>
+    nnoremap <silent> <leader>m :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
     nnoremap <silent> <localleader>tf :TestFile<CR>
