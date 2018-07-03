@@ -75,9 +75,9 @@ set t_Co=256          " 256 color support
 set tabstop=4
 " Be aware, termguicolors results in `:terminal` colors that are slightly off.
 "   https://github.com/neovim/neovim/issues/7018
-if has('termguicolors')
-    set termguicolors " Enable 24-bit color support if available
-endif
+" if has('termguicolors')
+"     set termguicolors " Enable 24-bit color support if available
+" endif
 set textwidth=79
 set timeoutlen=2500   " Give some time for multi-key mappings
 " Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
