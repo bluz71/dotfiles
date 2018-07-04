@@ -26,6 +26,7 @@
 [diff-so-fancy]
     markEmptyLines = false
 [alias]
+    unadd = reset HEAD
     bb = branch -vv
     bd = branch -d
     ci = commit

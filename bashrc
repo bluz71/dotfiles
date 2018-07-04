@@ -12,6 +12,8 @@ alias du='du -b'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
 alias g=git
+alias gadd='git add $(git ls-files --modified | fzf --ansi)'
+alias gunadd='git unadd $(git diff --name-only --cached | fzf --ansi)'
 alias gll='fzf_git_log'
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
@@ -172,7 +174,7 @@ fzf_git_log() {
 }
 
 fzf_kill() {
-    local pid=$(ps -f -u $USER | sed 1d | fzf --height 80% | awk '{print $2}')
+    local pid=$(ps -f -u $USER | sed 1d | fzf --height 80% | tr -s [:blank:] | cut -d' ' -f3)
     if [ -n "$pid" ]; then
         echo "$pid" | xargs kill -9 "$@"
     fi
