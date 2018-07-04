@@ -12,8 +12,8 @@ alias du='du -b'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
 alias g=git
-alias gadd='git add $(git ls-files --modified | fzf --ansi)'
-alias gunadd='git unadd $(git diff --name-only --cached | fzf --ansi)'
+alias gadd='fzf_git_add'
+alias gunadd='fzf_git_unadd'
 alias gll='fzf_git_log'
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
@@ -162,7 +162,14 @@ find_by_size() {
 fzf_find_edit() {
     local file=$(fzf --no-multi)
     if [ -n "$file" ]; then
-        $EDITOR "$file"
+        $EDITOR $file
+    fi
+}
+
+fzf_git_add() {
+    local files=$(git ls-files --modified | fzf --ansi)
+    if [ -n "$files" ]; then
+        git add --verbose $files
     fi
 }
 
@@ -173,10 +180,17 @@ fzf_git_log() {
                        xargs -I@ sh -c 'git show --color=always @'"
 }
 
+fzf_git_unadd() {
+    local files=$(git diff --name-only --cached | fzf --ansi)
+    if [ -n "$files" ]; then
+        git unadd $files
+    fi
+}
+
 fzf_kill() {
-    local pid=$(ps -f -u $USER | sed 1d | fzf --height 80% | tr -s [:blank:] | cut -d' ' -f3)
-    if [ -n "$pid" ]; then
-        echo "$pid" | xargs kill -9 "$@"
+    local pids=$(ps -f -u $USER | sed 1d | fzf --height 80% | tr -s [:blank:] | cut -d' ' -f3)
+    if [ -n "$pids" ]; then
+        echo "$pids" | xargs kill -9 "$@"
     fi
 }
 
@@ -188,7 +202,7 @@ fzf_rg_edit(){
     local match=$(rg --color=never --line-number "$1" | fzf --no-multi)
     local file=$(echo "$match" | cut -d':' -f1)
     if [ -n "$file" ]; then
-        $EDITOR "$file" +$(echo "$match" | cut -d':' -f2)
+        $EDITOR $file +$(echo "$match" | cut -d':' -f2)
     fi
 }
 
