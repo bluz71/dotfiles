@@ -11,6 +11,7 @@
 # Alt-$: delete till end of line
 # Alt-0: delete till start of line
 # Alt-u: undo last edit
+# Alt-e: edit in $EDITOR the current command and execute
 # Alt-.: append parameters from last command
 # Ctrl-a/HOME/fn-left: go to start of line
 # Ctrl-e/END/fn-right: go to end of line
@@ -25,6 +26,7 @@
 "\eF": vi-forward-bigword
 "\eD": "\eF\C-w"
 "\eu": undo
+"\ee": edit-and-execute-command
 "\C-l": abort
 "\C-k": abort
 
