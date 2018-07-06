@@ -34,6 +34,9 @@ alias m='less'
 alias mux='tmuxinator'
 alias mv='/bin/mv -i'
 alias nv='nvim'
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    alias nvim='nvr -o'
+fi
 alias p='highlight -O ansi --force'
 alias psu='ps -u $USER -f'
 alias qmv='qmv -f do'
