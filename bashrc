@@ -35,7 +35,7 @@ alias mux='tmuxinator'
 alias mv='/bin/mv -i'
 alias nv='nvim'
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    alias nvim='nvr -o'
+    alias nvim='nvr'
 fi
 alias p='highlight -O ansi --force'
 alias psu='ps -u $USER -f'
