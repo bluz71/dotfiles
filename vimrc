@@ -21,7 +21,7 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all       " Bells are annoying
 set breakindent       " Wrap long lines *with* indentation
-if has('unnamedplus')
+if has("unnamedplus")
     set clipboard=unnamed,unnamedplus
 else
     set clipboard=unnamed
@@ -75,7 +75,7 @@ set t_Co=256          " 256 color support
 set tabstop=4
 " Be aware, termguicolors results in `:terminal` colors that are slightly off.
 "   https://github.com/neovim/neovim/issues/7018
-" if has('termguicolors')
+" if has("termguicolors")
 "     set termguicolors " Enable 24-bit color support if available
 " endif
 set textwidth=79
@@ -199,7 +199,7 @@ if !has("gui_running") && !has("nvim")
     " help required; the following 'help' is for terminal Vim only.
 
     " if tmux
-    if &term == 'screen-256color'
+    if &term == "screen-256color"
         " Change the cursor to an I-beam when in insert mode.
         let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
         let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
@@ -376,7 +376,7 @@ noremap  <leader>Q       gqip
 nnoremap <leader><Space> za
 nnoremap <localleader>s  :syntax sync fromstart<CR>
 " Copy/cut/paste/register related helper mappings.
-noremap  <leader>y       :let @o=getreg('*')<CR>:let @0=getreg('*')<CR>
+noremap  <leader>y       :let @o=getreg("*")<CR>:let @0=getreg("*")<CR>
 noremap  <leader>p       "0p
 noremap  <leader>P       "0P
 noremap  <leader>o       "op
@@ -449,7 +449,7 @@ Plug '907th/vim-auto-save'
     let g:auto_save_silent = 1
     let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
 Plug 'Yggdroot/indentLine'
-    let g:indentLine_char       = '┊'
+    let g:indentLine_char       = "┊"
     let g:indentLine_faster     = 1
     let g:indentLine_setColors  = 0
     let g:indentLine_setConceal = 0
@@ -471,12 +471,12 @@ Plug 'SirVer/ultisnips'
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'bluz71/fzf-moonfly.vim'
-    let g:fzf_layout = { 'window': 'silent botright 16split enew' }
+    let g:fzf_layout = { "window": "silent botright 16split enew" }
     let g:fzf_commits_log_options = '--graph --color=always
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
     nnoremap <silent> <localleader><Space> :Files<CR>
-    nnoremap <silent> <localleader>-       :Files <C-r>=expand('%:h')<CR>/<CR>
+    nnoremap <silent> <localleader>-       :Files <C-r>=expand("%:h")<CR>/<CR>
     nnoremap <silent> <localleader>]       :Tags<CR>
     nnoremap <silent> <localleader>'       :Marks<CR>
     nnoremap <silent> <localleader>,       :Buffers<CR>
@@ -513,11 +513,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive       = 0
     let g:bufExplorerShowRelativePath = 1
-    let g:bufExplorerSortBy           = 'name'
+    let g:bufExplorerSortBy           = "name"
     noremap <leader>l :BufExplorer<CR>
 Plug 'mhinz/vim-grepper'
     let g:grepper       = {}
-    let g:grepper.tools = ['rg']
+    let g:grepper.tools = ["rg"]
     runtime autoload/grepper.vim
     let g:grepper.jump  = 1
     let g:grepper.stop  = 500
@@ -535,11 +535,11 @@ Plug 'sheerun/vim-polyglot'
     let g:go_highlight_operators            = 1
     let g:go_highlight_build_constraints    = 1
     let g:jsx_ext_required                  = 0
-    let g:polyglot_disabled                 = ['yaml']
+    let g:polyglot_disabled                 = ["yaml"]
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
     let g:rubycomplete_rails                = 1
-    let g:ruby_indent_access_modifier_style = 'indent'
+    let g:ruby_indent_access_modifier_style = "indent"
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -552,10 +552,10 @@ Plug 'tpope/vim-projectionist'
 Plug 'neomake/neomake'
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
     let g:neomake_open_list    = 1
-    let g:neomake_error_sign   = {'text': '❯❯'}
-    let g:neomake_warning_sign = {'text': '❯❯'}
-    let g:neomake_info_sign    = {'text': '❯❯'}
-    let g:neomake_message_sign = {'text': '❯❯'}
+    let g:neomake_error_sign   = {"text": "❯❯"}
+    let g:neomake_warning_sign = {"text": "❯❯"}
+    let g:neomake_info_sign    = {"text": "❯❯"}
+    let g:neomake_message_sign = {"text": "❯❯"}
     nnoremap <silent> <leader>m :Neomake<CR>
     nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
@@ -582,7 +582,7 @@ Plug 'tpope/vim-fugitive'
 " tmux support
 "-----------------------------
 Plug 'christoomey/vim-tmux-navigator'
-if &term == 'screen-256color'
+if &term == "screen-256color"
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
     let g:tmux_navigator_no_mappings = 1
@@ -645,7 +645,7 @@ augroup languageCustomizationsByType
     autocmd FileType go             setlocal list listchars=tab:\┊\ ,trail:-
     autocmd FileType go             highlight! link SpecialKey Conceal
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
-    autocmd FileType html           let b:match_words = '<\(\w\w*\):</\1,{:}'
+    autocmd FileType html           let b:match_words = "<\(\w\w*\):</\1,{:}"
     autocmd FileType java           setlocal cindent cinoptions+=j1 foldmethod=syntax
     autocmd FileType javascript.jsx setlocal formatoptions=cq
     autocmd FileType json           set conceallevel=2
