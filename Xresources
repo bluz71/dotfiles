@@ -65,7 +65,7 @@ xterm-moonfly*faceName: Iosevka Custom
 xterm-moonfly*faceSize: 12
 xterm-moonfly*fastScroll: true
 xterm-moonfly*foreground: #b2b2b2
-xterm-moonfly*geometry: 84x58
+xterm-moonfly*geometry: 84x55
 xterm-moonfly*highlightSelection: true
 xterm-moonfly*loginShell: true
 xterm-moonfly*metaSendsEscape: true
