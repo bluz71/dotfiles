@@ -118,7 +118,7 @@ set -o noclobber
 # Set the appropriate umask.
 umask 002
 
-# Use neovim-remote to prevent running nvim-within-nvim via `:terminal`.
+# Use neovim-remote to prevent running neovim within neovim (via `:terminal`).
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
     alias nvim='nvr -cc split'
     export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
