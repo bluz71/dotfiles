@@ -35,9 +35,6 @@ alias mplayer='mplayer $* 2>/dev/null'
 alias mux='tmuxinator'
 alias mv='/bin/mv -i'
 alias nv='nvim'
-if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    alias nvim='nvr'
-fi
 alias p='highlight -O ansi --force'
 alias psu='ps -u $USER -f'
 alias qmv='qmv -f do'
@@ -120,6 +117,12 @@ set -o noclobber
 
 # Set the appropriate umask.
 umask 002
+
+# Use neovim-remote to prevent running nvim-within-nvim via `:terminal`.
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    alias nvim='nvr -cc split'
+    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+fi
 
 
 # Functions.
