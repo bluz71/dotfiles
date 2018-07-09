@@ -47,6 +47,7 @@ set mouse=a           " Mouse support in the terminal
 set mousehide         " Hide mouse when typing text
 set nobackup          " No backup files
 set nocompatible      " No Vi support
+set noexrc            " Disable reading of working directory vimrc files
 set nohlsearch        " Don't highlight search results by default
 set nojoinspaces      " No to double-spaces when joining lines
 set noshowcmd         " No to showing command in bottom-right corner
