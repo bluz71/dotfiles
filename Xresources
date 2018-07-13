@@ -66,7 +66,11 @@ xterm-moonfly*faceSize: 12
 xterm-moonfly*fastScroll: true
 xterm-moonfly*foreground: #b2b2b2
 xterm-moonfly*geometry: 84x55
+xterm-moonfly*highlightColor: #b2ceee
+xterm-moonfly*highlightColorMode: true
+xterm-moonfly*highlightReverse: false
 xterm-moonfly*highlightSelection: true
+xterm-moonfly*highlightTextColor: #080808
 xterm-moonfly*loginShell: true
 xterm-moonfly*metaSendsEscape: true
 xterm-moonfly*saveLines: 3000
