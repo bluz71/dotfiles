@@ -445,7 +445,6 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-moonfly-statusline'
     let g:moonflyWithGitBranchCharacter = 1
 Plug 'rakr/vim-one'
-Plug 'trevordmiller/nova-vim'
 
 "-----------------------------
 " Niceties
