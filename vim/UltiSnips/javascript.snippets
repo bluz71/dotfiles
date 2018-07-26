@@ -6,12 +6,6 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet log
-console.log($1);
-endsnippet
-
-#-------------------------------------------------------------------------
-
 snippet fn
 ${1:function}(${2:args}) {
   $3
@@ -28,18 +22,24 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet react.fn
+snippet jest
 import React from 'react';
-import PropTypes from 'prop-types';
+import { shallow } from 'enzyme';
+import ${1:Component} from '../../components/$1';
 
-const ${1:Component} = ({ $2 }) => {
-  $3
-};
+describe('<$1 />', () => {
+  it('renders without crashing', () => {
+    shallow(<$1 />);
+  });
 
-//$1.propTypes = {
-//};
+  $2
+});
+endsnippet
 
-export default $1;
+#-------------------------------------------------------------------------
+
+snippet log
+console.log($1);
 endsnippet
 
 #-------------------------------------------------------------------------
@@ -68,16 +68,16 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet jest
+snippet react.fn
 import React from 'react';
-import { shallow } from 'enzyme';
-import ${1:Component} from '../../components/$1';
+import PropTypes from 'prop-types';
 
-describe('<$1 />', () => {
-  it('renders without crashing', () => {
-    shallow(<$1 />);
-  });
+const ${1:Component} = ({ $2 }) => {
+  $3
+};
 
-  $2
-});
+//$1.propTypes = {
+//};
+
+export default $1;
 endsnippet

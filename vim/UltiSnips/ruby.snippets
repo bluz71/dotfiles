@@ -8,6 +8,14 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
+snippet it
+it "$1" do
+  $2
+end
+endsnippet
+
+#-------------------------------------------------------------------------
+
 snippet rails.c
 # frozen_string_literal: true
 
@@ -15,14 +23,6 @@ class ${1:Controller} < ApplicationController
   def index
     $2
   end
-end
-endsnippet
-
-#-------------------------------------------------------------------------
-
-snippet it
-it "$1" do
-  $2
 end
 endsnippet
 
