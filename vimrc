@@ -609,7 +609,7 @@ endif
 " Neovim specific plugins
 "-----------------------------
 if has("nvim")
-Plug 'bfredl/nvim-miniyank', { 'commit': '67992af' }
+Plug 'bfredl/nvim-miniyank'
     map p <Plug>(miniyank-autoput)
     map P <Plug>(miniyank-autoPut)
 endif
