@@ -482,7 +482,7 @@ Plug 'SirVer/ultisnips'
 " File management plugins
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
-Plug 'bluz71/fzf-moonfly.vim'
+Plug 'junegunn/fzf.vim'
     let g:fzf_layout = { "window": "silent botright 16split enew" }
     let g:fzf_commits_log_options = '--graph --color=always
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
@@ -537,6 +537,7 @@ Plug 'mhinz/vim-grepper'
     xmap gr <plug>(GrepperOperator)
     noremap <leader>gr :GrepperRg<Space>
     noremap <leader>*  :GrepperRg<Space>"\b<cword>\b"<CR>
+    " ~/dotfiles/vim/after/plugin/grepper.vim - customization
 
 "-----------------------------
 " Development related plugins
