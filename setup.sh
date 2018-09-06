@@ -17,6 +17,7 @@ ln -s dotfiles/vim/          .vim
 ln -s dotfiles/vimrc         .vimrc
 
 if [ "$(uname)" = Linux ]; then
-    ln -s dotfiles/fonts.conf .fonts.conf
+    mkdir -p .config/fontconfig
+    ln -s dotfiles/fonts.conf .config/fontconfig/fonts.conf
     ln -s dotfiles/Xresources .Xresources
 fi
