@@ -563,7 +563,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript'] }
     let g:prettier#config#bracket_spacing       = 'true'
     let g:prettier#config#jsx_bracket_same_line = 'false'
     let g:prettier#config#trailing_comma        = 'none'
-    nmap <Leader>p <Plug>(Prettier)
+    nmap <localleader>p <Plug>(Prettier)
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
