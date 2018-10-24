@@ -494,10 +494,8 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <localleader>,       :Buffers<CR>
     nnoremap <silent> <localleader>c       :Commits<CR>
     nnoremap <silent> <localleader>h       :Helptags<CR>
-    nnoremap <silent> <localleader>l       :Lines<CR>
     nnoremap <silent> <localleader>b]      :BTags<CR>
     nnoremap <silent> <localleader>bc      :BCommits<CR>
-    nnoremap <silent> <localleader>bl      :BLines<CR>
     nnoremap <localleader>gr               :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
@@ -557,7 +555,8 @@ Plug 'sheerun/vim-polyglot'
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 
+      \                         'for': ['css', 'javascript', 'json', 'scss'] }
     let g:prettier#autoformat                   = 0
     let g:prettier#config#arrow_parens          = 'always'
     let g:prettier#config#bracket_spacing       = 'true'
@@ -577,8 +576,8 @@ Plug 'neomake/neomake'
     let g:neomake_warning_sign = {"text": "❯❯"}
     let g:neomake_info_sign    = {"text": "❯❯"}
     let g:neomake_message_sign = {"text": "❯❯"}
-    nnoremap <silent> <leader>m :Neomake<CR>
-    nnoremap <silent> <leader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
+    nnoremap <silent> <localleader>l :Neomake<CR>
+    nnoremap <silent> <localleader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
     nnoremap <silent> <localleader>tf :TestFile<CR>
     nnoremap <silent> <localleader>tl :TestLast<CR>
