@@ -54,6 +54,7 @@ alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
 alias vrg='fzf_rg_edit'
 alias x=exit
+alias ytest='CI=true yarn test --colors'
 # Easy parent directory navigation.
 alias ..='cd ..'
 alias ..2='..; ..'
