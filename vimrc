@@ -555,8 +555,9 @@ Plug 'sheerun/vim-polyglot'
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 
-      \                         'for': ['css', 'javascript', 'json', 'scss'] }
+Plug 'prettier/vim-prettier',
+      \ { 'do': 'yarn install',
+      \   'for': ['css', 'javascript', 'json', 'scss', 'typescript'] }
     let g:prettier#autoformat                   = 0
     let g:prettier#config#arrow_parens          = 'always'
     let g:prettier#config#bracket_spacing       = 'true'
