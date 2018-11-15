@@ -558,11 +558,6 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'prettier/vim-prettier',
       \ { 'do': 'yarn install',
       \   'for': ['css', 'javascript', 'json', 'scss', 'typescript'] }
-    let g:prettier#autoformat                   = 0
-    let g:prettier#config#arrow_parens          = 'always'
-    let g:prettier#config#bracket_spacing       = 'true'
-    let g:prettier#config#jsx_bracket_same_line = 'false'
-    let g:prettier#config#trailing_comma        = 'none'
     nmap <localleader>p <Plug>(Prettier)
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
