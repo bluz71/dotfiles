@@ -575,6 +575,7 @@ Plug 'neomake/neomake'
     nnoremap <silent> <localleader>l :Neomake<CR>
     nnoremap <silent> <localleader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
 Plug 'janko-m/vim-test'
+    let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <localleader>tf :TestFile<CR>
     nnoremap <silent> <localleader>tl :TestLast<CR>
     nnoremap <silent> <localleader>ts :TestSuite<CR>
