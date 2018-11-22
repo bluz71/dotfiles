@@ -174,7 +174,10 @@ find_by_size() {
 }
 
 fzf_find_edit() {
-    local file=$(fzf --no-multi --preview 'bat --color=always --line-range :500 {}')
+    local file=$(
+      fzf --no-multi --height 80% \
+          --preview 'bat --color=always --line-range :500 {}'
+      )
     if [ -n "$file" ]; then
         $EDITOR $file
     fi
@@ -191,8 +194,7 @@ fzf_git_log() {
     local commits=$(
       git ll --color=always "$@" |
         fzf --ansi --no-sort --height 100% \
-            --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                       xargs -I@ sh -c 'git show --color=always @'"
+            --preview "git show --color=always {2}"
       )
     if [ -n "$commits" ]; then
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
@@ -219,7 +221,11 @@ fzf_rg_edit(){
         echo 'Error: search term was not provided.'
         return
     fi
-    local match=$(rg --color=never --line-number "$1" | fzf --no-multi)
+    local match=$(
+      rg --color=never --line-number "$1" |
+        fzf --no-multi --delimiter : --height 80% \
+            --preview "bat --color=always --line-range {2}: {1}"
+      )
     local file=$(echo "$match" | cut -d':' -f1)
     if [ -n "$file" ]; then
         $EDITOR $file +$(echo "$match" | cut -d':' -f2)
