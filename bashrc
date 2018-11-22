@@ -21,6 +21,7 @@ PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
 alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
 alias h=history
+alias help='tldr'
 alias hrg='history | rg'
 alias l1='ls -1'
 alias ll='ls -l'
@@ -36,6 +37,7 @@ alias mux='tmuxinator'
 alias mv='/bin/mv -i'
 alias nv='nvim'
 alias p='bat'
+alias pping='prettyping --nolegend'
 alias psu='ps -u $USER -f'
 alias qmv='qmv -f do'
 alias rg='rg --smart-case'
@@ -154,7 +156,7 @@ brew_config() {
     # 'fzf' configuration.
     . $brew_prefix/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
-      --height 40% --multi --reverse
+      --height 50% --multi --reverse
       --bind ctrl-f:page-down,ctrl-b:page-up
       --color hl:13,fg+:251,bg+:234,hl+:13
       --color info:10,prompt:111,pointer:9,marker:8,spinner:10,header:4
