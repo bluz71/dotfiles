@@ -210,7 +210,10 @@ fzf_git_unadd() {
 }
 
 fzf_kill() {
-    local pids=$(ps -f -u $USER | sed 1d | fzf --height 80% | tr -s [:blank:] | cut -d' ' -f3)
+    local pids=$(
+      ps -f -u $USER | sed 1d | fzf --height 80% | tr -s [:blank:] |
+        cut -d' ' -f3
+      )
     if [ -n "$pids" ]; then
         echo "$pids" | xargs kill -9 "$@"
     fi
