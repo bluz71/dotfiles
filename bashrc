@@ -9,7 +9,7 @@ alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
-alias f='fzf --ansi'
+alias f='fzf --ansi --preview "bat --color=always --line-range :500 {}"'
 alias fkill='fzf_kill'
 alias g=git
 alias gadd='fzf_git_add'
@@ -35,7 +35,7 @@ alias mplayer='mplayer $* 2>/dev/null'
 alias mux='tmuxinator'
 alias mv='/bin/mv -i'
 alias nv='nvim'
-alias p='highlight -O ansi --force'
+alias p='bat'
 alias psu='ps -u $USER -f'
 alias qmv='qmv -f do'
 alias rg='rg --smart-case'
@@ -151,7 +151,7 @@ brew_config() {
         chruby 2.5.1
     fi
 
-    # FZF configuration.
+    # 'fzf' configuration.
     . $brew_prefix/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 40% --multi --reverse
@@ -162,6 +162,9 @@ brew_config() {
     export FZF_DEFAULT_COMMAND='fd --type f --color=never'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+
+    # 'bat' configuration.
+    export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
 }
 
 find_by_size() {
@@ -169,7 +172,7 @@ find_by_size() {
 }
 
 fzf_find_edit() {
-    local file=$(fzf --no-multi)
+    local file=$(fzf --no-multi --preview 'bat --color=always --line-range :500 {}')
     if [ -n "$file" ]; then
         $EDITOR $file
     fi
