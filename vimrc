@@ -190,6 +190,13 @@ function! DiffStyling()
     endif
 endfunction
 
+" Clear and reset Neomake.
+"
+function! NeomakeReset()
+    NeomakeClean
+    call setloclist(0, [])
+    lclose
+endfunction
 
 "===========================================================
 " TERMINAL CONFIGURATION
@@ -572,8 +579,8 @@ Plug 'neomake/neomake'
     let g:neomake_warning_sign = {"text": "❯❯"}
     let g:neomake_info_sign    = {"text": "❯❯"}
     let g:neomake_message_sign = {"text": "❯❯"}
-    nnoremap <silent> <localleader>l :Neomake<CR>
-    nnoremap <silent> <localleader><BS> :sign unplace *<CR>:set signcolumn=auto<CR>
+    nnoremap <silent> <localleader>l    :Neomake<CR>
+    nnoremap <silent> <localleader><BS> :call NeomakeReset()<CR>
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <localleader>tf :TestFile<CR>
