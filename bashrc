@@ -156,7 +156,7 @@ brew_config() {
     # 'fzf' configuration.
     . $brew_prefix/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
-      --height 80% --multi --reverse
+      --height 75% --multi --reverse
       --bind ctrl-f:page-down,ctrl-b:page-up
       --color hl:13,fg+:251,bg+:234,hl+:13
       --color info:10,prompt:111,pointer:9,marker:8,spinner:10,header:4
@@ -177,8 +177,7 @@ find_by_size() {
 
 fzf_find_edit() {
     local file=$(
-      fzf --no-multi --height 80% \
-          --preview 'bat --color=always --line-range :500 {}'
+      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
       )
     if [ -n "$file" ]; then
         $EDITOR $file
@@ -213,8 +212,7 @@ fzf_git_unadd() {
 
 fzf_kill() {
     local pids=$(
-      ps -f -u $USER | sed 1d | fzf --height 80% | tr -s [:blank:] |
-        cut -d' ' -f3
+      ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f3
       )
     if [ -n "$pids" ]; then
         echo "$pids" | xargs kill -9 "$@"
@@ -228,7 +226,7 @@ fzf_rg_edit(){
     fi
     local match=$(
       rg --color=never --line-number "$1" |
-        fzf --no-multi --delimiter : --height 80% \
+        fzf --no-multi --delimiter : \
             --preview "bat --color=always --line-range {2}: {1}"
       )
     local file=$(echo "$match" | cut -d':' -f1)
