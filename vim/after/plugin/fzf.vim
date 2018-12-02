@@ -1,3 +1,12 @@
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:50%')
+  \           : fzf#vim#with_preview('right:50%', '?'),
+  \   <bang>0)
+" Note, <Alt-a> selects all matches and <Alt-d> deselects all current
+" selections.
+
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
     noremap <silent> <localleader>ec :Files app/controllers<CR>
