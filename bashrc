@@ -166,6 +166,9 @@ brew_config() {
     export FZF_CTRL_T_OPTS='--preview "bat --color=always --line-range :500 {}"'
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
     export FZF_ALT_C_OPTS='--preview "tree -C {} | head -100"'
+    # This is an undocumented environment variable for use by fzf.vim, see:
+    # https://github.com/junegunn/fzf.vim/pull/707
+    export FZF_PREVIEW_COMMAND='bat --color=always {}'
 
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"

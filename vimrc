@@ -504,7 +504,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <localleader>b]      :BTags<CR>
     nnoremap <silent> <localleader>bc      :BCommits<CR>
     nnoremap <localleader>rg               :Rg<Space>
-    nnoremap <localleader>r!               :Rg!<Space>
+    nnoremap <localleader>!                :Rg!<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>m             :FZFMru<CR>
