@@ -71,7 +71,7 @@ set smartcase         " Case-smart searching
 set smarttab
 set splitbelow        " Split below current window
 set splitright        " Split window to the right
-set synmaxcol=200     " Only syntax highlight for 200 chars (for performance)
+set synmaxcol=250     " Only syntax highlight first 250 chars (for performance)
 set t_Co=256          " 256 color support
 set tabstop=4
 " Be aware, termguicolors results in `:terminal` colors that are slightly off.
@@ -101,8 +101,6 @@ set wrap              " Wrap long lines
 " Certain options only work in Neovim whilst others only work in Vim.
 " Neovim has a Whitespace highlight group, Vim does not.
 if has("nvim")
-    " Set 'guicursor' explicitly, needed for shape-changing to work in xterm.
-    set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
@@ -679,7 +677,6 @@ augroup languageCustomizationsByType
     autocmd FileType javascript.jsx setlocal formatoptions=cq
     autocmd FileType json           set conceallevel=2
     autocmd FileType markdown       setlocal formatoptions=tqln
-    autocmd FileType markdown       syntax sync fromstart
     autocmd FileType ruby           setlocal formatoptions=cq
     autocmd FileType scss           let g:indentLine_faster=0
     autocmd FileType vim            setlocal formatoptions=coql
@@ -693,19 +690,19 @@ augroup languageCustomizationsByExtension
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
 augroup END
 
-" Style and behaviour customizations.
+" Style, behaviour and performance customizations.
 "
-augroup styleAndBehaviourCustomizations
+augroup styleBehaviourPerformanceCustomizations
     autocmd!
     autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
     autocmd FilterWritePre *         call DiffStyling()
     autocmd VimResized     *         wincmd =
     autocmd FileType       text      setlocal conceallevel=0
+    autocmd Syntax         *         syntax sync minlines=2000 " for performance
     if has("nvim")
         autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
         autocmd TermOpen * startinsert
         autocmd BufEnter   term://* startinsert
-        autocmd VimLeave * set guicursor=a:block
     endif
 augroup END
 
