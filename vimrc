@@ -392,7 +392,7 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 noremap  <leader>Q       gqip
 nnoremap <leader><Space> za
-nnoremap <localleader>s  :syntax sync fromstart<CR>
+nnoremap <localleader>S  :syntax sync fromstart<CR>
 " Copy/cut/paste/register related helper mappings.
 noremap  <leader>y       :let @o=getreg("*")<CR>:let @0=getreg("*")<CR>
 noremap  <leader>p       "0p
@@ -501,6 +501,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <localleader>h       :Helptags<CR>
     nnoremap <silent> <localleader>b]      :BTags<CR>
     nnoremap <silent> <localleader>bc      :BCommits<CR>
+    nnoremap <silent> <localleader>s       :Snippets<CR>
     nnoremap <localleader>rg               :Rg<Space>
     nnoremap <localleader>!                :Rg!<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
