@@ -390,42 +390,42 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
-noremap  <leader>Q       gqip
-nnoremap <leader><Space> za
-nnoremap <localleader>S  :syntax sync fromstart<CR>
+noremap  <leader>Q      gqip
+nnoremap <leader>,      za
+nnoremap <localleader>S :syntax sync fromstart<CR>
 " Copy/cut/paste/register related helper mappings.
-noremap  <leader>y       :let @o=getreg("*")<CR>:let @0=getreg("*")<CR>
-noremap  <leader>p       "0p
-noremap  <leader>P       "0P
-noremap  <leader>o       "op
-noremap  <leader>O       "oP
-noremap  <leader>d       "_d
+noremap  <leader>y      :let @o=getreg("*")<CR>:let @0=getreg("*")<CR>
+noremap  <leader>p      "0p
+noremap  <leader>P      "0P
+noremap  <leader>o      "op
+noremap  <leader>O      "oP
+noremap  <leader>d      "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
-    nnoremap <A-l>       :redraw!<CR>
+    nnoremap <A-l>      :redraw!<CR>
 else
-    nnoremap l         :redraw!<CR>
+    nnoremap l        :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
 "  ] - complete from tags file
 "  d - dictionary completion
 "  l - complete line
-inoremap <C-]>           <C-x><C-]>
-inoremap <C-d>           <C-x><C-k>
-inoremap <C-l>           <C-x><C-l>
+inoremap <C-]>          <C-x><C-]>
+inoremap <C-d>          <C-x><C-k>
+inoremap <C-l>          <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
 nnoremap c* *Ncgn
 nnoremap c# #NcgN
 " Nicer increment and decrement mappings.
-noremap +                <C-a>
-noremap -                <C-x>
-xnoremap +               g<C-a>
-xnoremap -               g<C-x>
+noremap +               <C-a>
+noremap -               <C-x>
+xnoremap +              g<C-a>
+xnoremap -              g<C-x>
 " ~/.inputrc like motions in command mode.
-cnoremap <C-a>           <Home>
-cnoremap <C-e>           <End>
-cnoremap <A-b>           <C-Left>
-cnoremap <A-f>           <C-Right>
+cnoremap <C-a>          <Home>
+cnoremap <C-e>          <End>
+cnoremap <A-b>          <C-Left>
+cnoremap <A-f>          <C-Right>
 
 
 "===========================================================
