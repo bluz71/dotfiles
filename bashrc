@@ -18,6 +18,7 @@ alias gll='fzf_git_log'
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
 PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
+alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
 alias h=history
