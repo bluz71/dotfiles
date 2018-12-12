@@ -391,7 +391,7 @@ nnoremap <F12>          :call Listing()<CR>
 " Misc mappings
 "-----------------------------
 noremap  <leader>Q      gqip
-nnoremap <leader>,      za
+nnoremap \\             za
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Copy/cut/paste/register related helper mappings.
 noremap  <leader>y      :let @o=getreg("*")<CR>:let @0=getreg("*")<CR>
