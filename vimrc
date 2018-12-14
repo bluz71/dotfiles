@@ -506,7 +506,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <localleader>!                :Rg!<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
-    nnoremap <silent> <localleader>m             :FZFMru<CR>
+    nnoremap <silent> <localleader>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     " Replace arrows with text characters; not all terminal and font
     " combinations provide arrows.
