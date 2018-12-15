@@ -30,6 +30,11 @@
 "\C-l": abort
 "\C-k": abort
 
+# Enable automatic history expansion with space.
+$if Bash
+    Space: magic-space
+$endif
+
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
 TAB: menu-complete
