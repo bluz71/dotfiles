@@ -5,6 +5,7 @@ unalias -a
 # Aliases.
 #
 alias be='bundle exec'
+alias c='cd'
 alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
