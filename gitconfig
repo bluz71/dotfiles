@@ -55,5 +55,5 @@
     sg = "!git add . -N && git add -p"
     sh = show
     sl = stash list
-    ss = stash save
+    ss = stash save --include-untracked
     st = status --short --branch
