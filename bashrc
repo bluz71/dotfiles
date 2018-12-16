@@ -281,18 +281,26 @@ prompt()
         . $GIT_PROMPT_PATH
     fi
 
-    WHITE="$(tput setaf 255)"
-    PURPLE="$(tput setaf 147)"
-    GREEN="$(tput setaf 150)"
-    BLUE="$(tput setaf 111)"
-    RED="$(tput setaf 203)"
-    NOCOLOR="$(tput sgr0)"
+    # Colors used in the prompt.
+    #
+    # 111: Blue
+    # 147: Purple
+    # 150: Green
+    # 203: Red
+    # 255: White
 
-    prompt_end="\`if [ \$? = 0 ]; then echo \[\$BLUE\]; else echo \[\$RED\]; fi\` ❯ \[\$NOCOLOR\]"
+    # Helpers to open and close colors.
+    col-op() { echo -ne "\e[38;5;$1m"; }
+    col-cl() { echo -ne '\e[m'; }
+
+    # Blue > indicates success for the last command run.
+    # Red > indicates failure for the last command run.
+    prompt_end="\`if [ \$? = 0 ]; then echo -ne '\e[38;5;111m'; else echo  -ne '\e[38;5;203m'; fi\` ❯ "
+
     if [ $color_terminal = 1 ] && [ $git_prompt = 1 ]; then
-        PS1="\[\$WHITE\]\h\[\$PURPLE\]\$(__git_ps1)\[\$GREEN\] \w$prompt_end"
+        PS1="\[`col-op 255`\]\h\[`col-op 147`\]\$(__git_ps1)\[`col-op 150`\] \w$prompt_end\[`col-cl`\]"
     elif [ $color_terminal = 1 ]; then
-        PS1="\[\$WHITE\]\h\[\$GREEN\] \w$prompt_end"
+        PS1="\[`col-op 255`\]\h\[`col-op 150`\] \w$prompt_end\[`col-cl`\]"
     else
         PS1='\h \w ❯ '
     fi
