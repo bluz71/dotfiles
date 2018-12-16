@@ -293,8 +293,8 @@ prompt()
     col-op() { echo -ne "\e[38;5;$1m"; }
     col-cl() { echo -ne '\e[m'; }
 
-    # Blue > indicates success for the last command run.
-    # Red > indicates failure for the last command run.
+    # Blue ❯ indicates that the last command ran successfully.
+    # Red ❯ indicates that the last command failed.
     prompt_end="\`if [ \$? = 0 ]; then echo -ne '\e[38;5;111m'; else echo  -ne '\e[38;5;203m'; fi\` ❯ "
 
     if [ $color_terminal = 1 ] && [ $git_prompt = 1 ]; then
