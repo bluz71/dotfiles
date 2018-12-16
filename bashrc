@@ -96,7 +96,7 @@ export OS=`uname`
 HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 HISTFILESIZE=50000                 # Max size of history file
 HISTIGNORE=?:??                    # Ignore one and two letter commands
-HISTSIZE=5000                      # Amount of history to save
+HISTSIZE=50000                     # Amount of history to save
 PROMPT_COMMAND='history -a'        # Append to history file immediately
 
 # Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
