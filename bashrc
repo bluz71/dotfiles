@@ -261,9 +261,6 @@ path()
 
 prompt()
 {
-    open-color() { echo -ne "\e[38;5;$1m"; }
-    close-color () { echo -ne '\e[m'; }
-
     local color_terminal=0
     if [ $TERM = xterm-256color ] || [ $TERM = "screen-256color" ]; then
         color_terminal=1
@@ -284,13 +281,18 @@ prompt()
         . $GIT_PROMPT_PATH
     fi
 
-    # 147: Purple
-    # 150: Dark Sea Green
-    # 255: White
+    WHITE="$(tput setaf 255)"
+    PURPLE="$(tput setaf 147)"
+    GREEN="$(tput setaf 150)"
+    BLUE="$(tput setaf 111)"
+    RED="$(tput setaf 203)"
+    NOCOLOR="$(tput sgr0)"
+
+    prompt_end="\`if [ \$? = 0 ]; then echo \[\$BLUE\]; else echo \[\$RED\]; fi\` ❯ \[\$NOCOLOR\]"
     if [ $color_terminal = 1 ] && [ $git_prompt = 1 ]; then
-        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] ❯ "
+        PS1="\[\$WHITE\]\h\[\$PURPLE\]\$(__git_ps1)\[\$GREEN\] \w$prompt_end"
     elif [ $color_terminal = 1 ]; then
-        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] ❯ "
+        PS1="\[\$WHITE\]\h\[\$GREEN\] \w$prompt_end"
     else
         PS1='\h \w ❯ '
     fi
