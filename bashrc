@@ -287,11 +287,11 @@ prompt()
     # 150: Dark Sea Green
     # 255: White
     if [ $color_terminal = 1 ] && [ $git_prompt = 1 ]; then
-        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
+        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 147`\]\$(__git_ps1)\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] ❯ "
     elif [ $color_terminal = 1 ]; then
-        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] > "
+        PS1="\[`open-color 255`\]\h\[`close-color`\]\[`open-color 150`\] \w\[`close-color`\] ❯ "
     else
-        PS1='\h \w > '
+        PS1='\h \w ❯ '
     fi
 }
 
