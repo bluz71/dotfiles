@@ -98,22 +98,22 @@ HISTFILESIZE=50000                 # Max size of history file
 HISTIGNORE=?:??                    # Ignore one and two letter commands
 HISTSIZE=5000                      # Amount of history to save
 PROMPT_COMMAND='history -a'        # Append to history file immediately
-shopt -s histverify                # Expand, don't execute, history expansions
 
 # Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
 # nice with normal bash history. Also, create a ~/.bash_sessions_disable file
 # to be double sure to disable bash sessions.
 export SHELL_SESSION_HISTORY=0
 
-# Enable the useful Bash 4 features:
+# Enable the useful Bash features:
 #  - autocd, no need to type 'cd' when changing directory
 #  - cdspell, automatically fix directory typos when changing directory
 #  - direxpand, automatically expand directory globs when completing
 #  - dirspell, automatically fix directory typos when completing
 #  - globstar, ** recursive glob
 #  - histappend, append to history, don't overwrite
+#  - histverify, expand, but don't automatically execute, history expansions
 #  - nocaseglob, case-insensitive globbing
-shopt -s autocd cdspell direxpand dirspell globstar histappend nocaseglob
+shopt -s autocd cdspell direxpand dirspell globstar histappend histverify nocaseglob
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4
