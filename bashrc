@@ -113,7 +113,9 @@ export SHELL_SESSION_HISTORY=0
 #  - histappend, append to history, don't overwrite
 #  - histverify, expand, but don't automatically execute, history expansions
 #  - nocaseglob, case-insensitive globbing
-shopt -s autocd cdspell direxpand dirspell globstar histappend histverify nocaseglob
+#  - no_empty_cmd_completion, don't TAB expand empty lines
+shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
+    nocaseglob no_empty_cmd_completion
 
 # Only display up to four directory components in the prompt.
 PROMPT_DIRTRIM=4
