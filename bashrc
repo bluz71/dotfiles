@@ -289,6 +289,7 @@ prompt()
         git_prompt=1
         GIT_PS1_SHOWUPSTREAM="auto"
         GIT_PS1_SHOWSTASHSTATE=1
+        GIT_PS1_SHOWDIRTYSTATE=1
         . $GIT_PROMPT_PATH
     fi
 
