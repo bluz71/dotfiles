@@ -261,9 +261,20 @@ path()
 
 prompt()
 {
+    local interactive_terminal=0
+    if [[ "$-" =~ "i" ]]; then
+        interactive_terminal=1
+    fi
+
     local color_terminal=0
-    if [ $TERM = xterm-256color ] || [ $TERM = "screen-256color" ]; then
+    if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
         color_terminal=1
+    fi
+
+    # Set a simple prompt for non-interactive or non-color terminals.
+    if [ $interactive_terminal = 0 ] || [ $color_terminal = 0 ]; then
+        PS1='\h \w > '
+        return
     fi
 
     local git_prompt=0
@@ -282,27 +293,21 @@ prompt()
     fi
 
     # Colors used in the prompt.
-    #
-    # 111: Blue
-    # 147: Purple
-    # 150: Green
-    # 203: Red
-    # 255: White
-
-    # Helpers to open and close colors.
-    col-op() { echo -ne "\e[38;5;$1m"; }
-    col-cl() { echo -ne '\e[m'; }
+    BLUE="$(tput setaf 111)"
+    PURPLE="$(tput setaf 147)"
+    GREEN="$(tput setaf 150)"
+    RED="$(tput setaf 203)"
+    WHITE="$(tput setaf 255)"
+    NOCOLOR="$(tput sgr0)"
 
     # Blue ❯ indicates that the last command ran successfully.
     # Red ❯ indicates that the last command failed.
-    prompt_end="\`if [ \$? = 0 ]; then echo -ne '\e[38;5;111m'; else echo  -ne '\e[38;5;203m'; fi\` ❯ "
+    prompt_end="\$(if [ \$? = 0 ]; then echo \[\$BLUE\]; else echo \[\$RED\]; fi) ❯\[\$NOCOLOR\] "
 
-    if [ $color_terminal = 1 ] && [ $git_prompt = 1 ]; then
-        PS1="\[`col-op 255`\]\h\[`col-op 147`\]\$(__git_ps1)\[`col-op 150`\] \w$prompt_end\[`col-cl`\]"
-    elif [ $color_terminal = 1 ]; then
-        PS1="\[`col-op 255`\]\h\[`col-op 150`\] \w$prompt_end\[`col-cl`\]"
+    if [ $git_prompt = 1 ]; then
+        PS1="\[$WHITE\]\h\[$PURPLE\]\$(__git_ps1)\[$GREEN\] \w$prompt_end"
     else
-        PS1='\h \w ❯ '
+        PS1="\[$WHITE\]\h\[$GREEN\] \w$prompt_end"
     fi
 }
 
