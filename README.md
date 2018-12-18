@@ -13,6 +13,7 @@ Contained are dotfiles for:
 * tmux
 * xterm (via Xresources)
 * Linux fontconfig
+* JavaScript *eslint* and *tern*
 
 Platforms where these dotfiles are used: macOS with Homebrew and Debian
 derivatives of Linux (Linux Mint and Ubuntu).
