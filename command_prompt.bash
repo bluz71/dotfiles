@@ -85,11 +85,11 @@ command_prompt()
         fi
 
         local spacer=""
-        if [ -n "$dirty" ] || [ -n "$stash" ] || [ -n "$upstream" ]; then
+        if [ -n "$dirty" ] || [ -n "$staged" ] || [ -n "$stash" ] || [ -n "$upstream" ]; then
             spacer=" "
         fi
 
-        git_details=" ($branch$spacer\[$RED\]$dirty\[$BLUE\]$staged\[$RED\]$stash\[$BLUE\]$upstream\[$PURPLE\])"
+        git_details=" |$branch$spacer\[$RED\]$dirty\[$BLUE\]$staged\[$RED\]$stash\[$BLUE\]$upstream\[$PURPLE\]|"
     fi
 
     # Blue ❯ indicates that the last command ran successfully.
