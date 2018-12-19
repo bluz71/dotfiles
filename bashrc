@@ -98,7 +98,7 @@ HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 HISTFILESIZE=50000                 # Max size of history file
 HISTIGNORE=?:??                    # Ignore one and two letter commands
 HISTSIZE=50000                     # Amount of history to save
-PROMPT_COMMAND='history -a'        # Append to history file immediately
+# Note, to immediately append to history file see 'prompt' section below.
 
 # Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
 # nice with normal bash history. Also, create a ~/.bash_sessions_disable file
@@ -259,59 +259,6 @@ path()
     PATH=~/scripts:$PATH
 }
 
-prompt()
-{
-    local interactive_terminal=0
-    if [[ "$-" =~ "i" ]]; then
-        interactive_terminal=1
-    fi
-
-    local color_terminal=0
-    if [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ]; then
-        color_terminal=1
-    fi
-
-    # Set a simple prompt for non-interactive or non-color terminals.
-    if [ $interactive_terminal = 0 ] || [ $color_terminal = 0 ]; then
-        PS1='\h \w > '
-        return
-    fi
-
-    local git_prompt=0
-    if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
-        local GIT_PROMPT_PATH="/usr/local/etc/bash_completion.d/git-prompt.sh"
-    elif [ -f /etc/bash_completion.d/git-prompt ]; then
-        local GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt"
-    else
-        local GIT_PROMPT_PATH="/usr/share/git-core/contrib/completion/git-prompt.sh"
-    fi
-    if [ -f $GIT_PROMPT_PATH ]; then
-        git_prompt=1
-        GIT_PS1_SHOWUPSTREAM="auto"
-        GIT_PS1_SHOWSTASHSTATE=1
-        GIT_PS1_SHOWDIRTYSTATE=1
-        . $GIT_PROMPT_PATH
-    fi
-
-    # Colors used in the prompt.
-    BLUE="$(tput setaf 111)"
-    PURPLE="$(tput setaf 147)"
-    GREEN="$(tput setaf 150)"
-    RED="$(tput setaf 203)"
-    WHITE="$(tput setaf 255)"
-    NOCOLOR="$(tput sgr0)"
-
-    # Blue ❯ indicates that the last command ran successfully.
-    # Red ❯ indicates that the last command failed.
-    prompt_end="\$(if [ \$? = 0 ]; then echo \[\$BLUE\]; else echo \[\$RED\]; fi) ❯\[\$NOCOLOR\] "
-
-    if [ $git_prompt = 1 ]; then
-        PS1="\[$WHITE\]\h\[$PURPLE\]\$(__git_ps1)\[$GREEN\] \w$prompt_end"
-    else
-        PS1="\[$WHITE\]\h\[$GREEN\] \w$prompt_end"
-    fi
-}
-
 
 # Customizations per platform.
 #
@@ -323,5 +270,13 @@ fi
 # Set environment.
 #
 path
-prompt
 brew_config
+
+
+# Set prompt.
+#
+APPEND_HISTORY_IN_PROMPT=1
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUPSTREAM=1
+. ~/dotfiles/command_prompt.bash

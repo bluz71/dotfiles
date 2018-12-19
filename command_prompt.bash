@@ -20,6 +20,11 @@ fi
 
 command_prompt()
 {
+    # Append history to history file immediately if desired.
+    if [ "$APPEND_HISTORY_IN_PROMPT" = 1 ]; then
+        history -a
+    fi
+
     # Set a simple prompt for non-interactive or non-color terminals.
     if [ $interactive_terminal = 0 ] || [ $color_terminal = 0 ]; then
         PS1='\h \w > '
@@ -31,34 +36,44 @@ command_prompt()
         local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
 
         local dirty=""
-        git diff --no-ext-diff --quiet --exit-code || dirty="✗"
-
         local staged=""
-        git diff --no-ext-diff --quiet --cached --exit-code || staged="✓"
+        if [ -n "$GIT_PS1_SHOWDIRTYSTATE" ]; then
+            git diff --no-ext-diff --quiet --exit-code || dirty="✗"
+            git diff --no-ext-diff --quiet --cached --exit-code || staged="✓"
+        fi
 
         local stash=""
-        git rev-parse --verify --quiet refs/stash >/dev/null && stash="⚑"
+        if [ -n "$GIT_PS1_SHOWSTASHSTATE" ]; then
+            git rev-parse --verify --quiet refs/stash >/dev/null && stash="⚑"
+        fi
 
         local upstream=""
-        case "$(git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)" in
-        "") # no upstream
-            upstream="" ;;
-        "0	0") # equal to upstream
-            upstream="=" ;;
-        "0	"*) # behind upstream
-            upstream="↓" ;;
-        *"	0") # ahead of upstream
-            upstream="↑" ;;
-        *)	    # diverged from upstream
-            upstream="↕" ;;
-        esac
+        if [ -n "$GIT_PS1_SHOWUPSTREAM" ]; then
+            case "$(git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)" in
+            "") # no upstream
+                upstream="" ;;
+            "0	0") # equal to upstream
+                upstream="=" ;;
+            "0	"*) # behind upstream
+                upstream="↓" ;;
+            *"	0") # ahead of upstream
+                upstream="↑" ;;
+            *)	    # diverged from upstream
+                upstream="↕" ;;
+            esac
+        fi
 
-        git_details=" ($branch $dirty$staged$stash$upstream)"
+        local spacer=""
+        if [ -n "$dirty" ] || [ -n "$stash" ] || [ -n "$upstream" ]; then
+            spacer=" "
+        fi
+
+        git_details=" ($branch$spacer\[$RED\]$dirty\[$BLUE\]$staged\[$RED\]$stash\[$BLUE\]$upstream\[$PURPLE\])"
     fi
 
     # Blue ❯ indicates that the last command ran successfully.
     # Red ❯ indicates that the last command failed.
-    prompt_end="\$(if [ \$? = 0 ]; then echo \[\$BLUE\]; else echo \[\$RED\]; fi) ❯\[\$NOCOLOR\] "
+    local prompt_end="\$(if [ \$? = 0 ]; then echo \[\$BLUE\]; else echo \[\$RED\]; fi) ❯\[\$NOCOLOR\] "
 
     PS1="\[$WHITE\]\h\[$PURPLE\]$git_details\[$GREEN\] \w$prompt_end"
 }
