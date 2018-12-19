@@ -259,6 +259,15 @@ path()
     PATH=~/scripts:$PATH
 }
 
+prompt()
+{
+    APPEND_HISTORY_IN_PROMPT=1
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUPSTREAM=1
+    . ~/dotfiles/command_prompt.bash
+}
+
 
 # Customizations per platform.
 #
@@ -271,12 +280,4 @@ fi
 #
 path
 brew_config
-
-
-# Set prompt.
-#
-APPEND_HISTORY_IN_PROMPT=1
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUPSTREAM=1
-. ~/dotfiles/command_prompt.bash
+prompt
