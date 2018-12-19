@@ -1,3 +1,24 @@
+# A colorful Bash prompt.
+#
+# Note: Inspiration taken from: Pure Zsh theme and Bash Git Prompt
+#
+# URL:     github.com/bluz71/dotfiles
+# License: MIT (https://opensource.org/licenses/MIT)
+#
+# Environment variable customizations (set to any non-empty value):
+# 
+# - APPEND_HISTORY_IN_PROMPT, append history immediately to history file
+# - GIT_PS1_SHOWDIRTYSTATE, indicate staged and unstaged modifications
+# - GIT_PS1_SHOWSTASHSTATE, indicate precense of stash(es)
+# - GIT_PS1_SHOWUPSTREAM, indicate upstream and downstream changes
+#
+# Note, computing Git dirty state can be expensive. If GIT_PS1_SHOWDIRTYSTATE
+# is set but you want to disable the dirty indicator on a per-repository
+# basis then please set the following repository configuration:
+#
+#  % git config bash.showDirtyState false
+
+
 interactive_terminal=0
 if [[ "$-" =~ "i" ]]; then
     interactive_terminal=1
@@ -37,7 +58,7 @@ command_prompt()
 
         local dirty=""
         local staged=""
-        if [ -n "$GIT_PS1_SHOWDIRTYSTATE" ]; then
+        if [ -n "$GIT_PS1_SHOWDIRTYSTATE" ] && [ "$(git config --bool bash.showDirtyState)" != "false" ]; then
             git diff --no-ext-diff --quiet --exit-code || dirty="✗"
             git diff --no-ext-diff --quiet --cached --exit-code || staged="✓"
         fi
