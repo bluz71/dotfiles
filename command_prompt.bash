@@ -45,10 +45,10 @@ command_prompt()
             upstream="" ;;
         "0	0") # equal to upstream
             upstream="=" ;;
-        "0	"*) # ahead of upstream
-            upstream="↑" ;;
-        *"	0") # behind upstream
+        "0	"*) # behind upstream
             upstream="↓" ;;
+        *"	0") # ahead of upstream
+            upstream="↑" ;;
         *)	    # diverged from upstream
             upstream="↕" ;;
         esac
