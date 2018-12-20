@@ -47,6 +47,7 @@
     mdis = difftool --staged
     mg = merge
     mgs = merge --squash
+    unmg = reset --merge ORIG_HEAD
     rr = remote -v
     rso = remote show origin
     rsu = remote show upstream
