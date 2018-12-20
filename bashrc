@@ -19,6 +19,7 @@ alias gll='fzf_git_log'
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
 PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
+alias grf='fzf_git_reflog'
 alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
@@ -210,6 +211,15 @@ fzf_git_log() {
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
         git show $hashes
     fi
+}
+
+fzf_git_reflog() {
+    local hash=$(
+      git reflog --color=always "$@" |
+        fzf --no-multi --ansi --no-sort --height 100% \
+            --preview "git show --color=always {1}"
+      )
+    echo $hash
 }
 
 fzf_git_unadd() {
