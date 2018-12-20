@@ -89,7 +89,7 @@ command_prompt()
             spacer=" "
         fi
 
-        git_details=" |$branch$spacer\[$RED\]$dirty\[$BLUE\]$staged\[$RED\]$stash\[$BLUE\]$upstream\[$PURPLE\]|"
+        git_details=" |$branch$spacer\[$RED\]$dirty\[$BLUE\]$staged\[$BLUE\]$upstream\[$PURPLE\]$stash|"
     fi
 
     # Blue ❯ indicates that the last command ran successfully.
