@@ -53,14 +53,17 @@ command_prompt()
     fi
 
     local git_details=""
-    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+    if [[ "$(git rev-parse --is-inside-work-tree --is-bare-repository 2>/dev/null)" =~ true ]]; then
         local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+        if [ "$branch" = "HEAD" ]; then
+            branch="detached*$(git rev-parse --short HEAD 2>/dev/null)"
+        fi
 
         local dirty=""
         local staged=""
-        if [ -n "$GIT_PS1_SHOWDIRTYSTATE" ] && [ "$(git config --bool bash.showDirtyState)" != "false" ]; then
-            git diff --no-ext-diff --quiet --exit-code || dirty="✗"
-            git diff --no-ext-diff --quiet --cached --exit-code || staged="✓"
+        if [ "$branch" != "detached*" ] && [ -n "$GIT_PS1_SHOWDIRTYSTATE" ] && [ "$(git config --bool bash.showDirtyState)" != "false" ]; then
+            git diff --no-ext-diff --quiet --exit-code 2>/dev/null || dirty="✗"
+            git diff --no-ext-diff --quiet --cached --exit-code 2>/dev/null || staged="✓"
         fi
 
         local stash=""
