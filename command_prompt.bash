@@ -61,7 +61,9 @@ command_prompt()
 
         local dirty=""
         local staged=""
-        if [ "$branch" != "detached*" ] && [ -n "$GIT_PS1_SHOWDIRTYSTATE" ] && [ "$(git config --bool bash.showDirtyState)" != "false" ]; then
+        if [ "$branch" != "detached*" ] &&
+           [ -n "$GIT_PS1_SHOWDIRTYSTATE" ] &&
+           [ "$(git config --bool bash.showDirtyState)" != "false" ]; then
             git diff --no-ext-diff --quiet --exit-code --ignore-submodules 2>/dev/null || dirty="✗"
             git diff --no-ext-diff --quiet --cached --exit-code --ignore-submodules 2>/dev/null || staged="✓"
         fi
