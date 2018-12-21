@@ -48,6 +48,7 @@
     mg = merge
     mgs = merge --squash
     unmg = reset --merge ORIG_HEAD
+    oops = commit --amend
     rf = reflog
     rr = remote -v
     rso = remote show origin
