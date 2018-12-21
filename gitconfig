@@ -25,6 +25,8 @@
     waitingForEditor = false
 [diff-so-fancy]
     markEmptyLines = false
+[help]
+    format = html
 [alias]
     unadd = reset HEAD
     bb = branch -vv
