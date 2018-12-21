@@ -7,7 +7,7 @@
 #
 # Environment variable customizations (set to any non-empty value):
 # 
-# - APPEND_HISTORY_IN_PROMPT, append history immediately to history file
+# - PROMPT_PRE_COMMAND
 # - GIT_PS1_SHOWDIRTYSTATE, indicate staged and unstaged modifications
 # - GIT_PS1_SHOWSTASHSTATE, indicate precense of stash(es)
 # - GIT_PS1_SHOWUPSTREAM, indicate upstream and downstream changes
@@ -20,7 +20,7 @@
 
 
 interactive_terminal=0
-if [[ "$-" =~ "i" ]]; then
+if [[ "$-" =~ i ]]; then
     interactive_terminal=1
 fi
 
@@ -41,9 +41,9 @@ fi
 
 command_prompt()
 {
-    # Append history to history file immediately if desired.
-    if [ "$APPEND_HISTORY_IN_PROMPT" = 1 ]; then
-        history -a
+    # Run a pre-command if set.
+    if [ -n "$PROMPT_PRE_COMMAND" ]; then
+        eval $PROMPT_PRE_COMMAND
     fi
 
     # Set a simple prompt for non-interactive or non-color terminals.
@@ -62,19 +62,19 @@ command_prompt()
         local dirty=""
         local staged=""
         if [ "$branch" != "detached*" ] &&
-           [ -n "$GIT_PS1_SHOWDIRTYSTATE" ] &&
+           [ "$GIT_PS1_SHOWDIRTYSTATE" != 0 ] &&
            [ "$(git config --bool bash.showDirtyState)" != "false" ]; then
             git diff --no-ext-diff --quiet --exit-code --ignore-submodules 2>/dev/null || dirty="✗"
             git diff --no-ext-diff --quiet --cached --exit-code --ignore-submodules 2>/dev/null || staged="✓"
         fi
 
         local stash=""
-        if [ -n "$GIT_PS1_SHOWSTASHSTATE" ]; then
+        if [ "$GIT_PS1_SHOWSTASHSTATE" != 0 ]; then
             git rev-parse --verify --quiet refs/stash >/dev/null && stash="⚑"
         fi
 
         local upstream=""
-        if [ -n "$GIT_PS1_SHOWUPSTREAM" ]; then
+        if [ "$GIT_PS1_SHOWUPSTREAM" != 0 ]; then
             case "$(git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null)" in
             "") # no upstream
                 upstream="" ;;
@@ -105,4 +105,4 @@ command_prompt()
 }
 
 # Bind the command_prompt function as the Bash prompt.
-export PROMPT_COMMAND=command_prompt
+PROMPT_COMMAND=command_prompt

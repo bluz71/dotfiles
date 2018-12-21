@@ -271,10 +271,7 @@ path()
 
 prompt()
 {
-    APPEND_HISTORY_IN_PROMPT=1
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWUPSTREAM=1
+    PROMPT_PRE_COMMAND="history -a"
     . ~/dotfiles/command_prompt.bash
 }
 
