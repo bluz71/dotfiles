@@ -16,6 +16,7 @@ alias g=git
 alias gadd='fzf_git_add'
 alias gunadd='fzf_git_unadd'
 alias gll='fzf_git_log'
+alias glS='fzf_git_log_pickaxe'
 # Support for golang development.
 alias godev='export GOPATH=~/projects/go; \
 PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
@@ -207,6 +208,22 @@ fzf_git_log() {
       )
     if [ -n "$commits" ]; then
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $hashes
+    fi
+}
+
+fzf_git_log_pickaxe() {
+    if [ $# == 0 ]; then
+        echo 'Error: search term was not provided.'
+        return
+    fi
+    local commits=$(
+      git log --oneline --color=always -S "$@" |
+        fzf --ansi --no-sort --height 100% \
+            --preview "git show --color=always {1}"
+      )
+    if [ -n "$commits" ]; then
+        local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
         git show $hashes
     fi
 }
