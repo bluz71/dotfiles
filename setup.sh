@@ -1,5 +1,7 @@
 #!/bin/sh
 
+git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
+
 cd ~
 ln -s dotfiles/bash_profile  .bash_profile
 ln -s dotfiles/bashrc        .bashrc
@@ -15,6 +17,9 @@ ln -s dotfiles/tern-project  .tern-project
 ln -s dotfiles/tmux.conf     .tmux.conf
 ln -s dotfiles/vim/          .vim
 ln -s dotfiles/vimrc         .vimrc
+
+mkdir -p .config/nvim
+ln -s dotfiles/init.vim      .config/nvim/init.vim
 
 if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
