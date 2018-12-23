@@ -119,9 +119,6 @@ export SHELL_SESSION_HISTORY=0
 shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
     nocaseglob no_empty_cmd_completion
 
-# Only display up to four directory components in the prompt.
-PROMPT_DIRTRIM=4
-
 # Prevent file overwrite on stdout redirection.
 # Use `>|` to force redirection to an existing file.
 set -o noclobber
@@ -272,8 +269,8 @@ path()
 
 prompt()
 {
-    PROMPT_PRE_COMMAND="history -a"
-    . ~/dotfiles/command_prompt.bash
+    SEAFLY_PRE_COMMAND="history -a"
+    . ~/.bash-seafly-prompt/command_prompt.bash
 }
 
 
