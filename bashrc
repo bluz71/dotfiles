@@ -5,7 +5,7 @@ unalias -a
 # Aliases.
 #
 alias be='bundle exec'
-alias c='cd'
+alias c='cd_with_z(){ cd "$@" && _z --add "$(pwd)"; }; cd_with_z'
 alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
@@ -146,6 +146,7 @@ brew_config() {
 
     # Bash completions.
     . $brew_prefix/etc/bash_completion
+    _Z_NO_PROMPT_COMMAND=1
     . $brew_prefix/etc/profile.d/z.sh
     complete -o default -o nospace -F _git g
 
