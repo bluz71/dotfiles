@@ -7,7 +7,7 @@
 " SETTINGS
 "===========================================================
 
-" We want syntax highlighting on.
+" Enable syntax highlighting.
 "
 syntax on
 
