@@ -290,7 +290,7 @@ prompt()
     # Please first install the seafly Bash prompt.
     #   git clone https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
     SEAFLY_PRE_COMMAND="history -a"
-    SEAFLY_GIT_PREFIX_SYMBOL=" "
+    SEAFLY_GIT_PREFIX=" "
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
 
