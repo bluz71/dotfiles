@@ -28,13 +28,15 @@ alias h=history
 alias help='tldr'
 alias hrg='history | rg'
 alias l1='ls -1'
-alias ll='ls -l'
-alias ll.='ls -la'
+alias ll='exa --long --git --color=always'
+alias ll.='ll --all'
 # usage: llfs +1M (find all files larger than 1 megabyte)
 alias llfs='find_by_size'
-alias lls='ls_by_size(){ ls -la --sort=size "$@" | less; }; ls_by_size'
-alias llt='ls_by_time(){ ls -la --sort=time "$@" | less; }; ls_by_time'
+alias lls='exa_by_size() { ll --reverse --sort=size "$@" | less; }; exa_by_size'
+alias llt='exa_by_time() { ll --reverse --sort=modified "$@" | less; }; exa_by_time'
 alias ls='ls --color --classify --human-readable --quoting-style=escape'
+alias lss='ls_by_size(){ ls -la --sort=size "$@" | less; }; ls_by_size'
+alias lst='ls_by_time(){ ls -la --sort=time "$@" | less; }; ls_by_time'
 alias m='less'
 alias mplayer='mplayer $* 2>/dev/null'
 alias mux='tmuxinator'
@@ -89,7 +91,13 @@ mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
 *.mp4=38;5;217:*.mkv=38;5;216:*.flac=38;5;223:*.mp3=38;5;218:*akefile=38;5;176:\
 *.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:*.doc=38;5;224:*.xls=38;5;146:\
 *.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.mobi=38;5;105:\
-*.m4b=38;5;222:*.conf=38;5;121"
+*.m4b=38;5;222:*.conf=38;5;121:*.md=38;5;224
+"
+export EXA_COLORS="da=38;5;252:sb=38;5;204:sn=38;5;43:\
+uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
+gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
+gm=38;5;203:ga=38;5;111:
+"
 export PAGER=less
 
 # What platform are we running on.
