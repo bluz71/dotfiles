@@ -151,13 +151,17 @@ brew_config() {
     local brew_prefix=$(brew --prefix)
 
     # Bash completions.
-    . $brew_prefix/etc/bash_completion
+    . $brew_prefix/share/bash-completion/bash_completion
+
+    # 'z' configuration.
     _Z_NO_PROMPT_COMMAND=1
     . $brew_prefix/etc/profile.d/z.sh
-    complete -o default -o nospace -F _git g
 
-    # Custom bash completions.
+    # Custom Bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+
+    # Make 'g' alias to Git work with bash-completion.
+    complete -o default -o nospace -F _git g
 
     # Setup chruby if available.
     if [ -f $brew_prefix/share/chruby/chruby.sh ]; then
