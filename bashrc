@@ -4,6 +4,7 @@ unalias -a
 
 # Aliases.
 #
+alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias be='bundle exec'
 alias c='cd_with_z(){ cd "$@" && _z --add "$(pwd)"; }; cd_with_z'
 alias cp='/bin/cp -i'
@@ -18,8 +19,7 @@ alias gunadd='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
 # Support for golang development.
-alias godev='export GOPATH=~/projects/go; \
-PATH=$GOPATH/bin:$PATH; cd $GOPATH/src/bluz71'
+alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; z src bluz'
 alias grf='fzf_git_reflog'
 alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
