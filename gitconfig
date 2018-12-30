@@ -28,37 +28,50 @@
 [help]
     format = html
 [alias]
-    unadd = reset HEAD
-    bb = branch -vv
-    bd = branch -d
-    ci = commit
-    unci = reset --soft HEAD~1
-    co = checkout
-    cob = checkout -b
-    di = diff
-    dis = diff --staged
-    vdi = difftool -t vd
-    vdis = difftool -t vd --staged
-    idi = difftool -t icd
-    idis = difftool -t icd --staged
-    fe = fetch
-    ll = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
-    llm = !git ll master..HEAD
-    llom = !git ll origin/master..HEAD
-    mdi = difftool
-    mdis = difftool --staged
-    mg = merge
-    mgs = merge --squash
-    unmg = reset --merge ORIG_HEAD
-    oops = commit --amend
-    rf = reflog
-    rr = remote -v
-    rso = remote show origin
-    rsu = remote show upstream
-    sa = "!sh -c 'git stash apply stash@{$1}' -"
-    sd = "!sh -c 'git stash drop stash@{$1}' -"
-    sg = "!git add . -N && git add -p"
-    sh = show
-    sl = stash list
-    ss = stash save --include-untracked
-    st = status --short --branch
+    # misc
+    aliases = !git config --list | grep alias | cut -c7- | sort
+    fe      = fetch
+    rf      = reflog
+    st      = status --short --branch
+    # branch
+    bb      = branch -vv
+    bd      = branch -d
+    # checkout
+    co      = checkout
+    cob     = checkout -b
+    # stage
+    sg      = "!git add . -N && git add -p"
+    # commit
+    ci      = commit
+    unci    = reset --soft HEAD~1
+    oops    = commit --amend
+    # reset
+    reverse = reset --hard
+    unadd   = reset HEAD
+    # diff
+    di      = diff
+    dis     = diff --staged
+    vdi     = difftool -t vd
+    vdis    = difftool -t vd --staged
+    idi     = difftool -t icd
+    idis    = difftool -t icd --staged
+    mdi     = difftool
+    mdis    = difftool --staged
+    # log
+    ll      = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
+    llm     = !git ll master..HEAD
+    llom    = !git ll origin/master..HEAD
+    # merge
+    mg      = merge
+    mgs     = merge --squash
+    unmg    = reset --merge ORIG_HEAD
+    # remote
+    rr      = remote -v
+    rso     = remote show origin
+    rsu     = remote show upstream
+    # stash
+    sa      = "!sh -c 'git stash apply stash@{$1}' -"
+    sd      = "!sh -c 'git stash drop stash@{$1}' -"
+    sh      = show
+    sl      = stash list
+    ss      = stash save --include-untracked
