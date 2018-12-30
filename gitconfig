@@ -29,7 +29,7 @@
     format = html
 [alias]
     # misc
-    aliases = !git config --list | grep alias | cut -c7- | sort
+    aliases = !git config --list | grep alias | cut -c7- | sort | bat --language ini --style=plain
     fe      = fetch
     rf      = reflog
     st      = status --short --branch
