@@ -78,8 +78,8 @@ export LESS_TERMCAP_md=$(printf "\e[00;34m")
 export LESS_TERMCAP_us=$(printf "\e[01;32m")
 export LESSHISTFILE=-
 # Note:
-#   mi - completion option color (Bash 4.4 and later)
-#   so - completion prefix color (Bash 4.4 and later)
+#   mi - completion options color (Bash 4.4 and later)
+#   so - completion matching-prefix color (Bash 4.4 and later)
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;51:pi=38;5;43:bd=38;5;212:\
 cd=38;5;225:or=30;48;5;202:ow=38;5;75:so=38;5;177:su=36;48;5;63:ex=38;5;156:\
 mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
@@ -93,7 +93,7 @@ mi=38;5;115:*.exe=38;5;156:*.bat=38;5;156:*.tar=38;5;204:*.tgz=38;5;205:\
 export EXA_COLORS="da=38;5;252:sb=38;5;204:sn=38;5;43:\
 uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
-gm=38;5;203:ga=38;5;111"
+gm=38;5;203:ga=38;5;111:xa=38;5;239"
 export PAGER=less
 
 # What platform are we running on.
