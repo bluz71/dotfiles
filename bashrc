@@ -132,7 +132,7 @@ set -o noclobber
 umask 002
 
 # Use neovim-remote to prevent running neovim within neovim (via `:terminal`).
-if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+if [[ -n $NVIM_LISTEN_ADDRESS ]]; then
     alias nvim='nvr -cc split'
     export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 fi
@@ -141,7 +141,7 @@ fi
 # Functions.
 #
 brew_config() {
-    if ! [ -x "$(command -v brew)" ]; then
+    if ! [[ -x $(command -v brew) ]]; then
         echo 'Note: brew is not installed.'
         return
     fi
@@ -162,7 +162,7 @@ brew_config() {
     complete -o default -o nospace -F _git g
 
     # Setup chruby if available.
-    if [ -f $brew_prefix/share/chruby/chruby.sh ]; then
+    if [[ -f $brew_prefix/share/chruby/chruby.sh ]]; then
         . $brew_prefix/share/chruby/chruby.sh
         chruby 2.5.1
     fi
@@ -196,14 +196,14 @@ fzf_find_edit() {
     local file=$(
       fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
       )
-    if [ -n "$file" ]; then
+    if [[ -n $file ]]; then
         $EDITOR $file
     fi
 }
 
 fzf_git_add() {
     local files=$(git ls-files --modified | fzf --ansi)
-    if [ -n "$files" ]; then
+    if [[ -n $files ]]; then
         git add --verbose $files
     fi
 }
@@ -215,14 +215,14 @@ fzf_git_log() {
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @'"
       )
-    if [ -n "$commits" ]; then
+    if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
         git show $hashes
     fi
 }
 
 fzf_git_log_pickaxe() {
-    if [ $# == 0 ]; then
+    if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
     fi
@@ -231,7 +231,7 @@ fzf_git_log_pickaxe() {
         fzf --ansi --no-sort --height 100% \
             --preview "git show --color=always {1}"
       )
-    if [ -n "$commits" ]; then
+    if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
         git show $hashes
     fi
@@ -248,7 +248,7 @@ fzf_git_reflog() {
 
 fzf_git_unadd() {
     local files=$(git diff --name-only --cached | fzf --ansi)
-    if [ -n "$files" ]; then
+    if [[ -n $files ]]; then
         git unadd $files
     fi
 }
@@ -257,13 +257,13 @@ fzf_kill() {
     local pids=$(
       ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f3
       )
-    if [ -n "$pids" ]; then
+    if [[ -n $pids ]]; then
         echo "$pids" | xargs kill -9 "$@"
     fi
 }
 
 fzf_rg_edit(){
-    if [ $# == 0 ]; then
+    if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
     fi
@@ -273,7 +273,7 @@ fzf_rg_edit(){
             --preview "bat --color=always --line-range {2}: {1}"
       )
     local file=$(echo "$match" | cut -d':' -f1)
-    if [ -n "$file" ]; then
+    if [[ -n $file ]]; then
         $EDITOR $file +$(echo "$match" | cut -d':' -f2)
     fi
 }
@@ -282,10 +282,10 @@ path()
 {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
-    if [ $OS = Darwin ]; then
+    if [[ $OS = Darwin ]]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-    elif [ -d ~/.linuxbrew ]; then
+    elif [[ -d ~/.linuxbrew ]]; then
         PATH=~/.linuxbrew/bin:$PATH
         MANPATH=~/.linuxbrew/share/man:$MANPATH
     fi
@@ -305,7 +305,7 @@ prompt()
 
 # Customizations per platform.
 #
-if [ $OS = Linux ]; then
+if [[ $OS = Linux ]]; then
     alias open='xdg-open'
 fi
 
