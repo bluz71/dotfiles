@@ -13,12 +13,11 @@ alias dir='ls -l'
 alias du='du -b'
 alias f='fzf --ansi --preview "bat --color=always --line-range :500 {}"'
 alias fkill='fzf_kill'
-alias g=git
+alias g='git_as() { if [[ $# == 0 ]]; then git st; else git "$@"; fi }; git_as'
 alias gadd='fzf_git_add'
 alias gunadd='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
-# Support for golang development.
 alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; z src bluz'
 alias grf='fzf_git_reflog'
 alias gtop='glances --disable-bg'
