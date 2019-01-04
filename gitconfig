@@ -61,6 +61,7 @@
     # log
     ll   = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
     llm  = !git ll master..HEAD
+    llmo = !git ll master..origin/master
     llom = !git ll origin/master..HEAD
     # merge
     mg   = merge
