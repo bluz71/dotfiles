@@ -1,15 +1,15 @@
 [user]
-    name = Dennis B
+    name  = Dennis B
     email = bluz71@users.noreply.github.com
 [push]
     default = simple
 [core]
     autocrlf = input
-    pager = diff-so-fancy | less
+    pager    = diff-so-fancy | less
 [color]
     ui = auto
 [diff]
-    tool = meld
+    tool      = meld
     algorithm = histogram
 [merge]
     tool = meld
@@ -28,50 +28,51 @@
 [help]
     format = html
 [alias]
-    # misc
+    # aliases list
     aliases = !git config --list | grep alias | cut -c7- | sort | bat -l ini --style=plain --paging never
-    fe      = fetch
-    rf      = reflog
-    st      = status --short --branch
+    # misc
+    fe = fetch
+    rf = reflog
+    st = status --short --branch
     # branch
-    bb      = branch -vv
-    bd      = branch -d
+    bb = branch -vv
+    bd = branch -d
     # checkout
-    co      = checkout
-    cob     = checkout -b
+    co  = checkout
+    cob = checkout -b
     # stage
-    sg      = "!git add . -N && git add -p"
+    sg = !git add . -N && git add -p
     # commit
-    ci      = commit
-    unci    = reset --soft HEAD~1
-    oops    = commit --amend
+    ci   = commit
+    unci = reset --soft HEAD~1
+    oops = commit --amend
     # reset
     reverse = reset --hard
     unadd   = reset HEAD
     # diff
-    di      = diff
-    dis     = diff --staged
-    vdi     = difftool -t vd
-    vdis    = difftool -t vd --staged
-    idi     = difftool -t icd
-    idis    = difftool -t icd --staged
-    mdi     = difftool
-    mdis    = difftool --staged
+    di   = diff
+    dis  = diff --staged
+    vdi  = difftool -t vd
+    vdis = difftool -t vd --staged
+    idi  = difftool -t icd
+    idis = difftool -t icd --staged
+    mdi  = difftool
+    mdis = difftool --staged
     # log
-    ll      = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
-    llm     = !git ll master..HEAD
-    llom    = !git ll origin/master..HEAD
+    ll   = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
+    llm  = !git ll master..HEAD
+    llom = !git ll origin/master..HEAD
     # merge
-    mg      = merge
-    mgs     = merge --squash
-    unmg    = reset --merge ORIG_HEAD
+    mg   = merge
+    mgs  = merge --squash
+    unmg = reset --merge ORIG_HEAD
     # remote
-    rr      = remote -v
-    rso     = remote show origin
-    rsu     = remote show upstream
+    rr  = remote -v
+    rso = remote show origin
+    rsu = remote show upstream
     # stash
-    sa      = "!sh -c 'git stash apply stash@{$1}' -"
-    sd      = "!sh -c 'git stash drop stash@{$1}' -"
-    sh      = show
-    sl      = stash list
-    ss      = stash save --include-untracked
+    sa = !sh -c 'git stash apply stash@{$1}' -
+    sd = !sh -c 'git stash drop stash@{$1}' -
+    sh = show
+    sl = stash list
+    ss = stash save --include-untracked
