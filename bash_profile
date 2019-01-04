@@ -12,7 +12,7 @@ elif [[ $OS = Darwin ]]; then
     # preference to the system supplied SSH agent (older and worse).
 
     # Use an existing Homebrew SSH agent if it is running and available.
-    if [[-f ~/.ssh-agent-env.sh ]]; then
+    if [[ -f ~/.ssh-agent-env.sh ]]; then
         . ~/.ssh-agent-env.sh
         ps $SSH_AGENT_PID | grep ssh-agent > /dev/null
         if [[ $? -eq 0 ]]; then
