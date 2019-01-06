@@ -35,8 +35,11 @@
     rf = reflog
     st = status --short --branch
     # branch
-    bb = branch -vv
-    bd = branch -d
+    bb   = branch -vv --sort=-committerdate
+    bd   = branch -d
+    refs = for-each-ref --sort=-committerdate --format='%(HEAD) %(color:green)%(refname:short)%(color:reset) %(color:yellow)%(objectname:short)%(color:reset) - %(color:green bold)(%(committerdate:relative))%(color:reset) %(contents:subject) %(color:blue){%(authorname)}%(color:reset)'
+    bbl  = !git refs refs/heads
+    bbr  = !git refs refs/remotes
     # checkout
     co  = checkout
     cob = checkout -b
