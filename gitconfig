@@ -29,7 +29,7 @@
     format = html
 [alias]
     # aliases list
-    aliases = !git config --list | grep alias | cut -c7- | sort | bat -l ini --style=plain --paging never
+    aliases = !git config --list | grep alias | grep -v format | cut -c7- | sort | bat -l ini --style=plain --paging never
     # misc
     fe = fetch
     rf = reflog
@@ -77,8 +77,8 @@
     sh = show
     sl = stash list
     ss = stash save --include-untracked
-    # enhanced 'bb' command with commit date and author
-    bbl  = "!_f() \
+    # enhanced 'bb' command with commit date, commit author and aligned branch
+    bbl = "!_f() \
       { \
         longest_branch=$(git branch --format='%(refname:short)' $@ | awk '{ print length() }' | sort -r -n | head -1); \
         width=$(($longest_branch + 3)); \
