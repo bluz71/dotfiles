@@ -37,9 +37,6 @@
     # branch
     bb   = branch -vv --sort=-committerdate
     bd   = branch -d
-    refs = for-each-ref --sort=-committerdate --format='%(HEAD) %(color:green)%(refname:short)%(color:reset) %(color:yellow)%(objectname:short)%(color:reset) - %(color:green bold)(%(committerdate:relative))%(color:reset) %(contents:subject) %(color:blue){%(authorname)}%(color:reset)'
-    bbl  = !git refs refs/heads
-    bbr  = !git refs refs/remotes
     # checkout
     co  = checkout
     cob = checkout -b
@@ -62,7 +59,7 @@
     mdi  = difftool
     mdis = difftool --staged
     # log
-    ll  = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
+    ll  = log --graph --format=format:'%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)'
     llm = !git ll master..HEAD
     llu = !git ll @{upstream}..HEAD
     lld = !git ll HEAD..@{upstream}
@@ -80,3 +77,10 @@
     sh = show
     sl = stash list
     ss = stash save --include-untracked
+    # enhanced 'bb' command with commit date and author
+    bbl  = "!_f() \
+      { \
+        longest_branch=$(git branch --format='%(refname:short)' $@ | awk '{ print length() }' | sort -r -n | head -1); \
+        width=$(($longest_branch + 3)); \
+        git bb --format=\"%(HEAD) %(align:$width)%(color:green)%(refname:short)%(end) %(color:yellow)%(objectname:short) %(color:green bold)(%(committerdate:relative)) %(color:reset)%(contents:subject) %(color:blue){%(authorname)}%(color:reset)\" $@; \
+      }; _f"
