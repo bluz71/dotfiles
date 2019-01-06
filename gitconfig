@@ -59,10 +59,10 @@
     mdi  = difftool
     mdis = difftool --staged
     # log
-    ll   = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
-    llm  = !git ll master..HEAD
-    llmo = !git ll master..origin/master
-    llom = !git ll origin/master..HEAD
+    ll  = log --graph --format=format:\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)\"
+    llm = !git ll master..HEAD
+    llu = !git ll @{upstream}..HEAD
+    lld = !git ll HEAD..@{upstream}
     # merge
     mg   = merge
     mgs  = merge --squash
