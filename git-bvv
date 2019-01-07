@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Custom Git command: git bvv
+#
+# An enhanced version of the 'git branch -vv' command.
+#
+# This version will list branches sorted from most to least recent (by last
+# commit date) whilst also displaying more details per each branch (last commit
+# date and author).
+#
+# Note, Git 2.19 (or later) is required.
+
+_widest_branch_name=$(git branch --format='%(refname:short)' "$@" | awk '{ print length() }' | sort -r -n | head -1)
+_width=$(($_widest_branch_name + 3))
+
+_fmt="%(HEAD) \
+%(align:$_width)%(color:green)%(refname:short)%(end) \
+%(color:yellow)%(objectname:short)\
+%(if)%(upstream)%(then) %(color:red)(%(upstream:short)%(color:reset)\
+%(if)%(upstream:track)%(then): %(upstream:track,nobracket)\
+%(end)%(color:red))\
+%(end)\
+%(color:reset) - \
+%(color:green bold)(%(committerdate:relative)) \
+%(color:reset)%(contents:subject) %(color:blue){%(authorname)}%(color:reset)"
+
+git branch -vv --sort=-committerdate --format="$_fmt" "$@"
