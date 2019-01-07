@@ -19,10 +19,14 @@ ln -s dotfiles/vim/          .vim
 ln -s dotfiles/vimrc         .vimrc
 
 mkdir -p .config/nvim
-ln -s dotfiles/init.vim      .config/nvim/init.vim
+ln -s ~/dotfiles/init.vim .config/nvim/init.vim
+
+mkdir -p scripts
+ln -s ~/dotfiles/git-bvv scripts/git-bvv
 
 if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
-    ln -s dotfiles/fonts.conf .config/fontconfig/fonts.conf
+    ln -s ~/dotfiles/fonts.conf .config/fontconfig/fonts.conf
     ln -s dotfiles/Xresources .Xresources
 fi
+
