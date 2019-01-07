@@ -35,8 +35,9 @@
     rf = reflog
     st = status --short --branch
     # branch
-    bb   = branch -vv --sort=-committerdate
-    bd   = branch -d
+    bb  = bvv # Note, bvv is a custom subcommand, see the 'git-bvv' file.
+    bba = bvv -a
+    bd  = branch -d
     # checkout
     co  = checkout
     cob = checkout -b
@@ -77,10 +78,3 @@
     sh = show
     sl = stash list
     ss = stash save --include-untracked
-    # enhanced 'bb' command with commit date, commit author and aligned branch
-    bbl = "!_f() \
-      { \
-        longest_branch=$(git branch --format='%(refname:short)' $@ | awk '{ print length() }' | sort -r -n | head -1); \
-        width=$(($longest_branch + 3)); \
-        git bb --format=\"%(HEAD) %(align:$width)%(color:green)%(refname:short)%(end) %(color:yellow)%(objectname:short)%(if)%(upstream)%(then)%(color:reset) [%(color:red)%(upstream:short)%(color:reset)%(if)%(upstream:track)%(then): %(upstream:track,nobracket)%(end)]%(end)%(color:reset) - %(color:green bold)(%(committerdate:relative)) %(color:reset)%(contents:subject) %(color:blue){%(authorname)}%(color:reset)\" $@; \
-      }; _f"
