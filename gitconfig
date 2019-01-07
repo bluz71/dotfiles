@@ -29,14 +29,20 @@
     format = html
 [alias]
     # aliases list
-    aliases = !git config --list | grep alias | grep -v format | cut -c7- | sort | bat -l ini --style=plain --paging never
+    aliases = !git config --list | grep alias | cut -c7- | sort | bat -l ini --style=plain --paging never
     # misc
-    fe = fetch
     rf = reflog
     st = status --short --branch
+    # remote
+    rr  = remote -v
+    rso = remote show origin
+    rsu = remote show upstream
+    # fetch
+    fe  = fetch
+    fea = fetch --all --prune
     # branch
     bb  = bvv # Note, bvv is a custom subcommand, see the 'git-bvv' file.
-    bba = bvv -a
+    bba = bvv --all
     bd  = branch -d
     # checkout
     co  = checkout
@@ -68,10 +74,6 @@
     mg   = merge
     mgs  = merge --squash
     unmg = reset --merge ORIG_HEAD
-    # remote
-    rr  = remote -v
-    rso = remote show origin
-    rsu = remote show upstream
     # stash
     sa = !sh -c 'git stash apply stash@{$1}' -
     sd = !sh -c 'git stash drop stash@{$1}' -
