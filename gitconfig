@@ -44,6 +44,7 @@
     bb  = bvv # Note, bvv is a custom subcommand, see the 'git-bvv' file.
     bba = bvv --all
     bd  = branch -d
+    bD  = branch -D
     # checkout
     co  = checkout
     cob = checkout -b
@@ -71,9 +72,14 @@
     llu = !git ll @{upstream}..HEAD
     lld = !git ll HEAD..@{upstream}
     # merge
-    mg   = merge
-    mgs  = merge --squash
+    mg   = merge --ff-only
+    mgs  = merge --ff-only --squash
     unmg = reset --merge ORIG_HEAD
+    mt   = mergetool
+    # rebase
+    rb  = rebase
+    rbc = rebase --continue
+    rbs = rebase --skip
     # stash
     sa = !sh -c 'git stash apply stash@{$1}' -
     sd = !sh -c 'git stash drop stash@{$1}' -
