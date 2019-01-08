@@ -29,4 +29,3 @@ if [ "$(uname)" = Linux ]; then
     ln -s ~/dotfiles/fonts.conf .config/fontconfig/fonts.conf
     ln -s dotfiles/Xresources .Xresources
 fi
-
