@@ -75,7 +75,7 @@
     mg   = merge --ff-only
     mgs  = merge --ff-only --squash
     unmg = reset --merge ORIG_HEAD
-    mt   = mergetool
+    mgt  = mergetool
     # rebase
     rb  = rebase
     rbc = rebase --continue
