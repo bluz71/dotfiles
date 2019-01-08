@@ -306,6 +306,8 @@ prompt()
 #
 if [[ $OS = Linux ]]; then
     alias open='xdg-open'
+elif [[ $OS = Darwin ]]; then
+    export GTK_THEME='Adwaita' # Force light theme for 'meld'
 fi
 
 
