@@ -30,9 +30,8 @@
 [alias]
     # aliases list
     aliases = !git config --list | grep alias | cut -c7- | sort | bat -l ini --style=plain --paging never
-    # misc
+    # reflog
     rf = reflog
-    st = status --short --branch
     # remote
     rr  = remote -v
     rso = remote show origin
@@ -48,15 +47,16 @@
     # checkout
     co  = checkout
     cob = checkout -b
-    # stage
+    # add
     sg = !git add . -N && git add -p
+    aa = add .
     # commit
-    ci   = commit
-    unci = reset --soft HEAD~1
-    oops = commit --amend
+    ci    = commit
+    unci  = reset --soft HEAD~1
+    amend = commit --amend
     # reset
-    reverse = reset --hard
-    unadd   = reset HEAD
+    undo  = reset --hard
+    unadd = reset HEAD
     # diff
     di   = diff
     dis  = diff --staged
