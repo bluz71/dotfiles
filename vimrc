@@ -604,8 +604,8 @@ if &diff
     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
 endif
 Plug 'tpope/vim-fugitive'
-    noremap <silent> <leader>B :Gblame<CR>
-    noremap <silent> <leader>G :Gstatus<CR>
+    noremap <silent> <localleader>B :Gblame<CR>
+    noremap <silent> <localleader>G :Gstatus<CR>
 
 "-----------------------------
 " tmux support
