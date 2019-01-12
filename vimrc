@@ -605,6 +605,7 @@ if &diff
 endif
 Plug 'tpope/vim-fugitive'
     noremap <silent> <localleader>B :Gblame<CR>
+    noremap <silent> <localleader>P :Gpush<CR>
     noremap <silent> <localleader>G :Gstatus<CR>
 
 "-----------------------------
