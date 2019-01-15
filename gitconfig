@@ -51,8 +51,8 @@
     sg = !git add . -N && git add -p
     aa = add .
     # commit
-    cc    = commit
-    uncc  = reset --soft HEAD~1
+    ci    = commit
+    unci  = reset --soft HEAD~1
     amend = commit --amend
     # reset
     undo  = reset --hard
