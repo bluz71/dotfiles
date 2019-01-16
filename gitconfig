@@ -84,6 +84,6 @@
     sa  = !sh -c 'git stash apply stash@{$1}' -
     sd  = !sh -c 'git stash drop stash@{$1}' -
     sl  = stash list
-    sll = !sh -c 'git stash show -p stash@{$1}' -
     sp  = stash pop
     ss  = stash save --include-untracked
+    ssp = !sh -c 'git stash show -p stash@{$1}' -
