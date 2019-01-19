@@ -458,6 +458,8 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'rstacruz/vim-closer'
+Plug 'chaoren/vim-wordmotion'
+    let g:wordmotion_prefix = '\'
 Plug 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType        = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-n>"
