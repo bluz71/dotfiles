@@ -372,7 +372,8 @@ noremap <F2>            :w<CR>
 noremap <localleader>2  :w<CR>
 noremap <F3>            :%retab<CR> :%s/\s\+$//<CR>
 noremap <localleader>3  :%retab<CR> :%s/\s\+$//<CR>
-"<F4> - unused
+noremap <F4>            :%s/ /_<CR>
+noremap <localleader>4  :%s/ /_<CR>
 nnoremap <F5>           :call Spelling()<CR>
 nnoremap <localleader>5 :call Spelling()<CR>
 nnoremap <F6>           :source $MYVIMRC<CR>
