@@ -7,6 +7,7 @@ unalias -a
 alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias be='bundle exec'
 alias c='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
+alias calc='_f() { echo "$(($@))"; }; _f'
 alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
