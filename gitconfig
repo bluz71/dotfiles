@@ -60,12 +60,15 @@
     # diff
     di   = diff
     dis  = diff --staged
-    vdi  = difftool -t vd
-    vdis = difftool -t vd --staged
     idi  = difftool -t icd
+    idip = !sh -c 'git difftool -t icd $1~1..$1' -
     idis = difftool -t icd --staged
     mdi  = difftool
+    mdip = !sh -c 'git difftool $1~1..$1' -
     mdis = difftool --staged
+    vdi  = difftool -t vd
+    vdip = !sh -c 'git difftool -t vd $1~1..$1' -
+    vdis = difftool -t vd --staged
     # log
     ll  = log --graph --format='%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)'
     llm = !git ll master..HEAD
