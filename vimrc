@@ -560,7 +560,7 @@ Plug 'sheerun/vim-polyglot'
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
     let g:rubycomplete_rails                = 1
-    let g:ruby_indent_access_modifier_style = "indent"
+    let g:ruby_indent_access_modifier_style = "outdent"
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
