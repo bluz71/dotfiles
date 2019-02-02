@@ -12,7 +12,7 @@ alias cp='/bin/cp -i'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
-alias dds='_f() { du -sh "$@" | sort -hr; }; _f'
+alias dds='_f() { du -sh "$@" | sort -hr | m; }; _f'
 alias f='fzf --ansi --preview "bat --color=always --line-range :500 {}"'
 alias fkill='fzf_kill'
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
@@ -309,6 +309,7 @@ prompt()
 # Customizations per platform.
 #
 if [[ $OS = Linux ]]; then
+    alias free='free -th'
     alias open='xdg-open'
 elif [[ $OS = Darwin ]]; then
     export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
