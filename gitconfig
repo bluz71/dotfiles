@@ -59,6 +59,7 @@
     unadd = reset HEAD
     # diff
     di   = diff
+    dip = !sh -c 'git di $1~1..$1' -
     dis  = diff --staged
     idi  = difftool -t icd
     idip = !sh -c 'git difftool -t icd $1~1..$1' -
@@ -90,3 +91,5 @@
     sp  = stash pop
     ss  = stash save --include-untracked
     ssp = !sh -c 'git stash show -p stash@{$1}' -
+    # show
+    sh = show
