@@ -31,7 +31,7 @@
     oldNormal    = red
     oldHighlight = red 52
 [color "diff"]
-    frag       = magenta bold
+    frag       = blue bold
     new        = green
     old        = red
     whitespace = red reverse
