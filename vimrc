@@ -460,9 +460,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'rstacruz/vim-closer'
-Plug 'ervandew/supertab'
-    let g:SuperTabDefaultCompletionType        = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-n>"
+Plug 'ajh17/VimCompletesMe'
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
@@ -720,8 +718,8 @@ augroup pluginBehaviours
     autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType    nerdtree
       \ setlocal colorcolumn=0 conceallevel=0 matchpairs=
-    autocmd FileType css,scss
-      \ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+    autocmd FileType    css,javascript.jsx,ruby,scss
+      \ let b:vcm_tab_complete = "omni"
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
