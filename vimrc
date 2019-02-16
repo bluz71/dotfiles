@@ -572,7 +572,7 @@ Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
-Plug 'neomake/neomake'
+Plug 'neomake/neomake', { 'commit': '1f673ec' }
     "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
     let g:neomake_open_list    = 1
     let g:neomake_error_sign   = {"text": "❯❯"}
