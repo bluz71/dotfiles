@@ -508,8 +508,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    " Replace arrows with text characters; not all terminal and font
-    " combinations provide arrows.
     let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "⠶"
     let NERDTreeHijackNetrw           = 0
@@ -716,8 +714,7 @@ augroup pluginBehaviours
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
     autocmd FileType    nerdtree        IndentLinesDisable
-    autocmd FileType    nerdtree
-      \ setlocal colorcolumn=0 conceallevel=0 matchpairs=
+    autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
     autocmd FileType    css,javascript.jsx,ruby,scss
       \ let b:vcm_tab_complete = "omni"
     autocmd FileType crystal,elixir,json
