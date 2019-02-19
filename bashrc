@@ -60,7 +60,8 @@ alias v='stty -ixon && vim 2> /dev/null'
 alias vf='fzf_find_edit'
 alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
-alias vrg='fzf_rg_edit'
+alias vgr='fzf_grep_edit'
+alias vgra='grep_edit_all'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
 # Directory navigation.
@@ -256,16 +257,7 @@ fzf_git_unadd() {
     fi
 }
 
-fzf_kill() {
-    local pids=$(
-      ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f3
-      )
-    if [[ -n $pids ]]; then
-        echo "$pids" | xargs kill -9 "$@"
-    fi
-}
-
-fzf_rg_edit(){
+fzf_grep_edit(){
     if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
@@ -279,6 +271,24 @@ fzf_rg_edit(){
     if [[ -n $file ]]; then
         $EDITOR $file +$(echo "$match" | cut -d':' -f2)
     fi
+}
+
+fzf_kill() {
+    local pids=$(
+      ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f3
+      )
+    if [[ -n $pids ]]; then
+        echo "$pids" | xargs kill -9 "$@"
+    fi
+}
+
+grep_edit_all(){
+    if [[ $# == 0 ]]; then
+        echo 'Error: search term was not provided.'
+        return
+    fi
+
+    $EDITOR $(rg -l "$1")
 }
 
 path()
