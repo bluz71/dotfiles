@@ -57,11 +57,10 @@ alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
 alias v='stty -ixon && vim 2> /dev/null'
-alias vf='fzf_find_edit'
-alias vi='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
-alias vgr='fzf_grep_edit'
-alias vgra='grep_edit_all'
+alias vff='fzf_find_edit'
+alias vfg='fzf_grep_edit'
+alias vga='grep_all_edit'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
 # Directory navigation.
@@ -282,7 +281,7 @@ fzf_kill() {
     fi
 }
 
-grep_edit_all(){
+grep_all_edit(){
     if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
