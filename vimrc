@@ -407,13 +407,17 @@ if has("gui_running") || has("nvim")
 else
     nnoremap l        :redraw!<CR>
 endif
+" Quick one-time normal mode command when in insert mode.
+inoremap <C-q>          <C-\><C-o>
 " Nicer completion mappings when in insert mode.
 "  ] - complete from tags file
 "  d - dictionary completion
 "  l - complete line
+"  o - omni completion
 inoremap <C-]>          <C-x><C-]>
 inoremap <C-d>          <C-x><C-k>
 inoremap <C-l>          <C-x><C-l>
+inoremap <C-o>          <C-x><C-o>
 " Replace search term under cursor, dot repeats the change.
 nnoremap c* *Ncgn
 nnoremap c# #NcgN
