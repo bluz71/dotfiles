@@ -407,8 +407,6 @@ if has("gui_running") || has("nvim")
 else
     nnoremap l        :redraw!<CR>
 endif
-" Quick one-time normal mode command when in insert mode.
-inoremap <C-q>          <C-\><C-o>
 " Nicer completion mappings when in insert mode.
 "  ] - complete from tags file
 "  d - dictionary completion
