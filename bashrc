@@ -256,7 +256,7 @@ fzf_git_unadd() {
     fi
 }
 
-fzf_grep_edit(){
+fzf_grep_edit() {
     if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
@@ -281,7 +281,7 @@ fzf_kill() {
     fi
 }
 
-grep_all_edit(){
+grep_all_edit() {
     if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
@@ -290,8 +290,7 @@ grep_all_edit(){
     $EDITOR $(rg -l "$1")
 }
 
-path()
-{
+path() {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
     if [[ $OS = Darwin ]]; then
@@ -305,8 +304,7 @@ path()
     PATH=~/scripts:$PATH
 }
 
-prompt()
-{
+prompt() {
     # Please first install the seafly Bash prompt.
     #   git clone https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
     SEAFLY_PRE_COMMAND="history -a"
