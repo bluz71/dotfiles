@@ -429,7 +429,10 @@ cnoremap <C-a>          <Home>
 cnoremap <C-e>          <End>
 cnoremap <A-b>          <C-Left>
 cnoremap <A-f>          <C-Right>
-
+" Automatically close quotes.
+inoremap "              ""<Left>
+inoremap '              ''<Left>
+inoremap `              ``<Left>
 
 "===========================================================
 " PLUGINS
