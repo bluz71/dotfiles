@@ -391,13 +391,13 @@ nnoremap <F12>          :call Listing()<CR>
 noremap  <leader>Q      gqip
 nnoremap \\             za
 nnoremap <localleader>S :syntax sync fromstart<CR>
-" Copy/cut/paste/register related helper mappings.
-noremap  <leader>y      :let @o=getreg("*")<CR>:let @0=getreg("*")<CR>
-noremap  <leader>p      "0p
-noremap  <leader>P      "0P
-noremap  <leader>o      "op
-noremap  <leader>O      "oP
+" Yank/paste/delete helper mappings.
+noremap  <leader>y      :let @y=getreg("*")<CR>
+xnoremap <leader>y      "yy
+noremap  <leader>p      "yp
+noremap  <leader>P      "yP
 noremap  <leader>d      "_d
+xnoremap <leader>d      "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l>      :redraw!<CR>
