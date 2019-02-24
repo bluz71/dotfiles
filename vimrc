@@ -392,7 +392,8 @@ noremap  <leader>Q      gqip
 nnoremap \\             za
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Yank/paste/delete helper mappings.
-noremap  <leader>y      :let @y=getreg("*")<CR>
+noremap  <leader>*      :let @y=getreg("*")<CR>
+noremap  <leader>y      :let @y=getreg("0")<CR>
 xnoremap <leader>y      "yy
 noremap  <leader>p      "yp
 noremap  <leader>P      "yP
@@ -538,7 +539,7 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.stop  = 500
     xmap gr <plug>(GrepperOperator)
     noremap <leader>gr :GrepperRg<Space>
-    noremap <leader>*  :GrepperRg<Space>"\b<cword>\b"<CR>
+    noremap <leader>g* :GrepperRg<Space>"\b<cword>\b"<CR>
     " ~/dotfiles/vim/after/plugin/grepper.vim - customization
 
 "-----------------------------
