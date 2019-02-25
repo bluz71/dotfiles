@@ -392,11 +392,16 @@ noremap  <leader>Q      gqip
 nnoremap \\             za
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Yank/paste/delete helper mappings.
+" - Copy into the 'y' register from either the clipboard or yank registers
 noremap  <leader>*      :let @y=getreg("*")<CR>
-noremap  <leader>y      :let @y=getreg("0")<CR>
+noremap  <leader>0      :let @y=getreg("0")<CR>
+" - Yank into the 'y' register
+noremap  <leader>y      "yy
 xnoremap <leader>y      "yy
+" - Paste from the 'y' register
 noremap  <leader>p      "yp
 noremap  <leader>P      "yP
+" - Delete into the 'black hole' register
 noremap  <leader>d      "_d
 xnoremap <leader>d      "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
@@ -406,10 +411,10 @@ else
     nnoremap l        :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
-"  ] - complete from tags file
-"  c - context (aka omni) completion
-"  d - dictionary completion
-"  l - complete line
+" - ] - complete from tags file
+" - c - context (aka 'omni') completion
+" - d - dictionary completion
+" - l - complete line
 inoremap <C-]>          <C-x><C-]>
 inoremap <C-c>          <C-x><C-o>
 inoremap <C-d>          <C-x><C-k>
