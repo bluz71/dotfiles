@@ -188,13 +188,6 @@ function! DiffStyling()
     endif
 endfunction
 
-" Clear and reset Neomake.
-"
-function! NeomakeReset()
-    NeomakeClean
-    call setloclist(0, [])
-    lclose
-endfunction
 
 "===========================================================
 " TERMINAL CONFIGURATION
@@ -568,9 +561,10 @@ Plug 'sheerun/vim-polyglot'
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'prettier/vim-prettier',
-      \ { 'do': 'yarn install',
-      \   'for': ['css', 'javascript', 'json', 'scss', 'typescript'] }
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install',
+    \ 'for': ['css', 'javascript', 'json', 'scss', 'typescript']
+    \}
     let g:prettier#autoformat = 0
     nmap <localleader>p <Plug>(Prettier)
 Plug 'tpope/vim-bundler'
@@ -579,15 +573,29 @@ Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
-Plug 'neomake/neomake', { 'commit': '1f673ec' }
-    "let g:neomake_<<language>>_enabled_makers = ["<<maker>>"]
-    let g:neomake_open_list    = 1
-    let g:neomake_error_sign   = {"text": "❯❯"}
-    let g:neomake_warning_sign = {"text": "❯❯"}
-    let g:neomake_info_sign    = {"text": "❯❯"}
-    let g:neomake_message_sign = {"text": "❯❯"}
-    nnoremap <silent> <localleader>l    :Neomake<CR>
-    nnoremap <silent> <localleader><BS> :call NeomakeReset()<CR>
+Plug 'w0rp/ale'
+    let g:ale_linters = {
+    \ 'coffee':     ['coffeelint'],
+    \ 'css':        ['csslint'],
+    \ 'javascript': ['eslint'],
+    \ 'json':       ['jsonlint'],
+    \ 'markdown':   ['mdl'],
+    \ 'ruby':       ['rubocop'],
+    \ 'scss':       ['sasslint'],
+    \ 'yaml':       ['yamllint']
+    \}
+    let g:ale_lint_on_enter            = 0
+    let g:ale_lint_on_filetype_changed = 0
+    let g:ale_lint_on_insert_leave     = 0
+    let g:ale_lint_on_save             = 0
+    let g:ale_lint_on_text_changed     = 'never'
+    let g:ale_linters_explicit         = 1
+    let g:ale_open_list                = 1
+    let g:ale_sign_error               = '❯❯'
+    let g:ale_sign_info                = '❯❯'
+    let g:ale_sign_warning             = '❯❯'
+    nnoremap <localleader>l    :ALELint<CR>
+    nnoremap <localleader><BS> :ALEReset<CR>
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <localleader>tf :TestFile<CR>
