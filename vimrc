@@ -562,8 +562,8 @@ Plug 'sheerun/vim-polyglot'
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install',
-    \ 'for': ['css', 'javascript', 'json', 'scss', 'typescript']
+    \  'do': 'yarn install',
+    \  'for': ['css', 'javascript', 'json', 'scss', 'typescript']
     \}
     let g:prettier#autoformat = 0
     nmap <localleader>p <Plug>(Prettier)
@@ -575,14 +575,14 @@ Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
 Plug 'w0rp/ale'
     let g:ale_linters = {
-    \ 'coffee':     ['coffeelint'],
-    \ 'css':        ['csslint'],
-    \ 'javascript': ['eslint'],
-    \ 'json':       ['jsonlint'],
-    \ 'markdown':   ['mdl'],
-    \ 'ruby':       ['rubocop'],
-    \ 'scss':       ['sasslint'],
-    \ 'yaml':       ['yamllint']
+    \  'coffee':     ['coffeelint'],
+    \  'css':        ['csslint'],
+    \  'javascript': ['eslint'],
+    \  'json':       ['jsonlint'],
+    \  'markdown':   ['mdl'],
+    \  'ruby':       ['rubocop'],
+    \  'scss':       ['sasslint'],
+    \  'yaml':       ['yamllint']
     \}
     let g:ale_lint_on_enter            = 0
     let g:ale_lint_on_filetype_changed = 0
@@ -594,6 +594,8 @@ Plug 'w0rp/ale'
     let g:ale_sign_error               = '❯❯'
     let g:ale_sign_info                = '❯❯'
     let g:ale_sign_warning             = '❯❯'
+    nmap <silent> [W           <Plug>(ale_first)
+    nmap <silent> ]W           <Plug>(ale_last)
     nnoremap <localleader>l    :ALELint<CR>
     nnoremap <localleader><BS> :ALEReset<CR>
 Plug 'janko-m/vim-test'
