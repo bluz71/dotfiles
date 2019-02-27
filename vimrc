@@ -594,8 +594,10 @@ Plug 'w0rp/ale'
     let g:ale_sign_error               = '❯❯'
     let g:ale_sign_info                = '❯❯'
     let g:ale_sign_warning             = '❯❯'
-    nmap <silent> [W           <Plug>(ale_first)
-    nmap <silent> ]W           <Plug>(ale_last)
+    " use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
+    " mappings to navigate the location list
+    nmap <silent> [W           :lfirst<CR>zz
+    nmap <silent> ]W           :llast<CR>zz
     nnoremap <localleader>l    :ALELint<CR>
     nnoremap <localleader><BS> :ALEReset<CR>
 Plug 'janko-m/vim-test'
