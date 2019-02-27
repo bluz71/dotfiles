@@ -564,7 +564,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'prettier/vim-prettier', {
     \  'do':     'yarn install',
     \  'branch': 'release/1.x',
-    \  'for':    ['css', 'javascript', 'json', 'ruby', 'scss', 'typescript']
+    \  'for':    ['css', 'javascript', 'json', 'markdown', 'ruby', 'scss',
+    \             'typescript']
     \}
     let g:prettier#autoformat = 0
     nmap <localleader>p <Plug>(Prettier)
