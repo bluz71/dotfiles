@@ -1,25 +1,23 @@
-User dotfiles
-=============
+# User dotfiles
 
 Contained are dotfiles for:
 
-* Bash
-* Readline
-* Git
-* Vim / Neovim
-* Ruby *irb* and *pry* REPL
-* Elixir *iex* REPL
-* SSH
-* tmux
-* xterm (via Xresources)
-* Linux fontconfig
-* JavaScript *eslint* and *tern*
+-   Bash
+-   Readline
+-   Git
+-   Vim / Neovim
+-   Ruby _irb_ and _pry_ REPL
+-   Elixir _iex_ REPL
+-   SSH
+-   tmux
+-   xterm (via Xresources)
+-   Linux fontconfig
+-   JavaScript _eslint_ and _tern_
 
 Platforms where these dotfiles are used: macOS with Homebrew and Debian
 derivatives of Linux (Linux Mint and Ubuntu).
 
-Installation
-------------
+## Installation
 
 ```sh
 % cd ~
