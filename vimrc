@@ -562,8 +562,9 @@ Plug 'sheerun/vim-polyglot'
     let g:vim_markdown_conceal              = 0
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'prettier/vim-prettier', {
-    \  'do': 'yarn install',
-    \  'for': ['css', 'javascript', 'json', 'scss', 'typescript']
+    \  'do':     'yarn install',
+    \  'branch': 'release/1.x',
+    \  'for':    ['css', 'javascript', 'json', 'ruby', 'scss', 'typescript']
     \}
     let g:prettier#autoformat = 0
     nmap <localleader>p <Plug>(Prettier)
