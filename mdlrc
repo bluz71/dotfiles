@@ -1,1 +1,10 @@
-rules "~MD013", "~MD024", "~MD029", "~MD030"
+# Markdown Lint Rules:
+#   https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md
+#
+# - ~MD013, disable line length limit
+# - ~MD024, allow multiple headings with the same comment
+# - ~MD029, allow ordered list prefix
+# - ~MD030, allow spaces after list markers
+# - ~MD033, allow inline HTML
+
+rules "~MD013", "~MD024", "~MD029", "~MD030", "~MD033"
