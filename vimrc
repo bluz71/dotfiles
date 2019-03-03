@@ -58,7 +58,7 @@ set nowrapscan        " Don't wrap searches around
 set number            " Show line numbers
 set nrformats=        " No to oct/hex support when doing CTRL-a/x
 set path=**
-set pumheight=35      " Height of complete list
+set pumheight=15      " Height of complete list
 " Ruby performance is terrible with regexpengine=2, see:
 "   https://github.com/vim/vim/issues/282
 "   https://github.com/vim-ruby/vim-ruby/issues/243
@@ -404,13 +404,13 @@ else
     nnoremap l        :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
-" - ] - complete from tags file
-" - c - context (aka 'omni') completion
-" - d - dictionary completion
-" - f - file completion
-" - l - complete line
+" - ]     - complete from tags file
+" - Space - context (aka 'omni') completion
+" - d     - dictionary completion
+" - f     - file completion
+" - l     - complete line
 inoremap <C-]>          <C-x><C-]>
-inoremap <C-c>          <C-x><C-o>
+inoremap <C-Space>      <C-x><C-o>
 inoremap <C-d>          <C-x><C-k>
 inoremap <C-f>          <C-x><C-f>
 inoremap <C-l>          <C-x><C-l>
@@ -583,7 +583,7 @@ Plug 'w0rp/ale'
     \  'javascript': ['eslint', 'tsserver'],
     \  'json':       ['jsonlint'],
     \  'markdown':   ['mdl'],
-    \  'ruby':       ['rubocop', 'solargraph'],
+    \  'ruby':       ['rubocop'],
     \  'scss':       ['sasslint'],
     \  'yaml':       ['yamllint']
     \}
@@ -606,7 +606,6 @@ Plug 'w0rp/ale'
     nmap <localleader><BS> <Plug>(ale_reset_buffer)
     nmap <localleader>]    <Plug>(ale_go_to_definition)
     nmap <localleader>[    <Plug>(ale_find_references)
-    imap <C-Space>         <Plug>(ale_complete)
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <localleader>tf :TestFile<CR>
@@ -743,8 +742,8 @@ augroup pluginBehaviours
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
     autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
-    autocmd FileType    css,javascript.jsx,ruby,scss
-      \ let b:vcm_tab_complete = "omni"
+    autocmd FileType    css,ruby,scss   let b:vcm_tab_complete = "omni"
+    autocmd FileType    javascript.jsx  imap <C-Space> <Plug>(ale_complete)
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
