@@ -29,7 +29,7 @@ endif
 set colorcolumn=81,82
 set conceallevel=2
 set complete=.,w,b
-set completeopt-=preview
+set completeopt=menu,menuone,noselect,noinsert
 set dictionary=/usr/share/dict/words
 set expandtab
 set foldlevelstart=20
@@ -407,10 +407,12 @@ endif
 " - ] - complete from tags file
 " - c - context (aka 'omni') completion
 " - d - dictionary completion
+" - f - file completion
 " - l - complete line
 inoremap <C-]>          <C-x><C-]>
 inoremap <C-c>          <C-x><C-o>
 inoremap <C-d>          <C-x><C-k>
+inoremap <C-f>          <C-x><C-f>
 inoremap <C-l>          <C-x><C-l>
 " Replace search term under cursor, dot repeats the change.
 nnoremap c* *Ncgn
@@ -560,7 +562,6 @@ Plug 'sheerun/vim-polyglot'
     let g:ruby_indent_access_modifier_style = "outdent"
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'prettier/vim-prettier', {
     \  'do':     'yarn install',
     \  'branch': 'release/1.x',
@@ -579,13 +580,14 @@ Plug 'w0rp/ale'
     let g:ale_linters = {
     \  'coffee':     ['coffeelint'],
     \  'css':        ['csslint'],
-    \  'javascript': ['eslint'],
+    \  'javascript': ['eslint', 'tsserver'],
     \  'json':       ['jsonlint'],
     \  'markdown':   ['mdl'],
-    \  'ruby':       ['rubocop'],
+    \  'ruby':       ['rubocop', 'solargraph'],
     \  'scss':       ['sasslint'],
     \  'yaml':       ['yamllint']
     \}
+    let g:ale_completion_enabled       = 0
     let g:ale_lint_on_enter            = 0
     let g:ale_lint_on_filetype_changed = 0
     let g:ale_lint_on_insert_leave     = 0
@@ -598,10 +600,13 @@ Plug 'w0rp/ale'
     let g:ale_sign_warning             = '❯❯'
     " use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
     " mappings to navigate the location list
-    nmap <silent> [W           :lfirst<CR>zz
-    nmap <silent> ]W           :llast<CR>zz
-    nnoremap <localleader>l    :ALELint<CR>
-    nnoremap <localleader><BS> :ALEReset<CR>
+    nmap <silent> [W       :lfirst<CR>zz
+    nmap <silent> ]W       :llast<CR>zz
+    nmap <localleader>l    <Plug>(ale_lint)
+    nmap <localleader><BS> <Plug>(ale_reset_buffer)
+    nmap <localleader>]    <Plug>(ale_go_to_definition)
+    nmap <localleader>[    <Plug>(ale_find_references)
+    imap <C-Space>         <Plug>(ale_complete)
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <localleader>tf :TestFile<CR>
