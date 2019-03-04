@@ -405,7 +405,7 @@ else
 endif
 " Nicer completion mappings when in insert mode.
 " - ]     - complete from tags file
-" - Space - context (aka 'omni') completion
+" - Space - context aware completion
 " - d     - dictionary completion
 " - f     - file completion
 " - l     - complete line
@@ -604,8 +604,6 @@ Plug 'w0rp/ale'
     nmap <silent> ]W       :llast<CR>zz
     nmap <localleader>l    <Plug>(ale_lint)
     nmap <localleader><BS> <Plug>(ale_reset_buffer)
-    nmap <localleader>]    <Plug>(ale_go_to_definition)
-    nmap <localleader>[    <Plug>(ale_find_references)
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <localleader>tf :TestFile<CR>
@@ -630,7 +628,6 @@ if &diff
 endif
 Plug 'tpope/vim-fugitive'
     noremap <silent> <localleader>B :Gblame<CR>
-    noremap <silent> <localleader>P :Gpush<CR>
     noremap <silent> <localleader>G :Gstatus<CR>
 
 "-----------------------------
@@ -743,7 +740,10 @@ augroup pluginBehaviours
     autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
     autocmd FileType    css,ruby,scss   let b:vcm_tab_complete = "omni"
-    autocmd FileType    javascript.jsx  imap <C-Space> <Plug>(ale_complete)
+    autocmd FileType    javascript.jsx  
+      \ imap <C-Space> <Plug>(ale_complete) |
+      \ nmap <leader>] <Plug>(ale_go_to_definition) |
+      \ nmap <leader>[ <Plug>(ale_find_references)
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
