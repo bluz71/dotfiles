@@ -503,7 +503,6 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <localleader>bc      :BCommits<CR>
     nnoremap <silent> <localleader>s       :Snippets<CR>
     nnoremap <localleader>gr               :Rg<Space>
-    nnoremap <localleader>!                :Rg!<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <localleader>m :FZFMru<CR>
@@ -537,9 +536,8 @@ Plug 'mhinz/vim-grepper'
     runtime autoload/grepper.vim
     let g:grepper.jump  = 1
     let g:grepper.stop  = 500
-    xmap gr <plug>(GrepperOperator)
     noremap <leader>gr :GrepperRg<Space>
-    noremap <leader>g* :GrepperRg<Space>"\b<cword>\b"<CR>
+    xmap gr <plug>(GrepperOperator)
     " ~/dotfiles/vim/after/plugin/grepper.vim - customization
 
 "-----------------------------
