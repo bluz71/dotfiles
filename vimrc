@@ -399,9 +399,9 @@ noremap  <leader>d      "_d
 xnoremap <leader>d      "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
-    nnoremap <A-l>      :redraw!<CR>
+    nnoremap <A-l> :redraw!<CR>
 else
-    nnoremap l        :redraw!<CR>
+    nnoremap l :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
 " - ]     - complete from tags file
@@ -414,16 +414,15 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
-" Replace search text one match at a time, dot repeats the change.
-nnoremap c*    *Nzzcgn
-nnoremap c#    #NzzcgN
-xmap c*        *Nzzcgn
-xmap c#        #NzzcgN
-" Search for current visual selection, but don't move forward.
-xnoremap \*    "sy:let @/=@s<CR>
-" Helper to replace the last search text.
-nnoremap \\    :%s///<Left>
-xnoremap \\    :s///<Left>
+" Similar to star search, but don't move forward to the next match.
+nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
+xnoremap <silent> g* "sy:let @/=@s<CR>
+" Similar to star search, but do a change on the match, dot repeats the change.
+nnoremap <silent> \* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> \* "sy:let @/=@s<CR>cgn
+" Helper to substitute the last search match.
+nnoremap \\    :%s//
+xnoremap \\    :s//
 " Nicer increment and decrement mappings.
 noremap +      <C-a>
 noremap -      <C-x>
