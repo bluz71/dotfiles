@@ -382,12 +382,12 @@ nnoremap <F12>          :call Listing()<CR>
 " Misc mappings
 "-----------------------------
 noremap  <leader>Q      gqip
-nnoremap \\             za
+nnoremap <leader>,      za
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from either the clipboard or yank registers
-noremap  <leader>*      :let @y=getreg("*")<CR>
-noremap  <leader>0      :let @y=getreg("0")<CR>
+noremap  <leader>*      :let @y=@*<CR>
+noremap  <leader>0      :let @y=@0<CR>
 " - Yank into the 'y' register
 noremap  <leader>y      "yy
 xnoremap <leader>y      "yy
@@ -409,24 +409,31 @@ endif
 " - d     - dictionary completion
 " - f     - file completion
 " - l     - complete line
-inoremap <C-]>          <C-x><C-]>
-inoremap <C-Space>      <C-x><C-o>
-inoremap <C-d>          <C-x><C-k>
-inoremap <C-f>          <C-x><C-f>
-inoremap <C-l>          <C-x><C-l>
-" Replace search term under cursor, dot repeats the change.
-nnoremap c* *Ncgn
-nnoremap c# #NcgN
+inoremap <C-]>     <C-x><C-]>
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-d>     <C-x><C-k>
+inoremap <C-f>     <C-x><C-f>
+inoremap <C-l>     <C-x><C-l>
+" Replace search text one match at a time, dot repeats the change.
+nnoremap c*    *Nzzcgn
+nnoremap c#    #NzzcgN
+xmap c*        *Nzzcgn
+xmap c#        #NzzcgN
+" Search for current visual selection, but don't move forward.
+xnoremap \*    "sy:let @/=@s<CR>
+" Helper to replace the last search text.
+nnoremap \\    :%s///<Left>
+xnoremap \\    :s///<Left>
 " Nicer increment and decrement mappings.
-noremap +               <C-a>
-noremap -               <C-x>
-xnoremap +              g<C-a>
-xnoremap -              g<C-x>
+noremap +      <C-a>
+noremap -      <C-x>
+xnoremap +     g<C-a>
+xnoremap -     g<C-x>
 " ~/.inputrc like motions in command mode.
-cnoremap <C-a>          <Home>
-cnoremap <C-e>          <End>
-cnoremap <A-b>          <C-Left>
-cnoremap <A-f>          <C-Right>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <A-b> <C-Left>
+cnoremap <A-f> <C-Right>
 
 "===========================================================
 " PLUGINS
