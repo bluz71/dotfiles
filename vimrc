@@ -422,13 +422,16 @@ xnoremap <silent> g* "sy:let @/=@s<CR>
 nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 " Helper to substitute the last search match.
-nnoremap \\    :%s//
-xnoremap \\    :s//
+nnoremap \\ :%s//
+xnoremap \\ :s//
+" Combination of 'g*' (search) and '\\' (substitute).
+nnoremap \* :let @/='\<'.expand('<cword>').'\>'<CR>:%s//
+xnoremap \* "sy:let @/=@s<CR>:%s//
 " Nicer increment and decrement mappings.
-noremap +      <C-a>
-noremap -      <C-x>
-xnoremap +     g<C-a>
-xnoremap -     g<C-x>
+noremap +  <C-a>
+noremap -  <C-x>
+xnoremap + g<C-a>
+xnoremap - g<C-x>
 " ~/.inputrc like motions in command mode.
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
