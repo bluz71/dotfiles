@@ -415,12 +415,12 @@ inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
 " Similar to star search, but don't move forward to the next match.
-nnoremap <silent>  g* :let @/='\<'.expand('<cword>').'\>'<CR>
-xnoremap <silent>  g* "sy:let @/=@s<CR>
+nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
+xnoremap <silent> g* "sy:let @/=@s<CR>
 " Similar to star search, but do a substitution on the match, dot repeats the
 " substitution forward.
-nnoremap <silent>  s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent>  s* "sy:let @/=@s<CR>cgn
+nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 " Helper to substitute the last search match.
 nnoremap \\    :%s//
 xnoremap \\    :s//
