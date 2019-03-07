@@ -414,19 +414,27 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
-" Similar to star search, but don't move forward to the next match.
+" Star search that does not move forward to the next match.
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
-" Similar to star search, but do a substitution on the match, dot repeats the
+" Star search that does a substitution on the match, dot repeats the
 " substitution forward.
-nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> s* "sy:let @/=@s<CR>cgn
-" Helper to substitute the last search match.
-nnoremap \\ :%s//
-xnoremap \\ :s//
-" Combination of 'g*' (search) and '\\' (substitute).
-nnoremap \* :let @/='\<'.expand('<cword>').'\>'<CR>:%s//
-xnoremap \* "sy:let @/=@s<CR>:%s//
+nnoremap <silent> <leader>* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> <leader>* "sy:let @/=@s<CR>cgn
+" Star search and substitute within the current file.
+nnoremap <localleader>* :let @/='\<'.expand('<cword>').'\>'<CR>:%s//
+xnoremap <localleader>* "sy:let @/=@s<CR>:%s//
+" Star search and substitute project-wide using Grepper.
+nnoremap \*
+  \ :let @/='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/\<<C-r>=expand('<cword>')<CR>\>// \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+xmap \*
+  \ "sy:let @/=@s<CR>
+  \ gvgr
+  \ :cfdo %s/<C-r>s// \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " Nicer increment and decrement mappings.
 noremap +  <C-a>
 noremap -  <C-x>
