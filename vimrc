@@ -385,9 +385,8 @@ noremap  <leader>Q      gqip
 nnoremap <leader>,      za
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Yank/paste/delete helper mappings.
-" - Copy into the 'y' register from either the clipboard or yank registers
-noremap  <leader>*      :let @y=@*<CR>
-noremap  <leader>0      :let @y=@0<CR>
+" - Copy into the 'y' register from the clipboard register
+noremap  <leader>c      :let @y=@*<CR>
 " - Yank into the 'y' register
 noremap  <leader>y      "yy
 xnoremap <leader>y      "yy
@@ -414,26 +413,26 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
-" Star search that does not move forward to the next match.
+" Find & replace helper mappings.
+" - Star search that does not move forward to the next match
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
-" Star search that does a substitution on the match, dot repeats the
-" substitution forward.
+" - Star search that does a change on the match, dot repeats the change forward
 nnoremap <silent> <leader>* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> <leader>* "sy:let @/=@s<CR>cgn
-" Star search and substitute within the current file.
-nnoremap <localleader>* :let @/='\<'.expand('<cword>').'\>'<CR>:%s//
-xnoremap <localleader>* "sy:let @/=@s<CR>:%s//
-" Star search and substitute project-wide using Grepper.
+" - Star search and substitute within the current file
+nnoremap <localleader>* :let @/='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>//
+xnoremap <localleader>* "sy:let @/=@s<CR>:%s/<C-r>//
+" - Project-wide star search and substitute using Grepper plugin
 nnoremap \*
   \ :let @/='\<'.expand('<cword>').'\>'<CR>
   \ :Grepper -cword -noprompt<CR>
-  \ :cfdo %s/\<<C-r>=expand('<cword>')<CR>\>// \| update
+  \ :cfdo %s/<C-r>/// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap \*
   \ "sy:let @/=@s<CR>
   \ gvgr
-  \ :cfdo %s/<C-r>s// \| update
+  \ :cfdo %s/<C-r>/// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " Nicer increment and decrement mappings.
 noremap +  <C-a>
