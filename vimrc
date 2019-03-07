@@ -403,11 +403,11 @@ else
     nnoremap l :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
-" - ]     - complete from tags file
+" - ]     - tags file completion
 " - Space - context aware completion
 " - d     - dictionary completion
 " - f     - file completion
-" - l     - complete line
+" - l     - line completion
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-d>     <C-x><C-k>
