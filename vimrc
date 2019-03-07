@@ -546,7 +546,10 @@ Plug 'mhinz/vim-grepper'
     runtime autoload/grepper.vim
     let g:grepper.jump  = 1
     let g:grepper.stop  = 500
+    " Grepper prompt.
     noremap <leader>gr :GrepperRg<Space>
+    " Search for current word or selection.
+    nnoremap gr :Grepper -cword -noprompt<CR>
     xmap gr <plug>(GrepperOperator)
     " ~/dotfiles/vim/after/plugin/grepper.vim - customization
 
