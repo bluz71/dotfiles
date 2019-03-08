@@ -237,7 +237,6 @@ xnoremap Q         :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y          y$
 " Center repeat, search and spelling matches.
-noremap .          .zz
 noremap n          nzz
 noremap N          Nzz
 noremap ]s         ]szz
