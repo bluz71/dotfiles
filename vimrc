@@ -236,16 +236,17 @@ nnoremap Q         @q
 xnoremap Q         :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y          y$
-" Center search and spelling matches when navigating.
+" Center repeat, search and spelling matches.
+noremap .          .zz
 noremap n          nzz
 noremap N          Nzz
 noremap ]s         ]szz
 noremap [s         [szz
 " Delete previous word, when in insert mode, via Ctrl-b.
-inoremap <C-b>         <C-o>diw
+inoremap <C-b>     <C-o>diw
 if has("nvim")
     " Make escape work in the Neovim terminal.
-    tnoremap <Esc>     <C-\><C-n>
+    tnoremap <Esc> <C-\><C-n>
 endif
 " Confirm quit.
 noremap <silent> <C-q> :confirm qall<CR>
@@ -382,7 +383,7 @@ nnoremap <F12>          :call Listing()<CR>
 " Misc mappings
 "-----------------------------
 noremap  <leader>Q      gqip
-nnoremap <leader>,      za
+nnoremap \\             za
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
@@ -418,21 +419,21 @@ inoremap <C-l>     <C-x><C-l>
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
 " - Star search that does a change on the match, dot repeats the change forward
-nnoremap <silent> <leader>* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> <leader>* "sy:let @/=@s<CR>cgn
+nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 " - Star search and substitute within the current file
-nnoremap <localleader>* :let @/='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>//
-xnoremap <localleader>* "sy:let @/=@s<CR>:%s/<C-r>//
+nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
+xnoremap \s "sy:%s/<C-r>s//<Left>
 " - Project-wide star search and substitute using Grepper plugin
-nnoremap \*
-  \ :let @/='\<'.expand('<cword>').'\>'<CR>
+nnoremap \S
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
   \ :Grepper -cword -noprompt<CR>
-  \ :cfdo %s/<C-r>/// \| update
+  \ :cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xmap \*
-  \ "sy:let @/=@s<CR>
+xmap \S
+  \ "sy
   \ gvgr
-  \ :cfdo %s/<C-r>/// \| update
+  \ :cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " Nicer increment and decrement mappings.
 noremap +  <C-a>
