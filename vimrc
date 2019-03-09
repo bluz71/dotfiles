@@ -236,11 +236,6 @@ nnoremap Q         @q
 xnoremap Q         :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y          y$
-" Center repeat, search and spelling matches.
-noremap n          nzz
-noremap N          Nzz
-noremap ]s         ]szz
-noremap [s         [szz
 " Delete previous word, when in insert mode, via Ctrl-b.
 inoremap <C-b>     <C-o>diw
 if has("nvim")
@@ -384,6 +379,11 @@ nnoremap <F12>          :call Listing()<CR>
 noremap  <leader>Q      gqip
 nnoremap \\             za
 nnoremap <localleader>S :syntax sync fromstart<CR>
+" Center navigation commands.
+noremap n               nzz
+noremap N               Nzz
+noremap ]s              ]szz
+noremap [s              [szz
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
 noremap  <leader>c      :let @y=@*<CR>
@@ -417,7 +417,7 @@ inoremap <C-l>     <C-x><C-l>
 " - Star search that does not move forward to the next match
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
-" - Star search that does a change on the match, dot repeats the change forward
+" - Star search that does an immediate change on the match
 nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 " - Star search and substitute within the current file
@@ -434,9 +434,16 @@ xmap \S
   \ gvgr
   \ :cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+" Navigation accept/reject helpers after completing a '\c' cgn-based change operation
+" - Go to the next match and highlight it
+nnoremap <Enter> gnzz
+" - Accept the change and go to the next match and highlight it
+xmap <Enter>     .<Esc>gnzz
+" - Reject the change and go to the next match and highlight it
+xnoremap !       <Esc>ngnzz
 " Nicer increment and decrement mappings.
-noremap +  <C-a>
-noremap -  <C-x>
+nnoremap +  <C-a>
+nnoremap -  <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
 " ~/.inputrc like motions in command mode.
