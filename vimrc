@@ -390,9 +390,9 @@ noremap ]s              ]szz
 noremap [s              [szz
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
-noremap  <leader>c      :let @y=@*<CR>
+nnoremap  <leader>c     :let @y=@*<CR>
 " - Yank into the 'y' register
-noremap  <leader>y      "yy
+nnoremap <leader>y      "yy
 xnoremap <leader>y      "yy
 " - Paste from the 'y' register
 noremap  <leader>p      "yp
@@ -438,7 +438,7 @@ xmap \S
   \ gvgr
   \ :cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" Navigation accept/reject helpers after completing a '\c' cgn-based change operation
+" Accept/reject helpers after completing a '\c' cgn-based change operation
 " - Go to the next match and highlight it
 nnoremap <Enter> gnzz
 " - Accept the change and go to the next match and highlight it
