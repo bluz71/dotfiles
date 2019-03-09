@@ -324,7 +324,7 @@ inoremap <C-g>9               <Esc>9gt
 nnoremap <leader>=            <C-w>=
 nnoremap <leader>R            <C-w>r
 " Zoom the current file into a standalone new tab.
-nnoremap <silent> <leader>z :tab split<CR>
+nnoremap <silent> <leader>Z :tab split<CR>
 if has("nvim")
     tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
     tnoremap <silent> <C-g>-  <C-\><C-N>:new<CR>
@@ -376,8 +376,12 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
-noremap  <leader>Q      gqip
-nnoremap \\             za
+" Format current paragraph.
+nnoremap <leader>Q      gqip
+nnoremap <leader>F      =ip
+" Fold the current indent.
+nnoremap <leader>z      za
+" Recalculate syntax highlighting for the entire file.
 nnoremap <localleader>S :syntax sync fromstart<CR>
 " Center navigation commands.
 noremap n               nzz
