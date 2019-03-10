@@ -446,8 +446,8 @@ xmap <Enter>     .<Esc>gnzz
 " - Reject the change and go to the next match and highlight it
 xnoremap !       <Esc>ngnzz
 " Nicer increment and decrement mappings.
-nnoremap +  <C-a>
-nnoremap -  <C-x>
+nnoremap + <C-a>
+nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
 " ~/.inputrc like motions in command mode.
