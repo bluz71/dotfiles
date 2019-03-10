@@ -353,12 +353,12 @@ endif
 " Double up function key mappings with <localleader>+number mappings for
 " touchbar Macbooks which have no physical function keys.
 "<F1> - unused
-noremap <F2>            :w<CR>
-noremap <localleader>2  :w<CR>
-noremap <F3>            :%retab<CR> :%s/\s\+$//<CR>
-noremap <localleader>3  :%retab<CR> :%s/\s\+$//<CR>
-noremap <F4>            :%s/ /_<CR>
-noremap <localleader>4  :%s/ /_<CR>
+nnoremap <F2>           :w<CR>
+nnoremap <localleader>2 :w<CR>
+nnoremap <F3>           :%retab<CR> :%s/\s\+$//<CR>
+nnoremap <localleader>3 :%retab<CR> :%s/\s\+$//<CR>
+nnoremap <F4>           :%s/ /_<CR>
+nnoremap <localleader>4 :%s/ /_<CR>
 nnoremap <F5>           :call Spelling()<CR>
 nnoremap <localleader>5 :call Spelling()<CR>
 nnoremap <F6>           :source $MYVIMRC<CR>
@@ -390,16 +390,15 @@ noremap ]s              ]szz
 noremap [s              [szz
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
-nnoremap  <leader>c     :let @y=@*<CR>
+noremap  <leader>c      :let @y=@*<CR>
 " - Yank into the 'y' register
-nnoremap <leader>y      "yy
-xnoremap <leader>y      "yy
+noremap <leader>y       "yy
 " - Paste from the 'y' register
-noremap  <leader>p      "yp
-noremap  <leader>P      "yP
+noremap <leader>p       "yp
+noremap <leader>P       "yP
 " - Delete into the 'black hole' register
-noremap  <leader>d      "_d
-xnoremap <leader>d      "_d
+noremap <leader>x       "_x
+noremap <leader>d       "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l> :redraw!<CR>
@@ -520,20 +519,20 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_commits_log_options = '--graph --color=always
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
-    nnoremap <silent> <localleader><Space> :Files<CR>
-    nnoremap <silent> <localleader>-       :Files <C-r>=expand("%:h")<CR>/<CR>
-    nnoremap <silent> <localleader>]       :Tags<CR>
-    nnoremap <silent> <localleader>'       :Marks<CR>
-    nnoremap <silent> <localleader>,       :Buffers<CR>
-    nnoremap <silent> <localleader>c       :Commits<CR>
-    nnoremap <silent> <localleader>h       :Helptags<CR>
-    nnoremap <silent> <localleader>b]      :BTags<CR>
-    nnoremap <silent> <localleader>bc      :BCommits<CR>
-    nnoremap <silent> <localleader>s       :Snippets<CR>
-    nnoremap <localleader>gr               :Rg<Space>
+    noremap <silent> <localleader><Space> :Files<CR>
+    noremap <silent> <localleader>-       :Files <C-r>=expand("%:h")<CR>/<CR>
+    noremap <silent> <localleader>]       :Tags<CR>
+    noremap <silent> <localleader>'       :Marks<CR>
+    noremap <silent> <localleader>,       :Buffers<CR>
+    noremap <silent> <localleader>c       :Commits<CR>
+    noremap <silent> <localleader>h       :Helptags<CR>
+    noremap <silent> <localleader>b]      :BTags<CR>
+    noremap <silent> <localleader>bc      :BCommits<CR>
+    noremap <silent> <localleader>s       :Snippets<CR>
+    noremap <localleader>gr               :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
-    nnoremap <silent> <localleader>m :FZFMru<CR>
+    noremap <silent> <localleader>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "⠶"
@@ -563,7 +562,7 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.tools = ["rg"]
     runtime autoload/grepper.vim
     let g:grepper.jump  = 1
-    let g:grepper.stop  = 500
+    let g:grepper.stop  = 1000
     " Grepper prompt.
     noremap <leader>gr :GrepperRg<Space>
     " Search for current word or selection.
