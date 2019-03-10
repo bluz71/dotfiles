@@ -267,64 +267,64 @@ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 "-----------------------------
 " Window managment mappings
 "-----------------------------
-nnoremap <silent> <leader>s   :split<CR>
-nnoremap <silent> <leader>-   :new<CR>
-nnoremap <silent> <leader>v   :vsplit<CR>
-nnoremap <silent> <leader>\|  :vnew<CR>
-nnoremap <silent> <leader>bs  :botright new<CR><C-w>=
-nnoremap <silent> <leader>bt  :botright new<CR><C-w>=:terminal<CR>
-nnoremap <silent> <leader>bv  :botright vnew<CR><C-w>=
-nnoremap <silent> <leader>q   :close<CR>
-nnoremap <silent> <leader>t   :$tabnew<CR>
-nnoremap <silent> <C-g>s      :split<CR>
-nnoremap <silent> <C-g>-      :new<CR>
-nnoremap <silent> <C-g>v      :vsplit<CR>
-nnoremap <silent> <C-g>\|     :vnew<CR>
-nnoremap <silent> <C-g>bs     :botright new<CR><C-w>=
-nnoremap <silent> <C-g>bt     :botright new<CR><C-w>=:terminal<CR>
-nnoremap <silent> <C-g>bv     :botright vnew<CR><C-w>=
-nnoremap <silent> <C-g>q      :close<CR>
-nnoremap <silent> <C-g>t      :$tabnew<CR>
-inoremap <silent> <C-g>s      <Esc>:split<CR>
-inoremap <silent> <C-g>-      <Esc>:new<CR>
-inoremap <silent> <C-g>v      <Esc>:vsplit<CR>
-inoremap <silent> <C-g>\|     <Esc>:vnew<CR>
-inoremap <silent> <C-g>bs     <Esc>:botright new<CR><C-w>=
-inoremap <silent> <C-g>bt     <Esc>:botright new<CR><C-w>=:terminal<CR>
-inoremap <silent> <C-g>bv     <Esc>:botright vnew<CR><C-w>=
-inoremap <silent> <C-g>q      <Esc>:close<CR>
-inoremap <silent> <C-g>t      <Esc>:$tabnew<CR>
-nnoremap <leader>1            1gt
-nnoremap <leader>2            2gt
-nnoremap <leader>3            3gt
-nnoremap <leader>4            4gt
-nnoremap <leader>5            5gt
-nnoremap <leader>6            6gt
-nnoremap <leader>7            7gt
-nnoremap <leader>8            8gt
-nnoremap <leader>9            9gt
-nnoremap <C-g>1               1gt
-nnoremap <C-g>2               2gt
-nnoremap <C-g>3               3gt
-nnoremap <C-g>4               4gt
-nnoremap <C-g>5               5gt
-nnoremap <C-g>6               6gt
-nnoremap <C-g>7               7gt
-nnoremap <C-g>8               8gt
-nnoremap <C-g>9               9gt
-inoremap <C-g>1               <Esc>1gt
-inoremap <C-g>2               <Esc>2gt
-inoremap <C-g>3               <Esc>3gt
-inoremap <C-g>4               <Esc>4gt
-inoremap <C-g>5               <Esc>5gt
-inoremap <C-g>6               <Esc>6gt
-inoremap <C-g>7               <Esc>7gt
-inoremap <C-g>8               <Esc>8gt
-inoremap <C-g>9               <Esc>9gt
-nnoremap <leader>=            <C-w>=
-nnoremap <leader>R            <C-w>r
+nnoremap <silent> <leader>s  :split<CR>
+nnoremap <silent> <leader>-  :new<CR>
+nnoremap <silent> <leader>v  :vsplit<CR>
+nnoremap <silent> <leader>\| :vnew<CR>
+nnoremap <silent> <leader>bs :botright new<CR><C-w>=
+nnoremap <silent> <leader>bt :botright new<CR><C-w>=:terminal<CR>
+nnoremap <silent> <leader>bv :botright vnew<CR><C-w>=
+nnoremap <silent> <leader>q  :close<CR>
+nnoremap <silent> <leader>t  :$tabnew<CR>
+nnoremap <silent> <C-g>s     :split<CR>
+nnoremap <silent> <C-g>-     :new<CR>
+nnoremap <silent> <C-g>v     :vsplit<CR>
+nnoremap <silent> <C-g>\|    :vnew<CR>
+nnoremap <silent> <C-g>bs    :botright new<CR><C-w>=
+nnoremap <silent> <C-g>bt    :botright new<CR><C-w>=:terminal<CR>
+nnoremap <silent> <C-g>bv    :botright vnew<CR><C-w>=
+nnoremap <silent> <C-g>q     :close<CR>
+nnoremap <silent> <C-g>t     :$tabnew<CR>
+inoremap <silent> <C-g>s     <Esc>:split<CR>
+inoremap <silent> <C-g>-     <Esc>:new<CR>
+inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
+inoremap <silent> <C-g>\|    <Esc>:vnew<CR>
+inoremap <silent> <C-g>bs    <Esc>:botright new<CR><C-w>=
+inoremap <silent> <C-g>bt    <Esc>:botright new<CR><C-w>=:terminal<CR>
+inoremap <silent> <C-g>bv    <Esc>:botright vnew<CR><C-w>=
+inoremap <silent> <C-g>q     <Esc>:close<CR>
+inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
+nnoremap <leader>1           1gt
+nnoremap <leader>2           2gt
+nnoremap <leader>3           3gt
+nnoremap <leader>4           4gt
+nnoremap <leader>5           5gt
+nnoremap <leader>6           6gt
+nnoremap <leader>7           7gt
+nnoremap <leader>8           8gt
+nnoremap <leader>9           9gt
+nnoremap <C-g>1              1gt
+nnoremap <C-g>2              2gt
+nnoremap <C-g>3              3gt
+nnoremap <C-g>4              4gt
+nnoremap <C-g>5              5gt
+nnoremap <C-g>6              6gt
+nnoremap <C-g>7              7gt
+nnoremap <C-g>8              8gt
+nnoremap <C-g>9              9gt
+inoremap <C-g>1              <Esc>1gt
+inoremap <C-g>2              <Esc>2gt
+inoremap <C-g>3              <Esc>3gt
+inoremap <C-g>4              <Esc>4gt
+inoremap <C-g>5              <Esc>5gt
+inoremap <C-g>6              <Esc>6gt
+inoremap <C-g>7              <Esc>7gt
+inoremap <C-g>8              <Esc>8gt
+inoremap <C-g>9              <Esc>9gt
+nnoremap <leader>=           <C-w>=
+nnoremap <leader>R           <C-w>r
 " Zoom the current file into a standalone new tab.
-nnoremap <silent> <leader>Z :tab split<CR>
+nnoremap <silent> <leader>Z  :tab split<CR>
 if has("nvim")
     tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
     tnoremap <silent> <C-g>-  <C-\><C-N>:new<CR>
@@ -378,7 +378,6 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Format current paragraph.
 nnoremap <leader>Q      gqip
-nnoremap <leader>F      =ip
 " Fold the current indent.
 nnoremap <leader>z      za
 " Recalculate syntax highlighting for the entire file.
