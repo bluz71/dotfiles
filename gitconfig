@@ -41,7 +41,7 @@
     # aliases list
     aliases = !git config --list | grep alias | cut -c7- | sort | bat -l ini --style=plain --paging never
     # reflog
-    rf = reflog
+    rl = reflog
     # remote
     rr  = remote -v
     rso = remote show origin

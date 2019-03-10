@@ -21,7 +21,7 @@ alias gunadd='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
 alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; z src bluz'
-alias grf='fzf_git_reflog'
+alias grl='fzf_git_reflog'
 alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
 alias gvdi=gvimdiff
