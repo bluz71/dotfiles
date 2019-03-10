@@ -236,8 +236,6 @@ nnoremap Q         @q
 xnoremap Q         :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till end of line.
 noremap Y          y$
-" Delete previous word, when in insert mode, via Ctrl-b.
-inoremap <C-b>     <C-o>diw
 if has("nvim")
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
@@ -376,6 +374,8 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
+" Delete previous word, when in insert mode
+inoremap <C-b>          <C-o>db
 " Format current paragraph.
 nnoremap <leader>Q      gqip
 " Fold the current indent.
@@ -405,13 +405,15 @@ else
     nnoremap l :redraw!<CR>
 endif
 " Nicer completion mappings when in insert mode.
-" - ]     - tags file completion
-" - Space - context aware completion
-" - d     - dictionary completion
-" - f     - file completion
-" - l     - line completion
+" - ]     - 'tags' file completion
+" - Space - context aware language completion (via 'omnifunc' setting)
+" - c     - context aware term completion (repeat to continue adding matches)
+" - d     - dictionary completion (via 'dictionary' setting)
+" - f     - file path completion
+" - l     - line completion (repeat an existing line)
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
+inoremap <C-c>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
