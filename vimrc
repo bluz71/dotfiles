@@ -29,7 +29,7 @@ endif
 set colorcolumn=81,82
 set conceallevel=2
 set complete=.,w,b
-set completeopt=menu
+set completeopt=menu,menuone,noselect,noinsert
 set dictionary=/usr/share/dict/words
 set expandtab
 set foldlevelstart=20
