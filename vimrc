@@ -520,20 +520,20 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_commits_log_options = '--graph --color=always
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
-    noremap <silent> <localleader><Space> :Files<CR>
-    noremap <silent> <localleader>-       :Files <C-r>=expand("%:h")<CR>/<CR>
-    noremap <silent> <localleader>]       :Tags<CR>
-    noremap <silent> <localleader>'       :Marks<CR>
-    noremap <silent> <localleader>,       :Buffers<CR>
-    noremap <silent> <localleader>c       :Commits<CR>
-    noremap <silent> <localleader>h       :Helptags<CR>
-    noremap <silent> <localleader>b]      :BTags<CR>
-    noremap <silent> <localleader>bc      :BCommits<CR>
-    noremap <silent> <localleader>s       :Snippets<CR>
-    noremap <localleader>gr               :Rg<Space>
+    nnoremap <silent> <localleader><Space> :Files<CR>
+    nnoremap <silent> <localleader>-       :Files <C-r>=expand("%:h")<CR>/<CR>
+    nnoremap <silent> <localleader>]       :Tags<CR>
+    nnoremap <silent> <localleader>'       :Marks<CR>
+    nnoremap <silent> <localleader>,       :Buffers<CR>
+    nnoremap <silent> <localleader>c       :Commits<CR>
+    nnoremap <silent> <localleader>h       :Helptags<CR>
+    nnoremap <silent> <localleader>b]      :BTags<CR>
+    nnoremap <silent> <localleader>bc      :BCommits<CR>
+    nnoremap <silent> <localleader>s       :Snippets<CR>
+    nnoremap \fg                           :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
-    noremap <silent> <localleader>m :FZFMru<CR>
+    nnoremap <silent> <localleader>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "⠶"
@@ -565,7 +565,7 @@ Plug 'mhinz/vim-grepper'
     let g:grepper.jump  = 1
     let g:grepper.stop  = 1000
     " Grepper prompt.
-    noremap <leader>gr :GrepperRg<Space>
+    nnoremap \g :GrepperRg<Space>
     " Search for current word or selection.
     nnoremap gr :Grepper -cword -noprompt<CR>
     xmap gr <plug>(GrepperOperator)
