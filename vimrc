@@ -557,7 +557,7 @@ Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive               = 0
     let g:bufExplorerShowRelativePath         = 1
     let g:bufExplorerSortBy                   = "name"
-    noremap <leader>l :BufExplorer<CR>
+    nnoremap <leader>l :BufExplorer<CR>
 Plug 'mhinz/vim-grepper'
     let g:grepper       = {}
     let g:grepper.tools = ["rg"]
@@ -656,8 +656,8 @@ if &diff
     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
 endif
 Plug 'tpope/vim-fugitive'
-    noremap <silent> <localleader>B :Gblame<CR>
-    noremap <silent> <localleader>G :Gstatus<CR>
+    nnoremap <silent> <localleader>B :Gblame<CR>
+    nnoremap <silent> <localleader>G :Gstatus<CR>
 
 "-----------------------------
 " tmux support
