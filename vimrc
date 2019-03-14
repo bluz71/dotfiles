@@ -457,17 +457,17 @@ xnoremap - g<C-x>
 " - Alt-d  - delete forward word
 inoremap <C-a>  <C-o>^
 inoremap <C-e>  <C-o>$
-inoremap <M-b>  <S-Left>
-inoremap <M-f>  <S-Right>
-inoremap <M-BS> <C-w>
-inoremap <M-d>  <C-o>dw
+inoremap <A-b>  <C-Left>
+inoremap <A-f>  <C-Right>
+inoremap <A-BS> <C-w>
+inoremap <A-d>  <C-o>dw
 " As above but for command mode.
 cnoremap <C-a>  <Home>
 cnoremap <C-e>  <End>
 cnoremap <A-b>  <C-Left>
 cnoremap <A-f>  <C-Right>
-cnoremap <M-BS> <C-w>
-cnoremap <M-d>  <S-Right><C-w>
+cnoremap <A-BS> <C-w>
+cnoremap <A-d>  <C-Right><C-w>
 
 "===========================================================
 " PLUGINS
