@@ -374,8 +374,6 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
-" Delete previous word, when in insert mode
-inoremap <C-b>          <C-o>db
 " Format current paragraph.
 nnoremap <leader>Q      gqip
 " Fold the current indent.
@@ -450,11 +448,26 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
-" ~/.inputrc like motions in command mode.
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <A-b> <C-Left>
-cnoremap <A-f> <C-Right>
+" ~/.inputrc (aka Readline) like mappings for inser mode.
+" - Ctrl-a - go to the start of line
+" - Ctrl-a - go to the end of the line
+" - Alt-b  - back a word
+" - Alt-f  - forward a word
+" - Alt-BS - delete backward word
+" - Alt-d  - delete forward word
+inoremap <C-a>  <C-o>^
+inoremap <C-e>  <C-o>$
+inoremap <M-b>  <S-Left>
+inoremap <M-f>  <S-Right>
+inoremap <M-BS> <C-w>
+inoremap <M-d>  <C-o>dw
+" As above but for command mode.
+cnoremap <C-a>  <Home>
+cnoremap <C-e>  <End>
+cnoremap <A-b>  <C-Left>
+cnoremap <A-f>  <C-Right>
+cnoremap <M-BS> <C-w>
+cnoremap <M-d>  <S-Right><C-w>
 
 "===========================================================
 " PLUGINS
