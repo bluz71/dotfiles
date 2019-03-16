@@ -8,7 +8,6 @@ alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias be='bundle exec'
 alias c='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
 alias cp='/bin/cp -i'
-alias cpa='/bin/cp -a'
 alias di='meld 2>/dev/null'
 alias dir='ls -l'
 alias du='du -b'
@@ -317,9 +316,11 @@ prompt() {
 # Customizations per platform.
 #
 if [[ $OS = Linux ]]; then
+    alias cpa='/bin/cp -a'
     alias free='free -th'
     alias open='xdg-open'
 elif [[ $OS = Darwin ]]; then
+    alias cpa='/usr/local/opt/coreutils/libexec/gnubin/cp -a'
     export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
 fi
 
