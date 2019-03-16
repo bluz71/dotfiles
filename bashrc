@@ -140,6 +140,16 @@ if [[ -n $NVIM_LISTEN_ADDRESS ]]; then
     export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 fi
 
+# Customizations per platform.
+if [[ $OS = Linux ]]; then
+    alias cpa='/bin/cp -a'
+    alias free='free -th'
+    alias open='xdg-open'
+elif [[ $OS = Darwin ]]; then
+    alias cpa='/usr/local/opt/coreutils/libexec/gnubin/cp -a'
+    export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
+fi
+
 
 # Functions.
 #
@@ -311,18 +321,6 @@ prompt() {
     SEAFLY_GIT_PREFIX=" "
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
-
-
-# Customizations per platform.
-#
-if [[ $OS = Linux ]]; then
-    alias cpa='/bin/cp -a'
-    alias free='free -th'
-    alias open='xdg-open'
-elif [[ $OS = Darwin ]]; then
-    alias cpa='/usr/local/opt/coreutils/libexec/gnubin/cp -a'
-    export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
-fi
 
 
 # Set environment.
