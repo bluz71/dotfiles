@@ -94,6 +94,7 @@ let &undodir=s:undoDir
 set undofile          " Maintain undo history
 set updatetime=1000
 set viminfo=          " No backups
+set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu
 set wildmode=full
 set wrap              " Wrap long lines
@@ -374,6 +375,8 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
+" Navigate buffers via 'wildmenu'.
+nnoremap <Tab> :buffer<Space><Tab>
 " Format current paragraph.
 nnoremap <leader>Q      gqip
 " Fold the current indent.
