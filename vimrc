@@ -21,6 +21,7 @@ set background=dark
 set backspace=indent,eol,start
 set belloff=all       " Bells are annoying
 set breakindent       " Wrap long lines *with* indentation
+set breakindentopt=shift:2
 if has("unnamedplus")
     set clipboard=unnamed,unnamedplus
 else
@@ -66,7 +67,7 @@ set regexpengine=1
 set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4
-set showbreak=\\\\\   " Use this to wrap long lines
+set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab
 set splitbelow        " Split below current window
@@ -86,7 +87,7 @@ set timeoutlen=1500   " Give some time for multi-key mappings
 set ttimeoutlen=10
 set ttyfast
 " Set the persistent undo directory on temporary private fast storage.
-let s:undoDir = "/tmp/.undodir_" . $USER
+let s:undoDir="/tmp/.undodir_" . $USER
 if !isdirectory(s:undoDir)
     call mkdir(s:undoDir, "", 0700)
 endif
