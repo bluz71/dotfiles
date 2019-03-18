@@ -266,37 +266,29 @@ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Navigate buffers via 'wildmenu'.
 nnoremap <leader><Tab>   :buffer<Space><Tab>
 " Go to the next and previous buffers.
-nnoremap <leader><Right> :bnext<CR>
-nnoremap <leader><Left>  :bprevious<CR>
 
 "-----------------------------
 " Window managment mappings
 "-----------------------------
 nnoremap <silent> <leader>s  :split<CR>
-nnoremap <silent> <leader>-  :new<CR>
 nnoremap <silent> <leader>v  :vsplit<CR>
-nnoremap <silent> <leader>\| :vnew<CR>
-nnoremap <silent> <leader>bs :botright new<CR><C-w>=
-nnoremap <silent> <leader>bt :botright new<CR><C-w>=:terminal<CR>
-nnoremap <silent> <leader>bv :botright vnew<CR><C-w>=
+nnoremap <silent> <leader>-  :botright new<CR><C-w>=
+nnoremap <silent> <leader>\| :botright vnew<CR><C-w>=
+nnoremap <silent> <leader>b  :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <leader>q  :close<CR>
 nnoremap <silent> <leader>t  :$tabnew<CR>
 nnoremap <silent> <C-g>s     :split<CR>
-nnoremap <silent> <C-g>-     :new<CR>
 nnoremap <silent> <C-g>v     :vsplit<CR>
-nnoremap <silent> <C-g>\|    :vnew<CR>
-nnoremap <silent> <C-g>bs    :botright new<CR><C-w>=
-nnoremap <silent> <C-g>bt    :botright new<CR><C-w>=:terminal<CR>
-nnoremap <silent> <C-g>bv    :botright vnew<CR><C-w>=
+nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
+nnoremap <silent> <C-g>\|    :botright vnew<CR><C-w>=
+nnoremap <silent> <C-g>b     :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <C-g>q     :close<CR>
 nnoremap <silent> <C-g>t     :$tabnew<CR>
 inoremap <silent> <C-g>s     <Esc>:split<CR>
-inoremap <silent> <C-g>-     <Esc>:new<CR>
 inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
-inoremap <silent> <C-g>\|    <Esc>:vnew<CR>
-inoremap <silent> <C-g>bs    <Esc>:botright new<CR><C-w>=
-inoremap <silent> <C-g>bt    <Esc>:botright new<CR><C-w>=:terminal<CR>
-inoremap <silent> <C-g>bv    <Esc>:botright vnew<CR><C-w>=
+inoremap <silent> <C-g>-     <Esc>:botright new<CR><C-w>=
+inoremap <silent> <C-g>\|    <Esc>:botright vnew<CR><C-w>=
+inoremap <silent> <C-g>b     <Esc>:botright new<CR><C-w>=:terminal<CR>
 inoremap <silent> <C-g>q     <Esc>:close<CR>
 inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
 nnoremap <leader>1           1gt
@@ -332,12 +324,10 @@ nnoremap <leader>R           <C-w>r
 nnoremap <silent> <leader>Z  :tab split<CR>
 if has("nvim")
     tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
-    tnoremap <silent> <C-g>-  <C-\><C-N>:new<CR>
     tnoremap <silent> <C-g>v  <C-\><C-N>:vsplit<CR>
-    tnoremap <silent> <C-g>\| <C-\><C-N>:vnew<CR>
-    tnoremap <silent> <C-g>bs <C-\><C-N>:botright new<CR><C-w>=
-    tnoremap <silent> <C-g>bt <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
-    tnoremap <silent> <C-g>bv <C-\><C-N>:botright vnew<CR><C-w>=
+    tnoremap <silent> <C-g>-  <C-\><C-N>:botright new<CR><C-w>=
+    tnoremap <silent> <C-g>\| <C-\><C-N>:botright vnew<CR><C-w>=
+    tnoremap <silent> <C-g>b  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
     tnoremap <silent> <C-g>q  <C-\><C-N>:close<CR>
     tnoremap <silent> <C-g>t  <C-\><C-N>:$tabnew<CR>
     tnoremap <C-g>1           <C-\><C-N>1gt
