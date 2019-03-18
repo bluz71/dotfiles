@@ -263,6 +263,11 @@ endif
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+" Navigate buffers via 'wildmenu'.
+nnoremap <leader><Tab>   :buffer<Space><Tab>
+" Go to the next and previous buffers.
+nnoremap <leader><Right> :bnext<CR>
+nnoremap <leader><Left>  :bprevious<CR>
 
 "-----------------------------
 " Window managment mappings
@@ -376,8 +381,7 @@ nnoremap <F12>          :call Listing()<CR>
 "-----------------------------
 " Misc mappings
 "-----------------------------
-" Navigate buffers via 'wildmenu'.
-nnoremap <Tab> :buffer<Space><Tab>
+"
 " Format current paragraph.
 nnoremap <leader>Q      gqip
 " Fold the current indent.
