@@ -264,8 +264,13 @@ endif
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Navigate buffers via 'wildmenu'.
-nnoremap <leader><Tab>   :buffer<Space><Tab>
-" Go to the next and previous buffers.
+nnoremap <leader><Tab> :buffer<Space><Tab>
+" Navigate the jumplist.
+nnoremap [j <C-o>
+nnoremap ]j <C-i>
+" Mapping that scroll the window when wrapping is in effect.
+nnoremap [z zH
+nnoremap ]z zL
 
 "-----------------------------
 " Window managment mappings
