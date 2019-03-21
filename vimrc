@@ -783,6 +783,7 @@ augroup pluginBehaviours
     autocmd Syntax      *               IndentLinesReset
     autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
     autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
+    autocmd FileType    vim-plug        nmap <buffer> <CR> <plug>(plug-preview)
     autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
     autocmd FileType    css,ruby,scss   let b:vcm_tab_complete = "omni"
