@@ -266,9 +266,9 @@ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Navigate buffers via 'wildmenu'.
 nnoremap <leader><Tab> :buffer<Space><Tab>
 " Navigate the jumplist.
-nnoremap [j <C-o>
-nnoremap ]j <C-i>
-" Mapping that scroll the window when wrapping is in effect.
+nnoremap [j <C-o>zz
+nnoremap ]j <C-i>zz
+" Mapping that scrolls the window when wrapping is in effect.
 nnoremap [z zH
 nnoremap ]z zL
 
