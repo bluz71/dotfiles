@@ -747,6 +747,7 @@ augroup languageCustomizationsByType
     autocmd FileType markdown       setlocal formatoptions=tqln
     autocmd FileType ruby           setlocal formatoptions=cq
     autocmd FileType scss           let g:indentLine_faster=0
+    autocmd FileType typescript     setlocal regexpengine=2
     autocmd FileType vim            setlocal formatoptions=coql
 augroup END
 
