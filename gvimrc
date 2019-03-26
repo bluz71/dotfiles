@@ -27,7 +27,7 @@ set lines=55
 if has("gui_gtk2") || has("gui_gtk3")
     set guifont=Iosevka\ Custom\ 12
 elseif has("gui_macvim")
-    set guifont=Iosevka\ Custom\ Condensed:h13
+    set guifont=Iosevka-Custom:h13
 endif
 
 
