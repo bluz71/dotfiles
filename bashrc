@@ -177,7 +177,7 @@ brew_config() {
     # Setup chruby if available.
     if [[ -f $brew_prefix/share/chruby/chruby.sh ]]; then
         . $brew_prefix/share/chruby/chruby.sh
-        chruby 2.5.3
+        chruby 2.6.2
     fi
 
     # 'fzf' configuration.
