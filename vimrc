@@ -493,6 +493,7 @@ Plug 'bluz71/vim-moonfly-colors'
     let g:moonflyCursorColor = 1
 Plug 'bluz71/vim-moonfly-statusline'
     let g:moonflyWithGitBranchCharacter = 1
+    let g:moonflyWithObessionGeometricCharacters = 1
 Plug 'rakr/vim-one'
 
 "-----------------------------
@@ -607,6 +608,7 @@ Plug 'sheerun/vim-polyglot'
     let g:ruby_indent_access_modifier_style = "outdent"
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_conceal              = 0
+    let g:vim_markdown_conceal_code_blocks  = 0
 " vim-polyglot wraps the typescript-vim plugin, however yats.vim is nicer for
 " TypeScript.
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
@@ -708,6 +710,7 @@ Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 Plug 'tpope/vim-repeat'
