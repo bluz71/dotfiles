@@ -711,6 +711,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-obsession'
+    noremap <localleader>o :Obsession<CR>
+    noremap <localleader>O :Obsession!<CR>
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 Plug 'tpope/vim-repeat'
@@ -795,8 +797,8 @@ augroup pluginBehaviours
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
     autocmd FileType    css,ruby,scss   let b:vcm_tab_complete = "omni"
     autocmd FileType    javascript.jsx
-      \ imap <C-Space> <Plug>(ale_complete)|
-      \ nmap <leader>] <Plug>(ale_go_to_definition)|
+      \ imap <C-Space> <Plug>(ale_complete) |
+      \ nmap <leader>] <Plug>(ale_go_to_definition) |
       \ nmap <leader>[ <Plug>(ale_find_references)
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
@@ -807,11 +809,15 @@ augroup pluginBehaviours
     endif
 augroup END
 
-" Auto-read behaviour.
+" Auto-read and auto-session behaviour.
 "
-augroup autoRead
+augroup autoReadAndSession
     autocmd!
     autocmd CursorHold * silent! checktime
+    autocmd VimEnter * nested
+      \ if filereadable('Session.vim') |
+      \     source Session.vim |
+      \ endif
 augroup END
 
 " Set the color scheme.
