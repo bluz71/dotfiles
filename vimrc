@@ -811,8 +811,14 @@ augroup autoRead
     autocmd CursorHold * silent! checktime
 augroup END
 
-"===========================================================
-" COLOR SCHEME
-"===========================================================
-
-colorscheme moonfly
+" Set the color scheme.
+"
+" Note, we set the color scheme via the VimEnter event to prevent startup
+" errors being displayed in an unreadable red color, instead they will not be
+" colored at all (hence, will be readable). Basically, setting the color scheme
+" will be delayed until Vim is fully loaded.
+"
+augroup colorScheme
+    autocmd!
+    autocmd VimEnter * colorscheme moonfly
+augroup END
