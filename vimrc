@@ -732,44 +732,41 @@ runtime macros/matchit.vim
 " AUTOCMDS
 "===========================================================
 
-" Custom settings per language by file type.
+" Language customizations.
 "
-augroup languageCustomizationsByType
+augroup languageCustomizations
     " Note, 'autocmd!' is used to clear out any existing definitions in
     " this auto-group. This prevents duplicate entries upon a live vimrc
     " reload.
     autocmd!
-    autocmd FileType c,cpp          setlocal cindent foldmethod=syntax
-    autocmd FileType eelixir        setlocal matchpairs=(:),{:},[:]
-    autocmd FileType eruby          setlocal formatoptions=cq matchpairs=(:),{:},[:]
+    " BY FILE TYPE
+    autocmd FileType c,cpp      setlocal cindent foldmethod=syntax
+    autocmd FileType eelixir    setlocal matchpairs=(:),{:},[:]
+    autocmd FileType eruby      setlocal formatoptions=cq matchpairs=(:),{:},[:]
     " Setup indent markers for tab-indented Go code. Note, the IndentLine
     " plugin will not show markers for tab formatted code, so we need to mimic
     " what that plugin does here using listchars and highlighting.
-    autocmd FileType go             setlocal list listchars=tab:\┊\ ,trail:-
-    autocmd FileType go             highlight! link SpecialKey Conceal
+    autocmd FileType go         setlocal list listchars=tab:\┊\ ,trail:-
+    autocmd FileType go         highlight! link SpecialKey Conceal
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
-    autocmd FileType html           let b:match_words = "<\(\w\w*\):</\1,{:}"
-    autocmd FileType java           setlocal cindent cinoptions+=j1 foldmethod=syntax
-    autocmd FileType javascript.jsx setlocal formatoptions=cq
-    autocmd FileType json           set conceallevel=2
-    autocmd FileType markdown       setlocal formatoptions=tqln
-    autocmd FileType ruby           setlocal formatoptions=cq
-    autocmd FileType scss           let g:indentLine_faster=0
-    autocmd FileType typescript     setlocal regexpengine=2
-    autocmd FileType vim            setlocal formatoptions=coql
-augroup END
-
-" Custom settings per language by file extension.
-"
-augroup languageCustomizationsByExtension
-    autocmd!
+    autocmd FileType html       let b:match_words = "<\(\w\w*\):</\1,{:}"
+    autocmd FileType java       setlocal cindent cinoptions+=j1
+    autocmd FileType javascript.jsx
+      \ setlocal formatoptions=cq
+    autocmd FileType json       setlocal conceallevel=2
+    autocmd FileType markdown   setlocal formatoptions=tqln
+    autocmd FileType ruby       setlocal formatoptions=cq
+    autocmd FileType scss       let g:indentLine_faster=0
+    autocmd FileType typescript setlocal regexpengine=2
+    autocmd FileType vim        setlocal formatoptions=coql
+    " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
 augroup END
 
-" Style, behaviour and performance customizations.
+" Behaviour customizations.
 "
-augroup styleBehaviourPerformanceCustomizations
+augroup behaviourCustomizations
     autocmd!
     autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
     autocmd BufReadPost    quickfix  nnoremap <buffer> <CR> <CR>
@@ -785,9 +782,9 @@ augroup styleBehaviourPerformanceCustomizations
     endif
 augroup END
 
-" Plugin-related behaviours.
+" Plugin-related customizations.
 "
-augroup pluginBehaviours
+augroup pluginCustomizations
     autocmd!
     autocmd FileType    *               IndentLinesReset
     autocmd Syntax      *               IndentLinesReset
@@ -810,25 +807,20 @@ augroup pluginBehaviours
     endif
 augroup END
 
-" Auto-read and auto-session behaviour.
+" Miscellaneous customizations.
 "
-augroup autoReadAndSession
+augroup miscCustomizations
     autocmd!
+    " Note, we set the color scheme via the VimEnter event to prevent startup
+    " errors being displayed in an unreadable red color, instead they will not
+    " be colored at all (hence, will be readable). Basically, setting the color
+    " scheme will be delayed until Vim is fully loaded.
+    autocmd VimEnter   * colorscheme moonfly
+    " Auto-read external changes.
     autocmd CursorHold * silent! checktime
-    autocmd VimEnter * nested
+    " Auto-load session if it exists.
+    autocmd VimEnter   * nested
       \ if filereadable('Session.vim') |
       \     source Session.vim |
       \ endif
-augroup END
-
-" Set the color scheme.
-"
-" Note, we set the color scheme via the VimEnter event to prevent startup
-" errors being displayed in an unreadable red color, instead they will not be
-" colored at all (hence, will be readable). Basically, setting the color scheme
-" will be delayed until Vim is fully loaded.
-"
-augroup colorScheme
-    autocmd!
-    autocmd VimEnter * colorscheme moonfly
 augroup END
