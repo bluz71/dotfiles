@@ -449,7 +449,7 @@ xnoremap + g<C-a>
 xnoremap - g<C-x>
 " ~/.inputrc (aka Readline) like mappings for inser mode.
 " - Ctrl-a - go to the start of line
-" - Ctrl-a - go to the end of the line
+" - Ctrl-e - go to the end of the line
 " - Alt-b  - back a word
 " - Alt-f  - forward a word
 " - Alt-BS - delete backward word
