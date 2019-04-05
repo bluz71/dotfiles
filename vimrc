@@ -204,9 +204,6 @@ if !has("gui_running") && !has("nvim")
         " Change the cursor to an I-beam when in insert mode.
         let &t_SI = "\<Esc>Ptmux;\<Esc>\e[6 q\<Esc>\\"
         let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
-        " Make CTRL-Left/Right work inside tmux.
-        execute "set <xRight>=\e[1;*C"
-        execute "set <xLeft>=\e[1;*D"
         " Make Vim *set termguicolors* work inside tmux.
         set t_8b=[48;2;%lu;%lu;%lum
         set t_8f=[38;2;%lu;%lu;%lum
@@ -226,18 +223,17 @@ endif
 "-----------------------------
 " Core mappings
 "-----------------------------
-let mapleader      = ","
-let maplocalleader = " "
+let mapleader = ","
 " Enter command mode via ';'
-noremap ;          :
+noremap ; :
 " Make dot work on visual line selections.
-xnoremap .         :norm.<CR>
+xnoremap . :norm.<CR>
 " 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
-nnoremap Q         @q
+nnoremap Q @q
 " Execute macro 'q' over the visual selection.
-xnoremap Q         :'<,'> :normal @q<CR>
+xnoremap Q :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till end of line.
-noremap Y          y$
+noremap Y y$
 if has("nvim")
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
@@ -350,55 +346,55 @@ endif
 " Function key mappings
 "-----------------------------
 "
-" Double up function key mappings with <localleader>+number mappings for
+" Double up function key mappings with <Space>+number mappings for
 " touchbar Macbooks which have no physical function keys.
 "<F1> - unused
-nnoremap <F2>           :w<CR>
-nnoremap <localleader>2 :w<CR>
-nnoremap <F3>           :%retab<CR> :%s/\s\+$//<CR>
-nnoremap <localleader>3 :%retab<CR> :%s/\s\+$//<CR>
-nnoremap <F4>           :%s/ /_<CR>
-nnoremap <localleader>4 :%s/ /_<CR>
-nnoremap <F5>           :call Spelling()<CR>
-nnoremap <localleader>5 :call Spelling()<CR>
-nnoremap <F6>           :source $MYVIMRC<CR>
-nnoremap <localleader>6 :source $MYVIMRC<CR>
-nnoremap <F7>           :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap <localleader>7 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <F2>     :w<CR>
+nnoremap <Space>2 :w<CR>
+nnoremap <F3>     :%retab<CR> :%s/\s\+$//<CR>
+nnoremap <Space>3 :%retab<CR> :%s/\s\+$//<CR>
+nnoremap <F4>     :%s/ /_<CR>
+nnoremap <Space>4 :%s/ /_<CR>
+nnoremap <F5>     :call Spelling()<CR>
+nnoremap <Space>5 :call Spelling()<CR>
+nnoremap <F6>     :source $MYVIMRC<CR>
+nnoremap <Space>6 :source $MYVIMRC<CR>
+nnoremap <F7>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <Space>7 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 "<F8> - unused
 "<F9> - unused
-nnoremap <localleader>9 :set hlsearch!<CR>
+nnoremap <Space>9 :set hlsearch!<CR>
 "<F10> - unused
-nnoremap <localleader>0 :call Listing()<CR>
-nnoremap <F11>          :set hlsearch!<CR>
-nnoremap <F12>          :call Listing()<CR>
+nnoremap <Space>0 :call Listing()<CR>
+nnoremap <F11>    :set hlsearch!<CR>
+nnoremap <F12>    :call Listing()<CR>
 
 "-----------------------------
 " Misc mappings
 "-----------------------------
 "
 " Format current paragraph.
-nnoremap <leader>Q      gqip
+nnoremap <leader>Q gqip
 " Fold the current indent.
-nnoremap <leader>z      za
+nnoremap <leader>z za
 " Recalculate syntax highlighting for the entire file.
-nnoremap <localleader>S :syntax sync fromstart<CR>
+nnoremap <Space>S  :syntax sync fromstart<CR>
 " Center navigation commands.
-noremap n               nzz
-noremap N               Nzz
-noremap ]s              ]szz
-noremap [s              [szz
+noremap n  nzz
+noremap N  Nzz
+noremap ]s ]szz
+noremap [s [szz
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
-noremap  <leader>c      :let @y=@*<CR>
+noremap  <leader>c :let @y=@*<CR>
 " - Yank into the 'y' register
-noremap <leader>y       "yy
+noremap <leader>y  "yy
 " - Paste from the 'y' register
-noremap <leader>p       "yp
-noremap <leader>P       "yP
+noremap <leader>p  "yp
+noremap <leader>P  "yP
 " - Delete into the 'black hole' register
-noremap <leader>x       "_x
-noremap <leader>d       "_d
+noremap <leader>x  "_x
+noremap <leader>d  "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l> :redraw!<CR>
@@ -537,20 +533,20 @@ Plug 'junegunn/fzf.vim'
     let g:fzf_commits_log_options = '--graph --color=always
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
-    nnoremap <silent> <localleader><Space> :Files<CR>
-    nnoremap <silent> <localleader>-       :Files <C-r>=expand("%:h")<CR>/<CR>
-    nnoremap <silent> <localleader>]       :Tags<CR>
-    nnoremap <silent> <localleader>'       :Marks<CR>
-    nnoremap <silent> <localleader>,       :Buffers<CR>
-    nnoremap <silent> <localleader>c       :Commits<CR>
-    nnoremap <silent> <localleader>h       :Helptags<CR>
-    nnoremap <silent> <localleader>b]      :BTags<CR>
-    nnoremap <silent> <localleader>bc      :BCommits<CR>
-    nnoremap <silent> <localleader>s       :Snippets<CR>
-    nnoremap \fg                           :Rg<Space>
+    nnoremap <silent> <Space><Space> :Files<CR>
+    nnoremap <silent> <Space>-       :Files <C-r>=expand("%:h")<CR>/<CR>
+    nnoremap <silent> <Space>]       :Tags<CR>
+    nnoremap <silent> <Space>b]      :BTags<CR>
+    nnoremap <silent> <Space>'       :Marks<CR>
+    nnoremap <silent> <Space>,       :Buffers<CR>
+    nnoremap <silent> <Space>c       :Commits<CR>
+    nnoremap <silent> <Space>bc      :BCommits<CR>
+    nnoremap <silent> <Space>h       :Helptags<CR>
+    nnoremap <silent> <Space>s       :Snippets<CR>
+    nnoremap \fg                     :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
-    nnoremap <silent> <localleader>m :FZFMru<CR>
+    nnoremap <silent> <Space>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeDirArrowExpandable  = "+"
     let g:NERDTreeDirArrowCollapsible = "⠶"
@@ -561,12 +557,12 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "✗",
-                \ "Staged"    : "✓",
-                \ "Dirty"     : "*",
-                \ "Untracked" : "?",
-                \ "Renamed"   : "→"
-                \ }
+      \ "Modified"  : "✗",
+      \ "Staged"    : "✓",
+      \ "Dirty"     : "*",
+      \ "Untracked" : "?",
+      \ "Renamed"   : "→"
+      \ }
     let g:NERDTreeUpdateOnCursorHold = 0
     let g:NERDTreeUpdateOnWrite      = 0
 Plug 'jlanzarotta/bufexplorer'
@@ -619,7 +615,7 @@ Plug 'prettier/vim-prettier', {
     \             'typescript']
     \}
     let g:prettier#autoformat = 0
-    nmap <localleader>p <Plug>(Prettier)
+    nmap <Space>p <Plug>(Prettier)
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
@@ -650,16 +646,16 @@ Plug 'w0rp/ale'
     let g:ale_sign_warning             = '❯❯'
     " use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
     " mappings to navigate the location list
-    nmap <silent> [W       :lfirst<CR>zz
-    nmap <silent> ]W       :llast<CR>zz
-    nmap <localleader>l    <Plug>(ale_lint)
-    nmap <localleader><BS> <Plug>(ale_reset_buffer)
+    nmap <silent> [W :lfirst<CR>zz
+    nmap <silent> ]W :llast<CR>zz
+    nmap <Space>l    <Plug>(ale_lint)
+    nmap <Space><BS> <Plug>(ale_reset_buffer)
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
-    nnoremap <silent> <localleader>tf :TestFile<CR>
-    nnoremap <silent> <localleader>tl :TestLast<CR>
-    nnoremap <silent> <localleader>ts :TestSuite<CR>
-    nnoremap <silent> <localleader>tt :TestNearest<CR>
+    nnoremap <silent> <Space>tf :TestFile<CR>
+    nnoremap <silent> <Space>tl :TestLast<CR>
+    nnoremap <silent> <Space>ts :TestSuite<CR>
+    nnoremap <silent> <Space>tt :TestNearest<CR>
     if has("nvim")
         let test#strategy = "neovim"
     else
@@ -677,8 +673,8 @@ if &diff
     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
 endif
 Plug 'tpope/vim-fugitive'
-    nnoremap <silent> <localleader>B :Gblame<CR>
-    nnoremap <silent> <localleader>G :Gstatus<CR>
+    nnoremap <silent> <Space>B :Gblame<CR>
+    nnoremap <silent> <Space>G :Gstatus<CR>
 
 "-----------------------------
 " tmux support
@@ -711,8 +707,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-obsession'
-    noremap <localleader>o :Obsession<CR>
-    noremap <localleader>O :Obsession!<CR>
+    noremap <Space>o :Obsession<CR>
+    noremap <Space>O :Obsession!<CR>
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 Plug 'tpope/vim-repeat'
@@ -731,6 +727,24 @@ runtime macros/matchit.vim
 "===========================================================
 " AUTOCMDS
 "===========================================================
+
+" Behaviour customizations.
+"
+augroup behaviourCustomizations
+    autocmd!
+    autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
+    autocmd BufReadPost    quickfix  nnoremap <buffer> <CR> <CR>
+    autocmd CmdwinEnter    *         nnoremap <buffer> <CR> <CR>
+    autocmd FilterWritePre *         call DiffStyling()
+    autocmd VimResized     *         wincmd =
+    autocmd FileType       text      setlocal conceallevel=0
+    autocmd Syntax         *         syntax sync minlines=2000 " for performance
+    if has("nvim")
+        autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
+        autocmd TermOpen * startinsert
+        autocmd BufEnter   term://* startinsert
+    endif
+augroup END
 
 " Language customizations.
 "
@@ -762,24 +776,6 @@ augroup languageCustomizations
     " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
-augroup END
-
-" Behaviour customizations.
-"
-augroup behaviourCustomizations
-    autocmd!
-    autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
-    autocmd BufReadPost    quickfix  nnoremap <buffer> <CR> <CR>
-    autocmd CmdwinEnter    *         nnoremap <buffer> <CR> <CR>
-    autocmd FilterWritePre *         call DiffStyling()
-    autocmd VimResized     *         wincmd =
-    autocmd FileType       text      setlocal conceallevel=0
-    autocmd Syntax         *         syntax sync minlines=2000 " for performance
-    if has("nvim")
-        autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-        autocmd TermOpen * startinsert
-        autocmd BufEnter   term://* startinsert
-    endif
 augroup END
 
 " Plugin-related customizations.
