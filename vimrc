@@ -773,6 +773,7 @@ augroup styleBehaviourPerformanceCustomizations
     autocmd!
     autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
     autocmd BufReadPost    quickfix  nnoremap <buffer> <CR> <CR>
+    autocmd CmdwinEnter    *         nnoremap <buffer> <CR> <CR>
     autocmd FilterWritePre *         call DiffStyling()
     autocmd VimResized     *         wincmd =
     autocmd FileType       text      setlocal conceallevel=0
