@@ -543,7 +543,9 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <Space>bc      :BCommits<CR>
     nnoremap <silent> <Space>h       :Helptags<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
-    nnoremap \fg                     :Rg<Space>
+    nnoremap \f                      :Rg<Space>
+    nnoremap \l                      :Lines<CR>
+    nnoremap \bl                     :BLines<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
