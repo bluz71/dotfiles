@@ -535,17 +535,17 @@ Plug 'junegunn/fzf.vim'
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
     nnoremap <silent> <Space><Space> :Files<CR>
     nnoremap <silent> <Space>-       :Files <C-r>=expand("%:h")<CR>/<CR>
-    nnoremap <silent> <Space>]       :Tags<CR>
-    nnoremap <silent> <Space>b]      :BTags<CR>
     nnoremap <silent> <Space>'       :Marks<CR>
     nnoremap <silent> <Space>,       :Buffers<CR>
     nnoremap <silent> <Space>c       :Commits<CR>
     nnoremap <silent> <Space>bc      :BCommits<CR>
     nnoremap <silent> <Space>h       :Helptags<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
+    nnoremap <silent> \]             :Tags<CR>
+    nnoremap <silent> \b]            :BTags<CR>
+    nnoremap <silent> \l             :Lines<CR>
+    nnoremap <silent> \bl            :BLines<CR>
     nnoremap \f                      :Rg<Space>
-    nnoremap \l                      :Lines<CR>
-    nnoremap \bl                     :BLines<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
@@ -730,21 +730,28 @@ runtime macros/matchit.vim
 " AUTOCMDS
 "===========================================================
 
-" Behaviour customizations.
+" General customizations.
 "
-augroup behaviourCustomizations
+augroup generalCustomizations
     autocmd!
-    autocmd BufWinEnter    quickfix  setlocal cursorline colorcolumn=0
-    autocmd BufReadPost    quickfix  nnoremap <buffer> <CR> <CR>
-    autocmd CmdwinEnter    *         nnoremap <buffer> <CR> <CR>
-    autocmd FilterWritePre *         call DiffStyling()
-    autocmd VimResized     *         wincmd =
-    autocmd FileType       text      setlocal conceallevel=0
-    autocmd Syntax         *         syntax sync minlines=2000 " for performance
+    autocmd BufWinEnter quickfix  setlocal cursorline colorcolumn=0
+    autocmd BufReadPost quickfix  nnoremap <buffer> <CR> <CR>
+    autocmd CmdwinEnter *         nnoremap <buffer> <CR> <CR>
+    autocmd VimResized  *         wincmd =
+    autocmd FileType    text      setlocal conceallevel=0
+    autocmd Syntax      *         syntax sync minlines=2000 " for performance
+    " Auto-read external changes.
+    autocmd CursorHold  *         silent! checktime
+    " Auto-load session if it exists.
+    autocmd VimEnter    * nested
+      \ if filereadable('Session.vim') |
+      \     source Session.vim |
+      \ endif
+    " Neovim terminal tweaks.
     if has("nvim")
-        autocmd TermOpen * setlocal conceallevel=0 colorcolumn=0 relativenumber
-        autocmd TermOpen * startinsert
-        autocmd BufEnter   term://* startinsert
+        autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
+        autocmd TermOpen *        startinsert
+        autocmd BufEnter term://* startinsert
     endif
 augroup END
 
@@ -805,20 +812,14 @@ augroup pluginCustomizations
     endif
 augroup END
 
-" Miscellaneous customizations.
+" Style customizations.
 "
-augroup miscCustomizations
+augroup styleCustomizations
     autocmd!
+    autocmd FilterWritePre * call DiffStyling()
     " Note, we set the color scheme via the VimEnter event to prevent startup
     " errors being displayed in an unreadable red color, instead they will not
     " be colored at all (hence, will be readable). Basically, setting the color
     " scheme will be delayed until Vim is fully loaded.
-    autocmd VimEnter   * colorscheme moonfly
-    " Auto-read external changes.
-    autocmd CursorHold * silent! checktime
-    " Auto-load session if it exists.
-    autocmd VimEnter   * nested
-      \ if filereadable('Session.vim') |
-      \     source Session.vim |
-      \ endif
+    autocmd VimEnter * colorscheme moonfly
 augroup END
