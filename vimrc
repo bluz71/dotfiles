@@ -734,14 +734,14 @@ runtime macros/matchit.vim
 "
 augroup generalCustomizations
     autocmd!
-    autocmd BufWinEnter quickfix  setlocal cursorline colorcolumn=0
-    autocmd BufReadPost quickfix  nnoremap <buffer> <CR> <CR>
-    autocmd CmdwinEnter *         nnoremap <buffer> <CR> <CR>
-    autocmd VimResized  *         wincmd =
-    autocmd FileType    text      setlocal conceallevel=0
-    autocmd Syntax      *         syntax sync minlines=2000 " for performance
+    autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
+    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+    autocmd CmdwinEnter *        nnoremap <buffer> <CR> <CR>
+    autocmd VimResized  *        wincmd =
+    autocmd FileType    text     setlocal conceallevel=0
+    autocmd Syntax      *        syntax sync minlines=2000 " for performance
     " Auto-read external changes.
-    autocmd CursorHold  *         silent! checktime
+    autocmd CursorHold  *        silent! checktime
     " Auto-load session if it exists.
     autocmd VimEnter    * nested
       \ if filereadable('Session.vim') |
