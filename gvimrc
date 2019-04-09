@@ -49,4 +49,4 @@ endfun
 
 " gvim specific keyboard mappings.
 "
-map <localleader>2 :call DoubleSizeAndVsplit()<CR>
+map <Space>2 :call DoubleSizeAndVsplit()<CR>
