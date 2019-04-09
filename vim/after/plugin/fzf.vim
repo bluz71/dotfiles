@@ -6,13 +6,6 @@ if filereadable('config/routes.rb')
     nnoremap <silent> <localleader>es :Files app/assets/stylesheets<CR>
     nnoremap <silent> <localleader>et :Files spec<CR>
     nnoremap <silent> <localleader>ev :Files app/views<CR>
-elseif filereadable('web/router.ex')
-    " This looks like an Elixir/Phoenix app.
-    nnoremap <silent> <localleader>ec :Files web/controllers<CR>
-    nnoremap <silent> <localleader>em :Files web/models<CR>
-    nnoremap <silent> <localleader>et :Files test<CR>
-    nnoremap <silent> <localleader>ev :Files web/views<CR>
-    nnoremap <silent> <localleader>ex :Files web/templates<CR>
 elseif filereadable('src/index.js')
     " This looks like a React app.
     nnoremap <silent> <localleader>ec :Files src/components<CR>

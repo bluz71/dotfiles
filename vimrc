@@ -537,15 +537,15 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <Space>-       :Files <C-r>=expand("%:h")<CR>/<CR>
     nnoremap <silent> <Space>'       :Marks<CR>
     nnoremap <silent> <Space>,       :Buffers<CR>
+    nnoremap <silent> <Space>]       :Tags<CR>
+    nnoremap <silent> <Space>b]      :BTags<CR>
     nnoremap <silent> <Space>c       :Commits<CR>
     nnoremap <silent> <Space>bc      :BCommits<CR>
     nnoremap <silent> <Space>h       :Helptags<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
-    nnoremap <silent> \]             :Tags<CR>
-    nnoremap <silent> \b]            :BTags<CR>
+    nnoremap          \f             :Rg<Space>
     nnoremap <silent> \l             :Lines<CR>
     nnoremap <silent> \bl            :BLines<CR>
-    nnoremap \f                      :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
