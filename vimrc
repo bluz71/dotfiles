@@ -744,7 +744,7 @@ augroup generalCustomizations
     autocmd CursorHold  *        silent! checktime
     " Auto-load session if it exists.
     autocmd VimEnter    * nested
-      \ if filereadable('Session.vim') |
+      \ if argc() == 0 && filereadable('Session.vim') |
       \     source Session.vim |
       \ endif
     " Neovim terminal tweaks.
