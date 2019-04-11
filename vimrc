@@ -493,12 +493,16 @@ Plug 'bluz71/vim-moonfly-statusline'
 Plug 'rakr/vim-one'
 
 "-----------------------------
-" Niceties
+" General behavior plugins
 "-----------------------------
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'chaoren/vim-wordmotion'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
 Plug 'rstacruz/vim-closer'
 Plug 'ajh17/VimCompletesMe'
 Plug '907th/vim-auto-save'
@@ -523,6 +527,13 @@ Plug 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger       = "<C-j>"
     let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
     let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+Plug 'tpope/vim-abolish'
+    " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
+Plug 'tpope/vim-obsession'
+    noremap <Space>o :Obsession<CR>
+    noremap <Space>O :Obsession!<CR>
+Plug 'tpope/vim-unimpaired'
+    " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
 
 "-----------------------------
 " File management plugins
@@ -677,6 +688,8 @@ endif
 Plug 'tpope/vim-fugitive'
     nnoremap <silent> <Space>B :Gblame<CR>
     nnoremap <silent> <Space>G :Gstatus<CR>
+Plug 'tpope/vim-ragtag'
+    " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 
 "-----------------------------
 " tmux support
@@ -700,23 +713,6 @@ Plug 'bfredl/nvim-miniyank'
     map p <Plug>(miniyank-autoput)
     map P <Plug>(miniyank-autoPut)
 endif
-
-"-----------------------------
-" Tim Pope plugins
-"-----------------------------
-Plug 'tpope/vim-abolish'
-    " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-obsession'
-    noremap <Space>o :Obsession<CR>
-    noremap <Space>O :Obsession!<CR>
-Plug 'tpope/vim-ragtag'
-    " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-    " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
 
 " Finalize vim-plug.
 call plug#end()
