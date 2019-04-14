@@ -58,9 +58,8 @@ alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
 alias v='stty -ixon && vim 2> /dev/null'
 alias vdi='stty -ixon && vimdiff'
-alias vff='fzf_find_edit'
-alias vfg='fzf_grep_edit'
-alias vga='grep_all_edit'
+alias vf='fzf_find_edit'
+alias vg='grep_edit'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
 # Directory navigation.
@@ -144,7 +143,7 @@ fi
 if [[ $OS = Linux ]]; then
     alias cpa='/bin/cp -a'
     alias free='free -th'
-    alias open='xdg-open'
+    alias open='xdg-open 2>/dev/null'
 elif [[ $OS = Darwin ]]; then
     alias cpa='/usr/local/opt/coreutils/libexec/gnubin/cp -a'
     export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
@@ -266,22 +265,6 @@ fzf_git_unadd() {
     fi
 }
 
-fzf_grep_edit() {
-    if [[ $# == 0 ]]; then
-        echo 'Error: search term was not provided.'
-        return
-    fi
-    local match=$(
-      rg --color=never --line-number "$1" |
-        fzf --no-multi --delimiter : \
-            --preview "bat --color=always --line-range {2}: {1}"
-      )
-    local file=$(echo "$match" | cut -d':' -f1)
-    if [[ -n $file ]]; then
-        $EDITOR $file +$(echo "$match" | cut -d':' -f2)
-    fi
-}
-
 fzf_kill() {
     local pids=$(
       ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f3
@@ -291,7 +274,7 @@ fzf_kill() {
     fi
 }
 
-grep_all_edit() {
+grep_edit() {
     if [[ $# == 0 ]]; then
         echo 'Error: search term was not provided.'
         return
