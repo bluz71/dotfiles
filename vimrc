@@ -740,8 +740,8 @@ augroup generalCustomizations
     autocmd CursorHold  *        silent! checktime
     " Auto-load session if it exists.
     autocmd VimEnter    * nested
-      \ if argc() == 0 && filereadable('Session.vim') |
-      \     source Session.vim |
+      \ if argc() == 0 && filereadable('Session.vim')|
+      \     source Session.vim|
       \ endif
     " Neovim terminal tweaks.
     if has("nvim")
@@ -796,8 +796,8 @@ augroup pluginCustomizations
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
     autocmd FileType    css,ruby,scss   let b:vcm_tab_complete = "omni"
     autocmd FileType    javascript.jsx
-      \ imap <C-Space> <Plug>(ale_complete) |
-      \ nmap <leader>] <Plug>(ale_go_to_definition) |
+      \ imap <C-Space> <Plug>(ale_complete)|
+      \ nmap <leader>] <Plug>(ale_go_to_definition)|
       \ nmap <leader>[ <Plug>(ale_find_references)
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
