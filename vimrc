@@ -59,7 +59,7 @@ set nowrapscan        " Don't wrap searches around
 set number            " Show line numbers
 set nrformats=        " No to oct/hex support when doing CTRL-a/x
 set path=**
-set pumheight=15      " Height of complete list
+set pumheight=20      " Height of complete list
 " Ruby performance is terrible with regexpengine=2, see:
 "   https://github.com/vim/vim/issues/282
 "   https://github.com/vim-ruby/vim-ruby/issues/243
