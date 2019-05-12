@@ -619,7 +619,7 @@ Plug 'sheerun/vim-polyglot'
     let g:vim_markdown_auto_insert_bullets  = 0
     let g:vim_markdown_conceal              = 0
     let g:vim_markdown_conceal_code_blocks  = 0
-    let g:vim_markdown_new_list_item_indent = 0
+    let g:vim_markdown_new_list_item_indent = 2
 " vim-polyglot wraps the typescript-vim plugin, however yats.vim is nicer for
 " TypeScript.
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
