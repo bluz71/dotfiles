@@ -610,14 +610,16 @@ Plug 'sheerun/vim-polyglot'
     let g:go_highlight_structs              = 1
     let g:go_highlight_types                = 1
     let g:jsx_ext_required                  = 0
-    let g:polyglot_disabled                 = ["yaml", "typescript"]
+    let g:polyglot_disabled                 = ["liquid", "typescript", "yaml"]
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
     let g:rubycomplete_rails                = 1
     let g:ruby_indent_access_modifier_style = "outdent"
     let g:vim_json_syntax_conceal           = 0
+    let g:vim_markdown_auto_insert_bullets  = 0
     let g:vim_markdown_conceal              = 0
     let g:vim_markdown_conceal_code_blocks  = 0
+    let g:vim_markdown_new_list_item_indent = 0
 " vim-polyglot wraps the typescript-vim plugin, however yats.vim is nicer for
 " TypeScript.
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
