@@ -779,6 +779,7 @@ augroup languageCustomizations
     autocmd FileType ruby       setlocal formatoptions=cq
     autocmd FileType scss       let g:indentLine_faster=0
     autocmd FileType typescript setlocal regexpengine=2
+    autocmd FileType text       setlocal formatoptions=tqln
     autocmd FileType vim        setlocal formatoptions=coql
     " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
