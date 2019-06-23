@@ -16,6 +16,7 @@ globals:
   module: true
   setImmediate: true
   process: true
+  $: true
 rules:
   indent:
     - error
