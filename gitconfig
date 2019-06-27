@@ -54,6 +54,9 @@
     bba = bvv --all
     bd  = branch -d
     bD  = branch -D
+    # remote branch
+    bop = push -u origin
+    bod = push origin -d
     # checkout
     co  = checkout
     cob = checkout -b
