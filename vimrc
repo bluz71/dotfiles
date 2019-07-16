@@ -626,8 +626,7 @@ Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'prettier/vim-prettier', {
     \  'do':     'yarn install',
     \  'branch': 'release/1.x',
-    \  'for':    ['css', 'javascript', 'json', 'markdown', 'ruby', 'scss',
-    \             'typescript']
+    \  'for':    ['css', 'javascript', 'json', 'markdown', 'scss', 'typescript']
     \}
     let g:prettier#autoformat = 0
     nmap <Space>p <Plug>(Prettier)
