@@ -93,7 +93,7 @@ if !isdirectory(s:undoDir)
 endif
 let &undodir=s:undoDir
 set undofile          " Maintain undo history
-set updatetime=1000
+set updatetime=300
 set viminfo=          " No backups
 set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu
@@ -186,6 +186,7 @@ function! DiffStyling()
     if &diff
         setlocal colorcolumn=0
         :IndentLinesDisable
+        :GitGutterDisable
         highlight! link Visual VisualInDiff
     endif
 endfunction
@@ -277,6 +278,7 @@ nnoremap <silent> <leader>-  :botright new<CR><C-w>=
 nnoremap <silent> <leader>\| :botright vnew<CR><C-w>=
 nnoremap <silent> <leader>b  :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <leader>q  :close<CR>
+nnoremap <silent> <leader>c  :pclose<CR>
 nnoremap <silent> <leader>t  :$tabnew<CR>
 nnoremap <silent> <C-g>s     :split<CR>
 nnoremap <silent> <C-g>v     :vsplit<CR>
@@ -284,6 +286,7 @@ nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
 nnoremap <silent> <C-g>\|    :botright vnew<CR><C-w>=
 nnoremap <silent> <C-g>b     :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <C-g>q     :close<CR>
+nnoremap <silent> <C-g>c     :pclose<CR>
 nnoremap <silent> <C-g>t     :$tabnew<CR>
 inoremap <silent> <C-g>s     <Esc>:split<CR>
 inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
@@ -291,6 +294,7 @@ inoremap <silent> <C-g>-     <Esc>:botright new<CR><C-w>=
 inoremap <silent> <C-g>\|    <Esc>:botright vnew<CR><C-w>=
 inoremap <silent> <C-g>b     <Esc>:botright new<CR><C-w>=:terminal<CR>
 inoremap <silent> <C-g>q     <Esc>:close<CR>
+inoremap <silent> <C-g>c     <Esc>:pclose<CR>
 inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
 nnoremap <leader>1           1gt
 nnoremap <leader>2           2gt
@@ -330,6 +334,7 @@ if has("nvim")
     tnoremap <silent> <C-g>\| <C-\><C-N>:botright vnew<CR><C-w>=
     tnoremap <silent> <C-g>b  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
     tnoremap <silent> <C-g>q  <C-\><C-N>:close<CR>
+    tnoremap <silent> <C-g>c  <C-\><C-N>:pclose<CR>
     tnoremap <silent> <C-g>t  <C-\><C-N>:$tabnew<CR>
     tnoremap <C-g>1           <C-\><C-N>1gt
     tnoremap <C-g>2           <C-\><C-N>2gt
@@ -386,7 +391,7 @@ noremap ]s ]szz
 noremap [s [szz
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
-noremap  <leader>c :let @y=@*<CR>
+noremap  <leader>* :let @y=@*<CR>
 " - Yank into the 'y' register
 noremap <leader>y  "yy
 " - Paste from the 'y' register
@@ -629,7 +634,7 @@ Plug 'prettier/vim-prettier', {
     \  'for':    ['css', 'javascript', 'json', 'markdown', 'scss', 'typescript']
     \}
     let g:prettier#autoformat = 0
-    nmap <Space>p <Plug>(Prettier)
+    nmap <Space>r <Plug>(Prettier)
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
@@ -668,12 +673,19 @@ Plug 'w0rp/ale'
     nmap <Space>f    <Plug>(ale_fix)
     nmap <Space>l    <Plug>(ale_lint)
     nmap <Space><BS> <Plug>(ale_reset_buffer)
-" Plug 'airblade/vim-gitgutter'
-"     let g:gitgutter_sign_added='▎'
-"     let g:gitgutter_sign_modified='▎'
-"     let g:gitgutter_sign_removed='◢'
-"     let g:gitgutter_sign_removed_first_line='◥'
-"     let g:gitgutter_sign_modified_removed='◢'
+Plug 'airblade/vim-gitgutter'
+    let g:gitgutter_grep                    = 'rg --color=never'
+    let g:gitgutter_map_keys                = 0
+    let g:gitgutter_sign_added              = '▎'
+    let g:gitgutter_sign_modified           = '▎'
+    let g:gitgutter_sign_modified_removed   = ''
+    let g:gitgutter_sign_removed            = ''
+    let g:gitgutter_sign_removed_first_line = ''
+    nmap [g       <Plug>GitGutterPrevHunkzz
+    nmap ]g       <Plug>GitGutterNextHunkzz
+    nmap <Space>p <Plug>GitGutterPreviewHunk
+    nmap <Space>+ <Plug>GitGutterStageHunk
+    nmap <Space>_ <Plug>GitGutterUndoHunk
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <Space>tf :TestFile<CR>
