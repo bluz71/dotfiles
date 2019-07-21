@@ -548,6 +548,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <Space>-       :Files <C-r>=expand("%:h")<CR>/<CR>
     nnoremap <silent> <Space>'       :Marks<CR>
     nnoremap <silent> <Space>,       :Buffers<CR>
+    nnoremap <silent> <Space>g       :GFiles?<CR>
     nnoremap <silent> <Space>]       :Tags<CR>
     nnoremap <silent> <Space>b]      :BTags<CR>
     nnoremap <silent> <Space>c       :Commits<CR>
@@ -697,7 +698,6 @@ if &diff
 endif
 Plug 'tpope/vim-fugitive'
     nnoremap <silent> <Space>B :Gblame<CR>
-    nnoremap <silent> <Space>G :Gstatus<CR>
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 
