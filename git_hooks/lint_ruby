@@ -5,4 +5,4 @@
 #   % cd .git/hooks
 #   % ln -s ~/dotfiles/git_hooks/lint_ruby pre-push
 
-rubocop --format simple
+bundle exec standardrb

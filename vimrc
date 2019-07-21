@@ -614,7 +614,6 @@ Plug 'sheerun/vim-polyglot'
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
     let g:rubycomplete_rails                = 1
-    let g:ruby_indent_access_modifier_style = "outdent"
     let g:vim_json_syntax_conceal           = 0
     let g:vim_markdown_auto_insert_bullets  = 0
     let g:vim_markdown_conceal              = 0
@@ -637,13 +636,16 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
 Plug 'w0rp/ale'
+    let g:ale_fixers = {
+    \  'ruby': ['standardrb']
+    \}
     let g:ale_linters = {
     \  'coffee':     ['coffeelint'],
     \  'css':        ['csslint'],
     \  'javascript': ['eslint', 'tsserver'],
     \  'json':       ['jsonlint'],
     \  'markdown':   ['mdl'],
-    \  'ruby':       ['rubocop'],
+    \  'ruby':       ['standardrb'],
     \  'scss':       ['sasslint'],
     \  'yaml':       ['yamllint']
     \}
@@ -662,8 +664,15 @@ Plug 'w0rp/ale'
     " mappings to navigate the location list
     nmap <silent> [W :lfirst<CR>zz
     nmap <silent> ]W :llast<CR>zz
+    nmap <Space>f    <Plug>(ale_fix)
     nmap <Space>l    <Plug>(ale_lint)
     nmap <Space><BS> <Plug>(ale_reset_buffer)
+" Plug 'airblade/vim-gitgutter'
+"     let g:gitgutter_sign_added='▎'
+"     let g:gitgutter_sign_modified='▎'
+"     let g:gitgutter_sign_removed='◢'
+"     let g:gitgutter_sign_removed_first_line='◥'
+"     let g:gitgutter_sign_modified_removed='◢'
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <Space>tf :TestFile<CR>
