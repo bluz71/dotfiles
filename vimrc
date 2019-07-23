@@ -550,7 +550,7 @@ Plug 'junegunn/fzf.vim'
       \ --format="%C(yellow)%h%C(red)%d%C(reset)
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
     nnoremap <silent> <Space><Space> :Files<CR>
-    nnoremap <silent> <Space>-       :Files <C-r>=expand("%:h")<CR>/<CR>
+    nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
     nnoremap <silent> <Space>'       :Marks<CR>
     nnoremap <silent> <Space>,       :Buffers<CR>
     nnoremap <silent> <Space>g       :GFiles?<CR>
@@ -674,7 +674,7 @@ Plug 'w0rp/ale'
     nmap <Space>l    <Plug>(ale_lint)
     nmap <Space><BS> <Plug>(ale_reset_buffer)
 Plug 'airblade/vim-gitgutter'
-    let g:gitgutter_grep                    = 'rg --color=never'
+    let g:gitgutter_grep                    = 'rg'
     let g:gitgutter_map_keys                = 0
     let g:gitgutter_sign_added              = '▎'
     let g:gitgutter_sign_modified           = '▎'
@@ -685,7 +685,7 @@ Plug 'airblade/vim-gitgutter'
     nmap ]g       <Plug>GitGutterNextHunkzz
     nmap <Space>p <Plug>GitGutterPreviewHunk
     nmap <Space>+ <Plug>GitGutterStageHunk
-    nmap <Space>_ <Plug>GitGutterUndoHunk
+    nmap <Space>- <Plug>GitGutterUndoHunk
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <Space>tf :TestFile<CR>
@@ -709,7 +709,6 @@ if &diff
     let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
 endif
 Plug 'tpope/vim-fugitive'
-    nnoremap <silent> <Space>B :Gblame<CR>
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 
