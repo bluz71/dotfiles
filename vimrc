@@ -628,13 +628,6 @@ Plug 'sheerun/vim-polyglot'
 " vim-polyglot wraps the typescript-vim plugin, however yats.vim is nicer for
 " TypeScript.
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-Plug 'prettier/vim-prettier', {
-    \  'do':     'yarn install',
-    \  'branch': 'release/1.x',
-    \  'for':    ['css', 'javascript', 'json', 'markdown', 'scss', 'typescript']
-    \}
-    let g:prettier#autoformat = 0
-    nmap <Space>r <Plug>(Prettier)
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
@@ -643,12 +636,16 @@ Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
 Plug 'w0rp/ale'
     let g:ale_fixers = {
-    \  'ruby': ['standardrb']
+    \  'css':        ['prettier'],
+    \  'javascript': ['prettier-standard'],
+    \  'json':       ['prettier'],
+    \  'ruby':       ['standardrb'],
+    \  'scss':       ['prettier'],
+    \  'yml':        ['prettier']
     \}
     let g:ale_linters = {
-    \  'coffee':     ['coffeelint'],
     \  'css':        ['csslint'],
-    \  'javascript': ['eslint', 'tsserver'],
+    \  'javascript': ['standard', 'tsserver'],
     \  'json':       ['jsonlint'],
     \  'markdown':   ['mdl'],
     \  'ruby':       ['standardrb'],
