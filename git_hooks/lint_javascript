@@ -5,4 +5,4 @@
 #   % cd .git/hooks
 #   % ln -s ~/dotfiles/git_hooks/lint_javascript pre-push
 
-eslint src
+standard

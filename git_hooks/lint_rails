@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Use Git hooks to automatically lint Rails projects.
+#
+#   % cd .git/hooks
+#   % ln -s ~/dotfiles/git_hooks/lint_rails pre-push
+
+bundle exec standardrb
+standard app/javascript/**
