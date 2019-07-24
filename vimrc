@@ -505,7 +505,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'chaoren/vim-wordmotion'
     " Restore default Vim behaviour for 'cw' command.
-    map cw ce
+    nmap cw ce
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
