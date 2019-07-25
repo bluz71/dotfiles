@@ -100,14 +100,17 @@ set wildmenu
 set wildmode=full
 set wrap              " Wrap long lines
 
-" Certain options only work in Neovim whilst others only work in Vim.
-" Neovim has a Whitespace highlight group, Vim does not.
+" Customizations per Neovim and Vim.
 if has("nvim")
+    set diffopt+=internal,algorithm:histogram,indent-heuristic
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
 else
     set cryptmethod=blowfish2
+    if has("patch-8.1.0360")
+        set diffopt+=internal,algorithm:histogram,indent-heuristic
+    endif
     set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
 endif
@@ -180,7 +183,7 @@ function! NERDTreeRefresh()
     endif
 endfunction
 
-" Don't set colorcolumn and disable IndentLine when in Vim diff.
+" Customizations when running in diff mode.
 "
 function! DiffStyling()
     if &diff
@@ -702,11 +705,6 @@ Plug 'janko-m/vim-test'
 Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'sgur/vim-editorconfig'
-Plug 'chrisbra/vim-diff-enhanced'
-if &diff
-    " Much nicer diffs result by using the histogram algorithm.
-    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
-endif
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
@@ -833,7 +831,7 @@ augroup END
 "
 augroup styleCustomizations
     autocmd!
-    autocmd FilterWritePre * call DiffStyling()
+    autocmd VimEnter * windo call DiffStyling()
     " Note, we set the color scheme via the VimEnter event to prevent startup
     " errors being displayed in an unreadable red color, instead they will not
     " be colored at all (hence, will be readable). Basically, setting the color
