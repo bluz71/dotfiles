@@ -24,7 +24,6 @@ alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; z src bluz'
 alias grl='fzf_git_reflog'
 alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
-alias gvdi=gvimdiff
 alias h=history
 alias help='tldr'
 alias hrg='history | rg'
@@ -56,10 +55,11 @@ alias tl='tree -C -L'
 alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
-alias v='stty -ixon && vim 2> /dev/null'
-alias vdi='stty -ixon && vimdiff'
+alias v='nvim'
+alias vdi='nvim -d'
 alias vf='fzf_find_edit'
 alias vg='grep_edit'
+alias vim='stty -ixon && vim 2> /dev/null'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
 # Directory navigation.
