@@ -102,14 +102,14 @@ set wrap              " Wrap long lines
 
 " Customizations per Neovim and Vim.
 if has("nvim")
-    set diffopt+=internal,algorithm:histogram,indent-heuristic
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
 else
     set cryptmethod=blowfish2
     if has("patch-8.1.0360")
-        set diffopt+=internal,algorithm:histogram,indent-heuristic
+        set diffopt=filler,internal,algorithm:histogram,indent-heuristic
     endif
     set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
