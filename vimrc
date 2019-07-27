@@ -832,9 +832,10 @@ augroup END
 augroup styleCustomizations
     autocmd!
     autocmd VimEnter * windo call DiffStyling()
-    " Note, we set the color scheme via the VimEnter event to prevent startup
-    " errors being displayed in an unreadable red color, instead they will not
-    " be colored at all (hence, will be readable). Basically, setting the color
-    " scheme will be delayed until Vim is fully loaded.
-    autocmd VimEnter * colorscheme moonfly
 augroup END
+
+"===========================================================
+" COLOR SCHEME
+"===========================================================
+
+colorscheme moonfly
