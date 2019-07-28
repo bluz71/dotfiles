@@ -796,6 +796,9 @@ augroup languageCustomizations
     autocmd FileType typescript setlocal regexpengine=2
     autocmd FileType text       setlocal formatoptions=tqln
     autocmd FileType vim        setlocal formatoptions=coql
+    " Enable spell completions for text file types.
+    autocmd FileType gitconfig,markdown,text
+      \ setlocal complete+=k
     " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
