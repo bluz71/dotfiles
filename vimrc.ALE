@@ -105,11 +105,15 @@ set wrap              " Wrap long lines
 
 " Customizations per Neovim and Vim.
 if has("nvim")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
 else
     set cryptmethod=blowfish2
+    if has("patch-8.1.0360")
+        set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+    endif
     set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
 endif
@@ -555,14 +559,17 @@ Plug 'junegunn/fzf.vim'
       \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
     nnoremap <silent> <Space><Space> :Files<CR>
     nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
+    nnoremap <silent> <Space>'       :Marks<CR>
     nnoremap <silent> <Space>,       :Buffers<CR>
     nnoremap <silent> <Space>g       :GFiles?<CR>
     nnoremap <silent> <Space>]       :Tags<CR>
-    nnoremap <silent> <Space>c       :BCommits<CR>
-    nnoremap <silent> <Space>h       :Helptags<CR>
+    nnoremap <silent> <Space>b]      :BTags<CR>
+    nnoremap <silent> <Space>c       :Commits<CR>
+    nnoremap <silent> <Space>bc      :BCommits<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
-    nnoremap <silent> \l             :BLines<CR>
-    nnoremap \f                      :Rg<Space>
+    nnoremap          \f             :Rg<Space>
+    nnoremap <silent> \l             :Lines<CR>
+    nnoremap <silent> \bl            :BLines<CR>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
@@ -792,9 +799,6 @@ augroup languageCustomizations
     autocmd FileType typescript setlocal regexpengine=2
     autocmd FileType text       setlocal formatoptions=tqln
     autocmd FileType vim        setlocal formatoptions=coql
-    " Enable spell completions for text file types.
-    autocmd FileType gitconfig,markdown,text
-      \ setlocal complete+=k
     " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
@@ -811,13 +815,8 @@ augroup pluginCustomizations
     autocmd FileType    vim-plug        nmap <buffer> <CR> <plug>(plug-preview)
     autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
-    autocmd FileType    css,ruby,scss,javascript.jsx
-      \ let b:vcm_tab_complete = "omni"
-    autocmd FileType    javascript.jsx
-      \ set omnifunc=ale#completion#OmniFunc|
-      \ imap <C-Space> <Plug>(ale_complete)|
-      \ nmap <Space>d  <Plug>(ale_go_to_definition)|
-      \ nmap <Space>r  <Plug>(ale_find_references)
+    autocmd FileType    css,ruby,scss,javascript.jsx   let b:vcm_tab_complete = "omni"
+    autocmd FileType    javascript.jsx  set omnifunc=ale#completion#OmniFunc
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
