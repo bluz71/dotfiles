@@ -32,6 +32,9 @@ set conceallevel=2
 set complete=.,w,b
 set completeopt=menu,menuone,noselect,noinsert
 set dictionary=/usr/share/dict/words
+if has('nvim') || has("patch-8.1.0360")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
 set expandtab
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
@@ -102,15 +105,11 @@ set wrap              " Wrap long lines
 
 " Customizations per Neovim and Vim.
 if has("nvim")
-    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
 else
     set cryptmethod=blowfish2
-    if has("patch-8.1.0360")
-        set diffopt=filler,internal,algorithm:histogram,indent-heuristic
-    endif
     set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
 endif
