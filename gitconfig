@@ -64,7 +64,7 @@
     sg = !git add . -N && git add -p
     aa = add .
     # commit
-    ci    = commit
+    ci    = commit --verbose
     unci  = reset --soft HEAD~1
     amend = commit --amend
     # reset
