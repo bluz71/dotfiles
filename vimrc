@@ -433,14 +433,14 @@ nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
 " - Project-wide star search and substitute using Grepper plugin
 nnoremap \S
-  \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \ :Grepper -cword -noprompt<CR>
-  \ :cfdo %s/<C-r>s// \| update
+  \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
+  \:Grepper -cword -noprompt<CR> \|
+  \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap \S
-  \ "sy
-  \ gvgr
-  \ :cfdo %s/<C-r>s// \| update
+  \ "sy \|
+  \gvgr
+  \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " Accept/reject helpers after completing a '\c' cgn-based change operation
 " - Go to the next match and highlight it
@@ -558,9 +558,9 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <Space>,       :Buffers<CR>
     nnoremap <silent> <Space>]       :Tags<CR>
     nnoremap <silent> <Space>c       :BCommits<CR>
+    nnoremap <silent> <Space>g       :GFiles?<CR>
     nnoremap <silent> <Space>h       :Helptags<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
-    nnoremap <silent> <leader>g      :GFiles?<CR>
     nnoremap <silent> \l             :BLines<CR>
     nnoremap \f                      :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
