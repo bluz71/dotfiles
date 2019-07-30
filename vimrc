@@ -559,8 +559,8 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <Space>]       :Tags<CR>
     nnoremap <silent> <Space>c       :BCommits<CR>
     nnoremap <silent> <Space>g       :GFiles?<CR>
-    nnoremap <silent> <Space>h       :Helptags<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
+    nnoremap <silent> \h             :Helptags<CR>
     nnoremap <silent> \l             :BLines<CR>
     nnoremap \f                      :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
@@ -816,6 +816,7 @@ augroup pluginCustomizations
       \ set omnifunc=ale#completion#OmniFunc|
       \ imap <C-Space> <Plug>(ale_complete)|
       \ nmap <Space>d  <Plug>(ale_go_to_definition)|
+      \ nmap <Space>h  <Plug>(ale_hover)|
       \ nmap <Space>r  <Plug>(ale_find_references)
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
