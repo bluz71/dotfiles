@@ -783,8 +783,7 @@ augroup languageCustomizations
     " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
     autocmd FileType html       let b:match_words = "<\(\w\w*\):</\1,{:}"
     autocmd FileType java       setlocal cindent cinoptions+=j1
-    autocmd FileType javascript.jsx
-      \ setlocal formatoptions=cq
+    autocmd FileType javascript setlocal formatoptions=cq
     autocmd FileType json       setlocal conceallevel=2
     autocmd FileType markdown   setlocal formatoptions=tqln
     autocmd FileType ruby       setlocal formatoptions=cq
@@ -811,9 +810,9 @@ augroup pluginCustomizations
     autocmd FileType    vim-plug        nmap <buffer> <CR> <plug>(plug-preview)
     autocmd FileType    nerdtree        IndentLinesDisable
     autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
-    autocmd FileType    css,ruby,scss,javascript.jsx
+    autocmd FileType    css,javascript,ruby,scss
       \ let b:vcm_tab_complete = "omni"
-    autocmd FileType    javascript.jsx
+    autocmd FileType    javascript
       \ set omnifunc=ale#completion#OmniFunc|
       \ imap <C-Space> <Plug>(ale_complete)|
       \ nmap <Space>d  <Plug>(ale_go_to_definition)|
