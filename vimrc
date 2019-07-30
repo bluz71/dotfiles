@@ -634,7 +634,7 @@ Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
     let g:ale_fixers = {
     \  'css':        ['prettier'],
     \  'javascript': ['prettier-standard'],
