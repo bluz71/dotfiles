@@ -792,7 +792,7 @@ augroup languageCustomizations
     autocmd FileType text       setlocal formatoptions=tqln
     autocmd FileType vim        setlocal formatoptions=coql
     " Enable spell completions for text file types.
-    autocmd FileType gitconfig,markdown,text
+    autocmd FileType gitcommit,markdown,text
       \ setlocal complete+=k
     " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
