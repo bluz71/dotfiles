@@ -616,7 +616,7 @@ Plug 'sheerun/vim-polyglot'
     let g:go_highlight_structs              = 1
     let g:go_highlight_types                = 1
     let g:jsx_ext_required                  = 0
-    let g:polyglot_disabled                 = ["liquid", "typescript", "yaml"]
+    let g:polyglot_disabled                 = ["typescript", "yaml"]
     let g:rubycomplete_buffer_loading       = 1
     let g:rubycomplete_classes_in_global    = 1
     let g:rubycomplete_rails                = 1
