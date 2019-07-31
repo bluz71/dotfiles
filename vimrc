@@ -803,16 +803,14 @@ augroup END
 "
 augroup pluginCustomizations
     autocmd!
-    autocmd FileType    *               IndentLinesReset
-    autocmd Syntax      *               IndentLinesReset
-    autocmd BufWinEnter \[BufExplorer\] setlocal colorcolumn=0
-    autocmd BufWinLeave \[BufExplorer\] setlocal colorcolumn=81,82
-    autocmd FileType    vim-plug        nmap <buffer> <CR> <plug>(plug-preview)
-    autocmd FileType    nerdtree        IndentLinesDisable
-    autocmd FileType    nerdtree        setlocal colorcolumn=0 matchpairs=
-    autocmd FileType    css,javascript,ruby,scss
+    autocmd FileType *                 IndentLinesReset
+    autocmd Syntax   *                 IndentLinesReset
+    autocmd FileType vim-plug          nmap <buffer> <CR> <plug>(plug-preview)
+    autocmd FileType nerdtree,undotree IndentLinesDisable
+    autocmd FileType nerdtree,undotree setlocal colorcolumn=0 matchpairs=
+    autocmd FileType css,javascript,ruby,scss
       \ let b:vcm_tab_complete = "omni"
-    autocmd FileType    javascript
+    autocmd FileType javascript
       \ set omnifunc=ale#completion#OmniFunc|
       \ imap <C-Space> <Plug>(ale_complete)|
       \ nmap <Space>d  <Plug>(ale_go_to_definition)|
