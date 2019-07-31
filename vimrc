@@ -263,7 +263,7 @@ endif
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Navigate buffers via 'wildmenu'.
-nnoremap <leader><Tab> :buffer<Space><Tab>
+nnoremap <Leader><Tab> :buffer<Space><Tab>
 " Navigate the jumplist.
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
@@ -274,14 +274,14 @@ nnoremap ]z zL
 "-----------------------------
 " Window managment mappings
 "-----------------------------
-nnoremap <silent> <leader>s  :split<CR>
-nnoremap <silent> <leader>v  :vsplit<CR>
-nnoremap <silent> <leader>-  :botright new<CR><C-w>=
-nnoremap <silent> <leader>\| :botright vnew<CR><C-w>=
-nnoremap <silent> <leader>b  :botright new<CR><C-w>=:terminal<CR>
-nnoremap <silent> <leader>q  :close<CR>
-nnoremap <silent> <leader>c  :pclose<CR>
-nnoremap <silent> <leader>t  :$tabnew<CR>
+nnoremap <silent> <Leader>s  :split<CR>
+nnoremap <silent> <Leader>v  :vsplit<CR>
+nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
+nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
+nnoremap <silent> <Leader>b  :botright new<CR><C-w>=:terminal<CR>
+nnoremap <silent> <Leader>q  :close<CR>
+nnoremap <silent> <Leader>c  :pclose<CR>
+nnoremap <silent> <Leader>t  :$tabnew<CR>
 nnoremap <silent> <C-g>s     :split<CR>
 nnoremap <silent> <C-g>v     :vsplit<CR>
 nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
@@ -298,15 +298,15 @@ inoremap <silent> <C-g>b     <Esc>:botright new<CR><C-w>=:terminal<CR>
 inoremap <silent> <C-g>q     <Esc>:close<CR>
 inoremap <silent> <C-g>c     <Esc>:pclose<CR>
 inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
-nnoremap <leader>1           1gt
-nnoremap <leader>2           2gt
-nnoremap <leader>3           3gt
-nnoremap <leader>4           4gt
-nnoremap <leader>5           5gt
-nnoremap <leader>6           6gt
-nnoremap <leader>7           7gt
-nnoremap <leader>8           8gt
-nnoremap <leader>9           9gt
+nnoremap <Leader>1           1gt
+nnoremap <Leader>2           2gt
+nnoremap <Leader>3           3gt
+nnoremap <Leader>4           4gt
+nnoremap <Leader>5           5gt
+nnoremap <Leader>6           6gt
+nnoremap <Leader>7           7gt
+nnoremap <Leader>8           8gt
+nnoremap <Leader>9           9gt
 nnoremap <C-g>1              1gt
 nnoremap <C-g>2              2gt
 nnoremap <C-g>3              3gt
@@ -325,10 +325,10 @@ inoremap <C-g>6              <Esc>6gt
 inoremap <C-g>7              <Esc>7gt
 inoremap <C-g>8              <Esc>8gt
 inoremap <C-g>9              <Esc>9gt
-nnoremap <leader>=           <C-w>=
-nnoremap <leader>R           <C-w>r
+nnoremap <Leader>=           <C-w>=
+nnoremap <Leader>R           <C-w>r
 " Zoom the current file into a standalone new tab.
-nnoremap <silent> <leader>Z  :tab split<CR>
+nnoremap <silent> <Leader>Z  :tab split<CR>
 if has("nvim")
     tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
     tnoremap <silent> <C-g>v  <C-\><C-N>:vsplit<CR>
@@ -381,9 +381,9 @@ nnoremap <F12>    :call Listing()<CR>
 "-----------------------------
 "
 " Format current paragraph.
-nnoremap <leader>Q gqip
+nnoremap <Leader>Q gqip
 " Fold the current indent.
-nnoremap <leader>z za
+nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Space>S  :syntax sync fromstart<CR>
 " Center navigation commands.
@@ -393,15 +393,15 @@ noremap ]s ]szz
 noremap [s [szz
 " Yank/paste/delete helper mappings.
 " - Copy into the 'y' register from the clipboard register
-noremap  <leader>* :let @y=@*<CR>
+noremap  <Leader>* :let @y=@*<CR>
 " - Yank into the 'y' register
-noremap <leader>y  "yy
+noremap <Leader>y  "yy
 " - Paste from the 'y' register
-noremap <leader>p  "yp
-noremap <leader>P  "yP
+noremap <Leader>p  "yp
+noremap <Leader>P  "yP
 " - Delete into the 'black hole' register
-noremap <leader>x  "_x
-noremap <leader>d  "_d
+noremap <Leader>x  "_x
+noremap <Leader>d  "_d
 " Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
 if has("gui_running") || has("nvim")
     nnoremap <A-l> :redraw!<CR>
@@ -539,8 +539,8 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-obsession'
-    noremap <Space>o :Obsession<CR>
-    noremap <Space>O :Obsession!<CR>
+    noremap <Leader>o :Obsession<CR>
+    noremap <Leader>O :Obsession!<CR>
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
 
@@ -561,6 +561,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> <Space>g       :GFiles?<CR>
     nnoremap <silent> <Space>s       :Snippets<CR>
     nnoremap <silent> \h             :Helptags<CR>
+    nnoremap <silent> \m             :Maps<CR>
     nnoremap <silent> \l             :BLines<CR>
     nnoremap \f                      :Rg<Space>
     " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
@@ -571,8 +572,8 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeDirArrowCollapsible = "⠶"
     let NERDTreeHijackNetrw           = 0
     let NERDTreeStatusline            = " NERDTree "
-    noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
-    noremap <silent> <leader>f :NERDTreeFind<CR> <C-w>=
+    noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
+    noremap <silent> <Leader>f :NERDTreeFind<CR> <C-w>=
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
@@ -589,7 +590,7 @@ Plug 'jlanzarotta/bufexplorer'
     let g:bufExplorerFindActive               = 0
     let g:bufExplorerShowRelativePath         = 1
     let g:bufExplorerSortBy                   = "name"
-    nnoremap <leader>l :BufExplorer<CR>
+    nnoremap <Leader>l :BufExplorer<CR>
 Plug 'mhinz/vim-grepper'
     let g:grepper       = {}
     let g:grepper.tools = ["rg"]
@@ -633,7 +634,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
 Plug 'tpope/vim-projectionist'
-    nnoremap <leader>a :A<CR>
+    nnoremap <Leader>a :A<CR>
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
 Plug 'dense-analysis/ale'
     let g:ale_fixers = {
