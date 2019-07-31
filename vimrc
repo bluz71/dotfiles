@@ -75,7 +75,7 @@ set smartcase         " Case-smart searching
 set smarttab
 set splitbelow        " Split below current window
 set splitright        " Split window to the right
-set synmaxcol=250     " Only syntax highlight first 250 chars (for performance)
+set synmaxcol=500     " Syntax highlight first 500 chars, for performance
 set t_Co=256          " 256 color support
 set tabstop=4
 " Be aware, termguicolors results in `:terminal` colors that are slightly off.
