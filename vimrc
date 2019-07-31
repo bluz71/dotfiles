@@ -514,6 +514,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'rstacruz/vim-closer'
 Plug 'ajh17/VimCompletesMe'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+    let g:undotree_HighlightChangedWithSign = 0
+    let g:undotree_WindowLayout             = 4
+    nnoremap <Leader>u :UndotreeToggle<CR>
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
@@ -585,12 +589,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
       \ }
     let g:NERDTreeUpdateOnCursorHold = 0
     let g:NERDTreeUpdateOnWrite      = 0
-Plug 'jlanzarotta/bufexplorer'
-    let g:bufExplorerDisableDefaultKeyMapping = 1
-    let g:bufExplorerFindActive               = 0
-    let g:bufExplorerShowRelativePath         = 1
-    let g:bufExplorerSortBy                   = "name"
-    nnoremap <Leader>l :BufExplorer<CR>
 Plug 'mhinz/vim-grepper'
     let g:grepper       = {}
     let g:grepper.tools = ["rg"]
