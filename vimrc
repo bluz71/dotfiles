@@ -701,6 +701,7 @@ Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-fugitive'
+    nnoremap <silent> <Space>G :Gstatus<CR>
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
 
