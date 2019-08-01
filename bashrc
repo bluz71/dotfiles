@@ -106,7 +106,7 @@ HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
 HISTFILESIZE=50000                 # Max size of history file
 HISTIGNORE=?:??                    # Ignore one and two letter commands
 HISTSIZE=50000                     # Amount of history to save
-# Note, to immediately append to history file see 'prompt' section below.
+# Note, to immediately append to history file see 'prompt' function below.
 
 # Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
 # nice with normal bash history. Also, create a ~/.bash_sessions_disable file
