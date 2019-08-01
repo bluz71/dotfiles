@@ -514,7 +514,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'rstacruz/vim-closer'
 Plug 'ajh17/VimCompletesMe'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'mbbill/undotree'
     let g:undotree_HighlightChangedWithSign = 0
     let g:undotree_WindowLayout             = 4
     nnoremap <Leader>u :UndotreeToggle<CR>
