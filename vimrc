@@ -86,7 +86,7 @@ set tabstop=4
 set textwidth=80
 set timeoutlen=1500   " Give some time for multi-key mappings
 " Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
-" to I-beam and back functionality set by the t_SI and t_EI variables below.
+" to I-beam and back functionality set by the t_SI and t_EI variables.
 set ttimeoutlen=10
 set ttyfast
 " Set the persistent undo directory on temporary private fast storage.
@@ -572,8 +572,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    let g:NERDTreeDirArrowExpandable  = "+"
-    let g:NERDTreeDirArrowCollapsible = "⠶"
+    let g:NERDTreeDirArrowExpandable  = "✚"
+    let g:NERDTreeDirArrowCollapsible = "∷"
     let NERDTreeHijackNetrw           = 0
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
