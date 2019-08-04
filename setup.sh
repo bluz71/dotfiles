@@ -13,7 +13,6 @@ ln -s dotfiles/inputrc       .inputrc
 ln -s dotfiles/irbrc         .irbrc
 ln -s dotfiles/mdlrc         .mdlrc
 ln -s dotfiles/pryrc         .pryrc
-ln -s dotfiles/tern-project  .tern-project
 ln -s dotfiles/tmux.conf     .tmux.conf
 ln -s dotfiles/vim/          .vim
 ln -s dotfiles/vimrc         .vimrc
