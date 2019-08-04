@@ -193,6 +193,23 @@ function! DiffStyling()
     endif
 endfunction
 
+" Toggle GitGutter preview window.
+"
+function! GitGutterPreviewToggle()
+    for win in range(1, winnr('$'))
+        " Loop through windows and try and find a preview window.
+        let preview_window = getwinvar(win, '&previewwindow') ? win : 0
+    endfor
+
+    if preview_window > 0
+        " We have a preview window open, so close it.
+        pclose
+    else
+        " We don't have a preview window, so open it.
+        GitGutterPreviewHunk
+    endif
+endfunction
+
 
 "===========================================================
 " TERMINAL CONFIGURATION
@@ -678,11 +695,11 @@ Plug 'airblade/vim-gitgutter'
     let g:gitgutter_sign_modified_removed   = ''
     let g:gitgutter_sign_removed            = ''
     let g:gitgutter_sign_removed_first_line = ''
-    nmap [g       <Plug>GitGutterPrevHunkzz
-    nmap ]g       <Plug>GitGutterNextHunkzz
-    nmap <Space>p <Plug>GitGutterPreviewHunk
-    nmap <Space>+ <Plug>GitGutterStageHunk
-    nmap <Space>- <Plug>GitGutterUndoHunk
+    nmap [g                    <Plug>GitGutterPrevHunkzz
+    nmap ]g                    <Plug>GitGutterNextHunkzz
+    nnoremap <silent> <Space>p :call GitGutterPreviewToggle()<CR>
+    nmap <Space>+              <Plug>GitGutterStageHunk
+    nmap <Space>-              <Plug>GitGutterUndoHunk
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <Space>tf :TestFile<CR>
