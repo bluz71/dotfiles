@@ -598,7 +598,7 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
-      \ "Dirty"     : "◎",
+      \ "Dirty"     : "◉",
       \ "Modified"  : "✗",
       \ "Staged"    : "✓",
       \ "Untracked" : "‼",
