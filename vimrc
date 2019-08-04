@@ -814,7 +814,7 @@ augroup pluginCustomizations
     autocmd FileType javascript
       \ set omnifunc=ale#completion#OmniFunc|
       \ imap <C-Space> <Plug>(ale_complete)|
-      \ nmap <Space>d  <Plug>(ale_go_to_definition)|
+      \ nmap gd        <Plug>(ale_go_to_definition)|
       \ nmap <Space>h  <Plug>(ale_hover)|
       \ nmap <Space>r  <Plug>(ale_find_references)
     autocmd FileType crystal,elixir,json
