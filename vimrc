@@ -572,8 +572,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    let g:NERDTreeDirArrowExpandable  = "✚"
-    let g:NERDTreeDirArrowCollapsible = "∷"
+    let g:NERDTreeDirArrowExpandable  = "▷"
+    let g:NERDTreeDirArrowCollapsible = "◢"
     let NERDTreeHijackNetrw           = 0
     let NERDTreeStatusline            = " NERDTree "
     noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
@@ -581,11 +581,11 @@ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     autocmd! BufEnter * call NERDTreeRefresh()
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     let g:NERDTreeIndicatorMapCustom = {
-      \ "Dirty"     : "▶",
-      \ "Modified"  : "✘",
-      \ "Staged"    : "✔",
-      \ "Untracked" : "?",
-      \ "Renamed"   : "❱"
+      \ "Dirty"     : "◎",
+      \ "Modified"  : "✗",
+      \ "Staged"    : "✓",
+      \ "Untracked" : "‼",
+      \ "Renamed"   : "↪"
       \ }
     let g:NERDTreeUpdateOnCursorHold = 0
     let g:NERDTreeUpdateOnWrite      = 0
