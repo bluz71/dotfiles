@@ -193,21 +193,13 @@ function! DiffStyling()
     endif
 endfunction
 
-" Toggle GitGutter preview window.
+" Return true if the preview window exists, otherwise return false.
 "
-function! GitGutterPreviewToggle()
-    for win in range(1, winnr('$'))
-        " Loop through windows and try and find a preview window.
-        let preview_window = getwinvar(win, '&previewwindow') ? win : 0
+function! PvwExists()
+    for winnum in range(1, winnr('$'))
+        let l:pvwExists = getwinvar(winnum, '&previewwindow') ? winnum : 0
     endfor
-
-    if preview_window > 0
-        " We have a preview window open, so close it.
-        pclose
-    else
-        " We don't have a preview window, so open it.
-        GitGutterPreviewHunk
-    endif
+    return l:pvwExists
 endfunction
 
 
@@ -297,7 +289,6 @@ nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
 nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
 nnoremap <silent> <Leader>b  :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <Leader>q  :close<CR>
-nnoremap <silent> <Leader>c  :pclose<CR>
 nnoremap <silent> <Leader>t  :$tabnew<CR>
 nnoremap <silent> <C-g>s     :split<CR>
 nnoremap <silent> <C-g>v     :vsplit<CR>
@@ -305,7 +296,6 @@ nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
 nnoremap <silent> <C-g>\|    :botright vnew<CR><C-w>=
 nnoremap <silent> <C-g>b     :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <C-g>q     :close<CR>
-nnoremap <silent> <C-g>c     :pclose<CR>
 nnoremap <silent> <C-g>t     :$tabnew<CR>
 inoremap <silent> <C-g>s     <Esc>:split<CR>
 inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
@@ -313,7 +303,6 @@ inoremap <silent> <C-g>-     <Esc>:botright new<CR><C-w>=
 inoremap <silent> <C-g>\|    <Esc>:botright vnew<CR><C-w>=
 inoremap <silent> <C-g>b     <Esc>:botright new<CR><C-w>=:terminal<CR>
 inoremap <silent> <C-g>q     <Esc>:close<CR>
-inoremap <silent> <C-g>c     <Esc>:pclose<CR>
 inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
 nnoremap <Leader>1           1gt
 nnoremap <Leader>2           2gt
@@ -353,7 +342,6 @@ if has("nvim")
     tnoremap <silent> <C-g>\| <C-\><C-N>:botright vnew<CR><C-w>=
     tnoremap <silent> <C-g>b  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
     tnoremap <silent> <C-g>q  <C-\><C-N>:close<CR>
-    tnoremap <silent> <C-g>c  <C-\><C-N>:pclose<CR>
     tnoremap <silent> <C-g>t  <C-\><C-N>:$tabnew<CR>
     tnoremap <C-g>1           <C-\><C-N>1gt
     tnoremap <C-g>2           <C-\><C-N>2gt
@@ -507,7 +495,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "-----------------------------
-" Color schemes
+" Styling related plugings
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
     let g:moonflyCursorColor = 1
@@ -515,6 +503,8 @@ Plug 'bluz71/vim-moonfly-statusline'
     let g:moonflyWithGitBranchCharacter = 1
     let g:moonflyWithObessionGeometricCharacters = 1
 Plug 'rakr/vim-one'
+Plug 'gcmt/taboo.vim'
+    let g:taboo_tab_format = " tab:%N%m "
 
 "-----------------------------
 " General behavior plugins
@@ -549,14 +539,8 @@ Plug 'rhysd/clever-f.vim'
     let g:clever_f_fix_key_direction = 1
     let g:clever_f_timeout_ms        = 3000
     let g:clever_f_mark_cursor_color = "IncSearch"
-Plug 'gcmt/taboo.vim'
-    let g:taboo_tab_format = " tab:%N%m "
 Plug 'tommcdo/vim-lion'
     let g:lion_squeeze_spaces = 1
-Plug 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger       = "<C-j>"
-    let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-obsession'
@@ -649,7 +633,6 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
 Plug 'tpope/vim-projectionist'
-    nnoremap <Leader>a :A<CR>
     " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
 Plug 'dense-analysis/ale'
     let g:ale_fixers = {
@@ -695,11 +678,12 @@ Plug 'airblade/vim-gitgutter'
     let g:gitgutter_sign_modified_removed   = ''
     let g:gitgutter_sign_removed            = ''
     let g:gitgutter_sign_removed_first_line = ''
-    nmap [g                    <Plug>GitGutterPrevHunkzz
-    nmap ]g                    <Plug>GitGutterNextHunkzz
-    nnoremap <silent> <Space>p :call GitGutterPreviewToggle()<CR>
-    nmap <Space>+              <Plug>GitGutterStageHunk
-    nmap <Space>-              <Plug>GitGutterUndoHunk
+    nmap [g       <Plug>GitGutterPrevHunkzz
+    nmap ]g       <Plug>GitGutterNextHunkzz
+    nmap <Space>+ <Plug>GitGutterStageHunk
+    nmap <Space>- <Plug>GitGutterUndoHunk
+    " Make GitGutter previewing a toggle.
+    nmap <silent> <Space>p :exe PvwExists() ? 'pc' : 'GitGutterPreviewHunk'<CR>
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <Space>tf :TestFile<CR>
@@ -721,6 +705,11 @@ Plug 'tpope/vim-fugitive'
     nnoremap <silent> <Space>G :Gstatus<CR>
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
+Plug 'SirVer/ultisnips'
+    let g:UltiSnipsExpandTrigger       = "<C-j>"
+    let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
+    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+    " ~/dotfiles/vim/UltiSnips - custom snippets
 
 "-----------------------------
 " tmux support
@@ -833,7 +822,7 @@ augroup pluginCustomizations
       \ imap <C-Space> <Plug>(ale_complete)|
       \ nmap gd        <Plug>(ale_go_to_definition)|
       \ nmap <Space>h  <Plug>(ale_hover)|
-      \ nmap <Space>r  <Plug>(ale_find_references)
+      \ nmap <silent> <Space>r :exe PvwExists() ? 'pc' : 'ALEFindReferences'<CR>
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
