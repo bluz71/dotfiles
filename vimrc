@@ -197,9 +197,11 @@ endfunction
 "
 function! PvwExists()
     for winnum in range(1, winnr('$'))
-        let l:pvwExists = getwinvar(winnum, '&previewwindow') ? winnum : 0
+        if getwinvar(winnum, '&previewwindow')
+            return 1
+        endif
     endfor
-    return l:pvwExists
+    return 0
 endfunction
 
 
@@ -820,8 +822,8 @@ augroup pluginCustomizations
     autocmd FileType javascript
       \ set omnifunc=ale#completion#OmniFunc|
       \ imap <C-Space> <Plug>(ale_complete)|
-      \ nmap gd        <Plug>(ale_go_to_definition)|
-      \ nmap <Space>h  <Plug>(ale_hover)|
+      \ nmap gd <Plug>(ale_go_to_definition)|
+      \ nmap <Space>h <Plug>(ale_hover)|
       \ nmap <silent> <Space>r :exe PvwExists() ? 'pc' : 'ALEFindReferences'<CR>
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
