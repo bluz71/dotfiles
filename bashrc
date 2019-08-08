@@ -184,6 +184,7 @@ brew_config() {
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse
       --bind ctrl-f:page-down,ctrl-b:page-up
+      --prompt="❯ "
       --color hl:13,fg+:251,bg+:234,hl+:13
       --color info:11,prompt:111,pointer:9,marker:8,spinner:10,header:4
     '
