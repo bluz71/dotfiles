@@ -461,7 +461,7 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
-" ~/.inputrc (aka Readline) like mappings for inser mode.
+" ~/.inputrc (aka Readline) like mappings for insert & command modes.
 " - Ctrl-a - go to the start of line
 " - Ctrl-e - go to the end of the line
 " - Alt-b  - back a word
