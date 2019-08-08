@@ -504,7 +504,11 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'bluz71/vim-moonfly-statusline'
     let g:moonflyWithGitBranchCharacter = 1
     let g:moonflyWithObessionGeometricCharacters = 1
-Plug 'rakr/vim-one'
+Plug 'Yggdroot/indentLine'
+    let g:indentLine_char       = "┊"
+    let g:indentLine_faster     = 1
+    let g:indentLine_setColors  = 0
+    let g:indentLine_setConceal = 0
 Plug 'gcmt/taboo.vim'
     let g:taboo_tab_format = " tab:%N%m "
 
@@ -514,6 +518,8 @@ Plug 'gcmt/taboo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
+Plug 'tommcdo/vim-lion'
+    let g:lion_squeeze_spaces = 1
 Plug 'chaoren/vim-wordmotion'
     " Restore default Vim behaviour for 'cw' command.
     nmap cw ce
@@ -523,26 +529,19 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'rstacruz/vim-closer'
 Plug 'ajh17/VimCompletesMe'
-Plug 'mbbill/undotree'
-    let g:undotree_HighlightChangedWithSign = 0
-    let g:undotree_WindowLayout             = 4
-    nnoremap <Leader>u :UndotreeToggle<CR>
 Plug '907th/vim-auto-save'
     let g:auto_save        = 1
     let g:auto_save_silent = 1
     let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
-Plug 'Yggdroot/indentLine'
-    let g:indentLine_char       = "┊"
-    let g:indentLine_faster     = 1
-    let g:indentLine_setColors  = 0
-    let g:indentLine_setConceal = 0
 Plug 'rhysd/clever-f.vim'
     let g:clever_f_across_no_line    = 1
     let g:clever_f_fix_key_direction = 1
     let g:clever_f_timeout_ms        = 3000
     let g:clever_f_mark_cursor_color = "IncSearch"
-Plug 'tommcdo/vim-lion'
-    let g:lion_squeeze_spaces = 1
+Plug 'mbbill/undotree'
+    let g:undotree_HighlightChangedWithSign = 0
+    let g:undotree_WindowLayout             = 4
+    nnoremap <Leader>u :UndotreeToggle<CR>
 Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
 Plug 'tpope/vim-obsession'
