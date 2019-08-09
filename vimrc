@@ -199,10 +199,10 @@ endfunction
 function! RelativeNumberStyling(mode)
     if &buftype == "nofile" || &buftype == "nowrite"
         setlocal nonumber
-    elseif a:mode == "inactive"
-        setlocal norelativenumber
-    else
+    elseif &filetype == "fzf" || a:mode == "active"
         setlocal relativenumber
+    else
+        setlocal norelativenumber
     endif
 endfunction
 
