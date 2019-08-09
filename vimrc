@@ -193,6 +193,19 @@ function! DiffStyling()
     endif
 endfunction
 
+" Display relative line numbers in the active window and display absolute
+" numbers in inactive windows.
+"
+function! RelativeNumberStyling(mode)
+    if &buftype == "nofile" || &buftype == "nowrite"
+        setlocal nonumber
+    elseif a:mode == "inactive"
+        setlocal norelativenumber
+    else
+        setlocal relativenumber
+    endif
+endfunction
+
 " Return true if the preview window exists, otherwise return false.
 "
 function! PvwExists()
@@ -838,6 +851,8 @@ augroup END
 augroup styleCustomizations
     autocmd!
     autocmd VimEnter * windo call DiffStyling()
+    autocmd WinEnter * call RelativeNumberStyling("active")
+    autocmd WinLeave * call RelativeNumberStyling("inactive")
 augroup END
 
 "===========================================================
