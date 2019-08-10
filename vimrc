@@ -197,6 +197,10 @@ endfunction
 " numbers in inactive windows.
 "
 function! RelativeNumberStyling(mode)
+    if &diff
+        " For diffs, do nothing since we want relativenumbers in all windows.
+        return
+    endif
     if &buftype == "nofile" || &buftype == "nowrite"
         setlocal nonumber
     elseif &filetype == "fzf" || a:mode == "active"
