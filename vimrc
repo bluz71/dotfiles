@@ -392,7 +392,8 @@ nnoremap <F6>     :source $MYVIMRC<CR>
 nnoremap <Space>6 :source $MYVIMRC<CR>
 nnoremap <F7>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>7 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-"<F8> - unused
+nnoremap <F8>     :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
+nnoremap <Space>8 :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 "<F9> - unused
 nnoremap <Space>9 :set hlsearch!<CR>
 "<F10> - unused
