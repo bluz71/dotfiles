@@ -1,7 +1,7 @@
 snippet =>
 const ${1:function} = (${2:args}) => {
   $3
-};
+}
 endsnippet
 
 #-------------------------------------------------------------------------
@@ -17,67 +17,67 @@ endsnippet
 snippet it
 it('$1', () => {
   $2
-});
+})
 endsnippet
 
 #-------------------------------------------------------------------------
 
 snippet jest
-import React from 'react';
-import { shallow } from 'enzyme';
-import ${1:Component} from '../../components/$1';
+import React from 'react'
+import { shallow } from 'enzyme'
+import ${1:Component} from '../../components/$1'
 
 describe('<$1 />', () => {
   it('renders without crashing', () => {
-    shallow(<$1 />);
-  });
+    shallow(<$1 />)
+  })
 
   $2
-});
+})
 endsnippet
 
 #-------------------------------------------------------------------------
 
 snippet log
-console.log($1);
+console.log($1)
 endsnippet
 
 #-------------------------------------------------------------------------
 
 snippet react.cl
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ${1:Component} extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     return (
       $2
-    );
+    )
   }
 }
 
 //$1.propTypes = {
-//};
+//}
 
-export default $1;
+export default $1
 endsnippet
 
 #-------------------------------------------------------------------------
 
 snippet react.fn
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const ${1:Component} = ({ $2 }) => {
   $3
-};
+}
 
 //$1.propTypes = {
-//};
+//}
 
-export default $1;
+export default $1
 endsnippet
