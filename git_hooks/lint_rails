@@ -5,5 +5,5 @@
 #   % cd .git/hooks
 #   % ln -s ~/dotfiles/git_hooks/lint_rails pre-push
 
-bundle exec standardrb
+standardrb
 standard app/javascript/**
