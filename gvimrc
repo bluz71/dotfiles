@@ -12,8 +12,6 @@ set guioptions-=r
 set guioptions-=L
 " Disable GUI tab menu.
 set guioptions-=e
-" Enable console dialogs.
-set guioptions+=c
 
 
 " Set the size and font.
