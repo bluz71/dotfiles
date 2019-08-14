@@ -119,60 +119,6 @@ endif
 " FUNCTIONS
 "===========================================================
 
-" Set default value for the global variables.
-"
-let g:listMode = 1
-
-" Toggle spelling mode and add the dictionary to the completion list of
-" sources if spelling mode has been entered, otherwise remove it when
-" leaving spelling mode.
-"
-function! Spelling()
-    setlocal spell!
-    if &spell
-        set complete+=kspell
-        echo "Spell mode enabled"
-    else
-        set complete-=kspell
-        echo "Spell mode disabled"
-    endif
-endfunction
-
-" Toggle the highlighting of special characters.
-"
-function! Listing()
-    if &filetype == "go"
-        if g:listMode == 1
-            set listchars=eol:$,tab:>-,trail:-
-            highlight! link SpecialKey Function
-            highlight! link Whitespace Function
-            let g:listMode = 0
-        else
-            " Mimic indentLine plugin markers for tab-indented Go code.
-            set listchars=tab:\┊\ ,trail:-
-            highlight! link SpecialKey Conceal
-            highlight! link Whitespace Conceal
-            let g:listMode = 1
-        endif
-        return
-    endif
-
-    " Note, Neovim has a Whitespace highlight group, Vim does not.
-    if has("nvim")
-        if g:listMode == 1
-            set listchars=eol:$,tab:>-,trail:-
-            highlight! link Whitespace Function
-            let g:listMode = 0
-        else
-            set listchars=tab:\ \ ,trail:-
-            highlight! link Whitespace Conceal
-            let g:listMode = 1
-        endif
-    else
-        set list!
-    endif
-endfunction
-
 " Upon entering the NERDTree window do a root directoy refresh to automatically
 " pick up any file or directory changes.
 "
@@ -208,17 +154,6 @@ function! RelativeNumberStyling(mode)
     else
         setlocal norelativenumber
     endif
-endfunction
-
-" Return true if the preview window exists, otherwise return false.
-"
-function! PvwExists()
-    for winnum in range(1, winnr('$'))
-        if getwinvar(winnum, '&previewwindow')
-            return 1
-        endif
-    endfor
-    return 0
 endfunction
 
 
@@ -386,8 +321,8 @@ nnoremap <F3>     :%retab<CR> :%s/\s\+$//<CR>
 nnoremap <Space>3 :%retab<CR> :%s/\s\+$//<CR>
 nnoremap <F4>     :%s/ /_<CR>
 nnoremap <Space>4 :%s/ /_<CR>
-nnoremap <F5>     :call Spelling()<CR>
-nnoremap <Space>5 :call Spelling()<CR>
+nnoremap <F5>     :call spelling#toggle()<CR>
+nnoremap <Space>5 :call spelling#toggle()<CR>
 nnoremap <F6>     :source $MYVIMRC<CR>
 nnoremap <Space>6 :source $MYVIMRC<CR>
 nnoremap <F7>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
@@ -397,9 +332,9 @@ nnoremap <Space>8 :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 "<F9> - unused
 nnoremap <Space>9 :set hlsearch!<CR>
 "<F10> - unused
-nnoremap <Space>0 :call Listing()<CR>
+nnoremap <Space>0 :call listing#toggle()<CR>
 nnoremap <F11>    :set hlsearch!<CR>
-nnoremap <F12>    :call Listing()<CR>
+nnoremap <F12>    :call listing#toggle()<CR>
 
 "-----------------------------
 " Misc mappings
@@ -588,7 +523,7 @@ Plug 'junegunn/fzf.vim'
     nnoremap <silent> \m             :Maps<CR>
     nnoremap <silent> \l             :BLines<CR>
     nnoremap \f                      :Rg<Space>
-    " ~/dotfiles/vim/after/plugin/fzf.vim - customizations
+    " ~/dotfiles/vim/plugin/fzf.vim - customizations
 Plug 'pbogut/fzf-mru.vim'
     nnoremap <silent> <Space>m :FZFMru<CR>
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
@@ -650,9 +585,9 @@ Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
-    " ~/dotfiles/vim/after/plugin/rails.vim - custom mappings
+    " ~/dotfiles/vim/plugin/rails.vim - custom mappings
 Plug 'tpope/vim-projectionist'
-    " ~/dotfiles/vim/after/plugin/projectionist.vim - custom projections & mappings
+    " ~/dotfiles/vim/plugin/projectionist.vim - custom projections & mappings
 Plug 'dense-analysis/ale'
     let g:ale_fixers = {
     \  'css':        ['prettier'],
@@ -702,7 +637,7 @@ Plug 'airblade/vim-gitgutter'
     nmap <Space>+ <Plug>GitGutterStageHunk
     nmap <Space>- <Plug>GitGutterUndoHunk
     " Make GitGutter previewing a toggle.
-    nmap <silent> <Space>p :exe PvwExists() ? 'pc' : 'GitGutterPreviewHunk'<CR>
+    nmap <silent> <Space>p :exe preview#exists() ? 'pc' : 'GitGutterPreviewHunk'<CR>
 Plug 'janko-m/vim-test'
     let test#javascript#jest#executable = 'CI=true yarn test --colors'
     nnoremap <silent> <Space>tf :TestFile<CR>
@@ -723,7 +658,7 @@ Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-fugitive'
     nnoremap <silent> <Space>G :Gstatus<CR>
 Plug 'tpope/vim-ragtag'
-    " ~/dotfiles/vim/after/plugin/ragtag.vim - custom mappings
+    " ~/dotfiles/vim/plugin/ragtag.vim - custom mappings
 Plug 'SirVer/ultisnips'
     let g:UltiSnipsExpandTrigger       = "<C-j>"
     let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
@@ -841,7 +776,7 @@ augroup pluginCustomizations
       \ imap <C-Space> <Plug>(ale_complete)|
       \ nmap gd <Plug>(ale_go_to_definition)|
       \ nmap <Space>h <Plug>(ale_hover)|
-      \ nmap <silent> <Space>r :exe PvwExists() ? 'pc' : 'ALEFindReferences'<CR>
+      \ nmap <silent> <Space>r :exe preview#exists() ? 'pc' : 'ALEFindReferences'<CR>
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
