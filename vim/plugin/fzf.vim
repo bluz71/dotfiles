@@ -1,3 +1,20 @@
+let g:fzf_layout = { "window": "silent botright 16split enew" }
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
+
+nnoremap <silent> <Space><Space> :Files<CR>
+nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Space>,       :Buffers<CR>
+nnoremap <silent> <Space>]       :Tags<CR>
+nnoremap <silent> <Space>c       :BCommits<CR>
+nnoremap <silent> <Space>g       :GFiles?<CR>
+nnoremap <silent> <Space>s       :Snippets<CR>
+nnoremap <silent> \h             :Helptags<CR>
+nnoremap <silent> \m             :Maps<CR>
+nnoremap <silent> \l             :BLines<CR>
+nnoremap \f                      :Rg<Space>
+
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
     nnoremap <silent> <Space>ec :Files app/controllers<CR>

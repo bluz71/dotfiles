@@ -118,43 +118,7 @@ endif
 "===========================================================
 " FUNCTIONS
 "===========================================================
-
-" Upon entering the NERDTree window do a root directoy refresh to automatically
-" pick up any file or directory changes.
-"
-function! NERDTreeRefresh()
-    if &filetype == "nerdtree"
-        silent exe substitute(mapcheck("R"), "<CR>", "", "")
-    endif
-endfunction
-
-" Customizations when running in diff mode.
-"
-function! DiffStyling()
-    if &diff
-        setlocal colorcolumn=0
-        :IndentLinesDisable
-        :GitGutterDisable
-        highlight! link Visual VisualInDiff
-    endif
-endfunction
-
-" Display relative line numbers in the active window and display absolute
-" numbers in inactive windows.
-"
-function! RelativeNumberStyling(mode)
-    if &diff
-        " For diffs, do nothing since we want relativenumbers in all windows.
-        return
-    endif
-    if &buftype == "nofile" || &buftype == "nowrite"
-        setlocal nonumber
-    elseif &filetype == "fzf" || a:mode == "active"
-        setlocal relativenumber
-    else
-        setlocal norelativenumber
-    endif
-endfunction
+" ~/dotfiles/vim/autoload - custom functions
 
 
 "===========================================================
@@ -321,8 +285,8 @@ nnoremap <F3>     :%retab<CR> :%s/\s\+$//<CR>
 nnoremap <Space>3 :%retab<CR> :%s/\s\+$//<CR>
 nnoremap <F4>     :%s/ /_<CR>
 nnoremap <Space>4 :%s/ /_<CR>
-nnoremap <F5>     :call spelling#toggle()<CR>
-nnoremap <Space>5 :call spelling#toggle()<CR>
+nnoremap <F5>     :call spelling#Toggle()<CR>
+nnoremap <Space>5 :call spelling#Toggle()<CR>
 nnoremap <F6>     :source $MYVIMRC<CR>
 nnoremap <Space>6 :source $MYVIMRC<CR>
 nnoremap <F7>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
@@ -332,9 +296,9 @@ nnoremap <Space>8 :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 "<F9> - unused
 nnoremap <Space>9 :set hlsearch!<CR>
 "<F10> - unused
-nnoremap <Space>0 :call listing#toggle()<CR>
+nnoremap <Space>0 :call listing#Toggle()<CR>
 nnoremap <F11>    :set hlsearch!<CR>
-nnoremap <F12>    :call listing#toggle()<CR>
+nnoremap <F12>    :call listing#Toggle()<CR>
 
 "-----------------------------
 " Misc mappings
@@ -453,17 +417,13 @@ call plug#begin('~/.vim/plugged')
 " Styling related plugings
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-    let g:moonflyCursorColor = 1
+    " ~/dotfiles/vim/plugin/moonfly-colors.vim - options
 Plug 'bluz71/vim-moonfly-statusline'
-    let g:moonflyWithGitBranchCharacter = 1
-    let g:moonflyWithObessionGeometricCharacters = 1
+    " ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
 Plug 'Yggdroot/indentLine'
-    let g:indentLine_char       = "┊"
-    let g:indentLine_faster     = 1
-    let g:indentLine_setColors  = 0
-    let g:indentLine_setConceal = 0
+    " ~/dotfiles/vim/plugin/indentLine.vim - options
 Plug 'gcmt/taboo.vim'
-    let g:taboo_tab_format = " tab:%N%m "
+    " ~/dotfiles/vim/plugin/taboo.vim - options
 
 "-----------------------------
 " General behavior plugins
@@ -472,10 +432,9 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'tommcdo/vim-lion'
-    let g:lion_squeeze_spaces = 1
+    " ~/dotfiles/vim/plugin/lion.vim - options
 Plug 'chaoren/vim-wordmotion'
-    " Restore default Vim behaviour for 'cw' command.
-    nmap cw ce
+    " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -483,172 +442,53 @@ Plug 'tpope/vim-endwise'
 Plug 'rstacruz/vim-closer'
 Plug 'ajh17/VimCompletesMe'
 Plug '907th/vim-auto-save'
-    let g:auto_save        = 1
-    let g:auto_save_silent = 1
-    let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
+    " ~/dotfiles/vim/plugin/auto-save.vim - options
 Plug 'rhysd/clever-f.vim'
-    let g:clever_f_across_no_line    = 1
-    let g:clever_f_fix_key_direction = 1
-    let g:clever_f_timeout_ms        = 3000
-    let g:clever_f_mark_cursor_color = "IncSearch"
+    " ~/dotfiles/vim/plugin/clever-f.vim - options
 Plug 'mbbill/undotree'
-    let g:undotree_HighlightChangedWithSign = 0
-    let g:undotree_WindowLayout             = 4
-    nnoremap <Leader>u :UndotreeToggle<CR>
+    " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
 Plug 'tpope/vim-abolish'
-    " ~/dotfiles/vim/after/plugin/abolish.vim - list of abbreviations
+    " ~/dotfiles/vim/after/plugin/abolish.vim - abbreviations
 Plug 'tpope/vim-obsession'
-    noremap <Leader>o :Obsession<CR>
-    noremap <Leader>O :Obsession!<CR>
+    " ~/dotfiles/vim/plugin/obsession.vim - mappings
 Plug 'tpope/vim-unimpaired'
-    " ~/dotfiles/vim/after/plugin/unimpaired.vim - custom mappings
+    " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
 
 "-----------------------------
 " File management plugins
 "-----------------------------
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
-    let g:fzf_layout = { "window": "silent botright 16split enew" }
-    let g:fzf_commits_log_options = '--graph --color=always
-      \ --format="%C(yellow)%h%C(red)%d%C(reset)
-      \ - %C(bold green)(%ar)%C(reset) %s %C(blue){%an}%C(reset)"'
-    nnoremap <silent> <Space><Space> :Files<CR>
-    nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
-    nnoremap <silent> <Space>,       :Buffers<CR>
-    nnoremap <silent> <Space>]       :Tags<CR>
-    nnoremap <silent> <Space>c       :BCommits<CR>
-    nnoremap <silent> <Space>g       :GFiles?<CR>
-    nnoremap <silent> <Space>s       :Snippets<CR>
-    nnoremap <silent> \h             :Helptags<CR>
-    nnoremap <silent> \m             :Maps<CR>
-    nnoremap <silent> \l             :BLines<CR>
-    nnoremap \f                      :Rg<Space>
-    " ~/dotfiles/vim/plugin/fzf.vim - customizations
+    " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
 Plug 'pbogut/fzf-mru.vim'
-    nnoremap <silent> <Space>m :FZFMru<CR>
+    " ~/dotfiles/vim/plugin/fzf-mru.vim - mappings
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    let g:NERDTreeDirArrowExpandable  = "▷"
-    let g:NERDTreeDirArrowCollapsible = "◢"
-    let NERDTreeHijackNetrw           = 0
-    let NERDTreeStatusline            = " NERDTree "
-    noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
-    noremap <silent> <Leader>f :NERDTreeFind<CR> <C-w>=
-    autocmd! BufEnter * call NERDTreeRefresh()
+    " ~/dotfiles/vim/plugin/nerdtree.vim - options, mappings, function, events
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    let g:NERDTreeIndicatorMapCustom = {
-      \ "Dirty"     : "◉",
-      \ "Modified"  : "✗",
-      \ "Staged"    : "✓",
-      \ "Untracked" : "‼",
-      \ "Renamed"   : "↪"
-      \ }
-    let g:NERDTreeUpdateOnCursorHold = 0
-    let g:NERDTreeUpdateOnWrite      = 0
+    " ~/dotfiles/vim/plugin/nerdtree-git-plugin.vim - options
 Plug 'mhinz/vim-grepper'
-    let g:grepper       = {}
-    let g:grepper.tools = ["rg"]
-    runtime autoload/grepper.vim
-    let g:grepper.jump  = 1
-    let g:grepper.stop  = 1000
-    " Grepper prompt.
-    nnoremap \g :GrepperRg<Space>
-    " Search for current word or selection.
-    nnoremap gr :Grepper -cword -noprompt<CR>
-    xmap gr <plug>(GrepperOperator)
-    " ~/dotfiles/vim/after/plugin/grepper.vim - customization
+    " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
+    " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
 
 "-----------------------------
 " Development related plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
-    let g:go_highlight_build_constraints    = 1
-    let g:go_highlight_fields               = 1
-    let g:go_highlight_function_calls       = 1
-    let g:go_highlight_functions            = 1
-    let g:go_highlight_methods              = 1
-    let g:go_highlight_operators            = 1
-    let g:go_highlight_structs              = 1
-    let g:go_highlight_types                = 1
-    let g:jsx_ext_required                  = 0
-    let g:polyglot_disabled                 = ["typescript", "yaml"]
-    let g:rubycomplete_buffer_loading       = 1
-    let g:rubycomplete_classes_in_global    = 1
-    let g:rubycomplete_rails                = 1
-    let g:vim_json_syntax_conceal           = 0
-    let g:vim_markdown_auto_insert_bullets  = 0
-    let g:vim_markdown_conceal              = 0
-    let g:vim_markdown_conceal_code_blocks  = 0
-    let g:vim_markdown_new_list_item_indent = 2
-" vim-polyglot wraps the typescript-vim plugin, however yats.vim is nicer for
-" TypeScript.
+    " ~/dotfiles/vim/plugin/polyglot.vim - options
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
-    " ~/dotfiles/vim/plugin/rails.vim - custom mappings
+    " ~/dotfiles/vim/plugin/rails.vim - mappings
 Plug 'tpope/vim-projectionist'
-    " ~/dotfiles/vim/plugin/projectionist.vim - custom projections & mappings
+    " ~/dotfiles/vim/plugin/projectionist.vim - mappings
 Plug 'dense-analysis/ale'
-    let g:ale_fixers = {
-    \  'css':        ['prettier'],
-    \  'javascript': ['prettier-standard'],
-    \  'json':       ['prettier'],
-    \  'ruby':       ['standardrb'],
-    \  'scss':       ['prettier'],
-    \  'yml':        ['prettier']
-    \}
-    let g:ale_linters = {
-    \  'css':        ['csslint'],
-    \  'javascript': ['standard', 'tsserver'],
-    \  'json':       ['jsonlint'],
-    \  'markdown':   ['mdl'],
-    \  'ruby':       ['standardrb'],
-    \  'scss':       ['sasslint'],
-    \  'yaml':       ['yamllint']
-    \}
-    let g:ale_completion_enabled       = 0
-    let g:ale_lint_on_enter            = 0
-    let g:ale_lint_on_filetype_changed = 0
-    let g:ale_lint_on_insert_leave     = 0
-    let g:ale_lint_on_save             = 0
-    let g:ale_lint_on_text_changed     = 'never'
-    let g:ale_linters_explicit         = 1
-    let g:ale_open_list                = 1
-    let g:ale_sign_error               = '❯❯'
-    let g:ale_sign_info                = '❯❯'
-    let g:ale_sign_warning             = '❯❯'
-    " use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
-    " mappings to navigate the location list
-    nmap <silent> [W :lfirst<CR>zz
-    nmap <silent> ]W :llast<CR>zz
-    nmap <Space>f    <Plug>(ale_fix)
-    nmap <Space>l    <Plug>(ale_lint)
-    nmap <Space><BS> <Plug>(ale_reset_buffer)
+    " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'airblade/vim-gitgutter'
-    let g:gitgutter_grep                    = 'rg'
-    let g:gitgutter_map_keys                = 0
-    let g:gitgutter_sign_added              = '▎'
-    let g:gitgutter_sign_modified           = '▎'
-    let g:gitgutter_sign_removed            ='◢'
-    let g:gitgutter_sign_removed_first_line ='◥'
-    let g:gitgutter_sign_modified_removed   ='◢'
-    nmap [g       <Plug>GitGutterPrevHunkzz
-    nmap ]g       <Plug>GitGutterNextHunkzz
-    nmap <Space>+ <Plug>GitGutterStageHunk
-    nmap <Space>- <Plug>GitGutterUndoHunk
-    " Make GitGutter previewing a toggle.
-    nmap <silent> <Space>p :exe preview#exists() ? 'pc' : 'GitGutterPreviewHunk'<CR>
+    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 Plug 'janko-m/vim-test'
-    let test#javascript#jest#executable = 'CI=true yarn test --colors'
-    nnoremap <silent> <Space>tf :TestFile<CR>
-    nnoremap <silent> <Space>tl :TestLast<CR>
-    nnoremap <silent> <Space>ts :TestSuite<CR>
-    nnoremap <silent> <Space>tt :TestNearest<CR>
-    if has("nvim")
-        let test#strategy = "neovim"
-    else
-        let test#strategy = "vimterminal"
-    endif
+    " ~/dotfiles/vim/plugin/test.vim - options, mappings
+
 " Sleuth and EditorConfig will adjust style and indent either heuristically
 " (former) or explicitly (later). Note, EditorConfig will take precedence if
 " a .editorconfig file is found.
@@ -656,36 +496,25 @@ Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-fugitive'
-    nnoremap <silent> <Space>G :Gstatus<CR>
+    " ~/dotfiles/vim/plugin/fugitive.vim - mappings
 Plug 'tpope/vim-ragtag'
-    " ~/dotfiles/vim/plugin/ragtag.vim - custom mappings
+    " ~/dotfiles/vim/plugin/ragtag.vim - mappings
 Plug 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger       = "<C-j>"
-    let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+    " ~/dotfiles/vim/plugin/ultiSnips.vim - options
     " ~/dotfiles/vim/UltiSnips - custom snippets
 
 "-----------------------------
 " tmux support
 "-----------------------------
 Plug 'christoomey/vim-tmux-navigator'
-if &term == "screen-256color"
-    " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
-    " Note, only set up mappings if running inside tmux.
-    let g:tmux_navigator_no_mappings = 1
-    nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-    nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-    nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-endif
+    " ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
 
 "-----------------------------
 " Neovim specific plugins
 "-----------------------------
 if has("nvim")
 Plug 'bfredl/nvim-miniyank'
-    map p <Plug>(miniyank-autoput)
-    map P <Plug>(miniyank-autoPut)
+    " ~/dotfiles/vim/plugin/miniyank.vim - mappings
 endif
 
 " Finalize vim-plug.
@@ -776,7 +605,7 @@ augroup pluginCustomizations
       \ imap <C-Space> <Plug>(ale_complete)|
       \ nmap gd <Plug>(ale_go_to_definition)|
       \ nmap <Space>h <Plug>(ale_hover)|
-      \ nmap <silent> <Space>r :exe preview#exists() ? 'pc' : 'ALEFindReferences'<CR>
+      \ nmap <silent> <Space>r :exe preview#Exists() ? 'pc' : 'ALEFindReferences'<CR>
     autocmd FileType crystal,elixir,json
       \ let b:closer = 1 | let b:closer_flags = "([{"
     if has("nvim")
@@ -790,9 +619,9 @@ augroup END
 "
 augroup styleCustomizations
     autocmd!
-    autocmd VimEnter * windo call DiffStyling()
-    autocmd WinEnter * call RelativeNumberStyling("active")
-    autocmd WinLeave * call RelativeNumberStyling("inactive")
+    autocmd VimEnter * windo call diff#Styling()
+    autocmd WinEnter * call relative_number#Activity("active")
+    autocmd WinLeave * call relative_number#Activity("inactive")
 augroup END
 
 "===========================================================

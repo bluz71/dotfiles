@@ -2,7 +2,7 @@ let s:listMode = 1
 
 " Toggle the highlighting of special characters.
 "
-function! listing#toggle() abort
+function! listing#Toggle() abort
     if &filetype == "go"
         if s:listMode == 1
             set listchars=eol:$,tab:>-,trail:-
