@@ -1,6 +1,6 @@
 " Customizations when running in diff mode.
 "
-function! diff#Styling()
+function! diff#Styling() abort
     if &diff
         setlocal colorcolumn=0
         :IndentLinesDisable

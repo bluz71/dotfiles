@@ -1,7 +1,7 @@
 " Display relative line numbers in the active window and display absolute
 " numbers in inactive windows.
 "
-function! relative_number#Activity(mode)
+function! relative_number#Activity(mode) abort
     if &diff
         " For diffs, do nothing since we want relativenumbers in all windows.
         return
