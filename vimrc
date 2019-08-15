@@ -118,6 +118,7 @@ endif
 "===========================================================
 " FUNCTIONS
 "===========================================================
+
 " ~/dotfiles/vim/autoload - custom functions
 
 
@@ -500,7 +501,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/plugin/ragtag.vim - mappings
 Plug 'SirVer/ultisnips'
-    " ~/dotfiles/vim/plugin/ultiSnips.vim - options
+    " ~/dotfiles/vim/plugin/ultisnips.vim - options
     " ~/dotfiles/vim/UltiSnips - custom snippets
 
 "-----------------------------
