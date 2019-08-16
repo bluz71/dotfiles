@@ -312,6 +312,8 @@ nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Space>S  :syntax sync fromstart<CR>
 " Center navigation commands.
+noremap {  {zz
+noremap }  }zz
 noremap n  nzz
 noremap N  Nzz
 noremap ]s ]szz
