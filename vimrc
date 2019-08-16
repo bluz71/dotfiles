@@ -532,8 +532,8 @@ runtime macros/matchit.vim
 " AUTOCMDS
 "===========================================================
 
-" ~/dotfiles/vim/ftplugin - options, mapping
-" ~/dotfiles/vim/after/ftplugin - overrides
+" ~/dotfiles/vim/ftplugin - file type options, mapping
+" ~/dotfiles/vim/after/ftplugin - file type overrides
 
 " General customizations.
 "
