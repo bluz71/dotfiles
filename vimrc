@@ -533,12 +533,14 @@ runtime macros/matchit.vim
 " General customizations.
 "
 augroup generalCustomizations
+    " Note, 'autocmd!' is used to clear out any existing definitions in
+    " this auto-group. This prevents duplicate entries upon a live vimrc
+    " reload.
     autocmd!
     autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
     autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
     autocmd CmdwinEnter *        nnoremap <buffer> <CR> <CR>
     autocmd VimResized  *        wincmd =
-    autocmd FileType    text     setlocal conceallevel=0
     autocmd Syntax      *        syntax sync minlines=2000 " for performance
     " Auto-read external changes.
     autocmd CursorHold  *        silent! checktime
@@ -558,62 +560,10 @@ augroup END
 " Language customizations.
 "
 augroup languageCustomizations
-    " Note, 'autocmd!' is used to clear out any existing definitions in
-    " this auto-group. This prevents duplicate entries upon a live vimrc
-    " reload.
     autocmd!
-    " BY FILE TYPE
-    autocmd FileType c,cpp      setlocal cindent foldmethod=syntax
-    autocmd FileType eelixir    setlocal matchpairs=(:),{:},[:]
-    autocmd FileType eruby      setlocal formatoptions=cq matchpairs=(:),{:},[:]
-    " Setup indent markers for tab-indented Go code. Note, the IndentLine
-    " plugin will not show markers for tab formatted code, so we need to mimic
-    " what that plugin does here using listchars and highlighting.
-    autocmd FileType go         setlocal list listchars=tab:\┊\ ,trail:-
-    autocmd FileType go         highlight! link SpecialKey Conceal
-    " Match it navigation is broken for HTML, this Stack Overflow tip fixes it.
-    autocmd FileType html       let b:match_words = "<\(\w\w*\):</\1,{:}"
-    autocmd FileType java       setlocal cindent cinoptions+=j1
-    autocmd FileType javascript setlocal formatoptions=cq
-    autocmd FileType json       setlocal conceallevel=2
-    autocmd FileType markdown   setlocal formatoptions=tqln
-    autocmd FileType ruby       setlocal formatoptions=cq
-    autocmd FileType scss       let g:indentLine_faster=0
-    autocmd FileType typescript setlocal regexpengine=2
-    autocmd FileType text       setlocal formatoptions=tqln
-    autocmd FileType vim        setlocal formatoptions=coql
-    " Enable spell completions for text file types.
-    autocmd FileType gitcommit,markdown,text
-      \ setlocal complete+=k
     " BY FILE EXTENSION
     autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
     autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
-augroup END
-
-" Plugin-related customizations.
-"
-augroup pluginCustomizations
-    autocmd!
-    autocmd FileType *                 IndentLinesReset
-    autocmd Syntax   *                 IndentLinesReset
-    autocmd FileType vim-plug          nmap <buffer> <CR> <plug>(plug-preview)
-    autocmd FileType nerdtree,undotree IndentLinesDisable
-    autocmd FileType nerdtree,undotree setlocal colorcolumn=0 matchpairs=
-    autocmd FileType css,javascript,ruby,scss
-      \ let b:vcm_tab_complete = "omni"
-    autocmd FileType javascript
-      \ set omnifunc=ale#completion#OmniFunc|
-      \ imap <C-Space> <Plug>(ale_complete)|
-      \ nmap gd <Plug>(ale_go_to_definition)|
-      \ nmap <Space>h <Plug>(ale_hover)|
-      \ nmap <silent> <Space>r :exe preview#Exists() ? 'pc' : 'ALEFindReferences'<CR>
-    autocmd FileType crystal,elixir,json
-      \ let b:closer = 1 | let b:closer_flags = "([{"
-    if has("nvim")
-        " Escape inside a FZF terminal window should exit the terminal window
-        " rather than going into the terminal's normal mode.
-        autocmd FileType fzf tnoremap <buffer> <Esc> <Esc>
-    endif
 augroup END
 
 " Style customizations.
