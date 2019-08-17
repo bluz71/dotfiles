@@ -1,1 +1,2 @@
-setlocal formatoptions=cq matchpairs=(:),{:},[:]
+setlocal formatoptions=cq 
+setlocal matchpairs=(:),{:},[:]

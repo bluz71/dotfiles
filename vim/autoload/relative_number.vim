@@ -8,7 +8,7 @@ function! relative_number#Activity(mode) abort
     endif
     if &buftype == "nofile" || &buftype == "nowrite"
         setlocal nonumber
-    elseif &filetype == "fzf" || a:mode == "active"
+    elseif a:mode == "active"
         setlocal relativenumber
     else
         setlocal norelativenumber
