@@ -310,7 +310,7 @@ nnoremap <Leader>Q gqip
 " Fold the current indent.
 nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
-nnoremap <Space>S  :syntax sync fromstart<CR>
+nnoremap <Space>$  :syntax sync fromstart<CR>
 " Center navigation commands.
 noremap {  {zz
 noremap }  }zz
