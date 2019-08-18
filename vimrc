@@ -117,9 +117,9 @@ endif
 
 "===========================================================
 " FUNCTIONS
-"===========================================================
-
+"
 " ~/dotfiles/vim/autoload - custom functions
+"===========================================================
 
 
 "===========================================================
@@ -491,13 +491,6 @@ Plug 'airblade/vim-gitgutter'
     " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
-
-" Sleuth and EditorConfig will adjust style and indent either heuristically
-" (former) or explicitly (later). Note, EditorConfig will take precedence if
-" a .editorconfig file is found.
-Plug 'tpope/vim-sleuth'
-    " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
-Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-fugitive'
     " ~/dotfiles/vim/plugin/fugitive.vim - mappings
 Plug 'tpope/vim-ragtag'
@@ -505,6 +498,13 @@ Plug 'tpope/vim-ragtag'
 Plug 'SirVer/ultisnips'
     " ~/dotfiles/vim/plugin/ultisnips.vim - options
     " ~/dotfiles/vim/UltiSnips - custom snippets
+
+" Sleuth and EditorConfig will adjust style and indent either heuristically
+" (former) or explicitly (later). Note, EditorConfig will take precedence if
+" a .editorconfig file is found.
+Plug 'tpope/vim-sleuth'
+    " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
+Plug 'sgur/vim-editorconfig'
 
 "-----------------------------
 " tmux support
@@ -530,55 +530,12 @@ runtime macros/matchit.vim
 
 "===========================================================
 " AUTOCMDS
+"
+" ~/dotfiles/vim/plugin/autocmds.vim - customizations
+" ~/dotfiles/vim/ftplugin            - file type options, mappings
+" ~/dotfiles/vim/after/ftplugin      - file type overrides
 "===========================================================
 
-" ~/dotfiles/vim/ftplugin - file type options, mapping
-" ~/dotfiles/vim/after/ftplugin - file type overrides
-
-" General customizations.
-"
-augroup generalCustomizations
-    " Note, 'autocmd!' is used to clear out any existing definitions in
-    " this auto-group. This prevents duplicate entries upon a live vimrc
-    " reload.
-    autocmd!
-    autocmd BufWinEnter quickfix setlocal cursorline colorcolumn=0
-    autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-    autocmd CmdwinEnter *        nnoremap <buffer> <CR> <CR>
-    autocmd VimResized  *        wincmd =
-    autocmd Syntax      *        syntax sync minlines=2000 " for performance
-    " Auto-read external changes.
-    autocmd CursorHold  *        silent! checktime
-    " Auto-load session if it exists.
-    autocmd VimEnter    * nested
-      \ if argc() == 0 && filereadable('Session.vim')|
-      \     source Session.vim|
-      \ endif
-    " Neovim terminal tweaks.
-    if has("nvim")
-        autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
-        autocmd TermOpen *        startinsert
-        autocmd BufEnter term://* startinsert
-    endif
-augroup END
-
-" Language customizations.
-"
-augroup languageCustomizations
-    autocmd!
-    " BY FILE EXTENSION
-    autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
-    autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
-augroup END
-
-" Style customizations.
-"
-augroup styleCustomizations
-    autocmd!
-    autocmd VimEnter * windo call diff#Styling()
-    autocmd WinEnter * call relative_number#Activity("active")
-    autocmd WinLeave * call relative_number#Activity("inactive")
-augroup END
 
 "===========================================================
 " COLOR SCHEME
