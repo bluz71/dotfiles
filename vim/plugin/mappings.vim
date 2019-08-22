@@ -154,10 +154,13 @@ nnoremap <F12>    :call listing#Toggle()<CR>
 "
 " Format current paragraph.
 nnoremap <Leader>Q gqip
+" Clone paragraph.
+nnoremap cp yap<S-}>p
 " Fold the current indent.
 nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
-nnoremap <Space>$  :syntax sync fromstart<CR>
+nnoremap <Space>$ :syntax sync fromstart<CR>
+
 " Center navigation commands.
 noremap {  {zz
 noremap }  }zz
@@ -165,24 +168,22 @@ noremap n  nzz
 noremap N  Nzz
 noremap ]s ]szz
 noremap [s [szz
+
 " Yank/paste/delete helper mappings.
+"
 " - Copy into the 'y' register from the clipboard register
-noremap  <Leader>* :let @y=@*<CR>
+noremap <Leader>* :let @y=@*<CR>
 " - Yank into the 'y' register
-noremap <Leader>y  "yy
+noremap <Leader>y "yy
 " - Paste from the 'y' register
-noremap <Leader>p  "yp
-noremap <Leader>P  "yP
+noremap <Leader>p "yp
+noremap <Leader>P "yP
 " - Delete into the 'black hole' register
-noremap <Leader>x  "_x
-noremap <Leader>d  "_d
-" Remap refresh from Ctrl-l, now taken by split navigation, to Alt-l.
-if has("gui_running") || has("nvim")
-    nnoremap <A-l> :redraw!<CR>
-else
-    nnoremap l :redraw!<CR>
-endif
+noremap <Leader>x "_x
+noremap <Leader>d "_d
+
 " Nicer completion mappings when in insert mode.
+"
 " - ]     - 'tags' file completion
 " - Space - context aware language completion (via 'omnifunc' setting)
 " - c     - context aware term completion (repeat to continue adding matches)
@@ -195,7 +196,9 @@ inoremap <C-c>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
+
 " Find & replace helper mappings.
+"
 " - Star search that does not move forward to the next match
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
@@ -220,15 +223,18 @@ xmap \S
 " - Go to the next match and highlight it
 nnoremap <Enter> gnzz
 " - Accept the change and go to the next match and highlight it
-xmap <Enter>     .<Esc>gnzz
+xmap <Enter> .<Esc>gnzz
 " - Reject the change and go to the next match and highlight it
-xnoremap !       <Esc>ngnzz
+xnoremap ! <Esc>ngnzz
+
 " Nicer increment and decrement mappings.
 nnoremap + <C-a>
 nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
+
 " ~/.inputrc (aka Readline) like mappings for insert mode.
+"
 " - Ctrl-a - go to the start of line
 " - Ctrl-e - go to the end of the line
 " - Alt-b  - back a word
