@@ -1,7 +1,6 @@
 "-----------------------------
 " Core mappings
 "-----------------------------
-let mapleader = ","
 " Enter command mode via ';'
 noremap ; :
 " Make dot work on visual line selections.
