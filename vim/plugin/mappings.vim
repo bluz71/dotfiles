@@ -189,12 +189,12 @@ noremap <Leader>d "_d
 " - d     - dictionary completion (via 'dictionary' setting)
 " - f     - file path completion
 " - l     - line completion (repeat an existing line)
-inoremap <C-]>     <C-x><C-]>
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-c>     <C-x><C-p>
-inoremap <C-d>     <C-x><C-k>
-inoremap <C-f>     <C-x><C-f>
-inoremap <C-l>     <C-x><C-l>
+imap <C-]>     <C-x><C-]>
+imap <C-Space> <C-x><C-o>
+imap <C-c>     <C-x><C-p>
+imap <C-d>     <C-x><C-k>
+imap <C-f>     <C-x><C-f>
+imap <C-l>     <C-x><C-l>
 
 " Find & replace helper mappings.
 "
