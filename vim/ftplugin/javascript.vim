@@ -1,8 +1,3 @@
-" Undefine omni-completion mapping defined in mappings.vim, it will be replaced
-" with an ALE + tsserver mapping.
-if !&diff
-    iunmap <C-Space>
-endif
 " Various ALE + tsserver mappings.
 imap <buffer> <C-Space> <Plug>(ale_complete)
 nmap <buffer> gd        <Plug>(ale_go_to_definition)
