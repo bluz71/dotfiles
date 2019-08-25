@@ -22,20 +22,20 @@ set backspace=indent,eol,start
 set belloff=all       " Bells are annoying
 set breakindent       " Wrap long lines *with* indentation
 set breakindentopt=shift:2
-if has("unnamedplus")
+if has("unnamedplus") " Copy to/from system clipboard
     set clipboard=unnamed,unnamedplus
 else
     set clipboard=unnamed
 endif
-set colorcolumn=81,82
+set colorcolumn=81,82 " Highlight 81 and 82 columns
 set conceallevel=2
-set complete=.,w,b
+set complete=.,w,b    " Keyword completions
 set completeopt=menu,menuone,noselect,noinsert
 set dictionary=/usr/share/dict/words
 if has('nvim-0.3.2') || has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
-set expandtab
+set expandtab         " Use spaces instead of tabs
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
 set foldtext=""
