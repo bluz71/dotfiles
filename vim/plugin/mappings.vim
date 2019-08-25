@@ -5,20 +5,22 @@
 noremap ; :
 " Make dot work on visual line selections.
 xnoremap . :norm.<CR>
-" 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
-nnoremap Q @q
-" Execute macro 'q' over the visual selection.
-xnoremap Q :'<,'> :normal @q<CR>
 " Y should behave like D and C, from cursor till the end of line.
 noremap Y y$
 " U for redo, the opposite of u for undo.
 nnoremap U <C-r>
+" Clone paragraph.
+nnoremap cp yap<S-}>p
+" 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
+nnoremap Q @q
+" Execute macro 'q' over the visual selection.
+xnoremap Q :'<,'> :normal @q<CR>
+" Confirm quit.
+noremap <silent> <C-q> :confirm qall<CR>
 if has("nvim")
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
 endif
-" Confirm quit.
-noremap <silent> <C-q> :confirm qall<CR>
 
 "-----------------------------
 " Navigation mappings
@@ -43,9 +45,6 @@ nnoremap <Leader><Tab> :buffer<Space><Tab>
 " Navigate the jumplist.
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
-" Mapping that scrolls the window when wrapping is in effect.
-nnoremap [z zH
-nnoremap ]z zL
 
 "-----------------------------
 " Window managment mappings
@@ -150,27 +149,8 @@ nnoremap <F11>    :set hlsearch!<CR>
 nnoremap <F12>    :call listing#Toggle()<CR>
 
 "-----------------------------
-" Misc mappings
+" Yank/paste/delete mappings
 "-----------------------------
-"
-" Format current paragraph.
-nnoremap <Leader>Q gqip
-" Clone paragraph.
-nnoremap cp yap<S-}>p
-" Fold the current indent.
-nnoremap <Leader>z za
-" Recalculate syntax highlighting for the entire file.
-nnoremap <Space>$ :syntax sync fromstart<CR>
-
-" Center navigation commands.
-noremap {  {zz
-noremap }  }zz
-noremap n  nzz
-noremap N  Nzz
-noremap ]s ]szz
-noremap [s [szz
-
-" Yank/paste/delete helper mappings.
 "
 " - Copy into the 'y' register from the clipboard register
 noremap <Leader>* :let @y=@*<CR>
@@ -183,7 +163,20 @@ noremap <Leader>P "yP
 noremap <Leader>x "_x
 noremap <Leader>d "_d
 
-" Nicer completion mappings when in insert mode.
+"-----------------------------
+" Center navigation commands
+"-----------------------------
+"
+noremap {  {zz
+noremap }  }zz
+noremap n  nzz
+noremap N  Nzz
+noremap ]s ]szz
+noremap [s [szz
+
+"-----------------------------
+" Completion mappings
+"-----------------------------
 "
 " - ]     - 'tags' file completion
 " - Space - context aware language completion (via 'omnifunc' setting)
@@ -198,43 +191,18 @@ inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
 
-" Find & replace helper mappings.
+"-----------------------------
+" Increment and decrement mappings
+"-----------------------------
 "
-" - Star search that does not move forward to the next match
-nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
-xnoremap <silent> g* "sy:let @/=@s<CR>
-" - Star search that does an immediate change on the match
-nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> \c "sy:let @/=@s<CR>cgn
-" - Star search and substitute within the current file
-nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
-xnoremap \s "sy:%s/<C-r>s//<Left>
-" - Project-wide star search and substitute using Grepper plugin
-nnoremap \S
-  \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
-  \:Grepper -cword -noprompt<CR> \|
-  \:cfdo %s/<C-r>s// \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xmap \S
-  \ "sy \|
-  \gvgr
-  \:cfdo %s/<C-r>s// \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" Accept/reject helpers after completing a '\c' cgn-based change operation
-" - Go to the next match and highlight it
-nnoremap <Enter> gnzz
-" - Accept the change and go to the next match and highlight it
-xmap <Enter> .<Esc>gnzz
-" - Reject the change and go to the next match and highlight it
-xnoremap ! <Esc>ngnzz
-
-" Nicer increment and decrement mappings.
 nnoremap + <C-a>
 nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
 
-" ~/.inputrc (aka Readline) like mappings for insert mode.
+"-----------------------------
+" Readline-like mappings
+"-----------------------------
 "
 " - Ctrl-a - go to the start of line
 " - Ctrl-e - go to the end of the line
@@ -255,3 +223,49 @@ cnoremap <A-b>  <C-Left>
 cnoremap <A-f>  <C-Right>
 cnoremap <A-BS> <C-w>
 cnoremap <A-d>  <C-Right><C-w>
+
+"-----------------------------
+" Misc mappings
+"-----------------------------
+"
+" Mapping that scrolls the window when wrapping is in effect.
+nnoremap [z zH
+nnoremap ]z zL
+" Format current paragraph.
+nnoremap <Leader>Q gqip
+" Fold the current indent.
+nnoremap <Leader>z za
+" Recalculate syntax highlighting for the entire file.
+nnoremap <Space>$ :syntax sync fromstart<CR>
+
+"-----------------------------
+" Find & replace helper mappings
+"-----------------------------
+"
+" - Star search that does not move forward to the next match
+nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
+xnoremap <silent> g* "sy:let @/=@s<CR>
+" - Star search that does an immediate change on the match
+nnoremap <silent> 'c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> 'c "sy:let @/=@s<CR>cgn
+" - Star search and substitute within the current file
+nnoremap 's :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
+xnoremap 's "sy:%s/<C-r>s//<Left>
+" - Project-wide star search and substitute using Grepper plugin
+nnoremap 'S
+  \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
+  \:Grepper -cword -noprompt<CR> \|
+  \:cfdo %s/<C-r>s// \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+xmap 'S
+  \ "sy \|
+  \gvgr
+  \:cfdo %s/<C-r>s// \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+" Accept/reject helpers after completing a 'c cgn-based change operation
+" - Go to the next match and highlight it
+nnoremap <Enter> gnzz
+" - Accept the change and go to the next match and highlight it
+xmap <Enter> .<Esc>gnzz
+" - Reject the change and go to the next match and highlight it
+xnoremap ! <Esc>ngnzz
