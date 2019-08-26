@@ -243,18 +243,18 @@ xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 " - Star search and substitute within the current file
 nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
-" - Project-wide star search and substitute using Grepper plugin
+" - Project-wide star search and substitute using the Grepper plugin
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \:Grepper -cword -noprompt<CR>
-  \:cfdo %s/<C-r>s// \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s// \| update
+  \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap \S
   \ "sy \|
-  \gvgr
-  \:cfdo %s/<C-r>s// \| update
-  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" Accept/reject helpers after completing a 'c cgn-based change operation
+  \ :GrepperRg <C-r>s<CR>
+  \ :cfdo %s/<C-r>s// \| update
+  \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+" Accept/reject helpers after completing a \c cgn-based change operation
 " - Go to the next match and highlight it
 nnoremap <Enter> gnzz
 " - Accept the change and go to the next match and highlight it
