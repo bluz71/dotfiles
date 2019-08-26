@@ -245,8 +245,8 @@ nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
 " - Project-wide star search and substitute using Grepper plugin
 nnoremap \S
-  \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
-  \:Grepper -cword -noprompt<CR> \|
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \:Grepper -cword -noprompt<CR>
   \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xmap \S
