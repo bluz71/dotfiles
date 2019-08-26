@@ -53,21 +53,18 @@ nnoremap <silent> <Leader>s  :split<CR>
 nnoremap <silent> <Leader>v  :vsplit<CR>
 nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
 nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
-nnoremap <silent> <Leader>b  :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <Leader>q  :close<CR>
 nnoremap <silent> <Leader>t  :$tabnew<CR>
 nnoremap <silent> <C-g>s     :split<CR>
 nnoremap <silent> <C-g>v     :vsplit<CR>
 nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
 nnoremap <silent> <C-g>\|    :botright vnew<CR><C-w>=
-nnoremap <silent> <C-g>b     :botright new<CR><C-w>=:terminal<CR>
 nnoremap <silent> <C-g>q     :close<CR>
 nnoremap <silent> <C-g>t     :$tabnew<CR>
 inoremap <silent> <C-g>s     <Esc>:split<CR>
 inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
 inoremap <silent> <C-g>-     <Esc>:botright new<CR><C-w>=
 inoremap <silent> <C-g>\|    <Esc>:botright vnew<CR><C-w>=
-inoremap <silent> <C-g>b     <Esc>:botright new<CR><C-w>=:terminal<CR>
 inoremap <silent> <C-g>q     <Esc>:close<CR>
 inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
 nnoremap <Leader>1           1gt
@@ -102,6 +99,10 @@ nnoremap <Leader>R           <C-w>r
 " Zoom the current file into a standalone new tab.
 nnoremap <silent> <Leader>Z  :tab split<CR>
 if has("nvim")
+    nnoremap <silent> <Leader>b :botright new<CR><C-w>=:terminal<CR>
+    nnoremap <silent> <C-g>b    :botright new<CR><C-w>=:terminal<CR>
+    inoremap <silent> <C-g>b    <Esc>:botright new<CR><C-w>=:terminal<CR>
+    " Mappings when in terminal mode.
     tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
     tnoremap <silent> <C-g>v  <C-\><C-N>:vsplit<CR>
     tnoremap <silent> <C-g>-  <C-\><C-N>:botright new<CR><C-w>=
@@ -123,10 +124,10 @@ endif
 "-----------------------------
 " Function key mappings
 "-----------------------------
-"
 " Double up function key mappings with <Space>+number mappings for
 " touchbar Macbooks which have no physical function keys.
-"<F1> - unused
+nnoremap <F1>     :set hlsearch!<CR>
+nnoremap <Space>1 :set hlsearch!<CR>
 nnoremap <F2>     :w<CR>
 nnoremap <Space>2 :w<CR>
 nnoremap <F3>     :%retab<CR> :%s/\s\+$//<CR>
@@ -135,23 +136,20 @@ nnoremap <F4>     :%s/ /_<CR>
 nnoremap <Space>4 :%s/ /_<CR>
 nnoremap <F5>     :call spelling#Toggle()<CR>
 nnoremap <Space>5 :call spelling#Toggle()<CR>
-nnoremap <F6>     :source $MYVIMRC<CR>
-nnoremap <Space>6 :source $MYVIMRC<CR>
-nnoremap <F7>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap <Space>7 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+"<F6>     - unused
+"<Space>6 - unused
+"<F7>     - unused
+"<Space>7 - unused
 nnoremap <F8>     :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 nnoremap <Space>8 :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
-"<F9> - unused
-nnoremap <Space>9 :set hlsearch!<CR>
-"<F10> - unused
+nnoremap <F9>     :set lazyredraw!<CR> :call AutoSaveToggle()<CR>
+nnoremap <Space>9 :set lazyredraw!<CR> :call AutoSaveToggle()<CR>
 nnoremap <Space>0 :call listing#Toggle()<CR>
-nnoremap <F11>    :set hlsearch!<CR>
 nnoremap <F12>    :call listing#Toggle()<CR>
 
 "-----------------------------
 " Yank/paste/delete mappings
 "-----------------------------
-"
 " - Copy into the 'y' register from the clipboard register
 noremap <Leader>* :let @y=@*<CR>
 " - Yank into the 'y' register
@@ -166,7 +164,6 @@ noremap <Leader>d "_d
 "-----------------------------
 " Center navigation commands
 "-----------------------------
-"
 noremap {  {zz
 noremap }  }zz
 noremap n  nzz
@@ -177,7 +174,6 @@ noremap [s [szz
 "-----------------------------
 " Completion mappings
 "-----------------------------
-"
 " - ]     - 'tags' file completion
 " - Space - context aware language completion (via 'omnifunc' setting)
 " - c     - context aware term completion (repeat to continue adding matches)
@@ -194,7 +190,6 @@ inoremap <C-l>     <C-x><C-l>
 "-----------------------------
 " Increment and decrement mappings
 "-----------------------------
-"
 nnoremap + <C-a>
 nnoremap - <C-x>
 xnoremap + g<C-a>
@@ -203,7 +198,6 @@ xnoremap - g<C-x>
 "-----------------------------
 " Readline-like mappings
 "-----------------------------
-"
 " - Ctrl-a - go to the start of line
 " - Ctrl-e - go to the end of the line
 " - Alt-b  - back a word
@@ -227,7 +221,6 @@ cnoremap <A-d>  <C-Right><C-w>
 "-----------------------------
 " Misc mappings
 "-----------------------------
-"
 " Mapping that scrolls the window when wrapping is in effect.
 nnoremap [z zH
 nnoremap ]z zL
@@ -239,25 +232,24 @@ nnoremap <Leader>z za
 nnoremap <Space>$ :syntax sync fromstart<CR>
 
 "-----------------------------
-" Find & replace helper mappings
+" Find & replace helpers
 "-----------------------------
-"
 " - Star search that does not move forward to the next match
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
 " - Star search that does an immediate change on the match
-nnoremap <silent> 'c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-xnoremap <silent> 'c "sy:let @/=@s<CR>cgn
+nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 " - Star search and substitute within the current file
-nnoremap 's :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
-xnoremap 's "sy:%s/<C-r>s//<Left>
+nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
+xnoremap \s "sy:%s/<C-r>s//<Left>
 " - Project-wide star search and substitute using Grepper plugin
-nnoremap 'S
+nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR> \|
   \:Grepper -cword -noprompt<CR> \|
   \:cfdo %s/<C-r>s// \| update
   \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xmap 'S
+xmap \S
   \ "sy \|
   \gvgr
   \:cfdo %s/<C-r>s// \| update
