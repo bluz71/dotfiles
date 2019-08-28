@@ -17,8 +17,6 @@
     prompt = false
 [difftool "vd"]
     cmd = nvim -d "$LOCAL" "$REMOTE"
-[difftool "icd"]
-    cmd = icdiff --line-numbers "$LOCAL" "$REMOTE"
 [mergetool]
     keepBackup = false
 [advice]
@@ -74,9 +72,6 @@
     di   = diff
     dip = !sh -c 'git di $1~1..$1' -
     dis  = diff --staged
-    idi  = difftool -t icd
-    idip = !sh -c 'git difftool -t icd $1~1..$1' -
-    idis = difftool -t icd --staged
     mdi  = difftool
     mdip = !sh -c 'git difftool $1~1..$1' -
     mdis = difftool --staged
