@@ -1,5 +1,5 @@
 "-----------------------------
-" Core mappings
+" Prime mappings
 "-----------------------------
 " Enter command mode via ';'
 noremap ; :
@@ -9,8 +9,6 @@ xnoremap . :norm.<CR>
 noremap Y y$
 " U for redo, the opposite of u for undo.
 nnoremap U <C-r>
-" Clone paragraph.
-nnoremap cp yap<S-}>p
 " 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
 nnoremap Q @q
 " Execute macro 'q' over the visual selection.
@@ -21,6 +19,21 @@ if has("nvim")
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
 endif
+
+"-----------------------------
+" Misc mappings
+"-----------------------------
+" Clone paragraph.
+nnoremap cp yap<S-}>p
+" Mapping that scrolls the window when wrapping is in effect.
+nnoremap [z zH
+nnoremap ]z zL
+" Format current paragraph.
+nnoremap <Leader>Q gqip
+" Fold the current indent.
+nnoremap <Leader>z za
+" Recalculate syntax highlighting for the entire file.
+nnoremap <Space>$ :syntax sync fromstart<CR>
 
 "-----------------------------
 " Navigation mappings
@@ -166,7 +179,7 @@ noremap <Leader>x "_x
 noremap <Leader>d "_d
 
 "-----------------------------
-" Center navigation commands
+" Center navigation mappings
 "-----------------------------
 noremap {  {zz
 noremap }  }zz
@@ -221,19 +234,6 @@ cnoremap <A-b>  <C-Left>
 cnoremap <A-f>  <C-Right>
 cnoremap <A-BS> <C-w>
 cnoremap <A-d>  <C-Right><C-w>
-
-"-----------------------------
-" Misc mappings
-"-----------------------------
-" Mapping that scrolls the window when wrapping is in effect.
-nnoremap [z zH
-nnoremap ]z zL
-" Format current paragraph.
-nnoremap <Leader>Q gqip
-" Fold the current indent.
-nnoremap <Leader>z za
-" Recalculate syntax highlighting for the entire file.
-nnoremap <Space>$ :syntax sync fromstart<CR>
 
 "-----------------------------
 " Find & replace helpers
