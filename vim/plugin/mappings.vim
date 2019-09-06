@@ -153,8 +153,8 @@ nnoremap <F4>     :%s/ /_<CR>
 nnoremap <Space>4 :%s/ /_<CR>
 nnoremap <F5>     :call spelling#Toggle()<CR>
 nnoremap <Space>5 :call spelling#Toggle()<CR>
-"<F6>     - unused
-"<Space>6 - unused
+nnoremap <F6>     :set showcmd!<CR>
+nnoremap <Space>6 :set showcmd!<CR>
 "<F7>     - unused
 "<Space>7 - unused
 nnoremap <F8>     :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
