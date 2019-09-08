@@ -63,10 +63,6 @@ set number            " Show line numbers
 set nrformats=        " No to oct/hex support when doing CTRL-a/x
 set path=**
 set pumheight=20      " Height of complete list
-" Ruby performance is terrible with regexpengine=2, see:
-"   https://github.com/vim/vim/issues/282
-"   https://github.com/vim-ruby/vim-ruby/issues/243
-set regexpengine=1
 set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4
@@ -213,7 +209,6 @@ Plug 'mhinz/vim-grepper'
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
     " ~/dotfiles/vim/plugin/polyglot.vim - options
-Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
