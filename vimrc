@@ -173,7 +173,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'rstacruz/vim-closer'
+Plug 'jiangmiao/auto-pairs'
 Plug 'ajh17/VimCompletesMe'
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim - options
