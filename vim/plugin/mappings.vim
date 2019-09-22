@@ -34,6 +34,8 @@ nnoremap <Leader>Q gqip
 nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Space>$ :syntax sync fromstart<CR>
+" Alternate between the last two files.
+nnoremap <Backspace> <C-^>
 
 "-----------------------------
 " Navigation mappings
