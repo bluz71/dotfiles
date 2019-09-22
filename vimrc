@@ -225,8 +225,8 @@ Plug 'tpope/vim-fugitive'
     " ~/dotfiles/vim/plugin/fugitive.vim - mappings
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/plugin/ragtag.vim - mappings
-Plug 'SirVer/ultisnips'
-    " ~/dotfiles/vim/plugin/ultisnips.vim - options
+Plug 'SirVer/ultisnips', { 'on': [] }
+    " ~/dotfiles/vim/plugin/ultisnips.vim - options, mapping & on-demand loading
     " ~/dotfiles/vim/UltiSnips - custom snippets
 
 " Sleuth and EditorConfig will adjust style and indent either heuristically
