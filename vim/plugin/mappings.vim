@@ -69,21 +69,21 @@ nnoremap <silent> <Leader>v  :vsplit<CR>
 nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
 nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
 nnoremap <silent> <Leader>q  :close<CR>
-nnoremap <silent> <Leader>c  :cclose<CR>
+nnoremap <silent> <Leader>c  :cclose<CR>:pclose<CR>
 nnoremap <silent> <Leader>t  :$tabnew<CR>
 nnoremap <silent> <C-g>s     :split<CR>
 nnoremap <silent> <C-g>v     :vsplit<CR>
 nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
 nnoremap <silent> <C-g>\|    :botright vnew<CR><C-w>=
 nnoremap <silent> <C-g>q     :close<CR>
-nnoremap <silent> <C-g>c     :cclose<CR>
+nnoremap <silent> <C-g>c     :cclose<CR>:pclose<CR>
 nnoremap <silent> <C-g>t     :$tabnew<CR>
 inoremap <silent> <C-g>s     <Esc>:split<CR>
 inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
 inoremap <silent> <C-g>-     <Esc>:botright new<CR><C-w>=
 inoremap <silent> <C-g>\|    <Esc>:botright vnew<CR><C-w>=
 inoremap <silent> <C-g>q     <Esc>:close<CR>
-inoremap <silent> <C-g>c     <Esc>:cclose<CR>
+inoremap <silent> <C-g>c     <Esc>:cclose<CR>:pclose<CR>
 inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
 nnoremap <Leader>1           1gt
 nnoremap <Leader>2           2gt
@@ -127,7 +127,7 @@ if has("nvim")
     tnoremap <silent> <C-g>\| <C-\><C-N>:botright vnew<CR><C-w>=
     tnoremap <silent> <C-g>b  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
     tnoremap <silent> <C-g>q  <C-\><C-N>:close<CR>
-    tnoremap <silent> <C-g>c  <C-\><C-N>:cclose<CR>
+    tnoremap <silent> <C-g>c  <C-\><C-N>:cclose<CR><C-\><C-N>:pclose<CR>
     tnoremap <silent> <C-g>t  <C-\><C-N>:$tabnew<CR>
     tnoremap <C-g>1           <C-\><C-N>1gt
     tnoremap <C-g>2           <C-\><C-N>2gt
@@ -149,8 +149,8 @@ nnoremap <F1>     :set hlsearch!<CR>
 nnoremap <Space>1 :set hlsearch!<CR>
 nnoremap <F2>     :w<CR>
 nnoremap <Space>2 :w<CR>
-nnoremap <F3>     :%retab<CR> :%s/\s\+$//<CR>
-nnoremap <Space>3 :%retab<CR> :%s/\s\+$//<CR>
+nnoremap <F3>     :%retab<CR>:%s/\s\+$//<CR>
+nnoremap <Space>3 :%retab<CR>:%s/\s\+$//<CR>
 nnoremap <F4>     :%s/ /_<CR>
 nnoremap <Space>4 :%s/ /_<CR>
 nnoremap <F5>     :call spelling#Toggle()<CR>
@@ -161,8 +161,8 @@ nnoremap <Space>6 :set showcmd!<CR>
 "<Space>7 - unused
 nnoremap <F8>     :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
 nnoremap <Space>8 :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
-nnoremap <F9>     :set lazyredraw!<CR> :call AutoSaveToggle()<CR>
-nnoremap <Space>9 :set lazyredraw!<CR> :call AutoSaveToggle()<CR>
+nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>0 :call listing#Toggle()<CR>
 nnoremap <F12>    :call listing#Toggle()<CR>
 
@@ -195,13 +195,13 @@ noremap [s [szz
 "-----------------------------
 " - ]     - 'tags' file completion
 " - Space - context aware language completion (via 'omnifunc' setting)
-" - c     - context aware term completion (repeat to continue adding matches)
+" - k     - context aware keyword completion (<C-n><C-k> to extend completion)
 " - d     - dictionary completion (via 'dictionary' setting)
 " - f     - file path completion
 " - l     - line completion (repeat an existing line)
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
-inoremap <C-c>     <C-x><C-p>
+inoremap <C-k>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>

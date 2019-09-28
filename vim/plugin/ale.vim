@@ -1,20 +1,20 @@
 let g:ale_fixers = {
-  \ 'css':        ['prettier'],
-  \ 'javascript': ['prettier-standard'],
-  \ 'json':       ['prettier'],
-  \ 'ruby':       ['standardrb'],
-  \ 'scss':       ['prettier'],
-  \ 'yml':        ['prettier']
-  \ }
+ \  'css':        ['prettier'],
+ \  'javascript': ['prettier-standard'],
+ \  'json':       ['prettier'],
+ \  'ruby':       ['standardrb'],
+ \  'scss':       ['prettier'],
+ \  'yml':        ['prettier']
+ \}
 let g:ale_linters = {
-  \ 'css':        ['csslint'],
-  \ 'javascript': ['standard', 'tsserver'],
-  \ 'json':       ['jsonlint'],
-  \ 'markdown':   ['mdl'],
-  \ 'ruby':       ['standardrb'],
-  \ 'scss':       ['sasslint'],
-  \ 'yaml':       ['yamllint']
-  \ }
+ \  'css':        ['csslint'],
+ \  'javascript': ['standard'],
+ \  'json':       ['jsonlint'],
+ \  'markdown':   ['mdl'],
+ \  'ruby':       ['standardrb'],
+ \  'scss':       ['sasslint'],
+ \  'yaml':       ['yamllint']
+ \}
 let g:ale_completion_enabled       = 0
 let g:ale_lint_on_enter            = 0
 let g:ale_lint_on_filetype_changed = 0

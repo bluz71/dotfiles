@@ -10,5 +10,4 @@ nmap [g       <Plug>(GitGutterPrevHunk)zz
 nmap ]g       <Plug>(GitGutterNextHunk)zz
 nmap <Space>+ <Plug>(GitGutterStageHunk)
 nmap <Space>- <Plug>(GitGutterUndoHunk)
-" Make GitGutter previewing a toggle.
-nmap <silent> <Space>p :execute preview#Exists() ? 'pclose' : 'GitGutterPreviewHunk'<CR>
+nmap <Space>p <Plug>(GitGutterPreviewHunk)

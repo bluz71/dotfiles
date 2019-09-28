@@ -1,6 +1,6 @@
 let g:UltiSnipsExpandTrigger       = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-Down>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-Up>"
 
 inoremap <silent> <C-j> <C-r>=LoadUltiSnips()<CR>
 

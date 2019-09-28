@@ -30,7 +30,7 @@ endif
 set colorcolumn=81,82 " Highlight 81 and 82 columns
 set conceallevel=2
 set complete=.,w,b    " Keyword completions
-set completeopt=menu,menuone,noselect,noinsert
+set completeopt=menu,menuone,noinsert,noselect
 set dictionary=/usr/share/dict/words
 if has('nvim-0.3.2') || has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
@@ -66,6 +66,7 @@ set pumheight=20      " Height of complete list
 set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4
+set shortmess+=c      " Don't show insert mode completion messages
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab
@@ -174,7 +175,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'LukeLike/auto-pairs'
-Plug 'ajh17/VimCompletesMe'
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim - options
 Plug 'rhysd/clever-f.vim'
@@ -205,7 +205,13 @@ Plug 'mhinz/vim-grepper'
     " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
 
 "-----------------------------
-" Development related plugins
+" Completion plugins
+"-----------------------------
+Plug 'ajh17/VimCompletesMe'
+Plug 'natebosch/vim-lsc'
+
+"-----------------------------
+" Development plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
     " ~/dotfiles/vim/plugin/polyglot.vim - options
