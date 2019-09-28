@@ -1,2 +1,2 @@
 setlocal formatoptions=cq
-setlocal omnifunc=ale#completion#OmniFunc
+setlocal omnifunc=lsc#complete#complete
