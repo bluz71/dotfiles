@@ -173,8 +173,9 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'LukeLike/auto-pairs'
+Plug 'tpope/vim-endwise', { 'for': ['crystal', 'elixir', 'ruby', 'vim'] }
+Plug 'tmsvg/pear-tree'
+    " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim - options
 Plug 'rhysd/clever-f.vim'

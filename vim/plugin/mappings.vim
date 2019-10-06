@@ -36,6 +36,8 @@ nnoremap <Leader>z za
 nnoremap <Space>$ :syntax sync fromstart<CR>
 " Alternate between the last two files.
 nnoremap <Backspace> <C-^>
+" Whilst in insert mode begin a new line above the cursor.
+inoremap <C-u> <C-o>O
 
 "-----------------------------
 " Navigation mappings
