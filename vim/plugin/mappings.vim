@@ -30,6 +30,8 @@ nnoremap [z zH
 nnoremap ]z zL
 " Format current paragraph.
 nnoremap <Leader>Q gqip
+" Format current paragraph.
+inoremap <C-q> <C-o>gqip<C-o>$
 " Fold the current indent.
 nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
