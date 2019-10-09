@@ -1,1 +1,1 @@
-setlocal formatoptions=coql
+setlocal formatoptions=cqj

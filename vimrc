@@ -39,7 +39,7 @@ set expandtab         " Use spaces instead of tabs
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
 set foldtext=""
-set formatoptions=cq
+set formatoptions=cqj " Default format options
 set gdefault          " Always do global substitutes
 set history=200       " Keep 200 changes of undo history
 set infercase         " Smart casing when completing
