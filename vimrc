@@ -212,6 +212,16 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'natebosch/vim-lsc'
 
 "-----------------------------
+" Git plugins
+"-----------------------------
+Plug 'tpope/vim-fugitive'
+    " ~/dotfiles/vim/plugin/fugitive.vim - mappings
+Plug 'airblade/vim-gitgutter'
+    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
+Plug 'rhysd/git-messenger.vim'
+    " ~/dotfiles/vim/plugin/git-messenger.vim - options, mappings
+
+"-----------------------------
 " Development plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
@@ -224,12 +234,8 @@ Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
 Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings
-Plug 'airblade/vim-gitgutter'
-    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
-Plug 'tpope/vim-fugitive'
-    " ~/dotfiles/vim/plugin/fugitive.vim - mappings
 Plug 'tpope/vim-ragtag'
     " ~/dotfiles/vim/plugin/ragtag.vim - mappings
 Plug 'SirVer/ultisnips', { 'on': [] }
