@@ -210,6 +210,7 @@ Plug 'mhinz/vim-grepper'
 "-----------------------------
 Plug 'ajh17/VimCompletesMe'
 Plug 'natebosch/vim-lsc'
+    " ~/dotfiles/vim/plugin/lsc.vim - options
 
 "-----------------------------
 " Git plugins
