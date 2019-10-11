@@ -31,7 +31,7 @@ nnoremap ]z zL
 " Format current paragraph in normal mode.
 nnoremap <Leader>Q gqip
 " Format current paragraph in insert mode.
-inoremap <C-Q> <C-o>gqip<C-o>$
+inoremap <C-q> <C-o>gqip<C-o>$
 " Fold the current indent.
 nnoremap <Leader>z za
 " Recalculate syntax highlighting for the entire file.
