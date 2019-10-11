@@ -13,6 +13,7 @@ let g:lsc_server_commands = {
 let g:lsc_auto_map = {
  \  'GoToDefinition': 'gd',
  \  'FindReferences': 'gr',
+ \  'Rename': 'gR',
  \  'ShowHover': 'K'
  \}
 "let g:lsc_enable_autocomplete  = v:false
