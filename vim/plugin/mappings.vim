@@ -198,17 +198,19 @@ noremap [s [szz
 " Completion mappings
 "-----------------------------
 " - ]     - 'tags' file completion
-" - Space - context aware language completion (via 'omnifunc' setting)
-" - k     - context aware keyword completion (<C-n><C-k> to extend completion)
+" - Space - context aware omni completion (via 'omnifunc' setting)
+" - t     - term completion from current file (<C-n><C-t> to extend completion)
 " - d     - dictionary completion (via 'dictionary' setting)
 " - f     - file path completion
 " - l     - line completion (repeat an existing line)
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
-inoremap <C-k>     <C-x><C-p>
+inoremap <C-t>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
+" - c - term completion that combines the sources of the 'complete' option
+inoremap <expr> <C-c> pumvisible() ? "\<C-e>\<C-n>": "\<C-n>"
 
 "-----------------------------
 " Increment and decrement mappings

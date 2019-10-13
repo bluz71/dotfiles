@@ -29,7 +29,7 @@ else
 endif
 set colorcolumn=81,82 " Highlight 81 and 82 columns
 set conceallevel=2
-set complete=.,w,b    " Keyword completions
+set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
 set dictionary=/usr/share/dict/words
 if has('nvim-0.3.2') || has("patch-8.1.0360")
