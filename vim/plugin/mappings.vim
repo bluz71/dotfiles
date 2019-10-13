@@ -199,13 +199,13 @@ noremap [s [szz
 "-----------------------------
 " - ]     - 'tags' file completion
 " - Space - context aware omni completion (via 'omnifunc' setting)
-" - t     - term completion from current file (<C-n><C-t> to extend completion)
+" - b     - keyword completion from the current buffer (<C-n><C-b> to extend)
 " - d     - dictionary completion (via 'dictionary' setting)
 " - f     - file path completion
 " - l     - line completion (repeat an existing line)
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
-inoremap <C-t>     <C-x><C-p>
+inoremap <C-b>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
