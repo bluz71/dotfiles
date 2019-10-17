@@ -4,7 +4,7 @@ let g:ale_fixers = {
  \  'json':       ['prettier'],
  \  'ruby':       ['standardrb'],
  \  'scss':       ['prettier'],
- \  'yml':        ['prettier']
+ \  'yml':        ['prettier'],
  \}
 let g:ale_linters = {
  \  'css':        ['csslint'],
@@ -13,7 +13,7 @@ let g:ale_linters = {
  \  'markdown':   ['mdl'],
  \  'ruby':       ['standardrb'],
  \  'scss':       ['sasslint'],
- \  'yaml':       ['yamllint']
+ \  'yaml':       ['yamllint'],
  \}
 let g:ale_completion_enabled       = 0
 let g:ale_lint_on_enter            = 0

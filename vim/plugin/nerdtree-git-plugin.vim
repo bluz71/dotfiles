@@ -3,7 +3,7 @@ let g:NERDTreeIndicatorMapCustom = {
  \  "Modified":  "✗",
  \  "Staged":    "✓",
  \  "Untracked": "‼",
- \  "Renamed":   "↪"
+ \  "Renamed":   "↪",
  \}
 let g:NERDTreeUpdateOnCursorHold = 0
 let g:NERDTreeUpdateOnWrite      = 0
