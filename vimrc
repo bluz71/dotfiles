@@ -196,7 +196,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
 Plug 'junegunn/fzf.vim'
     " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
 Plug 'pbogut/fzf-mru.vim'
-    " ~/dotfiles/vim/plugin/fzf-mru.vim - mappings
+    " ~/dotfiles/vim/plugin/fzf-mru.vim - options, mappings
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
     " ~/dotfiles/vim/plugin/nerdtree.vim - options, mappings, function, events
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
