@@ -3,7 +3,6 @@
 # Use Git hooks to automatically generate Vim tags for Ruby projects.
 #
 #   % cd .git/hooks
-#   % ln -s ~/dotfiles/git_hooks/tags_ruby post-checkout
-#   % ln -s ~/dotfiles/git_hooks/tags_ruby post-merge
+#   % ln -s ~/dotfiles/git_hooks/tags_ruby post-commit
 
 git ls-files | ripper-tags -L -

@@ -3,6 +3,6 @@
 # Use Git hooks to automatically lint Rails projects.
 #
 #   % cd .git/hooks
-#   % ln -s ~/dotfiles/git_hooks/lint_rails pre-push
+#   % ln -s ~/dotfiles/git_hooks/lint_rails pre-commit
 
 standardrb && standard app/javascript/**/*.js
