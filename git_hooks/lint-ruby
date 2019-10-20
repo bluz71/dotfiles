@@ -3,6 +3,6 @@
 # Use Git hooks to automatically lint Ruby projects.
 #
 #   % cd .git/hooks
-#   % ln -s ~/dotfiles/git_hooks/lint_ruby pre-commit
+#   % ln -s ~/dotfiles/git_hooks/lint-ruby pre-commit
 
 standardrb

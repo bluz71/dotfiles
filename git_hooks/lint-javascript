@@ -3,6 +3,6 @@
 # Use Git hooks to automatically lint JavaScript projects.
 #
 #   % cd .git/hooks
-#   % ln -s ~/dotfiles/git_hooks/lint_javascript pre-commit
+#   % ln -s ~/dotfiles/git_hooks/lint-javascript pre-commit
 
 standard
