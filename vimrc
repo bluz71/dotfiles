@@ -67,6 +67,10 @@ set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4
 set shortmess+=c      " Don't show insert mode completion messages
+" Always display the signcolumn when inside a Git repository.
+if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
+    set signcolumn=yes
+endif
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab
