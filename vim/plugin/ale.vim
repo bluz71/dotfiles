@@ -27,8 +27,6 @@ let g:ale_sign_error               = '❯❯'
 let g:ale_sign_info                = '❯❯'
 let g:ale_sign_warning             = '❯❯'
 let g:ale_sign_priority            = 50
-let g:ale_virtualtext_cursor       = 1
-let g:ale_virtualtext_prefix       = '❮❮ '
 
 " use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
 " mappings to navigate the location list
