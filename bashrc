@@ -19,7 +19,6 @@ alias gadd='fzf_git_add'
 alias gunadd='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
-alias godev='export GOPATH=~/projects/go; PATH=$GOPATH/bin:$PATH; z src bluz'
 alias grl='fzf_git_reflog'
 alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
@@ -158,14 +157,14 @@ brew_config() {
         return
     fi
 
-    local brew_prefix=$(brew --prefix)
+    export BREW_PREFIX=$(brew --prefix)
 
     # Bash completions.
-    . $brew_prefix/share/bash-completion/bash_completion
+    . $BREW_PREFIX/share/bash-completion/bash_completion
 
     # 'z' configuration.
     _Z_NO_PROMPT_COMMAND=1
-    . $brew_prefix/etc/profile.d/z.sh
+    . $BREW_PREFIX/etc/profile.d/z.sh
 
     # Custom Bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
@@ -173,14 +172,8 @@ brew_config() {
     # Make 'g' alias to Git work with bash-completion.
     complete -o default -o nospace -F _git g
 
-    # Setup chruby if available.
-    if [[ -f $brew_prefix/share/chruby/chruby.sh ]]; then
-        . $brew_prefix/share/chruby/chruby.sh
-        chruby 2.6.2
-    fi
-
     # 'fzf' configuration.
-    . $brew_prefix/opt/fzf/shell/key-bindings.bash
+    . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse
       --bind ctrl-f:page-down,ctrl-b:page-up
@@ -199,6 +192,22 @@ brew_config() {
 
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
+}
+
+dev_config() {
+    if [[ -f $BREW_PREFIX/share/chruby/chruby.sh ]]; then
+        . $BREW_PREFIX/share/chruby/chruby.sh
+        chruby 2.6.2
+    fi
+
+    if [[ -d ~/projects/go ]]; then
+        export GOPATH=~/projects/go
+        PATH=$GOPATH/bin:$PATH
+    fi
+
+    if [[ -d /usr/local/flutter/bin ]]; then
+        PATH=$PATH:/usr/local/flutter/bin
+    fi
 }
 
 find_by_size() {
@@ -311,4 +320,5 @@ prompt() {
 #
 path
 brew_config
+dev_config
 prompt
