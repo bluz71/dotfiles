@@ -177,7 +177,7 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise', { 'for': ['crystal', 'elixir', 'ruby', 'vim'] }
+Plug 'tpope/vim-endwise'
 Plug 'tmsvg/pear-tree'
     " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
 Plug '907th/vim-auto-save'
