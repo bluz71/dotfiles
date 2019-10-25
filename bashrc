@@ -207,6 +207,9 @@ dev_config() {
         export GOPATH=~/projects/go
         PATH=$GOPATH/bin:$PATH
     fi
+    if [[ -d /usr/local/Android/Sdk ]]; then
+        export ANDROID_HOME=/usr/local/Android/Sdk
+    fi
     if [[ -d /usr/local/flutter/bin ]]; then
         PATH=$PATH:/usr/local/flutter/bin
     fi
@@ -306,7 +309,7 @@ path() {
         MANPATH=~/.linuxbrew/share/man:$MANPATH
     fi
 
-    PATH=~/scripts:$PATH
+    PATH=~/local/bin:~/local/scripts:$PATH
 }
 
 prompt() {
