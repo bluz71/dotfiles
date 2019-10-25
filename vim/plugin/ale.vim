@@ -29,7 +29,7 @@ let g:ale_sign_info                = '❯❯'
 let g:ale_sign_warning             = '❯❯'
 let g:ale_sign_priority            = 50
 
-" use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
+" Use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
 " mappings to navigate the location list
 nmap <silent> [W :lfirst<CR>zz
 nmap <silent> ]W :llast<CR>zz
