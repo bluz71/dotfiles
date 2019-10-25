@@ -67,10 +67,7 @@ set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4
 set shortmess+=c      " Don't show insert mode completion messages
-" Always display the signcolumn when inside a Git repository.
-if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
-    set signcolumn=yes
-endif
+set signcolumn=auto   " Only render sign column when needed
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab
@@ -109,6 +106,7 @@ if has("nvim")
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
+    set signcolumn=auto:2
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
