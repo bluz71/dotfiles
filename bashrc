@@ -309,7 +309,7 @@ path() {
         MANPATH=~/.linuxbrew/share/man:$MANPATH
     fi
 
-    PATH=~/local/bin:~/local/scripts:$PATH
+    PATH=~/scripts:$PATH
 }
 
 prompt() {
