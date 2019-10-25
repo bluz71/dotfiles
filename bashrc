@@ -195,16 +195,18 @@ brew_config() {
 }
 
 dev_config() {
+    if [[ -z $BREW_PREFIX ]]; then
+        return
+    fi
+
     if [[ -f $BREW_PREFIX/share/chruby/chruby.sh ]]; then
         . $BREW_PREFIX/share/chruby/chruby.sh
         chruby 2.6.2
     fi
-
     if [[ -d ~/projects/go ]]; then
         export GOPATH=~/projects/go
         PATH=$GOPATH/bin:$PATH
     fi
-
     if [[ -d /usr/local/flutter/bin ]]; then
         PATH=$PATH:/usr/local/flutter/bin
     fi
