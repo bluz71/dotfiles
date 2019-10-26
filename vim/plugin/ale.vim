@@ -1,5 +1,6 @@
 let g:ale_fixers = {
  \  'css':        ['prettier'],
+ \  'dart':       ['dartfmt'],
  \  'javascript': ['prettier-standard'],
  \  'json':       ['prettier'],
  \  'ruby':       ['standardrb'],
@@ -8,6 +9,7 @@ let g:ale_fixers = {
  \}
 let g:ale_linters = {
  \  'css':        ['csslint'],
+ \  'dart':       ['dartanalyzer'],
  \  'javascript': ['standard'],
  \  'json':       ['jsonlint'],
  \  'markdown':   ['mdl'],
