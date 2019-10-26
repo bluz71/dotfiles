@@ -216,6 +216,8 @@ dev_config() {
     fi
     if [[ -d /usr/local/flutter/bin ]]; then
         PATH=$PATH:/usr/local/flutter/bin
+        export DART_SDK=/usr/local/flutter/bin/cache/dart-sdk
+        PATH=$PATH:$DART_SDK/bin
     fi
 }
 
