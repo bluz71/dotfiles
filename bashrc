@@ -208,7 +208,8 @@ dev_config() {
         PATH=$GOPATH/bin:$PATH
     fi
     if [[ -d /usr/local/Android/Sdk ]]; then
-        export ANDROID_HOME=/usr/local/Android/Sdk
+        export ANDROID_SDK_ROOT=/usr/local/Android/Sdk
+        PATH=$PATH:$ANDROID_SDK_ROOT/emulator
     fi
     if [[ -d /usr/local/flutter/bin ]]; then
         PATH=$PATH:/usr/local/flutter/bin
