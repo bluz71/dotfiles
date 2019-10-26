@@ -210,6 +210,9 @@ dev_config() {
     if [[ -d /usr/local/Android/Sdk ]]; then
         export ANDROID_SDK_ROOT=/usr/local/Android/Sdk
         PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+    elif [[ -d ~/Library/Android/Sdk ]]; then
+        export ANDROID_SDK_ROOT=~/Library/Android/Sdk
+        PATH=$PATH:$ANDROID_SDK_ROOT/emulator
     fi
     if [[ -d /usr/local/flutter/bin ]]; then
         PATH=$PATH:/usr/local/flutter/bin
