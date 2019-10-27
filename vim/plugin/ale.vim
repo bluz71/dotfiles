@@ -9,7 +9,7 @@ let g:ale_fixers = {
  \}
 let g:ale_linters = {
  \  'css':        ['csslint'],
- \  'dart':       ['dartanalyzer'],
+ \  'dart':       ['language_server'],
  \  'javascript': ['standard'],
  \  'json':       ['jsonlint'],
  \  'markdown':   ['mdl'],
