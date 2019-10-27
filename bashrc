@@ -203,10 +203,6 @@ dev_config() {
         . $BREW_PREFIX/share/chruby/chruby.sh
         chruby 2.6.2
     fi
-    if [[ -d ~/projects/go ]]; then
-        export GOPATH=~/projects/go
-        PATH=$GOPATH/bin:$PATH
-    fi
     if [[ -d /usr/local/Android/Sdk ]]; then
         export ANDROID_SDK_ROOT=/usr/local/Android/Sdk
         PATH=$PATH:$ANDROID_SDK_ROOT/emulator
@@ -218,6 +214,10 @@ dev_config() {
         PATH=$PATH:/usr/local/flutter/bin
         export DART_SDK=/usr/local/flutter/bin/cache/dart-sdk
         PATH=$PATH:$DART_SDK/bin
+    fi
+    if [[ -d ~/projects/go ]]; then
+        export GOPATH=~/projects/go
+        PATH=$PATH:$GOPATH/bin
     fi
 }
 
