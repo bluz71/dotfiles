@@ -1,3 +1,4 @@
+let g:dart_style_guide                  = 1
 let g:go_highlight_build_constraints    = 1
 let g:go_highlight_fields               = 1
 let g:go_highlight_function_calls       = 1
