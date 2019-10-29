@@ -26,7 +26,7 @@ alias h=history
 alias help='tldr'
 alias hrg='history | rg'
 alias l1='ls -1'
-alias ll='exa --long --git --color=always'
+alias ll='exa --long --color=always'
 alias ll.='ll --all'
 # usage: llfs +1M (find all files larger than 1 megabyte)
 alias llfs='find_by_size'
