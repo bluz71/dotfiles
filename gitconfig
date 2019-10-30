@@ -10,8 +10,9 @@
 [color]
     ui = auto
 [diff]
-    tool      = meld
-    algorithm = histogram
+    tool       = meld
+    algorithm  = histogram
+    colorMoved = plain
 [merge]
     tool = meld
 [difftool]
@@ -34,6 +35,8 @@
     new        = green
     old        = red
     whitespace = red reverse
+    newMoved   = yellow bold
+    oldMoved   = yellow bold
 [help]
     format = html
 [alias]
