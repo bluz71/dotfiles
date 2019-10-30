@@ -4,8 +4,9 @@
 [push]
     default = simple
 [core]
-    autocrlf = input
-    pager    = diff-so-fancy | less
+    autocrlf       = input
+    pager          = diff-so-fancy | less
+    untrackedCache = true
 [color]
     ui = auto
 [diff]
