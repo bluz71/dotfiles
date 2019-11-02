@@ -94,7 +94,7 @@ if !isdirectory(s:undoDir)
 endif
 let &undodir=s:undoDir
 set undofile          " Maintain undo history
-set updatetime=300    " Make GitGutter plugin more responsive
+set updatetime=150    " Make GitGutter plugin more responsive
 set viminfo=          " No backups
 set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu          " Nice command completions
