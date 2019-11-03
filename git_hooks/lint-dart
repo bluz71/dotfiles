@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Use Git hooks to automatically lint Dart projects.
+#
+#   % cd .git/hooks
+#   % ln -s ~/dotfiles/git_hooks/lint-dart pre-commit
+
+dartfmt --dry-run --set-exit-if-changed **/*.dart >/dev/null
