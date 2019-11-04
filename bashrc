@@ -316,7 +316,7 @@ path() {
         MANPATH=~/.linuxbrew/share/man:$MANPATH
     fi
 
-    PATH=~/binaries:~/scripts:$PATH
+    PATH=$PATH:~/binaries:~/scripts
 }
 
 prompt() {
