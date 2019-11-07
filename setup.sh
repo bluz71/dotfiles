@@ -23,6 +23,9 @@ ln -s ~/dotfiles/init.vim .config/nvim/init.vim
 mkdir -p scripts
 ln -s ~/dotfiles/git-bvv scripts/git-bvv
 
+mkdir -p .config/yamllint
+ln -s ~/dotfiles/yamllint .config/yamllint/config
+
 if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
     ln -s ~/dotfiles/fonts.conf .config/fontconfig/fonts.conf
