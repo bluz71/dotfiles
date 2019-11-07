@@ -262,8 +262,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " Neovim specific plugins
 "-----------------------------
 if has("nvim")
-Plug 'bfredl/nvim-miniyank'
-    " ~/dotfiles/vim/plugin/miniyank.vim - mappings
+    Plug 'bfredl/nvim-miniyank'
+        " ~/dotfiles/vim/plugin/miniyank.vim - mappings
+    " Plug 'norcalli/nvim-colorizer.lua'
+        " ~/dotfiles/vim/after/plugin/nvim-colorizer.vim - options
 endif
 
 " Finalize vim-plug.
