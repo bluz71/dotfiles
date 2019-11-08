@@ -46,8 +46,8 @@
     rl = reflog
     # remote
     rr  = remote -v
-    rso = remote show origin
-    rsu = remote show upstream
+    rro = remote show origin
+    rru = remote show upstream
     # fetch
     fe  = fetch
     fea = fetch --all --prune
@@ -60,8 +60,11 @@
     bop = push -u origin
     bod = push origin -d
     # checkout
-    co  = checkout
-    cob = checkout -b
+    #co  = checkout
+    #cob = checkout -b
+    # switch
+    sw  = switch
+    swc = switch -c
     # add
     sg = !git add . -N && git add -p
     aa = add .
@@ -69,6 +72,9 @@
     ci    = commit --verbose
     unci  = reset --soft HEAD~1
     amend = commit --amend
+    # restore
+    rs  = restore
+    rss = restore --source
     # reset
     undo  = reset --hard
     unadd = reset HEAD
@@ -99,9 +105,9 @@
     rbc = rebase --continue
     rbs = rebase --skip
     # stash
-    sa  = !sh -c 'git stash apply stash@{$1}' -
-    sd  = !sh -c 'git stash drop stash@{$1}' -
-    sl  = stash list
-    sp  = stash pop
-    ss  = stash save --include-untracked
-    ssp = !sh -c 'git stash show -p stash@{$1}' -
+    sta  = !sh -c 'git stash apply stash@{$1}' -
+    std  = !sh -c 'git stash drop stash@{$1}' -
+    stl  = stash list
+    stp  = stash pop
+    sts  = stash save --include-untracked
+    sti = !sh -c 'git stash show -p stash@{$1}' -
