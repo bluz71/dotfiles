@@ -39,6 +39,8 @@
     oldMoved   = yellow bold
 [help]
     format = html
+#[feature]
+#    manyFiles = true
 [alias]
     # aliases list
     aliases = !git config --list | grep alias | cut -c7- | sort | bat -l ini --style=plain --paging never
