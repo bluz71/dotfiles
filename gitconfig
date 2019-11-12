@@ -26,17 +26,17 @@
 [diff-so-fancy]
     markEmptyLines = false
 [color "diff-highlight"]
-    newNormal    = green
-    newHighlight = green 22
-    oldNormal    = red
-    oldHighlight = red 52
+    newNormal    = 2 # green
+    newHighlight = 2 22
+    oldNormal    = 1 # red
+    oldHighlight = 1 52
 [color "diff"]
-    frag       = blue bold
-    new        = green
-    old        = red
-    whitespace = red reverse
-    newMoved   = yellow bold
-    oldMoved   = yellow bold
+    frag       = 12 # bright blue
+    new        = 2  # green
+    old        = 1  # red
+    whitespace = 1 reverse
+    newMoved   = 11 # bright yellow
+    oldMoved   = 11
 [help]
     format = html
 #[feature]
@@ -91,7 +91,11 @@
     vdip = !sh -c 'git difftool -t vd $1~1..$1' -
     vdis = difftool -t vd --staged
     # log
-    ll  = log --graph --date=human --format='%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ad)%C(reset) %s %C(blue){%an}%C(reset)'
+    # 3  - yellow
+    # 1  - red
+    # 10 - bright green
+    # 4  - blue
+    ll  = log --graph --date=human --format='%C(3)%h%C(1)%d%C(reset) - %C(10)(%ad)%C(reset) %s %C(4){%an}%C(reset)'
     llm = !git ll master..HEAD
     llu = !git ll @{upstream}..HEAD
     lld = !git ll HEAD..@{upstream}
