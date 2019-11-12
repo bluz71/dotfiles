@@ -76,8 +76,8 @@ set splitright        " Split window to the right
 set synmaxcol=500     " Syntax highlight first 500 chars, for performance
 set t_Co=256          " 256 color support
 set tabstop=4
-" Be aware, termguicolors results in `:terminal` colors that are slightly off.
-"   https://github.com/neovim/neovim/issues/7018
+" Don't set termguicolors until iTerm2 supports undercurls:
+"   https://gitlab.com/gnachman/iterm2/issues/6382
 " if has("termguicolors")
 "     set termguicolors " Enable 24-bit color support if available
 " endif
