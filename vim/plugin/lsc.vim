@@ -1,6 +1,6 @@
 let g:lsc_server_commands = {
  \  'dart': {
- \    'command': 'dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp',
+ \    'command': 'dart-analysis-server-lsp.sh',
  \    'message_hooks': {
  \      'initialize': {
  \        'initializationOptions': {
