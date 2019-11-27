@@ -11,11 +11,11 @@ noremap <silent> <Leader>f :NERDTreeFind<CR>   <C-w>=
 "
 function! s:NERDTreeRefresh()
     if &filetype == "nerdtree"
-        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+        silent execute substitute(mapcheck("R"), "<CR>", "", "")
     endif
 endfunction
 
-augroup PersonalNERDTreeAutocmds
+augroup CustomNERDTreeAutocmds
     autocmd!
     autocmd BufEnter * call s:NERDTreeRefresh()
 augroup END
