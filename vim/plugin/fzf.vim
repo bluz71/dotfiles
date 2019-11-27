@@ -1,7 +1,7 @@
 let g:fzf_layout = { "window": "silent botright 16split enew" }
 let g:fzf_commits_log_options = '--graph --color=always
-  \ --date=human --format="%C(yellow)%h%C(red)%d%C(reset)
-  \ - %C(bold green)(%ad)%C(reset) %s %C(blue){%an}%C(reset)"'
+  \ --date=human --format="%C(3)%h%C(1)%d%C(reset)
+  \ - %C(10)(%ad)%C(reset) %s %C(4){%an}%C(reset)"'
 
 nnoremap <silent> <Space><Space> :Files<CR>
 nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
@@ -39,7 +39,9 @@ endif
 " snippet searching has been selected.
 "
 function! LoadUltiSnipsAndFuzzySearch()
+    let l:curpos = getcurpos()
     execute plug#load('ultisnips')
+    call cursor(l:curpos[1], l:curpos[2])
     :Snippets
     return ""
 endfunction
