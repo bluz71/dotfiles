@@ -30,11 +30,12 @@ let g:ale_sign_error               = '❯❯'
 let g:ale_sign_info                = '❯❯'
 let g:ale_sign_warning             = '❯❯'
 let g:ale_sign_priority            = 50
+let g:ale_virtualtext_cursor       = 1
+let g:ale_virtualtext_prefix       = '● '
 
 " Use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
 " mappings to navigate the location list
 nmap <silent> [W :lfirst<CR>zz
 nmap <silent> ]W :llast<CR>zz
 nmap <Space>f    <Plug>(ale_fix)
-nmap <Space>l    <Plug>(ale_enable_buffer)
-nmap <Space><BS> <Plug>(ale_disable_buffer)
+nmap <Space>l    <Plug>(ale_toggle_buffer)
