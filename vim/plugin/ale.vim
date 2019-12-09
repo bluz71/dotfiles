@@ -9,7 +9,7 @@ let g:ale_fixers = {
  \}
 let g:ale_linters = {
  \  'css':        ['csslint'],
- \  'dart':       ['language_server'],
+ \  'dart':       ['dart-analysis-server-lsp'],
  \  'javascript': ['standard'],
  \  'json':       ['jsonlint'],
  \  'markdown':   ['mdl'],
@@ -39,3 +39,12 @@ nmap <silent> [W :lfirst<CR>zz
 nmap <silent> ]W :llast<CR>zz
 nmap <Space>f    <Plug>(ale_fix)
 nmap <Space>l    <Plug>(ale_toggle_buffer)
+
+" Use the Dart Analysis Server (LSP) as the Dart linter.
+call ale#linter#Define('dart', {
+ \  'name': 'dart-analysis-server-lsp',
+ \  'lsp': 'stdio',
+ \  'executable': 'dart-analysis-server-lsp.sh',
+ \  'command': '%e',
+ \  'project_root': function('ale_linters#dart#language_server#GetProjectRoot'),
+ \})
