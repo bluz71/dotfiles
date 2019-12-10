@@ -1,1 +1,1 @@
-nmap <buffer> <CR> <plug>(plug-preview)
+nmap <buffer> <CR> <Plug>(plug-preview)
