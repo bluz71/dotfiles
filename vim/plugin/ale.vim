@@ -44,7 +44,7 @@ nmap <Space>l    <Plug>(ale_toggle_buffer)
 call ale#linter#Define('dart', {
  \  'name': 'dart-analysis-server-lsp',
  \  'lsp': 'stdio',
- \  'executable': 'dart-analysis-server-lsp.sh',
- \  'command': '%e',
+ \  'executable': 'dart',
+ \  'command': 'dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp',
  \  'project_root': function('ale_linters#dart#language_server#GetProjectRoot'),
  \})
