@@ -234,7 +234,8 @@ find_by_size() {
 
 fzf_find_edit() {
     local file=$(
-      fzf --no-multi --preview 'bat --color=always --line-range :500 {}'
+      fzf --query="$1" --no-multi --select-1 --exit-0 \
+          --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
         $EDITOR $file
