@@ -6,7 +6,7 @@ let g:fzf_commits_log_options = '--graph --color=always
 nnoremap <silent> <Space><Space> :Files<CR>
 nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Space>,       :Buffers<CR>
-nnoremap <silent> <Space><BS>    :BWipeouts<CR>
+nnoremap <silent> <Space><BS>    :BDelete<CR>
 nnoremap <silent> <Space>]       :Tags<CR>
 nnoremap <silent> <Space>[       :BTags<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
@@ -36,15 +36,6 @@ elseif filereadable('src/index.js')
     nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
 endif
 
-" New :BWipeouts command, similar to :Buffers, but will close the chosen
-" buffers.
-"
-command! BWipeouts call fzf#run(fzf#wrap({
- \ 'source': FzfListBuffers(),
- \ 'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
- \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
- \}))
-
 " UltiSnips is a slow plugin to load, hence, only load it on demand once fuzzy
 " snippet searching has been selected.
 "
@@ -56,7 +47,7 @@ function! FzfLoadUltiSnipsAndFuzzySearch()
     return ""
 endfunction
 
-" Return the source list of open buffers for the :BWipeouts command.
+" Return the source list of open buffers for the custom :BDelete command.
 "
 function! FzfListBuffers()
   redir => list
@@ -65,3 +56,14 @@ function! FzfListBuffers()
   return split(list, "\n")
 endfunction
 
+" Slightly change the :BCommits command to use the reverse layout.
+command! -bar -bang BCommits
+ \ call fzf#vim#buffer_commits({'options': '--reverse'}, <bang>0)
+
+" New :BDelete command, similar to :Buffers, but will close the selected
+" buffers.
+command! BDelete call fzf#run(fzf#wrap({
+ \  'source': FzfListBuffers(),
+ \  'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
+ \  'options': '--multi --prompt "BDelete> "'
+ \}))
