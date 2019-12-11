@@ -33,7 +33,7 @@ nnoremap <Leader>Q gqip
 " Format current paragraph in insert mode.
 inoremap <C-q> <C-o>gqip<C-o>$
 " Fold the current indent.
-nnoremap <Leader>z za
+nnoremap <Leader>z zazz
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Space>$ :syntax sync fromstart<CR>
 " Alternate between the last two files.
