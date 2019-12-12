@@ -1,6 +1,7 @@
 let g:NERDTreeDirArrowExpandable  = "▷"
 let g:NERDTreeDirArrowCollapsible = "◢"
 let NERDTreeHijackNetrw           = 0
+let NERDTreeMinimalUI             = 1
 let NERDTreeStatusline            = " NERDTree "
 
 noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
