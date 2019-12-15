@@ -154,8 +154,10 @@ call plug#begin('~/.vim/plugged')
 " Styling related plugings
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-    " ~/dotfiles/vim/plugin/moonfly-colors.vim - options
-Plug 'ayu-theme/ayu-vim' | let ayucolor = "light"
+    let g:moonflyCursorColor = 1
+    "let g:moonflyUndercurls  = 0
+Plug 'ayu-theme/ayu-vim'
+    let ayucolor = "light"
 Plug 'bluz71/vim-moonfly-statusline'
     " ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
 Plug 'Yggdroot/indentLine'
