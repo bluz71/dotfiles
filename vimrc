@@ -75,13 +75,9 @@ set splitbelow        " Split below current window
 set splitright        " Split window to the right
 set synmaxcol=500     " Syntax highlight first 500 chars, for performance
 set t_Co=256          " 256 color support
-set tabstop=4
-" Don't set termguicolors until iTerm2 supports undercurls:
-"   https://gitlab.com/gnachman/iterm2/issues/6382
-" if has("termguicolors")
-"     set termguicolors " Enable 24-bit color support if available
-" endif
-set textwidth=80
+set tabstop=4         " Tab width
+set termguicolors     " Enable 24-bit color support for terminal Vim
+set textwidth=80      " Standard width before breaking
 set timeoutlen=1500   " Give some time for multi-key mappings
 " Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
 " to I-beam and back functionality set by the t_SI and t_EI variables.
@@ -155,9 +151,9 @@ call plug#begin('~/.vim/plugged')
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
     let g:moonflyCursorColor = 1
-    "let g:moonflyUndercurls  = 0
+    let g:moonflyUndercurls  = 0
 Plug 'ayu-theme/ayu-vim'
-    let ayucolor = "light"
+    let g:ayucolor = "light"
 Plug 'bluz71/vim-moonfly-statusline'
     " ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
 Plug 'Yggdroot/indentLine'
