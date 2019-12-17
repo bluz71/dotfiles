@@ -17,7 +17,7 @@ syntax on
 set autoindent        " Indented text
 set autoread          " Pick up external changes to files
 set autowrite         " Write files when navigating with :next/:previous
-set background=dark
+set background=dark   " Dark background by default
 set backspace=indent,eol,start
 set belloff=all       " Bells are annoying
 set breakindent       " Wrap long lines *with* indentation
@@ -65,7 +65,7 @@ set path=**
 set pumheight=20      " Height of complete list
 set relativenumber    " Show relative numbers
 set ruler
-set shiftwidth=4
+set shiftwidth=4      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
 set signcolumn=auto   " Only render sign column when needed
 set showbreak=↳       " Use this to wrap long lines
@@ -94,7 +94,7 @@ set updatetime=150    " Make GitGutter plugin more responsive
 set viminfo=          " No backups
 set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu          " Nice command completions
-set wildmode=full
+set wildmode=full     " Complete the next full match
 set wrap              " Wrap long lines
 
 " Options specific to Neovim or Vim.
@@ -147,13 +147,17 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "-----------------------------
-" Styling related plugings
+" Color scheme plugins
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-    let g:moonflyCursorColor = 1
-    let g:moonflyUndercurls  = 0
 Plug 'ayu-theme/ayu-vim'
-    let g:ayucolor = "light"
+Plug 'haishanh/night-owl.vim'
+    source ~/dotfiles/vim/plugin/colorschemes_before.vim
+    " ~/dotfiles/vim/plugin/colorschemes_after.vim - options, highlights
+
+"-----------------------------
+" Style plugins
+"-----------------------------
 Plug 'bluz71/vim-moonfly-statusline'
     " ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
 Plug 'Yggdroot/indentLine'
