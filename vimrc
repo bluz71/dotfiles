@@ -270,7 +270,7 @@ if has("nvim")
     Plug 'bfredl/nvim-miniyank'
         " ~/dotfiles/vim/plugin/miniyank.vim - mappings
     Plug 'norcalli/nvim-colorizer.lua'
-        " ~/dotfiles/vim/after/plugin/nvim-colorizer.vim - options
+        " ~/dotfiles/vim/after/plugin/nvim-colorizer.vim - options, mappings
 endif
 
 " Finalize vim-plug.
