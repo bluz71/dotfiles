@@ -61,9 +61,6 @@
     # remote branch
     bop = push -u origin
     bod = push origin -d
-    # checkout
-    #co  = checkout
-    #cob = checkout -b
     # switch
     sw  = switch
     swc = switch -c
@@ -74,6 +71,9 @@
     ci    = commit --verbose
     unci  = reset --soft HEAD~1
     amend = commit --amend
+    # push / pull
+    ps = push
+    pl = pull
     # restore
     rs  = restore
     rss = restore --source
