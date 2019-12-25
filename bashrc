@@ -238,7 +238,7 @@ fzf_find_edit() {
           --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
-        $EDITOR $file
+        $EDITOR "$file"
     fi
 }
 
