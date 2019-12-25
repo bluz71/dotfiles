@@ -28,8 +28,8 @@ Installation
 % ~/dotfiles/setup.sh
 ```
 
-Run SSH to create its dot directory then do:
+Run `ssh` to create its dot directory then do:
 
 ```sh
-cp dotfiles/ssh_config .ssh/config
+cp ~/dotfiles/ssh_config ~/.ssh/config
 ```
