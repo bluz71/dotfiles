@@ -5,15 +5,16 @@ Contained are dotfiles for:
 
 - Bash
 - Readline
-- Git
 - Vim / Neovim
+- tmux
+- Git
 - Ruby _irb_ and _pry_ REPL
 - SSH
-- tmux
 - xterm (via Xresources)
 - Linux fontconfig
 - [markdownlint](https://github.com/DavidAnson/markdownlint)
 - [bat](https://github.com/sharkdp/bat)
+- [yamllint](https://github.com/adrienverge/yamllint)
 
 Platforms where these dotfiles are used: macOS with Homebrew and Debian
 derivatives of Linux (Linux Mint and Ubuntu).
@@ -27,9 +28,8 @@ Installation
 % ~/dotfiles/setup.sh
 ```
 
-Run Neovim and SSH to create their dot directories then do:
+Run SSH to create its dot directory then do:
 
 ```sh
-ln -s dotfiles/init.vim .config/nvim/init.vim
 cp dotfiles/ssh_config .ssh/config
 ```
