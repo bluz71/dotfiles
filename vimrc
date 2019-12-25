@@ -150,7 +150,6 @@ call plug#begin('~/.vim/plugged')
 " Color scheme plugins
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
-Plug 'ayu-theme/ayu-vim'
 Plug 'haishanh/night-owl.vim'
     source ~/dotfiles/vim/plugin/colorschemes_before.vim
     " ~/dotfiles/vim/plugin/colorschemes_after.vim - options, highlights
