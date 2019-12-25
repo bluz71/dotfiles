@@ -1,5 +1,5 @@
-User dotfiles
-=============
+![dotfiles](https://github.com/bluz71/misc-binaries/blob/master/headings/dotfiles.png)
+==========
 
 Contained are dotfiles for:
 
