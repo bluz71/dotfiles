@@ -3,4 +3,6 @@
 
 let g:ayucolor           = "light"
 let g:moonflyCursorColor = 1
-let g:moonflyUndercurls  = 0
+if system("uname") == "Darwin\n" && !has("gui_running")
+    let g:moonflyUndercurls  = 0
+endif
