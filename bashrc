@@ -243,7 +243,15 @@ fzf_find_edit() {
 }
 
 fzf_git_add() {
-    local files=$(git ls-files --modified --exclude-standard --others | fzf --ansi)
+    local files=$(
+      git ls-files --modified --exclude-standard --others | \
+      fzf --ansi \
+          --preview "if (git ls-files --error-unmatch {} &>/dev/null); then
+                         git diff --color=always {}
+                     else
+                         bat --color=always --line-range :500 {}
+                     fi"
+      )
     if [[ -n $files ]]; then
         git add --verbose $files
     fi
