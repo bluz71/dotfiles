@@ -292,7 +292,9 @@ fzf_git_reflog() {
         fzf --no-multi --ansi --no-sort --height 100% \
             --preview "git show --color=always {1}"
       )
-    echo $hash
+    if [[ -n $hash ]]; then
+        git show $(echo $hash | cut -d' ' -f1)
+    fi
 }
 
 fzf_git_unadd() {
