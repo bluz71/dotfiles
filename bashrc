@@ -303,8 +303,10 @@ fzf_git_unadd() {
 }
 
 fzf_kill() {
+    local pid_col=2
+    if [[ $OS = Darwin ]]; then pid_col=3; fi
     local pids=$(
-      ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f2
+      ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f"$pid_col"
       )
     if [[ -n $pids ]]; then
         echo "$pids" | xargs kill -9 "$@"
