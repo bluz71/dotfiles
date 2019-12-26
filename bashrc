@@ -235,7 +235,7 @@ find_by_size() {
 fzf_find_edit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview 'bat --color=always --line-range :500 {}'
+          --preview "bat --color=always --line-range :500 {}"
       )
     if [[ -n $file ]]; then
         $EDITOR "$file"
@@ -253,7 +253,7 @@ fzf_git_add() {
                      fi"
       )
     if [[ -n $files ]]; then
-        git add --verbose $files
+        git add --verbose "$files"
     fi
 }
 
@@ -298,7 +298,7 @@ fzf_git_reflog() {
 fzf_git_unadd() {
     local files=$(git diff --name-only --cached | fzf --ansi)
     if [[ -n $files ]]; then
-        git unadd $files
+        git unadd "$files"
     fi
 }
 
