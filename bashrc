@@ -243,7 +243,7 @@ fzf_find_edit() {
 }
 
 fzf_git_add() {
-    local files=$(git ls-files --modified | fzf --ansi)
+    local files=$(git ls-files --modified --exclude-standard --others | fzf --ansi)
     if [[ -n $files ]]; then
         git add --verbose $files
     fi
