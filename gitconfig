@@ -111,9 +111,9 @@
     rbc = rebase --continue
     rbs = rebase --skip
     # stash
-    sta  = !sh -c 'git stash apply stash@{$1}' -
-    std  = !sh -c 'git stash drop stash@{$1}' -
-    stl  = stash list
-    stp  = stash pop
-    sts  = stash save --include-untracked
-    sti = !sh -c 'git stash show -p stash@{$1}' -
+    sa  = !sh -c 'git stash apply stash@{$1}' -
+    sd  = !sh -c 'git stash drop stash@{$1}' -
+    si = !sh -c 'git stash show -p stash@{$1}' -
+    sl  = stash list
+    sp  = stash pop
+    ss  = stash save --include-untracked
