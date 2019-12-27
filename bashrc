@@ -6,8 +6,9 @@ unalias -a
 #
 alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias be='bundle exec'
-alias c='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
+alias cf='fzf_change_directory'
 alias cp='/bin/cp -i'
+alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
 alias dir='ls -l'
 alias du='du -b'
 alias dus='_f() { du -sh "$@" | sort -hr | m; }; _f'
@@ -15,8 +16,8 @@ alias eq='set -f; _f() { echo $@ | bc; set +f; }; _f'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
-alias gadd='fzf_git_add'
-alias gunadd='fzf_git_unadd'
+alias ga='fzf_git_add'
+alias gua='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
 alias grl='fzf_git_reflog'
@@ -232,10 +233,21 @@ find_by_size() {
     find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ;
 }
 
+fzf_change_directory() {
+    local directory=$(
+      fd --type d | \
+      fzf --query="$1" --no-multi --select-1 --exit-0 \
+          --preview 'tree -C {} | head -100'
+      )
+    if [[ -n $directory ]]; then
+        cd "$directory"
+    fi
+}
+
 fzf_find_edit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview "bat --color=always --line-range :500 {}"
+          --preview 'bat --color=always --line-range :500 {}'
       )
     if [[ -n $file ]]; then
         $EDITOR "$file"
@@ -246,11 +258,11 @@ fzf_git_add() {
     local files=$(
       git ls-files --modified --exclude-standard --others | \
       fzf --ansi \
-          --preview "if (git ls-files --error-unmatch {} &>/dev/null); then
+          --preview 'if (git ls-files --error-unmatch {} &>/dev/null); then
                          git diff --color=always {}
                      else
                          bat --color=always --line-range :500 {}
-                     fi"
+                     fi'
       )
     if [[ -n $files ]]; then
         git add --verbose "$files"
@@ -278,7 +290,7 @@ fzf_git_log_pickaxe() {
     local commits=$(
       git log --oneline --color=always -S "$@" |
         fzf --ansi --no-sort --height 100% \
-            --preview "git show --color=always {1}"
+            --preview 'git show --color=always {1}'
       )
     if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
@@ -290,7 +302,7 @@ fzf_git_reflog() {
     local hash=$(
       git reflog --color=always "$@" |
         fzf --no-multi --ansi --no-sort --height 100% \
-            --preview "git show --color=always {1}"
+            --preview 'git show --color=always {1}'
       )
     if [[ -n $hash ]]; then
         git show $(echo $hash | cut -d' ' -f1)
@@ -305,8 +317,12 @@ fzf_git_unadd() {
 }
 
 fzf_kill() {
-    local pid_col=2
-    if [[ $OS = Darwin ]]; then pid_col=3; fi
+    local pid_col
+    if [[ $OS = Linux ]]; then
+        pid_col=2
+    elif [[ $OS = Darwin ]]; then
+        pid_col=3;
+    fi
     local pids=$(
       ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f"$pid_col"
       )
