@@ -265,7 +265,7 @@ fzf_git_add() {
                      fi'
       )
     if [[ -n $files ]]; then
-        git add --verbose "$files"
+        git add --verbose $files
     fi
 }
 
@@ -312,7 +312,7 @@ fzf_git_reflog() {
 fzf_git_unadd() {
     local files=$(git diff --name-only --cached | fzf --ansi)
     if [[ -n $files ]]; then
-        git unadd "$files"
+        git unadd $files
     fi
 }
 
