@@ -221,6 +221,12 @@ xnoremap + g<C-a>
 xnoremap - g<C-x>
 
 "-----------------------------
+" Scroll mappings
+"-----------------------------
+nnoremap <C-Up>   <C-e>
+nnoremap <C-Down> <C-y>
+
+"-----------------------------
 " Readline-like mappings
 "-----------------------------
 " - Ctrl-a - go to the start of line
