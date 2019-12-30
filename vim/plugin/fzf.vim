@@ -12,7 +12,7 @@ nnoremap <silent> <Space>[       :BTags<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
 nnoremap <silent> <Space>g       :GFiles?<CR>
 nnoremap <silent> <Space>s       :call FzfLoadUltiSnipsAndFuzzySearch()<CR>
-nnoremap <silent> <Space>?       :Helptags<CR>
+nnoremap <silent> <Space>h       :Helptags<CR>
 " Project-wide search for the supplied term.
 noremap <Space>/ :Rg<Space>
 " Mapping selections for various modes.
