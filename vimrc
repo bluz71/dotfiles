@@ -73,7 +73,6 @@ set smartcase         " Case-smart searching
 set smarttab
 set splitbelow        " Split below current window
 set splitright        " Split window to the right
-set synmaxcol=500     " Syntax highlight first 500 chars, for performance
 set t_Co=256          " 256 color support
 set tabstop=4         " Tab width
 set termguicolors     " Enable 24-bit color support for terminal Vim
