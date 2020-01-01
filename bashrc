@@ -16,7 +16,8 @@ alias eq='set -f; _f() { echo $@ | bc; set +f; }; _f'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
-alias ga='fzf_git_add'
+alias ga='fzf_git_status add'
+alias gdi='fzf_git_status'
 alias gua='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
@@ -262,27 +263,13 @@ fzf_find_edit() {
     fi
 }
 
-fzf_git_add() {
-    local files=$(
-      git ls-files --modified --exclude-standard --others | \
-      fzf --ansi \
-          --preview 'if (git ls-files --error-unmatch {} &>/dev/null); then
-                         git diff --color=always {}
-                     else
-                         bat --color=always --line-range :500 {}
-                     fi'
-      )
-    if [[ -n $files ]]; then
-        git add --verbose $files
-    fi
-}
-
 fzf_git_log() {
     local commits=$(
       git ll --color=always "$@" |
         fzf --ansi --no-sort --height 100% \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                       xargs -I@ sh -c 'git show --color=always @'"
+                       xargs -I@ sh -c 'git show --color=always @' |
+                       diff-so-fancy"
       )
     if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
@@ -298,7 +285,7 @@ fzf_git_log_pickaxe() {
     local commits=$(
       git log --oneline --color=always -S "$@" |
         fzf --ansi --no-sort --height 100% \
-            --preview 'git show --color=always {1}'
+            --preview 'git show --color=always {1} | diff-so-fancy'
       )
     if [[ -n $commits ]]; then
         local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
@@ -310,10 +297,25 @@ fzf_git_reflog() {
     local hash=$(
       git reflog --color=always "$@" |
         fzf --no-multi --ansi --no-sort --height 100% \
-            --preview 'git show --color=always {1}'
+            --preview 'git show --color=always {1} | diff-so-fancy'
       )
     if [[ -n $hash ]]; then
         git show $(echo $hash | cut -d' ' -f1)
+    fi
+}
+
+fzf_git_status() {
+    local files=$(
+      git ls-files --modified --exclude-standard --others | \
+      fzf --ansi \
+          --preview 'if (git ls-files --error-unmatch {} &>/dev/null); then
+                         git diff --color=always {} | diff-so-fancy
+                     else
+                         bat --color=always --line-range :500 {}
+                     fi'
+      )
+    if [[ -n $files && "$1" == "add" ]]; then
+        git add --verbose $files
     fi
 }
 
