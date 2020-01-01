@@ -168,7 +168,15 @@ brew_config() {
     export BREW_PREFIX=$(brew --prefix)
 
     # Bash completions.
-    . $BREW_PREFIX/share/bash-completion/bash_completion
+    if [[ $OS = Linux ]]; then
+        # Source legacy Brew completions.
+        for f in $BREW_PREFIX/etc/bash_completion.d/*; do . $f; done
+    elif [[ $OS = Darwin ]]; then
+        # Source version 1 bash_completion scripts.
+        export BASH_COMPLETION_COMPAT_DIR="$BREW_PREFIX/etc/bash_completion.d"
+        # Source version 2 bash_completion scripts.
+        . $BREW_PREFIX/etc/profile.d/bash_completion.sh
+    fi
 
     # 'z' configuration.
     _Z_NO_PROMPT_COMMAND=1
