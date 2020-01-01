@@ -169,7 +169,7 @@ brew_config() {
 
     # Bash completions.
     if [[ $OS = Linux ]]; then
-        # Source legacy Brew completions.
+        # Source legacy Brew-related Bash completions.
         for f in $BREW_PREFIX/etc/bash_completion.d/*; do . $f; done
     elif [[ $OS = Darwin ]]; then
         # Source version 1 bash_completion scripts.
