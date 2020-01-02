@@ -17,7 +17,7 @@ alias f='fzf --ansi'
 alias fkill='fzf_kill'
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
 alias ga='fzf_git_status add'
-alias gd='fzf_git_status'
+alias gd='fzf_git_status diff'
 alias gu='fzf_git_unadd'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
@@ -264,16 +264,16 @@ fzf_find_edit() {
 }
 
 fzf_git_log() {
-    local commits=$(
+    local selections=$(
       git ll --color=always "$@" |
         fzf --ansi --no-sort --height 100% \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @' |
                        diff-so-fancy"
       )
-    if [[ -n $commits ]]; then
-        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
-        git show $hashes
+    if [[ -n $selections ]]; then
+        local commits=$(echo "$selections" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $commits
     fi
 }
 
@@ -282,40 +282,45 @@ fzf_git_log_pickaxe() {
         echo 'Error: search term was not provided.'
         return
     fi
-    local commits=$(
+    local selections=$(
       git log --oneline --color=always -S "$@" |
         fzf --ansi --no-sort --height 100% \
             --preview 'git show --color=always {1} | diff-so-fancy'
       )
-    if [[ -n $commits ]]; then
-        local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-        git show $hashes
+    if [[ -n $selections ]]; then
+        local commits=$(echo "$selections" | cut -d' ' -f1 | tr '\n' ' ')
+        git show $commits
     fi
 }
 
 fzf_git_reflog() {
-    local hash=$(
+    local selection=$(
       git reflog --color=always "$@" |
         fzf --no-multi --ansi --no-sort --height 100% \
             --preview 'git show --color=always {1} | diff-so-fancy'
       )
-    if [[ -n $hash ]]; then
-        git show $(echo $hash | cut -d' ' -f1)
+    if [[ -n $selection ]]; then
+        git show $(echo $selection | cut -d' ' -f1)
     fi
 }
 
 fzf_git_status() {
-    local files=$(
-      git ls-files --modified --exclude-standard --others | \
+    local selections=$(
+      git status --porcelain | \
       fzf --ansi \
-          --preview 'if (git ls-files --error-unmatch {} &>/dev/null); then
-                         git diff --color=always {} | diff-so-fancy
+          --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
+                         git diff --color=always {2} | diff-so-fancy
                      else
-                         bat --color=always --line-range :500 {}
+                         bat --color=always --line-range :500 {2}
                      fi'
       )
-    if [[ -n $files && "$1" == "add" ]]; then
-        git add --verbose $files
+    if [[ -n $selections ]]; then
+        local files=$(echo "$selections" | cut -c 4- | tr '\n' ' ')
+        if [[ -n $files && "$1" == "add" ]]; then
+            git add --verbose $files
+        elif [[ -n $files && "$1" == "diff" ]]; then
+            git diff $files
+        fi
     fi
 }
 
@@ -332,6 +337,9 @@ fzf_kill() {
         pid_col=2
     elif [[ $OS = Darwin ]]; then
         pid_col=3;
+    else
+        echo 'Error: unknown platform.'
+        return
     fi
     local pids=$(
       ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f"$pid_col"
