@@ -1,4 +1,4 @@
-![dotfiles](https://github.com/bluz71/misc-binaries/blob/master/headings/dotfiles.png)
+![dotfiles](https://raw.githubusercontent.com/bluz71/misc-binaries/master/headings/dotfiles.png)
 ==========
 
 Contained are dotfiles for:
