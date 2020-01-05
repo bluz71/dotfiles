@@ -173,7 +173,8 @@ brew_config() {
         # Source legacy Brew-related Bash completions.
         for f in $BREW_PREFIX/etc/bash_completion.d/*; do . $f; done
     elif [[ $OS = Darwin ]]; then
-        # Source version 1 bash_completion scripts.
+        # Please refer to: https://is.gd/5f9uD8
+        # Source legacy version 1 bash_completion scripts.
         export BASH_COMPLETION_COMPAT_DIR="$BREW_PREFIX/etc/bash_completion.d"
         # Source version 2 bash_completion scripts.
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
