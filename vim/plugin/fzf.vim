@@ -16,10 +16,10 @@ nnoremap <silent> <Space>h       :Helptags<CR>
 " Project-wide search for the supplied term.
 noremap <Space>/ :Rg<Space>
 " Mapping selections for various modes.
-nmap <Space>! <Plug>(fzf-maps-n)
-omap <Space>! <Plug>(fzf-maps-o)
-xmap <Space>! <Plug>(fzf-maps-x)
-imap <C-x>!   <Plug>(fzf-maps-i)
+nmap <Space>? <Plug>(fzf-maps-n)
+omap <Space>? <Plug>(fzf-maps-o)
+xmap <Space>? <Plug>(fzf-maps-x)
+imap <C-x>?   <Plug>(fzf-maps-i)
 
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
