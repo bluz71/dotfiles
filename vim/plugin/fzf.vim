@@ -1,7 +1,7 @@
 let g:fzf_layout = { "window": "silent botright 16split enew" }
 let g:fzf_commits_log_options = '--graph --color=always
- \ --date=human --format="%C(3)%h%C(1)%d%C(reset)
- \ - %C(10)(%ad)%C(reset) %s %C(4){%an}%C(reset)"'
+ \ --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset)
+ \ - %C(#42cf89)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)"'
 
 nnoremap <silent> <Space><Space> :Files<CR>
 nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
