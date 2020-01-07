@@ -143,14 +143,14 @@ fi
 
 # Customizations per platform.
 if [[ $OS = Linux ]]; then
-    alias cpa='/bin/cp -a'
+    alias cpa='/bin/cp -i -a'
     alias free='free -th'
     alias open='xdg-open 2>/dev/null'
     alias scp='/usr/bin/scp'
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
 elif [[ $OS = Darwin ]]; then
-    alias cpa='/usr/local/opt/coreutils/libexec/gnubin/cp -a'
+    alias cpa='/usr/local/opt/coreutils/libexec/gnubin/cp -i -a'
     alias scp='/usr/local/bin/scp'
     alias ssh='/usr/local/bin/ssh'
     alias ssh-add='/usr/local/bin/ssh-add'
