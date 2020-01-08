@@ -194,7 +194,7 @@ brew_config() {
     . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse
-      --bind ctrl-f:page-down,ctrl-b:page-up
+      --bind ctrl-f:page-down,ctrl-b:page-up,alt-down:preview-down,alt-up:preview-up
       --prompt="❯ "
       --color hl:13,fg+:253,bg+:234,hl+:13
       --color info:11,border:237,prompt:111,pointer:9,marker:8,spinner:10,header:4
