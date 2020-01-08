@@ -1,4 +1,22 @@
-let g:fzf_layout = { "window": "silent botright 16split enew" }
+if has('nvim')
+    function! FloatingFZF()
+        let width = float2nr(&columns * 0.90)
+        let height = float2nr(&lines * 0.75)
+        let opts = { 'relative': 'editor',
+                    \ 'row': (&lines - height) / 2,
+                    \ 'col': (&columns - width) / 2,
+                    \ 'width': width,
+                    \ 'height': height,
+                    \ 'style': 'minimal'}
+
+        let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+        call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+    endfunction
+
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+else
+    let g:fzf_layout = { "window": "silent botright 16split enew" }
+endif
 let g:fzf_commits_log_options = '--graph --color=always
  \ --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset)
  \ - %C(#42cf89)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)"'
