@@ -223,8 +223,8 @@ xnoremap - g<C-x>
 "-----------------------------
 " Scroll mappings
 "-----------------------------
-nnoremap <A-Up>   <C-e>
-nnoremap <A-Down> <C-y>
+nnoremap <S-Up>   <C-e>
+nnoremap <S-Down> <C-y>
 
 "-----------------------------
 " Readline-like mappings
