@@ -1,7 +1,7 @@
 if has('nvim')
     function! FloatingFZF()
-        let width = float2nr(&columns * 0.90)
-        let height = float2nr(&lines * 0.75)
+        let width = float2nr(&columns * 0.85)
+        let height = float2nr(&lines * 0.70)
         let opts = { 'relative': 'editor',
                     \ 'row': (&lines - height) / 2,
                     \ 'col': (&columns - width) / 2,
