@@ -1,8 +1,4 @@
-if has('nvim')
-    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-else
-    let g:fzf_layout = { "window": "silent botright 16split enew" }
-endif
+let g:fzf_layout = { "window": "silent botright 16split enew" }
 let g:fzf_commits_log_options = '--graph --color=always
  \ --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset)
  \ - %C(#42cf89)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)"'
@@ -54,6 +50,8 @@ if has('nvim')
 
         let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
     endfunction
+
+    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 endif
 
 " UltiSnips is a slow plugin to load, hence, only load it on demand once fuzzy
