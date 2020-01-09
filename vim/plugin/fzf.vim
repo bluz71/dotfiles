@@ -1,18 +1,4 @@
 if has('nvim')
-    function! FloatingFZF()
-        let width = float2nr(&columns * 0.85)
-        let height = float2nr(&lines * 0.70)
-        let opts = { 'relative': 'editor',
-                    \ 'row': (&lines - height) / 2,
-                    \ 'col': (&columns - width) / 2,
-                    \ 'width': width,
-                    \ 'height': height,
-                    \ 'style': 'minimal'}
-
-        let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-        call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
-    endfunction
-
     let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 else
     let g:fzf_layout = { "window": "silent botright 16split enew" }
@@ -52,6 +38,22 @@ elseif filereadable('src/index.js')
     nnoremap <silent> <Space>ec :Files src/components<CR>
     nnoremap <silent> <Space>es :Files src/styles<CR>
     nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
+endif
+
+" Display fzf in a floating window when run in Neovim.
+if has('nvim')
+    function! FloatingFZF()
+        let width = float2nr(&columns * 0.85)
+        let height = float2nr(&lines * 0.70)
+        let opts = { 'relative': 'editor',
+                    \ 'row': (&lines - height) / 2,
+                    \ 'col': (&columns - width) / 2,
+                    \ 'width': width,
+                    \ 'height': height,
+                    \ 'style': 'minimal'}
+
+        let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    endfunction
 endif
 
 " UltiSnips is a slow plugin to load, hence, only load it on demand once fuzzy
