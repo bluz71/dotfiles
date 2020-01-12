@@ -1,4 +1,4 @@
-" Color scheme overrides loaded AFTER the colorscheme has been set.
+" Night-owl overrides loaded AFTER the colorscheme has been set.
 
 if g:colors_name == "night-owl"
     highlight Conceal guibg=bg guifg=#222222
