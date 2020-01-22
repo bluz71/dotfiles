@@ -18,8 +18,8 @@ xterm-moonfly*color3: #e3c78a
 ! Blue
 xterm-moonfly*color4: #80a0ff
 
-! Magenta
-xterm-moonfly*color5: #ce76e8
+! Violet (usually defined as 'Purple')
+xterm-moonfly*color5: #d183e8
 
 ! Turquoise (usually defined as 'Cyan')
 xterm-moonfly*color6: #7ee0ce
@@ -39,16 +39,16 @@ xterm-moonfly*color10: #42cf89
 ! Wheat (usually defined as 'Bold Yellow')
 xterm-moonfly*color11: #cfcfb0
 
-! Light blue (usually defined as 'Bold Blue')
+! Sky (usually defined as 'Bold Blue')
 xterm-moonfly*color12: #78c2ff
 
-! Purple (usually defined as 'Bold Magenta')
+! Purple (usually defined as 'Bold Purple')
 xterm-moonfly*color13: #ae81ff
 
-! Light green (usually defined as 'Bold Cyan')
+! Lime (usually defined as 'Bold Cyan')
 xterm-moonfly*color14: #85dc85
 
-! Violet (usually defined as 'Bold White')
+! Cranberry (usually defined as 'Bold White')
 xterm-moonfly*color15: #e2637f
 
 xterm-moonfly*allowTitleOps: false
