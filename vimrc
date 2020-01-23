@@ -150,8 +150,6 @@ call plug#begin('~/.vim/plugged')
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
     runtime custom/moonfly.vim " Options must be set before colorscheme call
-Plug 'haishanh/night-owl.vim'
-    " ~/dotfiles/vim/plugin/night-owl.vim - highlight overrides
 
 "-----------------------------
 " Style plugins
