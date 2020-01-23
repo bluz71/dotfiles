@@ -294,4 +294,4 @@ runtime macros/matchit.vim
 " COLOR SCHEME
 "===========================================================
 
-colorscheme moonfly
+colorscheme nightfly
