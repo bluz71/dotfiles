@@ -68,10 +68,10 @@ endfunction
 " Return the source list of open buffers for the custom :BDelete command.
 "
 function! FzfListBuffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
+    redir => list
+    silent ls
+    redir END
+    return split(list, "\n")
 endfunction
 
 " Slightly change the :BCommits command to use the reverse layout.
