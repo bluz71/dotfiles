@@ -150,6 +150,8 @@ call plug#begin('~/.vim/plugged')
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
     runtime custom/moonfly.vim " Options must be set before colorscheme call
+Plug 'bluz71/vim-nightfly-guicolors'
+    runtime custom/nightfly.vim " Options must be set before colorscheme call
 
 "-----------------------------
 " Style plugins
