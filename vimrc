@@ -104,6 +104,8 @@ if has("nvim")
     set signcolumn=auto:2
 else
     set cryptmethod=blowfish2
+    set cursorline
+    set cursorlineopt=number
     set listchars=eol:$,tab:>-,trail:-
     set ttymouse=xterm2
 endif
