@@ -197,7 +197,7 @@ brew_config() {
       --bind ctrl-f:page-down,ctrl-b:page-up
       --bind pgdn:preview-page-down,pgup:preview-page-up
       --prompt="❯ "
-      --color hl:8,fg+:253,bg+:234,hl+:8
+      --color hl:13,fg+:253,bg+:234,hl+:13
       --color info:11,border:237,prompt:111,pointer:9,marker:8,spinner:10,header:4
     '
     export FZF_DEFAULT_COMMAND='fd --type f --color=never'
