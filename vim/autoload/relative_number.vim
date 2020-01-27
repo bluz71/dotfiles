@@ -23,4 +23,3 @@ function! relative_number#Activity(mode) abort
         endif
     endif
 endfunction
-
