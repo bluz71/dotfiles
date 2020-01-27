@@ -20,8 +20,8 @@ augroup CustomAutocmds
     autocmd Syntax * syntax sync minlines=2000
 
     " Language, by extension, customizations.
-    autocmd BufEnter *.{hh,cc,icc,tcc} set filetype=cxx
-    autocmd BufEnter *.html.erb        set omnifunc=htmlcomplete#CompleteTags
+    autocmd BufEnter *.icc      set filetype=cpp
+    autocmd BufEnter *.html.erb set omnifunc=htmlcomplete#CompleteTags
 
     " Auto-read external file changes, compliments the vim-auto-save plugin.
     autocmd CursorHold * silent! checktime
