@@ -45,6 +45,8 @@ nnoremap <Space>$ :syntax sync fromstart<CR>
 nnoremap <Backspace> <C-^>
 " Whilst in insert mode begin a new line above the cursor.
 inoremap <C-u> <C-o>O
+" Toggle crosshair, aka cusorcolumn & cursorline.
+nnoremap <Leader>X :call crosshair#Toggle()<CR>
 
 "-----------------------------
 " Navigation mappings
