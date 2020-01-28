@@ -122,17 +122,15 @@ endif
 
 "===========================================================
 " TERMINAL CONFIGURATION
-"
-" ~/dotfiles/vim/plugin/terminal-settings.vim - Vim terminal tweaks
 "===========================================================
+runtime custom/terminal-settings.vim
 
 
 "===========================================================
 " MAPPINGS
-"
-" ~/dotfiles/vim/plugin/mappings.vim - custom mappings
 "===========================================================
 let mapleader = ","
+runtime custom/mappings.vim
 
 
 "===========================================================
@@ -287,11 +285,10 @@ runtime macros/matchit.vim
 
 "===========================================================
 " AUTOCMDS
-"
-" ~/dotfiles/vim/plugin/autocmds.vim - customizations
-" ~/dotfiles/vim/ftplugin            - file type options, mappings
-" ~/dotfiles/vim/after/ftplugin      - file type overrides
 "===========================================================
+runtime custom/autocmds.vim
+    " ~/dotfiles/vim/ftplugin       - file type options, mappings
+    " ~/dotfiles/vim/after/ftplugin - file type overrides
 
 
 "===========================================================
