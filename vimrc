@@ -129,7 +129,6 @@ runtime custom/terminal.vim
 "===========================================================
 " MAPPINGS
 "===========================================================
-let mapleader = ","
 runtime custom/mappings.vim
 
 
