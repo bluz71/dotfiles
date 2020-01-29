@@ -290,4 +290,8 @@ runtime custom/autocmds.vim
 " COLOR SCHEME
 "===========================================================
 
-colorscheme nightfly
+if filereadable(expand('~/.colorscheme'))
+    exec "colorscheme " . readfile(expand('~/.colorscheme'))[0]
+else
+    colorscheme moonfly
+endif
