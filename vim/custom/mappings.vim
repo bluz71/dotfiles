@@ -40,7 +40,7 @@ inoremap <C-q> <C-o>gqip<C-o>$
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Recalculate syntax highlighting for the entire file.
-nnoremap <Space>$ :syntax sync fromstart<CR>
+nnoremap <Leader>S :syntax sync fromstart<CR>
 " Alternate between the last two files.
 nnoremap <Backspace> <C-^>
 " Whilst in insert mode begin a new line above the cursor.
