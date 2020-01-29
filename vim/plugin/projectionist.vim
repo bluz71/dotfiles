@@ -17,7 +17,7 @@ if filereadable('src/App.js')
      \  }
      \}
     nnoremap <Leader>a  :A<CR>
-    nnoremap <leader>ec :Ecomponent<Space>
-    nnoremap <leader>es :Estylesheet<Space>
-    nnoremap <leader>et :Etest<Space>
+    nnoremap <Leader>ec :Ecomponent<Space>
+    nnoremap <Leader>es :Estylesheet<Space>
+    nnoremap <Leader>et :Etest<Space>
 endif
