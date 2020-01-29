@@ -227,8 +227,6 @@ Plug 'tpope/vim-fugitive'
     " ~/dotfiles/vim/plugin/fugitive.vim - mappings
 Plug 'airblade/vim-gitgutter'
     " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
-Plug 'rhysd/git-messenger.vim'
-    " ~/dotfiles/vim/plugin/git-messenger.vim - options, mappings
 
 "-----------------------------
 " Development plugins
