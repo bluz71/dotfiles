@@ -243,8 +243,6 @@ Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
-Plug 'tpope/vim-ragtag'
-    " ~/dotfiles/vim/plugin/ragtag.vim - mappings
 Plug 'SirVer/ultisnips', { 'on': [] }
     " ~/dotfiles/vim/plugin/ultisnips.vim - options, mapping & on-demand loading
     " ~/dotfiles/vim/UltiSnips - custom snippets
