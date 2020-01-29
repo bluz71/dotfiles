@@ -1,3 +1,6 @@
+" Ignore <ul>, <ul>, <dl> special cases.
+let b:match_words = '<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+" Auto-expansion including tags.
 let b:pear_tree_pairs = {
             \ '(':   {'closer': ')'},
             \ '[':   {'closer': ']'},

@@ -170,9 +170,7 @@ Plug 'gcmt/taboo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
-Plug 'andymass/vim-matchup', { 'for':
-    \  ['dart', 'html', 'javascript', 'json', 'xml']
-    \}
+Plug 'andymass/vim-matchup', { 'for': ['dart', 'javascript', 'json'] }
     " ~/dotfiles/vim/plugin/matchup.vim - options, mappings
 Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
