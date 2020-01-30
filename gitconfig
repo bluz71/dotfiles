@@ -65,6 +65,8 @@
     # switch
     sw  = switch
     swc = switch -c
+    # checkout
+    ck = checkout
     # add
     sg = !git add . -N && git add -p
     aa = add .
