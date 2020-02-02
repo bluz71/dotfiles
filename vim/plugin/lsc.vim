@@ -20,6 +20,7 @@ let g:lsc_auto_map = {
  \  'FindReferences': 'gr',
  \  'Rename': 'gR',
  \  'ShowHover': 'K',
+ \  'FindCodeActions': 'ga',
  \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_diagnostics   = v:false
