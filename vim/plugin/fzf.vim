@@ -1,8 +1,20 @@
-let g:fzf_layout = { "window": "silent botright 16split enew" }
+" Display fzf in a floating/popup window if possible.
+if has('nvim-0.4.0') || has("patch-8.2.0191")
+    let g:fzf_layout = { 'window': {
+                \ 'width': 0.9,
+                \ 'height': 0.7,
+                \ 'highlight': 'fzfBorder',
+                \ 'rounded': v:false } }
+else " Fallback to a split window
+    let g:fzf_layout = { "window": "silent botright 16split enew" }
+endif
+
+" Git log format.
 let g:fzf_commits_log_options = '--graph --color=always
  \ --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset)
  \ - %C(#42cf89)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)"'
 
+" Mappings
 nnoremap <silent> <Space><Space> :Files<CR>
 nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Space>,       :Buffers<CR>
@@ -36,29 +48,6 @@ elseif filereadable('src/index.js')
     nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
 endif
 
-" Display fzf in a floating window when run in Neovim.
-if has('nvim')
-    let g:fzf_layout = { 'window': {
-                \ 'width': 0.9,
-                \ 'height': 0.7,
-                \ 'highlight': 'Conceal',
-                \ 'rounded': v:false } }
-"    function! FloatingFZF()
-"        let width = float2nr(&columns * 0.85)
-"        let height = float2nr(&lines * 0.70)
-"        let opts = { 'relative': 'editor',
-"                    \ 'row': (&lines - height) / 2,
-"                    \ 'col': (&columns - width) / 2,
-"                    \ 'width': width,
-"                    \ 'height': height,
-"                    \ 'style': 'minimal'}
-"
-"        let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-"    endfunction
-"
-"    let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-endif
-
 " UltiSnips is a slow plugin to load, hence, only load it on demand once fuzzy
 " snippet searching has been selected.
 "
@@ -79,14 +68,14 @@ function! FzfListBuffers()
     return split(list, "\n")
 endfunction
 
-" Slightly change the :BCommits command to use the reverse layout.
+" Change the :BCommits command to use the reverse layout.
 command! -bar -bang BCommits
- \ call fzf#vim#buffer_commits({'options': '--reverse'}, <bang>0)
+  \ call fzf#vim#buffer_commits({'options': '--reverse'}, <bang>0)
 
-" New :BDelete command, similar to :Buffers, but will close the selected
+" Custom :BDelete command, similar to :Buffers, but will close the selected
 " buffers.
 command! BDelete call fzf#run(fzf#wrap({
- \  'source': FzfListBuffers(),
- \  'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
- \  'options': '--multi --prompt "BDelete> "'
- \}))
+  \  'source': FzfListBuffers(),
+  \  'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
+  \  'options': '--multi --prompt "BDelete> "'
+  \}))
