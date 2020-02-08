@@ -31,7 +31,7 @@ let g:ale_sign_info                = '❯❯'
 let g:ale_sign_warning             = '❯❯'
 let g:ale_sign_priority            = 50
 let g:ale_virtualtext_cursor       = 0
-let g:ale_virtualtext_prefix       = '● '
+let g:ale_virtualtext_prefix       = ' ›› '
 
 " Open location list.
 nnoremap <Leader>l :lopen<CR>
