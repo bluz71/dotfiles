@@ -30,8 +30,11 @@ let g:ale_sign_error               = '❯❯'
 let g:ale_sign_info                = '❯❯'
 let g:ale_sign_warning             = '❯❯'
 let g:ale_sign_priority            = 50
-let g:ale_virtualtext_cursor       = 0
-let g:ale_virtualtext_prefix       = ' ›› '
+if has("nvim")
+    let g:ale_echo_cursor          = 0
+    let g:ale_virtualtext_cursor   = 1
+    let g:ale_virtualtext_prefix   = ' ›› '
+endif
 
 " Open location list.
 nnoremap <Leader>l :lopen<CR>

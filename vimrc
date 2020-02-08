@@ -101,7 +101,7 @@ if has("nvim")
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
-    set signcolumn=auto:2
+    set signcolumn=auto:1
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
