@@ -1,4 +1,4 @@
-nmap [w <Plug>unimpairedLPreviouszz
-nmap ]w <Plug>unimpairedLNextzz
+nmap [l <Plug>unimpairedLPreviouszz
+nmap ]l <Plug>unimpairedLNextzz
 nmap [q <Plug>unimpairedQPreviouszz
 nmap ]q <Plug>unimpairedQNextzz

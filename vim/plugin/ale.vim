@@ -36,15 +36,16 @@ if has("nvim")
     let g:ale_virtualtext_prefix   = ' ›› '
 endif
 
+" ALE fix and toggle mappings.
+nmap <Space>f <Plug>(ale_fix)
+nmap <Space>l <Plug>(ale_toggle_buffer)
+" Navigate errors and warnings using unimpaired-style mappings.
+nmap [w <Plug>(ale_previous)zz
+nmap ]w <Plug>(ale_next)zz
+nmap [W <Plug>(ale_first)zz
+nmap ]W <Plug>(ale_last)zz
 " Open location list.
 nnoremap <Leader>l :lopen<CR>
-" Use ~/dotfiles/vim/after/plugin/unimpaired.vim square brackets 'w'
-" mappings to navigate the location list.
-nmap <silent> [W :lfirst<CR>zz
-nmap <silent> ]W :llast<CR>zz
-" ALE fix and toggle mappings.
-nmap <Space>f    <Plug>(ale_fix)
-nmap <Space>l    <Plug>(ale_toggle_buffer)
 
 " Use the Dart Analysis Server (LSP) as the Dart linter.
 call ale#linter#Define('dart', {
