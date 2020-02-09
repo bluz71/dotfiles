@@ -14,6 +14,6 @@ windows:
       panes:
         - cd ~/projects/tickets_app && rails s
         - postgres -D $(brew --prefix)/var/postgres
-  - other: 
+  - other:
     - cd ~/projects
     - clear
