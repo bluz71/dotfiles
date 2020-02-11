@@ -2,7 +2,7 @@ snippet stles
 class ${1:Class} extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();$2
+    return Container($2);
   }
 }
 endsnippet
@@ -10,10 +10,15 @@ endsnippet
 #-------------------------------------------------------------------------
 
 snippet stful
-class ${1:Class} extends StatefullWidget {
+class ${1:Class} extends StatefulWidget {
+  @override
+  _$1State createState() => _$1State();
+}
+
+class _$1State extends State<$1> {
   @override
   Widget build(BuildContext context) {
-    return Container();$2
+    return Container($2);
   }
 }
 endsnippet
