@@ -25,6 +25,7 @@ alias grl='fzf_git_reflog'
 alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
 alias h=history
+alias hdd='history_dedup'
 alias help='tldr'
 alias hrg='history | rg'
 alias l1='ls -1'
@@ -104,10 +105,10 @@ export PAGER=less
 export OS=`uname`
 
 # History settings.
-HISTCONTROL='erasedups:ignoreboth' # Erase duplicates
-HISTFILESIZE=99999                 # Max size of history file
-HISTIGNORE=?:??                    # Ignore one and two letter commands
-HISTSIZE=99999                     # Amount of history to save
+HISTCONTROL=ignoreboth:erasedups # Erase duplicates
+HISTFILESIZE=99999               # Max size of history file
+HISTIGNORE=?:??                  # Ignore one and two letter commands
+HISTSIZE=99999                   # Amount of history to save
 # Note, to immediately append to history file see 'prompt' function below.
 
 # Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
@@ -359,6 +360,15 @@ grep_edit() {
     fi
 
     $EDITOR $(rg -l "$1")
+}
+
+history_dedup() {
+    # Details: https://is.gd/HPAtE5
+    echo "Before: $(du -sh ~/.bash_history)"
+    tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
+    mv -f /tmp/bash_history ~/.bash_history
+    echo "After: $(du -sh ~/.bash_history)"
+    history -c && history -r
 }
 
 path() {
