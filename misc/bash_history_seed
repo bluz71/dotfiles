@@ -1,0 +1,1202 @@
+man find
+man rg
+tnew
+z -r public
+wc .bash_his*
+yarn start
+cd ~/projects
+clear
+cd dotfiles/
+ssh-add 
+v vimrc
+git ll
+g st
+v .gitignore 
+g st
+g st
+v .gitignore
+cd ..
+cd -
+g st
+g add .
+g ci
+g push
+mina deploy
+CI=true yarn test
+yarn deploy
+g st
+yarn start
+clear
+git ll
+g st
+g vdi
+cd ~/projects
+clear
+wc .bash_history
+CI=true yarn test
+yarn test
+yarn deploy
+yarn test
+g ll | wc
+yarn deploy
+g vdi
+g add .
+g ci
+g push
+g push
+eslint src
+g vdi
+g at
+g st
+clear
+git ll
+g bb
+g st
+g vdi
+g add .
+g ci
+g co master 
+ssh-add 
+g push
+cd ~/projects
+clear
+tmux resize-pane -Z
+git ll
+g bd system-tests 
+dir
+\rm -rf *
+..2
+be rspec
+g st
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g st
+g add .
+g st
+g add .
+g ci
+g push
+dir
+cd Downloads/
+dir
+dir
+rm *
+rails c
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+redis-server
+cd ~/projects
+clear
+git ll
+g bb
+dir
+CI=true yarn test
+z -r pla
+g st 
+g vdi
+ssh-add
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g st
+yarn test
+g st
+g vdi
+g add .
+g ci
+g vdis
+g st
+g vdi
+g vdis
+g st
+g add .
+g vids
+g vdis
+CI=true yarn test
+g llom
+g st
+g ci
+g co master
+g push
+cd ~/projects
+clear
+git ll
+ssh-add
+yarn test
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g llom
+g push
+yarn test
+z -r plat
+g st
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g ci
+g push
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g push
+CI=true yarn test
+yarn deploy
+v -S
+rm Session.vim 
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+yarn test
+CI=true yarn test
+g llom
+g push
+g ll
+g bb
+g bd album-tests 
+dir
+yarn start
+cd dotfiles/
+g st
+g vdi
+g add .
+g ci
+ssh-add 
+g push
+echo "hello, world"
+z bluz
+g vdi
+v vimrc
+g vdi
+v bashrc
+rg gvim
+man bash
+g vdi
+g aa
+g ci
+ssh-add -l
+g push
+v vimrc
+g vdi
+g aa
+g ci
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
+dir
+tar xf linux-5.tar.xz
+cd linux-5
+dir
+g init
+g aa
+g ci
+g co .
+g | ls
+g status
+g status | wc
+g co .
+cloc linux-5
+be jekyll serve
+tnew
+ssh-add
+z dot
+g pull
+g fea
+cpa
+src
+dus *
+src
+cpa
+man cp
+/bin/cp -pr
+z ~/Downloads/
+g pull
+g vdi
+exit
+g vdi
+g aa
+g ci
+g push
+g fea
+g rb origin/master 
+g llu
+gll
+g push
+be jekyll serve
+clear
+git ll
+be gem --version
+gem update --system
+be gem --version
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+z pla app
+be rspec
+mkdir lib
+quit
+g vdi
+g aa
+g ci
+g co master
+g mg rails-update 
+g push
+mina deploy
+v TODO.txt 
+g vdi
+g aa
+g ci
+g push
+g bb
+llt
+..2
+g vdi
+g aa
+g vdis
+g aa
+g vdis
+g ci
+g co master
+g vdi
+g aa
+g ci
+yarn start
+g vdi
+g aa
+g ci
+g llu
+g push
+yarn deploy
+ssh-add
+z dot
+g pull
+man find
+man rg
+tnew
+z -r public
+wc .bash_his*
+yarn start
+cd ~/projects
+clear
+cd dotfiles/
+ssh-add 
+v vimrc
+git ll
+g st
+v .gitignore 
+g st
+g st
+v .gitignore
+cd ..
+cd -
+g st
+g add .
+g ci
+g push
+mina deploy
+CI=true yarn test
+yarn deploy
+g st
+yarn start
+clear
+git ll
+g st
+g vdi
+cd ~/projects
+clear
+wc .bash_history
+CI=true yarn test
+yarn test
+yarn deploy
+yarn test
+g ll | wc
+yarn deploy
+g vdi
+g add .
+g ci
+g push
+g push
+eslint src
+g vdi
+g at
+g st
+clear
+git ll
+g bb
+g st
+g vdi
+g add .
+g ci
+g co master 
+ssh-add 
+g push
+cd ~/projects
+clear
+tmux resize-pane -Z
+git ll
+g bd system-tests 
+dir
+\rm -rf *
+..2
+be rspec
+g st
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g st
+g add .
+g st
+g add .
+g ci
+g push
+dir
+cd Downloads/
+dir
+dir
+rm *
+rails c
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+redis-server
+cd ~/projects
+clear
+git ll
+g bb
+dir
+CI=true yarn test
+z -r pla
+g st 
+g vdi
+ssh-add
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g st
+yarn test
+g st
+g vdi
+g add .
+g ci
+g vdis
+g st
+g vdi
+g vdis
+g st
+g add .
+g vids
+g vdis
+CI=true yarn test
+g llom
+g st
+g ci
+g co master
+g push
+cd ~/projects
+clear
+git ll
+ssh-add
+yarn test
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g llom
+g push
+yarn test
+z -r plat
+g st
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g ci
+g push
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g push
+CI=true yarn test
+yarn deploy
+v -S
+rm Session.vim 
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+yarn test
+CI=true yarn test
+g llom
+g push
+g ll
+g bb
+g bd album-tests 
+dir
+yarn start
+cd dotfiles/
+g st
+g vdi
+g add .
+g ci
+ssh-add 
+g push
+echo "hello, world"
+z bluz
+g vdi
+v vimrc
+g vdi
+v bashrc
+rg gvim
+man bash
+g vdi
+g aa
+g ci
+ssh-add -l
+g push
+v vimrc
+g vdi
+g aa
+g ci
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
+dir
+tar xf linux-5.tar.xz
+cd linux-5
+dir
+g init
+g aa
+g ci
+g co .
+g | ls
+g status
+g status | wc
+g co .
+cloc linux-5
+be jekyll serve
+tnew
+ssh-add
+z dot
+g pull
+g fea
+cpa
+src
+dus *
+src
+cpa
+man cp
+/bin/cp -pr
+z ~/Downloads/
+g pull
+g vdi
+exit
+g vdi
+g aa
+g ci
+g push
+g fea
+g rb origin/master 
+g llu
+gll
+g push
+be jekyll serve
+clear
+git ll
+be gem --version
+gem update --system
+be gem --version
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+z pla app
+be rspec
+mkdir lib
+quit
+g vdi
+g aa
+g ci
+g co master
+g mg rails-update 
+g push
+mina deploy
+v TODO.txt 
+g vdi
+g aa
+g ci
+g push
+g bb
+llt
+..2
+g vdi
+g aa
+g vdis
+g aa
+g vdis
+g ci
+g co master
+g vdi
+g aa
+g ci
+yarn start
+g vdi
+g aa
+g ci
+g llu
+g push
+yarn deploy
+ssh-add
+z dot
+g pull
+man find
+man rg
+tnew
+z -r public
+wc .bash_his*
+yarn start
+cd ~/projects
+clear
+cd dotfiles/
+ssh-add 
+v vimrc
+git ll
+g st
+v .gitignore 
+g st
+g st
+v .gitignore
+cd ..
+cd -
+g st
+g add .
+g ci
+g push
+mina deploy
+CI=true yarn test
+yarn deploy
+g st
+yarn start
+clear
+git ll
+g st
+g vdi
+cd ~/projects
+clear
+wc .bash_history
+CI=true yarn test
+yarn test
+yarn deploy
+yarn test
+g ll | wc
+yarn deploy
+g vdi
+g add .
+g ci
+g push
+g push
+eslint src
+g vdi
+g at
+g st
+clear
+git ll
+g bb
+g st
+g vdi
+g add .
+g ci
+g co master 
+ssh-add 
+g push
+cd ~/projects
+clear
+tmux resize-pane -Z
+git ll
+g bd system-tests 
+dir
+\rm -rf *
+..2
+be rspec
+g st
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g st
+g add .
+g st
+g add .
+g ci
+g push
+dir
+cd Downloads/
+dir
+dir
+rm *
+rails c
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+redis-server
+cd ~/projects
+clear
+git ll
+g bb
+dir
+CI=true yarn test
+z -r pla
+g st 
+g vdi
+ssh-add
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g st
+yarn test
+g st
+g vdi
+g add .
+g ci
+g vdis
+g st
+g vdi
+g vdis
+g st
+g add .
+g vids
+g vdis
+CI=true yarn test
+g llom
+g st
+g ci
+g co master
+g push
+cd ~/projects
+clear
+git ll
+ssh-add
+yarn test
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g llom
+g push
+yarn test
+z -r plat
+g st
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g ci
+g push
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g push
+CI=true yarn test
+yarn deploy
+v -S
+rm Session.vim 
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+yarn test
+CI=true yarn test
+g llom
+g push
+g ll
+g bb
+g bd album-tests 
+dir
+yarn start
+cd dotfiles/
+g st
+g vdi
+g add .
+g ci
+ssh-add 
+g push
+echo "hello, world"
+z bluz
+g vdi
+v vimrc
+g vdi
+v bashrc
+rg gvim
+man bash
+g vdi
+g aa
+g ci
+ssh-add -l
+g push
+v vimrc
+g vdi
+g aa
+g ci
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
+dir
+tar xf linux-5.tar.xz
+cd linux-5
+dir
+g init
+g aa
+g ci
+g co .
+g | ls
+g status
+g status | wc
+g co .
+cloc linux-5
+be jekyll serve
+tnew
+ssh-add
+z dot
+g pull
+g fea
+cpa
+src
+dus *
+src
+cpa
+man cp
+/bin/cp -pr
+z ~/Downloads/
+g pull
+g vdi
+exit
+g vdi
+g aa
+g ci
+g push
+g fea
+g rb origin/master 
+g llu
+gll
+g push
+be jekyll serve
+clear
+git ll
+be gem --version
+gem update --system
+be gem --version
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+z pla app
+be rspec
+mkdir lib
+quit
+g vdi
+g aa
+g ci
+g co master
+g mg rails-update 
+g push
+mina deploy
+v TODO.txt 
+g vdi
+g aa
+g ci
+g push
+g bb
+llt
+..2
+g vdi
+g aa
+g vdis
+g aa
+g vdis
+g ci
+g co master
+g vdi
+g aa
+g ci
+yarn start
+g vdi
+g aa
+g ci
+g llu
+g push
+yarn deploy
+ssh-add
+z dot
+g pull
+man find
+man rg
+tnew
+z -r public
+wc .bash_his*
+yarn start
+cd ~/projects
+clear
+cd dotfiles/
+ssh-add 
+v vimrc
+git ll
+g st
+v .gitignore 
+g st
+g st
+v .gitignore
+cd ..
+cd -
+g st
+g add .
+g ci
+g push
+mina deploy
+CI=true yarn test
+yarn deploy
+g st
+yarn start
+clear
+git ll
+g st
+g vdi
+cd ~/projects
+clear
+wc .bash_history
+CI=true yarn test
+yarn test
+yarn deploy
+yarn test
+g ll | wc
+yarn deploy
+g vdi
+g add .
+g ci
+g push
+g push
+eslint src
+g vdi
+g at
+g st
+clear
+git ll
+g bb
+g st
+g vdi
+g add .
+g ci
+g co master 
+ssh-add 
+g push
+cd ~/projects
+clear
+tmux resize-pane -Z
+git ll
+g bd system-tests 
+dir
+\rm -rf *
+..2
+be rspec
+g st
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g st
+g add .
+g st
+g add .
+g ci
+g push
+dir
+cd Downloads/
+dir
+dir
+rm *
+rails c
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+redis-server
+cd ~/projects
+clear
+git ll
+g bb
+dir
+CI=true yarn test
+z -r pla
+g st 
+g vdi
+ssh-add
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g st
+yarn test
+g st
+g vdi
+g add .
+g ci
+g vdis
+g st
+g vdi
+g vdis
+g st
+g add .
+g vids
+g vdis
+CI=true yarn test
+g llom
+g st
+g ci
+g co master
+g push
+cd ~/projects
+clear
+git ll
+ssh-add
+yarn test
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g llom
+g push
+yarn test
+z -r plat
+g st
+g vdi
+g add .
+g ci
+g push
+mina deploy
+g vdi
+g st
+g vdi
+g add .
+g vdis
+g ci
+g push
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+g push
+CI=true yarn test
+yarn deploy
+v -S
+rm Session.vim 
+g st
+g vdi
+g st
+g vdi
+g add .
+g ci
+yarn test
+CI=true yarn test
+g llom
+g push
+g ll
+g bb
+g bd album-tests 
+dir
+yarn start
+cd dotfiles/
+g st
+g vdi
+g add .
+g ci
+ssh-add 
+g push
+echo "hello, world"
+z bluz
+g vdi
+v vimrc
+g vdi
+v bashrc
+rg gvim
+man bash
+g vdi
+g aa
+g ci
+ssh-add -l
+g push
+v vimrc
+g vdi
+g aa
+g ci
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
+dir
+tar xf linux-5.tar.xz
+cd linux-5
+dir
+g init
+g aa
+g ci
+g co .
+g | ls
+g status
+g status | wc
+g co .
+cloc linux-5
+be jekyll serve
+tnew
+ssh-add
+z dot
+g pull
+g fea
+cpa
+src
+dus *
+src
+cpa
+man cp
+/bin/cp -pr
+z ~/Downloads/
+g pull
+g vdi
+exit
+g vdi
+g aa
+g ci
+g push
+g fea
+g rb origin/master 
+g llu
+gll
+g push
+be jekyll serve
+clear
+git ll
+be gem --version
+gem update --system
+be gem --version
+rails s
+sleep 2 && be sidekiq -C confiq/sidekiq.yml
+z pla app
+be rspec
+mkdir lib
+quit
+g vdi
+g aa
+g ci
+g co master
+g mg rails-update 
+g push
+mina deploy
+v TODO.txt 
+g vdi
+g aa
+g ci
+g push
+g bb
+llt
+..2
+g vdi
+g aa
+g vdis
+g aa
+g vdis
+g ci
+g co master
+g vdi
+g aa
+g ci
+yarn start
+g vdi
+g aa
+g ci
+g llu
+g push
+yarn deploy
+ssh-add
+z dot
+g pull
+clear
+ls -la
