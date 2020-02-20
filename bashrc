@@ -366,7 +366,9 @@ history_dedup() {
     # Details: https://is.gd/HPAtE5
     echo "Before: $(du -sh ~/.bash_history)"
     tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
-    mv -f /tmp/bash_history ~/.bash_history
+    # Use 'cp' instead of 'mv' to deal with symlinked ~/.bash_history. Use
+    # 'command' to bypass aliases.
+    command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
     echo "After: $(du -sh ~/.bash_history)"
     history -c && history -r
 }
