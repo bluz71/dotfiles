@@ -1,5 +1,10 @@
 . ~/.bashrc
 
+# Make sure ~/.bash_history has not been truncated
+if [[ $(wc -c ~/.bash_history | cut -d' ' -f1) -lt 10000 ]]; then
+    echo 'Note: ~/.bash_history appears to be have been truncated.'
+fi
+
 if [[ $OS = Linux && $DISPLAY ]]; then
     # Configure the CAPSLOCK key to be ESC when pressed alone or CONTROL
     # when held with another key.
@@ -23,9 +28,4 @@ elif [[ $OS = Darwin ]]; then
     # Homebrew SSH agent is not running, must start it and source it.
     ssh-agent | grep SSH_ >| ~/.ssh-agent-env.sh
     . ~/.ssh-agent-env.sh
-fi
-
-# Make sure ~/.bash_history has not been truncated
-if [[ $(wc -c ~/.bash_history | cut -d' ' -f1) -lt 10000 ]]; then
-    echo 'Note: ~/.bash_history appears to be have been truncated.'
 fi
