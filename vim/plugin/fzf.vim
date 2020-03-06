@@ -1,5 +1,5 @@
 " Display fzf in a floating/popup window if possible.
-if has('nvim-0.4.0') || has("patch-8.2.0191")
+if has('nvim-0.4') || has("patch-8.2.0191")
     let g:fzf_layout = { 'window': {
                 \ 'width': 0.9,
                 \ 'height': 0.7,
