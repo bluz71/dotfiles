@@ -65,7 +65,7 @@ alias vdi='nvim -d'
 alias vf='fzf_find_edit'
 alias vg='grep_edit'
 alias vim='stty -ixon && vim 2> /dev/null'
-alias wcl='wc -l'
+alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
 # Directory navigation.
