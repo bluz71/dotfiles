@@ -38,4 +38,10 @@ augroup CustomAutocmds
         autocmd TermOpen *        startinsert
         autocmd BufEnter term://* startinsert
     endif
+
+    " Disable sign-creating plugins for larger than 200K files.
+    autocmd BufReadPre *
+      \ if getfsize(expand("%")) > 200000|
+      \     call signs#Disable()|
+      \ endif
 augroup END
