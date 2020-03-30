@@ -12,7 +12,7 @@ alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
 alias dir='ls -l --group-directories-first'
 alias df.='df -h .'
 alias du='du -b'
-alias dus='_f() { du -sh "$@" | sort -hr | m; }; _f'
+alias dus='du_by_size'
 alias eq='set -f; _f() { echo $@ | bc; set +f; }; _f'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
@@ -247,8 +247,16 @@ dev_config() {
     fi
 }
 
+du_by_size() {
+    if [[ $# == 0 ]]; then
+        du -sh * | sort -hr | less;
+    else
+        du -sh "$@" | sort -hr | less;
+    fi
+}
+
 find_by_size() {
-    find . -type f -size "$1" -exec ls --color --classify --human-readable -l {} \; ;
+    find . -type f -size "$1" -exec exa --long {} \; ;
 }
 
 fzf_change_directory() {
