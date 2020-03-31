@@ -227,7 +227,7 @@ dev_config() {
 
     if [[ -f $BREW_PREFIX/share/chruby/chruby.sh ]]; then
         . $BREW_PREFIX/share/chruby/chruby.sh
-        chruby 2.6.2
+        chruby 2.6.5
     fi
     if [[ -d /usr/local/Android/Sdk ]]; then
         export ANDROID_SDK_ROOT=/usr/local/Android/Sdk
