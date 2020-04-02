@@ -8,6 +8,8 @@ if has('nvim-0.4') || has("patch-8.2.0191")
 else " Fallback to a split window
     let g:fzf_layout = { "window": "silent botright 16split enew" }
 endif
+" Disable the preview window.
+let g:fzf_preview_window = ''
 
 " Git log format.
 let g:fzf_commits_log_options = '--graph --color=always
