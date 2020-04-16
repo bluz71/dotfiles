@@ -188,7 +188,7 @@ brew_config() {
 
     # 'z' configuration.
     _Z_NO_PROMPT_COMMAND=1
-    . $BREW_PREFIX/etc/profile.d/z.sh
+    . ~/dotfiles/profile.d/z.sh
 
     # Custom Bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
