@@ -28,7 +28,7 @@ nnoremap <silent> <Space>g       :GFiles?<CR>
 nnoremap <silent> <Space>s       :call FzfLoadUltiSnipsAndFuzzySearch()<CR>
 nnoremap <silent> <Space>h       :Helptags<CR>
 " Project-wide search for the supplied term.
-noremap <Space>/ :Rg<Space>
+noremap <Space>\ :Rg<Space>
 " Mapping selections for various modes.
 nmap <Space>? <Plug>(fzf-maps-n)
 omap <Space>? <Plug>(fzf-maps-o)
