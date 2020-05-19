@@ -1,6 +1,7 @@
 let g:NERDTreeDirArrowExpandable  = "▷"
 let g:NERDTreeDirArrowCollapsible = "◢"
 let NERDTreeHijackNetrw           = 0
+let NERDTreeIgnore                = ['^node_modules$[[dir]]']
 let NERDTreeMinimalUI             = 1
 let NERDTreeStatusline            = " NERDTree "
 
