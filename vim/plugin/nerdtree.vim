@@ -7,16 +7,22 @@ let NERDTreeStatusline            = " NERDTree "
 noremap <silent> <Leader>n :NERDTreeToggle<CR> <C-w>=
 noremap <silent> <Leader>f :NERDTreeFind<CR>   <C-w>=
 
-" Upon entering the NERDTree window do a root directoy refresh to automatically
-" pick up any file or directory changes.
-"
-function! s:NERDTreeRefresh()
+" Automatically refresh NERDTree.
+
+function! s:NERDTreeRefreshUponEnter()
     if &filetype == "nerdtree"
-        silent execute substitute(mapcheck("R"), "<CR>", "", "")
+        silent execute 'normal R'
+    endif
+endfunction
+
+function! s:NERDTreeRefreshAfterWrite()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        NERDTreeFocus | silent execute 'normal R' | wincmd p
     endif
 endfunction
 
 augroup CustomNERDTreeAutocmds
     autocmd!
-    autocmd BufEnter * call s:NERDTreeRefresh()
+    autocmd BufEnter     * call s:NERDTreeRefreshUponEnter()
+    autocmd BufWritePost * call s:NERDTreeRefreshAfterWrite()
 augroup END
