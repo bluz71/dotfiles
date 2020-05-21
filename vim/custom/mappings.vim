@@ -35,18 +35,24 @@ nnoremap [z zH
 nnoremap ]z zL
 " Format current paragraph in normal mode.
 nnoremap <Leader>Q gqip
-" Format current paragraph in insert mode.
-inoremap <C-q> <C-o>gqip<C-o>$
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Leader>S :syntax sync fromstart<CR>
 " Alternate between the last two files.
 nnoremap <Backspace> <C-^>
-" Whilst in insert mode begin a new line above the cursor.
-inoremap <C-u> <C-o>O
 " Toggle crosshair, aka cusorcolumn & cursorline.
 nnoremap <Leader>X :call crosshair#Toggle()<CR>
+
+"-----------------------------
+" Insert mode mappings
+"-----------------------------
+" Format current paragraph in insert mode.
+inoremap <C-q> <C-o>gqip<C-o>$
+" Paste from the yank register.
+inoremap <C-y> <C-r>0
+" Begin a new line above the current cursor position.
+inoremap <C-u> <C-o>O
 
 "-----------------------------
 " Navigation mappings
