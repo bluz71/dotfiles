@@ -48,9 +48,12 @@ nnoremap <Leader>X :call crosshair#Toggle()<CR>
 " Insert mode mappings
 "-----------------------------
 " Format current paragraph in insert mode.
-inoremap <C-q> <C-o>gqip<C-o>$
+inoremap <C-x>q <C-o>gqip<C-o>$
 " Paste from the yank register.
 inoremap <C-y> <C-r>0
+" Paste from the clipboard register.
+" Note, use Control-q for virtual insertion (e.g insert a real tab).
+inoremap <C-v> <C-r>*
 " Begin a new line above the current cursor position.
 inoremap <C-u> <C-o>O
 
@@ -61,6 +64,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap <Tab> <C-w>w
 if has("nvim")
     " Use same mappings as above to navigate Neovim terminal splits.
     tnoremap <C-h> <C-\><C-N><C-w>h
