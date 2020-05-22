@@ -203,13 +203,11 @@ Plug 'junegunn/fzf.vim'
     " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
 Plug 'pbogut/fzf-mru.vim'
     " ~/dotfiles/vim/plugin/fzf-mru.vim - options, mappings
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    " ~/dotfiles/vim/plugin/nerdtree.vim - options, mappings, function, events
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    " ~/dotfiles/vim/plugin/nerdtree-git-plugin.vim - options
 Plug 'mhinz/vim-grepper'
     " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
     " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
+Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim'
+    " ~/dotfiles/vim/plugin/vimfiler.vim - options, mappings
 
 "-----------------------------
 " Completion plugins
