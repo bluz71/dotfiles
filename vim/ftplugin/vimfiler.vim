@@ -2,8 +2,9 @@
 
 nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_smart_l)
 nmap <buffer> <CR>          <Plug>(vimfiler_smart_l)
-nmap <buffer> F             <Plug>(vimfiler_new_file)
-nmap <buffer> D             <Plug>(vimfiler_make_directory)
+nmap <buffer> N             <Plug>(vimfiler_new_file)
+nmap <buffer> K             <Plug>(vimfiler_make_directory)
+nmap <buffer> D             <Plug>(vimfiler_delete_file)
 nmap <buffer> <Tab>         <Plug>(vimfiler_switch_to_other_window)
 nmap <buffer> m             <Plug>(vimfiler_toggle_mark_current_line)
 nmap <buffer> .             <Plug>(vimfiler_cd_or_edit)
