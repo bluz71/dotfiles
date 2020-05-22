@@ -24,6 +24,9 @@ if has("nvim")
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
 endif
+" Direct changes into the black hole register.
+nnoremap c "_c
+nnoremap C "_C
 
 "-----------------------------
 " Misc mappings
@@ -190,16 +193,11 @@ nnoremap <F12>    :call listing#Toggle()<CR>
 "-----------------------------
 " Yank/paste/delete mappings
 "-----------------------------
-" - Copy into the 'y' register from the clipboard register
-noremap <Leader>* :let @y=@*<CR>
 " - Yank into the 'y' register
 noremap <Leader>y "yy
 " - Paste from the 'y' register
 noremap <Leader>p "yp
 noremap <Leader>P "yP
-" - Delete into the 'black hole' register
-noremap <Leader>x "_x
-noremap <Leader>d "_d
 
 "-----------------------------
 " Center navigation mappings
