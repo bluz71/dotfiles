@@ -37,9 +37,6 @@ augroup CustomAutocmds
         autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
         autocmd TermOpen *        startinsert
         autocmd BufEnter term://* startinsert
-        if exists('##TextYankPost')
-            autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 400)
-        endif
     endif
 
     " Disable sign-creating plugins for larger than 200K files.
