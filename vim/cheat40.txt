@@ -141,6 +141,7 @@ Switch to parent dir     -             N
 Switch to project root   ~             N
 Open in a vsplit         v             N
 Refresh filer            r             N
+Exit filer               x             N
 }}}
 gitgutter Plugin Mappings {{{
 Previous hunk            [g            N
@@ -212,7 +213,7 @@ Expand snippet           ‹Ctrl-j›      I
 Jump forward             ‹Ctrl-j›      I
 Jump backward            ‹Ctrl-k›      I
 }}}
-Rails Plugins Mappings {{{
+Rails Plugin Mappings {{{
 Alternate file           ,a            N
 Rails controller files   ,ec           N
 Rails helper files       ,eh           N
