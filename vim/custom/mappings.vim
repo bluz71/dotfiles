@@ -4,7 +4,7 @@
 let mapleader = ","
 
 "-----------------------------
-" Prime mappings
+" General mappings
 "-----------------------------
 " Enter command mode via ';'
 noremap ; :
@@ -29,45 +29,46 @@ nnoremap c "_c
 nnoremap C "_C
 
 "-----------------------------
-" Misc mappings
+" Helper mappings
 "-----------------------------
-" Clone paragraph.
-nnoremap cp yap<S-}>p
-" Mapping that scrolls the window when wrapping is in effect.
-nnoremap [z zH
-nnoremap ]z zL
-" Format current paragraph in normal mode.
-nnoremap <Leader>Q gqip
-" Fold the current indent.
-nnoremap <Leader>z zazz
-" Recalculate syntax highlighting for the entire file.
-nnoremap <Leader>S :syntax sync fromstart<CR>
-" Alternate between the last two files.
-nnoremap <Backspace> <C-^>
-" Toggle crosshair, aka cusorcolumn & cursorline.
-nnoremap <Leader>X :call crosshair#Toggle()<CR>
-
-"-----------------------------
-" Insert mode mappings
-"-----------------------------
-" Format current paragraph in insert mode.
-inoremap <C-x>q <C-o>gqip<C-o>$
-" Paste from the yank register.
-inoremap <C-y> <C-r>0
-" Paste from the clipboard register.
+" Insert from the clipboard register.
 " Note, use Control-q for virtual insertion (e.g insert a real tab).
 inoremap <C-v> <C-r>*
 " Begin a new line above the current cursor position.
 inoremap <C-u> <C-o>O
+" Clone paragraph.
+nnoremap cp yap<S-}>p
+" Format current paragraph in normal mode.
+nnoremap qp gqip$
+" Format current paragraph in insert mode.
+inoremap <C-x>qp <C-o>gqip<C-o>$
+" Mapping that scrolls the window when wrapping is in effect.
+nnoremap [z zH
+nnoremap ]z zL
+" Yank into the 'y' register
+noremap <Leader>y "yy
+" Paste from the 'y' register
+noremap <Leader>p "yp
+noremap <Leader>P "yP
+" Insert from the yank register.
+inoremap <C-y> <C-r>y
+" Fold the current indent.
+nnoremap <Leader>z zazz
+" Toggle crosshair, aka cusorcolumn & cursorline.
+nnoremap <Leader>X :call crosshair#Toggle()<CR>
+" Zoom the current file into a standalone new tab.
+nnoremap <silent> <Leader>Z  :tab split<CR>
+" Recalculate syntax highlighting for the entire file.
+nnoremap <Leader>S :syntax sync fromstart<CR>
 
 "-----------------------------
 " Navigation mappings
 "-----------------------------
+nnoremap <Tab> <C-w>w
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <Tab> <C-w>w
 if has("nvim")
     " Use same mappings as above to navigate Neovim terminal splits.
     tnoremap <C-h> <C-\><C-N><C-w>h
@@ -81,6 +82,8 @@ nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
 nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Navigate buffers via 'wildmenu'.
 nnoremap <Leader><Tab> :buffer<Space><Tab>
+" Alternate the last two files.
+nnoremap <Backspace> <C-^>
 " Navigate the jumplist.
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
@@ -137,9 +140,7 @@ inoremap <C-g>7              <Esc>7gt
 inoremap <C-g>8              <Esc>8gt
 inoremap <C-g>9              <Esc>9gt
 nnoremap <Leader>=           <C-w>=
-nnoremap <Leader>R           <C-w>r
-" Zoom the current file into a standalone new tab.
-nnoremap <silent> <Leader>Z  :tab split<CR>
+nnoremap <Leader>r           <C-w>r
 if has("nvim")
     nnoremap <silent> <Leader>b :botright new<CR><C-w>=:terminal<CR>
     nnoremap <silent> <C-g>b    :botright new<CR><C-w>=:terminal<CR>
@@ -189,15 +190,6 @@ nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>0 :call listing#Toggle()<CR>
 nnoremap <F12>    :call listing#Toggle()<CR>
-
-"-----------------------------
-" Yank/paste/delete mappings
-"-----------------------------
-" - Yank into the 'y' register
-noremap <Leader>y "yy
-" - Paste from the 'y' register
-noremap <Leader>p "yp
-noremap <Leader>P "yP
 
 "-----------------------------
 " Center navigation mappings

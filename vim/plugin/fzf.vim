@@ -22,18 +22,12 @@ nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
 nnoremap <silent> <Space>,       :Buffers<CR>
 nnoremap <silent> <Space><BS>    :BDelete<CR>
 nnoremap <silent> <Space>]       :Tags<CR>
-nnoremap <silent> <Space>[       :BTags<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
 nnoremap <silent> <Space>g       :GFiles?<CR>
 nnoremap <silent> <Space>s       :call FzfLoadUltiSnipsAndFuzzySearch()<CR>
 nnoremap <silent> <Space>h       :Helptags<CR>
 " Project-wide search for the supplied term.
 noremap <Space>\ :Rg<Space>
-" Mapping selections for various modes.
-nmap <Space>? <Plug>(fzf-maps-n)
-omap <Space>? <Plug>(fzf-maps-o)
-xmap <Space>? <Plug>(fzf-maps-x)
-imap <C-x>?   <Plug>(fzf-maps-i)
 
 if filereadable('config/routes.rb')
     " This looks like a Rails app.

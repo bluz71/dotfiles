@@ -1,0 +1,256 @@
+Mappings cheatsheet.
+About {{{2
+  N    Type in Normal mode
+  C    Type in Command mode
+  I    Type in Insert mode
+  V    Type in Visual mode
+  M    Motion
+  O    Operator
+  *    Acts on cursor or visual text
+  %    Acts on the current buffer
+  @    Target of operation
+}}}
+Window Mappings {{{
+Split horizontally       ,s            N
+Split vertically         ,v            N
+Equalize splits          ,=            N
+Rotate splits            ,r            N
+Full width split         ,-            N
+Full width vsplit        ,|            N
+Close                    ,q            N
+Close qf/loc/preview     ,c            N
+Create new tab           ,t            N
+Switch to numbered tab   ,‹@›          N
+Full width term split    ,b            N
+}}}
+Navigation Mappings {{{
+Move to the next split   ‹Tab›         N
+Move to the left split   ‹Ctrl-h›      N
+Move to the split below  ‹Ctrl-j›      N
+Move to the split above  ‹Ctrl-k›      N
+Move to the right split  ‹Ctrl-l›      N
+Navigate via ‹wildmenu›  ,‹Tab›        N
+Alternate last file      ‹Backspace›   N
+Previous jump position   [j            N
+Next jump position       ]j            N
+Previous spelling error  [s            N
+Next spelling error      ]s            N
+}}}
+Helper Mappings {{{
+Redo undone change       U             N
+Record macro             qq            N
+Replay macro             Q            VN
+Virtual insert           ‹Ctrl-q›      I
+Insert from clipboard    ‹Ctrl-v›      I
+Open a new line above    ‹Ctrl-u›      I
+Copy paragraph           cp            N
+Format paragraph         qp            N
+Format paragraph         ‹Ctrl-x›qp    I
+Scroll left              [z            N
+Scroll right             ]z            N
+Yank into ‹y› register   ,y            N
+Paste from ‹y› register  ,p            N
+Paste from ‹y› register  ,P            N
+Insert from ‹y› register ‹Ctrl-y›      I
+Fold                     ,z            N
+Crosshair                ,X            N
+Zoom split               ,Z            N
+Syntax from start        ,S            N
+}}}
+Command Mode Mappings {{{
+Go to start of line      ‹Ctrl-a›      C
+Go to end of line        ‹Ctrl-e›      C
+Move back word           ‹Alt-b›       C
+Move forward word        ‹Alt-f›       C
+Delete word backward     ‹Alt-BS›      C
+Delete word forward      ‹Alt-d›       C
+}}}
+Completion Mappings {{{
+Tags file                ‹Ctrl-]›      I
+Omni                     ‹Ctrl-Spc›    I
+Keyword from buffer      ‹Ctrl-b›      I
+Dictionary               ‹Ctrl-d›      I
+File path                ‹Ctrl-f›      I
+Line                     ‹Ctrl-l›      I
+‹complete› option        ‹Ctrl-c›      I
+}}}
+Screen Mappings {{{
+Scroll screen up         ‹Sft-Up›      N
+Scroll screen down       ‹Sft-Down›    N
+}}}
+Function Key Mappings {{{
+Highlighting             F1            N
+Highlighting             ‹Spc›1        N
+Save file                F2            N
+Save file                ‹Spc›2        N
+Retab & trailing spaces  F3            N
+Retab & trailing spaces  ‹Spc›3        N
+Space to underscore      F4            N
+Space to underscore      ‹Spc›4        N
+Spell checking           F5            N
+Spell checking           ‹Spc›5        N
+Show commands            F6            N
+Show commands            ‹Spc›6        N
+Show highlight group     F8           *N
+Show highlight group     ‹Spc›8       *N
+Lazy draw & autosave     F9            N
+Lazy draw & autosave     ‹Spc›9        N
+Show special chars       F12           N
+Show special chars       ‹Spc›0        N
+}}}
+Find Replace Mappings {{{
+Stationary star search   \*          *VN
+Star search change       \c          *VN
+Accept prev change       ‹Enter›       N
+Reject prev change       !             N
+File substitute          \s          *VN
+Project substitute       \S          *VN
+}}}
+
+fzf Plugin Mappings {{{
+Files                    ‹Spc›‹Spc›    N
+Buffers                  ‹Spc›,        N
+Delete buffers           ‹Spc›‹BS›     N
+Sibling files            ‹Spc›.       %N
+Project tags             ‹Spc›]        N
+Git status               ‹Spc›g        N
+Buffer commits           ‹Spc›c        N
+Snippets                 ‹Spc›s        N
+Vim help                 ‹Spc›h        N
+Ripgrep                  ‹Spc›\        N
+Rails controller files   ‹Spc›ec       N
+Rails helper files       ‹Spc›eh       N
+Rails models files       ‹Spc›em       N
+Rails stylesheet files   ‹Spc›es       N
+Rails spec files         ‹Spc›et       N
+Rails view files         ‹Spc›ev       N
+React component files    ‹Spc›ec       N
+React stylesheet files   ‹Spc›es       N
+React test files         ‹Spc›et       N
+Most recently used       ‹Spc›m        N
+}}}
+vimfiler Plugin Mapping {{{
+Toggle filer             ,n            N
+Find & reveal file       ,f           %N
+Mark current line        m             N
+Create new file          N             N
+Create new directory     K             N
+Delete marked entries    D             N
+Switch into directory    .            @N
+Switch to parent dir     -             N
+Switch to project root   ~             N
+Open in a vsplit         v             N
+Refresh filer            r             N
+}}}
+gitgutter Plugin Mappings {{{
+Previous hunk            [g            N
+Next hunk                ]g            N
+Stage hunk               ‹Spc›+       @N
+Undo hunk staging        ‹Spc›-       @N
+Preview hunk             ‹Spc›p       @N
+}}}
+Grepper Plugin Mappings {{{
+Search prompt            \\            N
+Search operation         gs          *VN
+}}}
+Unimpaired Plugin Mappings {{{
+Previous buffer          [b            N
+Next buffer              ]b            N
+Previous file            [a            N
+Next file                ]a            N
+Previous in quickfix     [q            N
+Next in quickfix         ]q            N
+Paste above              [p            N
+Past below               ]p            N
+Paste above & reindent   =p            N
+Past below & reindent    =P            N
+Insert a line above      [‹Spc›        N
+Insert a line below      ]‹Spc›        N
+Move selection up        [e           VN
+Move selection down      ]e           VN
+Toggle relative numbers  yor           N
+Toggle wrapping          yow           N
+}}}
+Surround Plugin Mappings {{{
+Change surround          cs@@          N
+Delete surround          ds@@          N
+Insert surround          ys‹M›@        N
+Insert surround in-line  yss@          N
+Insert surround own-line ySS@          N
+Add surround             S             V
+}}}
+indent-object Plugin Mappings {{{
+Inside indent            ‹O›ii        VN
+Around indent            ‹O›ai        VN
+Around indent & lines    ‹O›aI        VN
+}}}
+Lion Plugin Mappings {{{
+Align around target      gl@          *V
+}}}
+Commentry Plugin Mappings {{{
+Toggle comments          gc           *V
+}}}
+LSC Plugin Mappings {{{
+Show hover               K            *N
+Show hover in preview    KK           *N
+Go to definition         gd           *N
+Find references          gr           *N
+Rename symbol            gR           *N
+Code actions             ga           *N
+}}}
+ALE Plugin Mappings {{{
+Execute fixer            ‹Spc›f       %N
+Toggle live linting      ‹Spc›l       %N
+Previous error           [w            N
+Next error               ]w            N
+First error              [W            N
+Last error               ]W            N
+Open location list       ,l            N
+}}}
+Ultisnips Plugin Mappings {{{
+Expand snippet           ‹Ctrl-j›      I
+Jump forward             ‹Ctrl-j›      I
+Jump backward            ‹Ctrl-k›      I
+}}}
+Rails Plugins Mappings {{{
+Alternate file           ,a            N
+Rails controller files   ,ec           N
+Rails helper files       ,eh           N
+Rails models files       ,em           N
+Rails stylesheet files   ,es           N
+Rails spec files         ,et           N
+Rails view files         ,ev           N
+}}}
+Projectionist Plugin Mappings {{{
+Alternate file           ,a            N
+React component files    ,ec           N
+React stylesheet files   ,es           N
+React test files         ,et           N
+}}}
+vim-test Plugin Mappings {{{
+Run test nearest cursor  ‹Spc›tt       N
+Run all tests in file    ‹Spc›tf       N
+Run tests suite          ‹Spc›ts       N
+Run last test            ‹Spc›tl       N
+}}}
+Fugitive Plugin Mappings {{{
+Blame                    ‹Spc›B       %N
+Buffer commit log        ‹Spc›C       %N
+Status                   ‹Spc›G        N
+Toggle status staging    -             N
+Status commit            cc            N
+}}}
+Undotree Plugin Mappings {{{
+Toggle undo tree         ,u           %N
+}}}
+Obsession Plugin Mappings {{{
+Toggle session           ,o            N
+Delete session           ,O            N
+}}}
+Dart Plugin Mappings {{{
+Hot reload               ‹Spc›r        N
+Hot restart              ‹Spc›R        N
+}}}
+Colorizer Plugin Mappings {{{
+Toggle colorizer         ‹Spc›z        N
+}}}

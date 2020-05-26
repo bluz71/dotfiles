@@ -171,7 +171,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'andymass/vim-matchup', { 'for': ['dart', 'javascript', 'json'] }
-    " ~/dotfiles/vim/plugin/matchup.vim - options, mappings
+    " ~/dotfiles/vim/plugin/matchup.vim - options
 Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
 Plug 'chaoren/vim-wordmotion'
@@ -194,6 +194,8 @@ Plug 'tpope/vim-obsession'
     " ~/dotfiles/vim/plugin/obsession.vim - mappings
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
+Plug 'lifepillar/vim-cheat40'
+    " ~/dotfiles/vim/after/plugin/cheat40.vim - options, mappings
 
 "-----------------------------
 " File management plugins

@@ -3,7 +3,6 @@ if filereadable('config/routes.rb')
     nnoremap <Leader>a  :A<CR>
     nnoremap <Leader>ec :Econtroller<Space>
     nnoremap <Leader>eh :Ehelper<Space>
-    nnoremap <Leader>ei :Einitializer<Space>
     nnoremap <Leader>em :Emodel<Space>
     nnoremap <Leader>es :Estylesheet<Space>
     nnoremap <Leader>et :Espec<Space>
