@@ -173,20 +173,20 @@ Toggle relative numbers  yor           N
 Toggle wrapping          yow           N
 }}}
 Surround Plugin Mappings {{{
-Change surround          cs@@          N
-Delete surround          ds@@          N
-Insert surround          ys‹M›@        N
-Insert surround in-line  yss@          N
-Insert surround own-line ySS@          N
+Change surround          cs‹@›‹@›      N
+Delete surround          ds‹@›‹@›      N
+Insert surround          ys‹M›‹@›      N
+Insert surround in-line  yss‹@›        N
+Insert surround own-line ySS‹@›        N
 Add surround             S             V
 }}}
 indent-object Plugin Mappings {{{
 Inside indent            ‹O›ii        VN
 Around indent            ‹O›ai        VN
-Around indent & lines    ‹O›aI        VN
+Around indent & adjacent ‹O›aI        VN
 }}}
 Lion Plugin Mappings {{{
-Align around target      gl@          *V
+Align around target      gl‹@›        *V
 }}}
 Commentry Plugin Mappings {{{
 Toggle comments          gc           *V
