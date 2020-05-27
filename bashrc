@@ -6,6 +6,7 @@ unalias -a
 #
 alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias be='bundle exec'
+alias bs='broot -s'
 alias cf='fzf_change_directory'
 alias cp='/bin/cp -i'
 alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
