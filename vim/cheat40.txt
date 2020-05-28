@@ -16,7 +16,7 @@ Split vertically         ,v            N
 Equalize splits          ,=            N
 Rotate splits            ,r            N
 Full width split         ,-            N
-Full width vsplit        ,|            N
+Full height vsplit       ,|            N
 Close                    ,q            N
 Close qf/loc/preview     ,c            N
 Create new tab           ,t            N
@@ -35,6 +35,8 @@ Previous jump position   [j            N
 Next jump position       ]j            N
 Previous spelling error  [s            N
 Next spelling error      ]s            N
+Scroll left              [z            N
+Scroll right             ]z            N
 }}}
 Helper Mappings {{{
 Redo undone change       U             N
@@ -46,8 +48,6 @@ Open a new line above    ‹Ctrl-u›      I
 Copy paragraph           cp            N
 Format paragraph         qp            N
 Format paragraph         ‹Ctrl-x›qp    I
-Scroll left              [z            N
-Scroll right             ]z            N
 Yank into ‹y› register   ,y            N
 Paste from ‹y› register  ,p            N
 Paste from ‹y› register  ,P            N
