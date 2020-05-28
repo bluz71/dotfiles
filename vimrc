@@ -165,7 +165,7 @@ Plug 'gcmt/taboo.vim'
     " ~/dotfiles/vim/plugin/taboo.vim - options
 
 "-----------------------------
-" General behavior plugins
+" Behavior plugins
 "-----------------------------
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
@@ -190,12 +190,17 @@ Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
 Plug 'tpope/vim-abolish'
     " ~/dotfiles/vim/after/plugin/abolish.vim - abbreviations
-Plug 'tpope/vim-obsession'
-    " ~/dotfiles/vim/plugin/obsession.vim - mappings
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
+
+"-----------------------------
+" Misc plugins
+"-----------------------------
+Plug 'tpope/vim-obsession'
+    " ~/dotfiles/vim/plugin/obsession.vim - mappings
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/after/plugin/cheat40.vim - options, mappings
+Plug 'tweekmonster/startuptime.vim'
 
 "-----------------------------
 " File management plugins
