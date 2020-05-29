@@ -5,8 +5,9 @@ unalias -a
 # Aliases.
 #
 alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
+alias bd='br --only-folders'
 alias be='bundle exec'
-alias bs='broot --sizes --no-show-gitignored'
+alias bs='br --sizes'
 alias cf='fzf_change_directory'
 alias cp='/bin/cp -i'
 alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
@@ -187,13 +188,6 @@ brew_config() {
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
-    # 'z' configuration.
-    _Z_NO_PROMPT_COMMAND=1
-    . ~/dotfiles/profile.d/z.sh
-
-    # Custom Bash completions.
-    for f in ~/dotfiles/bash_completion.d/*; do . $f; done
-
     # Make 'g' alias to Git work with bash-completion.
     complete -o default -o nospace -F _git g
 
@@ -219,6 +213,18 @@ brew_config() {
 
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
+}
+
+custom_sources() {
+    # Bash completions.
+    for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+
+    # 'broot' function.
+    . ~/dotfiles/profile.d/br.sh
+
+    # 'z' utility.
+    _Z_NO_PROMPT_COMMAND=1
+    . ~/dotfiles/profile.d/z.sh
 }
 
 dev_config() {
@@ -415,4 +421,5 @@ prompt() {
 path
 brew_config
 dev_config
+custom_sources
 prompt
