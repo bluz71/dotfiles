@@ -188,6 +188,10 @@ brew_config() {
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
+    # 'z' utility.
+    _Z_NO_PROMPT_COMMAND=1
+    . $BREW_PREFIX/etc/profile.d/z.sh
+
     # Make 'g' alias to Git work with bash-completion.
     complete -o default -o nospace -F _git g
 
@@ -222,9 +226,8 @@ custom_sources() {
     # 'broot' function.
     . ~/dotfiles/profile.d/br.sh
 
-    # 'z' utility.
-    _Z_NO_PROMPT_COMMAND=1
-    . ~/dotfiles/profile.d/z.sh
+    # 'zfz' (https://github.com/changyuheng/fz) utility.
+    . ~/dotfiles/profile.d/zfz.sh
 }
 
 dev_config() {
