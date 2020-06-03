@@ -132,14 +132,14 @@ Most recently used       ‹Spc›m        N
 vimfiler Plugin Mapping {{{
 Toggle filer             ,n            N
 Find & reveal file       ,f           %N
-Mark current line        m             N
-Create new file          N             N
-Create new directory     K             N
-Delete marked entries    D             N
-Switch into directory    .            @N
-Switch to parent dir     -             N
+Mark current line        m            *N
+Create new file          N            *N
+Create new directory     K            *N
+Delete marked entries    D            *N
+Switch into directory    .            *N
+Switch to parent dir     -            *N
 Switch to project root   ~             N
-Open in a vsplit         v             N
+Open in a vsplit         v            *N
 Refresh filer            r             N
 Exit filer               x             N
 }}}
