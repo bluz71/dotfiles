@@ -281,8 +281,8 @@ xmap \S
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 " Accept/reject helpers after completing a \c cgn-based change operation
 " - Go to the next match and highlight it
-nnoremap <Enter> gnzz
+nnoremap <CR> gnzz
 " - Accept the change and go to the next match and highlight it
-xmap <Enter> .<Esc>gnzz
+xmap <CR> .<Esc>gnzz
 " - Reject the change and go to the next match and highlight it
 xnoremap ! <Esc>ngnzz

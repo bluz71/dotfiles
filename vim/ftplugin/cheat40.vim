@@ -1,1 +1,1 @@
-nnoremap <silent> <buffer> x <c-w><c-p>@=winnr("#")<cr><c-w>c
+nnoremap <silent> <buffer> x <C-w><C-p>@=winnr("#")<CR><C-w>c
