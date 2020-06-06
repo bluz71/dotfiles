@@ -1,4 +1,4 @@
-Mappings cheatsheet.
+Vim cheatsheet
 About {{{2
   N    Type in Normal mode
   C    Type in Command mode
@@ -105,6 +105,13 @@ Accept prev change       ‹Enter›       N
 Reject prev change       !             N
 File substitute          \s          *VN
 Project substitute       \S          *VN
+}}}
+Sort Operations {{{
+Alphabetically           sort       *CVN
+Reverse                  sort!      *CVN
+Unique                   sort u     *CVN
+Ignore case              sort i     *CVN
+Numerically              sort n     *CVN
 }}}
 
 fzf Plugin Mappings {{{
