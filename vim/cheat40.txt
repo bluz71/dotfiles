@@ -1,4 +1,5 @@
-Vim cheatsheet
+Cheatsheet
+
 About {{{2
   N    Type in Normal mode
   C    Type in Command mode
