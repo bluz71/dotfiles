@@ -26,9 +26,9 @@ let g:ale_lint_on_save             = 1
 let g:ale_lint_on_text_changed     = 'never'
 let g:ale_linters_explicit         = 1
 let g:ale_open_list                = 0
-let g:ale_sign_error               = '●'
-let g:ale_sign_info                = '●'
-let g:ale_sign_warning             = '●'
+let g:ale_sign_error               = '✖'
+let g:ale_sign_info                = '✖'
+let g:ale_sign_warning             = '✖'
 let g:ale_sign_priority            = 50
 if has("nvim")
     let g:ale_echo_cursor          = 0
