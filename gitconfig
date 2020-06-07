@@ -13,6 +13,8 @@
     tool       = meld
     algorithm  = histogram
     colorMoved = plain
+[pull]
+    rebase = true
 [merge]
     tool = meld
 [difftool]
