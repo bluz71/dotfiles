@@ -5,7 +5,7 @@ About {{{2
   C    Type in Command mode
   I    Type in Insert mode
   V    Type in Visual mode
-  M    Motion
+  M    Motion or Text object
   O    Operator
   *    Acts on cursor or visual text
   %    Acts on the current buffer
@@ -171,8 +171,8 @@ Previous in quickfix     [q            N
 Next in quickfix         ]q            N
 Paste above              [p            N
 Past below               ]p            N
-Paste above & reindent   =p            N
-Past below & reindent    =P            N
+Paste above with format  =p            N
+Paste below with format  =P            N
 Insert a line above      [‹Spc›        N
 Insert a line below      ]‹Spc›        N
 Move selection up        [e           VN
@@ -181,12 +181,14 @@ Toggle relative numbers  yor           N
 Toggle wrapping          yow           N
 }}}
 Surround Plugin Mappings {{{
-Change surround          cs‹@›‹@›      N
-Delete surround          ds‹@›‹@›      N
-Insert surround          ys‹M›‹@›      N
-Insert surround in-line  yss‹@›        N
-Insert surround own-line ySS‹@›        N
-Add surround             S             V
+Change surround          cs‹@1›‹@2›    N
+Delete surround          ds‹@›         N
+You surround             ys‹M›‹@›      N
+You surround tag         ys‹M›t‹@›     N
+You surround function    ys‹M›f‹@›     N
+You surround start/end   yss‹@›        N
+You surround above/below ySS‹@›        N
+Visual you surround      S             V
 }}}
 indent-object Plugin Mappings {{{
 Inside indent            ‹O›ii        VN
