@@ -192,8 +192,6 @@ Plug 'rhysd/clever-f.vim'
     " ~/dotfiles/vim/plugin/clever-f.vim - options
 Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
-Plug 'tpope/vim-abolish'
-    " ~/dotfiles/vim/after/plugin/abolish.vim - abbreviations
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
 
