@@ -248,8 +248,8 @@ Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
-Plug 'SirVer/ultisnips', { 'on': [] }
-    " ~/dotfiles/vim/plugin/ultisnips.vim - options, mapping & on-demand loading
+Plug 'SirVer/ultisnips'
+    " ~/dotfiles/vim/plugin/ultisnips.vim - options, completion mapping
     " ~/dotfiles/vim/UltiSnips - custom snippets
 
 " Sleuth and EditorConfig will adjust style and indent either heuristically
