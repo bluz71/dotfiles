@@ -40,7 +40,7 @@ Scroll left              [z            N
 Scroll right             ]z            N
 }}}
 Helper Mappings {{{
-Redo undone change       U             N
+Redo change              U             N
 Record macro             qq            N
 Replay macro             Q            VN
 Virtual insert           ‹Ctrl-q›      I
@@ -156,7 +156,7 @@ gitgutter Plugin Mappings {{{
 Previous hunk            [g            N
 Next hunk                ]g            N
 Stage hunk               ‹Spc›+       @N
-Undo hunk staging        ‹Spc›-       @N
+Revert hunk staging      ‹Spc›-       @N
 Preview hunk             ‹Spc›p       @N
 }}}
 Grepper Plugin Mappings {{{
@@ -253,7 +253,10 @@ Toggle status staging    -             N
 Status commit            cc            N
 }}}
 Undotree Plugin Mappings {{{
-Toggle undo tree         ,u           %N
+Toggle Undotree          ,u           %N
+Exit Undotree            ‹Esc›         N
+Previous undo state      <             N
+Next undo state          >             N
 }}}
 Obsession Plugin Mappings {{{
 Toggle session           ,o            N
