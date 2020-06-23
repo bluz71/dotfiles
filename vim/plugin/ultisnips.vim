@@ -14,7 +14,7 @@ function! UltiSnipsComplete() abort
     let candidates = map(filter(keys(g:current_ulti_dict_info), contain_word),
                    \  "{
                    \      'word': v:val,
-                   \      'menu': '',
+                   \      'menu': '→ ' . g:current_ulti_dict_info[v:val]['description'],
                    \      'dup' : 1,
                    \   }")
     let from_where = col('.') - len(word_to_complete)

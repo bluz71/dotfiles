@@ -248,7 +248,8 @@ Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'for':
+            \ ['dart', 'html', 'javascript', 'markdown', 'ruby'] }
     " ~/dotfiles/vim/plugin/ultisnips.vim - options, completion mapping
     " ~/dotfiles/vim/UltiSnips - custom snippets
 

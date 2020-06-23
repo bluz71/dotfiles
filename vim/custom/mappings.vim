@@ -204,20 +204,22 @@ noremap [s [szz
 "-----------------------------
 " Completion mappings
 "-----------------------------
-" - ]     - 'tags' file completion
-" - Space - context aware omni completion (via 'omnifunc' setting)
-" - b     - keyword completion from the current buffer (<C-n><C-b> to extend)
-" - d     - dictionary completion (via 'dictionary' setting)
-" - f     - file path completion
-" - l     - line completion (repeat an existing line)
+"   ]     - 'tags' file completion
+"   Space - context aware omni completion (via 'omnifunc' setting)
+"   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
+"   d     - dictionary completion (via 'dictionary' setting)
+"   f     - file path completion
+"   l     - line completion (repeat an existing line)
 inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-b>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
-" - c - term completion that combines the sources of the 'complete' option
+"   c - term completion that combines the sources of the 'complete' option
 inoremap <expr> <C-c> pumvisible() ? "\<C-e>\<C-n>": "\<C-n>"
+" Also (see ~/dotfiles/vim/plugin/ultisnips.vim):
+"   s - snippet completion
 
 "-----------------------------
 " Increment and decrement mappings

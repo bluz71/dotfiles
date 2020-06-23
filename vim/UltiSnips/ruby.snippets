@@ -1,4 +1,4 @@
-snippet cl
+snippet cl "Class definition"
 class ${1:Class}
   def initialize${2:()}
     $3
@@ -8,7 +8,16 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet it
+snippet defi "Initialize method"
+def initialize${1:()}
+  $2
+end
+endsnippet
+
+
+#-------------------------------------------------------------------------
+
+snippet it "Individual spec"
 it "$1" do
   $2
 end
@@ -16,7 +25,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet rails.c
+snippet rc "Rails controller"
 # frozen_string_literal: true
 
 class ${1:Controller} < ApplicationController
@@ -28,7 +37,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet rails.m
+snippet rm "Rails model"
 # frozen_string_literal: true
 
 class ${1:Model} < ApplicationRecord
