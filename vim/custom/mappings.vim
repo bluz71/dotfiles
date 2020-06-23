@@ -57,7 +57,7 @@ nnoremap <Leader>z zazz
 " Toggle crosshair, aka cusorcolumn & cursorline.
 nnoremap <Leader>X :call crosshair#Toggle()<CR>
 " Zoom the current file into a standalone new tab.
-nnoremap <silent> <Leader>Z  :tab split<CR>
+nnoremap <silent> <Leader>Z :tab split<CR>
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Leader>S :syntax sync fromstart<CR>
 

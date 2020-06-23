@@ -24,7 +24,6 @@ nnoremap <silent> <Space><BS>    :BDelete<CR>
 nnoremap <silent> <Space>]       :Tags<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
 nnoremap <silent> <Space>g       :GFiles?<CR>
-nnoremap <silent> <Space>s       :Snippets<CR>
 nnoremap <silent> <Space>h       :Helptags<CR>
 " Project-wide search for the supplied term.
 noremap <Space>\ :Rg<Space>
