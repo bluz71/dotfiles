@@ -140,12 +140,9 @@ runtime custom/mappings.vim
 " PLUGINS
 "===========================================================
 
-" Automatically install vim-plug and run PlugInstall if vim-plug is not found.
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" Initial 'vim-plug' installation:
+"  % curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " Initialize vim-plug.
 call plug#begin('~/.vim/plugged')
@@ -207,7 +204,7 @@ Plug 'tweekmonster/startuptime.vim'
 "-----------------------------
 " File management plugins
 "-----------------------------
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --no-bash' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
     " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
 Plug 'pbogut/fzf-mru.vim'
