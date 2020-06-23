@@ -171,78 +171,57 @@ Plug 'gcmt/taboo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
+Plug 'ajh17/VimCompletesMe'
+Plug 'mhinz/vim-grepper'
+    " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
+    " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
+Plug 'chaoren/vim-wordmotion'
+    " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
+Plug 'tmsvg/pear-tree'
+    " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
 Plug 'andymass/vim-matchup', { 'for': ['dart', 'javascript', 'json'] }
     " ~/dotfiles/vim/plugin/matchup.vim - options
 Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
-Plug 'chaoren/vim-wordmotion'
-    " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
+Plug 'rhysd/clever-f.vim'
+    " ~/dotfiles/vim/plugin/clever-f.vim - options
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'tmsvg/pear-tree'
-    " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
-Plug '907th/vim-auto-save'
-    " ~/dotfiles/vim/plugin/auto-save.vim - options
-Plug 'rhysd/clever-f.vim'
-    " ~/dotfiles/vim/plugin/clever-f.vim - options
-Plug 'mbbill/undotree'
-    " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
+Plug 'mbbill/undotree'
+    " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
+Plug '907th/vim-auto-save'
+    " ~/dotfiles/vim/plugin/auto-save.vim - options
 
 "-----------------------------
-" Misc plugins
-"-----------------------------
-Plug 'tpope/vim-obsession'
-    " ~/dotfiles/vim/plugin/obsession.vim - mappings
-Plug 'lifepillar/vim-cheat40'
-    " ~/dotfiles/vim/after/plugin/cheat40.vim - options, mappings
-Plug 'tweekmonster/startuptime.vim'
-
-"-----------------------------
-" File management plugins
+" Filesystem plugins
 "-----------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
     " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
 Plug 'pbogut/fzf-mru.vim'
     " ~/dotfiles/vim/plugin/fzf-mru.vim - options, mappings
-Plug 'mhinz/vim-grepper'
-    " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
-    " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
 Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim'
     " ~/dotfiles/vim/plugin/vimfiler.vim - options, mappings
-
-"-----------------------------
-" Completion plugins
-"-----------------------------
-Plug 'ajh17/VimCompletesMe'
-Plug 'natebosch/vim-lsc'
-    " ~/dotfiles/vim/plugin/lsc.vim - options
-
-"-----------------------------
-" Git plugins
-"-----------------------------
-Plug 'tpope/vim-fugitive'
-    " ~/dotfiles/vim/plugin/fugitive.vim - mappings
-Plug 'airblade/vim-gitgutter'
-    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 
 "-----------------------------
 " Development plugins
 "-----------------------------
 Plug 'sheerun/vim-polyglot'
     " ~/dotfiles/vim/plugin/polyglot.vim - options
+Plug 'natebosch/vim-lsc'
+    " ~/dotfiles/vim/plugin/lsc.vim - options
+Plug 'dense-analysis/ale'
+    " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'tpope/vim-bundler'
     " Run 'gem ctags' to generate ctags for installed gems (required just once).
 Plug 'tpope/vim-rails'
     " ~/dotfiles/vim/plugin/rails.vim - mappings
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
-Plug 'dense-analysis/ale'
-    " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
 Plug 'SirVer/ultisnips', { 'for':
@@ -258,10 +237,23 @@ Plug 'tpope/vim-sleuth'
 Plug 'sgur/vim-editorconfig'
 
 "-----------------------------
-" tmux support
+" Git plugins
+"-----------------------------
+Plug 'tpope/vim-fugitive'
+    " ~/dotfiles/vim/plugin/fugitive.vim - mappings
+Plug 'airblade/vim-gitgutter'
+    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
+
+"-----------------------------
+" Misc plugins
 "-----------------------------
 Plug 'christoomey/vim-tmux-navigator'
     " ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
+Plug 'tpope/vim-obsession'
+    " ~/dotfiles/vim/plugin/obsession.vim - mappings
+Plug 'lifepillar/vim-cheat40'
+    " ~/dotfiles/vim/after/plugin/cheat40.vim - options, mappings
+Plug 'tweekmonster/startuptime.vim'
 
 "-----------------------------
 " Neovim specific plugins
