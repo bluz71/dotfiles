@@ -147,9 +147,10 @@ Delete marked entries    D            *N
 Switch into directory    .            *N
 Switch to parent dir     -            *N
 Switch to project root   ~             N
+Open in a split          s            *N
 Open in a vsplit         v            *N
 Refresh filer            r             N
-Exit filer               x             N
+Exit filer               ‹Esc›         N
 }}}
 gitgutter Plugin Mappings {{{
 Previous hunk            [g            N
