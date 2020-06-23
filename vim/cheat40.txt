@@ -74,6 +74,7 @@ Dictionary               ‹Ctrl-d›      I
 File path                ‹Ctrl-f›      I
 Line                     ‹Ctrl-l›      I
 ‹complete› option        ‹Ctrl-c›      I
+Snippets                 ‹Ctrl-s›      I
 }}}
 Screen Mappings {{{
 Scroll screen up         ‹Sft-Up›      N
