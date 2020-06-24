@@ -1,10 +1,10 @@
 Cheatsheet
 
 About {{{2
-  N    Type in Normal mode
-  C    Type in Command mode
-  I    Type in Insert mode
-  V    Type in Visual mode
+  N    Normal mode
+  C    Command mode
+  I    Insert mode
+  V    Visual mode
   M    Motion or Text object
   O    Operator
   *    Acts on cursor or visual text

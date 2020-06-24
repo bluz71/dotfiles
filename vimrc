@@ -252,7 +252,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-obsession'
     " ~/dotfiles/vim/plugin/obsession.vim - mappings
 Plug 'lifepillar/vim-cheat40'
-    " ~/dotfiles/vim/after/plugin/cheat40.vim - options, mappings
+    " ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
 Plug 'tweekmonster/startuptime.vim'
 
 "-----------------------------
