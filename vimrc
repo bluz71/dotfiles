@@ -71,7 +71,7 @@ set signcolumn=auto   " Only render sign column when needed
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab
-" When spell checking assume word boundaries include 'CamelCasing'.
+" When spell checking, assume word boundaries include 'CamelCasing'.
 if exists('&spellotions')
     set spelloptions=camel
 endif
