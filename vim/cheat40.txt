@@ -56,7 +56,7 @@ Insert from ‹y› register ‹Ctrl-y›      I
 Fold                     ,z            N
 Crosshair                ,X            N
 Zoom split               ,Z            N
-Syntax from start        ,S            N
+Syntax from start        ,S           %N
 }}}
 Command Mode Mappings {{{
 Go to start of line      ‹Ctrl-a›      C
