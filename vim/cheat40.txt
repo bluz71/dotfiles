@@ -52,7 +52,6 @@ Format paragraph         ‹Ctrl-x›qp    I
 Yank into ‹y› register   ,y            N
 Paste from ‹y› register  ,p            N
 Paste from ‹y› register  ,P            N
-Insert from ‹y› register ‹Ctrl-y›      I
 Fold                     ,z            N
 Crosshair                ,X            N
 Zoom split               ,Z            N
