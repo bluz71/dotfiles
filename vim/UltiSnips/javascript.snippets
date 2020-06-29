@@ -1,4 +1,4 @@
-snippet => "Arrow function"
+snippet => "Arrow function" b
 const ${1:function} = (${2:args}) => {
   $3
 }
@@ -6,7 +6,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet fn "Plain function"
+snippet fn "Plain function" b
 ${1:function} (${2:args}) {
   $3
 }
@@ -14,7 +14,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet it "Individual test"
+snippet it "Individual test" b
 it('$1', () => {
   $2
 })
@@ -22,7 +22,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet jest "Jest boilerplate"
+snippet jest "Jest boilerplate" b
 import React from 'react'
 import { shallow } from 'enzyme'
 import ${1:Component} from '../../components/$1'
@@ -38,13 +38,13 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet log "Console log"
+snippet log "Console log" b
 console.log($1)
 endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet rcc "React class component"
+snippet rcc "React class component" b
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
@@ -68,7 +68,7 @@ endsnippet
 
 #-------------------------------------------------------------------------
 
-snippet rfc "React functional component"
+snippet rfc "React functional component" b
 import React from 'react'
 import PropTypes from 'prop-types'
 
