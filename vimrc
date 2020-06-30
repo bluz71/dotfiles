@@ -234,7 +234,8 @@ Plug 'SirVer/ultisnips', { 'for':
 " a .editorconfig file is found.
 Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
-Plug 'sgur/vim-editorconfig'
+Plug 'editorconfig/editorconfig-vim'
+    " ~/dotfiles/vim/plugin/editorconfig.vim - options
 
 "-----------------------------
 " Git plugins
