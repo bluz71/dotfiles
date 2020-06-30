@@ -43,15 +43,6 @@ elseif filereadable('src/index.js')
     nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
 endif
 
-" Return the source list of open buffers for the custom :BDelete command.
-"
-function! FzfListBuffers()
-    redir => list
-    silent ls
-    redir END
-    return split(list, "\n")
-endfunction
-
 " Change the :BCommits command to use the reverse layout.
 command! -bar -bang BCommits
   \ call fzf#vim#buffer_commits({'options': '--reverse'}, <bang>0)
@@ -59,7 +50,7 @@ command! -bar -bang BCommits
 " Custom :BDelete command, similar to :Buffers, but will close the selected
 " buffers.
 command! BDelete call fzf#run(fzf#wrap({
-  \  'source': FzfListBuffers(),
+  \  'source': fzf#ListBuffers(),
   \  'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
   \  'options': '--multi --prompt "BDelete> "'
   \}))
