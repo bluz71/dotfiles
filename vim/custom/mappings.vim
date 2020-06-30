@@ -43,6 +43,8 @@ nnoremap qp gqip$
 " Format current paragraph in insert mode.
 inoremap <C-x>qp <C-o>gqip<C-o>$
 " Mapping that scrolls the window when wrapping is in effect.
+" Format current line.
+nnoremap qj gqj
 nnoremap [z zH
 nnoremap ]z zL
 " Yank into the 'y' register

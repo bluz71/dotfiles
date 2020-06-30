@@ -49,6 +49,7 @@ Open a new line above    ‹Ctrl-u›      I
 Copy paragraph           cp            N
 Format paragraph         qp            N
 Format paragraph         ‹Ctrl-x›qp    I
+Format line              qj            N
 Yank into ‹y› register   ,y            N
 Paste from ‹y› register  ,p            N
 Paste from ‹y› register  ,P            N
