@@ -1,6 +1,6 @@
 " Fill in the 'complete' popup with available snippets for the current filetype
 "
-function! ultisnips#Complete() abort
+function! snippets#Complete() abort
     if empty(UltiSnips#SnippetsInCurrentScope(1))
         return ''
     endif
