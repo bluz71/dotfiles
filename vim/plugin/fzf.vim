@@ -50,7 +50,7 @@ command! -bar -bang BCommits
 " Custom :BDelete command, similar to :Buffers, but will close the selected
 " buffers.
 command! BDelete call fzf#run(fzf#wrap({
-  \  'source': fzf#ListBuffers(),
+  \  'source': fuzzy#ListBuffers(),
   \  'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
   \  'options': '--multi --prompt "BDelete> "'
   \}))
