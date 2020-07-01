@@ -115,6 +115,24 @@ Unique                   sort u     *CVN
 Ignore case              sort i     *CVN
 Numerically              sort n     *CVN
 }}}
+Misc Operations {{{
+One time normal command  ‹Ctrl-o›      I
+Expression register      ‹Ctrl-r›=     I
+Count search matches     :%~n          N
+Delete pattern lines     :g/‹@›/d      N
+Delete !pattern lines    :v/‹@›/d      N
+Open browser on link     :gx          *N
+Read in shell output     :r !‹@›       N
+Read in shell output     :r !‹@›       N
+Move line to top         zt            N
+Move line to middle      zz            N
+Move line to bottom      zb            N
+Move cursor to top       H             N
+Move cursor to middle    M             N
+Move cursor to bottom    L             N
+Spelling correction      z=           *N
+Substitute visual block  s/\%V‹@1›/‹@2›V
+}}}
 
 fzf Plugin Mappings {{{
 Files                    ‹Spc›‹Spc›    N
@@ -164,10 +182,10 @@ Search prompt            \\            N
 Search operation         gs          *VN
 }}}
 Unimpaired Plugin Mappings {{{
-Previous buffer          [b            N
-Next buffer              ]b            N
 Previous file            [a            N
 Next file                ]a            N
+Previous buffer          [b            N
+Next buffer              ]b            N
 Previous in quickfix     [q            N
 Next in quickfix         ]q            N
 Paste above              [p            N
