@@ -48,7 +48,7 @@ alias mplayer='mplayer $* 2>/dev/null'
 alias mux='tmuxinator'
 alias mv='/bin/mv -i'
 # navi cheat sheet aliases
-alias np='navi --print --fzf-overrides "--height 100%"'
+alias np='navi --print --fzf-overrides "--height 100% --no-multi"'
 alias ?='_f() { if [[ $# == 0 ]]; then np; else np query "$@"; fi }; _f'
 alias p='bat'
 alias pping='prettyping --nolegend'
