@@ -9,8 +9,8 @@ About {{{2
   O    Operator
   *    Acts on cursor or visual text
   %    Acts on the current buffer
-  @    Target of operation
-  #    Secondary target of operation
+  @    Target or parameter of operation
+  #    Secondary target or parameter of operation
 }}}
 Window Mappings {{{
 Split horizontally       ,s            N
