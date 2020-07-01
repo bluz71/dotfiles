@@ -10,6 +10,7 @@ About {{{2
   *    Acts on cursor or visual text
   %    Acts on the current buffer
   @    Target of operation
+  #    Secondary target of operation
 }}}
 Window Mappings {{{
 Split horizontally       ,s            N
@@ -116,13 +117,12 @@ Ignore case              sort i     *CVN
 Numerically              sort n     *CVN
 }}}
 Misc Operations {{{
-One time normal command  ‹Ctrl-o›      I
-Expression register      ‹Ctrl-r›=     I
+One time normal command  ‹Ctrl-o›‹@›   I
+Expression register      ‹Ctrl-r›=‹@›  I
 Count search matches     :%~n          N
 Delete pattern lines     :g/‹@›/d      N
 Delete !pattern lines    :v/‹@›/d      N
-Open browser on link     :gx          *N
-Read in shell output     :r !‹@›       N
+Open browser on link     gx           *N
 Read in shell output     :r !‹@›       N
 Move line to top         zt            N
 Move line to middle      zz            N
@@ -131,7 +131,7 @@ Move cursor to top       H             N
 Move cursor to middle    M             N
 Move cursor to bottom    L             N
 Spelling correction      z=           *N
-Substitute visual block  s/\%V‹@1›/‹@2›V
+Substitute in block      :s/\%V‹@›/‹#› V
 }}}
 
 fzf Plugin Mappings {{{
@@ -200,7 +200,7 @@ Toggle relative numbers  yor           N
 Toggle wrapping          yow           N
 }}}
 Surround Plugin Mappings {{{
-Change surround          cs‹@1›‹@2›    N
+Change surround          cs‹@›‹#›      N
 Delete surround          ds‹@›         N
 You surround             ys‹M›‹@›      N
 You surround tag         ys‹M›t‹@›     N
