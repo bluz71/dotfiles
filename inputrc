@@ -11,11 +11,11 @@
 # Alt-$: delete till end of line
 # Alt-0: delete till start of line
 # Alt-u: undo last edit
-# Alt-e: edit in $EDITOR the current command and execute
-# Alt-.: append parameters from last command
+# Alt-e: edit the current command in $EDITOR and execute
+# Alt-.: append last parameter from previous command
 # Ctrl-a/HOME/fn-left: go to start of line
 # Ctrl-e/END/fn-right: go to end of line
-# Ctrl-r: search backwards through shell history
+# Ctrl-r: search through shell history
 #
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
