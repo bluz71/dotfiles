@@ -37,7 +37,6 @@ alias l1d='l1 --list-dirs'
 alias ll='l --long'
 alias ll.='ll --all'
 alias lld='ll --list-dirs'
-# usage: llfs +1M (find all files larger than 1 megabyte)
 alias llfs='find_by_size'
 alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
@@ -47,9 +46,6 @@ alias mdi='meld 2>/dev/null'
 alias mplayer='mplayer $* 2>/dev/null'
 alias mux='tmuxinator'
 alias mv='/bin/mv -i'
-# navi cheat sheet aliases
-alias np='navi --print --fzf-overrides "--height 100% --no-multi"'
-alias ?='_f() { if [[ $# == 0 ]]; then np; else np query "$@"; fi }; _f'
 alias p='bat'
 alias pping='prettyping --nolegend'
 alias psu='ps -u $USER -f'
@@ -73,6 +69,8 @@ alias vim='stty -ixon && vim 2> /dev/null'
 alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
+# navi cheat sheet alias
+alias ?='navi_cheats'
 # Directory navigation.
 alias -- -='cd -'
 alias ..='cd ..'
@@ -269,7 +267,11 @@ du_by_size() {
 }
 
 find_by_size() {
-    find . -type f -size "$1" -exec exa --long {} \; ;
+    if [[ $# == 0 ]]; then
+        echo "Usage: llfs <size> (e.g. 100k, +1M, +1G)"
+    else
+        find . -type f -size "$1" -exec exa --long {} \; ;
+    fi
 }
 
 fzf_change_directory() {
@@ -309,7 +311,7 @@ fzf_git_log() {
 
 fzf_git_log_pickaxe() {
     if [[ $# == 0 ]]; then
-        echo 'Error: search term was not provided.'
+        echo 'Usage: glS <search-term>'
         return
     fi
     local selections=$(
@@ -381,7 +383,7 @@ fzf_kill() {
 
 grep_edit() {
     if [[ $# == 0 ]]; then
-        echo 'Error: search term was not provided.'
+        echo 'Usage: vg <search-term>'
         return
     fi
 
@@ -397,6 +399,15 @@ history_dedup() {
     command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
     echo "After: $(du -shL ~/.bash_history)"
     history -c && history -r
+}
+
+navi_cheats() {
+    local navi_command='navi --print --fzf-overrides "--height 100% --no-multi"'
+    if [[ $# == 0 ]]; then
+        eval $navi_command
+    else
+        eval $navi_command query "$@"
+    fi
 }
 
 path() {
