@@ -285,7 +285,6 @@ runtime custom/autocmds.vim
 "===========================================================
 " COLOR SCHEME
 "===========================================================
-
 if filereadable(expand('~/.colorscheme'))
     exec "colorscheme " . readfile(expand('~/.colorscheme'))[0]
 else
