@@ -7,7 +7,7 @@ unalias -a
 alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias bd='br --only-folders'
 alias be='bundle exec'
-alias bs='br --sizes'
+alias bs='br --whale-spotting'
 alias cf='fzf_change_directory'
 alias cp='/bin/cp -i'
 alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
