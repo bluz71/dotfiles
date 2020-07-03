@@ -4,7 +4,6 @@ unalias -a
 
 # Aliases.
 #
-alias aliases='alias | cut -c7- | bat -l ini --style=plain --paging never'
 alias bd='br --only-folders'
 alias be='bundle exec'
 alias bs='br --whale-spotting'
@@ -29,7 +28,6 @@ alias gv='gvim 2> /dev/null'
 alias gu='fzf_git_unadd'
 alias h=history
 alias hdd='history_dedup'
-alias help='tldr'
 alias hrg='history | rg'
 alias l='exa --color=always --group-directories-first'
 alias l1='l --oneline'
