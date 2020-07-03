@@ -57,9 +57,9 @@ alias rmrf='/bin/rm -rf'
 alias rs='rsync --archive --human-readable --progress --verbose'
 alias src='. ~/.bashrc'
 alias t='tree -C --dirsfirst'
-alias tl='tree -C  --dirsfirst -L'
 alias td='tree -C -d'
 alias tdl='tree -C -d -L'
+alias tl='tree -C --dirsfirst -L'
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
 alias v='nvim'
 alias vdi='nvim -d'
@@ -402,7 +402,7 @@ history_dedup() {
 }
 
 navi_cheats() {
-    local navi_command='navi --print --fzf-overrides "--height 100% --no-multi"'
+    local navi_command='navi --print --fzf-overrides "--height 100% --no-sort"'
     if [[ $# == 0 ]]; then
         eval $navi_command
     else
