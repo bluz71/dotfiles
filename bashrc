@@ -400,7 +400,9 @@ history_dedup() {
 }
 
 navi_cheats() {
-    local navi_command='navi --print --fzf-overrides "--no-height --no-sort"'
+    local navi_command='
+      navi --print --fzf-overrides "--no-multi --no-height --no-sort"
+    '
     if [[ $# == 0 ]]; then
         eval $navi_command
     else
