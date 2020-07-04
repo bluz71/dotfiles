@@ -296,7 +296,7 @@ fzf_find_edit() {
 fzf_git_log() {
     local selections=$(
       git ll --color=always "$@" |
-        fzf --ansi --no-sort --height 100% \
+        fzf --ansi --no-sort --no-height \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @' |
                        delta"
@@ -314,7 +314,7 @@ fzf_git_log_pickaxe() {
     fi
     local selections=$(
       git log --oneline --color=always -S "$@" |
-        fzf --ansi --no-sort --height 100% \
+        fzf --ansi --no-sort --no-height \
             --preview 'git show --color=always {1} | delta'
       )
     if [[ -n $selections ]]; then
@@ -326,7 +326,7 @@ fzf_git_log_pickaxe() {
 fzf_git_reflog() {
     local selection=$(
       git reflog --color=always "$@" |
-        fzf --no-multi --ansi --no-sort --height 100% \
+        fzf --no-multi --ansi --no-sort --no-height \
             --preview 'git show --color=always {1} | delta'
       )
     if [[ -n $selection ]]; then
@@ -400,7 +400,7 @@ history_dedup() {
 }
 
 navi_cheats() {
-    local navi_command='navi --print --fzf-overrides "--height 100% --no-sort"'
+    local navi_command='navi --print --fzf-overrides "--no-height --no-sort"'
     if [[ $# == 0 ]]; then
         eval $navi_command
     else
