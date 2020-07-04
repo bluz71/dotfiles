@@ -5,7 +5,7 @@
     default = simple
 [core]
     autocrlf       = input
-    pager          = diff-so-fancy | less
+    pager          = delta
     untrackedCache = true
 [color]
     ui = auto
@@ -25,21 +25,20 @@
     keepBackup = false
 [advice]
     waitingForEditor = false
-[diff-so-fancy]
-    markEmptyLines = false
-[color "diff-highlight"]
-    newNormal    = 2 # green
-    newHighlight = 2 22
-    oldNormal    = 1 # red
-    oldHighlight = 1 52
-[color "diff"]
-    frag       = 12 # bright blue
-    new        = 2  # green
-    old        = 1  # red
-    whitespace = 1 reverse
-    func       = 8  # coral
-    newMoved   = 11 # bright yellow
-    oldMoved   = 11
+[delta]
+    features     = styles
+    syntax-theme = none
+[delta "styles"]
+    commit-style                 = 3          # yellow
+    file-style                   = 11         # pale yellow
+    file-decoration-style        = 11 ul ol
+    hunk-header-style            = 253        # white
+    hunk-header-decoration-style = 12 box     # pale blue
+    minus-style                  = 1          # red
+    minus-emph-style             = 1 reverse
+    plus-style                   = 2          # green
+    plus-emph-style              = 2 reverse
+    zero-style                   = auto
 [help]
     format = html
 #[feature]

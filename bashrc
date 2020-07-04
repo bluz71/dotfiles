@@ -299,7 +299,7 @@ fzf_git_log() {
         fzf --ansi --no-sort --height 100% \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @' |
-                       diff-so-fancy"
+                       delta"
       )
     if [[ -n $selections ]]; then
         local commits=$(echo "$selections" | cut -d' ' -f2 | tr '\n' ' ')
@@ -315,7 +315,7 @@ fzf_git_log_pickaxe() {
     local selections=$(
       git log --oneline --color=always -S "$@" |
         fzf --ansi --no-sort --height 100% \
-            --preview 'git show --color=always {1} | diff-so-fancy'
+            --preview 'git show --color=always {1} | delta'
       )
     if [[ -n $selections ]]; then
         local commits=$(echo "$selections" | cut -d' ' -f1 | tr '\n' ' ')
@@ -327,7 +327,7 @@ fzf_git_reflog() {
     local selection=$(
       git reflog --color=always "$@" |
         fzf --no-multi --ansi --no-sort --height 100% \
-            --preview 'git show --color=always {1} | diff-so-fancy'
+            --preview 'git show --color=always {1} | delta'
       )
     if [[ -n $selection ]]; then
         git show $(echo $selection | cut -d' ' -f1)
@@ -339,7 +339,7 @@ fzf_git_status() {
       git status --porcelain | \
       fzf --ansi \
           --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
-                         git diff --color=always {2} | diff-so-fancy
+                         git diff --color=always {2} | delta
                      else
                          bat --color=always --line-range :500 {2}
                      fi'
