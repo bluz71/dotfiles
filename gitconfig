@@ -109,9 +109,14 @@
     bop = push -u origin
     bod = push origin -d
     # stash
-    sa  = !sh -c 'git stash apply stash@{$1}' -
-    sd  = !sh -c 'git stash drop stash@{$1}' -
+    sa = !sh -c 'git stash apply stash@{$1}' -
+    sd = !sh -c 'git stash drop stash@{$1}' -
     si = !sh -c 'git stash show -p stash@{$1}' -
-    sl  = stash list
-    sp  = stash pop
-    ss  = stash save --include-untracked
+    sl = stash list
+    sp = stash pop
+    ss = stash save --include-untracked
+    # bisect
+    bss = bisect start
+    bsb = bisect bad
+    bsg = bisect good
+    bsr = bisect reset
