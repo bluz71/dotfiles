@@ -1,5 +1,3 @@
-:IndentLinesDisable
-
 nmap <buffer> <2-LeftMouse> <Plug>(vimfiler_smart_l)
 nmap <buffer> <CR>          <Plug>(vimfiler_smart_l)
 nmap <buffer> <Tab>         <Plug>(vimfiler_switch_to_other_window)
