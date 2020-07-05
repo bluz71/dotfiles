@@ -1,141 +1,133 @@
 " Abbreviations to automatically correct spelling errors whilst in insert mode.
 
-iabbrev CALANDER       CALENDAR
-iabbrev Calander       Calendar
 iabbrev calander       calendar
+iabbrev Calander       Calendar
+iabbrev CALANDER       CALENDAR
 
-iabbrev CALANDERS      CALENDARS
-iabbrev Calanders      Calendars
 iabbrev calanders      calendars
+iabbrev Calanders      Calendars
+iabbrev CALANDERS      CALENDARS
 
-iabbrev CALENDER       CALENDAR
-iabbrev Calender       Calendar
 iabbrev calender       calendar
+iabbrev Calender       Calendar
+iabbrev CALENDER       CALENDAR
 
-iabbrev CALENDERS      CALENDARS
-iabbrev Calenders      Calendars
 iabbrev calenders      calendars
+iabbrev Calenders      Calendars
+iabbrev CALENDERS      CALENDARS
 
-iabbrev COMPELETLY     COMPLETELY
-iabbrev Compeletly     Completely
 iabbrev compeletly     completely
+iabbrev Compeletly     Completely
+iabbrev COMPELETLY     COMPLETELY
 
-iabbrev CONSISTANT     CONSISTENT
-iabbrev Consistant     Consistent
 iabbrev consistant     consistent
+iabbrev Consistant     Consistent
+iabbrev CONSISTANT     CONSISTENT
 
-iabbrev CONSISTANTLY   CONSISTENTLY
-iabbrev Consistantly   Consistently
 iabbrev consistantly   consistently
+iabbrev Consistantly   Consistently
+iabbrev CONSISTANTLY   CONSISTENTLY
 
-iabbrev DELIMETER      DELIMITER
-iabbrev Delimeter      Delimiter
 iabbrev delimeter      delimiter
+iabbrev Delimeter      Delimiter
+iabbrev DELIMETER      DELIMITER
 
-iabbrev DELIMETERS     DELIMITERS
-iabbrev Delimeters     Delimiters
 iabbrev delimeters     delimiters
+iabbrev Delimeters     Delimiters
+iabbrev DELIMETERS     DELIMITERS
 
-iabbrev DESPARATE      DESPERATE
-iabbrev Desparate      Desperate
 iabbrev desparate      desperate
+iabbrev Desparate      Desperate
+iabbrev DESPARATE      DESPERATE
 
-iabbrev DESPARATELY    DESPERATELY
-iabbrev Desparately    Desperately
 iabbrev desparately    desperately
+iabbrev Desparately    Desperately
+iabbrev DESPARATELY    DESPERATELY
 
-iabbrev DESPARATION    DESPERATION
-iabbrev Desparation    Desperation
 iabbrev desparation    desperation
+iabbrev Desparation    Desperation
+iabbrev DESPARATION    DESPERATION
 
-iabbrev EXISTANCE      EXISTENCE
-iabbrev Existance      Existence
 iabbrev existance      existence
+iabbrev Existance      Existence
+iabbrev EXISTANCE      EXISTENCE
 
-iabbrev EXISTANT       EXISTENT
-iabbrev Existant       Existent
 iabbrev existant       existent
+iabbrev Existant       Existent
+iabbrev EXISTANT       EXISTENT
 
-iabbrev INCONSISTANT   INCONSISTENT
-iabbrev Inconsistant   Inconsistent
 iabbrev inconsistant   inconsistent
+iabbrev Inconsistant   Inconsistent
+iabbrev INCONSISTANT   INCONSISTENT
 
-iabbrev INCONSISTANTLY INCONSISTENTLY
-iabbrev Inconsistantly Inconsistently
 iabbrev inconsistantly inconsistently
+iabbrev Inconsistantly Inconsistently
+iabbrev INCONSISTANTLY INCONSISTENTLY
 
-iabbrev NECESARY       NECESSARY
-iabbrev Necesary       Necessary
 iabbrev necesary       necessary
+iabbrev Necesary       Necessary
+iabbrev NECESARY       NECESSARY
 
-iabbrev NECCESARY      NECESSARY
-iabbrev Neccesary      Necessary
 iabbrev neccesary      necessary
+iabbrev Neccesary      Necessary
+iabbrev NECCESARY      NECESSARY
 
-iabbrev NECCESSARY     NECESSARY
-iabbrev Neccessary     Necessary
 iabbrev neccessary     necessary
+iabbrev Neccessary     Necessary
+iabbrev NECCESSARY     NECESSARY
 
-iabbrev NONEXISTANCE   NONEXISTENCE
-iabbrev Nonexistance   Nonexistence
-iabbrev nonexistance   nonexistence
-
-iabbrev NONEXISTANT    NONEXISTENT
-iabbrev Nonexistant    Nonexistent
-iabbrev nonexistant    nonexistent
-
-iabbrev PERSISTANCE    PERSISTENCE
-iabbrev Persistance    Persistence
 iabbrev persistance    persistence
+iabbrev Persistance    Persistence
+iabbrev PERSISTANCE    PERSISTENCE
 
-iabbrev PERSISTANT     PERSISTENT
-iabbrev Persistant     Persistent
 iabbrev persistant     persistent
+iabbrev Persistant     Persistent
+iabbrev PERSISTANT     PERSISTENT
 
-iabbrev PERSISTANTLY   PERSISTENTLY
-iabbrev Persistantly   Persistently
 iabbrev persistantly   persistently
+iabbrev Persistantly   Persistently
+iabbrev PERSISTANTLY   PERSISTENTLY
 
-iabbrev REPRODUCABLE   REPRODUCIBLE
-iabbrev Reproducable   Reproducible
 iabbrev reproducable   reproducible
+iabbrev Reproducable   Reproducible
+iabbrev REPRODUCABLE   REPRODUCIBLE
 
-iabbrev RETREIVE       RETRIEVE
-iabbrev Retreive       Retrieve
 iabbrev retreive       retrieve
+iabbrev Retreive       Retrieve
+iabbrev RETREIVE       RETRIEVE
 
-iabbrev SEPERATE       SEPARATE
-iabbrev Seperate       Separate
 iabbrev seperate       separate
+iabbrev Seperate       Separate
+iabbrev SEPERATE       SEPARATE
 
-iabbrev SEPERATED      SEPARATED
-iabbrev Seperated      Separated
 iabbrev seperated      separated
+iabbrev Seperated      Separated
+iabbrev SEPERATED      SEPARATED
 
-iabbrev SEPERATELY     SEPARATELY
-iabbrev Seperately     Separately
 iabbrev seperately     separately
+iabbrev Seperately     Separately
+iabbrev SEPERATELY     SEPARATELY
 
-iabbrev SEPERATING     SEPARATING
-iabbrev Seperating     Separating
 iabbrev seperating     separating
+iabbrev Seperating     Separating
+iabbrev SEPERATING     SEPARATING
 
-iabbrev SEPERATION     SEPARATION
-iabbrev Seperation     Separation
 iabbrev seperation     separation
+iabbrev Seperation     Separation
+iabbrev SEPERATION     SEPARATION
 
-iabbrev SEPERATOR      SEPARATOR
-iabbrev Seperator      Separator
 iabbrev seperator      separator
+iabbrev Seperator      Separator
+iabbrev SEPERATOR      SEPARATOR
 
-iabbrev UNNECCESARY    UNNECESSARY
-iabbrev Unneccesary    Unnecessary
 iabbrev unneccesary    unnecessary
+iabbrev Unneccesary    Unnecessary
+iabbrev UNNECCESARY    UNNECESSARY
 
-iabbrev UNNECCESSARY   UNNECESSARY
-iabbrev Unneccessary   Unnecessary
 iabbrev unneccessary   unnecessary
+iabbrev Unneccessary   Unnecessary
+iabbrev UNNECCESSARY   UNNECESSARY
 
-iabbrev UNNECESARY     UNNECESSARY
-iabbrev Unnecesary     Unnecessary
 iabbrev unnecesary     unnecessary
+iabbrev Unnecesary     Unnecessary
+iabbrev UNNECESARY     UNNECESSARY
