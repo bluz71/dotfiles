@@ -70,22 +70,20 @@ set shortmess+=c      " Don't show insert mode completion messages
 set signcolumn=auto   " Only render sign column when needed
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
-set smarttab
+set smarttab          " Tab at the start of line inserts blanks
 " When spell checking, assume word boundaries include 'CamelCasing'.
 if exists('&spellotions')
     set spelloptions=camel
 endif
 set splitbelow        " Split below current window
 set splitright        " Split window to the right
-set t_Co=256          " 256 color support
 set tabstop=4         " Tab width
 set termguicolors     " Enable 24-bit color support for terminal Vim
 set textwidth=80      " Standard width before breaking
 set timeoutlen=1500   " Give some time for multi-key mappings
-" Don't set ttimeoutlen to zero otherwise it will break terminal cursor block
-" to I-beam and back functionality set by the t_SI and t_EI variables.
+" Don't set ttimeoutlen to zero otherwise it will break some Vim terminal
+" behaviours
 set ttimeoutlen=10
-set ttyfast
 " Set the persistent undo directory on temporary private fast storage.
 let s:undoDir="/tmp/.undodir_" . $USER
 if !isdirectory(s:undoDir)
@@ -93,7 +91,7 @@ if !isdirectory(s:undoDir)
 endif
 let &undodir=s:undoDir
 set undofile          " Maintain undo history
-set updatetime=150    " Make GitGutter plugin more responsive
+set updatetime=100    " Make GitGutter plugin more responsive
 set viminfo=          " No backups
 set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu          " Nice command completions
@@ -109,6 +107,8 @@ if has("nvim")
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
+    set t_Co=256
+    set ttyfast
     set ttymouse=xterm2
     if exists('&cursorlineopt')
         set cursorline
