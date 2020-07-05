@@ -4,7 +4,6 @@ unalias -a
 
 # Aliases.
 #
-alias bd='br --only-folders'
 alias be='bundle exec'
 alias bs='br --whale-spotting'
 alias cf='fzf_change_directory'
