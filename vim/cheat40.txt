@@ -102,8 +102,8 @@ Lazy draw & autosave     ‹Spc›9        N
 Show special chars       F12           N
 Show special chars       ‹Spc›0        N
 }}}
-Find Replace Mappings {{{
-Stationary star search   \*          *VN
+Star/Find/Replace Mappings {{{
+Stationary star search   g*          *VN
 Star search change       \c          *VN
 Accept prev change       ‹Enter›       N
 Reject prev change       !             N
