@@ -9,7 +9,7 @@ function! relative_number#Activity(mode) abort
         " For diffs, do nothing since we want relativenumbers in all windows.
         return
     endif
-    if &buftype == "nofile" || &buftype == "nowrite"
+    if &buftype == "nofile" || &buftype == "nowrite" || &filetype == "help"
         setlocal nonumber
     elseif a:mode == "active"
         setlocal relativenumber
