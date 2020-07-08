@@ -57,7 +57,7 @@ inoremap <C-y> <C-r>y
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Toggle crosshair, aka cusorcolumn & cursorline.
-nnoremap <Leader>X :call crosshair#Toggle()<CR>
+nnoremap <Leader>x :call crosshair#Toggle()<CR>
 " Zoom the current file into a standalone new tab.
 nnoremap <silent> <Leader>Z :tab split<CR>
 " Recalculate syntax highlighting for the entire file.
@@ -144,15 +144,15 @@ inoremap <C-g>9              <Esc>9gt
 nnoremap <Leader>=           <C-w>=
 nnoremap <Leader>r           <C-w>r
 if has("nvim")
-    nnoremap <silent> <Leader>b :botright new<CR><C-w>=:terminal<CR>
-    nnoremap <silent> <C-g>b    :botright new<CR><C-w>=:terminal<CR>
-    inoremap <silent> <C-g>b    <Esc>:botright new<CR><C-w>=:terminal<CR>
+    nnoremap <silent> <Leader>T :botright new<CR><C-w>=:terminal<CR>
+    nnoremap <silent> <C-g>T    :botright new<CR><C-w>=:terminal<CR>
+    inoremap <silent> <C-g>T    <Esc>:botright new<CR><C-w>=:terminal<CR>
     " Mappings when in terminal mode.
     tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
     tnoremap <silent> <C-g>v  <C-\><C-N>:vsplit<CR>
     tnoremap <silent> <C-g>-  <C-\><C-N>:botright new<CR><C-w>=
     tnoremap <silent> <C-g>\| <C-\><C-N>:botright vnew<CR><C-w>=
-    tnoremap <silent> <C-g>b  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
+    tnoremap <silent> <C-g>T  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
     tnoremap <silent> <C-g>q  <C-\><C-N>:close<CR>
     tnoremap <silent> <C-g>c  <C-\><C-N>:cclose<CR><C-\><C-N>:lclose<CR><C-\><C-N>:pclose<CR>
     tnoremap <silent> <C-g>t  <C-\><C-N>:$tabnew<CR>

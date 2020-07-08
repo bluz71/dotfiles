@@ -23,7 +23,7 @@ Close                    ,q            N
 Close qf/loc/preview     ,c            N
 Create new tab           ,t            N
 Switch to numbered tab   ,‹@›          N
-Full width term split    ,b            N
+Full width term split    ,T            N
 }}}
 Navigation Mappings {{{
 Move to the next split   ‹Tab›         N
@@ -56,7 +56,7 @@ Paste from ‹y› register  ,p            N
 Paste from ‹y› register  ,P            N
 Insert from ‹y› register ‹Ctrl-y›      I
 Fold                     ,z            N
-Crosshair                ,X            N
+Crosshair                ,x            N
 Zoom split               ,Z            N
 Syntax from start        ,S           %N
 }}}
@@ -285,6 +285,6 @@ Dart Plugin Mappings {{{
 Hot reload               ‹Spc›r        N
 Hot restart              ‹Spc›R        N
 }}}
-Colorizer Plugin Mappings {{{
+Colorizer Plugin Mapping {{{
 Toggle colorizer         ‹Spc›z        N
 }}}
