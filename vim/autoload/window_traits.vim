@@ -1,10 +1,13 @@
+" Display color column in the active window and disable color columns in all
+" inactive windows.
+"
 " Display relative line numbers in the active window and display absolute
 " numbers in inactive windows.
 "
 " In newer versions of Vim, if `cursorlineopt` exists, then also toggle
 " cursorline appropriately.
 "
-function! relative_number#Activity(mode) abort
+function! window_traits#Activity(mode) abort
     if &diff
         " For diffs, do nothing since we want relativenumbers in all windows.
         return

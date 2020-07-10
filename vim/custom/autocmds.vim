@@ -6,8 +6,8 @@ augroup CustomAutocmds
 
     " Style customizations.
     autocmd VimEnter * windo call diff#Styling()
-    autocmd WinEnter * call relative_number#Activity("active")
-    autocmd WinLeave * call relative_number#Activity("inactive")
+    autocmd WinEnter * call window_traits#Activity("active")
+    autocmd WinLeave * call window_traits#Activity("inactive")
 
     " Restore default Enter/Return behaviour for the command line window.
     autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
