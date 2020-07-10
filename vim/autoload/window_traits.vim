@@ -1,8 +1,8 @@
 " Display color column in the active window and disable color columns in all
 " inactive windows.
 "
-" Display relative line numbers in the active window and display absolute
-" numbers in inactive windows.
+" Likewise, display relative line numbers in the active window and display
+" absolute numbers in inactive windows.
 "
 " In newer versions of Vim, if `cursorlineopt` exists, then also toggle
 " cursorline appropriately.
@@ -13,6 +13,7 @@ function! window_traits#Activity(mode) abort
         return
     endif
     if &filetype == "help"
+        " Treat help files specially, disable numbers, but do set color column.
         setlocal nonumber
     endif
     if &buftype == "nofile" || &buftype == "nowrite"
