@@ -9,14 +9,20 @@ function! relative_number#Activity(mode) abort
         " For diffs, do nothing since we want relativenumbers in all windows.
         return
     endif
-    if &buftype == "nofile" || &buftype == "nowrite" || &filetype == "help"
+    if &filetype == "help"
+        setlocal nonumber
+    endif
+    if &buftype == "nofile" || &buftype == "nowrite"
+        setlocal colorcolumn=0
         setlocal nonumber
     elseif a:mode == "active"
+        set colorcolumn=81,82
         setlocal relativenumber
         if exists('&cursorlineopt')
             setlocal cursorline
         endif
     else
+        setlocal colorcolumn=0
         setlocal norelativenumber
         if exists('&cursorlineopt')
             setlocal nocursorline
