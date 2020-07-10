@@ -12,16 +12,16 @@ function! window_traits#Activity(mode) abort
         " For diffs, do nothing since we want relativenumbers in all windows.
         return
     endif
-    if &filetype == "help"
-        " Treat help files specially, disable numbers, but do set color column.
-        setlocal nonumber
-    endif
+
     if &buftype == "nofile" || &buftype == "nowrite"
         setlocal colorcolumn=0
         setlocal nonumber
     elseif a:mode == "active"
         set colorcolumn=81,82
-        setlocal relativenumber
+        " Set relative numbering, except for help files.
+        if &filetype != "help"
+            setlocal relativenumber
+        endif
         if exists('&cursorlineopt')
             setlocal cursorline
         endif
