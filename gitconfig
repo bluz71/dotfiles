@@ -65,7 +65,7 @@
     sw  = switch
     swc = switch -c
     # checkout
-    cko = checkout
+    co = checkout
     # diff
     di   = diff
     dip = !sh -c 'git di $1~1..$1' -
