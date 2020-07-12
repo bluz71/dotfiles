@@ -1,5 +1,6 @@
-" Ignore <ul>, <ul>, <dl> special cases.
-let b:match_words = '<:>,<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+setlocal formatoptions=cqj
+setlocal matchpairs=(:),{:},[:]
+
 " Auto-expansion including tags.
 let b:pear_tree_pairs = {
             \ '(':   {'closer': ')'},
@@ -14,5 +15,6 @@ let b:pear_tree_pairs = {
             \          'until':    '[^a-zA-Z0-9-._]'
             \        },
             \ }
-setlocal formatoptions=cqj
-setlocal matchpairs=(:),{:},[:]
+
+" Do 'tagnameonly' match-up for eruby files.
+runtime after/ftplugin/html_matchup.vim

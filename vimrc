@@ -179,7 +179,7 @@ Plug 'chaoren/vim-wordmotion'
     " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tmsvg/pear-tree'
     " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
-Plug 'andymass/vim-matchup', { 'for': ['dart', 'javascript', 'json'] }
+Plug 'andymass/vim-matchup', { 'for':  ['eruby', 'html', 'javascript', 'xml'] }
     " ~/dotfiles/vim/plugin/matchup.vim - options
 Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
