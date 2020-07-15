@@ -133,6 +133,7 @@ Move cursor to middle    M             N
 Move cursor to bottom    L             N
 Spelling correction      z=           *N
 Substitute in block      :s/\%V‹@›/‹#› V
+Print character value    ga           *N
 }}}
 
 fzf Plugin Mappings {{{
