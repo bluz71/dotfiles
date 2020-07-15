@@ -7,16 +7,16 @@
 " In newer versions of Vim, if `cursorlineopt` exists, then also toggle
 " cursorline appropriately.
 "
-function! window_traits#Activity(mode) abort
+function! window_traits#Activity(active) abort
     if &diff
         " For diffs, do nothing since we want relativenumbers in all windows.
         return
     endif
 
-    if &buftype == "nofile" || &buftype == "nowrite"
+    if &buftype == "nofile" || &buftype == "nowrite" " Special windows
         setlocal colorcolumn=0
         setlocal nonumber
-    elseif a:mode == "active"
+    elseif a:active == v:true " Active window
         set colorcolumn=81,82
         " Set relative numbering, except for help files.
         if &filetype != "help"
@@ -25,7 +25,7 @@ function! window_traits#Activity(mode) abort
         if exists('&cursorlineopt')
             setlocal cursorline
         endif
-    else
+    else " Inactive window
         setlocal colorcolumn=0
         setlocal norelativenumber
         if exists('&cursorlineopt')
