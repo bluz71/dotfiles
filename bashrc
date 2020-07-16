@@ -209,8 +209,15 @@ brew_config() {
 }
 
 custom_config() {
+    # For non-interactive shells, such as scp from another machine, don't
+    # bother with these customizations.
+    if ! [[ "$-" =~ "i" ]]; then
+        return
+    fi
+
     # Make 'g' alias to 'git' work with bash-completion.
     complete -o default -o nospace -F _git g
+
     _completion_loader git
 
     # Custom Bash completions.
