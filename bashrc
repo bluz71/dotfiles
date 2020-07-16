@@ -209,8 +209,8 @@ brew_config() {
 }
 
 custom_config() {
-    # For non-interactive shells, such as scp from another machine, don't
-    # bother with these customizations.
+    # For non-interactive shells, such as 'scp', don't bother with any of these
+    # customizations.
     if ! [[ "$-" =~ "i" ]]; then
         return
     fi
