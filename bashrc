@@ -217,7 +217,6 @@ custom_config() {
 
     # Make 'g' alias to 'git' work with bash-completion.
     complete -o default -o nospace -F _git g
-
     _completion_loader git
 
     # Custom Bash completions.
