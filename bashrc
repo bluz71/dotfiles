@@ -174,24 +174,15 @@ brew_config() {
 
     export BREW_PREFIX=$(brew --prefix)
 
-    # Bash completions.
-    if [[ $OS = Linux ]]; then
-        # Source legacy Brew-related Bash completions.
-        for f in $BREW_PREFIX/etc/bash_completion.d/*; do . $f; done
-    elif [[ $OS = Darwin ]]; then
-        # Please refer to: https://is.gd/5f9uD8
-        # Source legacy version 1 bash_completion scripts.
-        export BASH_COMPLETION_COMPAT_DIR="$BREW_PREFIX/etc/bash_completion.d"
-        # Source version 2 bash_completion scripts.
+    # Manually load Bash completions (only needed for Mac).
+    if [[ $OS = Darwin ]]; then
+        # Only source version 2 bash_completion.
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
     # 'z' utility.
     _Z_NO_PROMPT_COMMAND=1
     . $BREW_PREFIX/etc/profile.d/z.sh
-
-    # Make 'g' alias to Git work with bash-completion.
-    complete -o default -o nospace -F _git g
 
     # 'fzf' configuration.
     . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
@@ -217,9 +208,15 @@ brew_config() {
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
 }
 
-custom_sources() {
-    # Bash completions.
+custom_config() {
+    # Make 'g' alias to 'git' work with bash-completion.
+    complete -o default -o nospace -F _git g
+    _completion_loader git
+
+    # Custom Bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+    # Debugging Bash completions:
+    # % complete | grep <<completion-of-interest>>
 
     # 'broot' function.
     . ~/dotfiles/profile.d/br.sh
@@ -436,6 +433,6 @@ prompt() {
 #
 path
 brew_config
+custom_config
 dev_config
-custom_sources
 prompt

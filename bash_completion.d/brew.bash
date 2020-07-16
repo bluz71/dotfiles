@@ -1,0 +1,900 @@
+# Bash completion script for brew(1)
+
+# Indicates there are no completions
+__brewcomp_null() {
+  COMPREPLY=""
+}
+
+__brewcomp_words_include() {
+  local i=1
+  while [[ "$i" -lt "$COMP_CWORD" ]]
+  do
+    if [[ "${COMP_WORDS[i]}" = "$1" ]]
+    then
+      return 0
+    fi
+    (( i++ ))
+  done
+  return 1
+}
+
+# Find the previous non-switch word
+__brewcomp_prev() {
+  local idx="$((COMP_CWORD - 1))"
+  local prv="${COMP_WORDS[idx]}"
+  while [[ "$prv" = -* ]]
+  do
+    (( idx-- ))
+    prv="${COMP_WORDS[idx]}"
+  done
+  echo "$prv"
+}
+
+__brewcomp() {
+  # break $1 on space, tab, and newline characters,
+  # and turn it into a newline separated list of words
+  local list s sep=$'\n' IFS=$' \t\n'
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+
+  for s in $1
+  do
+    __brewcomp_words_include "$s" && continue
+    list="$list$s$sep"
+  done
+
+  IFS="$sep"
+  COMPREPLY=($(compgen -W "$list" -- "$cur"))
+}
+
+# Don't use __brewcomp() in any of the __brew_complete_foo functions, as
+# it is too slow and is not worth it just for duplicate elimination.
+__brew_complete_formulae() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local formulas="$(brew search)"
+  local shortnames="$(echo "$formulas" | \grep / | \cut -d / -f 3)"
+  COMPREPLY=($(compgen -W "$formulas $shortnames" -- "$cur"))
+}
+
+__brew_complete_installed() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local inst="$(command ls "$(brew --cellar)" 2>/dev/null)"
+  COMPREPLY=($(compgen -W "$inst" -- "$cur"))
+}
+
+__brew_complete_outdated() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local od="$(brew outdated --quiet)"
+  COMPREPLY=($(compgen -W "$od" -- "$cur"))
+}
+
+__brew_complete_versions() {
+  local formula="$1"
+  local versions="$(brew list --versions "$formula")"
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "$versions" -X "$formula" -- "$cur"))
+}
+
+__brew_complete_logs() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local logs="$(command ls "${HOMEBREW_LOGS:-${HOME}/Library/Logs/Homebrew/}" 2>/dev/null)"
+  COMPREPLY=($(compgen -W "$logs" -- "$cur"))
+}
+
+__brew_complete_tapped() {
+  local taplib="$(brew --repository)/Library/Taps"
+  local dir taps
+
+  for dir in "$taplib"/*/*
+  do
+    [[ -d "$dir" ]] || continue
+    dir="${dir#${taplib}/}"
+    dir="${dir/homebrew-/}"
+    taps="$taps $dir"
+  done
+  __brewcomp "$taps"
+}
+
+__brew_complete_commands() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  HOMEBREW_CACHE=$(brew --cache)
+  HOMEBREW_REPOSITORY=$(brew --repo)
+  # Do not auto-complete "*instal" or "*uninstal" aliases for "*install" commands.
+  [[ -f "$HOMEBREW_CACHE/all_commands_list.txt" ]] &&
+    local cmds="$(cat "$HOMEBREW_CACHE/all_commands_list.txt" | \grep -v instal$)" ||
+    local cmds="$(cat "$HOMEBREW_REPOSITORY/completions/internal_commands_list.txt" | \grep -v instal$)"
+  COMPREPLY=($(compgen -W "$cmds" -- "$cur"))
+}
+
+_brew_analytics() {
+  case "$COMP_CWORD" in
+    2)  __brewcomp "off on regenerate-uuid state" ;;
+  esac
+}
+
+_brew_bottle() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "
+        --debug
+        --force-core-tap
+        --help
+        --json
+        --keep-old
+        --merge
+        --no-commit
+        --no-rebuild
+        --or-later
+        --root-url
+        --skip-relocation
+        --verbose
+        --write
+        "
+      return
+      ;;
+  esac
+  __brew_complete_installed
+}
+
+_brew_cleanup() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "
+        --debug
+        --dry-run
+        --prune
+        --help
+        --verbose
+        -s
+        "
+      return
+      ;;
+  esac
+  __brew_complete_installed
+}
+
+_brew_create() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "
+      --HEAD
+      --autotools
+      --cmake
+      --crystal
+      --debug
+      --force
+      --go
+      --help
+      --meson
+      --no-fetch
+      --perl
+      --python
+      --ruby
+      --rust
+      --set-name
+      --set-version
+      --tap
+      --verbose
+      "
+      return
+      ;;
+  esac
+}
+
+_brew_deps() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--1 --all --tree"
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_desc() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--search --name --description"
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_diy() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--set-name --set-version"
+      return
+      ;;
+  esac
+}
+
+_brew_doctor() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  __brewcomp "$(brew doctor --list-checks)"
+}
+
+_brew_fetch() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local prv="$(__brewcomp_prev)"
+  case "$cur" in
+    -*)
+      __brewcomp "
+        --deps --force
+        --devel --HEAD
+        --build-from-source --force-bottle --build-bottle
+        --retry
+        $(brew options --compact "$prv" 2>/dev/null)
+        "
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_gist_logs() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--new-issue"
+      return
+      ;;
+  esac
+  __brew_complete_logs
+}
+
+_brew_info() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--all --github --installed --json=v1"
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_install() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local prv="$(__brewcomp_prev)"
+
+  case "$cur" in
+    -*)
+      if __brewcomp_words_include "--interactive"
+      then
+        __brewcomp "--devel --git --HEAD"
+      else
+        __brewcomp "
+          --build-from-source --build-bottle --force-bottle
+          --debug
+          --devel
+          --HEAD
+          --ignore-dependencies
+          --interactive
+          --only-dependencies
+          --verbose
+          --display-times
+          $(brew options --compact "$prv" 2>/dev/null)
+          "
+      fi
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_irb() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--examples"
+      return
+      ;;
+  esac
+}
+
+_brew_link() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--dry-run --overwrite --force"
+      return
+      ;;
+  esac
+  __brew_complete_installed
+}
+
+_brew_list() {
+  local allopts="--unbrewed --verbose --pinned --versions --multiple"
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+
+  case "$cur" in
+    -*)
+      # most options to brew-list are mutually exclusive
+      if __brewcomp_words_include "--unbrewed"
+      then
+        return
+      elif __brewcomp_words_include "--verbose"
+      then
+        return
+      elif __brewcomp_words_include "--pinned"
+      then
+        return
+      # --multiple only applies with --versions
+      elif __brewcomp_words_include "--multiple"
+      then
+        __brewcomp "--versions"
+        return
+      elif __brewcomp_words_include "--versions"
+      then
+        __brewcomp "--multiple"
+        return
+      else
+        __brewcomp "$allopts"
+        return
+      fi
+      ;;
+  esac
+
+  # --multiple excludes formulae and *implies* --versions...
+  if __brewcomp_words_include "--multiple"
+  then
+    __brewcomp "--versions"
+  else
+    __brew_complete_installed
+  fi
+}
+
+_brew_log() {
+  # if git-completion is loaded, then we complete git-log options
+  declare -F _git_log >/dev/null || return
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "
+        $__git_log_common_options
+        $__git_log_shortlog_options
+        $__git_log_gitk_options
+        $__git_diff_common_options
+        --walk-reflogs --graph --decorate
+        --abbrev-commit --oneline --reverse
+        "
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_man() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--link --server --verbose"
+      return
+      ;;
+  esac
+}
+
+_brew_options() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--all --compact --installed"
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_outdated() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--quiet --json=v1 --fetch-HEAD"
+      return
+      ;;
+  esac
+  __brewcomp_null
+}
+
+_brew_postinstall() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--debug --verbose --force --help"
+      return
+      ;;
+  esac
+  __brew_complete_installed
+}
+
+_brew_pull() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "
+        --bintray-org
+        --bottle
+        --branch-okay
+        --bump
+        --clean
+        --ignore-whitespace
+        --no-pbcopy
+        --no-publish
+        --resolve
+        --test-bot-user
+        --warn-on-publish-failure
+      "
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_readall() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--aliases --syntax"
+      return
+      ;;
+  esac
+  __brew_complete_tapped
+}
+
+_brew_search() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--casks --debian --desc --fedora --fink --macports --opensuse --ubuntu"
+      return
+      ;;
+  esac
+  __brewcomp_null
+}
+
+_brew_style() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--fix --display-cop-names --only-cops --except-cops"
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_switch() {
+  case "$COMP_CWORD" in
+    2)  __brew_complete_installed ;;
+    3)  __brew_complete_versions "${COMP_WORDS[COMP_CWORD-1]}" ;;
+    *)  ;;
+  esac
+}
+
+_brew_tap() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--full --force-auto-update --repair --list-pinned"
+      return
+      ;;
+  esac
+  __brewcomp_null
+}
+
+_brew_tap_info() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--installed --json=v1"
+      return
+      ;;
+  esac
+  __brew_complete_tapped
+}
+
+_brew_tap_new() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--verbose"
+      return
+      ;;
+  esac
+}
+
+_brew_tap_unpin() {
+  __brewcomp "$(brew tap --list-pinned)"
+}
+
+_brew_tests() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--verbose"
+      return
+      ;;
+  esac
+}
+
+_brew_uninstall() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--force"
+      return
+      ;;
+  esac
+  __brew_complete_installed
+}
+
+_brew_unpack() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--git --patch --destdir="
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+_brew_update() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--rebase --verbose"
+      return
+      ;;
+  esac
+}
+
+_brew_upgrade() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local prv="$(__brewcomp_prev)"
+
+  case "$cur" in
+    -*)
+      __brewcomp "
+        --all
+        --build-from-source --build-bottle --force-bottle
+        --cleanup
+        --debug
+        --verbose
+        --fetch-HEAD
+        --display-times
+        "
+      return
+      ;;
+  esac
+  __brew_complete_outdated
+}
+
+_brew_uses() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "--installed --recursive --include-build --include-test --include-optional --skip-recommended --devel --HEAD"
+      return
+      ;;
+  esac
+  __brew_complete_formulae
+}
+
+__brew_caskcomp_words_include ()
+{
+    local i=1
+    while [[ $i -lt $COMP_CWORD ]]; do
+        if [[ "${COMP_WORDS[i]}" = "$1" ]]; then
+            return 0
+        fi
+        (( i++ ))
+    done
+    return 1
+}
+
+# Find the previous non-switch word
+__brew_caskcomp_prev ()
+{
+    local idx=$((COMP_CWORD - 1))
+    local prv="${COMP_WORDS[idx]}"
+    while [[ $prv == -* ]]; do
+        (( idx-- ))
+        prv="${COMP_WORDS[idx]}"
+    done
+    echo "$prv"
+}
+
+__brew_caskcomp ()
+{
+    # break $1 on space, tab, and newline characters,
+    # and turn it into a newline separated list of words
+    local list s sep=$'\n' IFS=$' \t\n'
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+
+    for s in $1; do
+        __brew_caskcomp_words_include "$s" && continue
+        list="$list$s$sep"
+    done
+
+    IFS="$sep"
+    COMPREPLY=($(compgen -W "$list" -- "$cur"))
+}
+
+# Don't use __brew_caskcomp() in any of the __brew_cask_complete_foo functions, as
+# it is too slow and is not worth it just for duplicate elimination.
+__brew_cask_complete_formulae ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local lib=$(brew --repository)/Library
+    local taps=${lib}/Taps
+    local casks=${lib}/Taps/homebrew/homebrew-cask/Casks
+    local ff=$(\ls ${casks} 2>/dev/null | \sed 's/\.rb//g')
+
+    COMPREPLY=($(compgen -W "$ff" -- "$cur"))
+}
+
+__brew_cask_complete_installed ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local inst=$(brew cask list -1)
+    COMPREPLY=($(compgen -W "$inst" -- "$cur"))
+}
+
+__brew_cask_complete_caskroom ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local caskroom_dir="$(brew --prefix)/Caskroom/"
+    local files=$(\ls ${caskroom_dir} 2>/dev/null)
+    COMPREPLY=($(compgen -W "$files" -- "$cur"))
+}
+
+__brew_cask_complete_outdated ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local greedy=$(__brew_caskcomp_words_include "--greedy" && echo "--greedy")
+    local outdated=$(brew cask outdated --quiet $greedy)
+    COMPREPLY=($(compgen -W "$outdated" -- "$cur"))
+}
+
+_brew_cask_fetch ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prv=$(__brew_caskcomp_prev)
+    case "$cur" in
+    -*)
+        __brew_caskcomp "--force"
+        return
+        ;;
+    esac
+    __brew_cask_complete_formulae
+}
+
+_brew_cask_install ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prv=$(__brew_caskcomp_prev)
+    case "$cur" in
+    -*)
+        __brew_caskcomp "--force --skip-cask-deps --require-sha --language"
+        return
+        ;;
+    esac
+    __brew_cask_complete_formulae
+}
+
+_brew_cask_list ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    case "$cur" in
+    -*)
+        __brew_caskcomp "-1 --versions"
+        return
+        ;;
+    esac
+
+    __brew_cask_complete_installed
+}
+
+_brew_cask_outdated ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    case "$cur" in
+    -*)
+        __brew_caskcomp "--greedy --verbose --quiet"
+        return
+        ;;
+    esac
+    __brew_cask_complete_installed
+}
+
+_brew_cask_style ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    case "$cur" in
+    -*)
+        __brew_caskcomp "--fix"
+        return
+        ;;
+    esac
+    __brew_cask_complete_installed
+}
+
+_brew_cask_uninstall ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    case "$cur" in
+    -*)
+        __brew_caskcomp "--force"
+        return
+        ;;
+    esac
+    __brew_cask_complete_installed
+}
+
+_brew_cask_upgrade ()
+{
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    case "$cur" in
+    -*)
+        __brew_caskcomp "--force --greedy"
+        return
+        ;;
+    esac
+    __brew_cask_complete_outdated
+}
+
+_brew_cask ()
+{
+    local i=1 cmd
+
+    # find the subcommand
+    while [[ $i -lt $COMP_CWORD ]]; do
+        local s="${COMP_WORDS[i]}"
+        case "$s" in
+        --*)
+            cmd="$s"
+            break
+            ;;
+        -*)
+            ;;
+        cask)
+            ;;
+        *)
+            cmd="$s"
+            break
+            ;;
+        esac
+        (( i++ ))
+    done
+
+    if [[ $i -eq $COMP_CWORD ]]; then
+        __brew_caskcomp "abv audit cat create doctor edit fetch home info install list ls outdated reinstall remove rm search style uninstall upgrade zap -S --force --verbose --appdir --colorpickerdir --prefpanedir --qlplugindir --fontdir --servicedir --input_methoddir --internet_plugindir --screen_saverdir --no-binaries --debug --version"
+        return
+    fi
+
+    # subcommands have their own completion functions
+    case "$cmd" in
+      --version)              __brewcomp_null ;;
+      audit)                  __brew_cask_complete_formulae ;;
+      cat)                    __brew_cask_complete_formulae ;;
+      create)                 ;;
+      doctor)                 __brewcomp_null ;;
+      edit)                   __brew_cask_complete_formulae ;;
+      fetch)                  _brew_cask_fetch ;;
+      home)                   __brew_cask_complete_formulae ;;
+      info|abv)               __brew_cask_complete_formulae ;;
+      install|instal)         _brew_cask_install ;;
+      list|ls)                _brew_cask_list ;;
+      outdated)               _brew_cask_outdated ;;
+      reinstall)              __brew_cask_complete_installed ;;
+      search)                 __brewcomp_null ;;
+      style)                  _brew_cask_style ;;
+      uninstall|remove|rm)    _brew_cask_uninstall ;;
+      upgrade)                _brew_cask_upgrade ;;
+      zap)                    __brew_cask_complete_caskroom ;;
+      *)                      ;;
+    esac
+}
+
+_brew() {
+  local i=1 cmd
+
+  # find the subcommand
+  while [[ "$i" -lt "$COMP_CWORD" ]]
+  do
+    local s="${COMP_WORDS[i]}"
+    case "$s" in
+      --*)
+        cmd="$s"
+        break
+        ;;
+      -*)
+        ;;
+      *)
+        cmd="$s"
+        break
+        ;;
+    esac
+    (( i++ ))
+  done
+
+  if [[ "$i" -eq "$COMP_CWORD" ]]
+  then
+    __brew_complete_commands
+    return
+  fi
+
+  # subcommands have their own completion functions
+  case "$cmd" in
+    --cache)                    __brew_complete_formulae ;;
+    --cellar)                   __brew_complete_formulae ;;
+    --prefix)                   __brew_complete_formulae ;;
+    analytics)                  _brew_analytics ;;
+    audit)                      __brew_complete_formulae ;;
+    bottle)                     _brew_bottle ;;
+    cask)                       _brew_cask ;;
+    cat)                        __brew_complete_formulae ;;
+    cleanup)                    _brew_cleanup ;;
+    command)                    __brew_complete_commands ;;
+    create)                     _brew_create ;;
+    deps)                       _brew_deps ;;
+    desc)                       _brew_desc ;;
+    diy|configure)              _brew_diy ;;
+    doctor|dr)                  _brew_doctor ;;
+    edit)                       __brew_complete_formulae ;;
+    fetch)                      _brew_fetch ;;
+    gist-logs)                  _brew_gist_logs ;;
+    help)                       __brew_complete_commands ;;
+    home|homepage)              __brew_complete_formulae ;;
+    info|abv)                   _brew_info ;;
+    install|instal)             _brew_install ;;
+    irb)                        _brew_irb ;;
+    link|ln)                    _brew_link ;;
+    list|ls)                    _brew_list ;;
+    log)                        _brew_log ;;
+    man)                        _brew_man ;;
+    missing)                    __brew_complete_formulae ;;
+    options)                    _brew_options ;;
+    outdated)                   _brew_outdated ;;
+    pin)                        __brew_complete_formulae ;;
+    postinstall)                _brew_postinstall ;;
+    prof)                       __brew_complete_commands ;;
+    pull)                       _brew_pull ;;
+    readall)                    _brew_readall ;;
+    reinstall)                  _brew_install ;;
+    search|-S)                  _brew_search ;;
+    style)                      _brew_style ;;
+    switch)                     _brew_switch ;;
+    tap)                        _brew_tap ;;
+    tap-info)                   _brew_tap_info ;;
+    tap-pin)                    __brew_complete_tapped ;;
+    tap-new)                    _brew_tap_new ;;
+    tap-unpin)                  _brew_tap_unpin ;;
+    test)                       __brew_complete_installed ;;
+    tests)                      _brew_tests ;;
+    uninstall|remove|rm)        _brew_uninstall ;;
+    unlink)                     __brew_complete_installed ;;
+    unpack)                     _brew_unpack ;;
+    unpin)                      __brew_complete_formulae ;;
+    untap)                      __brew_complete_tapped ;;
+    update|up)                  _brew_update ;;
+    upgrade)                    _brew_upgrade ;;
+    uses)                       _brew_uses ;;
+    *)                          ;;
+  esac
+}
+
+# keep around for compatibility
+_brew_to_completion() {
+  _brew
+}
+
+complete -o bashdefault -o default -F _brew brew
