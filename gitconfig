@@ -5,7 +5,7 @@
     default = simple
 [core]
     autocrlf       = input
-    pager          = delta
+    pager          = delta -s --line-numbers-minus-style 238 --line-numbers-plus-style 2
     untrackedCache = true
 [color]
     ui = auto
