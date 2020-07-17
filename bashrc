@@ -174,7 +174,9 @@ brew_config() {
 
     export BREW_PREFIX=$(brew --prefix)
 
-    # Manually load Bash completions (only needed for Mac).
+    # Manually load Bash Completion, only needed for Mac since we don't Brew
+    # install Bash Completion in Linux, we use the system supplied version
+    # instead on that platform.
     if [[ $OS = Darwin ]]; then
         # Only source version 2 bash_completion.
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
@@ -215,9 +217,14 @@ custom_config() {
         return
     fi
 
-    # Make 'g' alias to 'git' work with bash-completion.
-    complete -o default -o nospace -F _git g
+    # Make 'g' alias to 'git' work with Bash Completion.
+    if [[ $OS == Linux ]]; then
+        # Need to manually load Bash completions otherwise '_completion_loader'
+        # may fail with a command not found error.
+        . /usr/share/bash-completion/bash_completion
+    fi
     _completion_loader git
+    complete -o default -o nospace -F _git g
 
     # Custom Bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
