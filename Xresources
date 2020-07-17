@@ -22,7 +22,7 @@ xterm-moonfly*color4: #80a0ff
 xterm-moonfly*color5: #d183e8
 
 ! Turquoise (usually defined as 'Cyan')
-xterm-moonfly*color6: #7ee0ce
+xterm-moonfly*color6: #79dac8
 
 ! Orange (usally defined as 'White')
 xterm-moonfly*color7: #de935f
