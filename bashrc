@@ -176,7 +176,7 @@ brew_config() {
 
     # Manually load Bash Completion, only needed for Mac since we don't Brew
     # install Bash Completion in Linux, we use the system supplied version
-    # instead on that platform.
+    # instead.
     if [[ $OS = Darwin ]]; then
         # Only source version 2 bash_completion.
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
@@ -186,8 +186,35 @@ brew_config() {
     _Z_NO_PROMPT_COMMAND=1
     . $BREW_PREFIX/etc/profile.d/z.sh
 
-    # 'fzf' configuration.
+    # 'fzf' utility.
     . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
+}
+
+custom_config() {
+    # For non-interactive shells, such as 'scp', don't bother with any of these
+    # customizations.
+    if ! [[ "$-" =~ "i" ]]; then
+        return
+    fi
+
+    # Make 'g' alias to 'git' work with Bash Completion.
+    if [[ $OS == Linux ]]; then
+        # In Linux we need to manually source the Bash git completion otherwise
+        # the next 'complete -o default...' statement will fail with a
+        # "function '_git' not found" error. Refer to: https://is.gd/Kp7mf0
+        . /usr/share/bash-completion/completions/git
+    fi
+    complete -o default -o nospace -F _git g
+
+    # Custom Bash completions.
+    for f in ~/dotfiles/bash_completion.d/*; do . $f; done
+    # Note: debugging Bash completions:
+    # % complete | grep <<completion-of-interest>>
+
+    # 'broot' function.
+    . ~/dotfiles/profile.d/br.sh
+
+    # 'fzf' configuration.
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
@@ -202,40 +229,12 @@ brew_config() {
     export FZF_CTRL_T_OPTS='--preview "bat --color=always --line-range :500 {}"'
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
     export FZF_ALT_C_OPTS='--preview "tree -C {} | head -100"'
-    # This is an undocumented environment variable for use by fzf.vim, see:
-    # https://github.com/junegunn/fzf.vim/pull/707
-    export FZF_PREVIEW_COMMAND='bat --color=always {}'
-
-    # 'bat' configuration.
-    export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
-}
-
-custom_config() {
-    # For non-interactive shells, such as 'scp', don't bother with any of these
-    # customizations.
-    if ! [[ "$-" =~ "i" ]]; then
-        return
-    fi
-
-    # Make 'g' alias to 'git' work with Bash Completion.
-    if [[ $OS == Linux ]]; then
-        # Need to manually load Bash completions otherwise '_completion_loader'
-        # may fail with a command not found error.
-        . /usr/share/bash-completion/bash_completion
-    fi
-    _completion_loader git
-    complete -o default -o nospace -F _git g
-
-    # Custom Bash completions.
-    for f in ~/dotfiles/bash_completion.d/*; do . $f; done
-    # Debugging Bash completions:
-    # % complete | grep <<completion-of-interest>>
-
-    # 'broot' function.
-    . ~/dotfiles/profile.d/br.sh
 
     # 'zfz' (https://github.com/changyuheng/fz) utility.
     . ~/dotfiles/profile.d/zfz.sh
+
+    # 'bat' configuration.
+    export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
 }
 
 dev_config() {
