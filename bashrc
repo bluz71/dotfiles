@@ -174,7 +174,7 @@ brew_config() {
 
     export BREW_PREFIX=$(brew --prefix)
 
-    # Manually load Bash Completion, only needed for Mac since we don't Brew
+    # Manually load Bash Completion, only needed for Mac since we don't brew
     # install Bash Completion in Linux, we use the system supplied version
     # instead.
     if [[ $OS = Darwin ]]; then
