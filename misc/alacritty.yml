@@ -3,7 +3,7 @@
 window:
   # Window dimensions (changes require restart)
   dimensions:
-    columns: 86
+    columns: 88
     lines: 56
 
   # Window padding (changes require restart)
@@ -47,18 +47,18 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '#080808'
-    foreground: '#b2b2b2'
+    background:        '#080808'
+    foreground:        '#b2b2b2'
     bright_foreground: '#eeeeee'
 
   # Cursor colors
   cursor:
-    text: '#080808'
+    text:   '#080808'
     cursor: '#9e9e9e'
 
   # Selection colors
   selection:
-    text: '#080808'
+    text:       '#080808'
     background: '#b2ceee'
 
   # Normal colors
