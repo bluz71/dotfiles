@@ -6,7 +6,11 @@ let g:vimfiler_marked_file_icon           = '●'
 let g:vimfiler_readonly_file_icon         = ''
 let g:vimfiler_tree_closed_icon           = '▷'
 let g:vimfiler_tree_leaf_icon             = ' '
-let g:vimfiler_tree_opened_icon           = '▼'
+if empty(eval('$VTE_VERSION'))
+    let g:vimfiler_tree_opened_icon       = "◢"
+else " GNOME Terminal bug, see https://is.gd/5vTfFY
+    let g:vimfiler_tree_opened_icon       = '▼'
+endif
 
 noremap <silent> <Leader>n :VimFilerExplorer -toggle<CR> <C-w>=
 noremap <silent> <Leader>f :VimFilerExplorer -find<CR>   <C-w>=
