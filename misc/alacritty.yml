@@ -49,6 +49,7 @@ colors:
   primary:
     background: '#080808'
     foreground: '#b2b2b2'
+    bright_foreground: '#eeeeee'
 
   # Cursor colors
   cursor:
