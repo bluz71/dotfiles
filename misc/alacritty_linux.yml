@@ -44,9 +44,6 @@ font:
     x: 0
     y: 0
 
-  # Thin stroke font rendering (macOS only)
-  use_thin_strokes: true
-
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
@@ -103,11 +100,8 @@ mouse:
 # Key bindings
 key_bindings:
   - { key: Return,   mods: Alt,           action: ToggleFullscreen }
-  - { key: Return,   mods: Command,       action: ToggleFullscreen }
   - { key: C,        mods: Control|Shift, action: Copy             }
-  - { key: C,        mods: Command,       action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: V,        mods: Command,       action: Paste            }
   - { key: PageUp,   mods: Control|Shift, action: ScrollPageUp     }
   - { key: PageDown, mods: Control|Shift, action: ScrollPageDown   }
   - { key: Up,       mods: Control|Shift, action: ScrollLineUp     }
@@ -115,8 +109,5 @@ key_bindings:
   - { key: Home,     mods: Control|Shift, action: ScrollToTop      }
   - { key: End,      mods: Control|Shift, action: ScrollToBottom   }
   - { key: Q,        mods: Control|Shift, action: Quit             }
-  - { key: Q,        mods: Command,       action: Quit             }
   - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Equals,   mods: Command,       action: IncreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
-  - { key: Minus,    mods: Command,       action: DecreaseFontSize }
