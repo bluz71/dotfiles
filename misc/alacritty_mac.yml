@@ -122,8 +122,18 @@ key_bindings:
   - { key: End,      mods: Control|Shift, action: ScrollToBottom   }
   - { key: Equals,   mods: Command,       action: IncreaseFontSize }
   - { key: Minus,    mods: Command,       action: DecreaseFontSize }
-  - { key: L,        mods: Alt,           chars: "\x1bl" }
   - { key: B,        mods: Alt,           chars: "\x1bb" }
+  - { key: B,        mods: Alt|Shift,     chars: "\x1bB" }
+  - { key: D,        mods: Alt,           chars: "\x1bd" }
+  - { key: D,        mods: Alt|Shift,     chars: "\x1bD" }
+  - { key: E,        mods: Alt,           chars: "\x1be" }
+  - { key: F,        mods: Alt,           chars: "\x1bf" }
+  - { key: F,        mods: Alt|Shift,     chars: "\x1bF" }
+  - { key: L,        mods: Alt,           chars: "\x1bl" }
+  - { key: P,        mods: Alt,           chars: "\x1bp" }
+  - { key: Q,        mods: Control,       chars: "\x11" }
+  - { key: U,        mods: Alt,           chars: "\x1bu" }
+  - { key: Key0,     mods: Alt,           chars: "\x1b0" }
   - { key: Key1,     mods: Alt,           chars: "\x1b1" }
   - { key: Key2,     mods: Alt,           chars: "\x1b2" }
   - { key: Key3,     mods: Alt,           chars: "\x1b3" }
