@@ -8,8 +8,6 @@
 # Alt-d: delete forward word
 # Alt-D: delete forward a big word
 # Alt-<backspace>: delete backward word
-# Alt-$: delete till end of line
-# Alt-0: delete till start of line
 # Alt-u: undo last edit
 # Alt-e: edit the current command in $EDITOR and execute
 # Alt-.: append last parameter from previous command
@@ -20,8 +18,6 @@
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\el": clear-screen
-"\e$": kill-line
-"\e0": backward-kill-line
 "\eB": vi-backward-bigword
 "\eF": vi-forward-bigword
 "\eD": "\eF\C-w"
