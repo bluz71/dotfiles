@@ -21,7 +21,7 @@ scrolling:
   history: 10000
 
   # Scrolling distance multiplier.
-  multiplier: 6
+  multiplier: 5
 
 # Font configuration
 font:
@@ -66,41 +66,41 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '#080808'
-    foreground: '#b2b2b2'
+    background:        '#080808'
+    foreground:        '#b2b2b2'
     bright_foreground: '#eeeeee'
 
   # Cursor colors
   cursor:
-    text: '#080808'
+    text:   '#080808'
     cursor: '#9e9e9e'
 
   # Selection colors
   selection:
-    text: '#080808'
+    text:       '#080808'
     background: '#b2ceee'
 
   # Normal colors
   normal:
-    black: '#373c40'
-    red: '#ff5454'
-    green: '#8cc85f'
-    yellow: '#e3c78a'
-    blue: '#80a0ff'
+    black:   '#373c40'
+    red:     '#ff5454'
+    green:   '#8cc85f'
+    yellow:  '#e3c78a'
+    blue:    '#80a0ff'
     magenta: '#d183e8'
-    cyan: '#79dac8'
-    white: '#a1aab8'
+    cyan:    '#79dac8'
+    white:   '#a1aab8'
 
   # Bright colors
   bright:
-    black: '#7c8f8f'
-    red: '#f74782'
-    green: '#42cf89'
-    yellow: '#bfbf97'
-    blue: '#78c2ff'
+    black:   '#7c8f8f'
+    red:     '#f74782'
+    green:   '#42cf89'
+    yellow:  '#bfbf97'
+    blue:    '#78c2ff'
     magenta: '#ae81ff'
-    cyan: '#85dc85'
-    white: '#e2637f'
+    cyan:    '#85dc85'
+    white:   '#e2637f'
 
 # Live config reload (changes require restart)
 live_config_reload: true
@@ -111,35 +111,35 @@ mouse:
 
 # Key bindings
 key_bindings:
-  - { key: Return,   mods: Command,       action: ToggleFullscreen }
-  - { key: C,        mods: Command,       action: Copy             }
-  - { key: V,        mods: Command,       action: Paste            }
-  - { key: PageUp,   mods: Control|Shift, action: ScrollPageUp     }
-  - { key: PageDown, mods: Control|Shift, action: ScrollPageDown   }
-  - { key: Up,       mods: Control|Shift, action: ScrollLineUp     }
-  - { key: Down,     mods: Control|Shift, action: ScrollLineDown   }
-  - { key: Home,     mods: Control|Shift, action: ScrollToTop      }
-  - { key: End,      mods: Control|Shift, action: ScrollToBottom   }
-  - { key: Equals,   mods: Command,       action: IncreaseFontSize }
-  - { key: Minus,    mods: Command,       action: DecreaseFontSize }
-  - { key: B,        mods: Alt,           chars: "\x1bb" }
-  - { key: B,        mods: Alt|Shift,     chars: "\x1bB" }
-  - { key: D,        mods: Alt,           chars: "\x1bd" }
-  - { key: D,        mods: Alt|Shift,     chars: "\x1bD" }
-  - { key: E,        mods: Alt,           chars: "\x1be" }
-  - { key: F,        mods: Alt,           chars: "\x1bf" }
-  - { key: F,        mods: Alt|Shift,     chars: "\x1bF" }
-  - { key: L,        mods: Alt,           chars: "\x1bl" }
-  - { key: P,        mods: Alt,           chars: "\x1bp" }
-  - { key: Q,        mods: Control,       chars: "\x11" }
-  - { key: U,        mods: Alt,           chars: "\x1bu" }
-  - { key: Key0,     mods: Alt,           chars: "\x1b0" }
-  - { key: Key1,     mods: Alt,           chars: "\x1b1" }
-  - { key: Key2,     mods: Alt,           chars: "\x1b2" }
-  - { key: Key3,     mods: Alt,           chars: "\x1b3" }
-  - { key: Key4,     mods: Alt,           chars: "\x1b4" }
-  - { key: Key5,     mods: Alt,           chars: "\x1b5" }
-  - { key: Key6,     mods: Alt,           chars: "\x1b6" }
-  - { key: Key7,     mods: Alt,           chars: "\x1b7" }
-  - { key: Key8,     mods: Alt,           chars: "\x1b8" }
-  - { key: Key9,     mods: Alt,           chars: "\x1b9" }
+  - { key: Return,   mods: Command,   action: ToggleFullscreen }
+  - { key: C,        mods: Command,   action: Copy             }
+  - { key: V,        mods: Command,   action: Paste            }
+  - { key: N,        mods: Command,   action: SpawnNewInstance }
+  - { key: PageUp,   mods: Command,   action: ScrollPageUp     }
+  - { key: PageDown, mods: Command,   action: ScrollPageDown   }
+  - { key: Up,       mods: Command,   action: ScrollLineUp     }
+  - { key: Down,     mods: Command,   action: ScrollLineDown   }
+  - { key: Left,     mods: Command,   action: ScrollToTop      }
+  - { key: Right,    mods: Command,   action: ScrollToBottom   }
+  - { key: Equals,   mods: Command,   action: IncreaseFontSize }
+  - { key: Minus,    mods: Command,   action: DecreaseFontSize }
+  - { key: B,        mods: Alt,       chars: "\x1bb" }
+  - { key: B,        mods: Alt|Shift, chars: "\x1bB" }
+  - { key: D,        mods: Alt,       chars: "\x1bd" }
+  - { key: D,        mods: Alt|Shift, chars: "\x1bD" }
+  - { key: E,        mods: Alt,       chars: "\x1be" }
+  - { key: F,        mods: Alt,       chars: "\x1bf" }
+  - { key: F,        mods: Alt|Shift, chars: "\x1bF" }
+  - { key: L,        mods: Alt,       chars: "\x1bl" }
+  - { key: P,        mods: Alt,       chars: "\x1bp" }
+  - { key: Q,        mods: Control,   chars: "\x11" }
+  - { key: U,        mods: Alt,       chars: "\x1bu" }
+  - { key: Key1,     mods: Alt,       chars: "\x1b1" }
+  - { key: Key2,     mods: Alt,       chars: "\x1b2" }
+  - { key: Key3,     mods: Alt,       chars: "\x1b3" }
+  - { key: Key4,     mods: Alt,       chars: "\x1b4" }
+  - { key: Key5,     mods: Alt,       chars: "\x1b5" }
+  - { key: Key6,     mods: Alt,       chars: "\x1b6" }
+  - { key: Key7,     mods: Alt,       chars: "\x1b7" }
+  - { key: Key8,     mods: Alt,       chars: "\x1b8" }
+  - { key: Key9,     mods: Alt,       chars: "\x1b9" }
