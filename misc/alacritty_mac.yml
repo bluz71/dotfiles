@@ -105,6 +105,12 @@ colors:
 # Live config reload (changes require restart)
 live_config_reload: true
 
+# Shell
+shell:
+  program: /usr/local/bin/bash
+  args:
+    - --login
+
 mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
