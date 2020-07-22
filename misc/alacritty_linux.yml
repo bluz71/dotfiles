@@ -16,7 +16,7 @@ scrolling:
   history: 10000
 
   # Scrolling distance multiplier.
-  multiplier: 6
+  multiplier: 5
 
 # Font configuration
 font:
@@ -87,9 +87,6 @@ colors:
     cyan:    '#85dc85'
     white:   '#e2637f'
 
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: false
-
 # Live config reload (changes require restart)
 live_config_reload: true
 
@@ -102,6 +99,7 @@ key_bindings:
   - { key: Return,   mods: Alt,           action: ToggleFullscreen }
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: N,        mods: Control|Shift, action: SpawnNewInstance }
   - { key: PageUp,   mods: Control|Shift, action: ScrollPageUp     }
   - { key: PageDown, mods: Control|Shift, action: ScrollPageDown   }
   - { key: Up,       mods: Control|Shift, action: ScrollLineUp     }
