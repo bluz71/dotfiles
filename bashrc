@@ -178,8 +178,10 @@ brew_config() {
     # install Bash Completion in Linux, we use the system supplied version
     # instead.
     if [[ $OS = Darwin ]]; then
-        # Only source version 2 bash_completion.
+        # Source version 2 Bash completions.
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
+        # Also manually source version 1 Bash git completion.
+        . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
     fi
 
     # 'z' utility.
@@ -199,8 +201,8 @@ custom_config() {
 
     # Make 'g' alias to 'git' work with Bash Completion.
     if [[ $OS == Linux ]]; then
-        # In Linux we need to manually source the Bash git completion otherwise
-        # the next 'complete -o default...' statement will fail with a
+        # We need to manually source the Bash git completion otherwise the
+        # next 'complete -o default...' statement will fail with a
         # "function '_git' not found" error. Refer to: https://is.gd/Kp7mf0
         . /usr/share/bash-completion/completions/git
     fi
