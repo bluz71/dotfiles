@@ -138,6 +138,7 @@ key_bindings:
   - { key: P,        mods: Alt,       chars: "\x1bp" }
   - { key: Q,        mods: Control,   chars: "\x11" }
   - { key: U,        mods: Alt,       chars: "\x1bu" }
+  - { key: W,        mods: Alt,       chars: "\x1bw" }
   - { key: Key1,     mods: Alt,       chars: "\x1b1" }
   - { key: Key2,     mods: Alt,       chars: "\x1b2" }
   - { key: Key3,     mods: Alt,       chars: "\x1b3" }
