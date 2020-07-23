@@ -38,8 +38,7 @@ font:
   # Point size
   size: 12.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought of
-  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  # Offset is the extra space around each character.
   offset:
     x: 0
     y: 0
@@ -106,12 +105,9 @@ key_bindings:
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }
   - { key: N,        mods: Control|Shift, action: SpawnNewInstance }
-  - { key: PageUp,   mods: Control|Shift, action: ScrollPageUp     }
-  - { key: PageDown, mods: Control|Shift, action: ScrollPageDown   }
-  - { key: Up,       mods: Control|Shift, action: ScrollLineUp     }
-  - { key: Down,     mods: Control|Shift, action: ScrollLineDown   }
-  - { key: Home,     mods: Control|Shift, action: ScrollToTop      }
-  - { key: End,      mods: Control|Shift, action: ScrollToBottom   }
-  - { key: Q,        mods: Control|Shift, action: Quit             }
+  - { key: Up,       mods: Control|Shift, action: ScrollPageUp     }
+  - { key: Down,     mods: Control|Shift, action: ScrollPageDown   }
+  - { key: Left,     mods: Control|Shift, action: ScrollToTop      }
+  - { key: Right,    mods: Control|Shift, action: ScrollToBottom   }
   - { key: Equals,   mods: Control,       action: IncreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
