@@ -7,6 +7,7 @@ unalias -a
 alias be='bundle exec'
 alias bs='br --whale-spotting'
 alias cf='fzf_change_directory'
+alias cloc='tokei'
 alias cp='/bin/cp -i'
 alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
 alias dir='ls -l --group-directories-first'
