@@ -13,8 +13,8 @@ window:
 
   # Window padding (changes require restart)
   padding:
-    x: 1
-    y: 1
+    x: 3
+    y: 3
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
