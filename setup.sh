@@ -31,8 +31,8 @@ mkdir -p .config/alacritty
 if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
     ln -s ~/dotfiles/fonts.conf .config/fontconfig/fonts.conf
-    ln -s ~/dotfiles/terminal_themes/Xresources .Xresources
-    ln -s ~/dotfiles/terminal_themes/alacritty_linux.yml .config/alacritty/alacritty.yml
+    ln -s ~/dotfiles/terminal_configs/Xresources .Xresources
+    ln -s ~/dotfiles/terminal_configs/alacritty_linux.yml .config/alacritty/alacritty.yml
 elif [  "$(uname)" = Darwin ]; then
-    ln -s ~/dotfiles/terminal_themes/alacritty_mac.yml .config/alacritty/alacritty.yml
+    ln -s ~/dotfiles/terminal_configs/alacritty_mac.yml .config/alacritty/alacritty.yml
 fi
