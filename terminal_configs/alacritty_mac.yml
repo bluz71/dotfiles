@@ -27,21 +27,21 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Iosevka Custom
+    family: Iosevka Custom Wider
     style: Regular
 
   # Bold font face
   bold:
-    family: Iosevka Custom
+    family: Iosevka Custom Wider
     style: Regular
 
   # Italic font face
   italic:
-    family: Iosevka Custom
+    family: Iosevka Custom Wider
     style: Italic
 
   # Point size
-  size: 13.5
+  size: 13
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
