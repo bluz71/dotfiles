@@ -27,17 +27,17 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: Iosevka Custom Wider
+    family: Iosevka Custom
     style: Regular
 
   # Bold font face
   bold:
-    family: Iosevka Custom Wider
+    family: Iosevka Custom
     style: Regular
 
   # Italic font face
   italic:
-    family: Iosevka Custom Wider
+    family: Iosevka Custom
     style: Italic
 
   # Point size
@@ -104,6 +104,10 @@ colors:
 
 # Live config reload (changes require restart)
 live_config_reload: true
+
+# Bell
+bell:
+  command: None
 
 # Shell
 shell:

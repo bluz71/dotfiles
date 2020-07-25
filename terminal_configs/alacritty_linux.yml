@@ -89,6 +89,10 @@ colors:
 # Live config reload (changes require restart)
 live_config_reload: true
 
+# Bell
+bell:
+  command: None
+
 # Shell
 shell:
   program: /bin/bash
