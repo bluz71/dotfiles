@@ -15,6 +15,3 @@ let b:pear_tree_pairs = {
             \          'until':    '[^a-zA-Z0-9-._]'
             \        },
             \ }
-
-" Do 'tagnameonly' match-up for eruby files.
-runtime after/ftplugin/html_matchup.vim

@@ -172,6 +172,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'ajh17/VimCompletesMe'
+Plug 'gregsexton/MatchTag'
 Plug 'mhinz/vim-grepper'
     " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
     " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
@@ -179,8 +180,6 @@ Plug 'chaoren/vim-wordmotion'
     " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tmsvg/pear-tree'
     " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
-Plug 'andymass/vim-matchup', { 'for':  ['eruby', 'html', 'javascript', 'xml'] }
-    " ~/dotfiles/vim/plugin/matchup.vim - options
 Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
 Plug 'rhysd/clever-f.vim'
