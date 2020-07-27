@@ -1,3 +1,8 @@
+" Do NOT initiate ALE when doing short-lived diffs.
+if &diff
+    finish
+endif
+
 let g:ale_fixers = {
  \  'css':        ['prettier'],
  \  'dart':       ['dartfmt'],

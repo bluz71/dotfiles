@@ -1,3 +1,8 @@
+" Do NOT initiate LSC when doing short-lived diffs.
+if &diff
+    finish
+endif
+
 let g:lsc_server_commands = {
  \  'dart': {
  \    'command': expand('dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp'),
