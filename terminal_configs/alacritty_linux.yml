@@ -110,7 +110,7 @@ mouse:
 
 # Key bindings
 key_bindings:
-  #- { key: Escape,   mods: Control|Shift, action: ToggleViMode     }
+  #- { key: Escape,   mods: Control,       action: ToggleViMode     }
   - { key: Return,   mods: Alt,           action: ToggleFullscreen }
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }

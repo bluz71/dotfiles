@@ -126,7 +126,7 @@ mouse:
 
 # Key bindings
 key_bindings:
-  - { key: Escape,   mods: Command,   action: ToggleViMode     }
+  - { key: Escape,   mods: Control,   action: ToggleViMode     }
   - { key: Return,   mods: Command,   action: ToggleFullscreen }
   - { key: C,        mods: Command,   action: Copy             }
   - { key: V,        mods: Command,   action: Paste            }
