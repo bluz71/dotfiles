@@ -1,2 +1,2 @@
-" Load the match tag plugin for JSX syntax.
-runtime! ftplugin/html.vim
+" Load the MatchTag plugin 'html.vim' for JSX highlighting.
+runtime ftplugin/html.vim
