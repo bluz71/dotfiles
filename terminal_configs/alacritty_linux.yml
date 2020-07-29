@@ -59,6 +59,11 @@ colors:
     text:   '#080808'
     cursor: '#9e9e9e'
 
+  # Vi mode cursor colors
+  #vi_mode_cursor:
+  #  text:   '#080808'
+  #  cursor: '#80a0ff'
+
   # Selection colors
   selection:
     text:       '#080808'
@@ -105,6 +110,7 @@ mouse:
 
 # Key bindings
 key_bindings:
+  #- { key: Escape,   mods: Control|Shift, action: ToggleViMode     }
   - { key: Return,   mods: Alt,           action: ToggleFullscreen }
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }
