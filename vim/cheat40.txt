@@ -158,7 +158,7 @@ React test files         ‹Spc›et       N
 Most recently used       ‹Spc›m        N
 }}}
 vimfiler Plugin Mapping {{{
-Toggle filer             ,n            N
+Toggle drawer            ,d            N
 Find & reveal file       ,f           %N
 Mark current line        m            *N
 Create new file          N            *N

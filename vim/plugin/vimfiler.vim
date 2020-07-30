@@ -12,5 +12,5 @@ else " GNOME Terminal bug, see https://is.gd/5vTfFY
     let g:vimfiler_tree_opened_icon       = '▼'
 endif
 
-noremap <silent> <Leader>n :VimFilerExplorer -toggle<CR> <C-w>=
+noremap <silent> <Leader>d :VimFilerExplorer -toggle<CR> <C-w>=
 noremap <silent> <Leader>f :VimFilerExplorer -find<CR>   <C-w>=
