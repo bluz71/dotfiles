@@ -1,6 +1,6 @@
 setlocal colorcolumn=0
-setlocal cursorline
 if exists('&cursorlineopt')
     setlocal cursorlineopt=both
 endif
-setlocal matchpairs=
+setlocal nonumber
+setlocal norelativenumber

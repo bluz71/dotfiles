@@ -203,8 +203,8 @@ Plug 'junegunn/fzf.vim'
     " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
 Plug 'pbogut/fzf-mru.vim'
     " ~/dotfiles/vim/plugin/fzf-mru.vim - options, mappings
-Plug 'Shougo/vimfiler.vim' | Plug 'Shougo/unite.vim'
-    " ~/dotfiles/vim/plugin/vimfiler.vim - options, mappings
+Plug 'lambdalisue/fern.vim'
+    " ~/dotfiles/vim/plugin/fern.vim - options, mappings
 
 "-----------------------------
 " Development plugins
