@@ -114,6 +114,9 @@ live_config_reload: true
 bell:
   command: None
 
+# Allow terminal applications to change Alacritty's window title.
+dynamic_title: false
+
 # Shell
 shell:
   program: /usr/local/bin/bash
