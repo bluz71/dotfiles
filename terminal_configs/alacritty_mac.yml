@@ -16,6 +16,9 @@ window:
     x: 3
     y: 3
 
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: false
+
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   history: 10000
@@ -113,9 +116,6 @@ live_config_reload: true
 # Bell
 bell:
   command: None
-
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: false
 
 # Shell
 shell:
