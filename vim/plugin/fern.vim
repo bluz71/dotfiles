@@ -14,3 +14,15 @@ let g:fern#renderer#default#unmarked_symbol     = ''
 noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
 noremap <silent> <Leader>f :Fern . -drawer -reveal=% -width=35<CR><C-w>=
 noremap <silent> <Leader>. :Fern %:h -drawer -width=35<CR><C-w>=
+
+" Disable Netrw.
+let g:loaded_netrw             = 1
+let g:loaded_netrwPlugin       = 1
+let g:loaded_netrwSettings     = 1
+let g:loaded_netrwFileHandlers = 1
+
+" Let fern handle directory paths instead of Netrw.
+augroup FernDirectory
+    autocmd!
+    autocmd BufEnter * ++nested call directory#Open()
+augroup END
