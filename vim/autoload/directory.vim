@@ -5,6 +5,5 @@ function! directory#Open() abort
     if !isdirectory(path)
         return
     endif
-    bwipeout %
     execute 'Fern ' . fnameescape(path)
 endfunction
