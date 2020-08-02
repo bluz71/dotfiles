@@ -11,6 +11,9 @@ window:
     x: 1
     y: 1
 
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: false
+
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   history: 10000
@@ -60,9 +63,9 @@ colors:
     cursor: '#9e9e9e'
 
   # Vi mode cursor colors
-  #vi_mode_cursor:
-  #  text:   '#080808'
-  #  cursor: '#80a0ff'
+  vi_mode_cursor:
+    text:   '#080808'
+    cursor: '#80a0ff'
 
   # Selection colors
   selection:
@@ -98,9 +101,6 @@ live_config_reload: true
 bell:
   command: None
 
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: false
-
 # Shell
 shell:
   program: /bin/bash
@@ -113,7 +113,7 @@ mouse:
 
 # Key bindings
 key_bindings:
-  #- { key: Escape,   mods: Control,       action: ToggleViMode     }
+  - { key: Escape,   mods: Control,       action: ToggleViMode     }
   - { key: Return,   mods: Alt,           action: ToggleFullscreen }
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }
