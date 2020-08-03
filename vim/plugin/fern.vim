@@ -1,4 +1,5 @@
 let g:fern#disable_default_mappings             = 1
+let g:fern#disable_drawer_auto_quit             = 1
 let g:fern#mark_symbol                          = '●'
 let g:fern#renderer#default#collapsed_symbol    = '▷ '
 if empty(eval('$VTE_VERSION'))
@@ -21,7 +22,7 @@ let g:loaded_netrwSettings     = 1
 let g:loaded_netrwFileHandlers = 1
 
 " Let fern handle directory paths instead of Netrw.
-augroup FernDirectory
+augroup FernAutocmds
     autocmd!
     autocmd BufEnter * ++nested call directory#Open()
 augroup END
