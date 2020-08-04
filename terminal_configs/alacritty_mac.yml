@@ -159,3 +159,4 @@ key_bindings:
   - { key: Key7,     mods: Alt,       chars: "\x1b7" }
   - { key: Key8,     mods: Alt,       chars: "\x1b8" }
   - { key: Key9,     mods: Alt,       chars: "\x1b9" }
+  - { key: Period,   mods: Alt,       chars: "\x1b." }
