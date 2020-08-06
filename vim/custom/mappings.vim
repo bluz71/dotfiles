@@ -220,7 +220,7 @@ inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
 "   c - term completion that combines the sources of the 'complete' option
 inoremap <expr> <C-c> pumvisible() ? "\<C-e>\<C-n>": "\<C-n>"
-" Also (see ~/dotfiles/vim/plugin/ultisnips.vim):
+" Also (see ~/dotfiles/vim/plugin/vsnip.vim):
 "   s - snippet completion
 
 "-----------------------------

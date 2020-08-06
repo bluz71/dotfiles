@@ -239,7 +239,7 @@ First error              [W            N
 Last error               ]W            N
 Open location list       ,l            N
 }}}
-Ultisnips Plugin Mappings {{{
+vsnip Plugin Mappings {{{
 Expand snippet           ‹Ctrl-j›      I
 Jump forward             ‹Ctrl-j›      I
 Jump backward            ‹Ctrl-k›      I
