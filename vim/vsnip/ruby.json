@@ -17,14 +17,6 @@
       "end"
     ]
   },
-  "Individual spec": {
-    "prefix": "it",
-    "body": [
-      "it \"$1\" do",
-      "  $2",
-      "end"
-    ]
-  },
   "Rails controller": {
     "prefix": "rc",
     "body": [
@@ -43,6 +35,14 @@
       "# frozen_string_literal: true",
       "",
       "class ${1:Model} < ApplicationRecord",
+      "  $2",
+      "end"
+    ]
+  },
+  "Individual spec": {
+    "prefix": "it",
+    "body": [
+      "it \"$1\" do",
       "  $2",
       "end"
     ]

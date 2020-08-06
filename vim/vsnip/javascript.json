@@ -1,4 +1,10 @@
 {
+  "Console log": {
+    "prefix": "log",
+    "body": [
+      "console.log($1)"
+    ]
+  },
   "Arrow function": {
     "prefix": "af",
     "body": [
@@ -13,36 +19,6 @@
       "${1:function} (${2:args}) {",
       "  $3",
       "}"
-    ]
-  },
-  "Individual test": {
-    "prefix": "it",
-    "body": [
-      "it('$1', () => {",
-      "  $2",
-      "})"
-    ]
-  },
-  "Jest boilerplate": {
-    "prefix": "jest",
-    "body": [
-      "import React from 'react'",
-      "import { shallow } from 'enzyme'",
-      "import ${1:Component} from '../../components/$1'",
-      "",
-      "describe('<$1 />', () => {",
-      "  it('renders without crashing', () => {",
-      "    shallow(<$1 />)",
-      "  })",
-      "",
-      "  $2",
-      "})"
-    ]
-  },
-  "Console log": {
-    "prefix": "log",
-    "body": [
-      "console.log($1)"
     ]
   },
   "React class component": {
@@ -83,6 +59,30 @@
       "//}",
       "",
       "export default $1"
+    ]
+  },
+  "Jest boilerplate": {
+    "prefix": "jest",
+    "body": [
+      "import React from 'react'",
+      "import { shallow } from 'enzyme'",
+      "import ${1:Component} from '../../components/$1'",
+      "",
+      "describe('<$1 />', () => {",
+      "  it('renders without crashing', () => {",
+      "    shallow(<$1 />)",
+      "  })",
+      "",
+      "  $2",
+      "})"
+    ]
+  },
+  "Individual test": {
+    "prefix": "it",
+    "body": [
+      "it('$1', () => {",
+      "  $2",
+      "})"
     ]
   }
 }
