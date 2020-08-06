@@ -223,10 +223,9 @@ Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
 Plug 'janko-m/vim-test'
     " ~/dotfiles/vim/plugin/test.vim - options, mappings
-Plug 'SirVer/ultisnips', { 'for':
-            \ ['dart', 'html', 'javascript', 'markdown', 'ruby'] }
-    " ~/dotfiles/vim/plugin/ultisnips.vim - options, completion mapping
-    " ~/dotfiles/vim/UltiSnips - custom snippets
+Plug 'hrsh7th/vim-vsnip'
+    " ~/dotfiles/vim/plugin/vsnip.vim - options, mappings
+    " ~/dotfiles/vim/vsnip - custom snippets
 
 " Sleuth and EditorConfig will adjust style and indent either heuristically
 " (former) or explicitly (later). Note, EditorConfig will take precedence if
