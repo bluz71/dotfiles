@@ -164,13 +164,13 @@ Mark current line        m            *N
 Create new file          N            *N
 Create new directory     K            *N
 Delete marked entries    D            *N
-Toggle hidden            H             N
-Reload current directory R            *N
-Switch into directory    >            *N
-Switch to parent dir     <            *N
+Rename file              R            *N
 Open in a split          s            *N
 Open in a vsplit         v            *N
-Close drawer             ‹Esc›         N
+Reload current directory r            *N
+Toggle dot files         d             N
+Switch into directory    >            *N
+Switch to parent dir     <            *N
 }}}
 gitgutter Plugin Mappings {{{
 Previous hunk            [g            N
