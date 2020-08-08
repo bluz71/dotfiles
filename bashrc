@@ -72,10 +72,9 @@ alias ?='navi_cheats'
 # Directory navigation.
 alias -- -='cd -'
 alias ..='cd ..'
-alias ..2='..; ..'
-alias ..3='..2; ..'
-alias ..4='..3; ..'
-alias ..5='..4; ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
 
 
 # General environment variables.
@@ -181,8 +180,6 @@ brew_config() {
     if [[ $OS = Darwin ]]; then
         # Source version 2 Bash completions.
         . $BREW_PREFIX/etc/profile.d/bash_completion.sh
-        # Also manually source version 1 Bash git completion.
-        . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
     fi
 
     # 'z' utility.
@@ -194,18 +191,19 @@ brew_config() {
 }
 
 custom_config() {
-    # For non-interactive shells, such as 'scp', don't bother with any of these
-    # customizations.
-    if ! [[ "$-" =~ "i" ]]; then
+    if [[ -z $BREW_PREFIX ]]; then
         return
     fi
 
     # Make 'g' alias to 'git' work with Bash Completion.
+    #
+    # Need to manually source the Bash git completion otherwise the following
+    # 'complete -o default...' statement will fail with a "function '_git' not
+    # found" error. Refer to: https://is.gd/Kp7mf0
     if [[ $OS == Linux ]]; then
-        # We need to manually source the Bash git completion otherwise the
-        # next 'complete -o default...' statement will fail with a
-        # "function '_git' not found" error. Refer to: https://is.gd/Kp7mf0
         . /usr/share/bash-completion/completions/git
+    elif [[ $OS = Darwin ]]; then
+        . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
     fi
     complete -o default -o nospace -F _git g
 
