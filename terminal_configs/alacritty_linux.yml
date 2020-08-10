@@ -72,6 +72,15 @@ colors:
     text:       '#080808'
     background: '#b2ceee'
 
+  # Search colors
+  search:
+    matches:
+      background: '#d0d0d0'
+      foreground: '#080808'
+    bar:
+      background: '#80a0ff'
+      foreground: '#080808'
+
   # Normal colors
   normal:
     black:   '#373c40'
