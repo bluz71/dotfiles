@@ -223,7 +223,7 @@ custom_config() {
       --prompt="❯ "
       --color bg+:#262626,fg+:#dadada,hl:#ae81ff,hl+:#ae81ff
       --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#42cf89
-      --color prompt:#87afff,pointer:#f74782,marker:#f09479
+      --color prompt:#87afff,pointer:#ff5189,marker:#f09479
     '
     export FZF_DEFAULT_COMMAND='fd --type f --color=never'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
