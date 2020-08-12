@@ -1,7 +1,7 @@
 . ~/.bashrc
 
 # Make sure ~/.bash_history has not been truncated
-if [[ $(wc -c ~/.bash_history | cut -d' ' -f1) -lt 10000 ]]; then
+if [[ $(wc -l ~/.bash_history | cut -d' ' -f1) -lt 1000 ]]; then
     echo 'Note: ~/.bash_history appears to be have been truncated.'
 fi
 
