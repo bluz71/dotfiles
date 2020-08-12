@@ -15,6 +15,6 @@ nmap <buffer> R <Plug>(fern-action-move)
 nmap <buffer> s <Plug>(fern-action-open:split)
 nmap <buffer> v <Plug>(fern-action-open:vsplit)
 nmap <buffer> r <Plug>(fern-action-reload)
-nmap <buffer> <nowait> d <Plug>(fern-action-hidden-toggle)j
+nmap <buffer> <nowait> d <Plug>(fern-action-hidden-toggle)
 nmap <buffer> <nowait> < <Plug>(fern-action-leave)
 nmap <buffer> <nowait> > <Plug>(fern-action-enter)
