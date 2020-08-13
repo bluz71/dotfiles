@@ -264,6 +264,11 @@ if has("nvim")
         " ~/dotfiles/vim/plugin/miniyank.vim - mappings
     Plug 'norcalli/nvim-colorizer.lua'
         " ~/dotfiles/vim/after/plugin/nvim-colorizer.vim - options, mappings
+
+    " Workaround for Neovim bug, see:
+    "   https://github.com/neovim/neovim/issues/12587
+    "   https://github.com/lambdalisue/fern.vim/issues/120
+    Plug 'antoinemadec/FixCursorHold.nvim'
 endif
 
 " Finalize vim-plug.
