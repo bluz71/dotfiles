@@ -205,6 +205,8 @@ Plug 'pbogut/fzf-mru.vim'
     " ~/dotfiles/vim/plugin/fzf-mru.vim - options, mappings
 Plug 'lambdalisue/fern.vim'
     " ~/dotfiles/vim/plugin/fern.vim - options, mappings
+Plug 'lambdalisue/fern-git-status.vim'
+    " ~/dotfiles/vim/plugin/fern-git-status.vim - options
 
 "-----------------------------
 " Development plugins
