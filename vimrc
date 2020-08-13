@@ -192,6 +192,7 @@ Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
 Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
+    " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim - options
 
@@ -201,10 +202,12 @@ Plug '907th/vim-auto-save'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
     " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
+    " ~/dotfiles/vim/after/ftplugin/fzf.vim - options
 Plug 'pbogut/fzf-mru.vim'
     " ~/dotfiles/vim/plugin/fzf-mru.vim - options, mappings
 Plug 'lambdalisue/fern.vim'
     " ~/dotfiles/vim/plugin/fern.vim - options, mappings
+    " ~/dotfiles/vim/after/ftplugin/fern.vim - options
 Plug 'lambdalisue/fern-git-status.vim'
     " ~/dotfiles/vim/plugin/fern-git-status.vim - options
 
