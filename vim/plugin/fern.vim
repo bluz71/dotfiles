@@ -25,6 +25,4 @@ augroup FernAutocmds
     autocmd!
     " Let fern handle directory paths instead of Netrw.
     autocmd BufEnter * ++nested call tree#Open()
-    " Automatically reload when entering fern window.
-    autocmd BufEnter *          call tree#Reload()
 augroup END

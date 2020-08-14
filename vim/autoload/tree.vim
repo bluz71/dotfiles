@@ -7,11 +7,3 @@ function! tree#Open() abort
     endif
     execute 'Fern ' . fnameescape(path)
 endfunction
-
-" Reload directory tree.
-"
-function! tree#Reload() abort
-    if &filetype == "fern"
-        silent execute 'normal r'
-    endif
-endfunction

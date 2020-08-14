@@ -18,3 +18,9 @@ nmap <buffer> r <Plug>(fern-action-reload)
 nmap <buffer> <nowait> d <Plug>(fern-action-hidden-toggle)
 nmap <buffer> <nowait> < <Plug>(fern-action-leave)
 nmap <buffer> <nowait> > <Plug>(fern-action-enter)
+
+augroup FernTypeAutocmds
+    autocmd! * <buffer>
+    " Automatically trigger a reload when entering the fern window.
+    autocmd BufEnter <buffer> silent execute "normal \<Plug>(fern-action-reload)"
+augroup END
