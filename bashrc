@@ -77,7 +77,7 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 # Change permissions aliases.
-alias 664='chmod 644'
+alias 664='chmod 664'
 alias 775='chmod 775'
 
 
