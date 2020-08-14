@@ -6,9 +6,10 @@ unalias -a
 #
 alias be='bundle exec'
 alias bs='br --whale-spotting'
+alias c='clear'
 alias cf='fzf_change_directory'
 alias cloc='tokei'
-alias cp='/bin/cp -i'
+alias cp='/bin/cp -iv'
 alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
 alias dir='ls -l --group-directories-first'
 alias df.='df -h .'
@@ -44,7 +45,7 @@ alias m='less'
 alias mdi='meld 2>/dev/null'
 alias mplayer='mplayer $* 2>/dev/null'
 alias mux='tmuxinator'
-alias mv='/bin/mv -i'
+alias mv='/bin/mv -iv'
 alias p='bat'
 alias pping='prettyping --nolegend'
 alias psu='ps -u $USER -f'
@@ -69,12 +70,15 @@ alias x=exit
 alias ytest='CI=true yarn test --colors'
 # navi cheat sheet alias
 alias ?='navi_cheats'
-# Directory navigation.
+# Change directory aliases.
 alias -- -='cd -'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
+# Change permissions aliases.
+alias 664='chmod 644'
+alias 775='chmod 775'
 
 
 # General environment variables.
