@@ -140,7 +140,7 @@ shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
 
 # Prevent file overwrite on stdout redirection.
 # Use `>|` to force redirection to an existing file.
-set -o noclobber
+#set -o noclobber
 
 # Set the appropriate umask.
 umask 002
@@ -453,3 +453,7 @@ brew_config
 custom_config
 dev_config
 prompt
+
+# Prevent file overwrite on stdout redirection.
+# Use `>|` to force redirection to an existing file.
+set -o noclobber
