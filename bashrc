@@ -28,8 +28,8 @@ alias gtop='glances --disable-bg'
 alias gv='gvim 2> /dev/null'
 alias gu='fzf_git_unadd'
 alias h=history
-alias hdd='history_dedup'
 alias hrg='history | rg'
+alias htr='history_truncate'
 alias l='exa --color=always --group-directories-first'
 alias l1='l --oneline'
 alias l1d='l1 --list-dirs'
@@ -363,10 +363,15 @@ grep_edit() {
     $EDITOR $(rg -l "$1")
 }
 
-history_dedup() {
+history_truncate() {
     # Details: https://is.gd/HPAtE5
     echo "Before: $(du -shL ~/.bash_history)"
+    # Remove previous truncation leftovers.
+    command rm -f /tmp/bash_history
+    # First, remove duplicates:
     tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
+    # Second, remove certain basic commands:
+    sed -e '/^cd/d' -e '/^cp/d' -e '/^mv/d' -e '/^rm/d' -i /tmp/bash_history
     # Use 'cp' instead of 'mv' to deal with symlinked ~/.bash_history. Use
     # 'command' to bypass aliases.
     command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
