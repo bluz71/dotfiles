@@ -113,44 +113,6 @@ export PAGER=less
 # What platform are we running on.
 export OS=`uname`
 
-# History settings.
-HISTCONTROL=ignoreboth:erasedups # Erase duplicates
-HISTFILESIZE=99999               # Max size of history file
-HISTIGNORE=?:??                  # Ignore one and two letter commands
-HISTSIZE=99999                   # Amount of history to save
-# Note, to immediately append to history file see 'prompt' function below.
-
-# Disable /etc/bashrc_Apple_Terminal bash sessions on Mac, it does not play
-# nice with normal bash history. Also, create a ~/.bash_sessions_disable file
-# to be double sure to disable bash sessions.
-export SHELL_SESSION_HISTORY=0
-
-# Enable the useful Bash features:
-#  - autocd, no need to type 'cd' when changing directory
-#  - cdspell, automatically fix directory typos when changing directory
-#  - direxpand, automatically expand directory globs when completing
-#  - dirspell, automatically fix directory typos when completing
-#  - globstar, ** recursive glob
-#  - histappend, append to history, don't overwrite
-#  - histverify, expand, but don't automatically execute, history expansions
-#  - nocaseglob, case-insensitive globbing
-#  - no_empty_cmd_completion, don't TAB expand empty lines
-shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
-    nocaseglob no_empty_cmd_completion
-
-# Prevent file overwrite on stdout redirection.
-# Use `>|` to force redirection to an existing file.
-#set -o noclobber
-
-# Set the appropriate umask.
-umask 002
-
-# Use neovim-remote to prevent running neovim within neovim (via `:terminal`).
-if [[ -n $NVIM_LISTEN_ADDRESS ]]; then
-    alias nvim='nvr -cc split'
-    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-fi
-
 # Customizations per platform.
 if [[ $OS = Linux ]]; then
     alias cpa='/bin/cp -i -a'
@@ -445,6 +407,42 @@ prompt() {
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
 
+shell_config() {
+    # History settings.
+    HISTCONTROL=ignoreboth:erasedups # Erase duplicates
+    HISTFILESIZE=99999               # Max size of history file
+    HISTIGNORE=?:??                  # Ignore one and two letter commands
+    HISTSIZE=99999                   # Amount of history to save
+    # Note, to immediately append to history file refer to the 'prompt'
+    # function.
+
+    # Disable /etc/bashrc_Apple_Terminal Bash sessions on Mac, it does not play
+    # nice with normal bash history. Also, create a ~/.bash_sessions_disable
+    # file to be double sure to disable Bash sessions.
+    export SHELL_SESSION_HISTORY=0
+
+
+    # Enable the useful Bash features:
+    #  - autocd, no need to type 'cd' when changing directory
+    #  - cdspell, automatically fix directory typos when changing directory
+    #  - direxpand, automatically expand directory globs when completing
+    #  - dirspell, automatically fix directory typos when completing
+    #  - globstar, ** recursive glob
+    #  - histappend, append to history, don't overwrite
+    #  - histverify, expand, but don't automatically execute, history expansions
+    #  - nocaseglob, case-insensitive globbing
+    #  - no_empty_cmd_completion, don't TAB expand empty lines
+    shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
+        nocaseglob no_empty_cmd_completion
+
+    # Prevent file overwrite on stdout redirection.
+    # Use `>|` to force redirection to an existing file.
+    set -o noclobber
+
+    # Set the appropriate umask.
+    umask 002
+}
+
 
 # Set environment.
 #
@@ -453,7 +451,4 @@ brew_config
 custom_config
 dev_config
 prompt
-
-# Prevent file overwrite on stdout redirection.
-# Use `>|` to force redirection to an existing file.
-set -o noclobber
+shell_config
