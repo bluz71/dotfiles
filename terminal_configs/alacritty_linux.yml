@@ -65,7 +65,7 @@ colors:
   # Vi mode cursor colors
   vi_mode_cursor:
     text:   '#080808'
-    cursor: '#80a0ff'
+    cursor: '#e3c78a'
 
   # Selection colors
   selection:
@@ -75,10 +75,10 @@ colors:
   # Search colors
   search:
     matches:
-      background: '#d0d0d0'
+      background: '#e3c78a'
       foreground: '#080808'
     bar:
-      background: '#80a0ff'
+      background: '#e3c78a'
       foreground: '#080808'
 
   # Normal colors
