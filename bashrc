@@ -115,14 +115,14 @@ export OS=`uname`
 
 # Customizations per platform.
 if [[ $OS = Linux ]]; then
-    alias cpa='/bin/cp -i -a'
+    alias cpa='/bin/cp -iv -a'
     alias free='free -th'
     alias open='xdg-open 2>/dev/null'
     alias scp='/usr/bin/scp'
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
 elif [[ $OS = Darwin ]]; then
-    alias cpa='/usr/local/bin/gcp -i -a'
+    alias cpa='/usr/local/bin/gcp -iv -a'
     alias scp='/usr/local/bin/scp'
     alias ssh='/usr/local/bin/ssh'
     alias ssh-add='/usr/local/bin/ssh-add'
@@ -368,9 +368,9 @@ history_truncate() {
     echo "Before: $(du -shL ~/.bash_history)"
     # Remove previous truncation leftovers.
     command rm -f /tmp/bash_history
-    # First, remove duplicates:
+    # First, remove duplicates.
     tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
-    # Second, remove certain basic commands:
+    # Second, remove certain basic commands.
     sed -e '/^cd/d' -e '/^cp/d' -e '/^mv/d' -e '/^rm/d' -i /tmp/bash_history
     # Use 'cp' instead of 'mv' to deal with symlinked ~/.bash_history. Use
     # 'command' to bypass aliases.
@@ -425,7 +425,6 @@ shell_config() {
     # nice with normal bash history. Also, create a ~/.bash_sessions_disable
     # file to be double sure to disable Bash sessions.
     export SHELL_SESSION_HISTORY=0
-
 
     # Enable the useful Bash features:
     #  - autocd, no need to type 'cd' when changing directory
