@@ -46,6 +46,12 @@ font:
     x: 0
     y: 0
 
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom.
+  glyph_offset:
+    x: 0
+    y: -1
+
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
