@@ -55,7 +55,7 @@ font:
   # the default being at the bottom.
   glyph_offset:
     x: 0
-    y: 2
+    y: 3
 
   # Thin stroke font rendering (macOS only)
   use_thin_strokes: true
