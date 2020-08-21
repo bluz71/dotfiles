@@ -119,3 +119,5 @@
     bsb = bisect bad
     bsg = bisect good
     bsr = bisect reset
+    # misc
+    cloc = !cloc --vcs=git
