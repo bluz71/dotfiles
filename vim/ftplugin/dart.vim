@@ -15,7 +15,7 @@ endfunction
 nnoremap <silent> <Space>r :call FlutterHotReload()<CR>:echo "Flutter reloaded"<CR>
 nnoremap <silent> <Space>R :call FlutterHotRestart()<CR>:echo "Flutter restarted"<CR>
 
-augroup CustomDartAutocmds
+augroup CustomDartEvents
     autocmd!
     autocmd BufWritePost *.dart call FlutterHotReload()
 augroup END

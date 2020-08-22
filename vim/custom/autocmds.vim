@@ -1,4 +1,4 @@
-augroup CustomAutocmds
+augroup CustomEvents
     " Note, 'autocmd!' is used to clear out any existing definitions in
     " this auto-group. This prevents duplicate entries upon a live ~/vimrc
     " reload.
