@@ -136,17 +136,19 @@ mouse:
 
 # Key bindings
 key_bindings:
-  - { key: Escape,   mods: Control,   action: ToggleViMode     }
-  - { key: Return,   mods: Command,   action: ToggleFullscreen }
-  - { key: C,        mods: Command,   action: Copy             }
-  - { key: V,        mods: Command,   action: Paste            }
-  - { key: N,        mods: Command,   action: SpawnNewInstance }
-  - { key: Up,       mods: Command,   action: ScrollPageUp     }
-  - { key: Down,     mods: Command,   action: ScrollPageDown   }
-  - { key: Left,     mods: Command,   action: ScrollToTop      }
-  - { key: Right,    mods: Command,   action: ScrollToBottom   }
-  - { key: Equals,   mods: Command,   action: IncreaseFontSize }
-  - { key: Minus,    mods: Command,   action: DecreaseFontSize }
+  - { key: Escape,   mods: Control,   action: ToggleViMode           }
+  - { key: Return,   mods: Command,   action: ToggleSimpleFullscreen }
+  - { key: C,        mods: Command,   action: Copy                   }
+  - { key: V,        mods: Command,   action: Paste                  }
+  - { key: N,        mods: Command,   action: SpawnNewInstance       }
+  - { key: Up,       mods: Command,   action: ScrollPageUp           }
+  - { key: Down,     mods: Command,   action: ScrollPageDown         }
+  - { key: Left,     mods: Command,   action: ScrollToTop            }
+  - { key: Right,    mods: Command,   action: ScrollToBottom         }
+  - { key: Equals,   mods: Command,   action: IncreaseFontSize       }
+  - { key: Minus,    mods: Command,   action: DecreaseFontSize       }
+  - { key: Q,        mods: Command,   action: ReceiveChar            }
+  - { key: W,        mods: Command,   action: ReceiveChar            }
   - { key: B,        mods: Alt,       chars: "\x1bb" }
   - { key: B,        mods: Alt|Shift, chars: "\x1bB" }
   - { key: D,        mods: Alt,       chars: "\x1bd" }
@@ -156,7 +158,7 @@ key_bindings:
   - { key: F,        mods: Alt|Shift, chars: "\x1bF" }
   - { key: L,        mods: Alt,       chars: "\x1bl" }
   - { key: P,        mods: Alt,       chars: "\x1bp" }
-  - { key: Q,        mods: Control,   chars: "\x11" }
+  - { key: Q,        mods: Control,   chars: "\x11"  }
   - { key: U,        mods: Alt,       chars: "\x1bu" }
   - { key: W,        mods: Alt,       chars: "\x1bw" }
   - { key: Key1,     mods: Alt,       chars: "\x1b1" }
