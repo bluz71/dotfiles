@@ -12,6 +12,13 @@ let g:ale_fixers = {
  \  'scss':       ['prettier'],
  \  'yml':        ['prettier'],
  \}
+let g:ale_fix_on_save_ignore = {
+ \  'css':        ['prettier'],
+ \  'json':       ['prettier'],
+ \  'ruby':       ['standardrb'],
+ \  'scss':       ['prettier'],
+ \  'yml':        ['prettier'],
+ \}
 let g:ale_linters = {
  \  'css':        ['csslint'],
  \  'dart':       ['dart-analysis-server-lsp'],
@@ -23,7 +30,7 @@ let g:ale_linters = {
  \  'yaml':       ['yamllint'],
  \}
 let g:ale_completion_enabled       = 0
-let g:ale_fix_on_save              = 0
+let g:ale_fix_on_save              = 1 " Dart & JavaScript
 let g:ale_lint_on_enter            = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_insert_leave     = 0
