@@ -28,6 +28,9 @@ alias cz='_f() { cd "$@" && _z --add "$(pwd)"; }; _f'
 alias df.='df -h .'
 alias du='du -b'
 alias dus='du_by_size'
+# -- Docker aliases --
+alias d='docker'
+alias dc='docker-compose'
 # -- Git aliases --
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
 alias ga='fzf_git_status add'
@@ -86,7 +89,6 @@ alias psu='ps -u $USER -f'
 alias qmv='qmv -f do'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
-alias sudo='sudo '
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
@@ -184,6 +186,9 @@ custom_config() {
         . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
     fi
     complete -o default -o nospace -F _git g
+    # Also make 'd' and 'dc' Docker aliases work with Bash Completion.
+    complete -F _docker d
+    complete -F _docker_compose dc
 
     # Custom Bash completions.
     for f in ~/dotfiles/bash_completion.d/*; do . $f; done
