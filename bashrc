@@ -33,8 +33,7 @@ alias d='docker'
 alias dc='docker-compose'
 # -- Git aliases --
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
-alias ga='fzf_git_status add'
-alias gd='fzf_git_status diff'
+alias ga='fzf_git_add'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
 alias grl='fzf_git_reflog'
@@ -285,6 +284,22 @@ fzf_find_edit() {
     fi
 }
 
+fzf_git_add() {
+    local selections=$(
+      git status --porcelain | \
+      fzf --ansi \
+          --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
+                         git diff --color=always {2} | delta
+                     else
+                         bat --color=always --line-range :500 {2}
+                     fi'
+      )
+    if [[ -n $selections ]]; then
+        local files=$(echo "$selections" | cut -c 4- | tr '\n' ' ')
+        git add --verbose $files
+    fi
+}
+
 fzf_git_log() {
     local selections=$(
       git ll --color=always "$@" |
@@ -323,26 +338,6 @@ fzf_git_reflog() {
       )
     if [[ -n $selection ]]; then
         git show $(echo $selection | cut -d' ' -f1)
-    fi
-}
-
-fzf_git_status() {
-    local selections=$(
-      git status --porcelain | \
-      fzf --ansi \
-          --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
-                         git diff --color=always {2} | delta
-                     else
-                         bat --color=always --line-range :500 {2}
-                     fi'
-      )
-    if [[ -n $selections ]]; then
-        local files=$(echo "$selections" | cut -c 4- | tr '\n' ' ')
-        if [[ -n $files && "$1" == "add" ]]; then
-            git add --verbose $files
-        elif [[ -n $files && "$1" == "diff" ]]; then
-            git diff $files
-        fi
     fi
 }
 
