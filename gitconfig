@@ -25,6 +25,9 @@
     keepBackup = false
 [advice]
     waitingForEditor = false
+[blame]
+    coloring = highlightRecent
+    date = human
 [delta]
     features     = styles
     syntax-theme = none
