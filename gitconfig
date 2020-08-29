@@ -27,7 +27,7 @@
     waitingForEditor = false
 [blame]
     coloring = highlightRecent
-    date = human
+    date     = human
 [delta]
     features     = styles
     syntax-theme = none
