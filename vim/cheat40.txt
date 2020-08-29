@@ -265,13 +265,6 @@ Run all tests in file    ‹Spc›tf       N
 Run tests suite          ‹Spc›ts       N
 Run last test            ‹Spc›tl       N
 }}}
-Fugitive Plugin Mappings {{{
-Blame                    ‹Spc›B       %N
-Buffer commit log        ‹Spc›C       %N
-Status                   ‹Spc›G        N
-Toggle status staging    -             N
-Status commit            cc            N
-}}}
 Undotree Plugin Mappings {{{
 Toggle Undotree          ,u           %N
 Exit Undotree            ‹Esc›         N

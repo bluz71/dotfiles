@@ -214,6 +214,8 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
+Plug 'airblade/vim-gitgutter'
+    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 Plug 'sheerun/vim-polyglot'
     " ~/dotfiles/vim/plugin/polyglot.vim - options
 Plug 'natebosch/vim-lsc'
@@ -239,14 +241,6 @@ Plug 'tpope/vim-sleuth'
     " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
-
-"-----------------------------
-" Git plugins
-"-----------------------------
-Plug 'tpope/vim-fugitive'
-    " ~/dotfiles/vim/plugin/fugitive.vim - mappings
-Plug 'airblade/vim-gitgutter'
-    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 
 "-----------------------------
 " Misc plugins
