@@ -13,6 +13,9 @@
     tool       = meld
     algorithm  = histogram
     colorMoved = plain
+[color "diff"]
+    newMoved = 12 # pale blue
+    oldMoved = 5  # violet
 [pull]
     rebase = true
 [merge]
@@ -36,7 +39,7 @@
     file-style                   = 11         # pale yellow
     file-decoration-style        = 11 ul ol
     hunk-header-style            = 253        # white
-    hunk-header-decoration-style = 12 box     # pale blue
+    hunk-header-decoration-style = 4 box      # blue
     minus-style                  = 1          # red
     minus-emph-style             = 1 reverse
     plus-style                   = 2          # green
