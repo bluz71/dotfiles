@@ -117,6 +117,10 @@ colors:
     cyan:    '#85dc85'
     white:   '#e2637f'
 
+selection:
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
 # Live config reload (changes require restart)
 live_config_reload: true
 
