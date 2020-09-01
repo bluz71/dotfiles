@@ -5,4 +5,13 @@
 #   % cd .git/hooks
 #   % ln -s ~/dotfiles/git_hooks/lint-rails pre-commit
 
-standardrb && standard app/javascript/**/*.js
+STAGED_RUBY_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".rb$")
+STAGED_JAVASCRIPT_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".js$")
+
+if [ -n "$STAGED_RUBY_FILES" ] && [ -n "$STAGED_JAVASCRIPT_FILES" ]; then
+    standardrb "$STAGED_RUBY_FILES" && standard "$STAGED_JAVASCRIPT_FILES"
+elif [ -n "$STAGED_RUBY_FILES" ]; then
+    standardrb "$STAGED_RUBY_FILES"
+elif [ -n "$STAGED_JAVASCRIPT_FILES" ]; then
+    standard "$STAGED_JAVASCRIPT_FILES"
+fi

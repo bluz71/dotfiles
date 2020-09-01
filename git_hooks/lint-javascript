@@ -5,4 +5,8 @@
 #   % cd .git/hooks
 #   % ln -s ~/dotfiles/git_hooks/lint-javascript pre-commit
 
-standard
+STAGED_JAVASCRIPT_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".js$")
+
+if [ -n "$STAGED_JAVASCRIPT_FILES" ]; then
+    standard "$STAGED_JAVASCRIPT_FILES"
+fi

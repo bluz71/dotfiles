@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Use Git hooks to automatically generate Vim tags for Rails projects.
+#
+#   % cd .git/hooks
+#   % ln -s ~/dotfiles/git_hooks/tags-rails post-commit
+
+git ls-files | ripper-tags -L -
+git ls-files | ctags --languages=javascript -L - -a 2> /dev/null
