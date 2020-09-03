@@ -71,6 +71,7 @@ alias vf='fzf_find_edit'
 alias vg='grep_edit'
 alias vim='stty -ixon && vim 2> /dev/null'
 # -- Miscellaneous aliases --
+alias batman='_f() { man "$@" | bat -l man -p --theme="base16"; }; _f'
 alias be='bundle exec'
 alias bs='br --whale-spotting'
 alias c='clear'
@@ -98,8 +99,10 @@ alias ?='navi_cheats'
 #
 export EDITOR=nvim
 export LESS='-Q -R -X -F -s -i -g'
-export LESS_TERMCAP_md=$(printf "\e[00;34m")
-export LESS_TERMCAP_us=$(printf "\e[01;32m")
+export LESS_TERMCAP_md=$(printf "\e[00;34m")    # bold mode - blue
+export LESS_TERMCAP_us=$(printf "\e[00;32m")    # underline - green
+export LESS_TERMCAP_so=$(printf "\e[00;40;33m") # standout - yellow on grey
+export LESS_TERMCAP_se=$(printf "\e[0m")        # end standout - reset
 export LESSHISTFILE=-
 # Note:
 #   mi - completion options color (Bash 4.4 and later)
