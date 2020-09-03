@@ -71,7 +71,6 @@ alias vf='fzf_find_edit'
 alias vg='grep_edit'
 alias vim='stty -ixon && vim 2> /dev/null'
 # -- Miscellaneous aliases --
-alias batman='_f() { man "$@" | bat -l man -p --theme="base16"; }; _f'
 alias be='bundle exec'
 alias bs='br --whale-spotting'
 alias c='clear'
