@@ -233,12 +233,6 @@ Plug 'janko-m/vim-test'
 Plug 'hrsh7th/vim-vsnip'
     " ~/dotfiles/vim/plugin/vsnip.vim - options, mappings
     " ~/dotfiles/vim/vsnip - custom snippets
-
-" Sleuth and EditorConfig will adjust style and indent either heuristically
-" (former) or explicitly (later). Note, EditorConfig will take precedence if
-" a .editorconfig file is found.
-Plug 'tpope/vim-sleuth'
-    " ~/dotfiles/vim/after/plugin/sleuth.vim - overrides
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
 
