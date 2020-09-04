@@ -97,11 +97,13 @@ alias ?='navi_cheats'
 # General environment variables.
 #
 export EDITOR=nvim
-export LESS='-Q -R -X -F -s -i -g'
-export LESS_TERMCAP_md=$(printf "\e[00;34m")    # bold mode - blue
-export LESS_TERMCAP_us=$(printf "\e[00;32m")    # underline - green
-export LESS_TERMCAP_so=$(printf "\e[00;40;33m") # standout - yellow on grey
-export LESS_TERMCAP_se=$(printf "\e[0m")        # end standout - reset
+export LESS='-F -J -Q -M -R -X -i -g -s -x4 -z-2'
+export LESS_TERMCAP_md=$'\e[00;34m'    # bold mode - blue
+export LESS_TERMCAP_us=$'\e[00;32m'    # underline - green
+export LESS_TERMCAP_so=$'\e[00;40;33m' # standout - yellow on grey
+export LESS_TERMCAP_me=$'\e[0m'        # end bold - reset
+export LESS_TERMCAP_ue=$'\e[0m'        # end underline - reset
+export LESS_TERMCAP_se=$'\e[0m'        # end standout - reset
 export LESSHISTFILE=-
 # Note:
 #   mi - completion options color (Bash 4.4 and later)
@@ -130,6 +132,7 @@ export OS=`uname`
 
 # Customizations per platform.
 if [[ $OS = Linux ]]; then
+    alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -a'
     alias free='free -th'
     alias open='xdg-open 2>/dev/null'
