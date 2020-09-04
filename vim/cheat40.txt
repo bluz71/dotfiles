@@ -31,6 +31,8 @@ Move to the left split   ‹Ctrl-h›      N
 Move to the split below  ‹Ctrl-j›      N
 Move to the split above  ‹Ctrl-k›      N
 Move to the right split  ‹Ctrl-l›      N
+Move up ten lines        ‹Ctrl-Up›     N
+Move down ten lines      ‹Ctrl-Down›   N
 Navigate via ‹wildmenu›  ,‹Tab›        N
 Alternate last file      ‹Backspace›   N
 Previous jump position   [j            N
@@ -39,6 +41,10 @@ Previous spelling error  [s            N
 Next spelling error      ]s            N
 Scroll left              [z            N
 Scroll right             ]z            N
+}}}
+Screen Mappings {{{
+Scroll screen up         ‹Sft-Up›      N
+Scroll screen down       ‹Sft-Down›    N
 }}}
 Helper Mappings {{{
 Redo change              U             N
@@ -77,10 +83,6 @@ File path                ‹Ctrl-f›      I
 Line                     ‹Ctrl-l›      I
 ‹complete› option        ‹Ctrl-c›      I
 Snippets                 ‹Ctrl-s›      I
-}}}
-Screen Mappings {{{
-Scroll screen up         ‹Sft-Up›      N
-Scroll screen down       ‹Sft-Down›    N
 }}}
 Function Key Mappings {{{
 Highlighting             F1            N
