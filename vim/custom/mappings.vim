@@ -78,6 +78,9 @@ if has("nvim")
     tnoremap <C-k> <C-\><C-N><C-w>k
     tnoremap <C-l> <C-\><C-N><C-w>l
 endif
+" Vertical movements.
+nnoremap <Up>   10k
+nnoremap <Down> 10j
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
@@ -89,6 +92,12 @@ nnoremap <Backspace> <C-^>
 " Navigate the jumplist.
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
+
+"-----------------------------
+" Scroll mappings
+"-----------------------------
+nnoremap <S-Up>   <C-e>
+nnoremap <S-Down> <C-y>
 
 "-----------------------------
 " Window managment mappings
@@ -230,12 +239,6 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
-
-"-----------------------------
-" Scroll mappings
-"-----------------------------
-nnoremap <S-Up>   <C-e>
-nnoremap <S-Down> <C-y>
 
 "-----------------------------
 " Readline-like mappings
