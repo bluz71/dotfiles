@@ -55,9 +55,6 @@ alias llfs='find_by_size'
 alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
 alias ls='ls --color --classify --human-readable --quoting-style=escape'
-# -- ripgrep aliases --
-alias rg='rg --smart-case'
-alias rgm='_f() { rg -p "$1" | less; }; _f'
 # -- Tree aliases --
 alias t='tree -C --dirsfirst'
 alias td='tree -C -d'
@@ -97,7 +94,7 @@ alias ?='navi_cheats'
 # General environment variables.
 #
 export EDITOR=nvim
-export LESS='-F -J -Q -M -R -X -i -g -s -x4 -z-2'
+export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
 export LESS_TERMCAP_md=$'\e[00;34m'    # bold mode - blue
 export LESS_TERMCAP_us=$'\e[00;32m'    # underline - green
 export LESS_TERMCAP_so=$'\e[00;40;33m' # standout - yellow on grey
@@ -427,6 +424,14 @@ prompt() {
     SEAFLY_PRE_COMMAND="history -a"
     SEAFLY_GIT_PREFIX=" "
     . ~/.bash-seafly-prompt/command_prompt.bash
+}
+
+rg() {
+    if [[ -t 1 ]]; then
+        command rg --smart-case --pretty "$@" | less
+    else
+        command rg --smart-case "$@"
+    fi
 }
 
 shell_config() {
