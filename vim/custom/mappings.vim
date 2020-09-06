@@ -79,8 +79,8 @@ if has("nvim")
     tnoremap <C-l> <C-\><C-N><C-w>l
 endif
 " Vertical movements.
-nnoremap <C-Up>   10k
-nnoremap <C-Down> 10j
+nnoremap <A-Up>   10k
+nnoremap <A-Down> 10j
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
