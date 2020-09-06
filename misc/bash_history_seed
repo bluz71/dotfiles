@@ -1,1202 +1,1000 @@
-man find
-man rg
-tnew
-z -r public
-wc .bash_his*
-yarn start
-cd ~/projects
-clear
-cd dotfiles/
-ssh-add 
-v vimrc
-git ll
-g st
-v .gitignore 
-g st
-g st
-v .gitignore
-cd ..
-cd -
-g st
-g add .
-g ci
-g push
-mina deploy
-CI=true yarn test
-yarn deploy
-g st
-yarn start
-clear
-git ll
-g st
-g vdi
-cd ~/projects
-clear
-wc .bash_history
-CI=true yarn test
-yarn test
-yarn deploy
-yarn test
-g ll | wc
-yarn deploy
-g vdi
-g add .
-g ci
-g push
-g push
-eslint src
-g vdi
-g at
-g st
-clear
-git ll
-g bb
-g st
-g vdi
-g add .
-g ci
-g co master 
-ssh-add 
-g push
-cd ~/projects
-clear
-tmux resize-pane -Z
-git ll
-g bd system-tests 
-dir
-\rm -rf *
-..2
+gem list | rg bundl
+be rspec spec/models/genre_spec.rb
+chruby 2.6.5
+youtube-dl "https://www.youtube.com/watch?v=uPudE8nDog9"
+git bisect reset
+yarn standard --parser babel-eslint
 be rspec
-g st
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g st
-g add .
-g st
-g add .
-g ci
-g push
-dir
-cd Downloads/
-dir
-dir
-rm *
-rails c
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-redis-server
-cd ~/projects
-clear
-git ll
-g bb
-dir
-CI=true yarn test
-z -r pla
-g st 
-g vdi
-ssh-add
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g st
-yarn test
-g st
-g vdi
-g add .
-g ci
-g vdis
-g st
-g vdi
-g vdis
-g st
-g add .
-g vids
-g vdis
-CI=true yarn test
-g llom
-g st
-g ci
-g co master
-g push
-cd ~/projects
-clear
-git ll
-ssh-add
-yarn test
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g llom
-g push
-yarn test
-z -r plat
-g st
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g ci
-g push
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g push
-CI=true yarn test
+npm ls standard
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+delta --list-themes
+PATH=~/.fzf/bin:$PATH
+Sdk/emulator/emulator -list-avds
+npm install -g csslint
+be brakeman -f plain
+brew upgrade media-info vim
+export GTK_THEME='Meld-Mojave:light'
+npm install -g standard@12.0.1
+unset ANDROID_SDK_ROOT
+split --bytes=49500000000 Lossless.tar  Lossless.tar.
+brew info source-highlight
+gem list | rg msgpack
+git config --list | grep alias | cut -c7- | sort | bat --language ini
+g vdi 1597b7b..HEAD
+brew remove berkeley-db
+eq 25 / 3
+be rspec ./spec/system/showing_albums_spec.rb
+g amend
+bd-burn.sh image.iso
+be rspec ./spec/system/showing_artist_albums_spec.rb:76
+brew search meld
+cat .git/hooks/post-commit
+chmod +x random_wallpaper.rb
+bundle list | rg kaminari
+docker ps -a
+gem uninstall bundler
+meld pam_mount.conf.xml .pam_mount.conf.xml
+brew --version
+curl https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
+mkvpropedit FooBar.mkv --chapters ''
+brew link macvim
+be lol_dba db:find_indexes
+yarn add @creativebulma/bulma-tooltip
+CI=true yarn test src/__tests__/components/AlbumShowPage.test.js
+rubocop --format quiet -a carrierwave.rb
+br --version
+git bisect good 0784187
+bd-burn.sh Lossless.tar.aa
+yarn remove bootstrap-sass
+gthumb ~/folder.jpg
+g sh 1150573
+eq 100000 / 3700
+flutter bash-completion
+brew install sk
+emulator -list-avd
+ytest src/__tests__/components/PasswordEditPage.test.js
 yarn deploy
-v -S
-rm Session.vim 
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-yarn test
-CI=true yarn test
-g llom
-g push
-g ll
-g bb
-g bd album-tests 
-dir
-yarn start
-cd dotfiles/
-g st
-g vdi
-g add .
-g ci
-ssh-add 
-g push
-echo "hello, world"
-z bluz
-g vdi
-v vimrc
-g vdi
-v bashrc
-rg gvim
-man bash
-g vdi
+brew untap dart-lang/dart
+g mg artist-show
+mux platters
+brew remove fftw
+g mg password-new-test
+yarn add --exact font-awesome@4.7.0
+g checkout master
+rsync monarch:iosevka-custom-* .
+echo $DART_SDK
+brew upgrade rust ripgrep fd
+brew uses --installed wxmac
+yarn add yarn add react-router-hash-link
+docker container ls
+flutter upgrade
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+brew untap homebrew/homebrew-dupes
+time dartfmt --dry-run --set-exit-if-changed **/*.dart
+exa --all --long --modified --group --color-scale --git
+standardrb $(git diff --cached --name-only --diff-filter=ACM | grep ".rb$")
+rspec ./spec/system/removing_comments_spec.rb:44
+brew info chromedriver
+apt install celluloid gnote drawing neofetch
+du -sh src
+yarn add --exact fsevents@1.2.9
+PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+docker image ls
+fc-match sans
+CI=true yarn test --colors
+man tmuxinator
+brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+yarn add --exact react-dom@16.8.6
+di platters-app.yml .tmuxinator/platters-app.yml
+g mg log-in-test
+df -b .
+di webpack ../../../platters/bin/webpack
+docker run -it -name mycont ubuntu /bin/bash
+yarn add @rails/webpacker
+npm -g outdated
+bat .vimrc
+brew install git-delta
+yarn update serialize-javascript
+bundle list | rg boot
+git push origin +master
+CI=true yarn test src/__tests__/components/HomePage.test.js
+yarn outdated --no-color
+vdi pam_mount.conf.xml .pam_mount.conf.xml
+docker stop 31c691ca09f7
+ruby foo.rb
+ping www.google.com
+yarn --help
+bundle config build.pg --with-pg-config=/usr/local/opt/postgresql@10/bin/pg_config
+cat .git/config
+brakeman -f plain
+yarn add --exact @creativebulma/bulma-tooltip
+brew install tokei
+brew info pstree
+rails db:seed
+brew upgrade bash bash-completion@2
+glances
+bat
+yarn add --exact react-bootstrap@0.32.4
+yarn test src/__tests__/components/ArtistAlbumsList.test.js
+docker version
+tic -o ~/.terminfo misc/tmux-256color.terminfo
+git diff HEAD foobar
+chmod +x meld
+bundle list | rg bootsnap
+rails
 g aa
-g ci
-ssh-add -l
-g push
-v vimrc
-g vdi
-g aa
-g ci
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
-dir
-tar xf linux-5.tar.xz
-cd linux-5
-dir
-g init
-g aa
-g ci
-g co .
-g | ls
+basename $(git symbolic-ref HEAD 2>/dev/null)
+yarn add bulmaswatch
+mintreport
+brew deps -1 --installed
+npm uninstall -g prettier
+v cheat40.txt
+brew install exa
+brew remove flac media-info
+yarn add bulma
+npm uninstall -g standard
+g mgs jwt-expiry
+echo " M bashrc" | cut -d' ' -f2
+bundle update faker
+npm install -g standard
+chmod 664 *
+ytest src/__tests__/components/LoginPage.test.js
+p *.cue
+echo $GITSTATUS_DIR
+git help reset
+git diff --no-ext-diff --quiet --exit-code --ignore-submodules 2>/dev/null
+bat --color=always --line-range :500 bashrc
+dus .gitstatus/
+rubocop resistor_color_duo.rb
+docker run ubuntu /bin/bash
+z platters
+g checkout f76ae6e
+brew info bash-completion
+flutter emulator --launch Nexus_6_API_28
+dus .npm
+ruby --disable-gems
+time _seafly_command_prompt
+docker stop
+g --version
+7za e mtVm0Oxz5w436o1c9Um3d4ac.7z
+sudo systemctl status wakeup-nas2
+git blame --reverse 51f6d66..ef793e0 vimrc
+GTK_THEME=Adwaita
+du -sh .git
+bundle list
+brew install ncurses
+./random_wallpaper.rb
+npm -g install create-react-app
+$(brew --prefix)/opt/postgresql@10/bin/postgres -D $(brew --prefix)/var/postgres
+flutter packages get
+yarn add react-router-hash-link
+brew search coreutils
+whois https://crg.cc
+fd -r md 2017
+g init .
+exa --all
+rails c -e development
+flutter analyze
+rspec ./spec/system/clearance/visitor_signs_up_spec.rb:12
+chmod +x dart-analysis-server-lsp.sh
+ruby --native --version
+cuetag.sh *.cue [*012]*.flac
+yarn list
+rubocop app/models/album.rb
+brew uninstall watchman
+npm ls -g eslint
+g bod
+mkvtoolnix-gui
+ytest src/__tests__/components/AlbumsPage.test.js
+z nightfly
+brew install eye-d3
+g blame README.md | bat
+dus
+echo $TERM
+dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp --completion-model=$DART_SDK/model/lexeme
+broot --install
+mdi Documents/config_backups/linux-config-5.0.18 config-5.3.8
+h | m
+delta --list-theme-names
+fkill
+brew list | rg ssh
+sox --show-progress -G 03_You.flac 03_You2.flac gain -6
+eq 13 15 + 16 + 12 +11
+brew reinstall python
+gem update mina
+ping 1.1.1.1
+g co -
+ruby-install ruby 2.6.5
+brew uses --installed oniguruma
+brew uses --installed yasm
+flutter e
+yarn upgrade caniuse-lite
+npm install -g prettier
+bundle update webpacker
+flutter help
+ruby --version
+brew install postgresql@10
+delta --version
+cat  /etc/bash_completion.d/git-prompt
+man grep
+brew info xvid
+rails db:migrate
+standard app/javascript/**/*.js
+brew uses --installed mad
+brew remove fontconfig
+ruby --help
+rspec spec/requests/removing_comments_spec.rb
+gem uninstall standard -v 0.1.2
+be rspec spec/requests/album_spec.rb
+dart
+npm uninstall -g coffeelint coffee-script
+brew install broot
+flutter --help
+bash ./256-colors.sh
+bundle config build.pg --with-pg-config=/home/dennis/.linuxbrew/opt/postgresql@10/bin/pg_config
+brew install curl
+flutter -h
+gem update system
 g status
-g status | wc
-g co .
-cloc linux-5
+be rspec ./spec/system/adding_albums_spec.rb
+fd --type d -d 1 --color never
+brew upgrade vim macvim
+yarn add --exact jquery@2.2.1
+mux bulma-sampler
+g branch -b
+be rspec spec/system/clearance/visitor_updates_password_spec.rb
+git add --verbose "Linux_Mint_Setup.txt MacOS_Setup.txt"
+yarn add react react-dom
+eq 1.47 + 48.88 + 1.29 + 42.92
+cat .bash_profile
+brew info coreutils
+dus s*
+eq 16.2 * 2.54
+brew cask install osxfuse
+open -a "Brave Browser"
+flutter packages -h
+npm install -g tslint
+brew install z
+broot --only-folders -I
+npm install -g typescript
+npm install -g sass-lint
+emulator -avd Nexus_6_API_28
+exa --all --long --modified
+g help ll
+yarn add --exact bootswatch@3.3.5
+7za e sc8Il8c5n6qROk4u6de07p6a.7z
+yarn add bootstrap-sass
+rspec ./spec/requests/sign_up_spec.rb:4
+bundle update skylight
+bundle update puma
+bundle outdated | rg turbo
+bundle outdated
+rails g migration add_refresh_expiry_to_users
+brew analytics off
+rspec ./spec/system/removing_comments_spec.rb
+git help commit
+standardrb app/javascript/src/AlbumForm.js
+systemctl list-units --type=service --state=running
+sudo systemctl daemon-reload
+be rspec spec/models/album_spec.rb
+g mv ssh_config ssh_config2
+be standardrb --fix spec/requests/removing_comments_spec.rb
+brew uses --installed boost
+yarn list --depth 0 | rg boot
+g co 09d7c6a
+chruby 2.6.6
+brew cask list
+g branch -bb
+rails db:create
+be standardrb spec/requests/
+flutter doctor
+echo $GITSTATUS_DAEMON_LOG
+eq 187 / 15
+bundle list | rg brake
+sudo systemctl disable wakeup-nas.service
+brew reinstall universal-ctags
+brew install bash-completion@2
+bundle update capybara
+mux platters-app
+g rro
+man rmdir
+brew info tree
+brew remove bash-completion
+tic -o ~/.terminfo tmux-256color.terminfo
+exa --all --long --color-scale --git
+npm run build
+yarn add popper.js
+git bisect start
+brew install fd
+export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWUNTRACKEDFILES=1 GIT_PS1_SHOWSTASHSTATE=1
+be rspec ./spec/requests/album_spec.rb:23
+di config/environments/test.rb ../rails/rails600/config/environments/test.rb
+rails g kaminari:views bootstrap4
+brew install navi
+git add .
+echo $BAT_STYLE
+bat --list-themes
+brew upgrade media-info
+rails new rails600
+be rspec spec/system/removing_albums_spec.rb
+g checkout c295c7b
+tmux attach -t bulma-sampler
+echo $GOPATH
+rubocop
+cat tags
+g checkout c14439b
+flutter run
+bundle pry-doc
+yarn add --exact bootstrap@4.4.1
+man less
+cd
+sox --show-progress -G 01_Intro.aif 01_Intro.flac rate -v 96000
+rails db:truncate_all
+docker run -it ubuntu /bin/bash
+echo $PATH
+studio.sh
+mina setup
+dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp
+eq 19.73 + 0.59
+z wallpapers
+brew uses --installed libvorbis
+fc-match "Noto Sans"
+eq 1099 - 859
+docker image inspect psweb:latest
+bundle exec ruby ~/rubycomplete.rb
+yarn --version
+brew cask install meld
 be jekyll serve
-tnew
-ssh-add
-z dot
-g pull
-g fea
-cpa
-src
-dus *
-src
-cpa
-man cp
-/bin/cp -pr
-z ~/Downloads/
-g pull
-g vdi
+be rspec spec/system/adding_comments_spec.rb
+rmrf .fzf.zsh
+docker ps -a -q
+brew uses --installed  asciidoc
+brew uses --installed libunistring
+be standardrb --fix app/models/album.rb
+xterm -name xterm-moonfly
+yarn list --depth 0
+brew remove openssl
+time be standardrb
+git blame --reverse 51f6d66..ef793e0
+defaults write org.gnome.meld "/org/gnome/meld/custom-font" = "Ricty, 20"
+cat .git/hooks/pre-commit
+cat pam_mount.conf.xml
 exit
-g vdi
-g aa
-g ci
-g push
-g fea
-g rb origin/master 
-g llu
-gll
-g push
-be jekyll serve
-clear
-git ll
+broot --only-folders
+solargraph
+rspec ./spec/requests/password_reset_spec.rb:6
+brew install tldr
+gem install mdl
+ytest --no-color
+rmdir images/
+ping -i 5 1.1.1.1 2>&1 | tee output.txt
+exa --all --long --modified --group --git
+du -sh wallpapers
+brew info mad
+flutter doctor --android-licenses
+echo $VCS_STATUS_LOCAL_BRANCH
+docker image prune
+bundle update rails
+chmod +x git-bvv.bash
+brew outdated  | rg vim
+be rspec spec/requests/removing_comments_spec.rb
+brew install redis@4.0
+npm install -g prettier-standard
+bunde list | rg awesome
+tic -x $TERM.ti
+rails new bulma_sampler --skip-spring --webpack
+yarn add --exact @creativebulma/bulma-tooltip@1.0.2
+open *.flac
+flutter emulator --launch apple_ios_simulator
+yarn add query-string
+df.
+bat --list-languages
+brew reinstall openssl curl
+dartfmt
+ruby-install ruby 2.5.1
+brew uses --installed libvterm
+echo $VCS_STATUS_HAS_STAGED
+eq 1 + 1
+git clone --depth 1 https://github.com/romkatv/gitstatus.git ~/.gitstatus
+echo $VCS_STATUS_REMOTE_NAME
+cat /etc/ssh/ssh_config
+flutter packages deps
+ping -i 5 1.1.1.1
+cat .gvimrc
+brew upgrade sox
+brew remove automake autoconf
+bin/webpack-dev-server
+g help for-each-ref
+g pl
+br --whale-spotting
+rubocop app/controllers/api/tokens_controller.rb
 be gem --version
+brew remove guile
+eq 11 * 3.8
+brew install --force-bottle rust
+./spectre-meltdown-checker.sh
+z moonfly
+broot --only-folders --cmd "$1 :cd"
+be standardrb app/models/album.rb
+brew install gnu-sed
+npm --version
+GIT_PS1_SHOWDIRTYSTATE=1
+$(brew --prefix)/opt/redis@4.0/bin/redis-server
+? Git
+yarn add moment
+g checkout bdc2657
+? git
+npm uninstall -g javascript-typescript-langserver
+ffmpeg --version
+SEAFLY_PREFIX_COLOR='$(tput setaf 95)'
+gem update rails
+yarn test src/__tests__/components/CommentsList.test.js
+rail routes
+time rails db:seed
+SEAFLY_NORMAL_COLOR=$(tput setaf 111
+CI=true yarn test src/__tests__/components/ArtistAlbumsList.test.js
+brew list --versions z
+be standardrb --version
+journalctl | grep storage
+brew outdated | sort
+rmrf colors/
+brew link --overwrite vim
+brew cask reinstall osxfuse
+cat .Xresources
+cat .z | rg sea
+flutter create i_am_rich
+brew leaves
+yarn add --exact axios@0.19.0
+CI=true yarn test --color
+docker images
+rails c -e production
+be rspec spec/models/artist_spec.rb
+dpkg --list | rg system | rg reports
+du -sh '.'[a-z]*
+exa --all --long --modified --group -T
+exa --all --long --modified --group --color-scale
+defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool Yes
+systemctl show -p Wants -p After mnt-server.mount
+gem install pry -v 0.11.3
+mux dotfiles
+brew search bat
+cat /var/log/boot.log
+CI=true yarn test --color src/__tests__/components/AboutPage.test.js
+bash --vesion
+chmod 664 *.iso
+sudo systemctl restart wakeup-nas2.service
+dartfmt --dry-run --set-exit-if-changed **/*.dart >/dev/null
+eq 138 * 2.2
+brew remove p11-kit
+brew install yamllint
+brew info node
 gem update --system
-be gem --version
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-z pla app
-be rspec
-mkdir lib
-quit
-g vdi
-g aa
-g ci
-g co master
-g mg rails-update 
-g push
+= 1 + 1
+unrar e 2087.rar
+brew install cloc
+brew uses --installed bash
+emulator -list-avds
+p bash_history | shuf
 mina deploy
-v TODO.txt 
-g vdi
-g aa
-g ci
-g push
-g bb
-llt
-..2
-g vdi
-g aa
-g vdis
-g aa
-g vdis
-g ci
-g co master
-g vdi
-g aa
-g ci
+eq 1056297 + 42500
+bundle update selenium-webdriver
+brew install macvim
+sudo systemctl stop wakeup-nas2
+cat wakeup-nas2.service
+exa --all --long --modified --group
+systemctl status remote-fs-pre.target
+yarn install bulmaswatch
 yarn start
-g vdi
-g aa
+dartfmt --dry-run --set-exit-if-changed
+g checkout fe55c5f
+g blame README.md
+cowsay
+npm run build -- contents::iosevka-built
+env | rg GIT
+dpkg --list
+docker image rm nigelpoulton/pluralsight-docker-ci:latest
+rails outdated
+yarn outdated -g
 g ci
-g llu
-g push
-yarn deploy
-ssh-add
-z dot
-g pull
-man find
-man rg
-tnew
-z -r public
-wc .bash_his*
-yarn start
-cd ~/projects
+yarn add @rails/ujs
+sudo systemctl enable wakeup-nas2.service
+brew outdated | rg neovim
+git diff --no-index -- /dev/null bashrc
+echo $XDG_CONFIG_HOME
+git annotate README.md
+dartfmt --dry-run --set-exit-if-changed *
+brew install youtube-dl
+npm run build -- contents::iosevka-custom
+brew cask remove vimr
+GIT_PS1_SHOWDIRTYSTATE=0
+broot --outcmd
+gadd
+cloc
+npm install
+ruby-install ruby 2.6.6
+rubocop --format simple
+brew remove postgresql@9.6
+yarn add --exact react-scripts@3.4.1
+bundle list | rg redis-rails
+brew install --HEAD neovim
+brew search language
+docker pull ubuntu:latest
+npm list -g
+PROMPT_COMMAND="__prompt; history -a"
+echo $EDITOR
+rails --tasks
+brew uses --installed libtool
+brew deps sshfs
+bundle list | rg redis
+brew uses --installed mpg123
+rails new platters-experiment
+rspec ./spec/system/listing_artists_spec.rb
+chruby 2.6.2
+pdfimages -j Foo.pdf Foo
+eq 105 / 12
+bundle update turbolinks
+cp
+CI=true yarn test
+bundle list | rg byebug
+fd --type d | fzf --query misc
+sudo systemctl disable wakeup-nas2.service
+git config -l | grep alias | cut -c 7- | p
+yarn add expose-loader -D
+flutter run --track-widget-creation
+bluz71.github.io/
+broot --help
+navi
+cp /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion .
 clear
-cd dotfiles/
-ssh-add 
-v vimrc
-git ll
-g st
-v .gitignore 
-g st
-g st
-v .gitignore
+gem update solargraph
+apt-cache search wireguard
+g vdi 109ae55..HEAD
+git help config
+brew remove freetype
+mocp .
+bat .inputrc
+be rails db:find_indexes
+rails  c
+basename $(git symbolic-ref HEAD)
+gll
+echo $FZF_DEFAULT_OPTS
+g ls-files
+brew info glances
+rails c -e test
+bundle list | rg jwt
+flutter packages
+? Network
+bat --version
+rails routes
+g cherry-pick 9ba2f8f
+bundle --version
+cz dotfiles
+yarn add --exact react-scripts@3.0.1
+bundle list | rg webpacker
+cd docker_mastery/
+yarn test --watchAll
+yarn test src/__tests__/components/LoginPage.test.js
+docker run alpine /bin/bash
+cp /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion .
+g ps
+g checkout ec19036
+eject
+rspec ./spec/system/listing_albums_spec.rb
+bundle update pry-doc
+g vdip 109ae5525961ff049a7cb177961fd7c52963e5a7
+brew upgrade broot git postgresql@10
+cat $(echo $BAT_CONFIG_PATH)
+bundle update email_spec
+flutter create i_am_poor
+sudo systemctl is-enabled wakeup-nas2
+gtop
+flutter packages cache
+g help add
+nvim --startuptime time.log
+g rso
+p ~/dotfiles/bashrc
+g bd my-feature
+yarn install @creativebulma/bulma-tooltip
+exa --list-dirs
+yarn upgrade caniuse-lite browserslist
+bundle update rubocop
+bundle
+be rspec spec/system/clearance/visitor_resets_password_spec.rb
+dus .rubies/
+npm install -g babel-eslint
+d stop psweb
+docker rm $(docker ps -a -q)
+yarn add --exact react-toastify@4.5.2
+flutter version
+be rspec spec/requests/addings_comments_spec.rb
+brew upgrade yarn
+docker ps
+bundle update standard
+yarn add --exact velocity-react@1.4.1
+cf fzf
+bash --version
+broot --outcmd /tmp/tmp.HVNepDtkb1
+patch -p1 < ../linux-hardened-5.5.13.a.patch
+rubocop --format simple -a carrierwave.rb
+yarn add md5
+p yamllint
+dartfmt --help
+be rspec ./spec/requests/password_reset_spec.rb:6
+brew remove pixman
+yarn standard
+g mdip 5e8c5f2
+bundle exec spring binstub --remove --all
+brew link vim
+du -sb *
+flutter run -d all
+make MENUCONFIG_COLOR=mono menuconfig
+echo $EDITOR 
+dart --version
+exa --all --long --modified --color-scale --git
+export PROMPT_COMMAND="prompt_command; history -a"
+be standardrb app/controllers/
+be standardrb spec/requests/removing_comments_spec.rb
+brew link --overwrite --dry-run bash-completion@2
+yarn list | rg browsers
+brew unlink macvim
+git bisect good
+patch -p1 < ../linux-hardened-5.3.8.a.patch
+open -a Simulator
+brew postinstall openssl
+yarn outdated --depth 0
+brew remove bison
+d ps -a
+g sh 0abedca
+cat .z
+mina --version
+defaults write com.apple.finder NSRequiresAquaSystemAppearance -bool yes
+time normalize-flac.rb
+man yarn
+brew update
+g unadd .
+brew remove pcre
+man xterm
+bundle update sidekiq
+rails db:reset
+brew uses --installed bison
+cat /etc/hosts
+be rspec ./spec/system/listing_albums_spec.rb
+rspec spec/models/track_spec.rb
+yarn add --exact react-scripts@2.1.8
+brew install yarn
+gem uninstall lol_dba
+brew install bat
+be rubocop
+be rspec spec/lib/api_auth_spec.rb
+npm uninstall -g tslint
+yarn install
+vdi file{1,2}.cc
+npm install -g typescript-language-server
+g bvv
+rubocop --help
+exa --all --long
+pry
+eq 1500 * 70
+npm install -g create-react-app
 cd ..
-cd -
-g st
-g add .
-g ci
-g push
-mina deploy
-CI=true yarn test
-yarn deploy
-g st
-yarn start
-clear
-git ll
-g st
-g vdi
-cd ~/projects
-clear
-wc .bash_history
-CI=true yarn test
-yarn test
-yarn deploy
-yarn test
-g ll | wc
-yarn deploy
-g vdi
-g add .
-g ci
-g push
-g push
-eslint src
-g vdi
-g at
-g st
-clear
-git ll
-g bb
-g st
-g vdi
-g add .
-g ci
-g co master 
-ssh-add 
-g push
-cd ~/projects
-clear
-tmux resize-pane -Z
-git ll
-g bd system-tests 
-dir
-\rm -rf *
-..2
-be rspec
-g st
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g st
-g add .
-g st
-g add .
-g ci
-g push
-dir
-cd Downloads/
-dir
-dir
-rm *
-rails c
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-redis-server
-cd ~/projects
-clear
-git ll
-g bb
-dir
-CI=true yarn test
-z -r pla
-g st 
-g vdi
-ssh-add
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g st
-yarn test
-g st
-g vdi
-g add .
-g ci
-g vdis
-g st
-g vdi
-g vdis
-g st
-g add .
-g vids
-g vdis
-CI=true yarn test
-g llom
-g st
-g ci
-g co master
-g push
-cd ~/projects
-clear
-git ll
-ssh-add
-yarn test
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g llom
-g push
-yarn test
-z -r plat
-g st
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g ci
-g push
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g push
-CI=true yarn test
-yarn deploy
-v -S
-rm Session.vim 
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-yarn test
-CI=true yarn test
-g llom
-g push
+yarn add --exact react-scripts@2.1.1
+brew cask install alacritty
+updatedb
+yarn add standard --dev
+rspec ./spec/requests/addings_comments_spec.rb:32
+d version
+g bba
+export GIT_PS1_SHOWDIRTYSTATE=1
+brew install dart
+yarn outdated
+z platters app
+brew missing
+dus '.'[a-z]*
+brew search postgres
+brew info universal-ctags
+be rspec ./spec/system/showing_albums_spec.rb:38
+df -h .
+brew remove pkg-config
+eq 1080 - 1015
+man tree
+rspec ./spec/system/clearance/visitor_resets_password_spec.rb:14
+pping 1.1.1.1
+yarn upgrade serialize-javascript
+yarn upgrade react react-dom
+exa --list-dirs *
+alias c='cd'
+be standardrb app/models/track.rb
 g ll
-g bb
-g bd album-tests 
-dir
-yarn start
-cd dotfiles/
-g st
-g vdi
-g add .
-g ci
-ssh-add 
-g push
-echo "hello, world"
-z bluz
-g vdi
-v vimrc
-g vdi
-v bashrc
-rg gvim
-man bash
-g vdi
-g aa
-g ci
-ssh-add -l
-g push
-v vimrc
-g vdi
-g aa
-g ci
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
-dir
-tar xf linux-5.tar.xz
-cd linux-5
-dir
-g init
-g aa
-g ci
-g co .
-g | ls
-g status
-g status | wc
-g co .
-cloc linux-5
-be jekyll serve
-tnew
-ssh-add
-z dot
-g pull
+p .bashrc
+du -sh .bash*
+brew install skim
+brew install pstree
+basename $(pwd)
+gem uninstall solargraph
+rails server
+brew install libsass
+brew remove berkeley-db perl
+brew reinstall openssl
+eq 13767 - 9000
+time command_prompt
+echo " M bashrc" | cut -d' ' -f1
+brew list | rg fuse
+be rspec spec/system/listing_artists_spec.rb
+g clone --depth 1 https://github.com/romkatv/gitstatus.git .gitstatus
+bundle update web-console
+dpkg --list | rg coreutils
+yarn add enzyme enzyme-adapter-react-16 jest-enzyme --dev
+g checkout e9e7d31
+g rru
+be rspec spec/models/track_spec.rb
+brew upgrade bash
+brew link --overwrite bash-completion@2
+git rev-parse --verify --quiet --exit-code refs/stash
+eq 1890 - 1553
+yarn remove react-router-hash-link
+yarn add jwt-decode
+bundle list | rg bootswatch
+brew install glances
+g rm .rubocop.yml
+yarn test src/__tests__/components/ArtistShowPage.test.js
+Sdk/emulator/emulator -avd Nexus_6_API_28
+wc -l ~/.bash_history
+brew link --overwrite --dry-run macvim
+g bod bootstrap-4
+ytest src/__tests__/components/PasswordNewPage.test.js
+apt install p7zip-full xul-ext-lightning
+echo $FZF_DEFAULT_OPTS 
+g mg authentication
+be standardrb spec/requests
+yarn add turbolinks
+git status --porcelain
+yarn add --exact react@16.8.6
+CI=true yarn test src/__tests__/components/NewComment.test.js
+brew upgrade diff-so-fancy
+apt-key list
+defaults write org.mozilla.thunderbird NSRequiresAquaSystemAppearance -bool Yes
+g bod dependabot/npm_and_yarn/lodash-4.17.14
+ytest src/__tests__/components/ArtistShowPage.test.js
+bundle upgrade local_time
+cat .bashrc
+echo $VCS_STATUS_INDEX_SIZE
+? bash
+brew doctor
+bundle list | rg rails-html-san
+mina deploy force_asset_precompile=true
+bundle list | rg awesome
+yarn add jquery
+bash ./24-bit-color.sh
+brew uses --installed python@2
+jekyll start
+brew install x264
+yarn add --exact react-bootstrap@0.31.5
+echo $BREW_PREFIX
+PROMPT_DIRTRIM=0
+be rspec ./spec/system/adding_albums_spec.rb:119
+eq 1.1 * 3
+echo $FZF_ALT_C_COMMAND
+standard $(git diff --cached --name-only --diff-filter=ACM | grep ".js$")
+time ruby --disable-gems ~/scripts/normalize-flac.rb
+npm outdated -g
+dartfmt --dry-run --set-exit-if-changed **/*.dart
+be rspec spec/models/release_date_spec.rb
+yarn add --exact @creativebulma/bulma-tooltip@1.1.0
+z Documents
+CI=true yarn test src/__tests__/components/LoginPage.test.js
+h | rg fstab
+docker image build -t psweb:latest .
+brew list | rg redis
+gunadd
+bundle audit
+g help status
+SEAFLY_PREFIX_COLOR='$(tput setaf 104)'
+brew info yj
+yarn add chalk
+yarn add local-time
+echo $OS
+bat .bashrc
+p .bundle/config
+brew deps
+rubocop --format quiet
+defaults write org.keepassx.keepassxc NSRequiresAquaSystemAppearance -bool yes
+d run hello-world
+git bisect bad
+brew uses --installed unibilium
+broot
+rubocop -a carrierwave.rb
+bundle outdated | rg fog
+docker container ls -a
+git branch -avv --format="%(committerdate:iso8601), %(committerdate:relative) - %(refname:short)"
+npm list -g --depth 0
+ruby-install ruby 2.5.3
+npm uninstall stylelint -g
+apt-cache search ext4
+cat .git/hooks/pre-push
+g fetch
+exa --all --long --modified --group --color-scale --git -TL2
+brew uses --installed xvid
+npm install -g npm
+dus .linuxbrew/
+defaults delete com.apple.systempreferences AttentionPrefBundleIDs; killall Dock
+git status --porcelain=1
+brew install languagetool
+node --version
+echo $COMMAND_PROMPT
+npm install -g javascript-typescript-langserver
+yarn lisrt
+cat .bash-seafly-prompt/command_prompt.bash
+exa --long --color-scale --git
+export GTK_THEME=Adwaita
+yarn install jquery
+eq 1099 - 769
+gem list | rg backport
+sudo systemctl disable wakeup-nas2
+bundle update rspec-rails
+wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.2.tar.xz
+g sh 042055a
+docker stop webserver
+be standardrb --format progress app/models/track.rb
+rubocop --version
+fd --type d -d 1
+bundle exec standardrb
+dartanalyzer --version
+be rspec --order random
+g co 0abedca
+be rspec spec/models/comment_spec.rb
+CI=true yarn test src/__tests__/components/ArtistShowPage.test.js
+bundle install pg
+vdi autoload/lsc/reference.vim ~/.vim/plugged/vim-lsc/autoload/lsc/reference.vim
 g fea
-cpa
-src
-dus *
-src
-cpa
-man cp
-/bin/cp -pr
-z ~/Downloads/
-g pull
-g vdi
-exit
-g vdi
-g aa
-g ci
-g push
-g fea
-g rb origin/master 
-g llu
-gll
-g push
-be jekyll serve
-clear
-git ll
-be gem --version
-gem update --system
-be gem --version
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-z pla app
-be rspec
-mkdir lib
-quit
-g vdi
-g aa
-g ci
-g co master
-g mg rails-update 
-g push
-mina deploy
-v TODO.txt 
-g vdi
-g aa
-g ci
-g push
-g bb
-llt
-..2
-g vdi
-g aa
-g vdis
-g aa
-g vdis
-g ci
-g co master
-g vdi
-g aa
-g ci
-yarn start
-g vdi
-g aa
-g ci
-g llu
-g push
-yarn deploy
-ssh-add
-z dot
-g pull
-man find
-man rg
-tnew
-z -r public
-wc .bash_his*
-yarn start
-cd ~/projects
-clear
-cd dotfiles/
-ssh-add 
-v vimrc
-git ll
-g st
-v .gitignore 
-g st
-g st
-v .gitignore
-cd ..
-cd -
-g st
-g add .
-g ci
-g push
-mina deploy
-CI=true yarn test
-yarn deploy
-g st
-yarn start
-clear
-git ll
-g st
-g vdi
-cd ~/projects
-clear
-wc .bash_history
-CI=true yarn test
-yarn test
-yarn deploy
-yarn test
-g ll | wc
-yarn deploy
-g vdi
-g add .
-g ci
-g push
-g push
-eslint src
-g vdi
-g at
-g st
-clear
-git ll
-g bb
-g st
-g vdi
-g add .
-g ci
-g co master 
-ssh-add 
-g push
-cd ~/projects
-clear
-tmux resize-pane -Z
-git ll
-g bd system-tests 
-dir
-\rm -rf *
-..2
-be rspec
-g st
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g st
-g add .
-g st
-g add .
-g ci
-g push
-dir
-cd Downloads/
-dir
-dir
-rm *
+docker container run -it ubuntu:latest /bin/bash
+defaults read org.gnome.meld
+delta --help
+wvunpack Foo.wv
+brew remove harfbuzz
+brew outdated
+bundle outdated | rg rack
+rspec ./spec/requests/addings_comments_spec.rb
+docker search alpine
+yamllint db/seeds/tracks.yml
+brew link --dry-run macvim
+git status --porcelain=2
+brew install prettyping
+ipconfig
+docker-compose version
+brew install
+git diff --color | diff-so-fancy
+tar -xvf files.tar
+open -a Brave.app
+v command_prompt.bash
+RAILS_ENV=production bin/rails assets:precompile
+be sidekiq -C confiq/sidekiq.yml
+bundle list | rg bootstrap
+yarn add --exact react-scripts@2.0.3
+bundle update clearance
+docker container
+apt-cache showpkg coreutils
+bat .gitconfig
+echo $DIRTRIM
+brew remove graphite2
+brew list
+mux flutter
+unalias ls
+brew install prettyping tldr
+shntool split -f *.cue -o flac -t '%n_%t' *.flac
+git bisect good e4b407f53
+git diff HEAD bashrc
+ytest
+brew info macvim
+brew reinstall sshfs
+brew search ncdu
+flutter analyze --flutter-repo
+rails webpacker:install
+bundle list | turbolinks
+brew untap homebrew/homebrew-fuse
+dart $DART_SDK/snapshots/analysis_server.dart.snapshot --lsp
+be rspec spec/models/user_spec.rb
+brew install vim
+g refs refs/heads
+complete | rg brew
+docker container run -d --name web1 --publish 8080:8080 psweb:latest
+du -sh *
+du -sh node_modules/
+flutter doctor -v
+brew install openssl
+brew cleanup
+brew reinstall yarn
+g co 0b4f14b
+echo " M bashrc" | cut -c 3-
+brew unlink vim
+vdi bashrc bashrc.NEW
+d ps
+gem install pry -v 11.3
+yarn add --exact react-boostrap@0.31.5
+yarn test --colors
+cat spring
+defaults write org.gnome.meld "/org/gnome/meld/use-system-font" = 0
+rails g controller sample_pages
+bundle update fivemat
+brew tap dart-lang/dart
+fc-list | rg iosevka
+g bod dependabot/npm_and_yarn/handlebars-4.5.3
+exa --oneline
+yarn add --exact react-router-dom@4.3.1
+dartfmt --dry-run --set-exit-if-changed lib/main.dart lib/main.dart
+flutter update
+docker image
+apt-cache show coreutils
+echo $VCS_STATUS_RESULT
+cat .git/HEAD
+be rspec spec/requests/album_
 rails c
+yarn test src/__tests__/components/UserCommentsPage.test.js
+brew info git-delta
+echo " M bashrc" | cut -d' ' -f3
+echo " M bashrc" | cut -c 4-
+brew uses --installed asciidoc
+gem uninstall multi_json --version 1.13.1
+brew uses --installed binutils
+echo $VCS_HAS_UNSTAGED
+brew info bash
+make
+cat .browserslistrc
+systemctl status
+time rails db:reset
+gem uninstall mgspack --version 1.2.6
+g bod dependabot/npm_and_yarn/acorn-5.7.4
+fd -t d | sort
+flutter --version
+npm ls -g standard
+npm uninstall -g typescript-language-server
+xrdb -merge .Xresources
+pping 8.8.8.8
+ruby-install ruby 2.6.2
+brew upgrade git bat vim
+be standardrb spec/requests/user_update_spec.rb
+brew cask remove meld
+g sh 12f16b7
+cat /etc/group
+yarn
+g rr
+mocp
+brew info readline
+~/Downloads
+yarn test
+flutter emulators
+rubocop -a
+g co
+complete | rg tar
+gem install bundler -v 1.17.3
+? brew
+yarn add --exact react-scripts@3.1.1
+bundle list | rg local
+rmdir bin
+fc-match "Noto Sans Regular"
+brew list --versions bash
+rails g controller sample_page
+brew cleanup -n
+cf system
+brew info z
+command cloc
+cat vimrc | less
+time standard app/javascript/**/*.js
+brew uninstall universal-ctags
+cat /etc/fstab
+yarn install --check-files
+be standardrb
+fd --type d --color never
+g dip 3fe4765d44f26cdde48dcb10a5d93155eb859c5a
+yarn check
 rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-redis-server
-cd ~/projects
-clear
-git ll
-g bb
-dir
-CI=true yarn test
-z -r pla
-g st 
-g vdi
-ssh-add
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g st
-yarn test
-g st
-g vdi
-g add .
-g ci
-g vdis
-g st
-g vdi
-g vdis
-g st
-g add .
-g vids
-g vdis
-CI=true yarn test
-g llom
-g st
-g ci
-g co master
-g push
-cd ~/projects
-clear
-git ll
-ssh-add
-yarn test
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g llom
-g push
-yarn test
-z -r plat
-g st
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g ci
-g push
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g push
-CI=true yarn test
-yarn deploy
-v -S
-rm Session.vim 
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-yarn test
-CI=true yarn test
-g llom
-g push
-g ll
-g bb
-g bd album-tests 
-dir
-yarn start
-cd dotfiles/
-g st
-g vdi
-g add .
-g ci
-ssh-add 
-g push
-echo "hello, world"
-z bluz
-g vdi
-v vimrc
-g vdi
-v bashrc
-rg gvim
-man bash
-g vdi
-g aa
-g ci
-ssh-add -l
-g push
-v vimrc
-g vdi
-g aa
-g ci
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
-dir
-tar xf linux-5.tar.xz
-cd linux-5
-dir
-g init
-g aa
-g ci
-g co .
-g | ls
-g status
-g status | wc
-g co .
-cloc linux-5
-be jekyll serve
-tnew
-ssh-add
-z dot
-g pull
-g fea
-cpa
-src
-dus *
-src
-cpa
-man cp
-/bin/cp -pr
-z ~/Downloads/
-g pull
-g vdi
-exit
-g vdi
-g aa
-g ci
-g push
-g fea
-g rb origin/master 
-g llu
-gll
-g push
-be jekyll serve
-clear
-git ll
-be gem --version
-gem update --system
-be gem --version
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-z pla app
-be rspec
-mkdir lib
-quit
-g vdi
-g aa
-g ci
-g co master
-g mg rails-update 
-g push
-mina deploy
-v TODO.txt 
-g vdi
-g aa
-g ci
-g push
-g bb
-llt
-..2
-g vdi
-g aa
-g vdis
-g aa
-g vdis
-g ci
-g co master
-g vdi
-g aa
-g ci
-yarn start
-g vdi
-g aa
-g ci
-g llu
-g push
-yarn deploy
-ssh-add
-z dot
-g pull
-man find
-man rg
-tnew
-z -r public
-wc .bash_his*
-yarn start
-cd ~/projects
-clear
-cd dotfiles/
-ssh-add 
-v vimrc
-git ll
-g st
-v .gitignore 
-g st
-g st
-v .gitignore
-cd ..
-cd -
-g st
-g add .
-g ci
-g push
-mina deploy
-CI=true yarn test
-yarn deploy
-g st
-yarn start
-clear
-git ll
-g st
-g vdi
-cd ~/projects
-clear
-wc .bash_history
-CI=true yarn test
-yarn test
-yarn deploy
-yarn test
-g ll | wc
-yarn deploy
-g vdi
-g add .
-g ci
-g push
-g push
-eslint src
-g vdi
-g at
-g st
-clear
-git ll
-g bb
-g st
-g vdi
-g add .
-g ci
-g co master 
-ssh-add 
-g push
-cd ~/projects
-clear
-tmux resize-pane -Z
-git ll
-g bd system-tests 
-dir
-\rm -rf *
-..2
-be rspec
-g st
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g st
-g add .
-g st
-g add .
-g ci
-g push
-dir
-cd Downloads/
-dir
-dir
-rm *
-rails c
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-redis-server
-cd ~/projects
-clear
-git ll
-g bb
-dir
-CI=true yarn test
-z -r pla
-g st 
-g vdi
-ssh-add
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g st
-yarn test
-g st
-g vdi
-g add .
-g ci
-g vdis
-g st
-g vdi
-g vdis
-g st
-g add .
-g vids
-g vdis
-CI=true yarn test
-g llom
-g st
-g ci
-g co master
-g push
-cd ~/projects
-clear
-git ll
-ssh-add
-yarn test
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g llom
-g push
-yarn test
-z -r plat
-g st
-g vdi
-g add .
-g ci
-g push
-mina deploy
-g vdi
-g st
-g vdi
-g add .
-g vdis
-g ci
-g push
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-g push
-CI=true yarn test
-yarn deploy
-v -S
-rm Session.vim 
-g st
-g vdi
-g st
-g vdi
-g add .
-g ci
-yarn test
-CI=true yarn test
-g llom
-g push
-g ll
-g bb
-g bd album-tests 
-dir
-yarn start
-cd dotfiles/
-g st
-g vdi
-g add .
-g ci
-ssh-add 
-g push
-echo "hello, world"
-z bluz
-g vdi
-v vimrc
-g vdi
-v bashrc
-rg gvim
-man bash
-g vdi
-g aa
-g ci
-ssh-add -l
-g push
-v vimrc
-g vdi
-g aa
-g ci
-wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.tar.xz
-dir
-tar xf linux-5.tar.xz
-cd linux-5
-dir
-g init
-g aa
-g ci
-g co .
-g | ls
-g status
-g status | wc
-g co .
-cloc linux-5
-be jekyll serve
-tnew
-ssh-add
-z dot
-g pull
-g fea
-cpa
-src
-dus *
-src
-cpa
-man cp
-/bin/cp -pr
-z ~/Downloads/
-g pull
-g vdi
-exit
-g vdi
-g aa
-g ci
-g push
-g fea
-g rb origin/master 
-g llu
-gll
-g push
-be jekyll serve
-clear
-git ll
-be gem --version
-gem update --system
-be gem --version
-rails s
-sleep 2 && be sidekiq -C confiq/sidekiq.yml
-z pla app
-be rspec
-mkdir lib
-quit
-g vdi
-g aa
-g ci
-g co master
-g mg rails-update 
-g push
-mina deploy
-v TODO.txt 
-g vdi
-g aa
-g ci
-g push
-g bb
-llt
-..2
-g vdi
-g aa
-g vdis
-g aa
-g vdis
-g ci
-g co master
-g vdi
-g aa
-g ci
-yarn start
-g vdi
-g aa
-g ci
-g llu
-g push
-yarn deploy
-ssh-add
-z dot
-g pull
-clear
-ls -la
+? alacritty
+brew outdated 2>&1 | sort
+cat .git/hooks/post-merge
+df .
+export SEAFLY_GIT_DIRTY=*
+CI=true yarn test src/__tests__/components/CommentsList.test.js
+7za e html.7z
+g status -s
+cat /etc/resolv.conf
+gem update jbuilder
+brew uses --installed docbook
