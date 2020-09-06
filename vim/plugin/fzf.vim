@@ -25,8 +25,6 @@ nnoremap <silent> <Space>]       :Tags<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
 nnoremap <silent> <Space>g       :GFiles?<CR>
 nnoremap <silent> <Space>h       :Helptags<CR>
-" Project-wide search for the supplied term.
-noremap <Space>\ :Rg<Space>
 
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
