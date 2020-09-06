@@ -47,6 +47,8 @@
     zero-style                   = auto
 [help]
     format = html
+[web]
+    browser = open
 #[feature]
 #    manyFiles = true
 [alias]
