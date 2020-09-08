@@ -26,6 +26,7 @@ let g:lsc_auto_map = {
  \  'Rename': 'gR',
  \  'ShowHover': 'K',
  \  'FindCodeActions': 'ga',
+ \  'SignatureHelp': 'gh',
  \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_diagnostics   = v:false

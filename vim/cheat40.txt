@@ -181,7 +181,7 @@ Revert hunk staging      ‹Spc›-       @N
 Preview hunk             ‹Spc›p       @N
 }}}
 Grepper Plugin Mappings {{{
-Search prompt            \\            N
+Search prompt            ,g            N
 Search operation         gs          *VN
 }}}
 Unimpaired Plugin Mappings {{{

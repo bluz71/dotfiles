@@ -79,8 +79,8 @@ if has("nvim")
     tnoremap <C-l> <C-\><C-N><C-w>l
 endif
 " Vertical movements.
-nnoremap <A-Up>   10k
-nnoremap <A-Down> 10j
+nnoremap <C-Up>   10k
+nnoremap <C-Down> 10j
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
@@ -269,12 +269,24 @@ cnoremap <A-d>  <C-Right><C-w>
 " - Star search that does not move forward to the next match
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
+
 " - Star search that does an immediate change on the match
 nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> \c "sy:let @/=@s<CR>cgn
+" Accept/reject helpers after completing a \c cgn-based star search
+" change operation.
+"
+" - Go to the next star search match and highlight it
+nnoremap <CR> gnzz
+" - Accept the star search change and go to the next match and highlight it
+xmap <CR> .<Esc>gnzz
+" - Reject the star search change and go to the next match and highlight it
+xnoremap ! <Esc>ngnzz
+
 " - Star search and substitute within the current file
 nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
+
 " - Project-wide star search and substitute using the Grepper plugin
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
@@ -286,10 +298,3 @@ xmap \S
   \ :GrepperRg <C-r>s<CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" Accept/reject helpers after completing a \c cgn-based change operation
-" - Go to the next match and highlight it
-nnoremap <CR> gnzz
-" - Accept the change and go to the next match and highlight it
-xmap <CR> .<Esc>gnzz
-" - Reject the change and go to the next match and highlight it
-xnoremap ! <Esc>ngnzz
