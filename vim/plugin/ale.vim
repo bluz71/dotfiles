@@ -45,7 +45,7 @@ let g:ale_sign_priority            = 50
 if has("nvim")
     let g:ale_echo_cursor          = 0
     let g:ale_virtualtext_cursor   = 1
-    let g:ale_virtualtext_prefix   = ' ›› '
+    let g:ale_virtualtext_prefix   = ' ■ '
 endif
 
 " ALE fix and toggle mappings.
