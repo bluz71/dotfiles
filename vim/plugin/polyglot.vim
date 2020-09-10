@@ -8,7 +8,6 @@ let g:go_highlight_operators            = 1
 let g:go_highlight_structs              = 1
 let g:go_highlight_types                = 1
 let g:jsx_ext_required                  = 0
-let g:polyglot_disabled                 = ["yaml"]
 let g:ruby_indent_assignment_style      = "variable"
 let g:vim_json_syntax_conceal           = 0
 let g:vim_markdown_auto_insert_bullets  = 0
