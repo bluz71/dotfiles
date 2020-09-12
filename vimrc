@@ -254,7 +254,7 @@ if has("nvim")
     Plug 'bfredl/nvim-miniyank'
         " ~/dotfiles/vim/plugin/miniyank.vim - mappings
     Plug 'norcalli/nvim-colorizer.lua'
-        " ~/dotfiles/vim/after/plugin/nvim-colorizer.vim - options, mappings
+        " ~/dotfiles/vim/lua/nvim-colorizer.lua - options, mappings
 
     " Workaround for Neovim bug, see:
     "   https://github.com/neovim/neovim/issues/12587
@@ -264,6 +264,12 @@ endif
 
 " Finalize vim-plug.
 call plug#end()
+
+
+" Load Neovim Lua-based plugin configurations.
+if has("nvim")
+    lua require'nvim-colorizer'
+endif
 
 
 " Load up the match it plugin which provides smart % XML/HTML matching.
