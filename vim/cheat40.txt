@@ -31,8 +31,8 @@ Move to the left split   ‹Ctrl-h›      N
 Move to the split below  ‹Ctrl-j›      N
 Move to the split above  ‹Ctrl-k›      N
 Move to the right split  ‹Ctrl-l›      N
-Move up ten lines        ‹Ctrl-Up›     N
-Move down ten lines      ‹Ctrl-Down›   N
+Move down ten lines      ‹Alt-j›       N
+Move up ten lines        ‹Alt-k›       N
 Navigate via ‹wildmenu›  ,‹Tab›        N
 Alternate last file      ‹Backspace›   N
 Previous jump position   [j            N
@@ -62,7 +62,7 @@ Paste from ‹y› register  ,p            N
 Paste from ‹y› register  ,P            N
 Insert from ‹y› register ‹Ctrl-y›      I
 Fold                     ,z            N
-Crosshair                ,x            N
+Crosshair                ,X            N
 Zoom split               ,Z            N
 Syntax from start        ,S           %N
 }}}

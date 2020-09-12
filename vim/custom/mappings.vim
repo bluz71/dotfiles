@@ -57,7 +57,7 @@ inoremap <C-y> <C-r>y
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Toggle crosshair, aka cusorcolumn & cursorline.
-nnoremap <Leader>x :call crosshair#Toggle()<CR>
+nnoremap <Leader>X :call crosshair#Toggle()<CR>
 " Zoom the current file into a standalone new tab.
 nnoremap <silent> <Leader>Z :tab split<CR>
 " Recalculate syntax highlighting for the entire file.
@@ -79,8 +79,8 @@ if has("nvim")
     tnoremap <C-l> <C-\><C-N><C-w>l
 endif
 " Vertical movements.
-nnoremap <C-Up>   10k
-nnoremap <C-Down> 10j
+nnoremap <A-j> 10j
+nnoremap <A-k> 10k
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
