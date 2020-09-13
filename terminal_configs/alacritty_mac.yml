@@ -160,6 +160,8 @@ key_bindings:
   - { key: E,        mods: Alt,       chars: "\x1be" }
   - { key: F,        mods: Alt,       chars: "\x1bf" }
   - { key: F,        mods: Alt|Shift, chars: "\x1bF" }
+  - { key: J,        mods: Alt,       chars: "\x1bj" }
+  - { key: K,        mods: Alt,       chars: "\x1bk" }
   - { key: L,        mods: Alt,       chars: "\x1bl" }
   - { key: P,        mods: Alt,       chars: "\x1bp" }
   - { key: Q,        mods: Control,   chars: "\x11"  }
