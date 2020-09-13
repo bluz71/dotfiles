@@ -6,12 +6,13 @@
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-    let g:completion_enable_auto_hover      = 0
-    let g:completion_enable_auto_signature  = 0
-    let g:completion_trigger_keyword_length = 3
-    let g:completion_sorting                = 'alphabet'
-    let g:completion_matching_strategy_list = ['exact']
-    let g:completion_timer_cycle            = 200
+
+let g:completion_enable_auto_hover      = 0
+let g:completion_enable_auto_signature  = 0
+let g:completion_trigger_keyword_length = 3
+let g:completion_sorting                = 'alphabet'
+let g:completion_matching_strategy_list = ['exact']
+let g:completion_timer_cycle            = 200
 
 nnoremap <silent> gd  <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K   <cmd>lua vim.lsp.buf.hover()<CR>
@@ -21,16 +22,20 @@ nnoremap <silent> ga  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> gh  <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 lua << EOF
-    local nvim_lsp   = require'nvim_lsp'
-    local completion = require'completion'
+  local lsp        = require'nvim_lsp'
+  local completion = require'completion'
 
-    nvim_lsp.dartls.setup{
-        on_attach = completion.on_attach
-    }
-    nvim_lsp.solargraph.setup{
-        on_attach = completion.on_attach
-    }
-    nvim_lsp.tsserver.setup{
-        on_attach = completion.on_attach
-    }
+  lsp.dartls.setup {
+    on_attach = completion.on_attach
+  }
+
+  lsp.solargraph.setup {
+    on_attach = completion.on_attach
+  }
+
+  lsp.tsserver.setup {
+    on_attach = completion.on_attach
+  }
+
+  vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
 EOF
