@@ -401,7 +401,7 @@ navi_cheats() {
     if [[ $# == 0 ]]; then
         eval $navi_command
     else
-        eval $navi_command query "$@"
+        eval $navi_command --query "$@"
     fi
 }
 
