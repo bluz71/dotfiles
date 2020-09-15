@@ -5,9 +5,9 @@ function! spelling#Toggle() abort
     setlocal spell!
     if &spell
         set complete+=kspell
-        echo "Spell mode enabled"
+        echo 'Spell mode enabled'
     else
         set complete-=kspell
-        echo "Spell mode disabled"
+        echo 'Spell mode disabled'
     endif
 endfunction

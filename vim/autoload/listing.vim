@@ -13,7 +13,7 @@ function! listing#Toggle() abort
         endif
         let s:listMode = 0
     else
-        if &filetype == "go"
+        if &filetype ==# 'go'
             setlocal listchars=tab:\▏\ ,trail:-
         else
             setlocal listchars=tab:\ \ ,trail:-

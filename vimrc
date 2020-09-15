@@ -22,7 +22,7 @@ set backspace=indent,eol,start
 set belloff=all       " Bells are annoying
 set breakindent       " Wrap long lines *with* indentation
 set breakindentopt=shift:2
-if has("unnamedplus") " Copy to/from system clipboard
+if has('unnamedplus') " Copy to/from system clipboard
     set clipboard=unnamed,unnamedplus
 else
     set clipboard=unnamed
@@ -32,13 +32,13 @@ set conceallevel=2
 set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
 set dictionary=/usr/share/dict/words
-if has('nvim-0.3.2') || has("patch-8.1.0360")
+if has('nvim-0.3.2') || has('patch-8.1.0360')
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
 set expandtab         " Use spaces instead of tabs
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
-set foldtext=""
+set foldtext=''
 set formatoptions=cqj " Default format options
 set gdefault          " Always do global substitutes
 set history=200       " Keep 200 changes of undo history
@@ -85,9 +85,9 @@ set timeoutlen=1500   " Give some time for multi-key mappings
 " behaviours
 set ttimeoutlen=10
 " Set the persistent undo directory on temporary private fast storage.
-let s:undoDir="/tmp/.undodir_" . $USER
+let s:undoDir='/tmp/.undodir_' . $USER
 if !isdirectory(s:undoDir)
-    call mkdir(s:undoDir, "", 0700)
+    call mkdir(s:undoDir, '', 0700)
 endif
 let &undodir=s:undoDir
 set undofile          " Maintain undo history
@@ -99,7 +99,7 @@ set wildmode=full     " Complete the next full match
 set wrap              " Wrap long lines
 
 " Options specific to Neovim or Vim.
-if has("nvim")
+if has('nvim')
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
@@ -250,7 +250,7 @@ Plug 'tweekmonster/startuptime.vim'
 "-----------------------------
 " Neovim specific plugins
 "-----------------------------
-if has("nvim")
+if has('nvim')
     Plug 'bfredl/nvim-miniyank'
         " ~/dotfiles/vim/plugin/miniyank.vim - mappings
     Plug 'norcalli/nvim-colorizer.lua'
@@ -267,7 +267,7 @@ call plug#end()
 
 
 " Load Neovim Lua-based plugin configurations.
-if has("nvim")
+if has('nvim')
     lua require'nvim-colorizer'
 endif
 
@@ -288,7 +288,7 @@ runtime custom/autocmds.vim
 " COLOR SCHEME
 "===========================================================
 if filereadable(expand('~/.colorscheme'))
-    exec "colorscheme " . readfile(expand('~/.colorscheme'))[0]
+    exec 'colorscheme ' . readfile(expand('~/.colorscheme'))[0]
 else
     colorscheme moonfly
 endif

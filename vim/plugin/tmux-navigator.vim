@@ -1,4 +1,4 @@
-if &term == "screen-256color"
+if &term ==# 'screen-256color'
     " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
     let g:tmux_navigator_no_mappings = 1

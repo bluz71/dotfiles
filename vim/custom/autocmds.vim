@@ -33,7 +33,7 @@ augroup CustomEvents
       \ endif
 
     " Neovim terminal tweaks.
-    if has("nvim")
+    if has('nvim')
         autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
         autocmd TermOpen *        startinsert
         autocmd BufEnter term://* startinsert
@@ -41,7 +41,7 @@ augroup CustomEvents
 
     " Disable sign-creating plugins for larger than 200K files.
     autocmd BufReadPre *
-      \ if getfsize(expand("%")) > 200000|
+      \ if getfsize(expand('%')) > 200000|
       \     call signs#Disable()|
       \ endif
 augroup END

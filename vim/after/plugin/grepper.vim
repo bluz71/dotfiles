@@ -1,1 +1,1 @@
-let g:grepper.rg.grepprg .= " --smart-case"
+let g:grepper.rg.grepprg .= ' --smart-case'

@@ -15,21 +15,21 @@ function! window_traits#Activity(active) abort
 
     if a:active == v:true " Active window
         " Set cursorline for file explorers.
-        if &buftype == "nofile"
+        if &buftype ==# 'nofile'
             setlocal cursorline
             return
         endif
 
         set colorcolumn=81,82
         " Set relative numbering, except for help files.
-        if &filetype != "help"
+        if &filetype !=# 'help'
             setlocal relativenumber
         endif
         if exists('&cursorlineopt')
             setlocal cursorline
         endif
     else " Inactive window
-        if &buftype == "nofile"
+        if &buftype ==# 'nofile'
             setlocal nocursorline
             return
         endif

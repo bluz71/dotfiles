@@ -1,7 +1,7 @@
 "-----------------------------
 " Leader
 "-----------------------------
-let mapleader = ","
+let mapleader = ','
 
 "-----------------------------
 " General mappings
@@ -20,7 +20,7 @@ nnoremap Q @q
 xnoremap Q :'<,'> :normal @q<CR>
 " Confirm quit.
 noremap <silent> <C-q> :confirm qall<CR>
-if has("nvim")
+if has('nvim')
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
 endif
@@ -71,7 +71,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-if has("nvim")
+if has('nvim')
     " Use same mappings as above to navigate Neovim terminal splits.
     tnoremap <C-h> <C-\><C-N><C-w>h
     tnoremap <C-j> <C-\><C-N><C-w>j
@@ -152,7 +152,7 @@ inoremap <C-g>8              <Esc>8gt
 inoremap <C-g>9              <Esc>9gt
 nnoremap <Leader>=           <C-w>=
 nnoremap <Leader>r           <C-w>r
-if has("nvim")
+if has('nvim')
     nnoremap <silent> <Leader>T :botright new<CR><C-w>=:terminal<CR>
     nnoremap <silent> <C-g>T    :botright new<CR><C-w>=:terminal<CR>
     inoremap <silent> <C-g>T    <Esc>:botright new<CR><C-w>=:terminal<CR>
@@ -195,8 +195,8 @@ nnoremap <F6>     :set showcmd!<CR>
 nnoremap <Space>6 :set showcmd!<CR>
 "<F7>     - unused
 "<Space>7 - unused
-nnoremap <F8>     :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
-nnoremap <Space>8 :echo synIDattr(synID(line("."), col("."), 1), "name")<CR>
+nnoremap <F8>     :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+nnoremap <Space>8 :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
 nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>0 :call listing#Toggle()<CR>
