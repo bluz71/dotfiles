@@ -31,7 +31,7 @@ endif
 
 " gvim specific functions.
 "
-fun! DoubleSizeAndVsplit()
+function! DoubleSizeAndVsplit() abort
     if &columns != 174
         set columns=174
         vsplit
@@ -47,4 +47,4 @@ endfun
 
 " gvim specific keyboard mappings.
 "
-map <Leader>V :call DoubleSizeAndVsplit()<CR>
+noremap <Leader>V :call DoubleSizeAndVsplit()<CR>
