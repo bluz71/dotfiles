@@ -67,6 +67,7 @@ set relativenumber    " Show relative numbers
 set ruler
 set shiftwidth=4      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
+set shortmess+=I      " Don't show intro message
 set signcolumn=auto   " Only render sign column when needed
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching

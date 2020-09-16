@@ -27,6 +27,8 @@ endif
 " Direct changes into the black hole register.
 nnoremap c "_c
 nnoremap C "_C
+" Show introduction message.
+nnoremap <Leader>i :intro<CR>
 
 "-----------------------------
 " Helper mappings
