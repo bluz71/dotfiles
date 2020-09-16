@@ -2,7 +2,7 @@ let s:listMode = 1
 
 " Toggle the highlighting of special characters.
 "
-function! listing#Toggle() abort
+function! listchars#Toggle() abort
     if s:listMode == 1
         setlocal listchars=eol:$,tab:>-,trail:-
         " Brighten list characters.

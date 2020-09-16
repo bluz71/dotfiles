@@ -199,8 +199,8 @@ nnoremap <F8>     :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
 nnoremap <Space>8 :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
 nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap <Space>0 :call listing#Toggle()<CR>
-nnoremap <F12>    :call listing#Toggle()<CR>
+nnoremap <silent> <Space>0 :call listchars#Toggle()<CR>
+nnoremap <silent> <F12>    :call listchars#Toggle()<CR>
 
 "-----------------------------
 " Center navigation mappings

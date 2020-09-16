@@ -57,8 +57,8 @@ nmap [w <Plug>(ale_previous)zz
 nmap ]w <Plug>(ale_next)zz
 nmap [W <Plug>(ale_first)zz
 nmap ]W <Plug>(ale_last)zz
-" Open location list.
-nnoremap <Leader>l :lopen<CR>
+" Toggle location list.
+nnoremap <silent> <Leader>l :call location_list#Toggle()<CR>
 
 " Use the Dart Analysis Server (LSP) as the Dart linter.
 call ale#linter#Define('dart', {
