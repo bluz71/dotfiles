@@ -27,8 +27,6 @@ endif
 " Direct changes into the black hole register.
 nnoremap c "_c
 nnoremap C "_C
-" Show introduction message.
-nnoremap <Leader>i :intro<CR>
 
 "-----------------------------
 " Helper mappings
@@ -64,6 +62,8 @@ nnoremap <Leader>X :call crosshair#Toggle()<CR>
 nnoremap <silent> <Leader>Z :tab split<CR>
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Leader>S :syntax sync fromstart<CR>
+" Show introduction message.
+nnoremap <Leader>i :intro<CR>
 
 "-----------------------------
 " Navigation mappings

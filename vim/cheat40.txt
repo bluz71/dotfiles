@@ -65,6 +65,7 @@ Fold                     ,z            N
 Crosshair                ,X            N
 Zoom split               ,Z            N
 Syntax from start        ,S           %N
+Introduction message     ,i            N
 }}}
 Command Mode Mappings {{{
 Go to start of line      ‹Ctrl-a›      C
