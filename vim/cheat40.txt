@@ -166,7 +166,8 @@ Mark current line        m            *N
 Create new file          N            *N
 Create new directory     K            *N
 Delete marked entries    D            *N
-Rename file              R            *N
+Move file                V            *N
+Rename file(s)           R            *N
 Open in a split          s            *N
 Open in a vsplit         v            *N
 Reload current directory r            *N
