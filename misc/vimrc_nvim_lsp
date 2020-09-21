@@ -1,5 +1,6 @@
 " See:
 "  https://nathansmith.io/posts/neovim-lsp
+"  https://github.com/tjdevries/config_manager/blob/master/presentations/neovim_lsp/presentation.md
 "  https://rishabhrd.github.io/jekyll/update/2020/09/19/nvim_lsp_config.html
 "  https://neovim.io/doc/user/lsp.html
 "  https://github.com/scalameta/nvim-metals
