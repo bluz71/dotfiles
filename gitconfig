@@ -109,6 +109,7 @@
     ps = push
     pl = pull
     # remote
+    rau = remote add upstream
     rr  = remote -v
     rro = remote show origin
     rru = remote show upstream
