@@ -73,7 +73,7 @@ set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab          " Tab at the start of line inserts blanks
 " When spell checking, assume word boundaries include 'CamelCasing'.
-if exists('&spellotions')
+if exists('&spelloptions')
     set spelloptions=camel
 endif
 set splitbelow        " Split below current window
