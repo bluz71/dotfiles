@@ -232,6 +232,7 @@ Go to definition         gd           *N
 Find references          gr           *N
 Rename symbol            gR           *N
 Code actions             ga           *N
+Signature help           ‹Ctrl-h›     *I
 }}}
 ALE Plugin Mappings {{{
 Execute fixer            ‹Spc›f       %N

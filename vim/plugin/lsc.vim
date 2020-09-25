@@ -26,9 +26,11 @@ let g:lsc_auto_map = {
  \  'Rename': 'gR',
  \  'ShowHover': 'K',
  \  'FindCodeActions': 'ga',
- \  'SignatureHelp': 'gh',
  \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_diagnostics   = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
+
+" Signature help mapping whilst in insert mode.
+inoremap <silent> <C-h> <C-o>:LSClientSignatureHelp<CR>
