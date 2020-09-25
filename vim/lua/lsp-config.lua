@@ -1,14 +1,40 @@
 -- See:
 --  https://nathansmith.io/posts/neovim-lsp
---  https://github.com/tjdevries/config_manager/blob/master/presentations/neovim_lsp/presentation.md
 --  https://rishabhrd.github.io/jekyll/update/2020/09/19/nvim_lsp_config.html
 --  https://neovim.io/doc/user/lsp.html
---  https://github.com/scalameta/nvim-metals
---  https://github.com/scalameta/nvim-metals/blob/master/nvim-lsp.vim
---  https://github.com/neovim/neovim/pull/12444
 
 local nvim_lsp   = require'nvim_lsp'
 local completion = require'completion'
+
+-- Disable diagnostics, use ALE instead
+vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+
+-- Diagnostics symbols
+vim.api.nvim_command('sign define LspDiagnosticsErrorSign text=✖')
+vim.api.nvim_command('sign define LspDiagnosticsWarningSign text=✖')
+vim.api.nvim_command('sign define LspDiagnosticsInformationSign text=●')
+vim.api.nvim_command('sign define LspDiagnosticsHintSign text=●')
+
+-- Options for completion-nvim plugin
+vim.g.completion_enable_auto_hover      = 0
+vim.g.completion_enable_auto_signature  = 0
+vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+vim.g.completion_menu_length            = 0
+vim.g.completion_sorting                = 'alphabet'
+vim.g.completion_timer_cycle            = 150
+vim.g.completion_trigger_keyword_length = 3
+
+-- Code action client capabilities
+local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+client_capabilities.textDocument.codeAction = {
+  codeActionLiteralSupport = {
+    codeActionKind = {
+      valueSet = {
+        "quickfix", "refactor", "refactor.rewrite", "source"
+      }
+    }
+  }
+}
 
 local lsp_on_attach = function(client)
   print("LSP started.")
@@ -23,31 +49,22 @@ local lsp_on_attach = function(client)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-  -- Omni function
+  -- Enable LSP omnifunc
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 end
 
--- Disable diagnostics, use ALE instead
-vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
-
--- Options for completion-nvim
-vim.g.completion_enable_auto_hover      = 0
-vim.g.completion_enable_auto_signature  = 0
-vim.g.completion_matching_strategy_list = {'exact'}
-vim.g.completion_menu_length            = 0
-vim.g.completion_sorting                = 'alphabet'
-vim.g.completion_timer_cycle            = 150
-vim.g.completion_trigger_keyword_length = 3
-
 -- The Language Servers
 nvim_lsp.dartls.setup {
-  on_attach = lsp_on_attach
+  on_attach = lsp_on_attach,
+  capabilities = client_capabilities
 }
 
 nvim_lsp.solargraph.setup {
-  on_attach = lsp_on_attach
+  on_attach = lsp_on_attach,
+  capabilities = client_capabilities
 }
 
 nvim_lsp.tsserver.setup {
-  on_attach = lsp_on_attach
+  on_attach = lsp_on_attach,
+  capabilities = client_capabilities
 }
