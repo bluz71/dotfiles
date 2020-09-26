@@ -109,6 +109,7 @@ else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
     set t_Co=256
+    set term=xterm-256color
     set ttyfast
     set ttymouse=xterm2
     if exists('&cursorlineopt')
