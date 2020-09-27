@@ -8,5 +8,5 @@
 STAGED_DART_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".dart$")
 
 if [ -n "$STAGED_DART_FILES" ]; then
-    dartfmt --dry-run --set-exit-if-changed "$STAGED_DART_FILES" >/dev/null
+    dartfmt --dry-run --set-exit-if-changed $STAGED_DART_FILES >/dev/null
 fi

@@ -8,5 +8,5 @@
 STAGED_RUBY_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".rb$")
 
 if [ -n "$STAGED_RUBY_FILES" ]; then
-    standardrb "$STAGED_RUBY_FILES"
+    standardrb $STAGED_RUBY_FILES
 fi
