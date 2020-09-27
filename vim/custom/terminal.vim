@@ -1,6 +1,10 @@
+" Note, the following settings are for terminal Vim only. Neovim and GUI Vim do
+" not require these settings.
+"
 if !has('gui_running') && !has('nvim')
-    " Note, Neovim cursor shape and 24-bit true colors work without any
-    " help required; the following 'settings' are for terminal Vim only.
+    set term=xterm-256color " Vim does not like TERM=alacritty
+    set ttyfast             " We have a fast TTY
+    set ttymouse=xterm2     " Improve mouse support
 
     " if tmux
     if &term ==# 'tmux-256color'

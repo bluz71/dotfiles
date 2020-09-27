@@ -108,10 +108,6 @@ if has('nvim')
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
-    set t_Co=256
-    set term=xterm-256color
-    set ttyfast
-    set ttymouse=xterm2
     if exists('&cursorlineopt')
         set cursorline
         set cursorlineopt=number
@@ -127,7 +123,7 @@ endif
 
 
 "===========================================================
-" TERMINAL CONFIGURATION
+" TERMINAL VIM SETTINGS
 "===========================================================
 runtime custom/terminal.vim
 
