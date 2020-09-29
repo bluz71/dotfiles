@@ -14,9 +14,8 @@ function! window_traits#Activity(active) abort
     endif
 
     if a:active == v:true " Active window
-        " Set cursorline for file explorers.
         if &buftype ==# 'nofile'
-            setlocal cursorline
+            " Do not style 'nofile' buffer types.
             return
         endif
 
@@ -30,7 +29,7 @@ function! window_traits#Activity(active) abort
         endif
     else " Inactive window
         if &buftype ==# 'nofile'
-            setlocal nocursorline
+            " Do not style 'nofile' buffer types.
             return
         endif
 
