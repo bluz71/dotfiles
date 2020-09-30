@@ -215,7 +215,10 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'airblade/vim-gitgutter'
     " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 Plug 'sheerun/vim-polyglot'
+    runtime custom/polyglot.vim " Polyglot disabled languages
     " ~/dotfiles/vim/plugin/polyglot.vim - options
+Plug 'bluz71/vim-markdown'
+    " ~/dotfiles/vim/plugin/markdown.vim - options
 Plug 'natebosch/vim-lsc'
     " ~/dotfiles/vim/plugin/lsc.vim - options
 Plug 'dense-analysis/ale'
