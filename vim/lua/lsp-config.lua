@@ -22,23 +22,11 @@ vim.g.completion_enable_auto_signature  = 0
 vim.g.completion_matching_strategy_list = {'exact'}
 vim.g.completion_menu_length            = 0
 vim.g.completion_sorting                = 'alphabet'
-vim.g.completion_timer_cycle            = 150
+vim.g.completion_timer_cycle            = 200
 vim.g.completion_trigger_keyword_length = 3
 
--- Code action client capabilities.
-local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-client_capabilities.textDocument.codeAction = {
-  codeActionLiteralSupport = {
-    codeActionKind = {
-      valueSet = {
-        "quickfix", "refactor", "refactor.rewrite", "source"
-      }
-    }
-  }
-}
-
+-- On attach function.
 local lsp_on_attach = function(client)
-  print("LSP started.")
   completion.on_attach(client)
 
   -- Mappings
@@ -52,7 +40,22 @@ local lsp_on_attach = function(client)
 
   -- Enable LSP omnifunc.
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+
+  -- Indicate that LSP is ready.
+  print("Language server is ready")
 end
+
+-- Code action client capabilities.
+local client_capabilities = vim.lsp.protocol.make_client_capabilities()
+client_capabilities.textDocument.codeAction = {
+  codeActionLiteralSupport = {
+    codeActionKind = {
+      valueSet = {
+        "quickfix", "refactor", "refactor.rewrite", "source"
+      }
+    }
+  }
+}
 
 -- The Language Servers.
 nvim_lsp.dartls.setup {
