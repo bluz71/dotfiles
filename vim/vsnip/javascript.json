@@ -22,7 +22,7 @@
     ]
   },
   "React class component": {
-    "prefix": "rcc",
+    "prefix": "reactcc",
     "body": [
       "import React, { Component } from 'react'",
       "import PropTypes from 'prop-types'",
@@ -46,7 +46,7 @@
     ]
   },
   "React functional component": {
-    "prefix": "rfc",
+    "prefix": "reactfc",
     "body": [
       "import React from 'react'",
       "import PropTypes from 'prop-types'",

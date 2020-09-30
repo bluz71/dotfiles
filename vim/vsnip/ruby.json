@@ -1,6 +1,6 @@
 {
   "Class definition": {
-    "prefix": "cl",
+    "prefix": "class",
     "body": [
       "class ${1:Class}",
       "  def initialize${2:()}",
@@ -18,7 +18,7 @@
     ]
   },
   "Rails controller": {
-    "prefix": "rc",
+    "prefix": "railsc",
     "body": [
       "# frozen_string_literal: true",
       "",
@@ -30,7 +30,7 @@
     ]
   },
   "Rails model": {
-    "prefix": "rm",
+    "prefix": "railsm",
     "body": [
       "# frozen_string_literal: true",
       "",
