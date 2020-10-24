@@ -6,7 +6,7 @@ unalias -a
 #
 # -- Coreutils aliases --
 alias cp='/bin/cp -iv'
-alias md='mkdir -p -v'
+alias mc='_f() { mkdir -p "$@" && cd "$@"; }; _f'
 alias mv='/bin/mv -iv'
 alias rd='rmdir -p -v'
 alias rm='/bin/rm -i'
