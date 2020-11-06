@@ -55,6 +55,9 @@ alias llfs='find_by_size'
 alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
 alias ls='ls --color --classify --human-readable --quoting-style=escape'
+# -- ripgrep aliases --
+alias rg='rg --smart-case'
+alias rgp='_f() { rg --pretty "$1" | less; }; _f'
 # -- Tree aliases --
 alias t='tree -C --dirsfirst'
 alias td='tree -C -d'
@@ -427,14 +430,6 @@ prompt() {
     SEAFLY_PRE_COMMAND="history -a"
     SEAFLY_GIT_PREFIX=" "
     . ~/.bash-seafly-prompt/command_prompt.bash
-}
-
-rg() {
-    if [[ -t 1 ]]; then
-        command rg --smart-case --pretty "$@" | less
-    else
-        command rg --smart-case "$@"
-    fi
 }
 
 shell_config() {
