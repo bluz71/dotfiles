@@ -45,30 +45,15 @@ local lsp_on_attach = function(client)
   print("Language server is ready")
 end
 
--- Code action client capabilities.
-local client_capabilities = vim.lsp.protocol.make_client_capabilities()
-client_capabilities.textDocument.codeAction = {
-  codeActionLiteralSupport = {
-    codeActionKind = {
-      valueSet = {
-        "quickfix", "refactor", "refactor.rewrite", "source"
-      }
-    }
-  }
-}
-
 -- The Language Servers.
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
-  capabilities = client_capabilities
 }
 
 nvim_lsp.solargraph.setup {
   on_attach = lsp_on_attach,
-  capabilities = client_capabilities
 }
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
-  capabilities = client_capabilities
 }
