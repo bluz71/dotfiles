@@ -212,8 +212,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
-Plug 'airblade/vim-gitgutter'
-    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 Plug 'sheerun/vim-polyglot'
     runtime custom/polyglot.vim " Polyglot disabled languages
     " ~/dotfiles/vim/plugin/polyglot.vim - options
@@ -236,6 +234,8 @@ Plug 'hrsh7th/vim-vsnip'
     " ~/dotfiles/vim/vsnip - custom snippets
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
+Plug 'airblade/vim-gitgutter'
+    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 
 "-----------------------------
 " Misc plugins
