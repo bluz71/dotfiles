@@ -126,6 +126,7 @@ Expression register      ‹Ctrl-r›=‹@›  I
 Count search matches     :%~n          N
 Delete pattern lines     :g/‹@›/d      N
 Delete !pattern lines    :v/‹@›/d      N
+Change until closing )}] c%           *N
 Open browser on link     gx           *N
 Read in shell output     :r !‹@›       N
 Move line to top         zt            N
