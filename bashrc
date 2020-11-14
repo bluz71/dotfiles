@@ -143,6 +143,7 @@ if [[ $OS = Linux ]]; then
     alias scp='/usr/bin/scp -r'
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
+    alias updatedb='sudo /usr/bin/updatedb'
 elif [[ $OS = Darwin ]]; then
     alias cpa='/usr/local/bin/gcp -i -a'
     alias scp='/usr/local/bin/scp -r'
