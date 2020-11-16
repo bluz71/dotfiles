@@ -49,8 +49,8 @@ local lsp_on_attach = function(client)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', ']w', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', '[w', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 
   -- Enable LSP omnifunc.
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
