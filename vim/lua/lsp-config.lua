@@ -34,8 +34,7 @@ vim.g.completion_enable_auto_signature  = 0
 vim.g.completion_matching_strategy_list = {'exact'}
 vim.g.completion_menu_length            = 0
 vim.g.completion_sorting                = 'alphabet'
-vim.g.completion_timer_cycle            = 200
-vim.g.completion_trigger_keyword_length = 3
+vim.g.completion_trigger_keyword_length = 2
 
 -- On attach function.
 local lsp_on_attach = function(client)
