@@ -61,6 +61,7 @@ end
 -- The Language Servers.
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
+  flags = { allow_incremental_sync = true },
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler
   }
@@ -75,6 +76,7 @@ nvim_lsp.solargraph.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
+  flags = { allow_incremental_sync = true },
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler
   }
