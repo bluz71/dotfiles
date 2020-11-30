@@ -89,6 +89,7 @@ alias pping='prettyping --nolegend'
 alias psu='ps -u $USER -f'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
+alias sudo='sudo '
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
