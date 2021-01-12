@@ -9,11 +9,14 @@ local completion = require'completion'
 -- Custom diagnostic handler.
 local diagnostic_handler = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = true,
+    signs = {
+      severity_limit = 'Warning',
+    },
     underline = false,
     update_in_insert = false,
     virtual_text = {
       spacing = 2,
+      severity_limit = 'Warning',
     },
   }
 )
@@ -48,8 +51,8 @@ local lsp_on_attach = function(client)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning"})<CR>', opts)
+  vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning"})<CR>', opts)
 
   -- Enable LSP omnifunc.
   vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
