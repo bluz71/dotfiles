@@ -43,7 +43,7 @@ vim.g.completion_trigger_keyword_length = 2
 local lsp_on_attach = function(client)
   completion.on_attach(client)
 
-  -- Mappings/
+  -- Mappings.
   local opts = {noremap = true, silent = true}
   vim.fn.nvim_buf_set_keymap(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.fn.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
