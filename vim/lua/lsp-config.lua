@@ -14,6 +14,7 @@ local diagnostic_handler = vim.lsp.with(
     },
     underline = false,
     update_in_insert = false,
+    -- show_diagnostic_autocmds = { 'InsertLeave', 'TextChanged' },
     virtual_text = {
       spacing = 2,
       severity_limit = 'Warning',
