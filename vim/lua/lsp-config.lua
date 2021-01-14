@@ -7,20 +7,29 @@ local nvim_lsp   = require'lspconfig'
 local completion = require'completion'
 
 -- Custom diagnostic handler.
+local diagnostic_flags = {
+  signs = {
+    severity_limit = 'Warning',
+  },
+  underline = false,
+  virtual_text = {
+    spacing = 2,
+    severity_limit = 'Warning',
+  },
+}
+
+local diagnostic_config = vim.deepcopy(diagnostic_flags)
+diagnostic_config.display_diagnostics = false
+
 local diagnostic_handler = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = {
-      severity_limit = 'Warning',
-    },
-    underline = false,
-    update_in_insert = false,
-    -- show_diagnostic_autocmds = { 'InsertLeave', 'TextChanged' },
-    virtual_text = {
-      spacing = 2,
-      severity_limit = 'Warning',
-    },
-  }
+  vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config
 )
+
+function DiagnosticTimer()
+  vim.defer_fn(function()
+    vim.lsp.diagnostic.show_buffer_diagnostics(nil, nil, diagnostic_flags)
+  end, 500)
+end
 
 -- Empty diagnostic handler.
 local none_diagnostic_handler = function() end
@@ -43,6 +52,9 @@ vim.g.completion_trigger_keyword_length = 2
 -- On attach function.
 local lsp_on_attach = function(client)
   completion.on_attach(client)
+
+  -- Update diagnostics when saving the current buffer to disk.
+  vim.cmd('autocmd BufWrite <buffer> lua DiagnosticTimer()')
 
   -- Mappings.
   local opts = {noremap = true, silent = true}
