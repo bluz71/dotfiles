@@ -6,39 +6,54 @@
 local nvim_lsp   = require'lspconfig'
 local completion = require'completion'
 
+-- Custom diagnostic handler for the events and timer API (not yet available).
+-- local diagnostic_flags = {
+--   signs = {
+--     severity_limit = 'Warning',
+--   },
+--   underline = false,
+--   virtual_text = {
+--     spacing = 2,
+--     severity_limit = 'Warning',
+--   },
+-- }
+
+-- local diagnostic_config = vim.deepcopy(diagnostic_flags)
+-- diagnostic_config.display_diagnostics = false
+
+-- local diagnostic_handler = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config
+-- )
+
+-- function DiagnosticTimer()
+--   vim.defer_fn(function()
+--     vim.lsp.diagnostic.show_buffer_diagnostics(nil, nil, diagnostic_flags)
+--   end, 500)
+-- end
+
 -- Custom diagnostic handler.
-local diagnostic_flags = {
-  signs = {
-    severity_limit = 'Warning',
-  },
-  underline = false,
-  virtual_text = {
-    spacing = 2,
-    severity_limit = 'Warning',
-  },
-}
-
-local diagnostic_config = vim.deepcopy(diagnostic_flags)
-diagnostic_config.display_diagnostics = false
-
 local diagnostic_handler = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = {
+      severity_limit = 'Warning',
+    },
+    underline = false,
+    update_in_insert = false,
+    virtual_text = {
+      spacing = 2,
+      severity_limit = 'Warning',
+    },
+  }
 )
-
-function DiagnosticTimer()
-  vim.defer_fn(function()
-    vim.lsp.diagnostic.show_buffer_diagnostics(nil, nil, diagnostic_flags)
-  end, 500)
-end
 
 -- Empty diagnostic handler.
 local none_diagnostic_handler = function() end
 
 -- Diagnostics symbols for display in the sign column.
-vim.api.nvim_command('sign define LspDiagnosticsSignError text=✖')
-vim.api.nvim_command('sign define LspDiagnosticsSignWarning text=✖')
-vim.api.nvim_command('sign define LspDiagnosticsSignInformation text=●')
-vim.api.nvim_command('sign define LspDiagnosticsSignHint text=●')
+vim.cmd('sign define LspDiagnosticsSignError text=✖')
+vim.cmd('sign define LspDiagnosticsSignWarning text=✖')
+vim.cmd('sign define LspDiagnosticsSignInformation text=●')
+vim.cmd('sign define LspDiagnosticsSignHint text=●')
 
 -- Options for completion-nvim plugin.
 vim.g.completion_enable_auto_hover      = 0
@@ -53,22 +68,24 @@ vim.g.completion_trigger_keyword_length = 2
 local lsp_on_attach = function(client)
   completion.on_attach(client)
 
-  -- Update diagnostics when saving the current buffer to disk.
-  vim.cmd('autocmd BufWrite <buffer> lua DiagnosticTimer()')
+  -- Update diagnostics when saving the current buffer to disk for the events
+  -- and timer API (not yet available).
+  -- vim.cmd('autocmd BufWrite <buffer> lua DiagnosticTimer()')
 
   -- Mappings.
   local opts = {noremap = true, silent = true}
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning"})<CR>', opts)
-  vim.fn.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning"})<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'i', '<c-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning"})<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning"})<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Space>=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
   -- Enable LSP omnifunc.
-  vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+  vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
   -- Indicate that LSP is ready.
   print('Language server is ready')
