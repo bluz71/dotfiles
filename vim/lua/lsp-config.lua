@@ -63,6 +63,7 @@ vim.g.completion_matching_strategy_list = {'exact'}
 vim.g.completion_menu_length            = 0
 vim.g.completion_sorting                = 'alphabet'
 vim.g.completion_trigger_keyword_length = 2
+vim.g.completion_confirm_key            = ''
 
 -- On attach function.
 local lsp_on_attach = function(client)
