@@ -97,8 +97,10 @@ end
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
   flags = { allow_incremental_sync = true },
+  init_options = { closingLabels = true },
   handlers = {
-    ['textDocument/publishDiagnostics'] = diagnostic_handler
+    ['textDocument/publishDiagnostics'] = diagnostic_handler,
+    ['dart/textDocument/publishClosingLabels'] = require('dart-closing-labels').handler()
   }
 }
 
