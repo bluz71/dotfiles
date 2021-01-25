@@ -45,4 +45,7 @@ augroup CustomEvents
       \ if getfsize(expand('%')) > 200000|
       \     call signs#Disable()|
       \ endif
+
+    " Fix user command highlighting: https://is.gd/CiyMWV
+    autocmd Syntax vim syntax match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
 augroup END

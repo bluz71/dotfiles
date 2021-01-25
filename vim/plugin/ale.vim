@@ -59,5 +59,5 @@ call ale#linter#Define('dart', {
  \  'lsp': 'stdio',
  \  'executable': 'dart',
  \  'command': 'dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp',
- \  'project_root': function('ale_linters#dart#language_server#GetProjectRoot'),
+ \  'project_root': function('ale_linters#dart#analysis_server#GetProjectRoot'),
  \})

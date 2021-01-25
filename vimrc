@@ -169,7 +169,7 @@ Plug 'gcmt/taboo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
-Plug 'ajh17/VimCompletesMe'
+Plug 'ackyshake/VimCompletesMe'
 Plug 'gregsexton/MatchTag'
 Plug 'mhinz/vim-grepper'
     " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
