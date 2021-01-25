@@ -15,6 +15,7 @@ let g:ale_fixers = {
 let g:ale_linters = {
  \  'css':        ['csslint'],
  \  'dart':       ['dart-analysis-server-lsp'],
+ \  'eruby':      ['erb'],
  \  'javascript': ['standard'],
  \  'json':       ['jsonlint'],
  \  'markdown':   ['mdl'],
