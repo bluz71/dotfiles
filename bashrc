@@ -137,6 +137,7 @@ export OS=`uname`
 if [[ $OS = Linux ]]; then
     alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -a'
+    alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
     alias free='free -th'
     alias mocp='TERM=xterm-256color mocp'
     alias mplayer='mplayer $* 2>/dev/null'
@@ -161,6 +162,13 @@ brew_config() {
     if ! [[ -x $(command -v brew) ]]; then
         echo 'Note: brew is not installed.'
         return
+    fi
+
+    # Derived from 'brew shellenv' output.
+    if [[ $OS == Linux ]]; then
+        export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+        export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+        export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
     fi
 
     export BREW_PREFIX=$(brew --prefix)
@@ -421,9 +429,9 @@ path() {
     if [[ $OS = Darwin ]]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-    elif [[ -d ~/.linuxbrew ]]; then
-        PATH=~/.linuxbrew/bin:$PATH
-        MANPATH=~/.linuxbrew/share/man:$MANPATH
+    elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
+        PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+        MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
     fi
 
     PATH=~/binaries:~/scripts:$PATH
