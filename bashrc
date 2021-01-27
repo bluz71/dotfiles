@@ -197,15 +197,7 @@ custom_config() {
     fi
 
     # Make 'g' alias to 'git' work with Bash Completion.
-    #
-    # Need to manually source the Bash git completion otherwise the following
-    # 'complete -o default...' statement will fail with a "function '_git' not
-    # found" error. Refer to: https://is.gd/Kp7mf0
-    if [[ $OS == Linux ]]; then
-        . /usr/share/bash-completion/completions/git
-    elif [[ $OS = Darwin ]]; then
-        . $HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.bash
-    fi
+    # Refer to: https://is.gd/Kp7mf0
     complete -o default -o nospace -F _git g
     # Also make 'd' and 'dc' Docker aliases work with Bash Completion.
     complete -F _docker d

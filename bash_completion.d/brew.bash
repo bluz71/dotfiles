@@ -50,9 +50,8 @@ __brewcomp() {
 # it is too slow and is not worth it just for duplicate elimination.
 __brew_complete_formulae() {
   local cur="${COMP_WORDS[COMP_CWORD]}"
-  local formulas="$(brew search)"
-  local shortnames="$(echo "$formulas" | \grep / | \cut -d / -f 3)"
-  COMPREPLY=($(compgen -W "$formulas $shortnames" -- "$cur"))
+  local formulae="$(brew formulae)"
+  COMPREPLY=($(compgen -W "$formulae" -- "$cur"))
 }
 
 __brew_complete_installed() {
@@ -169,6 +168,7 @@ _brew_create() {
       --help
       --meson
       --no-fetch
+      --node
       --perl
       --python
       --ruby
@@ -227,7 +227,7 @@ _brew_fetch() {
     -*)
       __brewcomp "
         --deps --force
-        --devel --HEAD
+        --HEAD
         --build-from-source --force-bottle --build-bottle
         --retry
         $(brew options --compact "$prv" 2>/dev/null)
@@ -268,12 +268,11 @@ _brew_install() {
     -*)
       if __brewcomp_words_include "--interactive"
       then
-        __brewcomp "--devel --git --HEAD"
+        __brewcomp "--git --HEAD"
       else
         __brewcomp "
           --build-from-source --build-bottle --force-bottle
           --debug
-          --devel
           --HEAD
           --ignore-dependencies
           --interactive
@@ -311,7 +310,7 @@ _brew_link() {
 }
 
 _brew_list() {
-  local allopts="--unbrewed --verbose --pinned --versions --multiple"
+  local allopts="--unbrewed --verbose --pinned --versions --multiple --cask"
   local cur="${COMP_WORDS[COMP_CWORD]}"
 
   case "$cur" in
@@ -349,6 +348,28 @@ _brew_list() {
   else
     __brew_complete_installed
   fi
+}
+
+_brew_livecheck() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  case "$cur" in
+    -*)
+      __brewcomp "
+        --full-name
+        --tap
+        --all
+        --installed
+        --newer-only
+        --json
+        --quiet
+        --debug
+        --verbose
+        --help
+        "
+      return
+      ;;
+  esac
+  __brew_complete_formulae
 }
 
 _brew_log() {
@@ -396,7 +417,7 @@ _brew_outdated() {
   local cur="${COMP_WORDS[COMP_CWORD]}"
   case "$cur" in
     -*)
-      __brewcomp "--quiet --json=v1 --fetch-HEAD"
+      __brewcomp "--quiet --verbose --formula --cask --json=v1 --fetch-HEAD --greedy"
       return
       ;;
   esac
@@ -452,7 +473,7 @@ _brew_search() {
   local cur="${COMP_WORDS[COMP_CWORD]}"
   case "$cur" in
     -*)
-      __brewcomp "--casks --debian --desc --fedora --fink --macports --opensuse --ubuntu"
+      __brewcomp "--cask --debian --desc --fedora --fink --macports --opensuse --ubuntu"
       return
       ;;
   esac
@@ -566,6 +587,7 @@ _brew_upgrade() {
         --all
         --build-from-source --build-bottle --force-bottle
         --cleanup
+        --cask
         --debug
         --verbose
         --fetch-HEAD
@@ -581,7 +603,7 @@ _brew_uses() {
   local cur="${COMP_WORDS[COMP_CWORD]}"
   case "$cur" in
     -*)
-      __brewcomp "--installed --recursive --include-build --include-test --include-optional --skip-recommended --devel --HEAD"
+      __brewcomp "--installed --recursive --include-build --include-test --include-optional --skip-recommended"
       return
       ;;
   esac
@@ -633,18 +655,15 @@ __brew_caskcomp ()
 __brew_cask_complete_formulae ()
 {
     local cur="${COMP_WORDS[COMP_CWORD]}"
-    local lib=$(brew --repository)/Library
-    local taps=${lib}/Taps
-    local casks=${lib}/Taps/homebrew/homebrew-cask/Casks
-    local ff=$(\ls ${casks} 2>/dev/null | \sed 's/\.rb//g')
+    local casks=$(brew casks)
 
-    COMPREPLY=($(compgen -W "$ff" -- "$cur"))
+    COMPREPLY=($(compgen -W "$casks" -- "$cur"))
 }
 
 __brew_cask_complete_installed ()
 {
     local cur="${COMP_WORDS[COMP_CWORD]}"
-    local inst=$(brew cask list -1)
+    local inst=$(brew list --cask -1)
     COMPREPLY=($(compgen -W "$inst" -- "$cur"))
 }
 
@@ -660,7 +679,7 @@ __brew_cask_complete_outdated ()
 {
     local cur="${COMP_WORDS[COMP_CWORD]}"
     local greedy=$(__brew_caskcomp_words_include "--greedy" && echo "--greedy")
-    local outdated=$(brew cask outdated --quiet $greedy)
+    local outdated=$(brew outdated --cask --quiet $greedy)
     COMPREPLY=($(compgen -W "$outdated" -- "$cur"))
 }
 
@@ -776,7 +795,7 @@ _brew_cask ()
     done
 
     if [[ $i -eq $COMP_CWORD ]]; then
-        __brew_caskcomp "abv audit cat create doctor edit fetch home info install list ls outdated reinstall remove rm search style uninstall upgrade zap -S --force --verbose --appdir --colorpickerdir --prefpanedir --qlplugindir --fontdir --servicedir --input_methoddir --internet_plugindir --screen_saverdir --no-binaries --debug --version"
+        __brew_caskcomp "abv audit cat create doctor edit fetch home info install list ls outdated reinstall remove rm search style uninstall upgrade zap -S --force --verbose --appdir --colorpickerdir --prefpanedir --qlplugindir --fontdir --servicedir --input-methoddir --internet-plugindir --screen-saverdir --no-binaries --debug --version"
         return
     fi
 
@@ -859,6 +878,7 @@ _brew() {
     irb)                        _brew_irb ;;
     link|ln)                    _brew_link ;;
     list|ls)                    _brew_list ;;
+    livecheck)                  _brew_livecheck ;;
     log)                        _brew_log ;;
     man)                        _brew_man ;;
     missing)                    __brew_complete_formulae ;;
@@ -875,7 +895,6 @@ _brew() {
     switch)                     _brew_switch ;;
     tap)                        _brew_tap ;;
     tap-info)                   _brew_tap_info ;;
-    tap-pin)                    __brew_complete_tapped ;;
     tap-new)                    _brew_tap_new ;;
     tap-unpin)                  _brew_tap_unpin ;;
     test)                       __brew_complete_installed ;;
