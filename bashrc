@@ -169,28 +169,30 @@ brew_config() {
         export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
         export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
         export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+    elif [[ $OS = Darwin ]]; then
+        export HOMEBREW_PREFIX="/usr/local";
+        export HOMEBREW_CELLAR="/usr/local/Cellar";
+        export HOMEBREW_REPOSITORY="/usr/local/Homebrew"
     fi
-
-    export BREW_PREFIX=$(brew --prefix)
 
     # Manually load Bash Completion, only needed for Mac since we don't brew
     # install Bash Completion in Linux, we use the system supplied version
     # instead.
     if [[ $OS = Darwin ]]; then
         # Source version 2 Bash completions.
-        . $BREW_PREFIX/etc/profile.d/bash_completion.sh
+        . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
     # 'z' utility.
     _Z_NO_PROMPT_COMMAND=1
-    . $BREW_PREFIX/etc/profile.d/z.sh
+    . $HOMEBREW_PREFIX/etc/profile.d/z.sh
 
     # 'fzf' utility.
-    . $BREW_PREFIX/opt/fzf/shell/key-bindings.bash
+    . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
 }
 
 custom_config() {
-    if [[ -z $BREW_PREFIX ]]; then
+    if [[ -z $HOMEBREW_PREFIX ]]; then
         return
     fi
 
@@ -202,7 +204,7 @@ custom_config() {
     if [[ $OS == Linux ]]; then
         . /usr/share/bash-completion/completions/git
     elif [[ $OS = Darwin ]]; then
-        . $BREW_PREFIX/etc/bash_completion.d/git-completion.bash
+        . $HOMEBREW_PREFIX/etc/bash_completion.d/git-completion.bash
     fi
     complete -o default -o nospace -F _git g
     # Also make 'd' and 'dc' Docker aliases work with Bash Completion.
@@ -241,12 +243,12 @@ custom_config() {
 }
 
 dev_config() {
-    if [[ -z $BREW_PREFIX ]]; then
+    if [[ -z $HOMEBREW_PREFIX ]]; then
         return
     fi
 
-    if [[ -f $BREW_PREFIX/share/chruby/chruby.sh ]]; then
-        . $BREW_PREFIX/share/chruby/chruby.sh
+    if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
+        . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         chruby 2.6.6
     fi
     if [[ -d /usr/local/Android/Sdk ]]; then
