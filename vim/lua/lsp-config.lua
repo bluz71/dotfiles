@@ -4,7 +4,6 @@
 --  https://neovim.io/doc/user/lsp.html
 
 local nvim_lsp   = require'lspconfig'
-local completion = require'completion'
 
 -- Custom diagnostic handler for the events and timer API (not yet available).
 -- local diagnostic_flags = {
@@ -55,20 +54,8 @@ vim.cmd('sign define LspDiagnosticsSignWarning text=✖')
 vim.cmd('sign define LspDiagnosticsSignInformation text=●')
 vim.cmd('sign define LspDiagnosticsSignHint text=●')
 
--- Options for completion-nvim plugin.
-vim.g.completion_enable_auto_hover      = 0
-vim.g.completion_enable_auto_paren      = 0
-vim.g.completion_enable_auto_signature  = 0
-vim.g.completion_matching_strategy_list = {'exact'}
-vim.g.completion_menu_length            = 0
-vim.g.completion_sorting                = 'alphabet'
-vim.g.completion_trigger_keyword_length = 2
-vim.g.completion_confirm_key            = ''
-
 -- On attach function.
 local lsp_on_attach = function(client)
-  completion.on_attach(client)
-
   -- Update diagnostics when saving the current buffer to disk for the events
   -- and timer API (not yet available).
   -- vim.cmd('autocmd BufWrite <buffer> lua DiagnosticTimer()')

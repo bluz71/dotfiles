@@ -258,7 +258,7 @@ if has('nvim')
         " ~/dotfiles/vim/lua/nvim-colorizer.lua - options, mappings
     "Plug 'nvim-treesitter/nvim-treesitter'
     "Plug 'neovim/nvim-lspconfig'
-    "Plug 'nvim-lua/completion-nvim'
+    "Plug 'hrsh7th/nvim-compe'
 
     " Workaround for Neovim bug, see:
     "   https://github.com/neovim/neovim/issues/12587
@@ -275,6 +275,7 @@ if has('nvim')
     lua require'colorizer-config'
     "lua require'treesitter-config'
     "lua require'lsp-config'
+    "lua require'compe-config'
 endif
 
 
