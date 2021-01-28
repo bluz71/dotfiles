@@ -14,7 +14,6 @@ let g:ale_fixers = {
  \}
 let g:ale_linters = {
  \  'css':        ['csslint'],
- \  'dart':       ['dart-analysis-server-lsp'],
  \  'eruby':      ['erb'],
  \  'javascript': ['standard'],
  \  'json':       ['jsonlint'],
@@ -40,7 +39,7 @@ let g:ale_sign_priority            = 50
 if has("nvim")
     let g:ale_echo_cursor          = 0
     let g:ale_virtualtext_cursor   = 1
-    let g:ale_virtualtext_prefix   = ' ■ '
+    let g:ale_virtualtext_prefix   = ' ▶ '
 endif
 
 " ALE fix and toggle mappings.
@@ -53,12 +52,3 @@ nmap [W <Plug>(ale_first)zz
 nmap ]W <Plug>(ale_last)zz
 " Toggle location list.
 nnoremap <silent> <Leader>l :call location_list#Toggle()<CR>
-
-" Use the Dart Analysis Server (LSP) as the Dart linter.
-call ale#linter#Define('dart', {
- \  'name': 'dart-analysis-server-lsp',
- \  'lsp': 'stdio',
- \  'executable': 'dart',
- \  'command': 'dart $DART_SDK/bin/snapshots/analysis_server.dart.snapshot --lsp',
- \  'project_root': function('ale_linters#dart#analysis_server#GetProjectRoot'),
- \})
