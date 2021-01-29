@@ -33,7 +33,12 @@ TAB: menu-complete
 # choose a selection.
 "\e[Z": menu-complete-backward
 
-# Improve completions. Refer to 'man bash', "Readline Variables" section.
+# Up and down arrow will now intelligently complete partially completed
+# commands by searching through the existing history.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Readline behaviors. Refer to 'man bash' / "Readline Variables" section.
 #
 # Enable completion coloring.
 set colored-completion-prefix on
@@ -51,12 +56,9 @@ set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 # Automatically add slash to the end of symlinked directories when completing.
 set mark-symlinked-directories on
-
-# Up and down arrow will now intelligently complete partially completed
-# commands by searching through the existing history.
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
 # Keep terminal quiet and clean.
 set bell-style none
 set echo-control-characters off
+# Disable Bash 5.1 highlighted paste feature. 
+# See: https://is.gd/fsgOMe & https://is.gd/Uccmae
+set enable-bracketed-paste off
