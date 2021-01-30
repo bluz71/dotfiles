@@ -8,8 +8,7 @@ compe.setup {
   source = {
     buffer = {
       filetypes = {
-        'css', 'eruby', 'dart', 'gitcommit', 'html', 'javascript', 'json',
-        'scss'
+        'css', 'eruby', 'dart', 'html', 'javascript', 'json', 'scss'
       }
     },
     nvim_lsp = {
