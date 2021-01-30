@@ -3,7 +3,7 @@
 --  https://rishabhrd.github.io/jekyll/update/2020/09/19/nvim_lsp_config.html
 --  https://neovim.io/doc/user/lsp.html
 
-local nvim_lsp   = require'lspconfig'
+local nvim_lsp = require'lspconfig'
 
 -- Custom diagnostic handler for the events and timer API (not yet available).
 -- local diagnostic_flags = {
@@ -81,13 +81,31 @@ local lsp_on_attach = function(client)
 end
 
 -- The Language Servers.
+nvim_lsp.cssls.setup {
+  on_attach = lsp_on_attach,
+  cmd = {'vscode-css-language-server', '--stdio'};
+  filetypes = {'css', 'scss'};
+  handlers = {
+    ['textDocument/publishDiagnostics'] = diagnostic_handler
+  }
+}
+
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
-  flags = { allow_incremental_sync = true },
-  init_options = { closingLabels = true },
+  flags = {allow_incremental_sync = true},
+  init_options = {closingLabels = true},
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler,
     ['dart/textDocument/publishClosingLabels'] = require('dart-closing-labels').handler()
+  }
+}
+
+nvim_lsp.html.setup {
+  on_attach = lsp_on_attach,
+  cmd = {'vscode-html-language-server', '--stdio'};
+  filetypes = {'eruby', 'html'};
+  handlers = {
+    ['textDocument/publishDiagnostics'] = diagnostic_handler
   }
 }
 
@@ -100,7 +118,7 @@ nvim_lsp.solargraph.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
-  flags = { allow_incremental_sync = true },
+  flags = {allow_incremental_sync = true},
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler
   }

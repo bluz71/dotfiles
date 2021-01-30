@@ -20,7 +20,7 @@ local render_labels = function(labels)
       0,
       closing_labels_ns,
       end_line,
-      {{ text, highlight }},
+      {{text, highlight}},
       {}
     )
   end
