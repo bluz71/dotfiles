@@ -1,1 +1,1 @@
-let g:polyglot_disabled = ["markdown.plugin"]
+let g:polyglot_disabled = ['markdown.plugin']

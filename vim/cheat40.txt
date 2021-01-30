@@ -62,8 +62,9 @@ Paste from ‹y› register  ,p            N
 Paste from ‹y› register  ,P            N
 Insert from ‹y› register ‹Ctrl-y›      I
 Fold                     ,z            N
+Expand all folds         ,Z            N
 Crosshair                ,X            N
-Zoom split               ,Z            N
+Maximise split           ,m            N
 Syntax from start        ,S           %N
 Introduction message     ,i            N
 }}}

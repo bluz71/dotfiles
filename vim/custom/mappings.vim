@@ -56,10 +56,12 @@ noremap <Leader>P "yP
 inoremap <C-y> <C-r>y
 " Fold the current indent.
 nnoremap <Leader>z zazz
+" Expand all folds.
+nnoremap <Leader>Z :set nofoldenable<CR>
 " Toggle crosshair, aka cusorcolumn & cursorline.
 nnoremap <Leader>X :call crosshair#Toggle()<CR>
-" Zoom the current file into a standalone new tab.
-nnoremap <silent> <Leader>Z :tab split<CR>
+" Maximise the current file into a standalone new tab.
+nnoremap <silent> <Leader>m :tab split<CR>
 " Recalculate syntax highlighting for the entire file.
 nnoremap <Leader>S :syntax sync fromstart<CR>
 " Show introduction message.
