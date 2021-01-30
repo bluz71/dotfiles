@@ -2,18 +2,21 @@ local compe = require'compe'
 
 compe.setup {
   enabled = true,
-  debug = false,
   min_length = 2,
+  preselect = 'disable',
 
   source = {
     buffer = {
-      filetypes = {'css', 'eruby', 'dart', 'html', 'javascript', 'json', 'scss'}
-    },
-    vsnip = {
-      filetypes = {'dart', 'html', 'javascript', 'markdown'}
+      filetypes = {
+        'css', 'eruby', 'dart', 'gitcommit', 'html', 'javascript', 'json',
+        'scss'
+      }
     },
     nvim_lsp = {
       filetypes = {'css', 'dart', 'eruby', 'html', 'javascript', 'scss'}
+    },
+    vsnip = {
+      filetypes = {'dart', 'html', 'javascript', 'markdown'}
     }
   }
 }
