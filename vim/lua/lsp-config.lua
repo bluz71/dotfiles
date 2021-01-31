@@ -81,15 +81,6 @@ local lsp_on_attach = function(client)
 end
 
 -- The Language Servers.
-nvim_lsp.cssls.setup {
-  on_attach = lsp_on_attach,
-  cmd = {'vscode-css-language-server', '--stdio'};
-  filetypes = {'css', 'scss'};
-  handlers = {
-    ['textDocument/publishDiagnostics'] = diagnostic_handler
-  }
-}
-
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
   flags = {allow_incremental_sync = true},
