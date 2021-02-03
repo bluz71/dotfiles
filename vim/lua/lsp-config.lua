@@ -107,12 +107,12 @@ nvim_lsp.html.setup {
   }
 }
 
-nvim_lsp.solargraph.setup {
-  on_attach = lsp_on_attach,
-  handlers = {
-    ['textDocument/publishDiagnostics'] = none_diagnostic_handler
-  }
-}
+-- nvim_lsp.solargraph.setup {
+--   on_attach = lsp_on_attach,
+--   handlers = {
+--     ['textDocument/publishDiagnostics'] = none_diagnostic_handler
+--   }
+-- }
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
