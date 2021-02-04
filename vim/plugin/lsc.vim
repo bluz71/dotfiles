@@ -18,6 +18,8 @@ let g:lsc_auto_map = {
  \  'FindCodeActions': 'ga',
  \  'Completion': 'omnifunc',
  \}
+let g:lsc_enable_autocomplete  = v:false
+let g:lsc_autocomplete_length  = 2
 let g:lsc_enable_diagnostics   = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level          = 'off'
