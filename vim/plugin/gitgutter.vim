@@ -1,4 +1,6 @@
-let g:gitgutter_grep                         = 'rg'
+if !has('gui_running')
+    let g:gitgutter_grep                     = 'rg'
+endif
 let g:gitgutter_map_keys                     = 0
 let g:gitgutter_max_signs                    = 1000
 let g:gitgutter_sign_added                   = '▎'
