@@ -4,3 +4,4 @@ let b:pear_tree_pairs = {
             \ '{': {'closer': '}'},
             \ "'": {'closer': "'"},
             \ }
+setlocal formatoptions=cqj
