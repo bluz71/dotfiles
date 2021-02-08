@@ -1,9 +1,9 @@
 local compe = require'compe'
 
 compe.setup {
-  enabled = true,
   min_length = 2,
   preselect = 'disable',
+  documentation = false,
 
   source = {
     buffer = {
