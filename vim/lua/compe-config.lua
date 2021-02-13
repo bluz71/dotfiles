@@ -13,7 +13,8 @@ compe.setup {
       filetypes = {'dart', 'eruby', 'html', 'javascript'}
     },
     vim_lsc = {
-      filetypes = {'ruby'}
+      filetypes = {'ruby'},
+      menu = '[LSC]'
     },
     vsnip = {
       filetypes = {'dart', 'html', 'javascript', 'markdown', 'ruby'}
