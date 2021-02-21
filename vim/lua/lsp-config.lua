@@ -100,8 +100,8 @@ nvim_lsp.dartls.setup {
 
 nvim_lsp.html.setup {
   on_attach = lsp_on_attach,
-  cmd = {'vscode-html-language-server', '--stdio'};
-  filetypes = {'eruby', 'html'};
+  cmd = {'vscode-html-language-server', '--stdio'},
+  filetypes = {'eruby', 'html'},
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler
   }
