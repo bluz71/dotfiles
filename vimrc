@@ -236,6 +236,11 @@ Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
 Plug 'airblade/vim-gitgutter'
     " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
+if has('nvim')
+    "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+endif
 
 "-----------------------------
 " Misc plugins
@@ -247,19 +252,11 @@ Plug 'tpope/vim-obsession'
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
 Plug 'tweekmonster/startuptime.vim'
-
-"-----------------------------
-" Neovim specific plugins
-"-----------------------------
 if has('nvim')
     Plug 'bfredl/nvim-miniyank'
         " ~/dotfiles/vim/plugin/miniyank.vim - mappings
     Plug 'norcalli/nvim-colorizer.lua'
         " ~/dotfiles/vim/lua/nvim-colorizer.lua - options, mappings
-    "Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-
     " Workaround for Neovim bug, see:
     "   https://github.com/neovim/neovim/issues/12587
     "   https://github.com/lambdalisue/fern.vim/issues/120
@@ -273,9 +270,9 @@ call plug#end()
 " Load Neovim Lua-based plugin configurations.
 if has('nvim')
     lua require'colorizer-config'
-    "lua require'treesitter-config'
-    lua require'lsp-config'
     lua require'compe-config'
+    lua require'lsp-config'
+    "lua require'treesitter-config'
 endif
 
 
