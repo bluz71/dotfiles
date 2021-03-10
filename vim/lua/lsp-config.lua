@@ -6,31 +6,6 @@
 
 local nvim_lsp = require'lspconfig'
 
--- Custom diagnostic handler for the events and timer API (not yet available).
--- local diagnostic_flags = {
---   signs = {
---     severity_limit = 'Warning',
---   },
---   underline = false,
---   virtual_text = {
---     spacing = 2,
---     severity_limit = 'Warning',
---   },
--- }
-
--- local diagnostic_config = vim.deepcopy(diagnostic_flags)
--- diagnostic_config.display_diagnostics = false
-
--- local diagnostic_handler = vim.lsp.with(
---   vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_config
--- )
-
--- function DiagnosticTimer()
---   vim.defer_fn(function()
---     vim.lsp.diagnostic.show_buffer_diagnostics(nil, nil, diagnostic_flags)
---   end, 500)
--- end
-
 -- Custom diagnostic handler.
 local diagnostic_handler = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -57,13 +32,8 @@ vim.cmd('sign define LspDiagnosticsSignHint text=●')
 
 -- On attach function.
 local lsp_on_attach = function(client)
-  -- Update diagnostics when saving the current buffer to disk for the events
-  -- and timer API (not yet available).
-  -- vim.cmd('autocmd BufWrite <buffer> lua DiagnosticTimer()')
-
   -- Use incremental content ranges if the language server supports them. This
-  -- will be far more efficient than sending the full buffer for each
-  -- 'didChange' event (the default behaviour).
+  -- is more efficient than sending the full buffer for each 'didChange' event.
   if client.config.flags then
     client.config.flags.allow_incremental_sync = true
   end
@@ -81,10 +51,10 @@ local lsp_on_attach = function(client)
   vim.api.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning"})<CR>', opts)
   vim.api.nvim_buf_set_keymap(0, 'n', '<Space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 
-  -- Enable LSP omnifunc.
+  -- Enable LSP-based omnifunc.
   vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
-  -- Indicate that LSP is ready.
+  -- Indicate when language server is ready.
   print('Language server is ready')
 end
 
