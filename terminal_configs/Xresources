@@ -40,7 +40,7 @@ xterm-moonfly*color10: #36c692
 xterm-moonfly*color11: #bfbf97
 
 ! Sky (usually defined as 'Bold Blue')
-xterm-moonfly*color12: #6fbafd
+xterm-moonfly*color12: #74b2ff
 
 ! Purple (usually defined as 'Bold Purple')
 xterm-moonfly*color13: #ae81ff
