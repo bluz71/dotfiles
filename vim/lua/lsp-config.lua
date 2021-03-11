@@ -86,7 +86,6 @@ nvim_lsp.html.setup {
 nvim_lsp.solargraph.setup {
   on_init = lsp_on_init,
   on_attach = lsp_on_attach,
-  cmd = {'solargraph-logged'},
   handlers = {
     ['textDocument/publishDiagnostics'] = none_diagnostic_handler
   },
