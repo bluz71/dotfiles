@@ -217,7 +217,7 @@ Plug 'sheerun/vim-polyglot', { 'tag': 'v4.13.1' }
     " ~/dotfiles/vim/plugin/polyglot.vim - options
 Plug 'bluz71/vim-markdown'
     " ~/dotfiles/vim/plugin/markdown.vim - options
-Plug 'natebosch/vim-lsc'
+"Plug 'natebosch/vim-lsc'
     " ~/dotfiles/vim/plugin/lsc.vim - options
 Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings

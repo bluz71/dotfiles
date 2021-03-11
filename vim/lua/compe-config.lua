@@ -10,11 +10,7 @@ compe.setup {
       filetypes = {'dart', 'eruby', 'html', 'javascript', 'json', 'ruby'}
     },
     nvim_lsp = {
-      filetypes = {'dart', 'eruby', 'html', 'javascript'}
-    },
-    vim_lsc = {
-      filetypes = {'ruby'},
-      menu = '[LSC]'
+      filetypes = {'dart', 'eruby', 'html', 'javascript', 'ruby'}
     },
     vsnip = {
       filetypes = {'dart', 'html', 'javascript', 'markdown', 'ruby'}
