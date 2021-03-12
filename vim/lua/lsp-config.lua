@@ -30,16 +30,6 @@ local diagnostic_handler = vim.lsp.with(
 -- Empty diagnostic handler.
 local none_diagnostic_handler = function() end
 
--- Enable incremental synchronization if the language server supports it. This
--- is more efficient than sending the full buffer for each edit (the default
--- behaviour).
-local lsp_on_init = function(client)
-  client.config.flags = {}
-  if client.config.flags then
-    client.config.flags.allow_incremental_sync = true
-  end
-end
-
 -- On attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
@@ -64,7 +54,6 @@ end
 
 -- The Language Servers.
 nvim_lsp.dartls.setup {
-  on_init = lsp_on_init,
   on_attach = lsp_on_attach,
   init_options = {closingLabels = true},
   handlers = {
@@ -74,7 +63,6 @@ nvim_lsp.dartls.setup {
 }
 
 nvim_lsp.html.setup {
-  on_init = lsp_on_init,
   on_attach = lsp_on_attach,
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
@@ -84,7 +72,6 @@ nvim_lsp.html.setup {
 }
 
 nvim_lsp.solargraph.setup {
-  on_init = lsp_on_init,
   on_attach = lsp_on_attach,
   handlers = {
     ['textDocument/publishDiagnostics'] = none_diagnostic_handler
@@ -97,7 +84,6 @@ nvim_lsp.solargraph.setup {
 }
 
 nvim_lsp.tsserver.setup {
-  on_init = lsp_on_init,
   on_attach = lsp_on_attach,
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler
