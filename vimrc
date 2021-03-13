@@ -65,7 +65,7 @@ set path=**
 set pumheight=20      " Height of complete list
 set relativenumber    " Show relative numbers
 set ruler
-set shiftwidth=4      " Default indentation amount
+set shiftwidth=2      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
 set shortmess+=I      " Don't show intro message
 set signcolumn=auto   " Only render sign column when needed
@@ -158,10 +158,11 @@ Plug 'bluz71/vim-nightfly-guicolors'
 "-----------------------------
 Plug 'bluz71/vim-moonfly-statusline'
     " ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
-Plug 'Yggdroot/indentLine'
-    " ~/dotfiles/vim/plugin/indentLine.vim - options
 Plug 'gcmt/taboo.vim'
     " ~/dotfiles/vim/plugin/taboo.vim - options
+if has('nvim')
+    Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+endif
 
 "-----------------------------
 " Behavior plugins
@@ -217,8 +218,6 @@ Plug 'sheerun/vim-polyglot', { 'tag': 'v4.13.1' }
     " ~/dotfiles/vim/plugin/polyglot.vim - options
 Plug 'bluz71/vim-markdown'
     " ~/dotfiles/vim/plugin/markdown.vim - options
-"Plug 'natebosch/vim-lsc'
-    " ~/dotfiles/vim/plugin/lsc.vim - options
 Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'tpope/vim-bundler'
@@ -237,7 +236,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
     " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 if has('nvim')
-    "Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
 endif
@@ -272,7 +271,7 @@ if has('nvim')
     lua require'colorizer-config'
     lua require'compe-config'
     lua require'lsp-config'
-    "lua require'treesitter-config'
+    lua require'treesitter-config'
 endif
 
 
