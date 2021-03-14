@@ -4,7 +4,7 @@
 !   % xrdb -merge .Xresources
 
 ! Dim gray (usually defined as 'Black')
-xterm-moonfly*color0: #373c40
+xterm-moonfly*color0: #323437
 
 ! Red
 xterm-moonfly*color1: #ff5454
