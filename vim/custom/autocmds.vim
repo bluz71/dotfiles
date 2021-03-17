@@ -5,7 +5,7 @@ augroup CustomEvents
     autocmd!
 
     " Style customizations.
-    autocmd VimEnter * windo call diff#Styling()
+    autocmd VimEnter * call diff#Styling()
     autocmd WinEnter * call window_traits#Activity(v:true)
     autocmd WinLeave * call window_traits#Activity(v:false)
 
