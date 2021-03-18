@@ -28,7 +28,7 @@ else
     set clipboard=unnamed
 endif
 set colorcolumn=81,82 " Highlight 81 and 82 columns
-set conceallevel=2
+set conceallevel=0    " Always show text normally
 set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
 set dictionary=/usr/share/dict/words
