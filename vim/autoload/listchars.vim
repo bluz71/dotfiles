@@ -13,6 +13,7 @@ function! listchars#Toggle() abort
         endif
         let s:listMode = 0
     else
+        setlocal listchars=tab:\ \ ,trail:-
         " Dim list characters.
         if has("nvim")
             highlight! link Whitespace Conceal
