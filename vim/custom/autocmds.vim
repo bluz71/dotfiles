@@ -5,9 +5,9 @@ augroup CustomEvents
     autocmd!
 
     " Style customizations.
-    autocmd VimEnter * call diff#Styling()
     autocmd WinEnter * call window_traits#Activity(v:true)
     autocmd WinLeave * call window_traits#Activity(v:false)
+    autocmd VimEnter * call diff#Styling()
 
     " Restore default Enter/Return behaviour for the command line window.
     autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
@@ -45,6 +45,11 @@ augroup CustomEvents
       \ if getfsize(expand('%')) > 200000|
       \     call signs#Disable()|
       \ endif
+
+    if has('nvim')
+        " Disable Indent Blankline plugin in diff mode.
+        autocmd BufReadPost * if &diff | :IndentBlanklineDisable!
+    endif
 
     " Fix user command highlighting: https://is.gd/CiyMWV
     autocmd Syntax vim syntax match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'

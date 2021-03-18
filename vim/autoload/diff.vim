@@ -1,10 +1,10 @@
-" Customizations when running in diff mode.
+" Style when running in diff mode.
 "
 function! diff#Styling() abort
     if &diff
         setlocal colorcolumn=0
-        :GitGutterDisable
-        :IndentBlanklineDisable!
+        highlight MatchParen NONE
         highlight! link Visual VisualInDiff
+        wincmd l
     endif
 endfunction
