@@ -33,11 +33,18 @@ augroup CustomEvents
       \     source Session.vim|
       \ endif
 
-    " Neovim terminal tweaks.
+    " Neovim behaviours.
     if has('nvim')
+        " Terminal settings.
         autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
         autocmd TermOpen *        startinsert
         autocmd BufEnter term://* startinsert
+        " Highlight yanks.
+        autocmd TextYankPost *
+          \ silent! lua return (not vim.v.event.visual)
+          \   and vim.highlight.on_yank {higroup='Visual', timeout=300}
+        " Disable Indent Blankline plugin in diff mode.
+        autocmd BufReadPost * if &diff | :IndentBlanklineDisable!
     endif
 
     " Disable sign-creating plugins for larger than 200K files.
@@ -45,11 +52,6 @@ augroup CustomEvents
       \ if getfsize(expand('%')) > 200000|
       \     call signs#Disable()|
       \ endif
-
-    if has('nvim')
-        " Disable Indent Blankline plugin in diff mode.
-        autocmd BufReadPost * if &diff | :IndentBlanklineDisable!
-    endif
 
     " Fix user command highlighting: https://is.gd/CiyMWV
     autocmd Syntax vim syntax match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
