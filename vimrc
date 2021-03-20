@@ -162,6 +162,7 @@ Plug 'gcmt/taboo.vim'
     " ~/dotfiles/vim/plugin/taboo.vim - options
 if has('nvim')
     Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+    " ~/dotfiles/vim/plugin/indent-blankline.vim - options
 endif
 
 "-----------------------------

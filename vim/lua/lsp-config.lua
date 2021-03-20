@@ -30,7 +30,7 @@ local diagnostic_handler = vim.lsp.with(
 -- Empty diagnostic handler.
 local none_diagnostic_handler = function() end
 
--- On attach function.
+-- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
   local opts = {noremap = true, silent = true}
