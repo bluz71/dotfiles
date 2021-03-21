@@ -2,6 +2,7 @@
 "
 function! diff#Styling() abort
     if &diff
+        :GitGutterDisable
         setlocal colorcolumn=0
         highlight MatchParen NONE
         highlight! link Visual VisualInDiff
