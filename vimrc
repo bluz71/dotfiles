@@ -270,8 +270,11 @@ call plug#end()
 if has('nvim')
     lua require'colorizer-config'
     lua require'compe-config'
-    lua require'lsp-config'
     lua require'treesitter-config'
+    " Note, do not load up LSP when in short-lived diff mode.
+    if !&diff
+        lua require'lsp-config'
+    endif
 endif
 
 
