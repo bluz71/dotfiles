@@ -14,7 +14,6 @@ endfunction
 "
 function! diff#DisablePlugins() abort
     if &diff
-        :GitGutterDisable
         if has('nvim')
             :IndentBlanklineDisable!
         endif

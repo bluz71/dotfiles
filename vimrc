@@ -233,12 +233,12 @@ Plug 'hrsh7th/vim-vsnip'
     " ~/dotfiles/vim/vsnip - custom snippets
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
-Plug 'airblade/vim-gitgutter'
-    " ~/dotfiles/vim/plugin/gitgutter.vim - options, mappings
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'lewis6991/gitsigns.nvim'
 endif
 
 "-----------------------------
@@ -271,9 +271,10 @@ if has('nvim')
     lua require'colorizer-config'
     lua require'compe-config'
     lua require'treesitter-config'
-    " Note, do not load up LSP when in short-lived diff mode.
+    " Do not load up certain plugins when in diff mode.
     if !&diff
         lua require'lsp-config'
+        lua require'gitsigns-config'
     endif
 endif
 
