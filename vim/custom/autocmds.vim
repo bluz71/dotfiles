@@ -45,9 +45,6 @@ augroup CustomEvents
           \   and vim.highlight.on_yank {higroup='Visual', timeout=300}
     endif
 
-    " Disable certain plugins when in diff mode.
-    autocmd BufReadPost * call diff#DisablePlugins()
-
     " Disable sign-creating plugins for larger than 200K files.
     autocmd BufReadPre *
       \ if getfsize(expand('%')) > 200000|

@@ -8,14 +8,3 @@ function! diff#Styling() abort
         wincmd l
     endif
 endfunction
-
-
-" Plugins to disable when running in diff mode.
-"
-function! diff#DisablePlugins() abort
-    if &diff
-        if has('nvim')
-            :IndentBlanklineDisable!
-        endif
-    endif
-endfunction
