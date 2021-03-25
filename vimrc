@@ -1,8 +1,3 @@
-" Hints:    https://bluz71.github.io/2018/03/12/vim-hints.html
-" Tips:     https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
-" Plugins:  https://bluz71.github.io/2017/05/21/vim-plugins-i-like.html
-" Mappings: https://bluz71.github.io/2017/06/14/a-few-vim-tmux-mappings.html
-
 "===========================================================
 " SETTINGS
 "===========================================================
