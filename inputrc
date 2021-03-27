@@ -14,6 +14,7 @@
 # Ctrl-a/HOME/fn-left: go to start of line
 # Ctrl-e/END/fn-right: go to end of line
 # Ctrl-r: search through shell history
+# Ctrl-u: change up a directory
 #
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
@@ -25,6 +26,7 @@
 "\ee": edit-and-execute-command
 "\C-l": abort
 "\C-k": abort
+"\C-u": "cd ..\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
