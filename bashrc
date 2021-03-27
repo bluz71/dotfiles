@@ -139,7 +139,6 @@ if [[ $OS = Linux ]]; then
     alias cpa='/bin/cp -i -a'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
     alias free='free -th'
-    alias mocp='TERM=xterm-256color mocp'
     alias mplayer='mplayer $* 2>/dev/null'
     alias open='xdg-open 2>/dev/null'
     alias scp='/usr/bin/scp -r'
