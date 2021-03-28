@@ -8,7 +8,9 @@ if has('nvim-0.4') || has('patch-8.2.0191')
 else " Fallback to a split window
     let g:fzf_layout = { 'window': 'silent botright 16split enew' }
 endif
-" Disable the preview window.
+
+" Disable the preview window globally, but enable it selectively (for example
+" :GFiles? below).
 let g:fzf_preview_window = ''
 
 " Git log format.
@@ -41,9 +43,13 @@ elseif filereadable('src/index.js')
     nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
 endif
 
-" Change the :BCommits command to use the reverse layout.
+" Modify the :BCommits command to use the reverse layout.
 command! -bar -bang BCommits
   \ call fzf#vim#buffer_commits({'options': '--reverse'}, <bang>0)
+
+" Modify the :GFiles? command to enable the preview window.
+command! -bang -nargs=? GFiles
+  \ call fzf#vim#gitfiles(<q-args>, {}, <bang>0)
 
 " Custom :BDelete command, similar to :Buffers, but will close the selected
 " buffers.
