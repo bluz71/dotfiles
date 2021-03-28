@@ -55,6 +55,7 @@ end
 -- The Language Servers.
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
+  flags = {debounce_did_change_notify = 300},
   init_options = {closingLabels = true},
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler,
@@ -73,18 +74,20 @@ nvim_lsp.html.setup {
 
 nvim_lsp.solargraph.setup {
   on_attach = lsp_on_attach,
+  flags = {debounce_did_change_notify = 300},
   handlers = {
     ['textDocument/publishDiagnostics'] = none_diagnostic_handler
   },
   settings = {
     solargraph = {
       diagnostics = false;
-    };
-  };
+    }
+  }
 }
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
+  flags = {debounce_did_change_notify = 300},
   handlers = {
     ['textDocument/publishDiagnostics'] = diagnostic_handler
   }
