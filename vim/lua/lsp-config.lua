@@ -5,30 +5,14 @@
 --  https://neovim.io/doc/user/lsp.html
 
 local nvim_lsp = require'lspconfig'
+local handlers = require'lsp-handlers'
+local dart_closing_labels = require'dart-closing-labels'
 
 -- Diagnostics symbols for display in the sign column.
 vim.cmd('sign define LspDiagnosticsSignError text=✖')
 vim.cmd('sign define LspDiagnosticsSignWarning text=✖')
 vim.cmd('sign define LspDiagnosticsSignInformation text=●')
 vim.cmd('sign define LspDiagnosticsSignHint text=●')
-
--- Custom diagnostic handler.
-local diagnostic_handler = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = {
-      severity_limit = 'Warning',
-    },
-    underline = false,
-    update_in_insert = false,
-    virtual_text = {
-      spacing = 2,
-      severity_limit = 'Warning',
-    },
-  }
-)
-
--- Empty diagnostic handler.
-local none_diagnostic_handler = function() end
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
@@ -62,8 +46,9 @@ nvim_lsp.dartls.setup {
   flags = {debounce_did_change_notify = 300},
   init_options = {closingLabels = true},
   handlers = {
-    ['textDocument/publishDiagnostics'] = diagnostic_handler,
-    ['dart/textDocument/publishClosingLabels'] = require('dart-closing-labels').handler()
+    ['textDocument/publishDiagnostics'] = handlers.diagnostic,
+    ['textDocument/hover'] = handlers.hover,
+    ['dart/textDocument/publishClosingLabels'] = dart_closing_labels.handler()
   }
 }
 
@@ -72,7 +57,8 @@ nvim_lsp.html.setup {
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
   handlers = {
-    ['textDocument/publishDiagnostics'] = diagnostic_handler
+    ['textDocument/publishDiagnostics'] = handlers.diagnostic,
+    ['textDocument/hover'] = handlers.hover
   }
 }
 
@@ -80,7 +66,8 @@ nvim_lsp.solargraph.setup {
   on_attach = lsp_on_attach,
   flags = {debounce_did_change_notify = 300},
   handlers = {
-    ['textDocument/publishDiagnostics'] = none_diagnostic_handler
+    ['textDocument/publishDiagnostics'] = handlers.none_diagnostic,
+    ['textDocument/hover'] = handlers.hover
   },
   settings = {
     solargraph = {
@@ -93,6 +80,7 @@ nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
   flags = {debounce_did_change_notify = 300},
   handlers = {
-    ['textDocument/publishDiagnostics'] = diagnostic_handler
+    ['textDocument/publishDiagnostics'] = handlers.diagnostic,
+    ['textDocument/hover'] = handlers.hover
   }
 }

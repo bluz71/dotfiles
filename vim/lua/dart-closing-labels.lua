@@ -1,4 +1,4 @@
--- Copied from: 
+-- Copied from:
 --   https://github.com/nvim-lua/lsp_extensions.nvim/blob/master/lua/lsp_extensions/dart/closing_labels.lua
 
 local M = {}
