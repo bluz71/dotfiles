@@ -7,10 +7,15 @@ compe.setup {
 
   source = {
     buffer = {
-      filetypes = {'dart', 'eruby', 'html', 'javascript', 'json', 'ruby'}
+      filetypes = {
+        'css', 'dart', 'eruby', 'html', 'javascript', 'json', 'ruby', 'scss'
+      }
     },
     nvim_lsp = {
       filetypes = {'dart', 'eruby', 'html', 'javascript', 'ruby'}
+    },
+    omni = {
+      filetype = {'css', 'scss'}
     },
     vsnip = {
       filetypes = {'dart', 'html', 'javascript', 'markdown', 'ruby'}
