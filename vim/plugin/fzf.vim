@@ -10,7 +10,7 @@ else " Fallback to a split window
 endif
 
 " Disable the preview window globally, but enable it selectively (for example
-" :GFiles? below).
+" :Commits and :GFiles? overrides below).
 let g:fzf_preview_window = ''
 
 " Git log format.
@@ -43,7 +43,7 @@ elseif filereadable('src/index.js')
     nnoremap <silent> <Space>et :Files src/__tests__/components<CR>
 endif
 
-" Modify the :BCommits command to use the reverse layout.
+" Modify the :BCommits command to use the reverse layout with preview window.
 command! -bar -bang BCommits
   \ call fzf#vim#buffer_commits({'options': '--reverse'}, <bang>0)
 
