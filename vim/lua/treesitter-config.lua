@@ -7,5 +7,8 @@ treesitter.setup {
   },
   highlight = {
     enable = true
+  },
+  indent = {
+    enable = false
   }
 }
