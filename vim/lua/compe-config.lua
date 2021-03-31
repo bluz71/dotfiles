@@ -14,9 +14,6 @@ compe.setup {
     nvim_lsp = {
       filetypes = {'dart', 'eruby', 'html', 'javascript', 'ruby'}
     },
-    omni = {
-      filetype = {'css', 'scss'}
-    },
     vsnip = {
       filetypes = {'dart', 'html', 'javascript', 'markdown', 'ruby'}
     }
