@@ -36,6 +36,7 @@ alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
 alias ga='fzf_git_add'
 alias gll='fzf_git_log'
 alias glS='fzf_git_log_pickaxe'
+alias gr='cd "$(git rev-parse --show-toplevel)"'
 alias grl='fzf_git_reflog'
 alias gu='fzf_git_unadd'
 # -- History aliases --
