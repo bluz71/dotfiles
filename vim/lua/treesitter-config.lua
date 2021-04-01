@@ -6,7 +6,8 @@ treesitter.setup {
     'rust', 'typescript'
   },
   highlight = {
-    enable = true
+    enable = true,
+    additional_vim_regex_highlighting = true
   },
   indent = {
     enable = false
