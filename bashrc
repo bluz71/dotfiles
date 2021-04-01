@@ -13,8 +13,6 @@ alias rm='/bin/rm -i'
 alias rmrf='/bin/rm -rf'
 # -- Navigation aliases --
 alias -- -='cd -'
-alias ..='cd ..'
-alias ...='cd ../..'
 # -- Permissions aliases --
 alias 664='chmod 664'
 alias 775='chmod 775'
