@@ -140,6 +140,18 @@ Spelling correction      z=           *N
 Substitute in block      :s/\%V‹@›/‹#› V
 Print character value    ga           *N
 }}}
+LSP Mappings {{{
+Show hover               K            *N
+Go to definition         gd           *N
+Find references          gr           *N
+Rename symbol            gR           *N
+Code actions             ga           *N
+Signature help           ‹Ctrl-h›     *I
+Line Diagnostics         ‹Spc›d       *N
+Previous Diagnostic      [d           *N
+Next Diagnostic          ]d           *N
+Document formatting      ‹Spc›=       *N
+}}}
 
 fzf Plugin Mappings {{{
 Files                    ‹Spc›‹Spc›    N
@@ -177,12 +189,13 @@ Toggle dot files         d             N
 Switch into directory    >            *N
 Switch to parent dir     <            *N
 }}}
-gitgutter Plugin Mappings {{{
+gitsigns Plugin Mappings {{{
 Previous hunk            [g            N
 Next hunk                ]g            N
 Stage hunk               ‹Spc›+       @N
 Revert hunk staging      ‹Spc›-       @N
 Preview hunk             ‹Spc›p       @N
+Blame line               ‹Spc›b       @N
 }}}
 Grepper Plugin Mappings {{{
 Search prompt            ,g            N
@@ -226,15 +239,6 @@ Align around target      gl‹@›        *V
 }}}
 Commentry Plugin Mappings {{{
 Toggle comments          gc           *V
-}}}
-LSC Plugin Mappings {{{
-Show hover               K            *N
-Show hover in preview    KK           *N
-Go to definition         gd           *N
-Find references          gr           *N
-Rename symbol            gR           *N
-Code actions             ga           *N
-Signature help           ‹Ctrl-h›     *I
 }}}
 ALE Plugin Mappings {{{
 Execute fixer            ‹Spc›f       %N
