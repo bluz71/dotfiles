@@ -13,8 +13,9 @@ gitsigns.setup {
     ['n ]g'] = '<cmd>lua require"gitsigns".next_hunk({wrap = true})<CR>',
     ['n [g'] = '<cmd>lua require"gitsigns".prev_hunk({wrap = true})<CR>',
     ['n <Space>+'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ['n <Space>-'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+    ['n <Space>-'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
     ['n <Space>p'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+    ['n <Space>b'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
   },
   max_file_length = 100000
 }
