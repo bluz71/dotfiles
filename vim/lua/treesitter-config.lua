@@ -6,9 +6,10 @@ treesitter.setup {
     'rust', 'typescript'
   },
   highlight = {
-    enable = true
+    enable = true,
   },
   indent = {
-    enable = true
+    enable = true,
+    disable = {'html', 'javascript'}
   }
 }
