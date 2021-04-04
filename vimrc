@@ -208,7 +208,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
-Plug 'sheerun/vim-polyglot', { 'tag': 'v4.13.1' }
+Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
     runtime custom/polyglot.vim " Polyglot disabled languages
     " ~/dotfiles/vim/plugin/polyglot.vim - options
 Plug 'bluz71/vim-markdown'

@@ -9,7 +9,6 @@ treesitter.setup {
     enable = true,
   },
   indent = {
-    enable = true,
-    disable = {'html', 'javascript'}
+    enable = true
   }
 }
