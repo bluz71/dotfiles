@@ -30,7 +30,8 @@ alias dc='docker-compose'
 # -- Git aliases --
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
 alias ga='fzf_git_add'
-alias gll='fzf_git_log'
+alias gll='fzf_git_log clean'
+alias glla='fzf_git_log all'
 alias glS='fzf_git_log_pickaxe'
 alias gr='cd "$(git rev-parse --show-toplevel)"'
 alias grl='fzf_git_reflog'
@@ -311,8 +312,13 @@ fzf_git_add() {
 }
 
 fzf_git_log() {
+    local command='ll'
+    if [[ "$1" == "all" ]]; then
+        command='lla'
+    fi
+    shift # Consume the first argument of this function
     local selections=$(
-      git ll --color=always "$@" |
+      git $command --color=always "$@" |
         fzf --ansi --no-sort --no-height \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @' |

@@ -85,7 +85,8 @@
     vdip = !sh -c 'git difftool -t vd $1~1..$1' -
     vdis = difftool -t vd --staged
     # log: #e3c78a (yellow), #ff5454 (red), #36c692 (green), #80a0ff (blue)
-    ll  = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
+    lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
+    ll  = lla --first-parent
     llm = !git ll master..HEAD
     llu = !git ll @{upstream}..HEAD
     lld = !git ll HEAD..@{upstream}
