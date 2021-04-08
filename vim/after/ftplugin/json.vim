@@ -1,1 +1,0 @@
-setlocal conceallevel=2

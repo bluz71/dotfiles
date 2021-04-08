@@ -208,17 +208,16 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
-Plug 'sheerun/vim-polyglot', { 'tag': 'v4.16.0' }
-    runtime custom/polyglot.vim " Polyglot disabled languages
-    " ~/dotfiles/vim/plugin/polyglot.vim - options
-Plug 'bluz71/vim-markdown'
-    " ~/dotfiles/vim/plugin/markdown.vim - options
 Plug 'dense-analysis/ale'
     " ~/dotfiles/vim/plugin/ale.vim - options, mappings
-Plug 'tpope/vim-bundler'
-    " Run 'gem ctags' to generate ctags for installed gems (required just once).
-Plug 'tpope/vim-rails'
-    " ~/dotfiles/vim/plugin/rails.vim - mappings
+if has('nvim')
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-compe'
+    " ~/dotfiles/vim/plugin/compe.vim - options
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'lewis6991/gitsigns.nvim'
+endif
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
 Plug 'janko-m/vim-test'
@@ -228,14 +227,12 @@ Plug 'hrsh7th/vim-vsnip'
     " ~/dotfiles/vim/vsnip - custom snippets
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
-if has('nvim')
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    " ~/dotfiles/vim/plugin/compe.vim - options
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'lewis6991/gitsigns.nvim'
-endif
+Plug 'tpope/vim-bundler'
+    " Run 'gem ctags' to generate ctags for installed gems (required just once).
+Plug 'tpope/vim-rails'
+    " ~/dotfiles/vim/plugin/rails.vim - mappings
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'vim-crystal/vim-crystal'
 
 "-----------------------------
 " Misc plugins
