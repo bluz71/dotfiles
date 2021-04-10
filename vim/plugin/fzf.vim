@@ -55,6 +55,6 @@ command! -bang -nargs=? GFiles
 " buffers.
 command! BDelete call fzf#run(fzf#wrap({
   \  'source': fuzzy#ListBuffers(),
-  \  'sink*': { lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]}))) },
+  \  'sink*': {lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]})))},
   \  'options': '--multi --prompt "BDelete> "'
   \}))
