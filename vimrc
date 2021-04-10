@@ -214,7 +214,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
-    " ~/dotfiles/vim/plugin/compe.vim - options
+    " ~/dotfiles/vim/plugin/compe.vim - options, mappings
     Plug 'nvim-lua/plenary.nvim'
     Plug 'lewis6991/gitsigns.nvim'
 endif

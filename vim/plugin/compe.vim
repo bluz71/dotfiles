@@ -10,3 +10,5 @@ let g:loaded_compe_snippets_nvim = 0
 let g:loaded_compe_spell = 0
 let g:loaded_compe_tags = 0
 let g:loaded_compe_treesitter = 0
+
+inoremap <silent><expr> <C-y> compe#confirm('<C-y>')

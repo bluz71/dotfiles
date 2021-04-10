@@ -52,8 +52,6 @@ noremap <Leader>y "yy
 " Paste from the 'y' register
 noremap <Leader>p "yp
 noremap <Leader>P "yP
-" Insert from the yank register.
-inoremap <C-y> <C-r>y
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Expand all folds.

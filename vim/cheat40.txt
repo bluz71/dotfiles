@@ -241,6 +241,9 @@ Align around target      gl‹@›        *V
 Commentry Plugin Mappings {{{
 Toggle comments          gc           *V
 }}}
+Compe Plugin Mappings {{{
+Confirm selection        ‹C-y›        %I
+}}}
 ALE Plugin Mappings {{{
 Execute fixer            ‹Spc›f       %N
 Toggle live linting      ‹Spc›l       %N
