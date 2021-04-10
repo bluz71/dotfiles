@@ -143,6 +143,8 @@ Print character value    ga           *N
 LSP Mappings {{{
 Show hover               K            *N
 Go to definition         gd           *N
+Go to declaration        gD           *N
+Go to implementation     gi           *N
 Find references          gr           *N
 Rename symbol            gR           *N
 Code actions             ga           *N
@@ -150,7 +152,6 @@ Signature help           ‹Ctrl-h›     *I
 Line Diagnostics         ‹Spc›d       *N
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
-Document formatting      ‹Spc›=       *N
 }}}
 
 fzf Plugin Mappings {{{
