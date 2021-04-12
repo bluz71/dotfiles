@@ -189,6 +189,9 @@ Plug 'mbbill/undotree'
     " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim - options
+" if has('nvim')
+"     Plug 'steelsojka/pears.nvim'
+" endif
 
 "-----------------------------
 " Filesystem plugins
@@ -264,6 +267,7 @@ if has('nvim')
     lua require'colorizer-config'
     lua require'compe-config'
     lua require'treesitter-config'
+    "lua require'pears-config'
     " Do not load up certain plugins when in diff mode.
     if !&diff
         lua require'lsp-config'
