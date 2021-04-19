@@ -41,7 +41,7 @@ end
 -- The Language Servers.
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
-  flags = {debounce_did_change_notify = 300},
+  flags = {debounce_did_change_notify = 250},
   init_options = {closingLabels = true},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.diagnostic,
@@ -54,6 +54,7 @@ nvim_lsp.html.setup {
   on_attach = lsp_on_attach,
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
+  flags = {debounce_did_change_notify = 250},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.diagnostic,
     ['textDocument/hover'] = handlers.hover
@@ -62,7 +63,7 @@ nvim_lsp.html.setup {
 
 nvim_lsp.solargraph.setup {
   on_attach = lsp_on_attach,
-  flags = {debounce_did_change_notify = 300},
+  flags = {debounce_did_change_notify = 250},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.none_diagnostic,
     ['textDocument/hover'] = handlers.hover
@@ -72,7 +73,7 @@ nvim_lsp.solargraph.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
-  flags = {debounce_did_change_notify = 300},
+  flags = {debounce_did_change_notify = 250},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.diagnostic,
     ['textDocument/hover'] = handlers.hover

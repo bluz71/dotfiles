@@ -197,6 +197,7 @@ Stage hunk               ‹Spc›+       @N
 Revert hunk staging      ‹Spc›-       @N
 Preview hunk             ‹Spc›p       @N
 Blame line               ‹Spc›b       @N
+Refersh buffers          ‹Spc›r        N
 }}}
 Grepper Plugin Mappings {{{
 Search prompt            ,g            N
