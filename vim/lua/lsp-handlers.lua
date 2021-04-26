@@ -20,6 +20,7 @@ M.diagnostic = vim.lsp.with(
 -- Empty diagnostic handler.
 M.none_diagnostic = function() end
 
+-- Add borders to hover windows.
 M.hover = vim.lsp.with(
   vim.lsp.handlers.hover, {
     border = {
