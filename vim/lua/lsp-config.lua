@@ -46,6 +46,7 @@ nvim_lsp.dartls.setup {
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.diagnostic,
     ['textDocument/hover'] = handlers.hover,
+    ['textDocument/signatureHelp'] = handlers.signature_help,
     ['dart/textDocument/publishClosingLabels'] = dart_closing_labels.handler()
   }
 }
@@ -57,7 +58,8 @@ nvim_lsp.html.setup {
   flags = {debounce_did_change_notify = 250},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.diagnostic,
-    ['textDocument/hover'] = handlers.hover
+    ['textDocument/hover'] = handlers.hover,
+    ['textDocument/signatureHelp'] = handlers.signature_help
   }
 }
 
@@ -66,7 +68,8 @@ nvim_lsp.solargraph.setup {
   flags = {debounce_did_change_notify = 250},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.none_diagnostic,
-    ['textDocument/hover'] = handlers.hover
+    ['textDocument/hover'] = handlers.hover,
+    ['textDocument/signatureHelp'] = handlers.signature_help
   },
   settings = {solargraph = {diagnostics = false}}
 }
@@ -76,6 +79,7 @@ nvim_lsp.tsserver.setup {
   flags = {debounce_did_change_notify = 250},
   handlers = {
     ['textDocument/publishDiagnostics'] = handlers.diagnostic,
-    ['textDocument/hover'] = handlers.hover
+    ['textDocument/hover'] = handlers.hover,
+    ['textDocument/signatureHelp'] = handlers.signature_help
   }
 }
