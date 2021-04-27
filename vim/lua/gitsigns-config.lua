@@ -10,8 +10,8 @@ gitsigns.setup {
   },
   keymaps = {
     buffer = true,
-    ['n ]g'] = '<cmd>lua require"gitsigns".next_hunk({wrap = true})<CR>',
-    ['n [g'] = '<cmd>lua require"gitsigns".prev_hunk({wrap = true})<CR>',
+    ['n ]g'] = '<cmd>lua require"gitsigns".next_hunk({wrap = true})<CR>zz',
+    ['n [g'] = '<cmd>lua require"gitsigns".prev_hunk({wrap = true})<CR>zz',
     ['n <Space>+'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
     ['n <Space>-'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
     ['n <Space>p'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
