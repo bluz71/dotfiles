@@ -26,8 +26,7 @@
 "\ee": edit-and-execute-command
 "\C-l": abort
 "\C-k": abort
-"\C-u": "pushd . && cd ..\n"
-"\C-b": "popd\n"
+"\C-u": "cd ..\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
