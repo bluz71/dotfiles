@@ -98,7 +98,13 @@ if has('nvim')
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
-    set signcolumn=auto:1
+    if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
+        " Always display the signcolumn when inside a Git repository. This will
+        " result in less jankiness with the gitsigns plugin.
+        set signcolumn=yes:1
+    else
+        set signcolumn=auto:1
+    endif
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
