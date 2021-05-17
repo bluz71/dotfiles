@@ -62,7 +62,7 @@ set relativenumber    " Show relative numbers
 set shiftwidth=2      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
 set shortmess+=I      " Don't show intro message
-set signcolumn=auto   " Only render sign column when needed
+set signcolumn=number " Render signs in the number column
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab          " Tab at the start of line inserts blanks
@@ -98,13 +98,6 @@ if has('nvim')
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
-    if system("git rev-parse --is-inside-work-tree 2>/dev/null") == "true\n"
-        " Always display the signcolumn when inside a Git repository. This will
-        " result in less jankiness with the gitsigns plugin.
-        set signcolumn=yes:1
-    else
-        set signcolumn=auto:1
-    endif
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
