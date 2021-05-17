@@ -180,7 +180,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
     " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
 Plug 'mbbill/undotree'
