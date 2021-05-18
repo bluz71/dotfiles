@@ -8,6 +8,7 @@ function! listchars#Toggle() abort
         " Brighten list characters.
         if has("nvim")
             highlight! link Whitespace Function
+            :IndentBlanklineDisable
         else
             highlight! link SpecialKey Function
         endif
@@ -17,6 +18,7 @@ function! listchars#Toggle() abort
         " Dim list characters.
         if has("nvim")
             highlight! link Whitespace Conceal
+            :IndentBlanklineEnable
         else
             highlight! link SpecialKey Conceal
         endif
