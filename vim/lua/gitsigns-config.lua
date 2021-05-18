@@ -6,7 +6,7 @@ gitsigns.setup {
     change = {hl = 'GitSignsChange', text = '▎'},
     delete = {hl = 'GitSignsDelete', text = '▎'},
     topdelete = {hl = 'GitSignsDelete', text = '▎'},
-    changedelete = {hl = 'GitSignsChangeDelete', text = '▎'},
+    changedelete = {hl = 'GitSignsChangeDelete', text = '▌'},
   },
   keymaps = {
     buffer = true,
