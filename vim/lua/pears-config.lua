@@ -5,6 +5,10 @@ pears.setup(function(conf)
     close = '|',
     filetypes = {'ruby'}
   })
+  conf.pair('<%', {
+    close = '%>',
+    filetypes = {'eruby'}
+  })
   conf.expand_on_enter(false)
   conf.remove_pair_on_inner_backspace(false)
   conf.remove_pair_on_outer_backspace(false)
