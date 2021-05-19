@@ -15,7 +15,13 @@ pears.setup(function(conf)
     filetypes = {
       exclude = {'vim'}
     },
-    should_expand = R.not_(R.start_of_context '[a-zA-Z]')
+    -- Expand quote only after a whitespace.
+    should_expand = R.start_of_context('[%s]')
+  })
+  conf.pair("'", {
+    close = "'",
+    -- Expand quote only after a whitespace.
+    should_expand = R.start_of_context("[%s]")
   })
   conf.expand_on_enter(false)
   conf.remove_pair_on_inner_backspace(false)
