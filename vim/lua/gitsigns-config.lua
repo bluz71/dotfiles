@@ -19,5 +19,5 @@ gitsigns.setup {
     ['n <Space>r'] = '<cmd>lua require"gitsigns".refresh()<CR>',
   },
   max_file_length = 100000,
-  sign_priority = 10
+  sign_priority = 6
 }

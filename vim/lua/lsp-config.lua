@@ -11,8 +11,8 @@ local dart_closing_labels = require'dart-closing-labels'
 -- Diagnostics symbols for display in the sign column.
 vim.cmd('sign define LspDiagnosticsSignError text=✖')
 vim.cmd('sign define LspDiagnosticsSignWarning text=✖')
-vim.cmd('sign define LspDiagnosticsSignInformation text=●')
-vim.cmd('sign define LspDiagnosticsSignHint text=●')
+vim.cmd('sign define LspDiagnosticsSignInformation text=✖')
+vim.cmd('sign define LspDiagnosticsSignHint text=✖')
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
