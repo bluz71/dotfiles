@@ -153,6 +153,7 @@ Signature help           ‹Ctrl-h›     *I
 Line Diagnostics         ‹Spc›d       *N
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
+Toggle Diagnostics       ‹Spc›D        N
 }}}
 
 fzf Plugin Mappings {{{

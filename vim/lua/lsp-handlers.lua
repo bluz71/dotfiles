@@ -12,7 +12,7 @@ local borders = {
 local M = {}
 
 -- Custom diagnostic handler.
-M.diagnostic = vim.lsp.with(
+M.diagnostics = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     signs = {
       severity_limit = 'Warning',
@@ -28,7 +28,7 @@ M.diagnostic = vim.lsp.with(
 )
 
 -- Empty diagnostic handler.
-M.none_diagnostic = function() end
+M.no_diagnostics = function() end
 
 -- Add borders to hover windows.
 M.hover = vim.lsp.with(
