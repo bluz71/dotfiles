@@ -43,8 +43,8 @@ Scroll left              [z            N
 Scroll right             ]z            N
 }}}
 Screen Mappings {{{
-Scroll screen up         ‹Sft-Up›      N
-Scroll screen down       ‹Sft-Down›    N
+Scroll screen up         ‹Alt-Up›      N
+Scroll screen down       ‹Alt-Down›    N
 }}}
 Helper Mappings {{{
 Redo change              U             N

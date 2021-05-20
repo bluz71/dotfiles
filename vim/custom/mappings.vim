@@ -98,8 +98,8 @@ nnoremap ]j <C-i>zz
 "-----------------------------
 " Scroll mappings
 "-----------------------------
-nnoremap <S-Up>   <C-e>
-nnoremap <S-Down> <C-y>
+nnoremap <A-Up>   <C-e>
+nnoremap <A-Down> <C-y>
 
 "-----------------------------
 " Window managment mappings
