@@ -44,7 +44,8 @@ endif
 
 " ALE fix and toggle mappings.
 nmap <Space>f <Plug>(ale_fix)
-nmap <Space>l <Plug>(ale_toggle_buffer)
+nmap <Space>a <Plug>(ale_toggle_buffer)
+nmap <Space>A <Plug>(ale_toggle)
 " Navigate errors and warnings using unimpaired-style mappings.
 nmap [w <Plug>(ale_previous)zz
 nmap ]w <Plug>(ale_next)zz

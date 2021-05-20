@@ -249,7 +249,8 @@ Confirm selection        ‹C-y›        %I
 }}}
 ALE Plugin Mappings {{{
 Execute fixer            ‹Spc›f       %N
-Toggle live linting      ‹Spc›l       %N
+Toggle buffer linting    ‹Spc›a       %N
+Toggle linting           ‹Spc›A       %N
 Previous error           [w            N
 Next error               ]w            N
 First error              [W            N
