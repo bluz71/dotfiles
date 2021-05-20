@@ -23,6 +23,7 @@ augroup CustomEvents
     autocmd BufEnter *.icc      set filetype=cpp
     autocmd BufEnter *.html.erb set omnifunc=htmlcomplete#CompleteTags
     autocmd BufEnter fonts.conf set filetype=xml
+    autocmd BufEnter gitconfig  set filetype=gitconfig
 
     " Auto-read external file changes, compliments the vim-auto-save plugin.
     autocmd CursorHold * silent! checktime
