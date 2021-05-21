@@ -226,10 +226,6 @@ Plug 'hrsh7th/vim-vsnip'
     " ~/dotfiles/vim/vsnip - custom snippets
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
-Plug 'tpope/vim-bundler'
-    " Run 'gem ctags' to generate ctags for installed gems (required just once).
-Plug 'tpope/vim-rails'
-    " ~/dotfiles/vim/plugin/rails.vim - mappings
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'vim-crystal/vim-crystal'
 

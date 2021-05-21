@@ -30,8 +30,10 @@ nnoremap <silent> <Space>h       :Helptags<CR>
 
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
+    nnoremap <silent> <Space>eb :Files app/views<CR>
     nnoremap <silent> <Space>ec :Files app/controllers<CR>
     nnoremap <silent> <Space>eh :Files app/helpers<CR>
+    nnoremap <silent> <Space>ei :Files config/initializers<CR>
     nnoremap <silent> <Space>em :Files app/models<CR>
     nnoremap <silent> <Space>es :Files app/assets/stylesheets<CR>
     nnoremap <silent> <Space>et :Files spec<CR>

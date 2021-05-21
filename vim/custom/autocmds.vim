@@ -20,10 +20,11 @@ augroup CustomEvents
     autocmd Syntax * syntax sync minlines=2000
 
     " Language, by extension, customizations.
-    autocmd BufEnter *.icc      set filetype=cpp
-    autocmd BufEnter *.html.erb set omnifunc=htmlcomplete#CompleteTags
-    autocmd BufEnter fonts.conf set filetype=xml
-    autocmd BufEnter gitconfig  set filetype=gitconfig
+    autocmd BufEnter *.icc           set filetype=cpp
+    autocmd BufEnter Gemfile.lock    set filetype=ruby
+    autocmd BufEnter gitconfig       set filetype=gitconfig
+    autocmd BufEnter *.json.jbuilder set filetype=ruby
+    autocmd BufEnter fonts.conf      set filetype=xml
 
     " Auto-read external file changes, compliments the vim-auto-save plugin.
     autocmd CursorHold * silent! checktime
