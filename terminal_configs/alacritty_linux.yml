@@ -50,7 +50,7 @@ font:
   # the default being at the bottom.
   glyph_offset:
     x: 0
-    y: -1
+    y: 0
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
