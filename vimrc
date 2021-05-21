@@ -207,8 +207,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
-Plug 'dense-analysis/ale'
-    " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'neovim/nvim-lspconfig'
@@ -217,6 +215,8 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'lewis6991/gitsigns.nvim'
 endif
+Plug 'dense-analysis/ale'
+    " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
 Plug 'janko-m/vim-test'
