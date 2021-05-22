@@ -27,9 +27,7 @@ set conceallevel=0    " Always show text normally
 set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
 set dictionary=/usr/share/dict/words
-if has('nvim-0.3.2') || has('patch-8.1.0360')
-    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
-endif
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 set expandtab         " Use spaces instead of tabs
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast

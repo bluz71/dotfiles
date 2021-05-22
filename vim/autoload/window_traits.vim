@@ -1,11 +1,7 @@
-" Display color column in the active window and disable color columns in all
-" inactive windows.
+" Render active windows differently to inactive windows.
 "
-" Likewise, display relative line numbers in the active window and display
-" absolute numbers in inactive windows.
-"
-" In newer versions of Vim, if `cursorlineopt` exists, then also toggle
-" cursorline appropriately.
+" In inactive windows disable the following traits: color column, relative line
+" numbers and sign column.
 "
 function! window_traits#Activity(active) abort
     if &diff
@@ -20,13 +16,14 @@ function! window_traits#Activity(active) abort
         endif
 
         set colorcolumn=81,82
+        if exists('&cursorlineopt')
+            setlocal cursorline
+        endif
         " Set relative numbering, except for help files.
         if &filetype !=# 'help'
             setlocal relativenumber
         endif
-        if exists('&cursorlineopt')
-            setlocal cursorline
-        endif
+        set signcolumn=number
     else " Inactive window
         if &buftype ==# 'nofile'
             " Do not style 'nofile' buffer types.
@@ -34,9 +31,10 @@ function! window_traits#Activity(active) abort
         endif
 
         setlocal colorcolumn=0
-        setlocal norelativenumber
         if exists('&cursorlineopt')
             setlocal nocursorline
         endif
+        setlocal norelativenumber
+        set signcolumn=no
     endif
 endfunction
