@@ -27,12 +27,12 @@ Full width term split    ,T            N
 }}}
 Navigation Mappings {{{
 Move to the next split   ‹Tab›         N
-Move to the left split   ‹Ctrl-h›      N
-Move to the split below  ‹Ctrl-j›      N
-Move to the split above  ‹Ctrl-k›      N
-Move to the right split  ‹Ctrl-l›      N
-Move down ten lines      ‹Alt-j›       N
-Move up ten lines        ‹Alt-k›       N
+Move to the left split   ‹Alt-h›       N
+Move to the split below  ‹Alt-j›       N
+Move to the split above  ‹Alt-k›       N
+Move to the right split  ‹Alt-l›       N
+Move down ten lines      ‹Ctrl-j›      N
+Move up ten lines        ‹Ctrl-k›      N
 Navigate via ‹wildmenu›  ,‹Tab›        N
 Alternate last file      ‹Backspace›   N
 Previous jump position   [j            N
@@ -43,8 +43,8 @@ Scroll left              [z            N
 Scroll right             ]z            N
 }}}
 Screen Mappings {{{
-Scroll screen up         ‹Alt-Up›      N
-Scroll screen down       ‹Alt-Down›    N
+Scroll screen up         ‹Ctrl-Up›     N
+Scroll screen down       ‹Ctrl-Down›   N
 }}}
 Helper Mappings {{{
 Redo change              U             N

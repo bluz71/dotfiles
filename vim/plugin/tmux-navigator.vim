@@ -1,9 +1,10 @@
-if &term ==# 'screen-256color'
-    " Seamless CTRL-h/j/k/l navigation between Vim splits  and tmux panes.
+let g:tmux_navigator_no_mappings = 1
+
+if exists('$TMUX')
+    " Seamless Alt-h/j/k/l navigation between Vim splits  and tmux panes.
     " Note, only set up mappings if running inside tmux.
-    let g:tmux_navigator_no_mappings = 1
-    nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-    nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-    nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-    nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+    nnoremap <silent> <A-h> :TmuxNavigateLeft<cr>
+    nnoremap <silent> <A-j> :TmuxNavigateDown<cr>
+    nnoremap <silent> <A-k> :TmuxNavigateUp<cr>
+    nnoremap <silent> <A-l> :TmuxNavigateRight<cr>
 endif

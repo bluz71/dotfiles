@@ -18,14 +18,11 @@
 #
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
-"\el": clear-screen
 "\eB": vi-backward-bigword
 "\eF": vi-forward-bigword
 "\eD": "\eF\C-w"
 "\eu": undo
 "\ee": edit-and-execute-command
-"\C-l": abort
-"\C-k": abort
 "\C-u": "cd ..\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a

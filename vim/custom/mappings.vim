@@ -69,20 +69,20 @@ nnoremap <Leader>i :intro<CR>
 " Navigation mappings
 "-----------------------------
 nnoremap <Tab> <C-w>w
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 if has('nvim')
     " Use same mappings as above to navigate Neovim terminal splits.
-    tnoremap <C-h> <C-\><C-N><C-w>h
-    tnoremap <C-j> <C-\><C-N><C-w>j
-    tnoremap <C-k> <C-\><C-N><C-w>k
-    tnoremap <C-l> <C-\><C-N><C-w>l
+    tnoremap <A-h> <C-\><C-N><C-w>h
+    tnoremap <A-j> <C-\><C-N><C-w>j
+    tnoremap <A-k> <C-\><C-N><C-w>k
+    tnoremap <A-l> <C-\><C-N><C-w>l
 endif
 " Vertical movements.
-nnoremap <A-j> 10j
-nnoremap <A-k> 10k
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
@@ -98,8 +98,8 @@ nnoremap ]j <C-i>zz
 "-----------------------------
 " Scroll mappings
 "-----------------------------
-nnoremap <A-Up>   <C-e>
-nnoremap <A-Down> <C-y>
+nnoremap <C-Up>   <C-e>
+nnoremap <C-Down> <C-y>
 
 "-----------------------------
 " Window managment mappings
