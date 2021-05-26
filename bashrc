@@ -241,6 +241,9 @@ dev_config() {
         . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         chruby 2.7.2
     fi
+    if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
+        eval "$(fnm env)"
+    fi
     if [[ -d /usr/local/Android/Sdk ]]; then
         export ANDROID_SDK_ROOT=/usr/local/Android/Sdk
         PATH=$PATH:$ANDROID_SDK_ROOT/emulator
