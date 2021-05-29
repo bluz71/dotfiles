@@ -3,4 +3,4 @@
 let g:loaded_ruby_provider = 0
 
 " Simple endwise-style close block helper.
-inoremap <buffer><silent> <C-e> end<C-o>O
+inoremap <buffer> <C-e> end<C-o>O
