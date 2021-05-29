@@ -245,19 +245,17 @@ xnoremap - g<C-x>
 "-----------------------------
 " Readline-like mappings
 "-----------------------------
-" - Ctrl-a - go to the start of line
-" - Ctrl-e - go to the end of the line
 " - Alt-b  - back a word
 " - Alt-f  - forward a word
 " - Alt-BS - delete backward word
 " - Alt-d  - delete forward word
-inoremap <C-a>  <C-o>^
-inoremap <C-e>  <C-o>$
 inoremap <A-b>  <C-Left>
 inoremap <A-f>  <C-Right>
 inoremap <A-BS> <C-w>
 inoremap <A-d>  <C-o>dw
-" As above but for command mode.
+" As above but for command mode with the following additions:
+" - Ctrl-a - go to the start of line
+" - Ctrl-e - go to the end of the line
 cnoremap <C-a>  <Home>
 cnoremap <C-e>  <End>
 cnoremap <A-b>  <C-Left>
