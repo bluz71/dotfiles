@@ -197,8 +197,13 @@ nnoremap <F6>     :set showcmd!<CR>
 nnoremap <Space>6 :set showcmd!<CR>
 "<F7>     - unused
 "<Space>7 - unused
-nnoremap <F8>     :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
-nnoremap <Space>8 :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+if has('nvim')
+    nnoremap <F8>     :TSHighlightCapturesUnderCursor<CR>
+    nnoremap <Space>8 :TSHighlightCapturesUnderCursor<CR>
+else
+    nnoremap <F8>     :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+    nnoremap <Space>8 :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+endif
 nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <silent> <Space>0 :call listchars#Toggle()<CR>
