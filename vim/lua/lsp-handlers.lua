@@ -1,14 +1,3 @@
-local borders = {
-  {'┌', 'FloatBorder'},
-  {'─', 'FloatBorder'},
-  {'┐', 'FloatBorder'},
-  {'│', 'FloatBorder'},
-  {'┘', 'FloatBorder'},
-  {'─', 'FloatBorder'},
-  {'└', 'FloatBorder'},
-  {'│', 'FloatBorder'}
-}
-
 local M = {}
 
 -- Custom diagnostic handler.
@@ -33,14 +22,14 @@ M.no_diagnostics = function() end
 -- Add borders to hover windows.
 M.hover = vim.lsp.with(
   vim.lsp.handlers.hover, {
-    border = borders
+    border = 'single'
   }
 )
 
 -- Also add borders to signature help windows.
 M.signature_help = vim.lsp.with(
   vim.lsp.handlers.signature_help, {
-    border = borders
+    border = 'single'
   }
 )
 
