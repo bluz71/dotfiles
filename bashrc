@@ -478,6 +478,9 @@ shell_config() {
 
     # Set the appropriate umask.
     umask 002
+
+    # Disable Alacritty icon bouncing: https://is.gd/8MPdGh
+    printf "\e[?1042l"
 }
 
 
