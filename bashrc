@@ -479,8 +479,8 @@ shell_config() {
     # Set the appropriate umask.
     umask 002
 
-    # Disable Alacritty icon bouncing for interactive shells, refer to:
-    # https://is.gd/8MPdGh
+    # Disable Alacritty icon bouncing for interactive shells.
+    # Refer to: https://is.gd/8MPdGh
     if [[ $- =~ i ]]; then
         printf "\e[?1042l"
     fi
