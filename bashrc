@@ -427,7 +427,7 @@ path() {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
     if [[ $OS = Darwin ]]; then
-        PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+        PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
     elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
         PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
