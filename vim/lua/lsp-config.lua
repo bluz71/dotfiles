@@ -15,17 +15,17 @@ vim.cmd('sign define LspDiagnosticsSignInformation text=✖')
 vim.cmd('sign define LspDiagnosticsSignHint text=✖')
 
 -- A flag used to indicate whether diagnostics are visible or hidden.
-vim.g.diagnostics_visible = true
+vim.g.lsp_diagnostics_visible = true
 
 -- Toggleable diagnostics function.
-function _G.toggle_diagnostics()
-  if vim.g.diagnostics_visible then
-    vim.g.diagnostics_visible = false
+function _G.toggle_lsp_diagnostics()
+  if vim.g.lsp_diagnostics_visible then
+    vim.g.lsp_diagnostics_visible = false
     vim.lsp.diagnostic.clear(0)
     vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.no_diagnostics
     print('Diagnostics are hidden')
   else
-    vim.g.diagnostics_visible = true
+    vim.g.lsp_diagnostics_visible = true
     vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
     print('Diagnostics are visible')
   end
@@ -46,7 +46,7 @@ local lsp_on_attach = function(client)
   vim.api.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   vim.api.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   vim.api.nvim_buf_set_keymap(0, 'n', '<Space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', '<Space>D', ':call v:lua.toggle_diagnostics()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(0, 'n', '<Space>D', '<cmd>lua toggle_lsp_diagnostics()<CR>', opts)
 
   -- LSP-based omnifunc.
   --vim.bo.omnifunc = vim.lsp.omnifunc
