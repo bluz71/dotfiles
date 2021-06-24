@@ -240,7 +240,7 @@ dev_config() {
 
     if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
         . $HOMEBREW_PREFIX/share/chruby/chruby.sh
-        chruby 2.7.2
+        chruby 2.7.3
     fi
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
