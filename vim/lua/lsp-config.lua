@@ -64,7 +64,7 @@ vim.lsp.handlers['textDocument/signatureHelp'] = handlers.signature_help
 -- The Language Servers.
 nvim_lsp.dartls.setup {
   on_attach = lsp_on_attach,
-  flags = {debounce_did_change_notify = 250},
+  flags = {debounce_text_changes = 500},
   init_options = {closingLabels = true},
   handlers = {
     ['dart/textDocument/publishClosingLabels'] = dart_closing_labels.handler()
@@ -75,12 +75,12 @@ nvim_lsp.html.setup {
   on_attach = lsp_on_attach,
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
-  flags = {debounce_did_change_notify = 250}
+  flags = {debounce_text_changes = 500}
 }
 
 nvim_lsp.solargraph.setup {
   on_attach = lsp_on_attach,
-  flags = {debounce_did_change_notify = 250},
+  flags = {debounce_text_changes = 500},
   handlers = {
      ['textDocument/publishDiagnostics'] = handlers.no_diagnostics
   },
@@ -89,5 +89,5 @@ nvim_lsp.solargraph.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = lsp_on_attach,
-  flags = {debounce_did_change_notify = 250}
+  flags = {debounce_text_changes = 500}
 }
