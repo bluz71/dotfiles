@@ -152,7 +152,7 @@ Plug 'bluz71/vim-moonfly-statusline'
 Plug 'gcmt/taboo.vim'
     " ~/dotfiles/vim/plugin/taboo.vim - options
 if has('nvim')
-    Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+    Plug 'lukas-reineke/indent-blankline.nvim'
     " ~/dotfiles/vim/plugin/indent-blankline.vim - options
 endif
 
