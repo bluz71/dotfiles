@@ -239,7 +239,6 @@ Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
 Plug 'tweekmonster/startuptime.vim'
 if has('nvim')
-    Plug 'lambdalisue/pastefix.vim'
     Plug 'norcalli/nvim-colorizer.lua'
         " ~/dotfiles/vim/lua/nvim-colorizer.lua - options, mappings
     " Workaround for Neovim bug, see:
