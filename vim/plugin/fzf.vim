@@ -37,3 +37,7 @@ command! BDelete call fzf#run(fzf#wrap({
   \  'sink*': {lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]})))},
   \  'options': '--multi --prompt "BDelete> "'
   \}))
+
+" Disable preview window for certain commands.
+command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)
+command! -bar -bang -nargs=? -complete=buffer Buffers call fzf#vim#buffers(<q-args>, <bang>0)
