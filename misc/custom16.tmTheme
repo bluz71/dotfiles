@@ -21,7 +21,7 @@
           #0c000000 - bright blue
           #0d000000 - bright magenta
           #0e000000 - bright cyan
-          #0f000000 - bright white (cranberry)
+          #0f000000 - bright white
         -->
         <key>author</key>
         <string>Template: bluz71</string>
@@ -104,7 +104,7 @@
                 <key>settings</key>
                 <dict>
                     <key>foreground</key>
-                    <string>#0f000000</string>
+                    <string>#05000000</string>
                 </dict>
             </dict>
             <dict>
