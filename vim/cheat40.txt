@@ -165,6 +165,7 @@ Project tags             ‹Spc›]        N
 Git status               ‹Spc›g        N
 Buffer commits           ‹Spc›c        N
 Vim help                 ‹Spc›h        N
+Ripgrep                  ‹Spc›\        N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N
@@ -202,8 +203,8 @@ Blame line               ‹Spc›b       @N
 Refersh buffers          ‹Spc›r        N
 }}}
 Grepper Plugin Mappings {{{
-Search prompt            ,g            N
-Search operation         gs          *VN
+Search prompt            ,/            N
+Search operation         g/          *VN
 }}}
 Unimpaired Plugin Mappings {{{
 Previous file            [a            N
