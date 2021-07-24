@@ -26,7 +26,6 @@ scrolling:
   # Scrolling distance multiplier.
   multiplier: 5
 
-# Font configuration
 font:
   # Normal (roman) font face
   normal:
@@ -60,7 +59,6 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors
 colors:
   # Default colors
   primary:
@@ -115,27 +113,26 @@ colors:
     white:   '#e2637f'
 
 selection:
-  # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
 
 # Live config reload (changes require restart)
 live_config_reload: true
 
-# Bell
 bell:
   command: None
 
-# Shell
+cursor:
+  unfocused_hollow: true
+  thickness: 0.2
+
 shell:
   program: /usr/local/bin/bash
   args:
     - --login
 
 mouse:
-  # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: true
 
-# Key bindings
 key_bindings:
   - { key: Escape,   mods: Control,   action: ToggleViMode           }
   - { key: Return,   mods: Command,   action: ToggleSimpleFullscreen }
