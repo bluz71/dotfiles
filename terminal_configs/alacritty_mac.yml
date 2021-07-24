@@ -69,7 +69,7 @@ colors:
   # Cursor colors
   cursor:
     text:   '#080808'
-    cursor: '#9e9e9e'
+    cursor: '#8e8e8e'
 
   # Vi mode cursor colors
   vi_mode_cursor:
