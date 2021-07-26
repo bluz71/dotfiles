@@ -1,3 +1,17 @@
+" Display fzf in a floating/popup window if possible.
+if has('nvim') || has('patch-8.2.0191')
+    let g:fzf_layout = {
+                \ 'window': {
+                \   'width': 0.9,
+                \   'height': 0.7,
+                \   'highlight': 'fzfBorder',
+                \   'border': 'rounded'
+                \  }
+                \}
+else " Fallback to a split window
+    let g:fzf_layout = { 'window': 'silent botright 16split enew' }
+endif
+
 " Git log format.
 let g:fzf_commits_log_options = '--graph --color=always
  \ --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset)
