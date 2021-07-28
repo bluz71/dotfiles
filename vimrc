@@ -206,7 +206,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 " Development plugins
 "-----------------------------
 if has('nvim')
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
