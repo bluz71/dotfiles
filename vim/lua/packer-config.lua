@@ -1,6 +1,3 @@
-local packer = require('packer')
-local util = require('packer.util')
-
 -- Bootstrap packer.nvim.
 local fn = vim.fn
 local command = vim.api.nvim_command
@@ -9,6 +6,9 @@ if fn.empty(fn.glob(packer_path)) > 0 then
   command('!git clone https://github.com/wbthomason/packer.nvim '..packer_path)
   command('packadd packer.nvim')
 end
+
+local packer = require('packer')
+local util = require('packer.util')
 
 -- Initialize packer.nvim.
 packer.init({
