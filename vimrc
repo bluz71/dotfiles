@@ -78,11 +78,15 @@ set timeoutlen=1500   " Give some time for multi-key mappings
 " behaviours
 set ttimeoutlen=10
 " Set the persistent undo directory on temporary private fast storage.
-let s:undoDir='/tmp/.undodir_' . $USER
-if !isdirectory(s:undoDir)
-    call mkdir(s:undoDir, '', 0700)
+if has('nvim')
+    let s:undodir='/tmp/.nvim_undodir_' . $USER
+else
+    let s:undodir='/tmp/.vim_undodir_' . $USER
 endif
-let &undodir=s:undoDir
+if !isdirectory(s:undodir)
+    call mkdir(s:undodir, '', 0700)
+endif
+let &undodir=s:undodir
 set undofile          " Maintain undo history
 set updatetime=1000   " Certain plugins use this for CursorHold event triggering
 set viminfo=          " No backups
