@@ -1,8 +1,7 @@
--- See:
---  https://nathansmith.io/posts/neovim-lsp
---  https://rishabhrd.github.io/jekyll/update/2020/09/19/nvim_lsp_config.html
---  https://elianiva.me/post/my-nvim-lsp-setup
---  https://neovim.io/doc/user/lsp.html
+-- Do not load up plugin when in diff mode.
+if vim.opt.diff:get() then
+  return
+end
 
 local nvim_lsp = require'lspconfig'
 local handlers = require'lsp-handlers'
