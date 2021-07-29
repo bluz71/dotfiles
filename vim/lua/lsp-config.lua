@@ -33,19 +33,22 @@ end
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
+  local key_map = vim.api.nvim_buf_set_keymap
   local opts = {noremap = true, silent = true}
-  vim.api.nvim_buf_set_keymap(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', '<Space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
-  vim.api.nvim_buf_set_keymap(0, 'n', '<Space>D', '<cmd>lua toggle_lsp_diagnostics()<CR>', opts)
+  key_map(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  key_map(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  key_map(0, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  key_map(0, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  key_map(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  key_map(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  key_map(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  key_map(0, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  key_map(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
+  key_map(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
+  key_map(0, 'n', '<Space>d', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
+  key_map(0, 'n', '<Space>D', '<cmd>lua toggle_lsp_diagnostics()<CR>', opts)
+  key_map(0, 'n', 'gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+  key_map(0, 'n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 
   -- LSP-based omnifunc.
   --vim.bo.omnifunc = vim.lsp.omnifunc
