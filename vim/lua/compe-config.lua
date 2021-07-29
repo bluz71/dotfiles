@@ -19,3 +19,6 @@ compe.setup {
     }
   }
 }
+
+local opts = {expr = true, noremap = true, silent = true}
+vim.api.nvim_set_keymap('i', '<C-y>', "compe#confirm('<C-y>')", opts)
