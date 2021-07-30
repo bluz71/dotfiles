@@ -51,7 +51,6 @@ local lsp_on_attach = function(client)
   key_map(0, 'n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 
   -- LSP-based omnifunc.
-  --vim.bo.omnifunc = vim.lsp.omnifunc
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
   -- Indicate when language server is ready.
