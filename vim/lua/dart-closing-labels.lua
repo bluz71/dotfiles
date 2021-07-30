@@ -6,7 +6,7 @@ local M = {}
 -- Namespace for the virtual text.
 local closing_labels_ns = vim.api.nvim_create_namespace('dart-closing-labels')
 
--- Draws the newly published labels in the current buffer.
+-- Draw the newly published labels in the current buffer.
 local render_labels = function(labels)
   local highlight = 'LspDiagnosticsVirtualTextHint'
   local prefix = '›› '

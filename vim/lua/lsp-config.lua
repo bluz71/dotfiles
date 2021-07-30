@@ -3,9 +3,9 @@ if vim.opt.diff:get() then
   return
 end
 
-local nvim_lsp = require'lspconfig'
-local handlers = require'lsp-handlers'
-local dart_closing_labels = require'dart-closing-labels'
+local nvim_lsp = require('lspconfig')
+local handlers = require('lsp-handlers')
+local dart_closing_labels = require('dart-closing-labels')
 
 -- Diagnostics symbols for display in the sign column.
 vim.cmd('sign define LspDiagnosticsSignError text=✖')
@@ -64,32 +64,32 @@ vim.lsp.handlers['textDocument/hover'] = handlers.hover
 vim.lsp.handlers['textDocument/signatureHelp'] = handlers.signature_help
 
 -- The Language Servers.
-nvim_lsp.dartls.setup {
+nvim_lsp.dartls.setup({
   on_attach = lsp_on_attach,
   flags = {debounce_text_changes = 500},
   init_options = {closingLabels = true},
   handlers = {
     ['dart/textDocument/publishClosingLabels'] = dart_closing_labels.handler()
   }
-}
+})
 
-nvim_lsp.html.setup {
+nvim_lsp.html.setup({
   on_attach = lsp_on_attach,
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
   flags = {debounce_text_changes = 500}
-}
+})
 
-nvim_lsp.solargraph.setup {
+nvim_lsp.solargraph.setup({
   on_attach = lsp_on_attach,
   flags = {debounce_text_changes = 500},
   handlers = {
      ['textDocument/publishDiagnostics'] = handlers.no_diagnostics
   },
   settings = {solargraph = {diagnostics = false}}
-}
+})
 
-nvim_lsp.tsserver.setup {
+nvim_lsp.tsserver.setup({
   on_attach = lsp_on_attach,
   flags = {debounce_text_changes = 500}
-}
+})

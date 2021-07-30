@@ -79,7 +79,11 @@ packer.startup(function()
     config = function()
       require('compe-config')
     end,
-    event = 'InsertEnter'
+    event = 'InsertEnter',
+    ft = {
+      'css', 'dart', 'eruby', 'html', 'javascript', 'json', 'markdown', 'ruby',
+      'scss'
+    }
   }
 
   -----------------------------

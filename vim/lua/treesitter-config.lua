@@ -1,6 +1,6 @@
-local treesitter = require'nvim-treesitter.configs'
+local treesitter = require('nvim-treesitter.configs')
 
-treesitter.setup {
+treesitter.setup({
   ensure_installed = {
     'c', 'cpp', 'dart', 'go', 'html', 'java', 'javascript', 'lua', 'php',
     'python', 'ruby', 'rust', 'typescript', 'vue'
@@ -12,4 +12,4 @@ treesitter.setup {
     enable = true,
     disable = { 'dart' }
   }
-}
+})

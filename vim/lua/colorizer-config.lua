@@ -1,4 +1,4 @@
-local colorizer = require'colorizer'
+local colorizer = require('colorizer')
 
 colorizer.setup({'css', 'javascript', 'json', 'scss', 'vim'})
 

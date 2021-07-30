@@ -1,5 +1,5 @@
-local pears = require'pears'
-local R = require'pears.rule'
+local pears = require('pears')
+local R = require('pears.rule')
 
 pears.setup(function(conf)
   conf.pair('<%', {

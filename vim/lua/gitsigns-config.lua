@@ -3,9 +3,9 @@ if vim.opt.diff:get() then
   return
 end
 
-local gitsigns = require'gitsigns'
+local gitsigns = require('gitsigns')
 
-gitsigns.setup {
+gitsigns.setup({
   signs = {
     add = {hl = 'GitSignsAdd', text = '│'},
     change = {hl = 'GitSignsChange', text = '│'},
@@ -25,4 +25,4 @@ gitsigns.setup {
   },
   max_file_length = 100000,
   sign_priority = 6
-}
+})

@@ -1,6 +1,6 @@
-local compe = require'compe'
+local compe = require('compe')
 
-compe.setup {
+compe.setup({
   min_length = 2,
   preselect = 'disable',
   documentation = false,
@@ -18,7 +18,7 @@ compe.setup {
       filetypes = {'dart', 'html', 'javascript', 'markdown', 'ruby'}
     }
   }
-}
+})
 
 local opts = {expr = true, noremap = true, silent = true}
 vim.api.nvim_set_keymap('i', '<C-y>', "compe#confirm('<C-y>')", opts)
