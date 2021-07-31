@@ -91,7 +91,7 @@ packer.startup(function()
     config = function()
       require('lspfuzzy-config')
     end,
-    keys = {'gr', 'gw', 'gW'}
+    ft = {'dart', 'javascript', 'ruby'}
   }
 
   -----------------------------
