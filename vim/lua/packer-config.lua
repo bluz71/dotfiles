@@ -86,6 +86,14 @@ packer.startup(function()
     }
   }
 
+  use {
+    'ojroques/nvim-lspfuzzy',
+    config = function()
+      require('lspfuzzy-config')
+    end,
+    keys = {'gr', 'gw', 'gW'}
+  }
+
   -----------------------------
   -- Misc plugins
   -----------------------------
