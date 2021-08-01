@@ -671,6 +671,17 @@
                     <string>#0d000000</string>
                 </dict>
             </dict>
+            <dict>
+                <key>name</key>
+                <string>YAML Entity Name Tags</string>
+                <key>scope</key>
+                <string>entity.name.tag.yaml</string>
+                <key>settings</key>
+                <dict>
+                    <key>foreground</key>
+                    <string>#0c000000</string>
+                </dict>
+            </dict>
         </array>
         <key>uuid</key>
         <string>uuid</string>
