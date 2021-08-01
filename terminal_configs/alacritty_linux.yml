@@ -105,7 +105,7 @@ colors:
     blue:    '#74b2ff'
     magenta: '#ae81ff'
     cyan:    '#85dc85'
-    white:   '#e2637f'
+    white:   '#c6c6c6'
 
 # Live config reload (changes require restart)
 live_config_reload: true
