@@ -148,6 +148,8 @@ Go to declaration        gD           *N
 Go to implementation     gi           *N
 Find references          gr           *N
 Rename symbol            gR           *N
+Document symbols         gw            N
+Workspace symbols        gW            N
 Code actions             ga           *N
 Signature help           ‹Ctrl-h›     *I
 Line Diagnostics         ‹Spc›d       *N
@@ -165,7 +167,7 @@ Project tags             ‹Spc›]        N
 Git status               ‹Spc›g        N
 Buffer commits           ‹Spc›c        N
 Vim help                 ‹Spc›h        N
-Ripgrep                  ‹Spc›\        N
+Ripgrep                  ‹Spc›/        N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N
