@@ -11,16 +11,16 @@
           #02000000 - green
           #03000000 - yellow
           #04000000 - blue
-          #05000000 - magenta
-          #06000000 - cyan
+          #05000000 - magenta (violet)
+          #06000000 - cyan (turquoise)
           #07000000 - grey
           #08000000 - medium grey
-          #09000000 - bright red
-          #0a000000 - bright green
-          #0b000000 - bright yellow
-          #0c000000 - bright blue
-          #0d000000 - bright magenta
-          #0e000000 - bright cyan
+          #09000000 - bright red (crimson)
+          #0a000000 - bright green (emerald)
+          #0b000000 - bright yellow (khaki)
+          #0c000000 - bright blue (sky)
+          #0d000000 - bright magenta (purple)
+          #0e000000 - bright cyan (lime)
           #0f000000 - bright white
         -->
         <key>author</key>
@@ -304,7 +304,7 @@
                 <key>settings</key>
                 <dict>
                     <key>foreground</key>
-                    <string>#0e000000</string>
+                    <string>#06000000</string>
                 </dict>
             </dict>
             <dict>
@@ -680,6 +680,29 @@
                 <dict>
                     <key>foreground</key>
                     <string>#0c000000</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>Library class type</string>
+                <key>scope</key>
+                <string>support.type, support.class</string>
+                <key>settings</key>
+                <dict>
+                    <key>foreground</key>
+                    <string>#06000000</string>
+                </dict>
+            </dict>
+
+            <dict>
+                <key>name</key>
+                <string>CSS Keyword Other Unit</string>
+                <key>scope</key>
+                <string>keyword.other.unit.css</string>
+                <key>settings</key>
+                <dict>
+                    <key>foreground</key>
+                    <string>#03000000</string>
                 </dict>
             </dict>
         </array>
