@@ -14,7 +14,9 @@ local util = require('packer.util')
 packer.init({
   display = {
     open_fn = function()
-      return util.float({border = 'single'})
+      return util.float({
+        border = 'single', height = math.ceil(vim.o.lines * 0.5)
+      })
     end
   }
 })
