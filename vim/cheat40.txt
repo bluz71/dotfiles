@@ -67,7 +67,7 @@ Crosshair                ,X            N
 Maximise split           ,m            N
 Syntax from start        ,S           %N
 Introduction message     ,i            N
-Ruby close block         ‹Ctrl-e›      I
+Close current block      ‹Ctrl-e›      I
 }}}
 Command Mode Mappings {{{
 Go to start of line      ‹Ctrl-a›      C
@@ -106,6 +106,10 @@ Lazy draw & autosave     F9            N
 Lazy draw & autosave     ‹Spc›9        N
 Show special chars       F12           N
 Show special chars       ‹Spc›0        N
+}}}
+Grep Mappings {{{
+Search prompt            ,/            N
+Search current           gs          *VN
 }}}
 Star/Find/Replace Mappings {{{
 Stationary star search   g*          *VN
@@ -203,10 +207,6 @@ Revert hunk staging      ‹Spc›-       @N
 Preview hunk             ‹Spc›p       @N
 Blame line               ‹Spc›b       @N
 Refersh buffers          ‹Spc›r        N
-}}}
-Grepper Plugin Mappings {{{
-Search prompt            ,/            N
-Search operation         g/          *VN
 }}}
 Unimpaired Plugin Mappings {{{
 Previous file            [a            N
