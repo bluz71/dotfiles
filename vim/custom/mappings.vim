@@ -289,17 +289,17 @@ xmap <CR> .<Esc>gnzz
 xnoremap ! <Esc>ngnzz
 
 " - Star search and substitute within the current file
-nnoremap \s :let @s='\<'.expand('<cword>').'\>'<CR>:%s/<C-r>s//<Left>
+nnoremap \s :%s/<C-r><C-w>//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
 
-" - Project-wide star search and substitute using the Grepper plugin
+" - Project-wide star search and substitute using ripgrep.
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
-  \ :Grepper -cword -noprompt<CR>
+  \ :silent grep <C-r><C-w><CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-xmap \S
-  \ "sy \|
-  \ :GrepperRg <C-r>s<CR>
+xnoremap \S
+  \ "sy\|
+  \ :silent grep <C-r>s<CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>

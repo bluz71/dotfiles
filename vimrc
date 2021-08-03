@@ -17,7 +17,8 @@ set backspace=indent,eol,start
 set belloff=all       " Bells are annoying
 set breakindent       " Wrap long lines *with* indentation
 set breakindentopt=shift:2
-if has('unnamedplus') " Copy to/from system clipboard
+" Copy to/from system clipboard
+if has('unnamedplus')
     set clipboard=unnamed,unnamedplus
 else
     set clipboard=unnamed
@@ -34,6 +35,9 @@ set foldmethod=indent " Simple and fast
 set foldtext=''
 set formatoptions=cqj " Default format options
 set gdefault          " Always do global substitutes
+" Use ripgrep as the grep tool
+set grepprg=rg\ --vimgrep\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
 set history=200       " Keep 200 changes of undo history
 set infercase         " Smart casing when completing
 set ignorecase        " Search in case-insensitively

@@ -32,9 +32,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'ackyshake/VimCompletesMe'
 Plug 'gregsexton/MatchTag'
-Plug 'mhinz/vim-grepper'
-    " ~/dotfiles/vim/plugin/grepper.vim - options, mappings
-    " ~/dotfiles/vim/after/plugin/grepper.vim - overrides
 Plug 'chaoren/vim-wordmotion'
     " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tommcdo/vim-lion'
