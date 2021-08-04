@@ -43,8 +43,10 @@ packer.startup(function()
 
   use {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead'
-    -- ~/dotfiles/vim/plugin/indent-blankline.vim - options
+    event = 'BufRead',
+    config = function()
+      require('indent-blankline-config')
+    end
   }
 
   -----------------------------
