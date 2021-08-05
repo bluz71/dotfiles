@@ -3,9 +3,9 @@ if has('nvim') || has('patch-8.2.0191')
     let g:fzf_layout = {
                 \ 'window': {
                 \   'width': 0.9,
-                \   'height': 0.7,
+                \   'height': 0.8,
                 \   'highlight': 'fzfBorder',
-                \   'border': 'rounded'
+                \   'border': 'sharp'
                 \  }
                 \}
 else " Fallback to a split window
