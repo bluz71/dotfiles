@@ -157,7 +157,7 @@
                 <key>name</key>
                 <string>Classes</string>
                 <key>scope</key>
-                <string>support.class, entity.name.class, entity.name.type.class</string>
+                <string>support.class, entity.name.class, entity.name.type.class, entity.name.type</string>
                 <key>settings</key>
                 <dict>
                     <key>foreground</key>
@@ -315,7 +315,7 @@
                 <key>settings</key>
                 <dict>
                     <key>foreground</key>
-                    <string>#04000000</string>
+                    <string>#0c000000</string>
                 </dict>
             </dict>
             <dict>
@@ -693,7 +693,6 @@
                     <string>#06000000</string>
                 </dict>
             </dict>
-
             <dict>
                 <key>name</key>
                 <string>CSS Keyword Other Unit</string>
@@ -702,7 +701,29 @@
                 <key>settings</key>
                 <dict>
                     <key>foreground</key>
-                    <string>#03000000</string>
+                    <string>#0b000000</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>CSS attribute name</string>
+                <key>scope</key>
+                <string>entity.other.attribute-name.class.css</string>
+                <key>settings</key>
+                <dict>
+                    <key>foreground</key>
+                    <string>#0a000000</string>
+                </dict>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>CSS punctuation</string>
+                <key>scope</key>
+                <string>punctuation.definition.entity.css, punctuation.separator.key-value.css</string>
+                <key>settings</key>
+                <dict>
+                    <key>foreground</key>
+                    <string>#05000000</string>
                 </dict>
             </dict>
         </array>
