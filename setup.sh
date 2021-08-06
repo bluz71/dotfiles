@@ -26,11 +26,6 @@ ln -s ~/dotfiles/git-bvv scripts/git-bvv
 mkdir -p .config/yamllint
 ln -s ~/dotfiles/yamllint .config/yamllint/config
 
-mkdir -p .config/bat/themes
-ln -s ~/dotfiles/misc/custom16.tmTheme .config/bat/themes
-ln -s ~/dotfiles/misc/Dart.sublime-syntax .config/bat/syntaxes
-bat cache --build
-
 mkdir -p .config/alacritty
 
 if [ "$(uname)" = Linux ]; then
