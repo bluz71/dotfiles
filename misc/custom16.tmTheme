@@ -577,7 +577,7 @@
                 </dict>
             </dict>
             <!--
-            Customizations.
+            Additions
             -->
             <dict>
                 <key>name</key>
@@ -603,7 +603,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>JSON String</string>
+                <string>JSON Strings</string>
                 <key>scope</key>
                 <string>meta.mapping.key.json string.quoted.double.json, punctuation.separator.sequence.csv</string>
                 <key>settings</key>
@@ -614,7 +614,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>JS: unquoted labe</string>
+                <string>JavaScript unquoted label</string>
                 <key>scope</key>
                 <string>string.unquoted.label.js</string>
                 <key>settings</key>
@@ -625,7 +625,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>Ruby's @variable</string>
+                <string>Ruby @variable</string>
                 <key>scope</key>
                 <string>variable.other.readwrite.instance</string>
                 <key>settings</key>
@@ -638,7 +638,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>Lang Variable</string>
+                <string>Language Variable</string>
                 <key>scope</key>
                 <string>variable.language</string>
                 <key>settings</key>
@@ -651,7 +651,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>Markup: raw inline</string>
+                <string>Markup Link Text</string>
                 <key>scope</key>
                 <string>text.html.markdown markup.raw.inline</string>
                 <key>settings</key>
@@ -662,7 +662,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>Markup: underline</string>
+                <string>Markup Underline</string>
                 <key>scope</key>
                 <string>markup.underline</string>
                 <key>settings</key>
@@ -706,7 +706,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>CSS attribute name</string>
+                <string>CSS Attribute Name</string>
                 <key>scope</key>
                 <string>entity.other.attribute-name.class.css</string>
                 <key>settings</key>
@@ -717,7 +717,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>CSS punctuation</string>
+                <string>CSS Punctuation</string>
                 <key>scope</key>
                 <string>punctuation.definition.entity.css, punctuation.separator.key-value.css</string>
                 <key>settings</key>
@@ -728,7 +728,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>YAML plain</string>
+                <string>YAML Plain</string>
                 <key>scope</key>
                 <string>string.unquoted.plain.out.yaml</string>
                 <key>settings</key>
@@ -750,7 +750,7 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>Vim Function</string>
+                <string>Vim Type</string>
                 <key>scope</key>
                 <string>support.type.viml</string>
                 <key>settings</key>
