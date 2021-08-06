@@ -1,7 +1,5 @@
 local indent_blankline = require("indent_blankline")
 
-indent_blankline.init()
-
 -- Disable this plugin when in diff mode.
 local enable = true
 if vim.opt.diff:get() then
