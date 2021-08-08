@@ -57,9 +57,8 @@ Copy paragraph           cp            N
 Format paragraph         qp            N
 Format paragraph         ‹Ctrl-x›qp    I
 Format line              qj            N
-Yank into ‹y› register   ,y            N
-Paste from ‹y› register  ,p            N
-Paste from ‹y› register  ,P            N
+Paste from yank register ,p            N
+Paste from yank register ,P            N
 Insert from ‹y› register ‹Ctrl-y›      I
 Fold                     ,z            N
 Expand all folds         ,Z            N
@@ -211,20 +210,19 @@ Refersh buffers          ‹Spc›r        N
 Unimpaired Plugin Mappings {{{
 Previous file            [a            N
 Next file                ]a            N
-Previous buffer          [b            N
-Next buffer              ]b            N
-Previous in quickfix     [q            N
-Next in quickfix         ]q            N
-Paste above              [p            N
-Past below               ]p            N
-Paste above with format  =p            N
-Paste below with format  =P            N
-Insert a line above      [‹Spc›        N
-Insert a line below      ]‹Spc›        N
 Move selection up        [e           VN
 Move selection down      ]e           VN
+Paste above              [p            N
+Past below               ]p            N
+Paste below with format  =P            N
+Paste above with format  =p            N
+Previous in quickfix     [q            N
+Next in quickfix         ]q            N
+Insert a line above      [‹Spc›        N
+Insert a line below      ]‹Spc›        N
 Toggle relative numbers  yor           N
 Toggle wrapping          yow           N
+Toggle crosshair         yox           N
 }}}
 Surround Plugin Mappings {{{
 Change surround          cs‹@›‹#›      N

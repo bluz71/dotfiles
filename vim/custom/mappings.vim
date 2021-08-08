@@ -47,11 +47,9 @@ inoremap <C-x>qp <C-o>gqip<C-o>$
 nnoremap qj gqj
 nnoremap [z zH
 nnoremap ]z zL
-" Yank into the 'y' register
-noremap <Leader>y "yy
-" Paste from the 'y' register
-noremap <Leader>p "yp
-noremap <Leader>P "yP
+" Paste from the yank register
+noremap <Leader>p "0p
+noremap <Leader>P "0P
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Expand all folds.

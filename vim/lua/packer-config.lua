@@ -64,7 +64,6 @@ packer.startup(function()
     keys = {
       '[a', ']a',
       '[e', ']e',
-      '[l', ']l',
       '[p', ']p',
       '=P', '=p',
       '[q', ']q',
