@@ -56,7 +56,24 @@ packer.startup(function()
     'steelsojka/pears.nvim',
     config = function()
       require('pears-config')
-    end,
+    end
+  }
+
+  use {
+    'tpope/vim-unimpaired',
+    keys = {
+      '[a', ']a',
+      '[e', ']e',
+      '[l', ']l',
+      '[p', ']p',
+      '=P', '=p',
+      '[q', ']q',
+      '[<Space>', ']<Space>',
+      'yor', 'yow', 'yox'
+    },
+    config = function()
+      require('unimpaired-config')
+    end
   }
 
   -----------------------------

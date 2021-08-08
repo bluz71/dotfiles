@@ -41,8 +41,6 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-    " ~/dotfiles/vim/after/plugin/unimpaired.vim - overrides
 Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
     " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
