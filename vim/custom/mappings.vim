@@ -91,7 +91,7 @@ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 nnoremap <Leader><Tab> :buffer<Space><Tab>
 " Alternate the last two files.
 nnoremap <Backspace> <C-^>
-" Navigate the jumplist.
+" Navigate, and center, the jumplist.
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
 
