@@ -67,8 +67,7 @@ packer.startup(function()
       '[p', ']p',
       '=P', '=p',
       '[q', ']q',
-      '[<Space>', ']<Space>',
-      'yor', 'yow', 'yox'
+      '[<Space>', ']<Space>'
     },
     config = function()
       require('unimpaired-config')

@@ -35,6 +35,10 @@ Move down ten lines      ‹Ctrl-j›      N
 Move up ten lines        ‹Ctrl-k›      N
 Navigate via ‹wildmenu›  ,‹Tab›        N
 Alternate last file      ‹Backspace›   N
+}}}
+Paired Mappings {{{
+Previous change          [c            N
+Next change              ]c            N
 Previous jump position   [j            N
 Next jump position       ]j            N
 Previous spelling error  [s            N
@@ -97,8 +101,10 @@ Space to underscore      F4            N
 Space to underscore      ‹Spc›4        N
 Spell checking           F5            N
 Spell checking           ‹Spc›5        N
-Show commands            F6            N
-Show commands            ‹Spc›6        N
+Wrapping                 F6            N
+Wrapping                 ‹Spc›6        N
+Show commands            F7            N
+Show commands            ‹Spc›7        N
 Show highlight group     F8           *N
 Show highlight group     ‹Spc›8       *N
 Lazy draw & autosave     F9            N
@@ -220,9 +226,6 @@ Previous in quickfix     [q            N
 Next in quickfix         ]q            N
 Insert a line above      [‹Spc›        N
 Insert a line below      ]‹Spc›        N
-Toggle relative numbers  yor           N
-Toggle wrapping          yow           N
-Toggle crosshair         yox           N
 }}}
 Surround Plugin Mappings {{{
 Change surround          cs‹@›‹#›      N

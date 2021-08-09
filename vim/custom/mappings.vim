@@ -45,8 +45,6 @@ inoremap <C-x>qp <C-o>gqip<C-o>$
 " Mapping that scrolls the window when wrapping is in effect.
 " Format current line.
 nnoremap qj gqj
-nnoremap [z zH
-nnoremap ]z zL
 " Paste from the yank register
 noremap <Leader>p "0p
 noremap <Leader>P "0P
@@ -89,9 +87,22 @@ nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 nnoremap <Leader><Tab> :buffer<Space><Tab>
 " Alternate the last two files.
 nnoremap <Backspace> <C-^>
-" Navigate, and center, the jumplist.
+
+"-----------------------------
+" Paired mappings
+"-----------------------------
+nnoremap {  {zz
+nnoremap }  }zz
+nnoremap n  nzz
+nnoremap N  Nzz
+nnoremap ]c ]czz
+nnoremap [c [czz
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
+nnoremap ]s ]szz
+nnoremap [s [szz
+nnoremap [z zH
+nnoremap ]z zL
 
 "-----------------------------
 " Scroll mappings
@@ -191,10 +202,10 @@ nnoremap <F4>     :%s/ /_<CR>
 nnoremap <Space>4 :%s/ /_<CR>
 nnoremap <F5>     :call spelling#Toggle()<CR>
 nnoremap <Space>5 :call spelling#Toggle()<CR>
-nnoremap <F6>     :set showcmd!<CR>
-nnoremap <Space>6 :set showcmd!<CR>
-"<F7>     - unused
-"<Space>7 - unused
+nnoremap <F6>     :set wrap!<CR>
+nnoremap <Space>6 :set wrap!<CR>
+nnoremap <F7>     :set showcmd!<CR>
+nnoremap <Space>7 :set showcmd!<CR>
 if has('nvim')
     nnoremap <F8>     :TSHighlightCapturesUnderCursor<CR>
     nnoremap <Space>8 :TSHighlightCapturesUnderCursor<CR>
@@ -206,18 +217,6 @@ nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <silent> <Space>0 :call listchars#Toggle()<CR>
 nnoremap <silent> <F12>    :call listchars#Toggle()<CR>
-
-"-----------------------------
-" Center navigation mappings
-"-----------------------------
-noremap {  {zz
-noremap }  }zz
-noremap n  nzz
-noremap N  Nzz
-noremap ]c ]czz
-noremap [c [czz
-noremap ]s ]szz
-noremap [s [szz
 
 "-----------------------------
 " Completion mappings
