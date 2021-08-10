@@ -65,7 +65,6 @@ packer.startup(function()
       '[a', ']a',
       '[e', ']e',
       '[p', ']p',
-      '=P', '=p',
       '[q', ']q',
       '[<Space>', ']<Space>'
     },
