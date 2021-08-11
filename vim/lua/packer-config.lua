@@ -74,6 +74,20 @@ packer.startup(function()
   }
 
   -----------------------------
+  -- Filesystem plugins
+  -----------------------------
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-lua/popup.nvim'
+    },
+    config = function()
+      require('telescope-config')
+    end
+  }
+
+  -----------------------------
   -- Development plugins
   -----------------------------
   use {
