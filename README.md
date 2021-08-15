@@ -1,8 +1,6 @@
 ![dotfiles](https://raw.githubusercontent.com/bluz71/misc-binaries/master/headings/dotfiles.png)
 ==========
 
-![terminal](https://raw.githubusercontent.com/bluz71/misc-binaries/master/misc/dotfiles.png)
-
 Contained are dotfiles for:
 
 - Bash
@@ -10,9 +8,7 @@ Contained are dotfiles for:
 - Vim / Neovim
 - tmux
 - Git
-- Ruby _irb_ and _pry_ REPL
 - SSH
-- xterm (via Xresources)
 - Linux fontconfig
 - [markdownlint](https://github.com/DavidAnson/markdownlint)
 - [bat](https://github.com/sharkdp/bat)
@@ -20,6 +16,11 @@ Contained are dotfiles for:
 
 Platforms where these dotfiles are used: macOS with Homebrew and Debian
 derivatives of Linux (Linux Mint and Ubuntu).
+
+Screenshot
+----------
+
+![terminal](https://raw.githubusercontent.com/bluz71/misc-binaries/master/misc/dotfiles.png)
 
 Installation
 ------------
