@@ -131,9 +131,9 @@ packer.startup(function()
     config = function()
       require('colorizer-config')
     end,
-    ft = {'css', 'javascript', 'json', 'scss', 'vim'}
+    ft = {'css', 'javascript', 'json', 'lua', 'scss', 'vim'}
   }
-  
+
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   --   https://github.com/lambdalisue/fern.vim/issues/120
