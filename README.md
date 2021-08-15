@@ -1,6 +1,8 @@
 ![dotfiles](https://raw.githubusercontent.com/bluz71/misc-binaries/master/headings/dotfiles.png)
 ==========
 
+![terminal](https://raw.githubusercontent.com/bluz71/misc-binaries/master/misc/dotfiles.png)
+
 Contained are dotfiles for:
 
 - Bash
@@ -33,8 +35,3 @@ Run `ssh` to create its dot directory then do:
 ```sh
 cp ~/dotfiles/ssh_config ~/.ssh/config
 ```
-
-Screenshot
-----------
-
-![dotfiles](https://raw.githubusercontent.com/bluz71/misc-binaries/master/misc/dotfiles.png)
