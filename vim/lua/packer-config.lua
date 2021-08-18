@@ -63,6 +63,7 @@ packer.startup(function()
     'tpope/vim-unimpaired',
     keys = {
       '[a', ']a',
+      '[b', ']b',
       '[e', ']e',
       '[p', ']p',
       '[q', ']q',
@@ -82,6 +83,11 @@ packer.startup(function()
     config = function()
       require('telescope-config')
     end
+  }
+
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make'
   }
 
   -----------------------------
