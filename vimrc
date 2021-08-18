@@ -104,6 +104,8 @@ if has('nvim')
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
+    " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
+    let $LESS = '-RS'
 else
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-

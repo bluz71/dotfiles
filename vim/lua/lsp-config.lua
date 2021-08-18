@@ -17,7 +17,7 @@ vim.cmd('sign define LspDiagnosticsSignHint text=✖')
 vim.g.lsp_diagnostics_visible = true
 
 -- Toggleable diagnostics function.
-function _G.toggle_lsp_diagnostics()
+function toggle_lsp_diagnostics()
   if vim.g.lsp_diagnostics_visible then
     vim.g.lsp_diagnostics_visible = false
     vim.lsp.diagnostic.clear(0)

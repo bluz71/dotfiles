@@ -19,7 +19,7 @@ let g:fzf_commits_log_options = '--graph --color=always
 
 " Mappings
 nnoremap <silent> <Space><Space> :Files<CR>
-nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR><CR>
 nnoremap <silent> <Space>,       :Buffers<CR>
 nnoremap <silent> <Space><BS>    :BDelete<CR>
 nnoremap <silent> <Space>]       :Tags<CR>
@@ -30,7 +30,6 @@ nnoremap          <Space>/       :Rg<Space>
 
 if filereadable('config/routes.rb')
     " This looks like a Rails app.
-    nnoremap <silent> <Space>eb :Files app/views<CR>
     nnoremap <silent> <Space>ec :Files app/controllers<CR>
     nnoremap <silent> <Space>eh :Files app/helpers<CR>
     nnoremap <silent> <Space>ei :Files config/initializers<CR>
