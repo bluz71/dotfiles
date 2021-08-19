@@ -54,6 +54,11 @@ packer.startup(function()
   -----------------------------
   use {
     'steelsojka/pears.nvim',
+    event = 'InsertEnter',
+    ft = {
+      'css', 'dart', 'eruby', 'html', 'javascript', 'json', 'markdown', 'ruby',
+      'scss', 'sh'
+    },
     config = function()
       require('pears-config')
     end
@@ -80,6 +85,7 @@ packer.startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
+    keys = {'--', '-.', '-,', '-c', '-g', '-h', '-/'},
     config = function()
       require('telescope-config')
     end
@@ -111,22 +117,22 @@ packer.startup(function()
 
   use {
     'hrsh7th/nvim-compe',
-    config = function()
-      require('compe-config')
-    end,
     event = 'InsertEnter',
     ft = {
       'css', 'dart', 'eruby', 'html', 'javascript', 'json', 'markdown', 'ruby',
       'scss'
-    }
+    },
+    config = function()
+      require('compe-config')
+    end
   }
 
   use {
     'ojroques/nvim-lspfuzzy',
+    ft = {'dart', 'javascript', 'ruby'},
     config = function()
       require('lspfuzzy-config')
-    end,
-    ft = {'dart', 'javascript', 'ruby'}
+    end
   }
 
   -----------------------------
@@ -134,10 +140,10 @@ packer.startup(function()
   -----------------------------
   use {
     'norcalli/nvim-colorizer.lua',
+    ft = {'css', 'json', 'lua', 'scss', 'vim'},
     config = function()
       require('colorizer-config')
     end,
-    ft = {'css', 'javascript', 'json', 'lua', 'scss', 'vim'}
   }
 
   -- Workaround for Neovim bug, see:
