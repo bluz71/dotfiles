@@ -194,6 +194,7 @@ Buffer commits           'c            N
 Git status               'g            N
 Vim help                 'h            N
 Highlights               'i            N
+Old files                'o            N
 Project tags             ']            N
 Ripgrep                  '/            N
 LSP references           'r            N

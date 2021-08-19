@@ -81,7 +81,7 @@ packer.startup(function()
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     keys = {
-      "''", "'.", "',", "'c", "'g", "'h", "'i", "']", "'/",
+      "''", "'.", "',", "'c", "'g", "'h", "'i", "'o", "']", "'/",
       "'r", "'w", "'W",
       "'ec", "'eh", "'ei", "'em", "'es", "'et", "'ev"
     },
