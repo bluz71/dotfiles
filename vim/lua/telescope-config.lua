@@ -14,6 +14,8 @@ telescope.setup({
         ["<ESC>"] = actions.close,
         ["<PageUp>"] = actions.preview_scrolling_up,
         ["<PageDown>"] = actions.preview_scrolling_down,
+        ["<C-q>"] = false,
+        ["<A-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-d>"] = require("telescope.actions").delete_buffer
       }
     },
@@ -32,7 +34,7 @@ function telescope_git_bcommits(opts)
   opts = opts or {}
   opts.previewer = previewers.new_termopen_previewer({
     get_command = function(entry)
-      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -RS', 'show', entry.value}
+      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'show', entry.value}
     end
   })
 
@@ -43,7 +45,7 @@ function telescope_git_status(opts)
   opts = opts or {}
   opts.previewer = previewers.new_termopen_previewer({
     get_command = function(entry)
-      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -RS', 'diff', entry.value}
+      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'diff', entry.value}
     end
   })
 
@@ -59,7 +61,7 @@ key_map('n', '-,', '<cmd>lua require("telescope.builtin").buffers()<CR>', opts)
 key_map('n', '-c', '<cmd>lua telescope_git_bcommits()<CR>', opts)
 key_map('n', '-g', '<cmd>lua telescope_git_status()<CR>', opts)
 key_map('n', '-h', '<cmd>lua require("telescope.builtin").help_tags()<CR>', opts)
-key_map('n', '-/', '<cmd>lua require("telescope.builtin").grep_string()<CR>', opts)
+key_map('n', '-/', ':Telescope grep_string search=', {noremap = true})
 
 if vim.fn.filereadable('config/routes.rb') ~= 0 then
   key_map('n', '-ec', ':Telescope find_files cwd=app/controllers<CR>', opts)
