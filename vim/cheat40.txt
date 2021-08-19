@@ -157,8 +157,6 @@ Go to declaration        gD           *N
 Go to implementation     gi           *N
 Find references          gr           *N
 Rename symbol            gR           *N
-Document symbols         gw            N
-Workspace symbols        gW            N
 Code actions             ga           *N
 Signature help           ‹Ctrl-h›     *I
 Line Diagnostics         ‹Spc›d       *N
@@ -187,6 +185,29 @@ React component files    ‹Spc›ec       N
 React stylesheet files   ‹Spc›es       N
 React test files         ‹Spc›et       N
 Most recently used       ‹Spc›m        N
+}}}
+Telescope Plugin Mappings {{{
+Files                    ''            N
+Sibling files            '.           %N
+Buffers                  ',            N
+Buffer commits           'c            N
+Git status               'g            N
+Vim help                 'h            N
+Highlights               'i            N
+Project tags             ']            N
+Ripgrep                  '/            N
+LSP references           'r            N
+LSP document symbols     'w            N
+LSP workspace symbols    'W            N
+Rails controller files   'ec           N
+Rails helper files       'eh           N
+Rails models files       'em           N
+Rails stylesheet files   'es           N
+Rails spec files         'et           N
+Rails view files         'ev           N
+React component files    'ec           N
+React stylesheet files   'es           N
+React test files         'et           N
 }}}
 fern Plugin Mapping {{{
 Toggle drawer            ,d            N

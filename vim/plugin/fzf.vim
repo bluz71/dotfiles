@@ -22,10 +22,10 @@ nnoremap <silent> <Space><Space> :Files<CR>
 nnoremap <silent> <Space>.       :Files <C-r>=expand("%:h")<CR><CR>
 nnoremap <silent> <Space>,       :Buffers<CR>
 nnoremap <silent> <Space><BS>    :BDelete<CR>
-nnoremap <silent> <Space>]       :Tags<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
 nnoremap <silent> <Space>g       :GFiles?<CR>
 nnoremap <silent> <Space>h       :Helptags<CR>
+nnoremap <silent> <Space>]       :Tags<CR>
 nnoremap          <Space>/       :Rg<Space>
 
 if filereadable('config/routes.rb')

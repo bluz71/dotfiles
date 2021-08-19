@@ -54,11 +54,6 @@ packer.startup(function()
   -----------------------------
   use {
     'steelsojka/pears.nvim',
-    event = 'InsertEnter',
-    ft = {
-      'css', 'dart', 'eruby', 'html', 'javascript', 'json', 'markdown', 'ruby',
-      'scss', 'sh'
-    },
     config = function()
       require('pears-config')
     end
@@ -85,7 +80,11 @@ packer.startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
-    keys = {'--', '-.', '-,', '-c', '-g', '-h', '-/'},
+    keys = {
+      "''", "'.", "',", "'c", "'g", "'h", "'i", "']", "'/",
+      "'r", "'w", "'W",
+      "'ec", "'eh", "'ei", "'em", "'es", "'et", "'ev"
+    },
     config = function()
       require('telescope-config')
     end
@@ -124,14 +123,6 @@ packer.startup(function()
     },
     config = function()
       require('compe-config')
-    end
-  }
-
-  use {
-    'ojroques/nvim-lspfuzzy',
-    ft = {'dart', 'javascript', 'ruby'},
-    config = function()
-      require('lspfuzzy-config')
     end
   }
 
