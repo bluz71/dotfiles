@@ -298,8 +298,8 @@ Toggle session           ,o            N
 Delete session           ,O            N
 }}}
 Dart Plugin Mappings {{{
-Hot reload               ‹Spc›r        N
-Hot restart              ‹Spc›R        N
+Hot reload               -r            N
+Hot restart              -R            N
 }}}
 Colorizer Plugin Mapping {{{
 Toggle colorizer         ‹Spc›z        N
