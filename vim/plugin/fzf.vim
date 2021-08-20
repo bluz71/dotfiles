@@ -25,6 +25,7 @@ nnoremap <silent> <Space><BS>    :BDelete<CR>
 nnoremap <silent> <Space>c       :BCommits<CR>
 nnoremap <silent> <Space>g       :GFiles?<CR>
 nnoremap <silent> <Space>h       :Helptags<CR>
+nnoremap <silent> <Space>o       :History<CR>
 nnoremap <silent> <Space>]       :Tags<CR>
 nnoremap          <Space>/       :Rg<Space>
 
