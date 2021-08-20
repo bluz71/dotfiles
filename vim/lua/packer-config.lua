@@ -61,14 +61,7 @@ packer.startup(function()
 
   use {
     'tpope/vim-unimpaired',
-    keys = {
-      '[a', ']a',
-      '[b', ']b',
-      '[e', ']e',
-      '[p', ']p',
-      '[q', ']q',
-      '[<Space>', ']<Space>'
-    },
+    keys = {'[', ']'},
     config = function()
       require('unimpaired-config')
     end
@@ -80,11 +73,7 @@ packer.startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
-    keys = {
-      "''", "'.", "',", "'c", "'g", "'h", "'i", "'o", "']", "'/",
-      "'r", "'w", "'W",
-      "'ec", "'eh", "'ei", "'em", "'es", "'et", "'ev"
-    },
+    keys = {"'"},
     config = function()
       require('telescope-config')
     end
