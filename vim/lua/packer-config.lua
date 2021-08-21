@@ -73,7 +73,7 @@ packer.startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
-    keys = {"'"},
+    keys = {'<Space>'},
     config = function()
       require('telescope-config')
     end

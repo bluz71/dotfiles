@@ -50,10 +50,6 @@ Plug '907th/vim-auto-save'
 "-----------------------------
 " Filesystem plugins
 "-----------------------------
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-    " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
-    " ~/dotfiles/vim/after/ftplugin/fzf.vim - options
 Plug 'lambdalisue/fern.vim'
     " ~/dotfiles/vim/plugin/fern.vim - options, mappings
     " ~/dotfiles/vim/after/ftplugin/fern.vim - options

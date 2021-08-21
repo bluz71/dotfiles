@@ -165,17 +165,20 @@ Next Diagnostic          ]d           *N
 Toggle Diagnostics       ‹Spc›D        N
 }}}
 
-fzf Plugin Mappings {{{
-Files                    ‹Spc›‹Spc›    N
-Buffers                  ‹Spc›,        N
-Delete buffers           ‹Spc›‹BS›     N
+Telescope Plugin Mappings {{{
+Files                    ‹Spc›'        N
 Sibling files            ‹Spc›.       %N
-Project tags             ‹Spc›]        N
-Git status               ‹Spc›g        N
+Buffers                  ‹Spc›,        N
 Buffer commits           ‹Spc›c        N
+Git status               ‹Spc›g        N
 Vim help                 ‹Spc›h        N
+Highlights               ‹Spc›i        N
 Old files                ‹Spc›o        N
+Project tags             ‹Spc›]        N
 Ripgrep                  ‹Spc›/        N
+LSP references           ‹Spc›r        N
+LSP document symbols     ‹Spc›w        N
+LSP workspace symbols    ‹Spc›W        N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N
@@ -185,30 +188,6 @@ Rails view files         ‹Spc›ev       N
 React component files    ‹Spc›ec       N
 React stylesheet files   ‹Spc›es       N
 React test files         ‹Spc›et       N
-}}}
-Telescope Plugin Mappings {{{
-Files                    ''            N
-Sibling files            '.           %N
-Buffers                  ',            N
-Buffer commits           'c            N
-Git status               'g            N
-Vim help                 'h            N
-Highlights               'i            N
-Old files                'o            N
-Project tags             ']            N
-Ripgrep                  '/            N
-LSP references           'r            N
-LSP document symbols     'w            N
-LSP workspace symbols    'W            N
-Rails controller files   'ec           N
-Rails helper files       'eh           N
-Rails models files       'em           N
-Rails stylesheet files   'es           N
-Rails spec files         'et           N
-Rails view files         'ev           N
-React component files    'ec           N
-React stylesheet files   'es           N
-React test files         'et           N
 }}}
 fern Plugin Mapping {{{
 Toggle drawer            ,d            N
