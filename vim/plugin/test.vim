@@ -5,7 +5,7 @@ else
 endif
 let test#javascript#jest#executable = 'CI=true yarn test --colors'
 
-nnoremap <silent> <Space>tf :TestFile<CR>
-nnoremap <silent> <Space>tl :TestLast<CR>
-nnoremap <silent> <Space>ts :TestSuite<CR>
-nnoremap <silent> <Space>tt :TestNearest<CR>
+nnoremap <silent> 'tf :TestFile<CR>
+nnoremap <silent> 'tl :TestLast<CR>
+nnoremap <silent> 'ts :TestSuite<CR>
+nnoremap <silent> 'tt :TestNearest<CR>

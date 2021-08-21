@@ -92,25 +92,25 @@ Snippets                 ‹Ctrl-s›      I
 }}}
 Function Key Mappings {{{
 Highlighting             F1            N
-Highlighting             ‹Spc›1        N
+Highlighting             '1            N
 Save file                F2            N
-Save file                ‹Spc›2        N
+Save file                '2            N
 Retab & trailing spaces  F3            N
-Retab & trailing spaces  ‹Spc›3        N
+Retab & trailing spaces  '3            N
 Space to underscore      F4            N
-Space to underscore      ‹Spc›4        N
+Space to underscore      '4            N
 Spell checking           F5            N
-Spell checking           ‹Spc›5        N
+Spell checking           '5            N
 Wrapping                 F6            N
-Wrapping                 ‹Spc›6        N
+Wrapping                 '6            N
 Show commands            F7            N
-Show commands            ‹Spc›7        N
+Show commands            '7            N
 Show highlight group     F8           *N
-Show highlight group     ‹Spc›8       *N
+Show highlight group     '8           *N
 Lazy draw & autosave     F9            N
-Lazy draw & autosave     ‹Spc›9        N
+Lazy draw & autosave     '9            N
 Show special chars       F12           N
-Show special chars       ‹Spc›0        N
+Show special chars       '0            N
 }}}
 Grep Mappings {{{
 Search prompt            ,/            N
@@ -159,10 +159,10 @@ Find references          gr           *N
 Rename symbol            gR           *N
 Code actions             ga           *N
 Signature help           ‹Ctrl-h›     *I
-Line Diagnostics         ‹Spc›d       *N
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
-Toggle Diagnostics       ‹Spc›D        N
+Line Diagnostics         'd           *N
+Toggle Diagnostics       'D            N
 }}}
 
 Telescope Plugin Mappings {{{
@@ -253,9 +253,9 @@ Compe Plugin Mappings {{{
 Confirm selection        ‹C-y›        %I
 }}}
 ALE Plugin Mappings {{{
-Execute fixer            ‹Spc›f       %N
-Toggle buffer linting    ‹Spc›a       %N
-Toggle linting           ‹Spc›A       %N
+Execute fixer            'f           %N
+Toggle buffer linting    'a           %N
+Toggle linting           'A           %N
 Previous error           [w            N
 Next error               ]w            N
 First error              [W            N
@@ -283,10 +283,10 @@ React stylesheet files   ,es           N
 React test files         ,et           N
 }}}
 vim-test Plugin Mappings {{{
-Run test nearest cursor  ‹Spc›tt       N
-Run all tests in file    ‹Spc›tf       N
-Run tests suite          ‹Spc›ts       N
-Run last test            ‹Spc›tl       N
+Run test nearest cursor  'tt           N
+Run all tests in file    'tf           N
+Run tests suite          'ts           N
+Run last test            'tl           N
 }}}
 Undotree Plugin Mappings {{{
 Toggle Undotree          ,u           %N
@@ -303,5 +303,5 @@ Hot reload               'r            N
 Hot restart              'R            N
 }}}
 Colorizer Plugin Mapping {{{
-Toggle colorizer         ‹Spc›z        N
+Toggle colorizer         'z            N
 }}}

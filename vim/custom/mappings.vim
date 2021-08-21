@@ -190,33 +190,33 @@ endif
 "-----------------------------
 " Function key mappings
 "-----------------------------
-" Double up function key mappings with <Space>+number mappings for
+" Double up function key mappings with single-quote+number mappings for
 " touchbar Macbooks which have no physical function keys.
-nnoremap <F1>     :set hlsearch!<CR>
-nnoremap <Space>1 :set hlsearch!<CR>
-nnoremap <F2>     :w<CR>
-nnoremap <Space>2 :w<CR>
-nnoremap <F3>     :%retab<CR>:%s/\s\+$//<CR>
-nnoremap <Space>3 :%retab<CR>:%s/\s\+$//<CR>
-nnoremap <F4>     :%s/ /_<CR>
-nnoremap <Space>4 :%s/ /_<CR>
-nnoremap <F5>     :call spelling#Toggle()<CR>
-nnoremap <Space>5 :call spelling#Toggle()<CR>
-nnoremap <F6>     :set wrap!<CR>
-nnoremap <Space>6 :set wrap!<CR>
-nnoremap <F7>     :set showcmd!<CR>
-nnoremap <Space>7 :set showcmd!<CR>
+nnoremap <F1> :set hlsearch!<CR>
+nnoremap '1   :set hlsearch!<CR>
+nnoremap <F2> :w<CR>
+nnoremap '2   :w<CR>
+nnoremap <F3> :%retab<CR>:%s/\s\+$//<CR>
+nnoremap '3   :%retab<CR>:%s/\s\+$//<CR>
+nnoremap <F4> :%s/ /_<CR>
+nnoremap '4   :%s/ /_<CR>
+nnoremap <F5> :call spelling#Toggle()<CR>
+nnoremap '5   :call spelling#Toggle()<CR>
+nnoremap <F6> :set wrap!<CR>
+nnoremap '6   :set wrap!<CR>
+nnoremap <F7> :set showcmd!<CR>
+nnoremap '7   :set showcmd!<CR>
 if has('nvim')
-    nnoremap <F8>     :TSHighlightCapturesUnderCursor<CR>
-    nnoremap <Space>8 :TSHighlightCapturesUnderCursor<CR>
+    nnoremap <F8> :TSHighlightCapturesUnderCursor<CR>
+    nnoremap '8   :TSHighlightCapturesUnderCursor<CR>
 else
-    nnoremap <F8>     :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
-    nnoremap <Space>8 :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+    nnoremap <F8> :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+    nnoremap '8   :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
 endif
-nnoremap <F9>     :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap <Space>9 :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap <silent> <Space>0 :call listchars#Toggle()<CR>
-nnoremap <silent> <F12>    :call listchars#Toggle()<CR>
+nnoremap <F9> :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap '9   :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <silent> '0    :call listchars#Toggle()<CR>
+nnoremap <silent> <F12> :call listchars#Toggle()<CR>
 
 "-----------------------------
 " Completion mappings

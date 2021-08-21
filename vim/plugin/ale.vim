@@ -43,9 +43,9 @@ if has("nvim")
 endif
 
 " ALE fix and toggle mappings.
-nmap <Space>f <Plug>(ale_fix)
-nmap <Space>a <Plug>(ale_toggle_buffer)
-nmap <Space>A <Plug>(ale_toggle)
+nmap 'f <Plug>(ale_fix)
+nmap 'a <Plug>(ale_toggle_buffer)
+nmap 'A <Plug>(ale_toggle)
 " Navigate errors and warnings using unimpaired-style mappings.
 nmap [w <Plug>(ale_previous)zz
 nmap ]w <Plug>(ale_next)zz
