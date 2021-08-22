@@ -16,7 +16,7 @@ telescope.setup({
         ['<PageDown>'] = actions.preview_scrolling_down,
         ['<C-q>'] = false,
         ['<A-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
-        ['<C-d>'] = require("telescope.actions").delete_buffer
+        ['<A-d>'] = require("telescope.actions").delete_buffer
       }
     },
     prompt_prefix = '❯ ',

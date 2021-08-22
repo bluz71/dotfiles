@@ -166,9 +166,11 @@ Toggle Diagnostics       'D            N
 }}}
 
 Telescope Plugin Mappings {{{
-Files                    ‹Spc›'        N
+Files                    ‹Spc›‹Spc›    N
+Send to quickfix         ‹Alt-q›       N
 Sibling files            ‹Spc›.       %N
 Buffers                  ‹Spc›,        N
+Delete buffer            ‹Alt-d›       N
 Buffer commits           ‹Spc›c        N
 Git status               ‹Spc›g        N
 Vim help                 ‹Spc›h        N
