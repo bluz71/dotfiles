@@ -12,8 +12,8 @@ function! FlutterHotRestart() abort
     endif
 endfunction
 
-nnoremap <silent> 'r :call FlutterHotReload()<CR>:echo "Flutter reloaded"<CR>
-nnoremap <silent> 'R :call FlutterHotRestart()<CR>:echo "Flutter restarted"<CR>
+nnoremap <silent> 'h :call FlutterHotReload()<CR>:echo "Flutter reloaded"<CR>
+nnoremap <silent> 'H :call FlutterHotRestart()<CR>:echo "Flutter restarted"<CR>
 
 augroup DartTypeEvents
     autocmd!

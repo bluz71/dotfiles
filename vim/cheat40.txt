@@ -208,11 +208,11 @@ Switch to parent dir     <            *N
 gitsigns Plugin Mappings {{{
 Previous hunk            [g            N
 Next hunk                ]g            N
-Stage hunk               ‹Spc›+       @N
-Revert hunk staging      ‹Spc›-       @N
-Preview hunk             ‹Spc›p       @N
-Blame line               ‹Spc›b       @N
-Refersh buffers          ‹Spc›r        N
+Stage hunk               '+           @N
+Revert hunk staging      '-           @N
+Preview hunk             'p           @N
+Blame line               'b           @N
+Refersh buffers          'r            N
 }}}
 Unimpaired Plugin Mappings {{{
 Previous file            [a            N
@@ -299,9 +299,9 @@ Toggle session           ,o            N
 Delete session           ,O            N
 }}}
 Dart Plugin Mappings {{{
-Hot reload               'r            N
-Hot restart              'R            N
+Hot reload               'h            N
+Hot restart              'H            N
 }}}
 Colorizer Plugin Mapping {{{
-Toggle colorizer         'z            N
+Toggle colorizer         'c            N
 }}}

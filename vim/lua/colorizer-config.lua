@@ -1,6 +1,6 @@
 local colorizer = require('colorizer')
 
-colorizer.setup({'css', 'javascript', 'json', 'lua', 'scss', 'vim'})
+colorizer.setup({'css', 'json', 'lua', 'markdown', 'scss', 'vim', 'yaml'})
 
 local opts = {noremap = true, silent = true}
-vim.api.nvim_set_keymap('n', "'z", ':ColorizerToggle<CR>', opts)
+vim.api.nvim_set_keymap('n', "'c", ':ColorizerToggle<CR>', opts)
