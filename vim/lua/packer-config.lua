@@ -126,6 +126,13 @@ packer.startup(function()
     end,
   }
 
+  use {
+    'phaazon/hop.nvim',
+    config = function()
+      require('hop-config')
+    end,
+  }
+
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   --   https://github.com/lambdalisue/fern.vim/issues/120
