@@ -35,10 +35,14 @@ packer.startup(function()
     'nvim-treesitter/nvim-treesitter',
     branch = '0.5-compat',
     run = ':TSUpdate',
-    requires = {'nvim-treesitter/playground'},
     config = function()
       require('treesitter-config')
     end
+  }
+
+  use {
+    'nvim-treesitter/playground',
+    cmd = 'TSHighlightCapturesUnderCursor'
   }
 
   use {

@@ -309,5 +309,5 @@ Toggle colorizer         'c            N
 }}}
 Hop Plugin Mappings {{{
 Hop Word                 ''            N
-Hop Line                 '‹Tab›        N
+Hop Line                 '‹Return›     N
 }}}
