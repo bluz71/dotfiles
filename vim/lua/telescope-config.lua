@@ -1,5 +1,34 @@
 local telescope = require('telescope')
+local previewers = require('telescope.previewers')
+local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
+
+function telescope_git_bcommits(opts)
+  opts = opts or {}
+  opts.previewer = previewers.new_termopen_previewer({
+    get_command = function(entry)
+      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'show', entry.value}
+    end
+  })
+
+  builtin.git_bcommits(opts)
+end
+
+function telescope_git_status(opts)
+  opts = opts or {}
+  opts.previewer = previewers.new_termopen_previewer({
+    get_command = function(entry)
+      if entry.status == 'D ' then
+        return {'git', 'show', 'HEAD:'..entry.value }
+      elseif entry.status == '??' then
+        return {'bat', '--style=plain', entry.value}
+      end
+      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'diff', entry.value }
+    end
+  })
+
+  builtin.git_status(opts)
+end
 
 telescope.setup({
   defaults = {
@@ -31,31 +60,6 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
-
-local previewers = require('telescope.previewers')
-local builtin = require('telescope.builtin')
-
-function telescope_git_bcommits(opts)
-  opts = opts or {}
-  opts.previewer = previewers.new_termopen_previewer({
-    get_command = function(entry)
-      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'show', entry.value}
-    end
-  })
-
-  builtin.git_bcommits(opts)
-end
-
-function telescope_git_status(opts)
-  opts = opts or {}
-  opts.previewer = previewers.new_termopen_previewer({
-    get_command = function(entry)
-      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'diff', entry.value}
-    end
-  })
-
-  builtin.git_status(opts)
-end
 
 -- Mappings.
 local key_map = vim.api.nvim_set_keymap
