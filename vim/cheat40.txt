@@ -68,7 +68,6 @@ Fold                     ,z            N
 Expand all folds         ,Z            N
 Crosshair                ,X            N
 Maximise split           ,m            N
-Syntax from start        ,S           %N
 Introduction message     ,i            N
 Close current block      ‹Ctrl-e›      I
 }}}

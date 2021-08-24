@@ -56,8 +56,6 @@ nnoremap <Leader>Z :set nofoldenable<CR>
 nnoremap <Leader>X :call crosshair#Toggle()<CR>
 " Maximise the current file into a standalone new tab.
 nnoremap <silent> <Leader>m :tab split<CR>
-" Recalculate syntax highlighting for the entire file.
-nnoremap <Leader>S :syntax sync fromstart<CR>
 " Show introduction message.
 nnoremap <Leader>i :intro<CR>
 
