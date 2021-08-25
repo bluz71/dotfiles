@@ -27,6 +27,17 @@ function telescope_git_status(opts)
     end
   })
 
+  -- Use icons that resemble the `git status` command line.
+  opts.git_icons = {
+    added = "A",
+    changed = "M",
+    copied = "C",
+    deleted = "-",
+    renamed = "R",
+    unmerged = "U",
+    untracked = "?",
+  }
+
   builtin.git_status(opts)
 end
 
