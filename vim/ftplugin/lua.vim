@@ -1,2 +1,2 @@
-" Simple endwise-style close scope helper.
-inoremap <buffer> <C-e> end<C-o>O
+" Simple endwise-style insert mode close scope completion.
+inoremap <buffer> <C-c> end<C-o>O

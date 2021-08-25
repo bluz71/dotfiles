@@ -2,5 +2,5 @@
 " Ruby files into the editor.
 let g:loaded_ruby_provider = 1
 
-" Simple endwise-style close block helper.
-inoremap <buffer> <C-e> end<C-o>O
+" Simple endwise-style insert mode close block completion.
+inoremap <buffer> <C-c> end<C-o>O

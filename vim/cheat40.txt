@@ -69,7 +69,6 @@ Expand all folds         ,Z            N
 Crosshair                ,X            N
 Maximise split           ,m            N
 Introduction message     ,i            N
-Close current block      ‹Ctrl-e›      I
 }}}
 Command Mode Mappings {{{
 Go to start of line      ‹Ctrl-a›      C
@@ -86,7 +85,7 @@ Keyword from buffer      ‹Ctrl-b›      I
 Dictionary               ‹Ctrl-d›      I
 File path                ‹Ctrl-f›      I
 Line                     ‹Ctrl-l›      I
-‹complete› option        ‹Ctrl-c›      I
+Close block (Ruby & Lua) ‹Ctrl-c›      I
 Snippets                 ‹Ctrl-s›      I
 }}}
 Function Key Mappings {{{
