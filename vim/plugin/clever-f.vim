@@ -3,4 +3,4 @@ let g:clever_f_fix_key_direction = 1
 let g:clever_f_mark_cursor = 1
 let g:clever_f_mark_cursor_color = 'IncSearch'
 let g:clever_f_mark_direct = 1
-let g:clever_f_mark_direct_color = 'SpellBad'
+let g:clever_f_mark_direct_color = 'Exception'

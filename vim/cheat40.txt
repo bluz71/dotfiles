@@ -169,6 +169,7 @@ Send to quickfix         ‹Alt-q›       N
 Sibling files            ‹Spc›.       %N
 Buffers                  ‹Spc›,        N
 Delete buffer            ‹Alt-d›       N
+Current buffer search    ‹Spc›b        N
 Buffer commits           ‹Spc›c        N
 Git status               ‹Spc›g        N
 Vim help                 ‹Spc›h        N
