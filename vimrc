@@ -7,7 +7,7 @@
 syntax on
 
 
-" General vim settings.
+" Vim options.
 "
 set autoindent        " Indented text
 set autoread          " Pick up external changes to files

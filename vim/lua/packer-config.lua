@@ -108,14 +108,14 @@ packer.startup(function()
   }
 
   use {
-    'hrsh7th/nvim-compe',
-    event = 'InsertEnter',
-    ft = {
-      'css', 'dart', 'eruby', 'html', 'javascript', 'json', 'markdown', 'ruby',
-      'scss'
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-vsnip',
     },
     config = function()
-      require('compe-config')
+      require('cmp-config')
     end
   }
 
