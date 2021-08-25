@@ -23,6 +23,5 @@ vim.cmd [[
     autocmd FileType css,json,scss lua require('cmp').setup.buffer({sources = {{name = 'buffer'}}})
     autocmd FileType dart,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"},{name = "vsnip"}}})
     autocmd FileType eruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"}}})
-    autocmd FileType markdown lua require('cmp').setup.buffer({sources = {{name = "vsnip"}}})
   augroup END
 ]]
