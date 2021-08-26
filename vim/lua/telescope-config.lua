@@ -78,7 +78,7 @@ local opts = {noremap = true, silent = true}
 map('n', '<Space><Space>', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts)
 map('n', '<Space>.', ':Telescope find_files cwd=<C-r>=expand("%:h")<CR><CR>', opts)
 map('n', '<Space>,', '<cmd>lua require("telescope.builtin").buffers()<CR>', opts)
-map('n', '<Space>b', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts)
+map('n', "<Space>'", '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts)
 map('n', '<Space>c', '<cmd>lua telescope_git_bcommits()<CR>', opts)
 map('n', '<Space>g', '<cmd>lua telescope_git_status()<CR>', opts)
 map('n', '<Space>h', '<cmd>lua require("telescope.builtin").help_tags()<CR>', opts)
