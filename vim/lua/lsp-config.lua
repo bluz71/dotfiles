@@ -5,6 +5,7 @@ end
 
 local nvim_lsp = require('lspconfig')
 local handlers = require('lsp-handlers')
+local cmp_lsp = require('cmp_nvim_lsp')
 local dart_closing_labels = require('dart-closing-labels')
 
 -- Diagnostics symbols for display in the sign column.
@@ -60,9 +61,15 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
 vim.lsp.handlers['textDocument/hover'] = handlers.hover
 vim.lsp.handlers['textDocument/signatureHelp'] = handlers.signature_help
 
+-- The nvim-cmp completion plugin supports most LSP capabilities; we should
+-- notify the language servers about that.
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_lsp.update_capabilities(capabilities)
+
 -- The Language Servers.
 nvim_lsp.dartls.setup({
   on_attach = lsp_on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 400},
   init_options = {closingLabels = true},
   handlers = {
@@ -72,6 +79,7 @@ nvim_lsp.dartls.setup({
 
 nvim_lsp.html.setup({
   on_attach = lsp_on_attach,
+  capabilities = capabilities,
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
   flags = {debounce_text_changes = 400}
@@ -79,6 +87,7 @@ nvim_lsp.html.setup({
 
 nvim_lsp.solargraph.setup({
   on_attach = lsp_on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 400},
   handlers = {
      ['textDocument/publishDiagnostics'] = handlers.no_diagnostics
@@ -88,5 +97,6 @@ nvim_lsp.solargraph.setup({
 
 nvim_lsp.tsserver.setup({
   on_attach = lsp_on_attach,
+  capabilities = capabilities,
   flags = {debounce_text_changes = 400}
 })

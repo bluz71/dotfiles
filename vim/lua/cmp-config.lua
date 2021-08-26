@@ -11,18 +11,11 @@ cmp.setup({
       select = true
     })
   },
-  snippet = {
-    expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
-    end
-  }
 })
 
 vim.cmd [[
   augroup CmpEvents
     autocmd!
-    autocmd FileType css,json,scss lua require('cmp').setup.buffer({sources = {{name = 'buffer'}}})
-    autocmd FileType eruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"}}})
-    autocmd FileType dart,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"},{name = "vsnip"}}})
+    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"}}})
   augroup END
 ]]
