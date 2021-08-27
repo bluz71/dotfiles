@@ -1,3 +1,8 @@
+-- Do not load up plugin when in diff mode.
+if vim.opt.diff:get() then
+  return
+end
+
 local cmp = require('cmp')
 
 cmp.setup({
