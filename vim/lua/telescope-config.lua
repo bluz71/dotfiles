@@ -36,7 +36,7 @@ telescope.load_extension('fzf')
 local map = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
 map('n', '<Space><Space>', '<cmd>lua require("telescope.builtin").find_files()<CR>', opts)
-map('n', '<Space>.', ':Telescope find_files cwd=<C-r>=expand("%:h")<CR><CR>', opts)
+map('n', '<Space>.', '<cmd>lua require("telescope.builtin").find_files({cwd = "%:h"})<CR>', opts)
 map('n', '<Space>,', '<cmd>lua require("telescope.builtin").buffers()<CR>', opts)
 map('n', "<Space>'", '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts)
 map('n', '<Space>c', '<cmd>lua require("telescope-commands").git_bcommits()<CR>', opts)
