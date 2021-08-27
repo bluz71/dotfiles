@@ -14,6 +14,8 @@ xnoremap . :norm.<CR>
 noremap Y y$
 " U for redo, the opposite of u for undo.
 nnoremap U <C-r>
+" Keep the cursor stationary when joining lines.
+nnoremap J mjJ`j
 " 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
 nnoremap Q @q
 " Execute macro 'q' over the visual selection.
@@ -42,7 +44,6 @@ nnoremap cp yap<S-}>p
 nnoremap qp gqip$
 " Format current paragraph in insert mode.
 inoremap <C-x>qp <C-o>gqip<C-o>$
-" Mapping that scrolls the window when wrapping is in effect.
 " Format current line.
 nnoremap qj gqj
 " Paste from the yank register
