@@ -14,23 +14,6 @@ vim.cmd('sign define LspDiagnosticsSignWarning text=✖')
 vim.cmd('sign define LspDiagnosticsSignInformation text=✖')
 vim.cmd('sign define LspDiagnosticsSignHint text=✖')
 
--- A flag used to indicate whether diagnostics are visible or hidden.
-vim.g.lsp_diagnostics_visible = true
-
--- Toggleable diagnostics function.
-function lsp_diagnostics_toggle()
-  if vim.g.lsp_diagnostics_visible then
-    vim.g.lsp_diagnostics_visible = false
-    vim.lsp.diagnostic.clear(0)
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.no_diagnostics
-    print('Diagnostics are hidden')
-  else
-    vim.g.lsp_diagnostics_visible = true
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
-    print('Diagnostics are visible')
-  end
-end
-
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
@@ -47,7 +30,7 @@ local lsp_on_attach = function(client)
   map(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   map(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   map(0, 'n', "'d", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
-  map(0, 'n', "'D", '<cmd>lua lsp_diagnostics_toggle()<CR>', opts)
+  map(0, 'n', "'D", '<cmd>lua require("lsp-diagnostics").toggle()<CR>', opts)
 
   -- LSP-based omnifunc.
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
