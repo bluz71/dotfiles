@@ -197,7 +197,7 @@ Mark current line        m            *N
 Create new file          N            *N
 Create new directory     K            *N
 Delete marked entries    D            *N
-Move file                V            *N
+Move file                C            *N
 Rename file(s)           R            *N
 Open in a split          s            *N
 Open in a vsplit         v            *N
