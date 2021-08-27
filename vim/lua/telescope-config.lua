@@ -1,45 +1,5 @@
 local telescope = require('telescope')
-local previewers = require('telescope.previewers')
-local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
-
-function telescope_git_bcommits(opts)
-  opts = opts or {}
-  opts.previewer = previewers.new_termopen_previewer({
-    get_command = function(entry)
-      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'show', entry.value}
-    end
-  })
-
-  builtin.git_bcommits(opts)
-end
-
-function telescope_git_status(opts)
-  opts = opts or {}
-  opts.previewer = previewers.new_termopen_previewer({
-    get_command = function(entry)
-      if entry.status == 'D ' then
-        return {'git', 'show', 'HEAD:'..entry.value }
-      elseif entry.status == '??' then
-        return {'bat', '--style=plain', entry.value}
-      end
-      return {'git', '-c', 'core.pager=delta', '-c', 'delta.pager=less -R', 'diff', entry.value }
-    end
-  })
-
-  -- Use icons that resemble the `git status` command line.
-  opts.git_icons = {
-    added = "A",
-    changed = "M",
-    copied = "C",
-    deleted = "-",
-    renamed = "R",
-    unmerged = "U",
-    untracked = "?",
-  }
-
-  builtin.git_status(opts)
-end
 
 telescope.setup({
   defaults = {
@@ -79,16 +39,16 @@ map('n', '<Space><Space>', '<cmd>lua require("telescope.builtin").find_files()<C
 map('n', '<Space>.', ':Telescope find_files cwd=<C-r>=expand("%:h")<CR><CR>', opts)
 map('n', '<Space>,', '<cmd>lua require("telescope.builtin").buffers()<CR>', opts)
 map('n', "<Space>'", '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts)
-map('n', '<Space>c', '<cmd>lua telescope_git_bcommits()<CR>', opts)
-map('n', '<Space>g', '<cmd>lua telescope_git_status()<CR>', opts)
+map('n', '<Space>c', '<cmd>lua require("telescope-commands").git_bcommits()<CR>', opts)
+map('n', '<Space>g', '<cmd>lua require("telescope-commands").git_status()<CR>', opts)
 map('n', '<Space>h', '<cmd>lua require("telescope.builtin").help_tags()<CR>', opts)
 map('n', '<Space>i', '<cmd>lua require("telescope.builtin").highlights()<CR>', opts)
 map('n', '<Space>o', '<cmd>lua require("telescope.builtin").oldfiles()<CR>', opts)
 map('n', '<Space>]', '<cmd>lua require("telescope.builtin").tags()<CR>', opts)
-map('n', '<Space>/', ':Telescope grep_string search=', {noremap = true})
+map('n', '<Space>/', '<cmd>lua require("telescope.builtin").grep_string({search = vim.fn.input("Rg❯ ")})<CR>', opts)
 map('n', '<Space>r', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
 map('n', '<Space>w', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opts)
-map('n', '<Space>W', ':Telescope lsp_workspace_symbols query=', {noremap = true})
+map('n', '<Space>W', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols({query = vim.fn.input("LSP Workspace Symbols❯ ")})<CR>', opts)
 
 if vim.fn.filereadable('config/routes.rb') ~= 0 then
   map('n', '<Space>ec', ':Telescope find_files cwd=app/controllers<CR>', opts)
