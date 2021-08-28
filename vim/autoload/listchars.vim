@@ -4,26 +4,28 @@ let s:listMode = 1
 "
 function! listchars#Toggle() abort
     if s:listMode == 1
+        " Brighten extended list characters.
         setlocal listchars=eol:$,tab:>-,trail:-
-        " Brighten list characters.
+        highlight! link NonText WarningMsg 
         if has("nvim")
             highlight! link Whitespace WarningMsg
             :IndentBlanklineDisable
         else
             highlight! link SpecialKey WarningMsg
+            setlocal list
         endif
-        highlight! link NonText WarningMsg 
         let s:listMode = 0
     else
+        " Dim shortened list characters.
         setlocal listchars=tab:\ \ ,trail:-
-        " Dim list characters.
+        highlight! link NonText LineNr
         if has("nvim")
             highlight! link Whitespace Conceal
             :IndentBlanklineEnable
         else
             highlight! link SpecialKey Conceal
+            setlocal nolist
         endif
-        highlight! link NonText LineNr
         let s:listMode = 1
     endif
 endfunction
