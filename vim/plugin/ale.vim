@@ -32,24 +32,25 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters_explicit = 1
 let g:ale_open_list = 0
-let g:ale_sign_error = '▶'
-let g:ale_sign_warning = '▶'
-let g:ale_sign_info = '▶'
+let g:ale_sign_error = '▷'
+let g:ale_sign_warning = '▷'
+let g:ale_sign_info = '▷'
 let g:ale_sign_priority = 9
+let g:ale_floating_preview = 1
+let g:ale_floating_window_border = ['│', '─', '┌', '┐', '┘', '└']
 if has("nvim")
     let g:ale_echo_cursor = 0
     let g:ale_virtualtext_cursor = 1
-    let g:ale_virtualtext_prefix = ' ▶ '
+    let g:ale_virtualtext_prefix = ' ▷ '
 endif
 
 " ALE fix and toggle mappings.
 nmap 'f <Plug>(ale_fix)
 nmap 'a <Plug>(ale_toggle_buffer)
 nmap 'A <Plug>(ale_toggle)
+nmap 'w <Plug>(ale_detail)
 " Navigate errors and warnings using unimpaired-style mappings.
 nmap [w <Plug>(ale_previous)zz
 nmap ]w <Plug>(ale_next)zz
 nmap [W <Plug>(ale_first)zz
 nmap ]W <Plug>(ale_last)zz
-" Toggle location list.
-nnoremap <silent> <Leader>l :call location_list#Toggle()<CR>

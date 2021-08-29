@@ -1,4 +1,5 @@
-let g:moonflyLinterIndicator = '▶'
+let g:moonflyLinterIndicator = '▷'
+let g:moonflyDiagnosticsIndicator = '▶'
 let g:moonflyWithALEIndicator = 1
 let g:moonflyWithGitBranchCharacter = 1
 let g:moonflyWithNvimLspIndicator = 1
