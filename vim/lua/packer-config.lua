@@ -99,18 +99,18 @@ packer.startup(function()
   }
 
   use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function()
-      require('gitsigns-config')
-    end
-  }
-
-  use {
     'hrsh7th/nvim-cmp',
     requires = {'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp'},
     config = function()
       require('cmp-config')
+    end
+  }
+
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = function()
+      require('gitsigns-config')
     end
   }
 
