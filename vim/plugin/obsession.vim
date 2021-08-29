@@ -1,2 +1,2 @@
-noremap <Leader>o :Obsession<CR>
-noremap <Leader>O :Obsession!<CR>
+noremap 'o :Obsession<CR>
+noremap 'O :Obsession!<CR>

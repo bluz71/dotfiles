@@ -296,8 +296,8 @@ Previous undo state      <             N
 Next undo state          >             N
 }}}
 Obsession Plugin Mappings {{{
-Toggle session           ,o            N
-Delete session           ,O            N
+Toggle session           'o            N
+Delete session           'O            N
 }}}
 Dart Plugin Mappings {{{
 Hot reload               'h            N
