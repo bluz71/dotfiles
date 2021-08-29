@@ -15,18 +15,20 @@ pears.setup(function(conf)
     filetypes = {
       exclude = {'vim'}
     },
-    -- Don't expand quote after an alphanumeric or before/after another quote.
+    -- Don't expand quote before/after an alphanumeric or before/after another
+    -- quote.
     should_expand = R.all_of(
       R.not_(R.start_of_context('[%w"]')),
-      R.not_(R.match_next('["]'))
+      R.not_(R.match_next('[%w"]'))
     )
   })
   conf.pair("'", {
     close = "'",
-    -- Don't expand quote after an alphanumeric or before/after another quote.
+    -- Don't expand quote before/after an alphanumeric or before/after another
+    -- quote.
     should_expand = R.all_of(
       R.not_(R.start_of_context("[%w']")),
-      R.not_(R.match_next("[']"))
+      R.not_(R.match_next("[%w']"))
     )
   })
   conf.expand_on_enter(false)
