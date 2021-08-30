@@ -107,6 +107,13 @@ packer.startup(function()
   }
 
   use {
+    'dense-analysis/ale',
+    config = function()
+      require('ale-config')
+    end
+  }
+
+  use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     config = function()

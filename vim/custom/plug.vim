@@ -59,8 +59,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
-Plug 'dense-analysis/ale'
-    " ~/dotfiles/vim/plugin/ale.vim - options, mappings
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
 Plug 'janko-m/vim-test'
