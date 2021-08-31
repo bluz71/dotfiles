@@ -7,6 +7,10 @@ if fn.empty(fn.glob(packer_path)) > 0 then
   command('packadd packer.nvim')
 end
 
+-- Speed up loading of Lua modules. Note, this needs to happen BEFORE Lua
+-- plugins are loaded.
+require('impatient')
+
 local packer = require('packer')
 local util = require('packer.util')
 
@@ -64,6 +68,13 @@ packer.startup(function()
   }
 
   use {
+    'phaazon/hop.nvim',
+    config = function()
+      require('hop-config')
+    end,
+  }
+
+  use {
     'tpope/vim-unimpaired',
     keys = {'[', ']'},
     config = function()
@@ -107,13 +118,6 @@ packer.startup(function()
   }
 
   use {
-    'dense-analysis/ale',
-    config = function()
-      require('ale-config')
-    end
-  }
-
-  use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     config = function()
@@ -121,21 +125,23 @@ packer.startup(function()
     end
   }
 
+  use {
+    'dense-analysis/ale',
+    config = function()
+      require('ale-config')
+    end
+  }
+
   -----------------------------
   -- Misc plugins
   -----------------------------
+  use 'lewis6991/impatient.nvim'
+
   use {
     'norcalli/nvim-colorizer.lua',
     ft = {'css', 'json', 'lua', 'markdown', 'scss', 'vim', 'yaml'},
     config = function()
       require('colorizer-config')
-    end,
-  }
-
-  use {
-    'phaazon/hop.nvim',
-    config = function()
-      require('hop-config')
     end,
   }
 
