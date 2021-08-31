@@ -291,7 +291,7 @@ Run tests suite          'ts           N
 Run last test            'tl           N
 }}}
 Undotree Plugin Mappings {{{
-Toggle Undotree          ,u           %N
+Toggle Undotree          'u           %N
 Exit Undotree            ‹Esc›         N
 Previous undo state      <             N
 Next undo state          >             N

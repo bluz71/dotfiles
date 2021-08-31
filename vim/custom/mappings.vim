@@ -119,20 +119,6 @@ nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
 nnoremap <silent> <Leader>q  :close<CR>
 nnoremap <silent> <Leader>c  :cclose<CR>:lclose<CR>:pclose<CR>
 nnoremap <silent> <Leader>t  :$tabnew<CR>
-nnoremap <silent> <C-g>s     :split<CR>
-nnoremap <silent> <C-g>v     :vsplit<CR>
-nnoremap <silent> <C-g>-     :botright new<CR><C-w>=
-nnoremap <silent> <C-g>\|    :botright vnew<CR><C-w>=
-nnoremap <silent> <C-g>q     :close<CR>
-nnoremap <silent> <C-g>c     :cclose<CR>:lclose<CR>:pclose<CR>
-nnoremap <silent> <C-g>t     :$tabnew<CR>
-inoremap <silent> <C-g>s     <Esc>:split<CR>
-inoremap <silent> <C-g>v     <Esc>:vsplit<CR>
-inoremap <silent> <C-g>-     <Esc>:botright new<CR><C-w>=
-inoremap <silent> <C-g>\|    <Esc>:botright vnew<CR><C-w>=
-inoremap <silent> <C-g>q     <Esc>:close<CR>
-inoremap <silent> <C-g>c     <Esc>:cclose<CR>:lclose<CR>:pclose<CR>
-inoremap <silent> <C-g>t     <Esc>:$tabnew<CR>
 nnoremap <Leader>1           1gt
 nnoremap <Leader>2           2gt
 nnoremap <Leader>3           3gt
@@ -142,48 +128,10 @@ nnoremap <Leader>6           6gt
 nnoremap <Leader>7           7gt
 nnoremap <Leader>8           8gt
 nnoremap <Leader>9           9gt
-nnoremap <C-g>1              1gt
-nnoremap <C-g>2              2gt
-nnoremap <C-g>3              3gt
-nnoremap <C-g>4              4gt
-nnoremap <C-g>5              5gt
-nnoremap <C-g>6              6gt
-nnoremap <C-g>7              7gt
-nnoremap <C-g>8              8gt
-nnoremap <C-g>9              9gt
-inoremap <C-g>1              <Esc>1gt
-inoremap <C-g>2              <Esc>2gt
-inoremap <C-g>3              <Esc>3gt
-inoremap <C-g>4              <Esc>4gt
-inoremap <C-g>5              <Esc>5gt
-inoremap <C-g>6              <Esc>6gt
-inoremap <C-g>7              <Esc>7gt
-inoremap <C-g>8              <Esc>8gt
-inoremap <C-g>9              <Esc>9gt
 nnoremap <Leader>=           <C-w>=
 nnoremap <Leader>r           <C-w>r
 if has('nvim')
     nnoremap <silent> <Leader>T :botright new<CR><C-w>=:terminal<CR>
-    nnoremap <silent> <C-g>T    :botright new<CR><C-w>=:terminal<CR>
-    inoremap <silent> <C-g>T    <Esc>:botright new<CR><C-w>=:terminal<CR>
-    " Mappings when in terminal mode.
-    tnoremap <silent> <C-g>s  <C-\><C-N>:split<CR>
-    tnoremap <silent> <C-g>v  <C-\><C-N>:vsplit<CR>
-    tnoremap <silent> <C-g>-  <C-\><C-N>:botright new<CR><C-w>=
-    tnoremap <silent> <C-g>\| <C-\><C-N>:botright vnew<CR><C-w>=
-    tnoremap <silent> <C-g>T  <C-\><C-N>:botright new<CR><C-w>=<C-\><C-N>:terminal<CR>
-    tnoremap <silent> <C-g>q  <C-\><C-N>:close<CR>
-    tnoremap <silent> <C-g>c  <C-\><C-N>:cclose<CR><C-\><C-N>:lclose<CR><C-\><C-N>:pclose<CR>
-    tnoremap <silent> <C-g>t  <C-\><C-N>:$tabnew<CR>
-    tnoremap <C-g>1           <C-\><C-N>1gt
-    tnoremap <C-g>2           <C-\><C-N>2gt
-    tnoremap <C-g>3           <C-\><C-N>3gt
-    tnoremap <C-g>4           <C-\><C-N>4gt
-    tnoremap <C-g>5           <C-\><C-N>5gt
-    tnoremap <C-g>6           <C-\><C-N>6gt
-    tnoremap <C-g>7           <C-\><C-N>7gt
-    tnoremap <C-g>8           <C-\><C-N>8gt
-    tnoremap <C-g>9           <C-\><C-N>9gt
 endif
 
 "-----------------------------
