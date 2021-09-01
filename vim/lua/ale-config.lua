@@ -3,7 +3,8 @@ if vim.opt.diff:get() then
   return
 end
 
-vim.g.ale_fixers = {
+local g = vim.g
+g.ale_fixers = {
   css = {'prettier'},
   dart = {'dartfmt'},
   javascript = {'prettier-standard'},
@@ -13,7 +14,7 @@ vim.g.ale_fixers = {
   yml = {'prettier'},
 }
 
-vim.g.ale_linters = {
+g.ale_linters = {
   css = {'csslint'},
   eruby = {'erb'},
   javascript = {'standard'},
@@ -24,25 +25,25 @@ vim.g.ale_linters = {
   yaml = {'yamllint'},
 }
 
-vim.g.ale_completion_enabled = 0
-vim.g.ale_echo_cursor = 0
-vim.g.ale_fix_on_save = 0
-vim.g.ale_floating_preview = 1
-vim.g.ale_floating_window_border = {'│', '─', '┌', '┐', '┘', '└'}
-vim.g.ale_hover_cursor = 0
-vim.g.ale_lint_on_enter = 0
-vim.g.ale_lint_on_filetype_changed = 0
-vim.g.ale_lint_on_insert_leave = 0
-vim.g.ale_lint_on_save = 1
-vim.g.ale_lint_on_text_changed = 'never'
-vim.g.ale_linters_explicit = 1
-vim.g.ale_open_list = 0
-vim.g.ale_sign_error = '▷'
-vim.g.ale_sign_info = '▷'
-vim.g.ale_sign_priority = 9
-vim.g.ale_sign_warning = '▷'
-vim.g.ale_virtualtext_cursor = 1
-vim.g.ale_virtualtext_prefix = ' ▷ '
+g.ale_completion_enabled = 0
+g.ale_echo_cursor = 0
+g.ale_fix_on_save = 0
+g.ale_floating_preview = 1
+g.ale_floating_window_border = {'│', '─', '┌', '┐', '┘', '└'}
+g.ale_hover_cursor = 0
+g.ale_lint_on_enter = 0
+g.ale_lint_on_filetype_changed = 0
+g.ale_lint_on_insert_leave = 0
+g.ale_lint_on_save = 1
+g.ale_lint_on_text_changed = 'never'
+g.ale_linters_explicit = 1
+g.ale_open_list = 0
+g.ale_sign_error = '▷'
+g.ale_sign_info = '▷'
+g.ale_sign_priority = 9
+g.ale_sign_warning = '▷'
+g.ale_virtualtext_cursor = 1
+g.ale_virtualtext_prefix = ' ▷ '
 
 -- ALE fix and toggle mappings.
 local map = vim.api.nvim_set_keymap
