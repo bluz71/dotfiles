@@ -30,20 +30,20 @@ font:
   # Normal (roman) font face
   normal:
     family: Iosevka Custom
-    style: Regular
+    style: Light
 
   # Bold font face
   bold:
     family: Iosevka Custom
-    style: Regular
+    style: Light
 
   # Italic font face
   italic:
     family: Iosevka Custom
-    style: Italic
+    style: Light Italic
 
   # Point size
-  size: 14
+  size: 14.5
 
   # Offset is the extra space around each character.
   offset:
@@ -54,7 +54,7 @@ font:
   # the default being at the bottom.
   glyph_offset:
     x: 0
-    y: 2
+    y: 1
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
