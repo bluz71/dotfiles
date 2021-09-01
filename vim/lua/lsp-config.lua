@@ -53,7 +53,7 @@ capabilities = cmp_lsp.update_capabilities(capabilities)
 nvim_lsp.dartls.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
-  flags = {debounce_text_changes = 400},
+  flags = {debounce_text_changes = 300},
   init_options = {closingLabels = true},
   handlers = {
     ['dart/textDocument/publishClosingLabels'] = dart_closing_labels.handler()
@@ -65,13 +65,13 @@ nvim_lsp.html.setup({
   capabilities = capabilities,
   cmd = {'vscode-html-language-server', '--stdio'},
   filetypes = {'eruby', 'html'},
-  flags = {debounce_text_changes = 400}
+  flags = {debounce_text_changes = 300}
 })
 
 nvim_lsp.solargraph.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
-  flags = {debounce_text_changes = 400},
+  flags = {debounce_text_changes = 300},
   handlers = {
      ['textDocument/publishDiagnostics'] = handlers.no_diagnostics
   },
@@ -81,5 +81,5 @@ nvim_lsp.solargraph.setup({
 nvim_lsp.tsserver.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
-  flags = {debounce_text_changes = 400}
+  flags = {debounce_text_changes = 300}
 })
