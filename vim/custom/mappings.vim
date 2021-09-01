@@ -232,24 +232,24 @@ xnoremap gs "sy:silent grep <C-r>s<CR>:copen<CR>
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
 
-" - Star search that does an immediate change on the match
+" - Find that does an immediate replace on the match.
 nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> \c "sy:let @/=@s<CR>cgn
-" Accept/reject helpers after completing a \c cgn-based star search
-" change operation.
+" Accept/reject helpers after completing a \c cgn-based find & replace
+" operation.
 "
-" - Go to the next star search match and highlight it
+" - Go to the next find match and highlight it.
 nnoremap <CR> gnzz
-" - Accept the star search change and go to the next match and highlight it
+" - Accept the change and go to the next match and highlight it.
 xmap <CR> .<Esc>gnzz
-" - Reject the star search change and go to the next match and highlight it
+" - Reject the change and go to the next match and highlight it.
 xnoremap ! <Esc>ngnzz
 
-" - Star search and substitute within the current file
+" - Find and replace within the current file.
 nnoremap \s :%s/<C-r><C-w>//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
 
-" - Project-wide star search and substitute using ripgrep.
+" - Project-wide find and replace using configured grep.
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
   \ :silent grep <C-r><C-w><CR>
