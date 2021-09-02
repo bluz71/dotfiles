@@ -14,8 +14,6 @@ xnoremap . :norm.<CR>
 noremap Y y$
 " U for redo, the opposite of u for undo.
 nnoremap U <C-r>
-" Keep the cursor stationary when joining lines.
-nnoremap J mjJ`j
 " 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
 nnoremap Q @q
 " Execute macro 'q' over the visual selection.
