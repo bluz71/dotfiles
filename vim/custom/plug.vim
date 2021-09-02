@@ -61,8 +61,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 Plug 'tpope/vim-projectionist'
     " ~/dotfiles/vim/plugin/projectionist.vim - mappings
-Plug 'janko-m/vim-test'
-    " ~/dotfiles/vim/plugin/test.vim - options, mappings
 Plug 'hrsh7th/vim-vsnip'
     " ~/dotfiles/vim/plugin/vsnip.vim - options, mappings
     " ~/dotfiles/vim/vsnip - custom snippets

@@ -132,6 +132,13 @@ packer.startup(function()
     end
   }
 
+  use {
+    'janko-m/vim-test',
+    config = function()
+      require('test-config')
+    end
+  }
+
   -----------------------------
   -- Misc plugins
   -----------------------------
