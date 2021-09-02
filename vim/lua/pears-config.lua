@@ -19,7 +19,7 @@ pears.setup(function(conf)
     -- quote.
     should_expand = R.all_of(
       R.not_(R.start_of_context('[%w"]')),
-      R.not_(R.match_next('[%w"]'))
+      R.not_(R.match_next("[%w']"))
     )
   })
   conf.pair("'", {
@@ -28,7 +28,7 @@ pears.setup(function(conf)
     -- quote.
     should_expand = R.all_of(
       R.not_(R.start_of_context("[%w']")),
-      R.not_(R.match_next("[%w']"))
+      R.not_(R.match_next('[%w"]'))
     )
   })
   conf.expand_on_enter(false)
