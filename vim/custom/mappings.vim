@@ -139,8 +139,13 @@ endif
 "-----------------------------
 " Double up function key mappings with single-quote+number mappings for
 " touchbar Macbooks which have no physical function keys.
-nnoremap <F1> :set hlsearch!<CR>
-nnoremap '1   :set hlsearch!<CR>
+if has('nvim')
+    nnoremap <F1> :TSHighlightCapturesUnderCursor<CR>
+    nnoremap '1   :TSHighlightCapturesUnderCursor<CR>
+else
+    nnoremap <F1> :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+    nnoremap '1   :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+endif
 nnoremap <F2> :w<CR>
 nnoremap '2   :w<CR>
 nnoremap <F3> :%retab<CR>:%s/\s\+$//<CR>
@@ -149,21 +154,16 @@ nnoremap <F4> :%s/ /_<CR>
 nnoremap '4   :%s/ /_<CR>
 nnoremap <F5> :call spelling#Toggle()<CR>
 nnoremap '5   :call spelling#Toggle()<CR>
-nnoremap <F6> :set wrap!<CR>
-nnoremap '6   :set wrap!<CR>
-nnoremap <F7> :set showcmd!<CR>
-nnoremap '7   :set showcmd!<CR>
-if has('nvim')
-    nnoremap <F8> :TSHighlightCapturesUnderCursor<CR>
-    nnoremap '8   :TSHighlightCapturesUnderCursor<CR>
-else
-    nnoremap <F8> :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
-    nnoremap '8   :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
-endif
-nnoremap <F9> :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap '9   :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <F6> :call linting#Toggle()<CR>
+nnoremap '6   :call linting#Toggle()<CR>
+nnoremap <F7> :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap '7   :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <F8> :set wrap!<CR>
+nnoremap '8   :set wrap!<CR>
+nnoremap <F9> :set hlsearch!<CR>
+nnoremap '9   :set hlsearch!<CR>
 nnoremap <silent> '0    :call listchars#Toggle()<CR>
-nnoremap <silent> <F12> :call listchars#Toggle()<CR>
+nnoremap <silent> <F10> :call listchars#Toggle()<CR>
 
 "-----------------------------
 " Completion mappings

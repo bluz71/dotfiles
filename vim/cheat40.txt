@@ -89,8 +89,8 @@ Close block (Ruby & Lua) ‹Ctrl-c›      I
 Snippets                 ‹Ctrl-s›      I
 }}}
 Function Key Mappings {{{
-Highlighting             F1            N
-Highlighting             '1            N
+Show highlight group     F1           *N
+Show highlight group     '1           *N
 Save file                F2            N
 Save file                '2            N
 Retab & trailing spaces  F3            N
@@ -99,15 +99,15 @@ Space to underscore      F4            N
 Space to underscore      '4            N
 Spell checking           F5            N
 Spell checking           '5            N
-Wrapping                 F6            N
-Wrapping                 '6            N
-Show commands            F7            N
-Show commands            '7            N
-Show highlight group     F8           *N
-Show highlight group     '8           *N
-Lazy draw & autosave     F9            N
-Lazy draw & autosave     '9            N
-Show special chars       F12           N
+Linting                  F6            N
+Linting                  '6            N
+Lazy draw & autosave     F7            N
+Lazy draw & autosave     '7            N
+Wrapping                 F8            N
+Wrapping                 '8            N
+Highlighting             F9            N
+Highlighting             '9            N
+Show special chars       F10           N
 Show special chars       '0            N
 }}}
 Grep Mappings {{{
@@ -160,7 +160,6 @@ Signature help           ‹Ctrl-h›     *I
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
 Line Diagnostics         'd           *N
-Toggle Diagnostics       'D            N
 }}}
 
 Telescope Plugin Mappings {{{
@@ -256,7 +255,6 @@ Confirm selection        ‹C-y›        %I
 ALE Plugin Mappings {{{
 Execute fixer            'f           %N
 Toggle buffer linting    'a           %N
-Toggle linting           'A           %N
 Linter detail            'w           %N
 Previous error           [w            N
 Next error               ]w            N

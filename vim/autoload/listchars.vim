@@ -1,9 +1,9 @@
-let s:listMode = 1
+let s:listMode = v:true
 
 " Toggle the highlighting of special characters.
 "
 function! listchars#Toggle() abort
-    if s:listMode == 1
+    if s:listMode == v:true
         " Brighten extended list characters.
         setlocal listchars=eol:$,tab:>-,trail:-
         highlight! link NonText WarningMsg 
@@ -14,7 +14,7 @@ function! listchars#Toggle() abort
             highlight! link SpecialKey WarningMsg
             setlocal list
         endif
-        let s:listMode = 0
+        let s:listMode = v:false
     else
         " Dim shortened list characters.
         setlocal listchars=tab:\ \ ,trail:-
@@ -26,6 +26,6 @@ function! listchars#Toggle() abort
             highlight! link SpecialKey Conceal
             setlocal nolist
         endif
-        let s:listMode = 1
+        let s:listMode = v:true
     endif
 endfunction

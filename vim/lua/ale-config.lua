@@ -50,7 +50,6 @@ local map = vim.api.nvim_set_keymap
 local opts = {silent = true}
 map('n', "'f", '<Plug>(ale_fix)', opts)
 map('n', "'a", '<Plug>(ale_toggle_buffer)', opts)
-map('n', "'A", '<Plug>(ale_toggle)', opts)
 map('n', "'w", '<Plug>(ale_detail)', opts)
 -- Navigate errors and warnings using unimpaired-style mappings.
 map('n', '[w', '<Plug>(ale_previous)zz', opts)

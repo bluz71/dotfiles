@@ -30,12 +30,11 @@ local lsp_on_attach = function(client)
   map(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   map(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
   map(0, 'n', "'d", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
-  map(0, 'n', "'D", '<cmd>lua require("lsp-diagnostics").toggle()<CR>', opts)
 
   -- LSP-based omnifunc.
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-  -- Indicate when language server is ready.
+  -- Indicate that the language server has started and is ready.
   print('Language server is ready')
 end
 
