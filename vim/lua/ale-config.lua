@@ -56,3 +56,11 @@ map('n', '[w', '<Plug>(ale_previous)zz', opts)
 map('n', ']w', '<Plug>(ale_next)zz', opts)
 map('n', '[W', '<Plug>(ale_first)zz', opts)
 map('n', ']W', '<Plug>(ale_last)zz', opts)
+
+-- Disable ALE for files larger than 100K in size.
+vim.cmd [[
+  augroup ALEPluginEvents
+    autocmd!
+    autocmd BufReadPre * if getfsize(expand('%')) > 100000 | ALEDisableBuffer | endif
+  augroup END
+]]

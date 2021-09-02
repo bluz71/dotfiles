@@ -21,7 +21,7 @@ let g:loaded_netrwPlugin = 1
 let g:loaded_netrwSettings = 1
 let g:loaded_netrwFileHandlers = 1
 
-augroup FernEvents
+augroup FernPluginEvents
     autocmd!
     " Let fern handle directory paths instead of Netrw.
     autocmd BufEnter * ++nested call tree#Open()

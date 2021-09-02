@@ -47,12 +47,6 @@ augroup CustomEvents
           \   and vim.highlight.on_yank {higroup='Visual', timeout=300}
     endif
 
-    " Disable sign-creating plugins for larger than 200K files.
-    autocmd BufReadPre *
-      \ if getfsize(expand('%')) > 200000|
-      \     call signs#Disable()|
-      \ endif
-
     " Fix user command highlighting: https://is.gd/CiyMWV
     autocmd Syntax vim syntax match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
 augroup END
