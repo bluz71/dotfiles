@@ -83,7 +83,7 @@ packer.startup(function()
   }
 
   -----------------------------
-  -- Filesystem plugins
+  -- Fuzzy finding plugins
   -----------------------------
   use {
     'nvim-telescope/telescope.nvim',
@@ -122,6 +122,13 @@ packer.startup(function()
     requires = {'nvim-lua/plenary.nvim'},
     config = function()
       require('gitsigns-config')
+    end
+  }
+
+  use {
+    'tpope/vim-projectionist',
+    config = function()
+      require('projectionist-config')
     end
   }
 
