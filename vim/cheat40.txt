@@ -254,7 +254,6 @@ Confirm selection        ‹C-y›        %I
 }}}
 ALE Plugin Mappings {{{
 Execute fixer            'f           %N
-Toggle buffer linting    'a           %N
 Linter detail            'w           %N
 Previous error           [w            N
 Next error               ]w            N
