@@ -14,11 +14,12 @@ vim.cmd('sign define LspDiagnosticsSignWarning text=▶')
 vim.cmd('sign define LspDiagnosticsSignInformation text=▶')
 vim.cmd('sign define LspDiagnosticsSignHint text=▶')
 
+local map = vim.api.nvim_buf_set_keymap
+local opts = {noremap = true, silent = true}
+
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
-  local map = vim.api.nvim_buf_set_keymap
-  local opts = {noremap = true, silent = true}
   map(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   map(0, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -33,9 +34,6 @@ local lsp_on_attach = function(client)
 
   -- LSP-based omnifunc.
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-  -- Indicate that the language server has started and is ready.
-  print('Language server is ready')
 end
 
 -- Global handlers.

@@ -9,7 +9,7 @@ function! linting#Toggle() abort
         " Disable statusline indicators.
         let g:moonflyWithNvimLspIndicator = v:false
         let g:moonflyWithALEIndicator = v:false
-        echo '(Linting) ON'
+        echo '(Linting) OFF'
         let g:lintingActive = v:false
     else
         :ALEEnable
@@ -17,7 +17,7 @@ function! linting#Toggle() abort
         " Enable statusline indicators.
         let g:moonflyWithNvimLspIndicator = v:true
         let g:moonflyWithALEIndicator = v:true
-        echo '(Linting) OFF'
+        echo '(Linting) ON'
         let g:lintingActive = v:true
     endif
 endfunction
