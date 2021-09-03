@@ -1,7 +1,6 @@
-vim.cmd [[
-  let test#strategy = 'neovim'
-  let test#javascript#jest#executable = 'CI=true yarn test --colors'
-]]
+local g = vim.g
+g['test#strategy'] = 'neovim'
+g['test#javascript#jest#executable'] = 'CI=true yarn test --colors'
 
 local map = vim.api.nvim_set_keymap
 local opts = {noremap = true, silent = true}
