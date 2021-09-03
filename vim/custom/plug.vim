@@ -76,7 +76,7 @@ Plug 'tpope/vim-obsession'
     " ~/dotfiles/vim/plugin/obsession.vim - mappings
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
-Plug 'tweekmonster/startuptime.vim'
+Plug 'dstein64/vim-startuptime'
 
 " Finalize vim-plug.
 call plug#end()
