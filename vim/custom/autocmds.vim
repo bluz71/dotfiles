@@ -26,6 +26,9 @@ augroup CustomEvents
     autocmd BufEnter *.json.jbuilder set filetype=ruby
     autocmd BufEnter fonts.conf      set filetype=xml
 
+    " Automatically open the quickfix window after executing a grep operation.
+    autocmd QuickFixCmdPost grep cwindow
+
     " Auto-read external file changes, compliments the vim-auto-save plugin.
     autocmd CursorHold * silent! checktime
 
