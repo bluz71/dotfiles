@@ -49,7 +49,4 @@ augroup CustomEvents
           \ silent! lua return (not vim.v.event.visual)
           \   and vim.highlight.on_yank {higroup='Visual', timeout=300}
     endif
-
-    " Fix user command highlighting: https://is.gd/CiyMWV
-    autocmd Syntax vim syntax match vimUsrCmd '^\s*\zs\u\%(\w*\)\@>(\@!'
 augroup END
