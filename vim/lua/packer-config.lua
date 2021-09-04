@@ -148,11 +148,23 @@ packer.startup(function()
 
   use {
     'hrsh7th/vim-vsnip',
+    ft = {'dart', 'html', 'javascript', 'markdown', 'ruby'},
     config = function()
       require('vsnip-config')
     end
     -- ~/dotfiles/vim/vsnip - custom snippets
   }
+
+  use {
+    'editorconfig/editorconfig-vim',
+    config = function()
+      require('editorconfig-config')
+    end
+  }
+
+  use 'dart-lang/dart-vim-plugin'
+
+  use 'vim-crystal/vim-crystal'
 
   -----------------------------
   -- Misc plugins

@@ -40,7 +40,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'ackyshake/VimCompletesMe'
-Plug 'gregsexton/MatchTag'
 Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
     " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
@@ -57,16 +56,9 @@ Plug 'lambdalisue/fern-git-status.vim'
     " ~/dotfiles/vim/plugin/fern-git-status.vim - options
 
 "-----------------------------
-" Development plugins
-"-----------------------------
-Plug 'editorconfig/editorconfig-vim'
-    " ~/dotfiles/vim/plugin/editorconfig.vim - options
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'vim-crystal/vim-crystal'
-
-"-----------------------------
 " Misc plugins
 "-----------------------------
+Plug 'gregsexton/MatchTag'
 Plug 'christoomey/vim-tmux-navigator'
     " ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
 Plug 'tpope/vim-obsession'
