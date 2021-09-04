@@ -126,13 +126,6 @@ packer.startup(function()
   }
 
   use {
-    'tpope/vim-projectionist',
-    config = function()
-      require('projectionist-config')
-    end
-  }
-
-  use {
     'dense-analysis/ale',
     config = function()
       require('ale-config')
@@ -153,6 +146,13 @@ packer.startup(function()
       require('vsnip-config')
     end
     -- ~/dotfiles/vim/vsnip - custom snippets
+  }
+
+  use {
+    'tpope/vim-projectionist',
+    config = function()
+      require('projectionist-config')
+    end
   }
 
   use {
@@ -181,6 +181,5 @@ packer.startup(function()
 
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
-  --   https://github.com/lambdalisue/fern.vim/issues/120
   use 'antoinemadec/FixCursorHold.nvim'
 end)

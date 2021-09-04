@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "-----------------------------
-" Color scheme plugins
+" Colorscheme plugins
 "-----------------------------
 Plug 'bluz71/vim-moonfly-colors'
     runtime custom/moonfly.vim " Options must be set before colorscheme call
@@ -40,11 +40,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'ackyshake/VimCompletesMe'
-Plug 'mbbill/undotree'
-    " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
-    " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
-Plug '907th/vim-auto-save'
-    " ~/dotfiles/vim/plugin/auto-save.vim - options
 
 "-----------------------------
 " Filesystem plugins
@@ -59,6 +54,11 @@ Plug 'lambdalisue/fern-git-status.vim'
 " Misc plugins
 "-----------------------------
 Plug 'gregsexton/MatchTag'
+Plug 'mbbill/undotree'
+    " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
+    " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
+Plug '907th/vim-auto-save'
+    " ~/dotfiles/vim/plugin/auto-save.vim - options
 Plug 'christoomey/vim-tmux-navigator'
     " ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
 Plug 'tpope/vim-obsession'
