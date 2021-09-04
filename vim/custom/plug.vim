@@ -30,8 +30,6 @@ Plug 'gcmt/taboo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
-Plug 'ackyshake/VimCompletesMe'
-Plug 'gregsexton/MatchTag'
 Plug 'chaoren/vim-wordmotion'
     " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tommcdo/vim-lion'
@@ -41,6 +39,8 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'ackyshake/VimCompletesMe'
+Plug 'gregsexton/MatchTag'
 Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
     " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
@@ -59,9 +59,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Development plugins
 "-----------------------------
-Plug 'hrsh7th/vim-vsnip'
-    " ~/dotfiles/vim/plugin/vsnip.vim - options, mappings
-    " ~/dotfiles/vim/vsnip - custom snippets
 Plug 'editorconfig/editorconfig-vim'
     " ~/dotfiles/vim/plugin/editorconfig.vim - options
 Plug 'dart-lang/dart-vim-plugin'

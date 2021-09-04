@@ -146,6 +146,14 @@ packer.startup(function()
     end
   }
 
+  use {
+    'hrsh7th/vim-vsnip',
+    config = function()
+      require('vsnip-config')
+    end
+    -- ~/dotfiles/vim/vsnip - custom snippets
+  }
+
   -----------------------------
   -- Misc plugins
   -----------------------------
