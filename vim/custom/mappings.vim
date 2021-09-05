@@ -36,6 +36,8 @@ nnoremap C "_C
 inoremap <C-v> <C-r>*
 " Begin a new line above the current cursor position.
 inoremap <C-u> <C-o>O
+" Fix syntax and redraw the screen.
+nnoremap <C-l> :syntax sync fromstart<CR>:redraw<CR>
 " Clone paragraph.
 nnoremap cp yap<S-}>p
 " Format current paragraph in normal mode.
@@ -57,6 +59,9 @@ nnoremap <Leader>X :call crosshair#Toggle()<CR>
 nnoremap <silent> <Leader>m :tab split<CR>
 " Show introduction message.
 nnoremap <Leader>i :intro<CR>
+" Preserve visual selection when shifting.
+xnoremap < <gv
+xnoremap > >gv
 
 "-----------------------------
 " Navigation mappings

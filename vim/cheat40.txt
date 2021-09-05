@@ -57,6 +57,7 @@ Replay macro             Q            VN
 Virtual insert           ‹Ctrl-q›      I
 Insert from clipboard    ‹Ctrl-v›      I
 Open a new line above    ‹Ctrl-u›      I
+Fix syntax & redraw      ‹Ctrl-u›      N
 Copy paragraph           cp            N
 Format paragraph         qp            N
 Format paragraph         ‹Ctrl-x›qp    I
