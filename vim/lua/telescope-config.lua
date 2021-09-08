@@ -45,7 +45,7 @@ map('n', '<Space>h', '<cmd>lua require("telescope.builtin").help_tags()<CR>', op
 map('n', '<Space>i', '<cmd>lua require("telescope.builtin").highlights()<CR>', opts)
 map('n', '<Space>o', '<cmd>lua require("telescope.builtin").oldfiles()<CR>', opts)
 map('n', '<Space>]', '<cmd>lua require("telescope.builtin").tags()<CR>', opts)
-map('n', '<Space>/', '<cmd>lua require("telescope.builtin").grep_string({search = vim.fn.input("Rg❯ ")})<CR>', opts)
+map('n', '<Space>/', '<cmd>lua require("telescope.builtin").grep_string({search = vim.fn.input("grep ❯ ")})<CR>', opts)
 map('n', '<Space>r', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
 map('n', '<Space>w', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opts)
 map('n', '<Space>W', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols({query = vim.fn.input("LSP Workspace Symbols❯ ")})<CR>', opts)
