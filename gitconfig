@@ -76,7 +76,7 @@
     co = checkout
     # diff
     di   = diff
-    dip = !sh -c 'git di $1~1..$1' -
+    dip  = !sh -c 'git di $1~1..$1' -
     dis  = diff --staged
     mdi  = difftool
     mdip = !sh -c 'git difftool $1~1..$1' -
