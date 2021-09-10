@@ -252,10 +252,12 @@ xnoremap ! <Esc>ngnzz
 nnoremap \s :%s/<C-r><C-w>//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
 
-" - Project-wide find and replace using configured grep.
+" - Project-wide find and replace using grep.
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :let &grepprg=&grepprg . ' -w'<CR>
   \ :silent grep <C-r><C-w><CR>
+  \ :let &grepprg='rg --vimgrep --smart-case'<CR>
   \ :cfdo %s/<C-r>s// \| update
   \ <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 xnoremap \S
