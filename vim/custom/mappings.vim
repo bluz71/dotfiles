@@ -33,7 +33,7 @@ nnoremap C "_C
 "-----------------------------
 " Insert from the clipboard register.
 " Note, use Control-q for virtual insertion (e.g insert a real tab).
-inoremap <C-v> <C-r>*
+inoremap <C-v> <C-r>+
 " Begin a new line above the current cursor position.
 inoremap <C-u> <C-o>O
 " Fix syntax and redraw the screen.
