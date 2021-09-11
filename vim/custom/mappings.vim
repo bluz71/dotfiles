@@ -97,12 +97,12 @@ nnoremap {  {zz
 nnoremap }  }zz
 nnoremap n  nzz
 nnoremap N  Nzz
-nnoremap ]c ]czz
 nnoremap [c [czz
+nnoremap ]c ]czz
 nnoremap [j <C-o>zz
 nnoremap ]j <C-i>zz
-nnoremap ]s ]szz
 nnoremap [s [szz
+nnoremap ]s ]szz
 nnoremap [z zH
 nnoremap ]z zL
 
