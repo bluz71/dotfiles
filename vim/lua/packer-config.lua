@@ -36,20 +36,6 @@ packer.startup(function()
   -- Style plugins
   -----------------------------
   use {
-    'nvim-treesitter/nvim-treesitter',
-    branch = '0.5-compat',
-    run = ':TSUpdate',
-    config = function()
-      require('treesitter-config')
-    end
-  }
-
-  use {
-    'nvim-treesitter/playground',
-    cmd = 'TSHighlightCapturesUnderCursor'
-  }
-
-  use {
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
     config = function()
@@ -97,6 +83,30 @@ packer.startup(function()
   use {
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make'
+  }
+
+  -----------------------------
+  -- Treesitter plugins
+  -----------------------------
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    branch = '0.5-compat',
+    run = ':TSUpdate',
+    config = function()
+      require('treesitter-config')
+    end
+  }
+
+  use {
+    'nvim-treesitter/playground',
+    cmd = 'TSHighlightCapturesUnderCursor'
+  }
+
+  use {
+    'RRethy/nvim-treesitter-textsubjects',
+    config = function()
+      require('textsubjects-config')
+    end
   }
 
   -----------------------------
