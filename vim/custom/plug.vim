@@ -36,6 +36,8 @@ Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
 Plug 'rhysd/clever-f.vim'
     " ~/dotfiles/vim/plugin/clever-f.vim - options
+Plug 'tmsvg/pear-tree'
+    " ~/dotfiles/vim/plugin/pear-tree.vim - options, mappings
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'

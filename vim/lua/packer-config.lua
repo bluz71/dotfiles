@@ -47,13 +47,6 @@ packer.startup(function()
   -- Behavior plugins
   -----------------------------
   use {
-    'steelsojka/pears.nvim',
-    config = function()
-      require('pears-config')
-    end
-  }
-
-  use {
     'phaazon/hop.nvim',
     config = function()
       require('hop-config')
