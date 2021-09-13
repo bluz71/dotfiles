@@ -16,6 +16,11 @@ cmp.setup({
       select = true
     })
   },
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  }
 })
 
 vim.cmd [[
