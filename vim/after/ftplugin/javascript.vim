@@ -1,11 +1,4 @@
 let b:pear_tree_pairs = {
-            \ '(':     {'closer': ')'},
-            \ '[':     {'closer': ']'},
-            \ '{':     {'closer': '}'},
-            \ "'":     {'closer': "'"},
-            \ '"':     {'closer': '"'},
-            \ '`':     {'closer': '`'},
-            \ '/\*\*': {'closer': '\*/'},
             \ '<*>':   {
             \            'closer':   '</*>',
             \            'not_if':   ['br', 'hr', 'img'],

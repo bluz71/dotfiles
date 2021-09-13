@@ -47,10 +47,17 @@ packer.startup(function()
   -- Behavior plugins
   -----------------------------
   use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('autopairs-config')
+    end
+  }
+
+  use {
     'phaazon/hop.nvim',
     config = function()
       require('hop-config')
-    end,
+    end
   }
 
   use {
