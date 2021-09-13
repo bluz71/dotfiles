@@ -47,6 +47,6 @@ augroup CustomEvents
         " Highlight yanks.
         autocmd TextYankPost *
           \ silent! lua return (not vim.v.event.visual)
-          \   and vim.highlight.on_yank {higroup='Visual', timeout=300}
+          \   and vim.highlight.on_yank({higroup='Visual', timeout=300})
     endif
 augroup END
