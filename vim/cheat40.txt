@@ -256,7 +256,7 @@ Align around target      gl‹@›        *V
 Commentry Plugin Mappings {{{
 Toggle comments          gc           *V
 }}}
-Compe Plugin Mappings {{{
+nvim-cmp Plugin Mappings {{{
 Confirm selection        ‹C-y›        %I
 }}}
 ALE Plugin Mappings {{{
