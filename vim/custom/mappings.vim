@@ -187,7 +187,7 @@ inoremap <C-l>     <C-x><C-l>
 " Refer to ~/dotfiles/vim/ftplugin/lua.vim & ~/dotfiles/vim/ftplugin/ruby.vim:
 inoremap <C-c> <Nop>
 "   s - snippet completion
-" Refer to ~/dotfiles/vim/plugin/vsnip.vim:
+" Refer to ~/dotfiles/vim/lua/vsnip-config.lua:
 
 "-----------------------------
 " Increment and decrement mappings
