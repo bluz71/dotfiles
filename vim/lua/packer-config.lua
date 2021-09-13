@@ -91,15 +91,13 @@ packer.startup(function()
   }
 
   use {
-    'nvim-treesitter/playground',
-    cmd = 'TSHighlightCapturesUnderCursor'
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = '0.5-compat'
   }
 
   use {
-    'RRethy/nvim-treesitter-textsubjects',
-    config = function()
-      require('textsubjects-config')
-    end
+    'nvim-treesitter/playground',
+    cmd = 'TSHighlightCapturesUnderCursor'
   }
 
   -----------------------------

@@ -162,6 +162,12 @@ Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
 Line Diagnostics         'd           *N
 }}}
+Treesitter Mappings {{{
+Inner func textobject    if          *VN
+Around func textobject   of          *VN
+Previous func            [m            N
+Next func                ]m            N
+}}}
 
 Telescope Plugin Mappings {{{
 Files                    ‹Spc›‹Spc›    N
