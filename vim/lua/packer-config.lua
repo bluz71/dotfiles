@@ -47,13 +47,6 @@ packer.startup(function()
   -- Behavior plugins
   -----------------------------
   use {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('autopairs-config')
-    end
-  }
-
-  use {
     'phaazon/hop.nvim',
     config = function()
       require('hop-config')
@@ -110,20 +103,48 @@ packer.startup(function()
   }
 
   -----------------------------
+  -- Auto-completion plugins
+  -----------------------------
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp'},
+    config = function()
+      require('cmp-config')
+    end
+  }
+
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('autopairs-config')
+    end
+  }
+
+  use {
+    -- Only use pear-tree to complete tags, instead use nvim-autopairs to
+    -- complete most standard pairings (parentheses, quotes, etc).
+    --
+    -- Note, pear-tree does not play well with nvim-cmp when completing
+    -- parentheses (for whatever reason). Hence, the limiting of pear-tree to
+    -- tag-only complation.
+    --
+    -- Also, the nvim-ts-autotag plugin (a tag completion plugin by the same
+    -- author as nvim-autopairs) does not currently support eRuby HTML templates
+    -- because they are not Treesitter compatible (maybe one day). Hence, the
+    -- on-going use of pear-tree, for now.
+    'tmsvg/pear-tree',
+    config = function()
+      require('pear-tree-config')
+    end
+  }
+
+  -----------------------------
   -- Development plugins
   -----------------------------
   use {
     'neovim/nvim-lspconfig',
     config = function()
       require('lsp-config')
-    end
-  }
-
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp'},
-    config = function()
-      require('cmp-config')
     end
   }
 
