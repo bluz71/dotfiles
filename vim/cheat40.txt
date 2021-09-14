@@ -163,10 +163,10 @@ Next Diagnostic          ]d           *N
 Line Diagnostics         'd           *N
 }}}
 Treesitter Mappings {{{
-Inner func textobject    if          *VN
-Around func textobject   of          *VN
-Previous func            [m            N
-Next func                ]m            N
+Inner method textobject  im            N
+Around method textobject om            N
+Previous method          [m            N
+Next method              ]m            N
 }}}
 
 Telescope Plugin Mappings {{{

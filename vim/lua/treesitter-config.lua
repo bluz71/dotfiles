@@ -17,8 +17,8 @@ treesitter.setup({
       enable = true,
       lookahead = true,
       keymaps = {
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
+        ['am'] = '@function.outer',
+        ['im'] = '@function.inner',
       },
     },
     move = {
