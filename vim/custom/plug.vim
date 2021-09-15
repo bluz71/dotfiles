@@ -53,7 +53,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 "-----------------------------
 " Misc plugins
 "-----------------------------
-Plug 'gregsexton/MatchTag'
 Plug 'mbbill/undotree'
     " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
     " ~/dotfiles/vim/after/ftplugin/undotree.vim - options

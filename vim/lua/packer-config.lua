@@ -211,4 +211,6 @@ packer.startup(function()
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   use 'antoinemadec/FixCursorHold.nvim'
+
+  use 'gregsexton/MatchTag'
 end)
