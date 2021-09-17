@@ -259,6 +259,9 @@ Toggle comments          gc           *V
 nvim-cmp Plugin Mappings {{{
 Confirm selection        ‹C-y›        %I
 }}}
+nvim-autopairs Plugin Mappings {{{
+Fast wrap                ‹A-e›        %I
+}}}
 ALE Plugin Mappings {{{
 Execute fixer            'f           %N
 Linter detail            'w           %N

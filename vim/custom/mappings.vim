@@ -183,9 +183,6 @@ inoremap <C-b>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
 inoremap <C-f>     <C-x><C-f>
 inoremap <C-l>     <C-x><C-l>
-"   c - close block completion (only for certain filetypes)
-" Refer to ~/dotfiles/vim/ftplugin/lua.vim & ~/dotfiles/vim/ftplugin/ruby.vim:
-inoremap <C-c> <Nop>
 "   s - snippet completion
 " Refer to ~/dotfiles/vim/lua/vsnip-config.lua:
 
