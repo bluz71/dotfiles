@@ -10,7 +10,7 @@ treesitter.setup({
   },
   indent = {
     enable = true,
-    disable = { 'dart' }
+    disable = { 'dart', 'yaml' }
   },
   textobjects = {
     select = {
