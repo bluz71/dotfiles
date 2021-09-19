@@ -30,16 +30,15 @@ Plug 'gcmt/taboo.vim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'ackyshake/VimCompletesMe'
 Plug 'chaoren/vim-wordmotion'
     " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim - options
 Plug 'rhysd/clever-f.vim'
     " ~/dotfiles/vim/plugin/clever-f.vim - options
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'ackyshake/VimCompletesMe'
 
 "-----------------------------
 " Filesystem plugins

@@ -191,6 +191,8 @@ packer.startup(function()
     end
   }
 
+  use 'tpope/vim-commentary'
+
   use 'dart-lang/dart-vim-plugin'
 
   use 'vim-crystal/vim-crystal'
