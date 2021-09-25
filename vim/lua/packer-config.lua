@@ -134,7 +134,7 @@ packer.startup(function()
     -- Also, the nvim-ts-autotag plugin (a tag completion plugin by the same
     -- author as nvim-autopairs) does not currently support eRuby HTML templates
     -- because they are not Treesitter compatible (maybe one day). Hence, the
-    -- on-going use of pear-tree, for now.
+    -- on-going use of pear-tree for tag completion (for now).
     'tmsvg/pear-tree',
     config = function()
       require('pear-tree-config')
@@ -168,6 +168,7 @@ packer.startup(function()
 
   use {
     'janko-m/vim-test',
+    cmd = {'TestNearest', 'TestLast', 'TestFile', 'TestSuite'},
     config = function()
       require('test-config')
     end
