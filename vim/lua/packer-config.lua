@@ -2,7 +2,9 @@
 local fn = vim.fn
 local command = vim.api.nvim_command
 local packer_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local packer_compiled_path = fn.stdpath('config')..'/lua/packer_compiled.lua'
 if fn.empty(fn.glob(packer_path)) > 0 then
+  command('\rm -f '..packer_compiled_path)
   command('!git clone https://github.com/wbthomason/packer.nvim '..packer_path)
   command('packadd packer.nvim')
 end
@@ -10,12 +12,15 @@ end
 -- Speed up loading of Lua modules. Note, this needs to happen BEFORE Lua
 -- plugins are loaded.
 require('impatient')
+-- Due to impatient, the packer_compiled file needs to be directly required.
+require('packer_compiled')
 
 local packer = require('packer')
 local util = require('packer.util')
 
 -- Initialize packer.nvim.
 packer.init({
+  compile_path = packer_compiled_path,
   display = {
     open_fn = function()
       return util.float({
