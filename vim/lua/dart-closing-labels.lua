@@ -28,7 +28,7 @@ end
 
 -- Dart Analysis Server publishClosingLabels handler.
 M.handler = function()
-  return function(_, _, result, _, _)
+  return function(_, result, _, _)
     local uri = result.uri
     local labels = result.labels
     -- Prevent stray events from over-writing labels that don't match the
