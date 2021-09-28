@@ -110,7 +110,7 @@ colors:
     blue:    '#74b2ff'
     magenta: '#ae81ff'
     cyan:    '#85dc85'
-    white:   '#dadada'
+    white:   '#e4e4e4'
 
 selection:
   save_to_clipboard: true
