@@ -9,11 +9,13 @@ if fn.empty(fn.glob(packer_path)) > 0 then
   command('packadd packer.nvim')
 end
 
--- Speed up loading of Lua modules. Note, this needs to happen BEFORE Lua
--- plugins are loaded.
-require('impatient')
--- Due to impatient, the packer_compiled file needs to be directly required.
-require('packer_compiled')
+if fn.filereadable(packer_compiled_path) then
+  -- Speed up loading of Lua modules. Note, this needs to happen BEFORE Lua
+  -- plugins are loaded.
+  require('impatient')
+  -- Due to impatient, the packer_compiled file needs to be directly required.
+  require('packer_compiled')
+end
 
 local packer = require('packer')
 local util = require('packer.util')
