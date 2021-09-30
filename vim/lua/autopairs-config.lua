@@ -1,9 +1,19 @@
-npairs = require('nvim-autopairs')
+local npairs = require('nvim-autopairs')
+local Rule = require('nvim-autopairs.rule')
+local cond = require('nvim-autopairs.conds')
 
 npairs.setup({
   disable_filetype = {'text', 'TelescopePrompt'},
   fast_wrap = {}
 })
+
+-- Disable certain rules per filetype.
+npairs.remove_rule('"')
+npairs.add_rules({
+  Rule('"', '"')
+    :with_pair(cond.not_filetypes({'vim'}))
+  }
+)
 
 -- Endwise rules.
 npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
