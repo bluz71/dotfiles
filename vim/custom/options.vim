@@ -92,7 +92,7 @@ if has('nvim')
     set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
-    set shada='9999
+    set shada='999,<50,s10,h
     " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
     let $LESS = '-RS'
 else
