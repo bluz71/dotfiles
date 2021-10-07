@@ -16,6 +16,11 @@ set colorcolumn=81,82 " Highlight 81 and 82 columns
 set conceallevel=0    " Always show text normally
 set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
+" Highlight the current line in the number column if 'cursorlineopt' exits.
+if exists('&cursorlineopt')
+    set cursorline
+    set cursorlineopt=number
+endif
 set dictionary=/usr/share/dict/words
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 set expandtab         " Use spaces instead of tabs
@@ -99,8 +104,4 @@ else
     set nocompatible
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
-    if exists('&cursorlineopt')
-        set cursorline
-        set cursorlineopt=number
-    endif
 endif
