@@ -26,6 +26,9 @@ cmp.setup({
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
     end,
+  },
+  experimental = {
+    native_menu = true
   }
 })
 
