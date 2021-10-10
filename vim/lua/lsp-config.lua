@@ -8,11 +8,22 @@ local handlers = require('lsp-handlers')
 local cmp_lsp = require('cmp_nvim_lsp')
 local dart_closing_labels = require('dart-closing-labels')
 
--- Diagnostics symbols for display in the sign column.
-vim.cmd('sign define LspDiagnosticsSignError text=▶')
-vim.cmd('sign define LspDiagnosticsSignWarning text=▶')
-vim.cmd('sign define LspDiagnosticsSignInformation text=▶')
-vim.cmd('sign define LspDiagnosticsSignHint text=▶')
+-- Diagnostic symbols for display in the sign column.
+if vim.fn.has('nvim-0.6') == 1 then
+  vim.cmd [[
+    sign define DiagnosticSignError text=▶ texthl=DiagnosticSignError
+    sign define DiagnosticSignWarn  text=▶ texthl=DiagnosticSignWarn
+    sign define DiagnosticSignInfo  text=▶ texthl=DiagnosticSignInfo
+    sign define DiagnosticSignHint  text=▶ texthl=DiagnosticSignHint
+  ]]
+else
+  vim.cmd [[
+    sign define LspDiagnosticsSignError       text=▶
+    sign define LspDiagnosticsSignWarning     text=▶
+    sign define LspDiagnosticsSignInformation text=▶
+    sign define LspDiagnosticsSignHint        text=▶
+  ]]
+end
 
 local map = vim.api.nvim_buf_set_keymap
 local opts = {noremap = true, silent = true}
