@@ -6,8 +6,9 @@ local M = {}
 M.toggle = function()
   if vim.g.lintingActive then
     if vim.fn.has('nvim-0.6') == 1 then
-      -- :lua print(vim.inspect(vim.diagnostic.get_namespaces()))
-      vim.diagnostic.hide(18)
+      for k, _ in pairs(vim.diagnostic.get_namespaces()) do
+        vim.diagnostic.hide(k)
+      end
     else
       vim.lsp.diagnostic.clear(0)
     end
