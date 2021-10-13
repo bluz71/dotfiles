@@ -170,7 +170,7 @@ packer.startup(function()
 
   use {
     'janko-m/vim-test',
-    cmd = {'TestNearest', 'TestLast', 'TestFile', 'TestSuite'},
+    keys = {"'tt", "'tl", "'tf", "'ts"},
     config = function()
       require('test-config')
     end
