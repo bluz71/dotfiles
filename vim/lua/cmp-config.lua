@@ -15,6 +15,7 @@ cmp.setup({
       vim_item.menu = ({
         buffer = '☰',
         nvim_lsp = '□',
+        vsnip = '▽'
       })[entry.source.name]
 
       return vim_item
@@ -51,6 +52,6 @@ cmp.setup({
 vim.cmd [[
   augroup CmpPluginEvents
     autocmd!
-    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"}}})
+    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"},{name = "vsnip"}}})
   augroup END
 ]]
