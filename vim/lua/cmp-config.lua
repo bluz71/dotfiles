@@ -10,17 +10,36 @@ cmp.setup({
     keyword_length = 2
   },
   documentation = false,
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        buffer = '☰',
+        nvim_lsp = '□',
+      })[entry.source.name]
+
+      return vim_item
+    end
+  },
   mapping = {
+    ['<C-e>'] = cmp.mapping.close(),
     ['<C-y>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
     }),
-    ['<Tab>'] = cmp.mapping.select_next_item({
-      behavior = cmp.SelectBehavior.Insert
-    }),
-    ['<S-Tab>'] = cmp.mapping.select_prev_item({
-      behavior = cmp.SelectBehavior.Insert
-    })
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end
   },
   snippet = {
     expand = function(args)
