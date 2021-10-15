@@ -13,9 +13,9 @@ cmp.setup({
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
-        buffer = '☰',
-        nvim_lsp = '□',
-        vsnip = '▽'
+        buffer = '[B]',
+        nvim_lsp = '[L]',
+        vsnip = '[S]'
       })[entry.source.name]
 
       return vim_item
