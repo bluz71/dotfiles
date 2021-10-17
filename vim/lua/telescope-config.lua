@@ -1,5 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
+local state = require('telescope.state')
+local action_set = require "telescope.actions.set"
 
 telescope.setup({
   defaults = {
@@ -16,7 +18,17 @@ telescope.setup({
         ['<PageDown>'] = actions.preview_scrolling_down,
         ['<C-q>'] = false,
         ['<A-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
-        ['<A-d>'] = require("telescope.actions").delete_buffer
+        ['<A-d>'] = require("telescope.actions").delete_buffer,
+        ["<C-f>"] = function(prompt_bufnr)
+          local results_win = state.get_status(prompt_bufnr).results_win
+          local height = vim.api.nvim_win_get_height(results_win)
+          action_set.shift_selection(prompt_bufnr, math.floor(height/2))
+        end,
+        ["<C-b>"] = function(prompt_bufnr)
+          local results_win = state.get_status(prompt_bufnr).results_win
+          local height = vim.api.nvim_win_get_height(results_win)
+          action_set.shift_selection(prompt_bufnr, -math.floor(height/2))
+        end,
       }
     },
     prompt_prefix = '❯ ',
