@@ -52,6 +52,6 @@ cmp.setup({
 vim.cmd [[
   augroup CmpPluginEvents
     autocmd!
-    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer'},{name = "nvim_lsp"},{name = "vsnip"}}})
+    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer', max_item_count = 10},{name = 'nvim_lsp', max_item_count = 10},{name = 'vsnip', max_item_count = 10}}})
   augroup END
 ]]
