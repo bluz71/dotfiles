@@ -171,6 +171,11 @@ Next method              ]m            N
 
 Telescope Plugin Mappings {{{
 Files                    ‹Spc›‹Spc›    N
+Close                    ‹Esc›         N
+Scroll forward preview   ‹PageDown›    N
+Scroll back preview      ‹PageUp›      N
+Scroll forward results   ‹Ctrl-f›      N
+Scroll back preview      ‹Ctrl-b›      N
 Send to quickfix         ‹Alt-q›       N
 Sibling files            ‹Spc›.       %N
 Buffers                  ‹Spc›,        N
@@ -258,6 +263,9 @@ Toggle comments          gc           *V
 }}}
 nvim-cmp Plugin Mappings {{{
 Confirm selection        ‹C-y›        %I
+Close menu               ‹C-e›        %I
+Scroll forward docs      ‹C-f›        %I
+Scroll back docs         ‹C-b›        %I
 }}}
 nvim-autopairs Plugin Mappings {{{
 Fast wrap                ‹A-e›        %I
