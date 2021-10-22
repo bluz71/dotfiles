@@ -6,18 +6,17 @@ end
 local cmp = require('cmp')
 
 cmp.setup({
-  completion = {
-    keyword_length = 2
+  documentation = {
+    border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+    winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder'
   },
-  documentation = false,
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
-        buffer = '[B]',
         nvim_lsp = '[L]',
-        vsnip = '[S]'
+        vsnip = '[S]',
+        buffer = '[B]'
       })[entry.source.name]
-
       return vim_item
     end
   },
@@ -40,7 +39,9 @@ cmp.setup({
       else
         fallback()
       end
-    end
+    end,
+    ['<C-f>'] = cmp.mapping.scroll_docs(10),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-10)
   },
   snippet = {
     expand = function(args)
@@ -52,6 +53,12 @@ cmp.setup({
 vim.cmd [[
   augroup CmpPluginEvents
     autocmd!
-    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer({sources = {{name = 'buffer', max_item_count = 10},{name = 'nvim_lsp', max_item_count = 10},{name = 'vsnip', max_item_count = 10}}})
+    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer(
+    \  {sources = {
+    \    {name = 'nvim_lsp', keyword_length = 2, max_item_count = 10},
+    \    {name = 'vsnip', keyword_length = 2, max_item_count = 5},
+    \    {name = 'buffer', keyword_length = 4, max_item_count = 10},
+    \  }
+    \})
   augroup END
 ]]
