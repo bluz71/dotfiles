@@ -8,7 +8,12 @@ local closing_labels_ns = vim.api.nvim_create_namespace('dart-closing-labels')
 
 -- Draw the newly published labels in the current buffer.
 local render_labels = function(labels)
-  local highlight = 'LspDiagnosticsVirtualTextHint'
+  local highlight
+  if vim.fn.has('nvim-0.6') then
+    highlight = 'DiagnosticVirtualTextHint'
+  else
+    highlight = 'LspDiagnosticsVirtualTextHint'
+  end
   local prefix = '›› '
 
   vim.api.nvim_buf_clear_namespace(0, closing_labels_ns, 0, -1)
