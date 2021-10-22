@@ -40,9 +40,9 @@ local lsp_on_attach = function(client)
   map(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map(0, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   if vim.fn.has('nvim-0.6') then
-    map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({severity = {min = vim.diagnostic.severity.WARN}, float = {border = "rounded"}})<CR>', opts)
-    map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({severity = {min = vim.diagnostic.severity.WARN}, float = {border = "rounded"}})<CR>', opts)
-    map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line", severity = {min = vim.diagnostic.severity.WARN}, border = "rounded"})<CR>', opts)
+    map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({severity = {min = vim.diagnostic.severity.WARN}, float = {border = "single"}})<CR>', opts)
+    map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({severity = {min = vim.diagnostic.severity.WARN}, float = {border = "single"}})<CR>', opts)
+    map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line", severity = {min = vim.diagnostic.severity.WARN}, border = "single"})<CR>', opts)
   else
     map(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
     map(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
