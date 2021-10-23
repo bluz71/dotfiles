@@ -7,7 +7,7 @@ local cmp = require('cmp')
 
 cmp.setup({
   documentation = {
-    border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+    border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
     winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder'
   },
   formatting = {
