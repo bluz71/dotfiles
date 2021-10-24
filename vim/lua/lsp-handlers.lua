@@ -1,19 +1,10 @@
+local diagnostic_style = require('diagnostic-style')
+
 local M = {}
 
 -- Custom diagnostic handler.
 M.diagnostics = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = {
-      severity_limit = 'Warning',
-    },
-    severity_sort = true,
-    underline = false,
-    update_in_insert = false,
-    virtual_text = {
-      spacing = 2,
-      severity_limit = 'Warning',
-    },
-  }
+  vim.lsp.diagnostic.on_publish_diagnostics, diagnostic_style.config()
 )
 
 -- Empty diagnostic handler.

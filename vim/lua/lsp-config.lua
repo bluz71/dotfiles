@@ -7,6 +7,7 @@ local nvim_lsp = require('lspconfig')
 local handlers = require('lsp-handlers')
 local cmp_lsp = require('cmp_nvim_lsp')
 local dart_closing_labels = require('dart-closing-labels')
+local diagnostic_style = require('diagnostic-style')
 
 -- Diagnostic symbols for display in the sign column.
 if vim.fn.has('nvim-0.6') == 1 then
@@ -28,6 +29,12 @@ end
 local map = vim.api.nvim_buf_set_keymap
 local opts = {noremap = true, silent = true}
 
+-- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
+-- functions.
+if vim.fn.has('nvim-0.6') == 1 then
+  vim.diagnostic.config(diagnostic_style.config())
+end
+
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
@@ -40,9 +47,9 @@ local lsp_on_attach = function(client)
   map(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map(0, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   if vim.fn.has('nvim-0.6') then
-    map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next({severity = {min = vim.diagnostic.severity.WARN}, float = {border = "single"}})<CR>', opts)
-    map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev({severity = {min = vim.diagnostic.severity.WARN}, float = {border = "single"}})<CR>', opts)
-    map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line", severity = {min = vim.diagnostic.severity.WARN}, border = "single"})<CR>', opts)
+    map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
   else
     map(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
     map(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
