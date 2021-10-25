@@ -46,7 +46,7 @@ packer.startup(function()
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufRead',
     config = function()
-      require('indent-blankline-config')
+      require('plugin.indent-blankline')
     end
   }
 
@@ -56,7 +56,7 @@ packer.startup(function()
   use {
     'phaazon/hop.nvim',
     config = function()
-      require('hop-config')
+      require('plugin.hop')
     end
   }
 
@@ -64,7 +64,7 @@ packer.startup(function()
     'tpope/vim-unimpaired',
     keys = {'[', ']'},
     config = function()
-      require('unimpaired-config')
+      require('plugin.unimpaired')
     end
   }
 
@@ -76,7 +76,7 @@ packer.startup(function()
     requires = {'nvim-lua/plenary.nvim'},
     keys = {'<Space>'},
     config = function()
-      require('telescope-config')
+      require('plugin.telescope')
     end
   }
 
@@ -93,7 +93,7 @@ packer.startup(function()
     branch = '0.5-compat',
     run = ':TSUpdate',
     config = function()
-      require('treesitter-config')
+      require('plugin.treesitter')
     end
   }
 
@@ -116,14 +116,14 @@ packer.startup(function()
       'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-vsnip'
     },
     config = function()
-      require('cmp-config')
+      require('plugin.cmp')
     end
   }
 
   use {
     'windwp/nvim-autopairs',
     config = function()
-      require('autopairs-config')
+      require('plugin.autopairs')
     end
   }
 
@@ -141,7 +141,7 @@ packer.startup(function()
     -- on-going use of pear-tree for tag completion (for now).
     'tmsvg/pear-tree',
     config = function()
-      require('pear-tree-config')
+      require('plugin.pear-tree')
     end
   }
 
@@ -159,14 +159,14 @@ packer.startup(function()
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     config = function()
-      require('gitsigns-config')
+      require('plugin.gitsigns')
     end
   }
 
   use {
     'dense-analysis/ale',
     config = function()
-      require('ale-config')
+      require('plugin.ale')
     end
   }
 
@@ -174,7 +174,7 @@ packer.startup(function()
     'janko-m/vim-test',
     keys = {"'tt", "'tl", "'tf", "'ts"},
     config = function()
-      require('test-config')
+      require('plguin.vim-test')
     end
   }
 
@@ -182,7 +182,7 @@ packer.startup(function()
     'hrsh7th/vim-vsnip',
     ft = {'dart', 'html', 'javascript', 'markdown', 'ruby'},
     config = function()
-      require('vsnip-config')
+      require('plugin.vsnip')
     end
     -- ~/dotfiles/vim/vsnip - custom snippets
   }
@@ -190,14 +190,14 @@ packer.startup(function()
   use {
     'tpope/vim-projectionist',
     config = function()
-      require('projectionist-config')
+      require('plugin.projectionist')
     end
   }
 
   use {
     'editorconfig/editorconfig-vim',
     config = function()
-      require('editorconfig-config')
+      require('plugin.editorconfig')
     end
   }
 
@@ -214,7 +214,7 @@ packer.startup(function()
     'norcalli/nvim-colorizer.lua',
     ft = {'css', 'json', 'lua', 'markdown', 'scss', 'vim', 'yaml'},
     config = function()
-      require('colorizer-config')
+      require('plugin.colorizer')
     end,
   }
 

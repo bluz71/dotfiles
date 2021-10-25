@@ -1,4 +1,4 @@
-local diagnostic_style = require('diagnostic-style')
+local diagnostic_style = require('misc.diagnostic-style')
 
 local M = {}
 

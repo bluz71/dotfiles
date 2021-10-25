@@ -4,10 +4,10 @@ if vim.opt.diff:get() then
 end
 
 local nvim_lsp = require('lspconfig')
-local handlers = require('lsp-handlers')
 local cmp_lsp = require('cmp_nvim_lsp')
-local dart_closing_labels = require('dart-closing-labels')
-local diagnostic_style = require('diagnostic-style')
+local handlers = require('misc.lsp-handlers')
+local dart_closing_labels = require('misc.dart-closing-labels')
+local diagnostic_style = require('misc.diagnostic-style')
 
 -- Diagnostic symbols for display in the sign column.
 if vim.fn.has('nvim-0.6') == 1 then

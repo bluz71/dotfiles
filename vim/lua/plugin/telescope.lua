@@ -1,7 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local state = require('telescope.state')
-local action_set = require "telescope.actions.set"
+local action_set = require('telescope.actions.set')
 
 telescope.setup({
   defaults = {
@@ -51,8 +51,8 @@ map('n', '<Space><Space>', '<cmd>lua require("telescope.builtin").find_files()<C
 map('n', '<Space>.', '<cmd>lua require("telescope.builtin").find_files({cwd = "%:h"})<CR>', opts)
 map('n', '<Space>,', '<cmd>lua require("telescope.builtin").buffers()<CR>', opts)
 map('n', "<Space>'", '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts)
-map('n', '<Space>c', '<cmd>lua require("telescope-commands").git_bcommits()<CR>', opts)
-map('n', '<Space>g', '<cmd>lua require("telescope-commands").git_status()<CR>', opts)
+map('n', '<Space>c', '<cmd>lua require("misc.telescope-commands").git_bcommits()<CR>', opts)
+map('n', '<Space>g', '<cmd>lua require("misc.telescope-commands").git_status()<CR>', opts)
 map('n', '<Space>h', '<cmd>lua require("telescope.builtin").help_tags()<CR>', opts)
 map('n', '<Space>i', '<cmd>lua require("telescope.builtin").highlights()<CR>', opts)
 map('n', '<Space>o', '<cmd>lua require("telescope.builtin").oldfiles()<CR>', opts)

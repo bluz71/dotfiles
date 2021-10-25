@@ -20,8 +20,8 @@ M.config = function()
         spacing = 2,
         severity = {
           min = vim.diagnostic.severity.WARN
-        },
-      },
+        }
+      }
     }
   else
     return {
@@ -34,7 +34,7 @@ M.config = function()
       virtual_text = {
         spacing = 2,
         severity_limit = 'Warning',
-      },
+      }
     }
   end
 end
