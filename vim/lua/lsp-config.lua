@@ -8,9 +8,12 @@ local cmp_lsp = require('cmp_nvim_lsp')
 local handlers = require('misc.lsp-handlers')
 local dart_closing_labels = require('misc.dart-closing-labels')
 local diagnostic_style = require('misc.diagnostic-style')
+local fn = vim.fn
+local lsp = vim.lsp
+local map = vim.api.nvim_buf_set_keymap
 
 -- Diagnostic symbols for display in the sign column.
-if vim.fn.has('nvim-0.6') == 1 then
+if fn.has('nvim-0.6') == 1 then
   vim.cmd [[
     sign define DiagnosticSignError text=▶ texthl=DiagnosticSignError
     sign define DiagnosticSignWarn  text=▶ texthl=DiagnosticSignWarn
@@ -26,18 +29,17 @@ else
   ]]
 end
 
-local map = vim.api.nvim_buf_set_keymap
-local opts = {noremap = true, silent = true}
 
 -- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
 -- functions.
-if vim.fn.has('nvim-0.6') == 1 then
+if fn.has('nvim-0.6') == 1 then
   vim.diagnostic.config(diagnostic_style.config())
 end
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
+  local opts = {noremap = true, silent = true}
   map(0, 'n', 'ga','<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   map(0, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -46,7 +48,7 @@ local lsp_on_attach = function(client)
   map(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   map(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map(0, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  if vim.fn.has('nvim-0.6') then
+  if fn.has('nvim-0.6') then
     map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
     map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
     map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
@@ -61,13 +63,13 @@ local lsp_on_attach = function(client)
 end
 
 -- Global handlers.
-vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
-vim.lsp.handlers['textDocument/hover'] = handlers.hover
-vim.lsp.handlers['textDocument/signatureHelp'] = handlers.signature_help
+lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
+lsp.handlers['textDocument/hover'] = handlers.hover
+lsp.handlers['textDocument/signatureHelp'] = handlers.signature_help
 
 -- The nvim-cmp completion plugin supports most LSP capabilities; we should
 -- notify the language servers about that.
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 
 -- The Language Servers.

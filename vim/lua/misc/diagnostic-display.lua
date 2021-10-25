@@ -1,22 +1,26 @@
 -- Enable or disable LSP diagnostics (see ~/dotfiles/vim/autoload/linting.vim).
+
 local handlers = require('misc.lsp-handlers')
+local diagnostic = vim.diagnostic
+local fn = vim.fn
+local lsp = vim.lsp
 
 local M = {}
 
 M.enable = function()
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
-  if vim.fn.has('nvim-0.6') == 1 then
-    vim.diagnostic.enable()
+  lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
+  if fn.has('nvim-0.6') == 1 then
+    diagnostic.enable()
   end
 end
 
 M.disable = function()
-  if vim.fn.has('nvim-0.6') == 1 then
-    vim.diagnostic.disable()
+  if fn.has('nvim-0.6') == 1 then
+    diagnostic.disable()
   else
-    vim.lsp.diagnostic.clear(0)
+    lsp.diagnostic.clear(0)
   end
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = handlers.no_diagnostics
+  lsp.handlers["textDocument/publishDiagnostics"] = handlers.no_diagnostics
 end
 
 return M
