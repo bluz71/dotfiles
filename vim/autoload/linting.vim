@@ -5,7 +5,7 @@ let g:lintingActive = v:true
 function! linting#Toggle() abort
     if g:lintingActive == v:true
         :ALEDisable
-        lua require('lsp-diagnostics').disable()
+        lua require('diagnostic-display').disable()
         " Disable statusline indicators.
         let g:moonflyWithNvimLspIndicator = v:false
         let g:moonflyWithALEIndicator = v:false
@@ -13,7 +13,7 @@ function! linting#Toggle() abort
         let g:lintingActive = v:false
     else
         :ALEEnable
-        lua require('lsp-diagnostics').enable()
+        lua require('diagnostic-display').enable()
         " Enable statusline indicators.
         let g:moonflyWithNvimLspIndicator = v:true
         let g:moonflyWithALEIndicator = v:true
