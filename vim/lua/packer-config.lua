@@ -202,7 +202,6 @@ packer.startup(function()
   }
 
   use 'dart-lang/dart-vim-plugin'
-
   use 'vim-crystal/vim-crystal'
 
   -----------------------------
@@ -218,9 +217,9 @@ packer.startup(function()
     end,
   }
 
+  use 'gregsexton/MatchTag'
+
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   use 'antoinemadec/FixCursorHold.nvim'
-
-  use 'gregsexton/MatchTag'
 end)
