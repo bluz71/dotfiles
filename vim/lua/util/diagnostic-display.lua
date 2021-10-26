@@ -1,6 +1,6 @@
 -- Enable or disable LSP diagnostics (see ~/dotfiles/vim/autoload/linting.vim).
 
-local handlers = require('misc.lsp-handlers')
+local handlers = require('util.lsp-handlers')
 local diagnostic = vim.diagnostic
 local fn = vim.fn
 local lsp = vim.lsp

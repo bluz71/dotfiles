@@ -5,9 +5,9 @@ end
 
 local nvim_lsp = require('lspconfig')
 local cmp_lsp = require('cmp_nvim_lsp')
-local handlers = require('misc.lsp-handlers')
-local dart_closing_labels = require('misc.dart-closing-labels')
-local diagnostic_style = require('misc.diagnostic-style')
+local handlers = require('util.lsp-handlers')
+local dart_closing_labels = require('util.dart-closing-labels')
+local diagnostic_style = require('util.diagnostic-style')
 local fn = vim.fn
 local lsp = vim.lsp
 local map = vim.api.nvim_buf_set_keymap
