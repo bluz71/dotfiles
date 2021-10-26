@@ -151,7 +151,7 @@ packer.startup(function()
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lsp-config')
+      require('plugin.lsp-config')
     end
   }
 
