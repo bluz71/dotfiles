@@ -32,7 +32,7 @@ runtime custom/plug.vim
 
 " Use packer.nvim to manage Neovim-only plugins.
 if has('nvim')
-    lua require('packer-config')
+    lua require('plugin.packer')
 endif
 
 " Load up the match it plugin which provides '%' XML/HTML tag matching.
