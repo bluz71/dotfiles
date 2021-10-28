@@ -207,8 +207,6 @@ packer.startup(function()
   -----------------------------
   -- Misc plugins
   -----------------------------
-  use 'lewis6991/impatient.nvim'
-
   use {
     'norcalli/nvim-colorizer.lua',
     ft = {'css', 'json', 'lua', 'markdown', 'scss', 'vim', 'yaml'},
@@ -222,4 +220,10 @@ packer.startup(function()
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   use 'antoinemadec/FixCursorHold.nvim'
+
+  -- Speed up your Neovim startup time.
+  use 'lewis6991/impatient.nvim'
+
+  -- Also speed up Neovim startup time.
+  use("nathom/filetype.nvim")
 end)
