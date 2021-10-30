@@ -5,6 +5,7 @@ local action_set = require('telescope.actions.set')
 
 telescope.setup({
   defaults = {
+    hl_result_eol = false,
     layout_config = {
       height = 0.8,
       prompt_position = 'top',
@@ -22,12 +23,12 @@ telescope.setup({
         ["<C-f>"] = function(prompt_bufnr)
           local results_win = state.get_status(prompt_bufnr).results_win
           local height = vim.api.nvim_win_get_height(results_win)
-          action_set.shift_selection(prompt_bufnr, math.floor(height/2))
+          action_set.shift_selection(prompt_bufnr, math.floor(height / 2))
         end,
         ["<C-b>"] = function(prompt_bufnr)
           local results_win = state.get_status(prompt_bufnr).results_win
           local height = vim.api.nvim_win_get_height(results_win)
-          action_set.shift_selection(prompt_bufnr, -math.floor(height/2))
+          action_set.shift_selection(prompt_bufnr, -math.floor(height / 2))
         end,
       }
     },
