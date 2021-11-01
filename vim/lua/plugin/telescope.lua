@@ -5,7 +5,6 @@ local action_set = require('telescope.actions.set')
 
 telescope.setup({
   defaults = {
-    hl_result_eol = false,
     layout_config = {
       height = 0.8,
       prompt_position = 'top',
