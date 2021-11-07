@@ -179,7 +179,7 @@ packer.startup(function()
     'janko-m/vim-test',
     keys = {"'tt", "'tl", "'tf", "'ts"},
     config = function()
-      require('plguin.vim-test')
+      require('plugin.vim-test')
     end
   }
 
