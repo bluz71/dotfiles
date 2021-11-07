@@ -28,12 +28,8 @@ Plug 'gcmt/taboo.vim'
 " Behavior plugins
 "-----------------------------
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'ackyshake/VimCompletesMe'
 Plug 'chaoren/vim-wordmotion'
     " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
 Plug 'tommcdo/vim-lion'

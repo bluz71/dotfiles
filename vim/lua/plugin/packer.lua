@@ -68,6 +68,11 @@ packer.startup(function()
     end
   }
 
+  use 'michaeljsmith/vim-indent-object'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'ackyshake/VimCompletesMe'
+
   -----------------------------
   -- Fuzzy finding plugins
   -----------------------------
@@ -221,7 +226,7 @@ packer.startup(function()
   --   https://github.com/neovim/neovim/issues/12587
   use 'antoinemadec/FixCursorHold.nvim'
 
-  -- Speed up your Neovim startup time.
+  -- Speed up Neovim startup time.
   use 'lewis6991/impatient.nvim'
 
   -- Also speed up Neovim startup time.
