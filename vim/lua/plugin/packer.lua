@@ -40,6 +40,23 @@ packer.startup(function()
   use 'wbthomason/packer.nvim'
 
   -----------------------------
+  -- Colorscheme plugins
+  -----------------------------
+  use {
+    'bluz71/vim-moonfly-colors',
+    config = function()
+      require('plugin.moonfly')
+    end
+  }
+
+  use {
+    'bluz71/vim-nightfly-guicolors',
+    config = function()
+      require('plugin.nightfly')
+    end
+  }
+
+  -----------------------------
   -- Style plugins
   -----------------------------
   use {
@@ -49,6 +66,11 @@ packer.startup(function()
       require('plugin.indent-blankline')
     end
   }
+
+  use 'bluz71/vim-moonfly-statusline'
+    -- ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
+  use 'gcmt/taboo.vim'
+    -- ~/dotfiles/vim/plugin/taboo.vim - options
 
   -----------------------------
   -- Behavior plugins
@@ -68,9 +90,18 @@ packer.startup(function()
     end
   }
 
-  use 'michaeljsmith/vim-indent-object'
+  use 'nelstrom/vim-visual-star-search'
+  use 'wellle/targets.vim'
+  use 'chaoren/vim-wordmotion'
+    -- ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
+  use 'tommcdo/vim-lion'
+    -- ~/dotfiles/vim/plugin/lion.vim - options
+  use 'rhysd/clever-f.vim'
+    -- ~/dotfiles/vim/plugin/clever-f.vim - options
+  use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
+  use 'michaeljsmith/vim-indent-object'
   use 'ackyshake/VimCompletesMe'
 
   -----------------------------
@@ -89,6 +120,15 @@ packer.startup(function()
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make'
   }
+
+  -----------------------------
+  -- Filesystem plugins
+  -----------------------------
+  use 'lambdalisue/fern.vim'
+    -- ~/dotfiles/vim/plugin/fern.vim - options, mappings
+    -- ~/dotfiles/vim/after/ftplugin/fern.vim - options
+  use 'lambdalisue/fern-git-status.vim'
+    -- ~/dotfiles/vim/plugin/fern-git-status.vim - options
 
   -----------------------------
   -- Treesitter plugins
@@ -220,15 +260,25 @@ packer.startup(function()
     end,
   }
 
-  use 'gregsexton/MatchTag'
-
+  -- Speed up Neovim startup time.
+  use 'lewis6991/impatient.nvim'
+  -- Also speed up Neovim startup time.
+  use("nathom/filetype.nvim")
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   use 'antoinemadec/FixCursorHold.nvim'
 
-  -- Speed up Neovim startup time.
-  use 'lewis6991/impatient.nvim'
-
-  -- Also speed up Neovim startup time.
-  use("nathom/filetype.nvim")
+  use 'mbbill/undotree'
+    -- ~/dotfiles/vim/plugin/undotree.vim - options, mappings
+    -- ~/dotfiles/vim/after/ftplugin/undotree.vim - options
+  use '907th/vim-auto-save'
+    -- ~/dotfiles/vim/plugin/auto-save.vim - options
+  use 'christoomey/vim-tmux-navigator'
+    -- ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
+  use 'tpope/vim-obsession'
+    -- ~/dotfiles/vim/plugin/obsession.vim - mappings
+  use 'lifepillar/vim-cheat40'
+    -- ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
+  use 'gregsexton/MatchTag'
+  use 'dstein64/vim-startuptime'
 end)
