@@ -42,8 +42,6 @@ nnoremap <C-l> :syntax sync fromstart<CR>:redraw<CR>
 nnoremap cp yap<S-}>p
 " Format current paragraph in normal mode.
 nnoremap qp gqip$
-" Format current paragraph in insert mode.
-inoremap <C-x>qp <C-o>gqip<C-o>$
 " Format current line.
 nnoremap qj gqj
 " Paste from the yank register

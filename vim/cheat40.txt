@@ -57,14 +57,12 @@ Replay macro             Q            VN
 Virtual insert           ‹Ctrl-q›      I
 Insert from clipboard    ‹Ctrl-v›      I
 Open a new line above    ‹Ctrl-u›      I
-Fix syntax & redraw      ‹Ctrl-u›      N
+Fix syntax & redraw      ‹Ctrl-l›      N
 Copy paragraph           cp            N
 Format paragraph         qp            N
-Format paragraph         ‹Ctrl-x›qp    I
 Format line              qj            N
-Paste from yank register ,p            N
-Paste from yank register ,P            N
-Insert from ‹y› register ‹Ctrl-y›      I
+Paste yank reg below     ,p            N
+Paste yank reg above     ,P            N
 Fold                     ,z            N
 Expand all folds         ,Z            N
 Crosshair                ,X            N
@@ -86,7 +84,6 @@ Keyword from buffer      ‹Ctrl-b›      I
 Dictionary               ‹Ctrl-d›      I
 File path                ‹Ctrl-f›      I
 Line                     ‹Ctrl-l›      I
-Close block (Ruby & Lua) ‹Ctrl-c›      I
 Snippets                 ‹Ctrl-s›      I
 }}}
 Function Key Mappings {{{
@@ -106,8 +103,8 @@ Lazy draw & autosave     F7            N
 Lazy draw & autosave     '7            N
 Wrapping                 F8            N
 Wrapping                 '8            N
-Highlighting             F9            N
-Highlighting             '9            N
+Search highlighting      F9            N
+Search highlighting      '9            N
 Show special chars       F10           N
 Show special chars       '0            N
 }}}
@@ -128,26 +125,7 @@ Alphabetically           sort       *CVN
 Reverse                  sort!      *CVN
 Unique                   sort u     *CVN
 Ignore case              sort i     *CVN
-Numerically              sort n     *CVN
-}}}
-Misc Operations {{{
-One time normal command  ‹Ctrl-o›‹@›   I
-Expression register      ‹Ctrl-r›=‹@›  I
-Count search matches     :%~n          N
-Delete pattern lines     :g/‹@›/d      N
-Delete !pattern lines    :v/‹@›/d      N
-Change until closing )}] c%           *N
-Open browser on link     gx           *N
-Read in shell output     :r !‹@›       N
-Move line to top         zt            N
-Move line to middle      zz            N
-Move line to bottom      zb            N
-Move cursor to top       H             N
-Move cursor to middle    M             N
-Move cursor to bottom    L             N
-Spelling correction      z=           *N
-Substitute in block      :s/\%V‹@›/‹#› V
-Print character value    ga           *N
+Numerical                sort n     *CVN
 }}}
 LSP Mappings {{{
 Show hover               K            *N
@@ -167,6 +145,25 @@ Inner method textobject  im            N
 Around method textobject om            N
 Previous method          [m            N
 Next method              ]m            N
+}}}
+Misc Operations {{{
+One time normal command  ‹Ctrl-o›‹@›   I
+Expression register      ‹Ctrl-r›=‹@›  I
+Count search matches     :%~n          N
+Delete pattern lines     :g/‹@›/d      N
+Delete !pattern lines    :v/‹@›/d      N
+Change until closing )}] c%           *N
+Open browser on link     gx           *N
+Read in shell output     :r !‹@›       N
+Move line to top         zt            N
+Move line to middle      zz            N
+Move line to bottom      zb            N
+Move cursor to top       H             N
+Move cursor to middle    M             N
+Move cursor to bottom    L             N
+Spelling correction      z=           *N
+Substitute in block      :s/\%V‹@›/‹#› V
+Print character value    ga           *N
 }}}
 
 Telescope Plugin Mappings {{{
@@ -224,7 +221,7 @@ Stage hunk               '+           @N
 Revert hunk staging      '-           @N
 Preview hunk             'p           @N
 Blame line               'b           @N
-Refersh buffers          'r            N
+Refresh buffers          'r            N
 }}}
 Unimpaired Plugin Mappings {{{
 Previous file            [a            N
@@ -246,8 +243,7 @@ Delete surround          ds‹@›         N
 You surround             ys‹M›‹@›      N
 You surround tag         ys‹M›t‹@›     N
 You surround function    ys‹M›f‹@›     N
-You surround start/end   yss‹@›        N
-You surround above/below ySS‹@›        N
+You surround line ends   yss‹@›        N
 Visual you surround      S             V
 }}}
 indent-object Plugin Mappings {{{
@@ -284,7 +280,7 @@ Expand snippet           ‹Ctrl-j›      I
 Jump forward             ‹Ctrl-j›      I
 Jump backward            ‹Ctrl-k›      I
 }}}
-Rails Plugin Mappings {{{
+Projectionist Plugin Mappings {{{
 Alternate file           ,a            N
 Rails controller files   ,ec           N
 Rails helper files       ,eh           N
@@ -292,17 +288,14 @@ Rails models files       ,em           N
 Rails stylesheet files   ,es           N
 Rails spec files         ,et           N
 Rails view files         ,ev           N
-}}}
-Projectionist Plugin Mappings {{{
-Alternate file           ,a            N
 React component files    ,ec           N
 React stylesheet files   ,es           N
 React test files         ,et           N
 }}}
 vim-test Plugin Mappings {{{
 Run test nearest cursor  'tt           N
-Run all tests in file    'tf           N
-Run tests suite          'ts           N
+Run file tests           'tf           N
+Run test suite           'ts           N
 Run last test            'tl           N
 }}}
 Undotree Plugin Mappings {{{
