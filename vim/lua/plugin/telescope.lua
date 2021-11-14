@@ -20,16 +20,8 @@ telescope.setup({
         ['<C-q>'] = false,
         ['<A-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
         ['<A-d>'] = require("telescope.actions").delete_buffer,
-        ["<C-f>"] = function(prompt_bufnr)
-          local results_win = state.get_status(prompt_bufnr).results_win
-          local height = vim.api.nvim_win_get_height(results_win)
-          action_set.shift_selection(prompt_bufnr, math.floor(height / 2))
-        end,
-        ["<C-b>"] = function(prompt_bufnr)
-          local results_win = state.get_status(prompt_bufnr).results_win
-          local height = vim.api.nvim_win_get_height(results_win)
-          action_set.shift_selection(prompt_bufnr, -math.floor(height / 2))
-        end,
+        ["<C-f>"] = actions.results_scrolling_down,
+        ["<C-b>"] = actions.results_scrolling_up
       }
     },
     prompt_prefix = '❯ ',
