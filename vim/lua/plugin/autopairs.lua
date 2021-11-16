@@ -7,14 +7,6 @@ npairs.setup({
   fast_wrap = {}
 })
 
--- Disable certain rules per filetype.
-npairs.remove_rule('"')
-npairs.add_rules({
-  Rule('"', '"')
-    :with_pair(cond.not_filetypes({'vim'}))
-  }
-)
-
 -- Endwise rules.
 npairs.add_rules(require('nvim-autopairs.rules.endwise-lua'))
 npairs.add_rules(require('nvim-autopairs.rules.endwise-ruby'))
