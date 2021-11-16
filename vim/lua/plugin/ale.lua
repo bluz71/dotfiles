@@ -16,7 +16,7 @@ g.ale_fixers = {
 
 g.ale_linters = {
   css = {'csslint'},
-  eruby = {'erb'},
+  eruby = {'erblint'},
   javascript = {'standard'},
   json = {'jsonlint'},
   markdown = {'mdl'},
