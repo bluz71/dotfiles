@@ -43,14 +43,14 @@ packer.startup(function()
   -- Colorscheme plugins
   -----------------------------
   use {
-    'bluz71/vim-moonfly-colors',
+    '~/projects/public/vim-moonfly-colors',
     config = function()
       require('plugin.moonfly')
     end
   }
 
   use {
-    'bluz71/vim-nightfly-guicolors',
+    '~/projects/public/vim-nightfly-guicolors',
     config = function()
       require('plugin.nightfly')
     end
@@ -67,7 +67,7 @@ packer.startup(function()
     end
   }
 
-  use 'bluz71/vim-moonfly-statusline'
+  use '~/projects/public/vim-moonfly-statusline'
     -- ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
   use 'gcmt/taboo.vim'
     -- ~/dotfiles/vim/plugin/taboo.vim - options
