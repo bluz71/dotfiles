@@ -68,9 +68,9 @@ packer.startup(function()
   }
 
   use '~/projects/public/vim-moonfly-statusline'
-    -- ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
+    -- ~/dotfiles/vim/plugin/moonfly-statusline.vim
   use 'gcmt/taboo.vim'
-    -- ~/dotfiles/vim/plugin/taboo.vim - options
+    -- ~/dotfiles/vim/plugin/taboo.vim
 
   -----------------------------
   -- Behavior plugins
@@ -93,11 +93,11 @@ packer.startup(function()
   use 'nelstrom/vim-visual-star-search'
   use 'wellle/targets.vim'
   use 'chaoren/vim-wordmotion'
-    -- ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
+    -- ~/dotfiles/vim/after/plugin/wordmotion.vim
   use 'tommcdo/vim-lion'
-    -- ~/dotfiles/vim/plugin/lion.vim - options
+    -- ~/dotfiles/vim/plugin/lion.vim
   use 'rhysd/clever-f.vim'
-    -- ~/dotfiles/vim/plugin/clever-f.vim - options
+    -- ~/dotfiles/vim/plugin/clever-f.vim
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
@@ -125,10 +125,10 @@ packer.startup(function()
   -- Filesystem plugins
   -----------------------------
   use 'lambdalisue/fern.vim'
-    -- ~/dotfiles/vim/plugin/fern.vim - options, mappings
-    -- ~/dotfiles/vim/after/ftplugin/fern.vim - options
+    -- ~/dotfiles/vim/plugin/fern.vim
+    -- ~/dotfiles/vim/after/ftplugin/fern.vim
   use 'lambdalisue/fern-git-status.vim'
-    -- ~/dotfiles/vim/plugin/fern-git-status.vim - options
+    -- ~/dotfiles/vim/plugin/fern-git-status.vim
 
   -----------------------------
   -- Treesitter plugins
@@ -229,7 +229,7 @@ packer.startup(function()
     config = function()
       require('plugin.vsnip')
     end
-    -- ~/dotfiles/vim/vsnip - custom snippets
+    -- ~/dotfiles/vim/vsnip (custom snippets)
   }
 
   use {
@@ -269,16 +269,16 @@ packer.startup(function()
   use 'antoinemadec/FixCursorHold.nvim'
 
   use 'mbbill/undotree'
-    -- ~/dotfiles/vim/plugin/undotree.vim - options, mappings
-    -- ~/dotfiles/vim/after/ftplugin/undotree.vim - options
+    -- ~/dotfiles/vim/plugin/undotree.vim
+    -- ~/dotfiles/vim/after/ftplugin/undotree.vim
   use '907th/vim-auto-save'
-    -- ~/dotfiles/vim/plugin/auto-save.vim - options
+    -- ~/dotfiles/vim/plugin/auto-save.vim
   use 'christoomey/vim-tmux-navigator'
-    -- ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
+    -- ~/dotfiles/vim/plugin/tmux-navigator.vim
   use 'tpope/vim-obsession'
-    -- ~/dotfiles/vim/plugin/obsession.vim - mappings
+    -- ~/dotfiles/vim/plugin/obsession.vim
   use 'lifepillar/vim-cheat40'
-    -- ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
+    -- ~/dotfiles/vim/plugin/cheat40.vim
   use 'gregsexton/MatchTag'
   use 'dstein64/vim-startuptime'
 end)

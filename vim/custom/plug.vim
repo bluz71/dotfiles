@@ -20,9 +20,9 @@ Plug 'bluz71/vim-nightfly-guicolors'
 " Style plugins
 "-----------------------------
 Plug 'bluz71/vim-moonfly-statusline'
-    " ~/dotfiles/vim/plugin/moonfly-statusline.vim - options
+    " ~/dotfiles/vim/plugin/moonfly-statusline.vim
 Plug 'gcmt/taboo.vim'
-    " ~/dotfiles/vim/plugin/taboo.vim - options
+    " ~/dotfiles/vim/plugin/taboo.vim
 
 "-----------------------------
 " Behavior plugins
@@ -31,35 +31,35 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'chaoren/vim-wordmotion'
-    " ~/dotfiles/vim/after/plugin/wordmotion.vim - overrides
+    " ~/dotfiles/vim/after/plugin/wordmotion.vim
 Plug 'tommcdo/vim-lion'
-    " ~/dotfiles/vim/plugin/lion.vim - options
+    " ~/dotfiles/vim/plugin/lion.vim
 Plug 'rhysd/clever-f.vim'
-    " ~/dotfiles/vim/plugin/clever-f.vim - options
+    " ~/dotfiles/vim/plugin/clever-f.vim
 
 "-----------------------------
 " Filesystem plugins
 "-----------------------------
 Plug 'lambdalisue/fern.vim'
-    " ~/dotfiles/vim/plugin/fern.vim - options, mappings
-    " ~/dotfiles/vim/after/ftplugin/fern.vim - options
+    " ~/dotfiles/vim/plugin/fern.vim
+    " ~/dotfiles/vim/after/ftplugin/fern.vim
 Plug 'lambdalisue/fern-git-status.vim'
-    " ~/dotfiles/vim/plugin/fern-git-status.vim - options
+    " ~/dotfiles/vim/plugin/fern-git-status.vim
 
 "-----------------------------
 " Misc plugins
 "-----------------------------
 Plug 'mbbill/undotree'
-    " ~/dotfiles/vim/plugin/undotree.vim - options, mappings
-    " ~/dotfiles/vim/after/ftplugin/undotree.vim - options
+    " ~/dotfiles/vim/plugin/undotree.vim
+    " ~/dotfiles/vim/after/ftplugin/undotree.vim
 Plug '907th/vim-auto-save'
-    " ~/dotfiles/vim/plugin/auto-save.vim - options
+    " ~/dotfiles/vim/plugin/auto-save.vim
 Plug 'christoomey/vim-tmux-navigator'
-    " ~/dotfiles/vim/plugin/tmux-navigator.vim - options, mappings
+    " ~/dotfiles/vim/plugin/tmux-navigator.vim
 Plug 'tpope/vim-obsession'
-    " ~/dotfiles/vim/plugin/obsession.vim - mappings
+    " ~/dotfiles/vim/plugin/obsession.vim
 Plug 'lifepillar/vim-cheat40'
-    " ~/dotfiles/vim/plugin/cheat40.vim - options, mappings
+    " ~/dotfiles/vim/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
 
 " Finalize vim-plug.
