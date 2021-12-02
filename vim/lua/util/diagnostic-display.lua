@@ -9,17 +9,11 @@ local M = {}
 
 M.enable = function()
   lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
-  if fn.has('nvim-0.6') == 1 then
-    diagnostic.enable()
-  end
+  diagnostic.enable()
 end
 
 M.disable = function()
-  if fn.has('nvim-0.6') == 1 then
-    diagnostic.disable()
-  else
-    lsp.diagnostic.clear(0)
-  end
+  diagnostic.disable()
   lsp.handlers["textDocument/publishDiagnostics"] = handlers.no_diagnostics
 end
 

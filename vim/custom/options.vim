@@ -94,7 +94,6 @@ set wrap              " Wrap long lines
 
 " Options specific to Neovim or Vim.
 if has('nvim')
-    set inccommand=nosplit
     set list
     set listchars=tab:\ \ ,trail:-
     set shada='999,<50,s10,h

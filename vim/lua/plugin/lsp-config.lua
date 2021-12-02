@@ -13,28 +13,16 @@ local lsp = vim.lsp
 local map = vim.api.nvim_buf_set_keymap
 
 -- Diagnostic symbols for display in the sign column.
-if fn.has('nvim-0.6') == 1 then
-  vim.cmd [[
-    sign define DiagnosticSignError text=▶ texthl=DiagnosticSignError
-    sign define DiagnosticSignWarn  text=▶ texthl=DiagnosticSignWarn
-    sign define DiagnosticSignInfo  text=▶ texthl=DiagnosticSignInfo
-    sign define DiagnosticSignHint  text=▶ texthl=DiagnosticSignHint
-  ]]
-else
-  vim.cmd [[
-    sign define LspDiagnosticsSignError       text=▶
-    sign define LspDiagnosticsSignWarning     text=▶
-    sign define LspDiagnosticsSignInformation text=▶
-    sign define LspDiagnosticsSignHint        text=▶
-  ]]
-end
-
+vim.cmd [[
+  sign define DiagnosticSignError text=▶ texthl=DiagnosticSignError
+  sign define DiagnosticSignWarn  text=▶ texthl=DiagnosticSignWarn
+  sign define DiagnosticSignInfo  text=▶ texthl=DiagnosticSignInfo
+  sign define DiagnosticSignHint  text=▶ texthl=DiagnosticSignHint
+]]
 
 -- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
 -- functions.
-if fn.has('nvim-0.6') == 1 then
-  vim.diagnostic.config(diagnostic_style.config())
-end
+vim.diagnostic.config(diagnostic_style.config())
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
@@ -48,15 +36,9 @@ local lsp_on_attach = function(client)
   map(0, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   map(0, 'n', 'gR','<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   map(0, 'i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  if fn.has('nvim-0.6') then
-    map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
-  else
-    map(0, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
-    map(0, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR>', opts)
-    map(0, 'n', "'d", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({border = "single"})<CR>', opts)
-  end
+  map(0, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
 
   -- LSP-based omnifunc.
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
