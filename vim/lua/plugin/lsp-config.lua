@@ -40,6 +40,14 @@ local lsp_on_attach = function(client)
   map(0, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
   map(0, 'n', "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
 
+  -- Set some key bindings conditional on server capabilities
+  if client.resolved_capabilities.document_formatting then
+    map(0, 'n', "'=", '<cmd>lua vim.lsp.buf.formatting_sync()<CR>', opts)
+  end
+  if client.resolved_capabilities.document_range_formatting then
+    map(0, 'x', "'=", '<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>', opts)
+  end
+
   -- LSP-based omnifunc.
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
 end
