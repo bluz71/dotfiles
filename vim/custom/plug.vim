@@ -36,6 +36,7 @@ Plug 'tommcdo/vim-lion'
     " ~/dotfiles/vim/plugin/lion.vim
 Plug 'rhysd/clever-f.vim'
     " ~/dotfiles/vim/plugin/clever-f.vim
+Plug 'ackyshake/VimCompletesMe'
 
 "-----------------------------
 " Filesystem plugins
