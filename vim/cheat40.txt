@@ -254,8 +254,14 @@ Around indent & adjacent ‹O›aI        VN
 Lion Plugin Mappings {{{
 Align around target      gl‹@›        *V
 }}}
-Commentry Plugin Mappings {{{
+Comment Plugin Mappings {{{
 Toggle comments          gc           *V
+Toggle block comments    gb           *V
+Toggle line comment      gcc           N
+Toggle comments          gc‹M›         N
+Insert comment above     gcO           N
+Insert comment below     gco           N
+Insert eol comment       gcA           N
 }}}
 nvim-cmp Plugin Mappings {{{
 Confirm selection        ‹C-y›        %I

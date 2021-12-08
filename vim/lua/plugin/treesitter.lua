@@ -1,6 +1,10 @@
 local treesitter = require('nvim-treesitter.configs')
 
 treesitter.setup({
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
   ensure_installed = {
     'bash', 'c', 'cpp', 'css', 'dart', 'go', 'html', 'java', 'javascript',
     'lua', 'python', 'ruby', 'rust', 'scss', 'toml', 'typescript', 'vue'
@@ -10,7 +14,7 @@ treesitter.setup({
   },
   indent = {
     enable = true,
-    disable = { 'dart', 'ruby', 'yaml' }
+    disable = {'dart', 'ruby', 'yaml'}
   },
   textobjects = {
     select = {

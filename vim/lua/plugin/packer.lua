@@ -98,7 +98,6 @@ packer.startup(function()
     -- ~/dotfiles/vim/plugin/lion.vim
   use 'rhysd/clever-f.vim'
     -- ~/dotfiles/vim/plugin/clever-f.vim
-  use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'michaeljsmith/vim-indent-object'
@@ -150,6 +149,19 @@ packer.startup(function()
   use {
     'nvim-treesitter/playground',
     cmd = 'TSHighlightCapturesUnderCursor'
+  }
+
+  -----------------------------
+  -- Comment plugins
+  -----------------------------
+  use {
+    'numToStr/Comment.nvim',
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    },
+    config = function()
+      require('plugin.comment')
+    end
   }
 
   -----------------------------
