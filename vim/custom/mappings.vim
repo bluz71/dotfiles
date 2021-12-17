@@ -155,8 +155,8 @@ nnoremap <F4> :%s/ /_<CR>
 nnoremap '4   :%s/ /_<CR>
 nnoremap <F5> :call spelling#Toggle()<CR>
 nnoremap '5   :call spelling#Toggle()<CR>
-nnoremap <F6> :call linting#Toggle()<CR>
-nnoremap '6   :call linting#Toggle()<CR>
+nnoremap <F6> :call diagnostics#Toggle()<CR>
+nnoremap '6   :call diagnostics#Toggle()<CR>
 nnoremap <F7> :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap '7   :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
 nnoremap <F8> :set wrap!<CR>

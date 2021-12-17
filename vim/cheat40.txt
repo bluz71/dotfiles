@@ -97,8 +97,8 @@ Space to underscore      F4            N
 Space to underscore      '4            N
 Spell checking           F5            N
 Spell checking           '5            N
-Linting                  F6            N
-Linting                  '6            N
+Diagnostics              F6            N
+Diagnostics              '6            N
 Lazy draw & autosave     F7            N
 Lazy draw & autosave     '7            N
 Wrapping                 F8            N

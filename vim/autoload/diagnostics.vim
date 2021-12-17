@@ -1,23 +1,19 @@
-let g:lintingActive = v:true
+let g:diagnosticsActive = v:true
 
-" Toggle ALE linting and LSP diagnostics.
+" Toggle ALE diagnostics and LSP diagnostics.
 "
-function! linting#Toggle() abort
-    if g:lintingActive == v:true
-        :ALEDisable
+function! diagnostics#Toggle() abort
+    if g:diagnosticsActive == v:true
         lua require('util.diagnostic-display').disable()
         " Disable statusline indicators.
         let g:moonflyWithNvimLspIndicator = v:false
-        let g:moonflyWithALEIndicator = v:false
-        echo '(Linting) OFF'
-        let g:lintingActive = v:false
+        echo '(Diagnostics) OFF'
+        let g:diagnosticsActive = v:false
     else
-        :ALEEnable
         lua require('util.diagnostic-display').enable()
         " Enable statusline indicators.
         let g:moonflyWithNvimLspIndicator = v:true
-        let g:moonflyWithALEIndicator = v:true
-        echo '(Linting) ON'
-        let g:lintingActive = v:true
+        echo '(Diagnostics) ON'
+        let g:diagnosticsActive = v:true
     endif
 endfunction
