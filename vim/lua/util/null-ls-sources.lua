@@ -88,7 +88,11 @@ M.standardjs = h.make_builtin({
     on_output = h.diagnostics.from_pattern(
       ':(%d+):(%d+): (.*)',
       {'row', 'col', 'message'},
-      {}
+      {
+        diagnostic = {
+          severity = h.diagnostics.severities.warning
+        }
+      }
     )
   },
   factory = h.generator_factory,
