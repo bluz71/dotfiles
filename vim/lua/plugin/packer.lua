@@ -213,17 +213,17 @@ packer.startup(function()
   }
 
   use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
+    'jose-elias-alvarez/null-ls.nvim',
     config = function()
-      require('plugin.gitsigns')
+      require('plugin.null-ls')
     end
   }
 
   use {
-    'dense-analysis/ale',
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
     config = function()
-      require('plugin.ale')
+      require('plugin.gitsigns')
     end
   }
 

@@ -139,6 +139,7 @@ Signature help           ‹Ctrl-h›     *I
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
 Line Diagnostics         'd           *N
+Formatting               'f          *VN
 }}}
 Treesitter Mappings {{{
 Inner method textobject  im            N
@@ -271,15 +272,6 @@ Scroll back docs         ‹C-b›        %I
 }}}
 nvim-autopairs Plugin Mappings {{{
 Fast wrap                ‹A-e›        %I
-}}}
-ALE Plugin Mappings {{{
-Execute fixer            'f           %N
-Linter detail            'w           %N
-Previous error           [w            N
-Next error               ]w            N
-First error              [W            N
-Last error               ]W            N
-Open location list       ,l            N
 }}}
 vsnip Plugin Mappings {{{
 Expand snippet           ‹Ctrl-j›      I
