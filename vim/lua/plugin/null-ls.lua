@@ -15,16 +15,16 @@ null_ls.setup({
     map(0, 'x', "'f", '<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>', opts)
   end,
   sources = {
+    null_ls.builtins.diagnostics.standardrb,
+    null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.prettier.with({
       filetypes = {'css', 'json', 'scss', 'yml'},
     }),
-    null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.formatting.standardrb,
-    null_ls.builtins.diagnostics.yamllint,
-    custom_sources.dartfmt,
-    custom_sources.jsonlint,
-    custom_sources.mdl,
-    custom_sources.prettier_standard,
-    custom_sources.standardjs
+    custom_sources.diagnostics_jsonlint,
+    custom_sources.diagnostics_mdl,
+    custom_sources.diagnostics_standardjs,
+    custom_sources.formatting_dartfmt,
+    custom_sources.formatting_prettier_standard,
   },
 })

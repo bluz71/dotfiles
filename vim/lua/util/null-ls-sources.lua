@@ -6,17 +6,7 @@ local FORMATTING = methods.internal.FORMATTING
 
 local M = {}
 
-M.dartfmt = h.make_builtin({
-  method = FORMATTING,
-  filetypes = {'dart'},
-  generator_opts = {
-    command = 'dartfmt',
-    to_stdin = true,
-  },
-  factory = h.formatter_factory,
-})
-
-M.jsonlint = h.make_builtin({
+M.diagnostics_jsonlint = h.make_builtin({
   method = DIAGNOSTICS,
   filetypes = {'json'},
   generator_opts = {
@@ -37,7 +27,7 @@ M.jsonlint = h.make_builtin({
   factory = h.generator_factory,
 })
 
-M.mdl = h.make_builtin({
+M.diagnostics_mdl = h.make_builtin({
   method = DIAGNOSTICS,
   filetypes = {'markdown'},
   generator_opts = {
@@ -62,18 +52,7 @@ M.mdl = h.make_builtin({
   factory = h.generator_factory,
 })
 
-M.prettier_standard = h.make_builtin({
-  method = FORMATTING,
-  filetypes = {'javascript'},
-  generator_opts = {
-    command = 'prettier-standard',
-    args = {'--stdin'},
-    to_stdin = true,
-  },
-  factory = h.formatter_factory,
-})
-
-M.standardjs = h.make_builtin({
+M.diagnostics_standardjs = h.make_builtin({
   method = DIAGNOSTICS,
   filetypes = {'javascript'},
   generator_opts = {
@@ -96,6 +75,27 @@ M.standardjs = h.make_builtin({
     )
   },
   factory = h.generator_factory,
+})
+
+M.formattings_dartfmt = h.make_builtin({
+  method = FORMATTING,
+  filetypes = {'dart'},
+  generator_opts = {
+    command = 'dartfmt',
+    to_stdin = true,
+  },
+  factory = h.formatter_factory,
+})
+
+M.formatting_prettier_standard = h.make_builtin({
+  method = FORMATTING,
+  filetypes = {'javascript'},
+  generator_opts = {
+    command = 'prettier-standard',
+    args = {'--stdin'},
+    to_stdin = true,
+  },
+  factory = h.formatter_factory,
 })
 
 return M
