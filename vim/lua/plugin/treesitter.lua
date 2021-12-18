@@ -6,7 +6,7 @@ treesitter.setup({
     enable_autocmd = false,
   },
   ensure_installed = {
-    'bash', 'c', 'cpp', 'css', 'dart', 'go', 'html', 'java', 'javascript',
+    'bash', 'c', 'cpp', 'css', 'go', 'html', 'java', 'javascript',
     'lua', 'python', 'ruby', 'rust', 'scss', 'toml', 'typescript', 'vue'
   },
   highlight = {
@@ -14,7 +14,7 @@ treesitter.setup({
   },
   indent = {
     enable = true,
-    disable = {'dart', 'ruby', 'yaml'}
+    disable = {'ruby', 'yaml'}
   },
   textobjects = {
     select = {
