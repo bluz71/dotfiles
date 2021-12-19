@@ -77,6 +77,7 @@ M.diagnostics_standardjs = h.make_builtin({
   factory = h.generator_factory,
 })
 
+-- 'dartfmt' is deprecated; 'dart format' will be standard going forward.
 M.formattings_dartfmt = h.make_builtin({
   method = FORMATTING,
   filetypes = {'dart'},
