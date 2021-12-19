@@ -9,5 +9,4 @@ let b:pear_tree_pairs = {
             \        },
             \ }
 
-setlocal formatoptions=cqj
 setlocal matchpairs=(:),{:},[:]

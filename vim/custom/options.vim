@@ -27,7 +27,7 @@ set expandtab         " Use spaces instead of tabs
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
 set foldtext=''
-set formatoptions=cqj " Default format options
+set formatoptions=tcqj
 set gdefault          " Always do global substitutes
 " Use ripgrep as the grep tool
 set grepprg=rg\ --vimgrep\ --smart-case
