@@ -1,3 +1,8 @@
+-- Do not load up plugin when in diff mode.
+if vim.opt.diff:get() then
+  return
+end
+
 local null_ls = require('null-ls')
 local custom_sources = require('util.null-ls-sources')
 local map = vim.api.nvim_buf_set_keymap
