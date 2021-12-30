@@ -187,8 +187,8 @@ Old files                ‹Spc›o        N
 Project tags             ‹Spc›]        N
 Ripgrep                  ‹Spc›/        N
 LSP references           ‹Spc›r        N
-LSP document symbols     ‹Spc›w        N
-LSP workspace symbols    ‹Spc›W        N
+LSP document symbols     ‹Spc›lw       N
+LSP workspace symbols    ‹Spc›lW       N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N

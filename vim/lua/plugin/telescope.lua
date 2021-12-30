@@ -52,8 +52,8 @@ map('n', '<Space>o', '<cmd>lua require("telescope.builtin").oldfiles()<CR>', opt
 map('n', '<Space>]', '<cmd>lua require("telescope.builtin").tags()<CR>', opts)
 map('n', '<Space>/', '<cmd>lua require("telescope.builtin").grep_string({search = vim.fn.input("grep ❯ ")})<CR>', opts)
 map('n', '<Space>r', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
-map('n', '<Space>w', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opts)
-map('n', '<Space>W', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols({query = vim.fn.input("LSP Workspace Symbols❯ ")})<CR>', opts)
+map('n', '<Space>lw', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opts)
+map('n', '<Space>lW', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols({query = vim.fn.input("LSP Workspace Symbols❯ ")})<CR>', opts)
 
 if vim.fn.filereadable('config/routes.rb') ~= 0 then
   map('n', '<Space>ec', ':Telescope find_files cwd=app/controllers<CR>', opts)
