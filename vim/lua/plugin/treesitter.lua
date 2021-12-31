@@ -1,4 +1,4 @@
-local treesitter = require('nvim-treesitter.configs')
+local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
   context_commentstring = {
@@ -6,36 +6,36 @@ treesitter.setup({
     enable_autocmd = false,
   },
   ensure_installed = {
-    'bash', 'c', 'cpp', 'css', 'dart', 'go', 'html', 'java', 'javascript',
-    'lua', 'python', 'ruby', 'rust', 'scss', 'toml', 'typescript', 'vue'
+    "bash", "c", "cpp", "css", "dart", "go", "html", "java", "javascript",
+    "lua", "python", "ruby", "rust", "scss", "toml", "typescript", "vue",
   },
   highlight = {
     enable = true,
   },
   indent = {
     enable = true,
-    disable = {'ruby', 'yaml'}
+    disable = { "ruby", "yaml" },
   },
   textobjects = {
     select = {
       enable = true,
-      disable = {'dart'}, -- Temporary fix, see: https://is.gd/E00YDa
+      disable = { "dart" }, -- Temporary fix, see: https://is.gd/E00YDa
       lookahead = true,
       keymaps = {
-        ['am'] = '@function.outer',
-        ['im'] = '@function.inner',
+        ["am"] = "@function.outer",
+        ["im"] = "@function.inner",
       },
     },
     move = {
       enable = true,
-      disable = {'dart'}, -- Temporary fix, see: https://is.gd/E00YDa
+      disable = { "dart" }, -- Temporary fix, see: https://is.gd/E00YDa
       set_jumps = true,
       goto_next_start = {
-        [']m'] = '@function.outer'
+        ["]m"] = "@function.outer",
       },
       goto_previous_start = {
-        ['[m'] = '@function.outer'
-      }
-    }
-  }
+        ["[m"] = "@function.outer",
+      },
+    },
+  },
 })

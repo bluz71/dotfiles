@@ -1,24 +1,24 @@
 -- Bootstrap packer.nvim.
 local fn = vim.fn
 local command = vim.api.nvim_command
-local packer_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-local packer_compiled_path = fn.stdpath('config')..'/lua/packer_compiled.lua'
+local packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local packer_compiled_path = fn.stdpath("config") .. "/lua/packer_compiled.lua"
 if fn.empty(fn.glob(packer_path)) > 0 then
-  command('\rm -f '..packer_compiled_path)
-  command('!git clone https://github.com/wbthomason/packer.nvim '..packer_path)
-  command('packadd packer.nvim')
+  command("\rm -f " .. packer_compiled_path)
+  command("!git clone https://github.com/wbthomason/packer.nvim " .. packer_path)
+  command("packadd packer.nvim")
 end
 
 if fn.filereadable(packer_compiled_path) then
   -- Speed up loading of Lua modules. Note, this needs to happen BEFORE Lua
   -- plugins are loaded.
-  require('impatient')
+  require("impatient")
   -- Due to impatient, the packer_compiled file needs to be directly required.
-  require('packer_compiled')
+  require("packer_compiled")
 end
 
-local packer = require('packer')
-local util = require('packer.util')
+local packer = require("packer")
+local util = require("packer.util")
 
 -- Initialize packer.nvim.
 packer.init({
@@ -26,10 +26,11 @@ packer.init({
   display = {
     open_fn = function()
       return util.float({
-        border = 'single', height = math.ceil(vim.o.lines * 0.5)
+        border = "single",
+        height = math.ceil(vim.o.lines * 0.5),
       })
-    end
-  }
+    end,
+  },
 })
 
 -- Plugins.
@@ -37,150 +38,152 @@ packer.startup(function()
   -----------------------------
   -- Self-manage packer
   -----------------------------
-  use 'wbthomason/packer.nvim'
+  use("wbthomason/packer.nvim")
 
   -----------------------------
   -- Colorscheme plugins
   -----------------------------
-  use {
-    '~/projects/public/vim-moonfly-colors',
+  use({
+    "~/projects/public/vim-moonfly-colors",
     config = function()
-      require('plugin.moonfly')
-    end
-  }
+      require("plugin.moonfly")
+    end,
+  })
 
-  use {
-    '~/projects/public/vim-nightfly-guicolors',
+  use({
+    "~/projects/public/vim-nightfly-guicolors",
     config = function()
-      require('plugin.nightfly')
-    end
-  }
+      require("plugin.nightfly")
+    end,
+  })
 
   -----------------------------
   -- Style plugins
   -----------------------------
-  use {
-    'lukas-reineke/indent-blankline.nvim',
-    event = 'BufRead',
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
     config = function()
-      require('plugin.indent-blankline')
-    end
-  }
+      require("plugin.indent-blankline")
+    end,
+  })
 
-  use '~/projects/public/vim-moonfly-statusline'
-    -- ~/dotfiles/vim/plugin/moonfly-statusline.vim
-  use 'gcmt/taboo.vim'
-    -- ~/dotfiles/vim/plugin/taboo.vim
+  use("~/projects/public/vim-moonfly-statusline")
+  -- ~/dotfiles/vim/plugin/moonfly-statusline.vim
+  use("gcmt/taboo.vim")
+  -- ~/dotfiles/vim/plugin/taboo.vim
 
   -----------------------------
   -- Behavior plugins
   -----------------------------
-  use {
-    'phaazon/hop.nvim',
+  use({
+    "phaazon/hop.nvim",
     config = function()
-      require('plugin.hop')
-    end
-  }
+      require("plugin.hop")
+    end,
+  })
 
-  use {
-    'tpope/vim-unimpaired',
-    keys = {'[', ']'},
+  use({
+    "tpope/vim-unimpaired",
+    keys = { "[", "]" },
     config = function()
-      require('plugin.unimpaired')
-    end
-  }
+      require("plugin.unimpaired")
+    end,
+  })
 
-  use 'nelstrom/vim-visual-star-search'
-  use 'wellle/targets.vim'
-  use 'chaoren/vim-wordmotion'
-    -- ~/dotfiles/vim/after/plugin/wordmotion.vim
-  use 'tommcdo/vim-lion'
-    -- ~/dotfiles/vim/plugin/lion.vim
-  use 'rhysd/clever-f.vim'
-    -- ~/dotfiles/vim/plugin/clever-f.vim
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
-  use 'michaeljsmith/vim-indent-object'
-  use 'ackyshake/VimCompletesMe'
+  use("nelstrom/vim-visual-star-search")
+  use("wellle/targets.vim")
+  use("chaoren/vim-wordmotion")
+  -- ~/dotfiles/vim/after/plugin/wordmotion.vim
+  use("tommcdo/vim-lion")
+  -- ~/dotfiles/vim/plugin/lion.vim
+  use("rhysd/clever-f.vim")
+  -- ~/dotfiles/vim/plugin/clever-f.vim
+  use("tpope/vim-surround")
+  use("tpope/vim-repeat")
+  use("michaeljsmith/vim-indent-object")
+  use("ackyshake/VimCompletesMe")
 
   -----------------------------
   -- Fuzzy finding plugins
   -----------------------------
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    keys = {'<Space>'},
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    keys = { "<Space>" },
     config = function()
-      require('plugin.telescope')
-    end
-  }
+      require("plugin.telescope")
+    end,
+  })
 
-  use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
-  }
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "make",
+  })
 
   -----------------------------
   -- Filesystem plugins
   -----------------------------
-  use 'lambdalisue/fern.vim'
-    -- ~/dotfiles/vim/plugin/fern.vim
-    -- ~/dotfiles/vim/after/ftplugin/fern.vim
-  use 'lambdalisue/fern-git-status.vim'
-    -- ~/dotfiles/vim/plugin/fern-git-status.vim
+  use("lambdalisue/fern.vim")
+  -- ~/dotfiles/vim/plugin/fern.vim
+  -- ~/dotfiles/vim/after/ftplugin/fern.vim
+  use("lambdalisue/fern-git-status.vim")
+  -- ~/dotfiles/vim/plugin/fern-git-status.vim
 
   -----------------------------
   -- Treesitter plugins
   -----------------------------
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
     config = function()
-      require('plugin.treesitter')
-    end
-  }
+      require("plugin.treesitter")
+    end,
+  })
 
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use("nvim-treesitter/nvim-treesitter-textobjects")
 
-  use {
-    'nvim-treesitter/playground',
-    cmd = 'TSHighlightCapturesUnderCursor'
-  }
+  use({
+    "nvim-treesitter/playground",
+    cmd = "TSHighlightCapturesUnderCursor",
+  })
 
   -----------------------------
   -- Comment plugins
   -----------------------------
-  use {
-    'numToStr/Comment.nvim',
+  use({
+    "numToStr/Comment.nvim",
     requires = {
-      'JoosepAlviste/nvim-ts-context-commentstring'
+      "JoosepAlviste/nvim-ts-context-commentstring",
     },
     config = function()
-      require('plugin.comment')
-    end
-  }
+      require("plugin.comment")
+    end,
+  })
 
   -----------------------------
   -- Auto-completion plugins
   -----------------------------
-  use {
-    'hrsh7th/nvim-cmp',
+  use({
+    "hrsh7th/nvim-cmp",
     requires = {
-      'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-vsnip'
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-vsnip",
     },
     config = function()
-      require('plugin.cmp')
-    end
-  }
+      require("plugin.cmp")
+    end,
+  })
 
-  use {
-    'windwp/nvim-autopairs',
+  use({
+    "windwp/nvim-autopairs",
     config = function()
-      require('plugin.autopairs')
-    end
-  }
+      require("plugin.autopairs")
+    end,
+  })
 
-  use {
+  use({
     -- Only use pear-tree to complete tags, instead use nvim-autopairs to
     -- complete most standard pairings (parentheses, quotes, etc).
     --
@@ -192,101 +195,101 @@ packer.startup(function()
     -- author as nvim-autopairs) does not currently support eRuby HTML templates
     -- because they are not Treesitter compatible (maybe one day). Hence, the
     -- on-going use of pear-tree for tag completion (for now).
-    'tmsvg/pear-tree',
+    "tmsvg/pear-tree",
     config = function()
-      require('plugin.pear-tree')
-    end
-  }
+      require("plugin.pear-tree")
+    end,
+  })
 
   -----------------------------
   -- Development plugins
   -----------------------------
-  use {
-    'neovim/nvim-lspconfig',
+  use({
+    "neovim/nvim-lspconfig",
     config = function()
-      require('plugin.lsp-config')
-    end
-  }
+      require("plugin.lsp-config")
+    end,
+  })
 
-  use {
-    'jose-elias-alvarez/null-ls.nvim',
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
     config = function()
-      require('plugin.null-ls')
-    end
-  }
+      require("plugin.null-ls")
+    end,
+  })
 
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
+  use({
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
     config = function()
-      require('plugin.gitsigns')
-    end
-  }
+      require("plugin.gitsigns")
+    end,
+  })
 
-  use {
-    'janko-m/vim-test',
-    keys = {"'tt", "'tl", "'tf", "'ts"},
+  use({
+    "janko-m/vim-test",
+    keys = { "'tt", "'tl", "'tf", "'ts" },
     config = function()
-      require('plugin.vim-test')
-    end
-  }
+      require("plugin.vim-test")
+    end,
+  })
 
-  use {
-    'hrsh7th/vim-vsnip',
-    ft = {'dart', 'html', 'javascript', 'markdown', 'ruby'},
+  use({
+    "hrsh7th/vim-vsnip",
+    ft = { "dart", "html", "javascript", "markdown", "ruby" },
     config = function()
-      require('plugin.vsnip')
-    end
+      require("plugin.vsnip")
+    end,
     -- ~/dotfiles/vim/vsnip (custom snippets)
-  }
+  })
 
-  use {
-    'tpope/vim-projectionist',
+  use({
+    "tpope/vim-projectionist",
     config = function()
-      require('plugin.projectionist')
-    end
-  }
+      require("plugin.projectionist")
+    end,
+  })
 
-  use {
-    'editorconfig/editorconfig-vim',
+  use({
+    "editorconfig/editorconfig-vim",
     config = function()
-      require('plugin.editorconfig')
-    end
-  }
+      require("plugin.editorconfig")
+    end,
+  })
 
-  use 'dart-lang/dart-vim-plugin'
-  use 'vim-crystal/vim-crystal'
+  use("dart-lang/dart-vim-plugin")
+  use("vim-crystal/vim-crystal")
 
   -----------------------------
   -- Misc plugins
   -----------------------------
-  use {
-    'norcalli/nvim-colorizer.lua',
-    ft = {'css', 'json', 'lua', 'markdown', 'scss', 'vim', 'yaml'},
+  use({
+    "norcalli/nvim-colorizer.lua",
+    ft = { "css", "json", "lua", "markdown", "scss", "vim", "yaml" },
     config = function()
-      require('plugin.colorizer')
+      require("plugin.colorizer")
     end,
-  }
+  })
 
   -- Speed up Neovim startup time.
-  use 'lewis6991/impatient.nvim'
+  use("lewis6991/impatient.nvim")
   -- Also speed up Neovim startup time.
   use("nathom/filetype.nvim")
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
-  use 'antoinemadec/FixCursorHold.nvim'
+  use("antoinemadec/FixCursorHold.nvim")
 
-  use 'mbbill/undotree'
-    -- ~/dotfiles/vim/plugin/undotree.vim
-    -- ~/dotfiles/vim/after/ftplugin/undotree.vim
-  use '907th/vim-auto-save'
-    -- ~/dotfiles/vim/plugin/auto-save.vim
-  use 'christoomey/vim-tmux-navigator'
-    -- ~/dotfiles/vim/plugin/tmux-navigator.vim
-  use 'tpope/vim-obsession'
-    -- ~/dotfiles/vim/plugin/obsession.vim
-  use 'lifepillar/vim-cheat40'
-    -- ~/dotfiles/vim/plugin/cheat40.vim
-  use 'gregsexton/MatchTag'
-  use 'dstein64/vim-startuptime'
+  use("mbbill/undotree")
+  -- ~/dotfiles/vim/plugin/undotree.vim
+  -- ~/dotfiles/vim/after/ftplugin/undotree.vim
+  use("907th/vim-auto-save")
+  -- ~/dotfiles/vim/plugin/auto-save.vim
+  use("christoomey/vim-tmux-navigator")
+  -- ~/dotfiles/vim/plugin/tmux-navigator.vim
+  use("tpope/vim-obsession")
+  -- ~/dotfiles/vim/plugin/obsession.vim
+  use("lifepillar/vim-cheat40")
+  -- ~/dotfiles/vim/plugin/cheat40.vim
+  use("gregsexton/MatchTag")
+  use("dstein64/vim-startuptime")
 end)

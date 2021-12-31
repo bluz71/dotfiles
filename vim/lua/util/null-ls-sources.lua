@@ -8,9 +8,9 @@ local M = {}
 -- 'dartfmt' is deprecated; 'dart format' will be standard going forward.
 M.formattings_dartfmt = h.make_builtin({
   method = FORMATTING,
-  filetypes = {'dart'},
+  filetypes = { "dart" },
   generator_opts = {
-    command = 'dartfmt',
+    command = "dartfmt",
     to_stdin = true,
   },
   factory = h.formatter_factory,

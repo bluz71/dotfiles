@@ -4,24 +4,24 @@
 local M = {}
 
 -- Namespace for the virtual text.
-local closing_labels_ns = vim.api.nvim_create_namespace('dart-closing-labels')
+local closing_labels_ns = vim.api.nvim_create_namespace("dart-closing-labels")
 
 -- Draw the newly published labels in the current buffer.
 local render_labels = function(labels)
   local highlight
-  highlight = 'DiagnosticVirtualTextHint'
-  local prefix = '›› '
+  highlight = "DiagnosticVirtualTextHint"
+  local prefix = "›› "
 
   vim.api.nvim_buf_clear_namespace(0, closing_labels_ns, 0, -1)
 
   for _, label in ipairs(labels) do
-    local end_line = label.range['end'].line
+    local end_line = label.range["end"].line
     local text = prefix .. label.label
     vim.api.nvim_buf_set_virtual_text(
       0,
       closing_labels_ns,
       end_line,
-      {{text, highlight}},
+      { { text, highlight } },
       {}
     )
   end
