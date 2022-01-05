@@ -96,7 +96,7 @@ set wrap              " Wrap long lines
 if has('nvim')
     set list
     set listchars=tab:\ \ ,trail:-
-    set shada='999,<50,s10,h
+    set shada='200,<50,s10,h
     " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
     let $LESS = '-RS'
 else
