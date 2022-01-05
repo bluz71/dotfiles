@@ -19,7 +19,7 @@ treesitter.setup({
   textobjects = {
     select = {
       enable = true,
-      disable = { "dart" }, -- Temporary fix, see: https://is.gd/E00YDa
+      disable = { "dart", "ruby" }, -- Temporary fix, see: https://is.gd/E00YDa
       lookahead = true,
       keymaps = {
         ["am"] = "@function.outer",
@@ -28,7 +28,7 @@ treesitter.setup({
     },
     move = {
       enable = true,
-      disable = { "dart" }, -- Temporary fix, see: https://is.gd/E00YDa
+      disable = { "dart", "ruby" }, -- Temporary fix, see: https://is.gd/E00YDa
       set_jumps = true,
       goto_next_start = {
         ["]m"] = "@function.outer",
