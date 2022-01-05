@@ -54,9 +54,6 @@ local lsp_on_attach = function(client)
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
   end
-
-  -- LSP-based omnifunc.
-  vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"
 end
 
 -- Global handlers.
@@ -78,6 +75,7 @@ nvim_lsp.dartls.setup({
   handlers = {
     ["dart/textDocument/publishClosingLabels"] = dart_closing_labels.handler(),
   },
+  root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
 })
 
 nvim_lsp.html.setup({
@@ -95,6 +93,7 @@ nvim_lsp.solargraph.setup({
   handlers = {
     ["textDocument/publishDiagnostics"] = handlers.no_diagnostics,
   },
+  single_file_support = true, -- Allow LSP to work in standalone Ruby scripts
   settings = { solargraph = { diagnostics = false } },
 })
 
@@ -102,4 +101,5 @@ nvim_lsp.tsserver.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
 })
