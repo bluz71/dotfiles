@@ -1,6 +1,6 @@
 local g = vim.g
 g.pear_tree_ft_disabled = {
-  "go", "java", "json", "markdown", "perl", "python", "rust", "sh", "text",
+  "go", "java", "json", "markdown", "perl", "python", "rust", "sh", "txt",
   "vim",
 }
 g.pear_tree_map_special_keys = 0
