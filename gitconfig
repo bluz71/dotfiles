@@ -20,6 +20,7 @@
     rebase = true
 [merge]
     tool = meld
+    conflictStyle = zdiff3
 [difftool]
     prompt = false
 [difftool "vd"]
