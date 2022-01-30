@@ -246,6 +246,14 @@ dev_config() {
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
     fi
+    if [[ -x ~/.cargo/bin ]]; then
+        PATH=$PATH:~/.cargo/bin
+        #source $(rustc --print sysroot)/etc/bash_completion.d/cargo
+    fi
+    if [[ -d ~/projects/go ]]; then
+        export GOPATH=~/projects/go
+        PATH=$PATH:$GOPATH/bin
+    fi
     if [[ -d /usr/local/Android/Sdk ]]; then
         export ANDROID_SDK_ROOT=/usr/local/Android/Sdk
         PATH=$PATH:$ANDROID_SDK_ROOT/emulator
@@ -257,10 +265,6 @@ dev_config() {
         PATH=$PATH:/usr/local/flutter/bin
         export DART_SDK=/usr/local/flutter/bin/cache/dart-sdk
         PATH=$PATH:$DART_SDK/bin
-    fi
-    if [[ -d ~/projects/go ]]; then
-        export GOPATH=~/projects/go
-        PATH=$PATH:$GOPATH/bin
     fi
 }
 
