@@ -410,7 +410,7 @@ history_truncate() {
     tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
     # Second, remove certain basic commands.
     sed -e '/^cd/d' -e '/^cp/d' -e '/^ll/d' -e '/^ls/d' -e '/^mk/d' \
-        -e '/^mv/d' -e '/^rm/d' -i /tmp/bash_history
+        -e '/^mv/d' -e '/^rm/d' -r '/^qmv/d' -i /tmp/bash_history
     # Use 'cp' instead of 'mv' to deal with symlinked ~/.bash_history. Use
     # 'command' to bypass aliases.
     command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
