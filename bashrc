@@ -196,17 +196,9 @@ custom_config() {
         return
     fi
 
-    # Make 'g' alias to 'git' work with Bash Completion.
-    # Refer to: https://is.gd/Kp7mf0
-    complete -o default -o nospace -F _git g
-    # Also make 'd' and 'dc' Docker aliases work with Bash Completion.
-    complete -F _docker d
-    complete -F _docker_compose dc
-
-    # Custom Bash completions.
-    for f in ~/dotfiles/bash_completion.d/*; do . $f; done
-    # Note: debugging Bash completions:
-    # % complete | grep <<completion-of-interest>>
+    # Note, custom Bash completions are stored in ~/dotfiles/completions.
+    # These are then symlinked to ~/.local/share/bash-completion for automatic
+    # lazy-loading. Refer to: https://is.gd/CV7ufa
 
     # 'broot' function.
     . ~/dotfiles/profile.d/br.sh
@@ -248,7 +240,6 @@ dev_config() {
     fi
     if [[ -x ~/.cargo/bin ]]; then
         PATH=$PATH:~/.cargo/bin
-        #source $(rustc --print sysroot)/etc/bash_completion.d/cargo
     fi
     if [[ -d ~/projects/go ]]; then
         export GOPATH=~/projects/go

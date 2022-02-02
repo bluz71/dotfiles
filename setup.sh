@@ -17,6 +17,9 @@ ln -s dotfiles/tmux.conf    .tmux.conf
 ln -s dotfiles/vim/         .vim
 ln -s dotfiles/vimrc        .vimrc
 
+mkdir -p .local/share/bash-completion
+ln -s ~/dotfiles/completions .local/share/bash-completion
+
 mkdir -p .config/nvim
 ln -s ~/dotfiles/init.vim .config/nvim/init.vim
 
