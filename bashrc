@@ -220,6 +220,9 @@ custom_config() {
     export _ZO_MAXAGE='1000'
     export _ZO_FZF_OPTS='
       --no-sort --height 75% --reverse --exit-0 --select-1
+      --bind ctrl-f:page-down,ctrl-b:page-up
+      --bind pgdn:preview-page-down,pgup:preview-page-up
+      --prompt="❯ "
       --preview "exa --color=always --group-directories-first --oneline {2..}"
     '
 
