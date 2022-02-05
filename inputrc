@@ -23,7 +23,7 @@
 "\eD": "\eF\C-w"
 "\eu": undo
 "\ee": edit-and-execute-command
-"\C-u": "cd ..\n"
+"\C-u": "..\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
