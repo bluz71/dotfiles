@@ -183,10 +183,6 @@ brew_config() {
         . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
-    # 'z' utility.
-    _Z_NO_PROMPT_COMMAND=1
-    . $HOMEBREW_PREFIX/etc/profile.d/z.sh
-
     # 'fzf' utility.
     . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
 }
@@ -219,8 +215,13 @@ custom_config() {
     export FZF_ALT_C_COMMAND='fd --type d . --color=never'
     export FZF_ALT_C_OPTS='--preview "tree -C {} | head -100"'
 
-    # 'zfz' (https://github.com/changyuheng/fz) utility.
-    . ~/dotfiles/profile.d/zfz.sh
+    # 'zoxide' utility.
+    eval "$(zoxide init bash)"
+    export _ZO_MAXAGE='1000'
+    export _ZO_FZF_OPTS='
+      --no-sort --height 75% --reverse --exit-0 --select-1
+      --preview "exa --color=always --group-directories-first --oneline {2..}"
+    '
 
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
@@ -437,7 +438,7 @@ path() {
 prompt() {
     # Please first install the seafly Bash prompt.
     #   git clone https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
-    SEAFLY_PRE_COMMAND="history -a"
+    SEAFLY_PRE_COMMAND="history -a;__zoxide_hook"
     SEAFLY_GIT_PREFIX=" "
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
