@@ -79,7 +79,7 @@ colors:
   # Search colors
   search:
     matches:
-      background: '#e3c78a'
+      background: '#f09479'
       foreground: '#080808'
     bar:
       background: '#e3c78a'
