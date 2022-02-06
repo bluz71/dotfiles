@@ -38,4 +38,7 @@ treesitter.setup({
       },
     },
   },
+  endwise = {
+    enable = true,
+  },
 })

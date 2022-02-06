@@ -135,6 +135,7 @@ packer.startup(function()
   -----------------------------
   use({
     "nvim-treesitter/nvim-treesitter",
+    commit = "baf9421",
     run = ":TSUpdate",
     config = function()
       require("plugin.treesitter")
@@ -200,6 +201,8 @@ packer.startup(function()
       require("plugin.pear-tree")
     end,
   })
+
+  use("RRethy/nvim-treesitter-endwise")
 
   -----------------------------
   -- Development plugins
