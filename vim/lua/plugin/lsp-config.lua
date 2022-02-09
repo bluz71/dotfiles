@@ -86,6 +86,13 @@ nvim_lsp.html.setup({
   flags = { debounce_text_changes = 300 },
 })
 
+nvim_lsp.rust_analyzer.setup({
+  on_attach = lsp_on_attach,
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 300 },
+  root_dir = nvim_lsp.util.root_pattern("Cargo.toml"),
+})
+
 nvim_lsp.solargraph.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,

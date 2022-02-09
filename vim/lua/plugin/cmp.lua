@@ -53,10 +53,10 @@ cmp.setup({
 vim.cmd([[
   augroup CmpPluginEvents
     autocmd!
-    autocmd FileType dart,eruby,html,javascript,ruby lua require('cmp').setup.buffer(
+    autocmd FileType dart,eruby,html,javascript,ruby,rust lua require('cmp').setup.buffer(
     \  {sources = {
-    \    {name = 'nvim_lsp', keyword_length = 2, max_item_count = 10},
-    \    {name = 'vsnip', keyword_length = 2, max_item_count = 5},
+    \    {name = 'nvim_lsp', keyword_length = 3, max_item_count = 10},
+    \    {name = 'vsnip', keyword_length = 3, max_item_count = 5},
     \    {name = 'buffer', keyword_length = 4, max_item_count = 10},
     \  }
     \})

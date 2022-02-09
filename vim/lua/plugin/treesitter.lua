@@ -14,7 +14,7 @@ treesitter.setup({
   },
   indent = {
     enable = true,
-    disable = { "ruby", "yaml" },
+    disable = { "ruby", "rust", "yaml" },
   },
   textobjects = {
     select = {
