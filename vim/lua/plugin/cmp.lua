@@ -6,10 +6,7 @@ end
 local cmp = require("cmp")
 
 cmp.setup({
-  documentation = {
-    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-    winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-  },
+  documentation = false,
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
