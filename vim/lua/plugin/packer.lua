@@ -239,7 +239,7 @@ packer.startup(function()
 
   use({
     "hrsh7th/vim-vsnip",
-    ft = { "dart", "html", "javascript", "markdown", "ruby" },
+    ft = { "dart", "html", "javascript", "markdown", "ruby", "rust" },
     config = function()
       require("plugin.vsnip")
     end,
