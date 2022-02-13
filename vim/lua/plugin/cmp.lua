@@ -5,7 +5,7 @@ end
 
 local cmp = require("cmp")
 
-cmp.setup({
+cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
   documentation = false,
   formatting = {
     format = function(entry, vim_item)
@@ -45,17 +45,9 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
+  sources = {
+    { name = "nvim_lsp", keyword_length = 3, max_item_count = 10 },
+    { name = "vsnip", keyword_length = 3, max_item_count = 5 },
+    { name = "buffer", keyword_length = 4, max_item_count = 10 },
+  },
 })
-
-vim.cmd([[
-  augroup CmpPluginEvents
-    autocmd!
-    autocmd FileType dart,eruby,html,javascript,ruby,rust lua require('cmp').setup.buffer(
-    \  {sources = {
-    \    {name = 'nvim_lsp', keyword_length = 3, max_item_count = 10},
-    \    {name = 'vsnip', keyword_length = 3, max_item_count = 5},
-    \    {name = 'buffer', keyword_length = 4, max_item_count = 10},
-    \  }
-    \})
-  augroup END
-]])
