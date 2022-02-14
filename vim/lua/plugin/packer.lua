@@ -280,8 +280,6 @@ packer.startup(function()
 
   -- Speed up Neovim startup time.
   use("lewis6991/impatient.nvim")
-  -- Also speed up Neovim startup time.
-  use("nathom/filetype.nvim")
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   use("antoinemadec/FixCursorHold.nvim")
