@@ -216,6 +216,10 @@ packer.startup(function()
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
+    ft = {
+      "css", "dart", "javascript", "json", "lua", "markdown", "ruby", "rust",
+      "scss", "yaml",
+    },
     config = function()
       require("plugin.null-ls")
     end,
