@@ -1,6 +1,5 @@
 local g = vim.g
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true }
+local map = vim.keymap.set
 
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
   -- This looks like a Rails project.
@@ -41,16 +40,16 @@ if vim.fn.filereadable("config/routes.rb") ~= 0 then
     },
   }
 
-  map("n", "<Leader>a", ":A<CR>", opts)
-  map("n", "<Leader>eb", ":Ebuilder<Space>", opts)
-  map("n", "<Leader>ec", ":Econtroller<Space>", opts)
-  map("n", "<Leader>eh", ":Ehelper<Space>", opts)
-  map("n", "<Leader>ei", ":Einitializer<Space>", opts)
-  map("n", "<Leader>ej", ":Ejavascript<Space>", opts)
-  map("n", "<Leader>em", ":Emodel<Space>", opts)
-  map("n", "<Leader>es", ":Estylesheets<Space>", opts)
-  map("n", "<Leader>et", ":Espec<Space>", opts)
-  map("n", "<Leader>ev", ":Eview<Space>", opts)
+  map("n", "<Leader>a", ":A<CR>")
+  map("n", "<Leader>eb", ":Ebuilder<Space>")
+  map("n", "<Leader>ec", ":Econtroller<Space>")
+  map("n", "<Leader>eh", ":Ehelper<Space>")
+  map("n", "<Leader>ei", ":Einitializer<Space>")
+  map("n", "<Leader>ej", ":Ejavascript<Space>")
+  map("n", "<Leader>em", ":Emodel<Space>")
+  map("n", "<Leader>es", ":Estylesheets<Space>")
+  map("n", "<Leader>et", ":Espec<Space>")
+  map("n", "<Leader>ev", ":Eview<Space>")
 elseif vim.fn.filereadable("src/index.js") ~= 0 then
   -- This looks like a React project.
   g.projectionist_heuristics = {
@@ -70,8 +69,8 @@ elseif vim.fn.filereadable("src/index.js") ~= 0 then
     },
   }
 
-  map("n", "<Leader>a", ":A<CR>", opts)
-  map("n", "<Leader>ec", ":Ecomponent<Space>", opts)
-  map("n", "<Leader>es", ":Estylesheet<Space>", opts)
-  map("n", "<Leader>et", ":Etest<Space>", opts)
+  map("n", "<Leader>a", ":A<CR>")
+  map("n", "<Leader>ec", ":Ecomponent<Space>")
+  map("n", "<Leader>es", ":Estylesheet<Space>")
+  map("n", "<Leader>et", ":Etest<Space>")
 end

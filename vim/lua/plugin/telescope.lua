@@ -42,23 +42,23 @@ telescope.setup({
 telescope.load_extension("fzf")
 
 -- Mappings.
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-map("n", "<Space><Space>", '<cmd>lua require("telescope.builtin").find_files()<CR>', opts)
-map("n", "<Space>.", '<cmd>lua require("telescope.builtin").find_files({cwd = "%:h"})<CR>', opts)
-map("n", "<Space>,", '<cmd>lua require("telescope.builtin").buffers()<CR>', opts)
-map("n", "<Space>'", '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', opts)
-map("n", "<Space>c", '<cmd>lua require("util.telescope-commands").git_bcommits()<CR>', opts)
-map("n", "<Space>g", '<cmd>lua require("util.telescope-commands").git_status()<CR>', opts)
-map("n", "<Space>h", '<cmd>lua require("telescope.builtin").help_tags()<CR>', opts)
-map("n", "<Space>i", '<cmd>lua require("telescope.builtin").highlights()<CR>', opts)
-map("n", "<Space>o", '<cmd>lua require("telescope.builtin").oldfiles()<CR>', opts)
-map("n", "<Space>]", '<cmd>lua require("telescope.builtin").tags()<CR>', opts)
-map("n", "<Space>/", '<cmd>lua require("telescope.builtin").grep_string({search = vim.fn.input("grep ❯ ")})<CR>', opts)
-map("n", "<Space>r", '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
-map("n", "<Space>lw", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>', opts)
-map("n", "<Space>lW", '<cmd>lua require("telescope.builtin").lsp_workspace_symbols({query = vim.fn.input("LSP Workspace Symbols❯ ")})<CR>', opts)
+local map = vim.keymap.set
+map("n", "<Space><Space>", '<cmd>lua require("telescope.builtin").find_files()<CR>')
+map("n", "<Space>.", '<cmd>lua require("telescope.builtin").find_files({cwd = "%:h"})<CR>')
+map("n", "<Space>,", '<cmd>lua require("telescope.builtin").buffers()<CR>')
+map("n", "<Space>'", '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>')
+map("n", "<Space>c", '<cmd>lua require("util.telescope-commands").git_bcommits()<CR>')
+map("n", "<Space>g", '<cmd>lua require("util.telescope-commands").git_status()<CR>')
+map("n", "<Space>h", '<cmd>lua require("telescope.builtin").help_tags()<CR>')
+map("n", "<Space>i", '<cmd>lua require("telescope.builtin").highlights()<CR>')
+map("n", "<Space>o", '<cmd>lua require("telescope.builtin").oldfiles()<CR>')
+map("n", "<Space>]", '<cmd>lua require("telescope.builtin").tags()<CR>')
+map("n", "<Space>/", '<cmd>lua require("telescope.builtin").grep_string({search = vim.fn.input("grep ❯ ")})<CR>')
+map("n", "<Space>r", '<cmd>lua require("telescope.builtin").lsp_references()<CR>')
+map("n", "<Space>lw", '<cmd>lua require("telescope.builtin").lsp_document_symbols()<CR>')
+map("n", "<Space>lW", '<cmd>lua require("telescope.builtin").lsp_workspace_symbols({query = vim.fn.input("LSP Workspace Symbols❯ ")})<CR>')
 
+local opts = { silent = true }
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
   map("n", "<Space>ec", ":Telescope find_files cwd=app/controllers<CR>", opts)
   map("n", "<Space>eh", ":Telescope find_files cwd=app/helpers<CR>", opts)

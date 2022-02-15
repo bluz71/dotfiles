@@ -10,7 +10,7 @@ local dart_closing_labels = require("util.dart-closing-labels")
 local diagnostic_style = require("util.diagnostic-style")
 local fn = vim.fn
 local lsp = vim.lsp
-local map = vim.api.nvim_buf_set_keymap
+local map = vim.keymap.set
 
 -- Diagnostic symbols for display in the sign column.
 vim.cmd([[
@@ -27,25 +27,25 @@ vim.diagnostic.config(diagnostic_style.config())
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
-  local opts = { noremap = true, silent = true }
-  map(0, "n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  map(0, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  map(0, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  map(0, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  map(0, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  map(0, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  map(0, "n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  map(0, "i", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  map(0, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-  map(0, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-  map(0, "n", "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
+  local opts = { buffer = 0 }
+  map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+  map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+  map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+  map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+  map("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  map("i", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+  map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+  map("n", "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
 
   -- Formatting is conditional on server capabilities.
   if client.resolved_capabilities.document_formatting then
-    map(0, "n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
   end
   if client.resolved_capabilities.document_range_formatting then
-    map(0, "x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
+    map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
   end
 
   -- Disable formatting for certain Language Servers; instead let null-ls handle

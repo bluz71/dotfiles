@@ -9,6 +9,4 @@ npairs.setup({
 
 -- Map 'Enter'.
 _G.npairs = npairs
-local map = vim.api.nvim_set_keymap
-local opts = { expr = true, noremap = true }
-map("i", "<CR>", "v:lua.npairs.autopairs_cr()", opts)
+vim.keymap.set("i", "<CR>", "v:lua.npairs.autopairs_cr()", { expr = true })

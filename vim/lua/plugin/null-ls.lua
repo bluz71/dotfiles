@@ -5,19 +5,19 @@ end
 
 local null_ls = require("null-ls")
 local custom_sources = require("util.null-ls-sources")
-local map = vim.api.nvim_buf_set_keymap
+local map = vim.keymap.set
 
 null_ls.setup({
   on_attach = function(client)
     -- Borrow existing diagnostic and formatting mappings from the LSP
     -- configuration. Whether a filetype is attached to a language server, or
     -- not, the following mappings will work for null-ls.
-    local opts = { noremap = true, silent = true }
-    map(0, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-    map(0, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-    map(0, "n", "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
-    map(0, "n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-    map(0, "x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
+    local opts = { buffer = 0 }
+    map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+    map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+    map("n", "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
+    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+    map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
   end,
   sources = {
     -- Builtin diagnostics.
