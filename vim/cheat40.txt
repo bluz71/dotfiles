@@ -179,6 +179,7 @@ Sibling files            ‹Spc›.       %N
 Buffers                  ‹Spc›,        N
 Delete buffer            ‹Alt-d›       N
 Current buffer search    ‹Spc›'        N
+Resume previous state    ‹Spc›r        N
 Buffer commits           ‹Spc›c        N
 Git status               ‹Spc›g        N
 Vim help                 ‹Spc›h        N
@@ -186,7 +187,7 @@ Highlights               ‹Spc›i        N
 Old files                ‹Spc›o        N
 Project tags             ‹Spc›]        N
 Ripgrep                  ‹Spc›/        N
-LSP references           ‹Spc›r        N
+LSP references           ‹Spc›lr       N
 LSP document symbols     ‹Spc›lw       N
 LSP workspace symbols    ‹Spc›lW       N
 Rails controller files   ‹Spc›ec       N
