@@ -162,8 +162,12 @@ key_bindings:
   - { key: P,        mods: Alt,       chars: "\x1bp" }
   - { key: Q,        mods: Alt,       chars: "\x1bq" }
   - { key: Q,        mods: Control,   chars: "\x11"  }
+  - { key: S,        mods: Alt,       chars: "\x1bs" }
   - { key: U,        mods: Alt,       chars: "\x1bu" }
+  - { key: V,        mods: Alt,       chars: "\x1bv" }
   - { key: W,        mods: Alt,       chars: "\x1bw" }
+  - { key: Y,        mods: Alt,       chars: "\x1by" }
+  - { key: Z,        mods: Alt,       chars: "\x1bz" }
   - { key: Key1,     mods: Alt,       chars: "\x1b1" }
   - { key: Key2,     mods: Alt,       chars: "\x1b2" }
   - { key: Key3,     mods: Alt,       chars: "\x1b3" }
@@ -174,3 +178,5 @@ key_bindings:
   - { key: Key8,     mods: Alt,       chars: "\x1b8" }
   - { key: Key9,     mods: Alt,       chars: "\x1b9" }
   - { key: Period,   mods: Alt,       chars: "\x1b." }
+  - { key: Period,   mods: Alt|Shift, chars: "\x1b>" }
+  - { key: Comma,    mods: Alt|Shift, chars: "\x1b<" }
