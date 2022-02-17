@@ -154,9 +154,8 @@ packer.startup(function()
   -----------------------------
   use({
     "numToStr/Comment.nvim",
-    requires = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
+    requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    event = "BufRead",
     config = function()
       require("plugin.comment")
     end,
@@ -228,6 +227,7 @@ packer.startup(function()
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
+    event = "BufRead",
     config = function()
       require("plugin.gitsigns")
     end,
