@@ -91,6 +91,14 @@ nvim_lsp.rust_analyzer.setup({
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("Cargo.toml"),
+  settings = {
+    ['rust-analyzer'] = {
+      checkOnSave = {
+        command = "clippy",
+        extraArgs = { "--", "-Aclippy::needless_return" }
+      }
+    }
+  }
 })
 
 nvim_lsp.solargraph.setup({
