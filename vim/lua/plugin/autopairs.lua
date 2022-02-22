@@ -3,7 +3,7 @@ local Rule = require("nvim-autopairs.rule")
 local cond = require("nvim-autopairs.conds")
 
 npairs.setup({
-  disable_filetype = { "txt", "TelescopePrompt" },
+  disable_filetype = { "text", "txt", "TelescopePrompt" },
   fast_wrap = {},
 })
 
