@@ -16,7 +16,7 @@ null_ls.setup({
     map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
     map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     map("n", "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>', opts)
-    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 3000)<CR>", opts)
     map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
   end,
   sources = {
