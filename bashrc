@@ -6,7 +6,7 @@ unalias -a
 #
 # -- Coreutils aliases --
 alias cp='/bin/cp -iv'
-alias mc='_f() { mkdir -p "$@" && z "$@"; }; _f'
+alias mc='_f() { mkdir -p "$@" && command cd "$@"; }; _f'
 alias mv='/bin/mv -iv'
 alias rd='rmdir -p -v'
 alias rm='/bin/rm -i'
@@ -16,10 +16,10 @@ alias 664='chmod 664'
 alias 775='chmod 775'
 # -- Navigation aliases --
 alias cd='_f() { echo "Use z instead of cd"; cd "$@"; }; _f'
-alias -- -='z -'
-alias ...='z ../..'
-alias ....='z ../../..'
-alias zf='fzf_change_directory'
+alias -- -='command cd -'
+alias ...='command cd ../..'
+alias ....='command cd ../../..'
+alias cf='fzf_change_directory'
 # -- Disk aliases --
 alias df.='df -h .'
 alias du='du -b'
@@ -29,7 +29,7 @@ alias d='docker'
 alias dc='docker-compose'
 # -- Git aliases --
 alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
-alias g~='z "$(git rev-parse --show-toplevel)"'
+alias g~='command cd "$(git rev-parse --show-toplevel)"'
 alias ga='fzf_git_add'
 alias gll='fzf_git_log clean'
 alias glla='fzf_git_log all'
@@ -289,7 +289,7 @@ fzf_change_directory() {
           --preview 'tree -C {} | head -100'
       )
     if [[ -n $directory ]]; then
-        z "$directory"
+        command cd "$directory"
     fi
 }
 
