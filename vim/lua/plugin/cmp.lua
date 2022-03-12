@@ -50,4 +50,11 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
     { name = "vsnip", keyword_length = 3, max_item_count = 5 },
     { name = "buffer", keyword_length = 4, max_item_count = 10 },
   },
+  -- window = {
+  --   completion = {
+  --     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  --     winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+  --   },
+  --   documentation = false,
+  -- },
 })
