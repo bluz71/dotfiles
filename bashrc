@@ -66,7 +66,7 @@ alias tdl='tree -C -d -L'
 alias tl='tree -C --dirsfirst -L'
 # -- Vim aliases --
 alias gv='gvim 2> /dev/null'
-alias v='nvim'
+alias v='TERM=alacritty nvim'
 alias vdi='nvim -d'
 alias vf='fzf_find_edit'
 alias vg='grep_edit'
