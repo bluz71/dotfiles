@@ -103,6 +103,10 @@ if has('nvim')
     let g:did_load_filetypes = 0
     " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
     let $LESS = '-RS'
+
+    " Example fill chars for thicker window dividers when using `set laststatus=3`.
+    "  set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
+    "  vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
 else
     set nocompatible
     set cryptmethod=blowfish2
