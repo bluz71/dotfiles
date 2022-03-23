@@ -94,6 +94,7 @@ set wrap              " Wrap long lines
 
 " Options specific to Neovim or Vim.
 if has('nvim')
+    set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
     set list
     set listchars=tab:\ \ ,trail:-
     set shada='200,<50,s10,h
@@ -103,10 +104,6 @@ if has('nvim')
     let g:did_load_filetypes = 0
     " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
     let $LESS = '-RS'
-
-    " Example fill chars for thicker window dividers when using `set laststatus=3`.
-    "  set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
-    "  vim.opt.fillchars = { horiz = '━', horizup = '┻', horizdown = '┳', vert = '┃', vertleft = '┫', vertright = '┣', verthoriz = '╋', }
 else
     set nocompatible
     set cryptmethod=blowfish2
