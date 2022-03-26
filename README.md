@@ -37,12 +37,7 @@ Run `ssh` to create its dot directory then do:
 cp ~/dotfiles/ssh_config ~/.ssh/config
 ```
 
-Sponsor
--------
-
-[![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bluz71)
-
 License
 -------
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](https://unlicense.org/)
