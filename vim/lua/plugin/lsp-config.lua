@@ -12,6 +12,10 @@ local fn = vim.fn
 local lsp = vim.lsp
 local map = vim.keymap.set
 
+-- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
+-- functions.
+vim.diagnostic.config(diagnostic_style.config())
+
 -- Diagnostic symbols for display in the sign column.
 vim.cmd([[
   sign define DiagnosticSignError text=▶ texthl=DiagnosticSignError
@@ -19,10 +23,6 @@ vim.cmd([[
   sign define DiagnosticSignInfo  text=▶ texthl=DiagnosticSignInfo
   sign define DiagnosticSignHint  text=▶ texthl=DiagnosticSignHint
 ]])
-
--- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
--- functions.
-vim.diagnostic.config(diagnostic_style.config())
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
@@ -57,7 +57,6 @@ local lsp_on_attach = function(client)
 end
 
 -- Global handlers.
-lsp.handlers["textDocument/publishDiagnostics"] = handlers.diagnostics
 lsp.handlers["textDocument/hover"] = handlers.hover
 lsp.handlers["textDocument/signatureHelp"] = handlers.signature_help
 

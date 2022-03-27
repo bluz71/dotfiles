@@ -4,13 +4,13 @@ let g:diagnosticsActive = v:true
 "
 function! diagnostics#Toggle() abort
     if g:diagnosticsActive == v:true
-        lua require('util.diagnostic-display').disable()
+        lua vim.diagnostic.disable()
         " Disable statusline indicators.
         let g:moonflyWithNvimDiagnosticIndicator = v:false
         echo '(Diagnostics) OFF'
         let g:diagnosticsActive = v:false
     else
-        lua require('util.diagnostic-display').enable()
+        lua vim.diagnostic.enable()
         " Enable statusline indicators.
         let g:moonflyWithNvimDiagnosticIndicator = v:true
         echo '(Diagnostics) ON'

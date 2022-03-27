@@ -1,23 +1,18 @@
-local diagnostic_style = require("util.diagnostic-style")
+local lsp = vim.lsp
 
 local M = {}
 
--- Custom diagnostic handler.
-M.diagnostics = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  diagnostic_style.config()
-)
-
--- Empty diagnostic handler.
+-- Empty diagnostic handler, useful for when we wish to ignore a language
+-- server's diagnostics.
 M.no_diagnostics = function() end
 
 -- Add borders to hover windows.
-M.hover = vim.lsp.with(vim.lsp.handlers.hover, {
+M.hover = lsp.with(lsp.handlers.hover, {
   border = "single",
 })
 
 -- Also add borders to signature help windows.
-M.signature_help = vim.lsp.with(vim.lsp.handlers.signature_help, {
+M.signature_help = lsp.with(lsp.handlers.signature_help, {
   border = "single",
 })
 
