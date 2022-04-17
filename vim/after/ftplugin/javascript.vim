@@ -7,4 +7,5 @@ let b:pear_tree_pairs = {
             \          },
             \ }
 
+setlocal formatoptions=tcqj
 setlocal shiftwidth=2
