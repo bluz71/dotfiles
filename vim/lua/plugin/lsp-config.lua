@@ -31,13 +31,19 @@ local lsp_on_attach = function(client)
   if client.resolved_capabilities.document_range_formatting then
     map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
   end
+end
 
-  -- Disable formatting for certain Language Servers; instead let null-ls handle
-  -- formatting for the pertinent filetypes.
-  if client.name == "dartls" or client.name == "solargraph" or client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
+-- Custom on attach function which also disables formatting where null-ls will
+-- be used to format.
+local lsp_on_attach_no_formatting = function(client)
+  -- Neovim 0.7 API.
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+  -- Neovim 0.8 API.
+  -- client.server_capabilities.document_formatting = false
+  -- client.server_capabilities.document_range_formatting = false
+
+  lsp_on_attach(client)
 end
 
 -- Global handlers.
@@ -51,7 +57,7 @@ capabilities = cmp_lsp.update_capabilities(capabilities)
 
 -- The Language Servers.
 nvim_lsp.dartls.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   init_options = { closingLabels = true },
@@ -75,17 +81,17 @@ nvim_lsp.rust_analyzer.setup({
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("Cargo.toml"),
   settings = {
-    ['rust-analyzer'] = {
+    ["rust-analyzer"] = {
       checkOnSave = {
         command = "clippy",
-        extraArgs = { "--", "-Aclippy::needless_return" }
-      }
-    }
-  }
+        extraArgs = { "--", "-Aclippy::needless_return" },
+      },
+    },
+  },
 })
 
 nvim_lsp.solargraph.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   single_file_support = true, -- Allow LSP to work in standalone Ruby scripts
@@ -93,7 +99,7 @@ nvim_lsp.solargraph.setup({
 })
 
 nvim_lsp.tsserver.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("package.json"),
