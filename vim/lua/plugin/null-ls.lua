@@ -9,11 +9,11 @@ local map = vim.keymap.set
 
 null_ls.setup({
   on_attach = function(client)
-    -- Borrow existing diagnostic and formatting mappings from the LSP
-    -- configuration. Whether a filetype is attached to a language server, or
-    -- not, the following mappings will work for null-ls.
+    -- Borrow existing formatting mappings from the LSP configuration. Whether a
+    -- filetype is attached to a language server, or not, the following mappings
+    -- will work for null-ls.
     local opts = { buffer = 0 }
-    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 3000)<CR>", opts)
+    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 8000)<CR>", opts)
     map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
   end,
   sources = {

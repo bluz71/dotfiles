@@ -26,7 +26,7 @@ local lsp_on_attach = function(client)
 
   -- Formatting is conditional on server capabilities.
   if client.resolved_capabilities.document_formatting then
-    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 3000)<CR>", opts)
+    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
   end
   if client.resolved_capabilities.document_range_formatting then
     map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
