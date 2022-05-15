@@ -48,6 +48,7 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
     { name = "nvim_lsp", keyword_length = 3, max_item_count = 10 },
     { name = "vsnip", keyword_length = 3, max_item_count = 5 },
     { name = "buffer", keyword_length = 4, max_item_count = 10 },
+    { name = 'nvim_lsp_signature_help' },
   },
   window = {
     completion = cmp.config.window.bordered({
