@@ -50,10 +50,9 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
     { name = "buffer", keyword_length = 4, max_item_count = 10 },
   },
   window = {
-    completion = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    completion = cmp.config.window.bordered({
       winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
-    },
+    }),
     documentation = false,
   },
 })
