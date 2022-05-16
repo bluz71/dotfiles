@@ -13,18 +13,24 @@ null_ls.setup({
     return not (vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > 100000)
   end,
   on_attach = function(client)
-    -- Borrow existing formatting mappings from the LSP configuration. Whether a
-    -- filetype is attached to a language server, or not, the following mappings
+    -- Borrow existing formatting mapping from the LSP configuration. Whether a
+    -- filetype is attached to a language server, or not, the following mapping
     -- will work for null-ls.
     local opts = { buffer = 0 }
+    -- Neovim 0.7 API.
     map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync(nil, 8000)<CR>", opts)
-    map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
+    -- Neovim 0.8 API.
+    -- map("n", "'f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 8000 })<CR>", opts)
   end,
   sources = {
     -- Builtin diagnostics.
     null_ls.builtins.diagnostics.jsonlint,
     null_ls.builtins.diagnostics.mdl,
-    null_ls.builtins.diagnostics.standardjs,
+    null_ls.builtins.diagnostics.standardjs.with({
+      condition = function(utils)
+        return utils.root_has_file("package.json")
+      end,
+    }),
     null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.diagnostics.yamllint,
 
@@ -38,7 +44,7 @@ null_ls.setup({
       extra_args = {
         "--column-width", "100",
         "--indent-type", "Spaces",
-        "--indent-width", "2"
+        "--indent-width", "2",
       },
     }),
 
