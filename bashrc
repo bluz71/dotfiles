@@ -159,17 +159,31 @@ fi
 # Functions.
 #
 brew_config() {
-    if ! [[ -x $(command -v brew) ]]; then
-        echo 'Note: brew is not installed.'
-        return
-    fi
-
-    # Derived from 'brew shellenv' output.
     if [[ $OS == Linux ]]; then
+        if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew) ]]; then
+            echo 'Note: brew is not installed.'
+            return
+        fi
         export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
         export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
         export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
-    elif [[ $OS = Darwin ]]; then
+        PATH=$HOMEBREW_PREFIX/bin:$PATH
+        MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
+    elif [[ $OS = Darwin ]] && [[ $(uname -m) == arm64 ]]; then
+        if ! [[ -x $(command -v /opt/homebrew/bin/brew) ]]; then
+            echo 'Note: brew is not installed.'
+            return
+        fi
+        export HOMEBREW_PREFIX="/opt/homebrew";
+        export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+        export HOMEBREW_REPOSITORY="/opt/homebrew/Homebrew"
+        PATH=$HOMEBREW_PREFIX/bin:$PATH
+        MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
+    elif [[ $OS = Darwin ]] && [[ $(uname -m) == x86_64 ]]; then
+        if ! [[ -x $(command -v /usr/local/bin/brew) ]]; then
+            echo 'Note: brew is not installed.'
+            return
+        fi
         export HOMEBREW_PREFIX="/usr/local";
         export HOMEBREW_CELLAR="/usr/local/Cellar";
         export HOMEBREW_REPOSITORY="/usr/local/Homebrew"
@@ -433,9 +447,6 @@ path() {
     if [[ $OS = Darwin ]]; then
         PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
         MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-    elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-        PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-        MANPATH=/home/linuxbrew/.linuxbrew/share/man:$MANPATH
     fi
 
     PATH=~/binaries:~/scripts:$PATH
