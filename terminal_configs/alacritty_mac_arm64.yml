@@ -4,7 +4,7 @@ window:
   # Window dimensions (changes require restart)
   dimensions:
     columns: 90
-    lines: 38
+    lines: 42
 
   # Window position (changes require restart)
   position:
@@ -43,7 +43,7 @@ font:
     style: Light Italic
 
   # Point size
-  size: 14.5
+  size: 15.0
 
   # Offset is the extra space around each character.
   offset:
