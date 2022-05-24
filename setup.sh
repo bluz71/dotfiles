@@ -5,7 +5,6 @@ git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-
 cd ~
 ln -s dotfiles/bash_profile .bash_profile
 ln -s dotfiles/bashrc       .bashrc
-ln -s dotfiles/eslintrc.yml .eslintrc.yml
 ln -s dotfiles/gitconfig    .gitconfig
 ln -s dotfiles/gvimrc       .gvimrc
 ln -s dotfiles/iex.exs      .iex.exs
