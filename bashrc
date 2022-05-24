@@ -147,10 +147,10 @@ if [[ $OS = Linux ]]; then
     alias ssh-add='/usr/bin/ssh-add'
     alias updatedb='sudo /usr/bin/updatedb'
 elif [[ $OS = Darwin ]]; then
-    alias cpa='/usr/local/bin/gcp -i -a'
-    alias scp='/usr/local/bin/scp -r'
-    alias ssh='/usr/local/bin/ssh'
-    alias ssh-add='/usr/local/bin/ssh-add'
+    alias cpa='$HOMEBREW_PREFIX/gcp -i -a'
+    alias scp='$HOMEBREW_PREFIX/scp -r'
+    alias ssh='$HOMEBREW_PREFIX/ssh'
+    alias ssh-add='$HOMEBREW_PREFIX/ssh-add'
     alias updatedb='PATH=/usr/bin:$PATH sudo /usr/libexec/locate.updatedb'
     export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
 fi
