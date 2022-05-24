@@ -177,8 +177,8 @@ brew_config() {
         export HOMEBREW_PREFIX="/opt/homebrew";
         export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
         export HOMEBREW_REPOSITORY="/opt/homebrew/Homebrew"
-        PATH=$HOMEBREW_PREFIX/bin:$PATH
-        MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
+        PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
+        MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
     elif [[ $OS = Darwin ]] && [[ $(uname -m) == x86_64 ]]; then
         if ! [[ -x $(command -v /usr/local/bin/brew) ]]; then
             echo 'Note: brew is not installed.'
@@ -187,6 +187,8 @@ brew_config() {
         export HOMEBREW_PREFIX="/usr/local";
         export HOMEBREW_CELLAR="/usr/local/Cellar";
         export HOMEBREW_REPOSITORY="/usr/local/Homebrew"
+        PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH
+        MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH
     fi
 
     # Manually load Bash Completion, only needed for Mac since we don't brew
@@ -444,11 +446,6 @@ navi_cheats() {
 path() {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
-    if [[ $OS = Darwin ]]; then
-        PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/gnu-tar/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
-        MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-    fi
-
     PATH=~/binaries:~/scripts:$PATH
 }
 
