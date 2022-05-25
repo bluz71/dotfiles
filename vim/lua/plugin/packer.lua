@@ -1,12 +1,15 @@
--- Bootstrap packer.nvim.
+-- Bootstrap packer.
 local fn = vim.fn
-local command = vim.api.nvim_command
 local packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_compiled_path = fn.stdpath("config") .. "/lua/packer_compiled.lua"
+local packer_bootstrap
 if fn.empty(fn.glob(packer_path)) > 0 then
-  command("\rm -f " .. packer_compiled_path)
-  command("!git clone https://github.com/wbthomason/packer.nvim " .. packer_path)
-  command("packadd packer.nvim")
+  packer_bootstrap = fn.system({ "rm", "-f", packer_compiled_path })
+  fn.system({
+    "git", "clone", "--depth", "1",
+    "https://github.com/wbthomason/packer.nvim",
+    packer_path,
+  })
 end
 
 if fn.filereadable(packer_compiled_path) then
@@ -298,4 +301,9 @@ packer.startup(function()
   -- ~/dotfiles/vim/plugin/cheat40.vim
   use("gregsexton/MatchTag")
   use("dstein64/vim-startuptime")
+
+  -- Bootstrap packer on fresh installations.
+  if packer_bootstrap then
+    packer.sync()
+  end
 end)
