@@ -10,8 +10,12 @@ local map = vim.keymap.set
 null_ls.setup({
   should_attach = function(bufnr)
     -- Disable null-ls for files larger than 100K in size.
-    print("(null-ls) DISABLED, file too large")
-    return not (vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > 100000)
+    if (vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) > 100000) then
+      print("(null-ls) DISABLED, file too large")
+      return false
+    else
+      return true
+    end
   end,
   on_attach = function(client)
     -- Borrow existing formatting mapping from the LSP configuration. Whether a
