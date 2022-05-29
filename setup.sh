@@ -36,5 +36,5 @@ if [ "$(uname)" = Linux ]; then
     ln -s ~/dotfiles/terminal_configs/Xresources .Xresources
     ln -s ~/dotfiles/terminal_configs/alacritty_linux.yml .config/alacritty/alacritty.yml
 elif [  "$(uname)" = Darwin ]; then
-    ln -s ~/dotfiles/terminal_configs/alacritty_mac.yml .config/alacritty/alacritty.yml
+    ln -s ~/dotfiles/terminal_configs/alacritty_mac_$(uname -m).yml .config/alacritty/alacritty.yml
 fi
