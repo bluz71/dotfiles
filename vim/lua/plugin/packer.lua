@@ -60,6 +60,13 @@ packer.startup(function()
     end,
   })
 
+  -- use("EdenEast/nightfox.nvim")
+  -- use("arcticicestudio/nord-vim")
+  -- use("folke/tokyonight.nvim")
+  -- use("joshdick/onedark.vim")
+  -- use("morhetz/gruvbox")
+  -- use("sainnhe/everforest")
+
   -----------------------------
   -- Style plugins
   -----------------------------
@@ -71,8 +78,8 @@ packer.startup(function()
     end,
   })
 
-  use("~/projects/public/vim-moonfly-statusline")
-  -- ~/dotfiles/vim/plugin/moonfly-statusline.vim
+  use("~/projects/public/vim-mistfly-statusline")
+  -- ~/dotfiles/vim/plugin/mistfly-statusline.vim
   use("gcmt/taboo.vim")
   -- ~/dotfiles/vim/plugin/taboo.vim
 
