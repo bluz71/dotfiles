@@ -19,8 +19,8 @@ Plug 'bluz71/vim-nightfly-guicolors'
 "-----------------------------
 " Style plugins
 "-----------------------------
-Plug 'bluz71/vim-moonfly-statusline'
-    " ~/dotfiles/vim/plugin/moonfly-statusline.vim
+Plug 'bluz71/vim-mistfly-statusline'
+    " ~/dotfiles/vim/plugin/mistfly-statusline.vim
 Plug 'gcmt/taboo.vim'
     " ~/dotfiles/vim/plugin/taboo.vim
 
