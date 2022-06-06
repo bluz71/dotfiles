@@ -1,18 +1,22 @@
 let g:diagnosticsActive = v:true
 
-" Toggle ALE diagnostics and LSP diagnostics.
+" Toggle Neovim diagnostics.
 "
 function! diagnostics#Toggle() abort
+    if !has('nvim')
+        return
+    endif
+
     if g:diagnosticsActive == v:true
         lua vim.diagnostic.disable()
-        " Disable statusline indicators.
-        let g:mistflyWithNvimDiagnosticIndicator = v:false
+        " Disable mistfly statusline diagnostic indicator.
+        let g:mistflyWithNvimDiagnosticIndicator = 0
         echo '(Diagnostics) OFF'
         let g:diagnosticsActive = v:false
     else
         lua vim.diagnostic.enable()
-        " Enable statusline indicators.
-        let g:mistflyWithNvimDiagnosticIndicator = v:true
+        " Enable mistfly statusline diagnostic indicator.
+        let g:mistflyWithNvimDiagnosticIndicator = 1
         echo '(Diagnostics) ON'
         let g:diagnosticsActive = v:true
     endif
