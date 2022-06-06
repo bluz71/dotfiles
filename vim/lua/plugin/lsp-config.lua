@@ -25,13 +25,14 @@ local lsp_on_attach = function(client)
   map("i", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
   -- Formatting is conditional on server capabilities.
-  if client.resolved_capabilities.document_formatting then
-    -- Neovim 0.7 API.
-    map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-    -- Neovim 0.8 API.
-    -- map("n", "'f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+  if client.server_capabilities.document_formatting then
+    if vim.fn.has("nvim-0.8") == 1 then
+      map("n", "'f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+    else
+      map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+    end
   end
-  if client.resolved_capabilities.document_range_formatting then
+  if client.server_capabilities.document_range_formatting then
     map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
   end
 end
@@ -39,12 +40,13 @@ end
 -- Custom on attach function which also disables formatting where null-ls will
 -- be used to format.
 local lsp_on_attach_no_formatting = function(client)
-  -- Neovim 0.7 API.
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
-  -- Neovim 0.8 API.
-  -- client.server_capabilities.document_formatting = false
-  -- client.server_capabilities.document_range_formatting = false
+  if vim.fn.has("nvim-0.8") == 1 then
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
+  else
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end
 
   lsp_on_attach(client)
 end
