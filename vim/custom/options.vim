@@ -108,5 +108,7 @@ else
     set nocompatible
     set cryptmethod=blowfish2
     set listchars=eol:$,tab:>-,trail:-
-    set wildoptions=fuzzy,pum
+    if has("patch-8.2.4325")
+        set wildoptions=pum
+    endif
 endif
