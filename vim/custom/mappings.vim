@@ -27,6 +27,14 @@ endif
 " Direct changes into the black hole register.
 nnoremap c "_c
 nnoremap C "_C
+if &wildoptions =~# "pum"
+    " Wild menu is set to popup menu, it is best to invert the meaning of
+    " up/down and left/right keys since this will be more natural
+    cnoremap <expr> <Up> pumvisible() ? '<Left>' : '<Up>'
+    cnoremap <expr> <Down> pumvisible() ? '<Right>' : '<Down>'
+    cnoremap <expr> <Left> pumvisible() ? '<Up>' : '<Left>'
+    cnoremap <expr> <Right> pumvisible() ? '<Down>' : '<Right>'
+endif
 
 "-----------------------------
 " Helper mappings
