@@ -125,7 +125,7 @@ nnoremap <silent> <Leader>s  :split<CR>:call window_traits#WinBar()<CR>
 nnoremap <silent> <Leader>v  :vsplit<CR>:call window_traits#WinBar()<CR>
 nnoremap <silent> <Leader>-  :botright new<CR><C-w>=:call window_traits#WinBar()<CR>
 nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=:call window_traits#WinBar()<CR>
-nnoremap <silent> <Leader>t  :$tabnew<CR>:call window_traits#WinBar()<CR>
+nnoremap <silent> <Leader>t  :$tabnew<CR>
 nnoremap <silent> <Leader>q  :close<CR>
 nnoremap <silent> <Leader>c  :cclose<CR>:lclose<CR>:pclose<CR>
 nnoremap <Leader>1           1gt

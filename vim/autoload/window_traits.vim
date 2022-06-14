@@ -52,7 +52,7 @@ function! window_traits#WinBar() abort
     " Enable mistfly 'winbar'.
     let g:mistflyWinBar = 1
 
-    " Redraw all windows to render the now activated winbar.
+    " Redraw both visible windows to render the now activated winbar.
     setlocal winbar=%!mistfly_statusline#ActiveWinBar()
     wincmd w
     wincmd p
