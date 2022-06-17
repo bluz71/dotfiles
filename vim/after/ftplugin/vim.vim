@@ -5,4 +5,5 @@ let b:pear_tree_pairs = {
             \ "'": {'closer': "'"},
             \ }
 
+setlocal formatoptions=tcqj
 setlocal shiftwidth=4
