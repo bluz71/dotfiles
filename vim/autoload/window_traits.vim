@@ -39,11 +39,11 @@ function! window_traits#Activity(active) abort
     endif
 endfunction
 
-" Activate Neovim's global 'statusline' and  'winbar' if a new window (split or
-" tab) is created.
+" Activate Neovim's global 'statusline' and  'winbar' if a new window is
+" created.
 "
 function! window_traits#WinBar() abort
-    if g:mistflyWinBar || !has('nvim-0.8')
+    if g:mistflyWinBar || &diff || !has('nvim-0.8')
         return
     endif
 
@@ -51,9 +51,4 @@ function! window_traits#WinBar() abort
     set laststatus=3
     " Enable mistfly 'winbar'.
     let g:mistflyWinBar = 1
-
-    " Redraw both visible windows to render the now activated winbar.
-    setlocal winbar=%!mistfly_statusline#ActiveWinBar()
-    wincmd w
-    wincmd p
 endfunction

@@ -48,5 +48,7 @@ augroup CustomEvents
         autocmd TextYankPost *
           \ silent! lua return (not vim.v.event.visual)
           \   and vim.highlight.on_yank({higroup='Visual', timeout=300})
+        " Enable global statusline and winbar when splitting windows.
+        autocmd WinLeave * :call window_traits#WinBar()
     endif
 augroup END

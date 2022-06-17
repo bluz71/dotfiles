@@ -121,10 +121,10 @@ nnoremap <C-Down> <C-y>
 "-----------------------------
 " Window managment mappings
 "-----------------------------
-nnoremap <silent> <Leader>s  :split<CR>:call window_traits#WinBar()<CR>
-nnoremap <silent> <Leader>v  :vsplit<CR>:call window_traits#WinBar()<CR>
-nnoremap <silent> <Leader>-  :botright new<CR><C-w>=:call window_traits#WinBar()<CR>
-nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=:call window_traits#WinBar()<CR>
+nnoremap <silent> <Leader>s  :split<CR>
+nnoremap <silent> <Leader>v  :vsplit<CR>
+nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
+nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
 nnoremap <silent> <Leader>t  :$tabnew<CR>
 nnoremap <silent> <Leader>q  :close<CR>
 nnoremap <silent> <Leader>c  :cclose<CR>:lclose<CR>:pclose<CR>
