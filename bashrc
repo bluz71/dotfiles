@@ -52,7 +52,6 @@ alias lld='ll --list-dirs'
 alias llfs='find_by_size'
 alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
-alias ls='ls --color --classify --human-readable --quoting-style=escape'
 # -- qmv aliases --
 alias qmv='qmv -f do'
 alias qmvd='qmv -d'
@@ -140,19 +139,20 @@ if [[ $OS = Linux ]]; then
     alias cpa='/bin/cp -i -a'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
     alias free='free -th'
+    alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias mplayer='mplayer $* 2>/dev/null'
     alias open='xdg-open 2>/dev/null'
     alias scp='/usr/bin/scp -r'
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
     alias updatedb='sudo /usr/bin/updatedb'
-elif [[ $OS = Darwin ]]; then
+elif [[ $OS = Darwin ]] &&  [[ -n $HOMEBREW_PREFIX ]]; then
     alias cpa='$HOMEBREW_PREFIX/bin/gcp -i -a'
+    alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias scp='$HOMEBREW_PREFIX/bin/scp -r'
     alias ssh='$HOMEBREW_PREFIX/bin/ssh'
     alias ssh-add='$HOMEBREW_PREFIX/bin/ssh-add'
     alias updatedb='PATH=/usr/bin:$PATH sudo /usr/libexec/locate.updatedb'
-    export GTK_THEME='Meld-Mojave-light' # Force light theme for 'meld'
 fi
 
 
@@ -452,7 +452,11 @@ path() {
 prompt() {
     # Please first install the seafly Bash prompt.
     #   git clone https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
-    SEAFLY_PRE_COMMAND="history -a;__zoxide_hook"
+    if [[ -n $HOMEBREW_PREFIX ]]; then
+        SEAFLY_PRE_COMMAND="history -a;__zoxide_hook"
+    else
+        SEAFLY_PRE_COMMAND="history -a"
+    fi
     SEAFLY_GIT_PREFIX=" "
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
