@@ -44,11 +44,11 @@ augroup CustomEvents
         autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
         autocmd TermOpen *        startinsert
         autocmd BufEnter term://* startinsert
+        " Enable global statusline and winbar when splitting windows.
+        autocmd WinLeave * :call window_traits#WinBar()
         " Highlight yanks.
         autocmd TextYankPost *
           \ silent! lua return (not vim.v.event.visual)
           \   and vim.highlight.on_yank({higroup='Visual', timeout=300})
-        " Enable global statusline and winbar when splitting windows.
-        autocmd WinLeave * :call window_traits#WinBar()
     endif
 augroup END

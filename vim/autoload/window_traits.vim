@@ -43,7 +43,7 @@ endfunction
 " created.
 "
 function! window_traits#WinBar() abort
-    if g:mistflyWinBar || &diff || !has('nvim-0.8')
+    if g:mistflyWinBar || !has('nvim-0.8') || bufname('%') == '' || &diff
         return
     endif
 
