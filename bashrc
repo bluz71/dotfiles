@@ -349,7 +349,7 @@ fzf_git_log() {
                        delta"
       )
     if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | sed 's/^[* |]*//' | cut -d' ' -f1 | tr '\n' ' ')
+        local commits=$(echo "$selections" | sed 's/^[* |]*//' | awk '{print $1}' | tr '\n' ' ')
         git show $commits
     fi
 }
@@ -365,7 +365,7 @@ fzf_git_log_pickaxe() {
             --preview 'git show --color=always {1} | delta'
       )
     if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | cut -d' ' -f1 | tr '\n' ' ')
+        local commits=$(echo "$selections" | awk '{print $1}' | tr '\n' ' ')
         git show $commits
     fi
 }
@@ -377,7 +377,7 @@ fzf_git_reflog() {
             --preview 'git show --color=always {1} | delta'
       )
     if [[ -n $selection ]]; then
-        git show $(echo $selection | cut -d' ' -f1)
+        git show $(echo $selection | awk '{print $1}')
     fi
 }
 
