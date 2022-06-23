@@ -62,10 +62,11 @@ packer.startup(function()
 
   -- use("EdenEast/nightfox.nvim")
   -- use("arcticicestudio/nord-vim")
+  -- use("catppuccin/nvim")
   -- use("folke/tokyonight.nvim")
-  -- use("joshdick/onedark.vim")
   -- use("morhetz/gruvbox")
   -- use("sainnhe/everforest")
+  -- use("srcery-colors/srcery-vim")
 
   -----------------------------
   -- Style plugins
