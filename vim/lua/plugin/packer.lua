@@ -224,6 +224,16 @@ packer.startup(function()
   })
 
   use({
+    "j-hui/fidget.nvim",
+    ft = {
+      "dart", "javascript", "ruby", "rust",
+    },
+    config = function()
+      require("plugin.fidget")
+    end,
+  })
+
+  use({
     "jose-elias-alvarez/null-ls.nvim",
     ft = {
       "css", "dart", "javascript", "json", "lua", "markdown", "ruby", "rust",
