@@ -60,13 +60,12 @@ packer.startup(function()
     end,
   })
 
+  -- use("catppuccin/nvim")
+  -- use("sainnhe/everforest")
+  -- use("morhetz/gruvbox")
   -- use("EdenEast/nightfox.nvim")
   -- use("arcticicestudio/nord-vim")
-  -- use("catppuccin/nvim")
   -- use("folke/tokyonight.nvim")
-  -- use("morhetz/gruvbox")
-  -- use("sainnhe/everforest")
-  -- use("srcery-colors/srcery-vim")
 
   -----------------------------
   -- Style plugins
