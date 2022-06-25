@@ -23,6 +23,9 @@ noremap <silent> <C-q> :confirm qall<CR>
 if has('nvim')
     " Make escape work in the Neovim terminal.
     tnoremap <Esc> <C-\><C-n>
+    " Make Ctrl-i work in Neovim as a separate key combination from TAB. Refer
+    " to https://is.gd/ZT9gzN and to the Alacritty config 'key_bindings'.
+    nnoremap <C-i> <C-i>
 endif
 " Direct changes into the black hole register.
 nnoremap c "_c

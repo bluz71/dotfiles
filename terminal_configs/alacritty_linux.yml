@@ -137,3 +137,4 @@ key_bindings:
   - { key: Right,    mods: Control|Shift, action: ScrollToBottom   }
   - { key: Equals,   mods: Control,       action: IncreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: I,        mods: Control,       chars: "\x1b[105;5u"     }
