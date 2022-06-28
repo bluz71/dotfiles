@@ -23,7 +23,10 @@ function! window_traits#Activity(active) abort
         if &filetype !=# 'help'
             setlocal relativenumber
         endif
-        set signcolumn=number
+        if has('nvim')
+            " Toggling signcolumn causes janky flickering in Vim, avoid it.
+            set signcolumn=number
+        endif
     else " Inactive window
         if &buftype ==# 'nofile'
             " Do not style 'nofile' buffer types.
@@ -35,7 +38,10 @@ function! window_traits#Activity(active) abort
             setlocal nocursorline
         endif
         setlocal norelativenumber
-        set signcolumn=no
+        if has('nvim')
+            " Toggling signcolumn causes janky flickering in Vim, avoid it.
+            set signcolumn=no
+        endif
     endif
 endfunction
 
