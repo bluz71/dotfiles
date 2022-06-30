@@ -18,6 +18,9 @@ nnoremap U <C-r>
 nnoremap Q @q
 " Execute macro 'q' over the visual selection.
 xnoremap Q :'<,'> :normal @q<CR>
+" Map 'p' to 'P' in visual mode since 'P' will never yank the pasted-over-text
+" into the unnamed register.
+xnoremap p P
 " Confirm quit.
 noremap <silent> <C-q> :confirm qall<CR>
 if has('nvim')
