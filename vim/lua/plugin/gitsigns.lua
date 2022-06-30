@@ -40,7 +40,7 @@ gitsigns.setup({
       modifications = modifications + removed
     end
     if modifications > 0 then
-      status_text = '+ ' .. modifications
+      status_text = '✗ ' .. modifications
     end
 
     return status_text

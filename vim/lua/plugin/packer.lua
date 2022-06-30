@@ -81,8 +81,6 @@ packer.startup(function()
 
   use("~/projects/public/vim-mistfly-statusline")
   -- ~/dotfiles/vim/plugin/mistfly-statusline.vim
-  use("gcmt/taboo.vim")
-  -- ~/dotfiles/vim/plugin/taboo.vim
 
   -----------------------------
   -- Behavior plugins
