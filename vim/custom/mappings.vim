@@ -127,12 +127,12 @@ nnoremap <C-Down> <C-y>
 "-----------------------------
 " Window managment mappings
 "-----------------------------
-nnoremap <silent> <Leader>s  :split<CR>
-nnoremap <silent> <Leader>v  :vsplit<CR>
+nnoremap <silent> <Leader>s  <C-w>s
+nnoremap <silent> <Leader>v  <C-w>v
 nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
 nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
 nnoremap <silent> <Leader>t  :$tabnew<CR>
-nnoremap <silent> <Leader>q  :close<CR>
+nnoremap <silent> <Leader>q  <C-w>c
 nnoremap <silent> <Leader>c  :cclose<CR>:lclose<CR>:pclose<CR>
 nnoremap <Leader>1           1gt
 nnoremap <Leader>2           2gt
