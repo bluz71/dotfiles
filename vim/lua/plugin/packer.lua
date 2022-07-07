@@ -1,18 +1,21 @@
--- Bootstrap packer.
+-- Bootstrap and install packer.
 local fn = vim.fn
 local packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_compiled_path = fn.stdpath("config") .. "/lua/packer_compiled.lua"
-local packer_bootstrap
+local packer_bootstrap = false
+
 if fn.empty(fn.glob(packer_path)) > 0 then
-  packer_bootstrap = fn.system({ "rm", "-f", packer_compiled_path })
+  packer_bootstrap = true
+  fn.system({ "rm", "-f", packer_compiled_path })
   fn.system({
     "git", "clone", "--depth", "1",
     "https://github.com/wbthomason/packer.nvim",
     packer_path,
   })
+  vim.cmd("packadd packer.nvim")
 end
 
-if fn.filereadable(packer_compiled_path) then
+if fn.filereadable(packer_compiled_path) == 1 then
   -- Speed up loading of Lua modules. Note, this needs to happen BEFORE Lua
   -- plugins are loaded.
   require("impatient")
@@ -322,3 +325,11 @@ packer.startup(function()
     packer.sync()
   end
 end)
+
+if packer_bootstrap then
+  print "================================="
+  print "   Plugins are being installed   "
+  print "   Wait until Packer completes   "
+  print "================================="
+  return
+end
