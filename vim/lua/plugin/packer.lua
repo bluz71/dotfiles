@@ -1,9 +1,9 @@
--- Bootstrap and install packer.
 local fn = vim.fn
 local packer_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_compiled_path = fn.stdpath("config") .. "/lua/packer_compiled.lua"
 local packer_bootstrap = false
 
+-- Bootstrap and install packer.
 if fn.empty(fn.glob(packer_path)) > 0 then
   packer_bootstrap = true
   fn.system({ "rm", "-f", packer_compiled_path })
@@ -12,6 +12,7 @@ if fn.empty(fn.glob(packer_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     packer_path,
   })
+  print("Bootstrapping Packer, please wait until installation is finished")
   vim.cmd("packadd packer.nvim")
 end
 
@@ -65,8 +66,7 @@ packer.startup(function()
 
   -- use("catppuccin/nvim")
   -- use("sainnhe/everforest")
-  -- use("morhetz/gruvbox")
-  -- use('cocopon/iceberg.vim')
+  -- use("gruvbox-community/gruvbox")
   -- use("EdenEast/nightfox.nvim")
   -- use("arcticicestudio/nord-vim")
   -- use("folke/tokyonight.nvim")
@@ -325,11 +325,3 @@ packer.startup(function()
     packer.sync()
   end
 end)
-
-if packer_bootstrap then
-  print "================================="
-  print "   Plugins are being installed   "
-  print "   Wait until Packer completes   "
-  print "================================="
-  return
-end
