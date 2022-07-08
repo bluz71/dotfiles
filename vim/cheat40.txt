@@ -15,14 +15,15 @@ About {{{2
 Window Mappings {{{
 Split horizontally       ,s            N
 Split vertically         ,v            N
-Equalize splits          ,=            N
-Rotate splits            ,r            N
 Full width split         ,-            N
 Full height vsplit       ,|            N
-Close                    ,q            N
-Close qf/loc/preview     ,c            N
 Create new tab           ,t            N
+Close                    ,q            N
+Close current tab        ,Q            N
+Close qf/loc/preview     ,c            N
 Switch to numbered tab   ,‹@›          N
+Equalize splits          ,=            N
+Rotate splits            ,r            N
 Full width term split    ,T            N
 }}}
 Navigation Mappings {{{
