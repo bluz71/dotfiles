@@ -65,10 +65,12 @@ packer.startup(function()
   })
 
   -- use("catppuccin/nvim")
+  -- use("sainnhe/edge")
   -- use("sainnhe/everforest")
   -- use("gruvbox-community/gruvbox")
   -- use("EdenEast/nightfox.nvim")
-  -- use("arcticicestudio/nord-vim")
+  -- use("shaunsingh/nord.nvim")
+  -- use("sainnhe/sonokai")
   -- use("folke/tokyonight.nvim")
 
   -----------------------------
