@@ -25,24 +25,4 @@ gitsigns.setup({
   },
   max_file_length = 100000,
   sign_priority = 6,
-  status_formatter = function(status)
-    local added, changed, removed = status.added, status.changed, status.removed
-    local modifications = 0
-    local status_text = ''
-
-    if added and added > 0 then
-      modifications = modifications + added
-    end
-    if changed and changed > 0 then
-      modifications = modifications + changed
-    end
-    if removed and removed > 0 then
-      modifications = modifications + removed
-    end
-    if modifications > 0 then
-      status_text = '✗ ' .. modifications
-    end
-
-    return status_text
-  end
 })
