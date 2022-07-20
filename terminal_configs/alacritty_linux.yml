@@ -8,11 +8,14 @@ window:
 
   # Window padding (changes require restart)
   padding:
-    x: 1
-    y: 1
+    x: 2
+    y: 2
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: false
+
+  # GTK theme variant.
+  gtk_theme_variant: dark
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
