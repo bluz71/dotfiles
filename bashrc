@@ -146,12 +146,12 @@ if [[ $OS = Linux ]]; then
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
     alias updatedb='sudo /usr/bin/updatedb'
-elif [[ $OS = Darwin ]] &&  [[ -n $HOMEBREW_PREFIX ]]; then
-    alias cpa='$HOMEBREW_PREFIX/bin/gcp -i -a'
+elif [[ $OS = Darwin ]]; then
+    alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
-    alias scp='$HOMEBREW_PREFIX/bin/scp -r'
-    alias ssh='$HOMEBREW_PREFIX/bin/ssh'
-    alias ssh-add='$HOMEBREW_PREFIX/bin/ssh-add'
+    alias scp='/opt/homebrew/bin/scp -r'
+    alias ssh='/opt/homebrew/bin/ssh'
+    alias ssh-add='/opt/homebrew/bin/ssh-add'
     alias updatedb='PATH=/usr/bin:$PATH sudo /usr/libexec/locate.updatedb'
 fi
 
@@ -179,16 +179,9 @@ brew_config() {
         export HOMEBREW_REPOSITORY="/opt/homebrew/Homebrew"
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
-    elif [[ $OS = Darwin ]] && [[ $(uname -m) == x86_64 ]]; then
-        if ! [[ -x $(command -v /usr/local/bin/brew) ]]; then
-            echo 'Note: brew is not installed.'
-            return
-        fi
-        export HOMEBREW_PREFIX="/usr/local";
-        export HOMEBREW_CELLAR="/usr/local/Cellar";
-        export HOMEBREW_REPOSITORY="/usr/local/Homebrew"
-        PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH
-        MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH
+    else
+        echo 'Error: unsupported platform'
+        return
     fi
 
     # Manually load Bash Completion, only needed for Mac since we don't brew
