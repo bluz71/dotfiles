@@ -26,11 +26,7 @@ local lsp_on_attach = function(client)
 
   -- Formatting is conditional on server capabilities.
   if client.server_capabilities.document_formatting then
-    if vim.fn.has("nvim-0.8") == 1 then
-      map("n", "'f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-    else
-      map("n", "'f", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
-    end
+    map("n", "'f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
   end
   if client.server_capabilities.document_range_formatting then
     map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
@@ -40,13 +36,8 @@ end
 -- Custom on attach function which also disables formatting where null-ls will
 -- be used to format.
 local lsp_on_attach_no_formatting = function(client)
-  if vim.fn.has("nvim-0.8") == 1 then
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
-  else
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
+  client.server_capabilities.document_formatting = false
+  client.server_capabilities.document_range_formatting = false
 
   lsp_on_attach(client)
 end
