@@ -98,10 +98,6 @@ if has('nvim')
     set list
     set listchars=tab:\ \ ,trail:-
     set shada='200,<50,s10,h
-    " Perform filetype detection via filetype.lua rather than filetype.vim to
-    " improve startup performance. Refer to: https://is.gd/iOtejF
-    let g:do_filetype_lua = 1
-    let g:did_load_filetypes = 0
     " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
     let $LESS = '-RS'
 else
