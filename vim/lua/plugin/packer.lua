@@ -68,6 +68,7 @@ packer.startup(function()
   -- use("sainnhe/edge")
   -- use("sainnhe/everforest")
   -- use("gruvbox-community/gruvbox")
+  -- use("sainnhe/gruvbox-material")
   -- use("rebelot/kanagawa.nvim")
   -- use("EdenEast/nightfox.nvim")
   -- use("shaunsingh/nord.nvim")
@@ -151,7 +152,7 @@ packer.startup(function()
   -----------------------------
   use({
     "nvim-treesitter/nvim-treesitter",
-    commit = "baf9421",
+    commit = "07b7221",
     run = ":TSUpdate",
     config = function()
       require("plugin.treesitter")
