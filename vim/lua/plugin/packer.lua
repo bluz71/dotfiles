@@ -72,7 +72,6 @@ packer.startup(function()
   -- use("rebelot/kanagawa.nvim")
   -- use("EdenEast/nightfox.nvim")
   -- use("shaunsingh/nord.nvim")
-  -- use("navarasu/onedark.nvim")
   -- use("sainnhe/sonokai")
   -- use("folke/tokyonight.nvim")
 
