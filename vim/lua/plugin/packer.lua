@@ -66,6 +66,7 @@ packer.startup(function()
 
   -- use("catppuccin/nvim")
   -- use("sainnhe/edge")
+  -- use("embark-theme/vim")
   -- use("sainnhe/everforest")
   -- use("gruvbox-community/gruvbox")
   -- use("sainnhe/gruvbox-material")
