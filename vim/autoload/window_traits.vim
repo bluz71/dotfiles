@@ -56,5 +56,5 @@ function! window_traits#WinBar() abort
     " Enable global 'statusline'.
     set laststatus=3
     " Enable mistfly 'winbar'.
-    let g:mistflyWinBar = 1
+    let g:mistflyWinBar = v:true
 endfunction
