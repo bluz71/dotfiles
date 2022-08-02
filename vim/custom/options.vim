@@ -95,6 +95,7 @@ set wrap              " Wrap long lines
 " Options specific to Neovim or Vim.
 if has('nvim')
     set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
+    set laststatus=3
     set list
     set listchars=tab:\ \ ,trail:-
     set shada='200,<50,s10,h

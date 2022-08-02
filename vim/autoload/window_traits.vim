@@ -44,17 +44,3 @@ function! window_traits#Activity(active) abort
         endif
     endif
 endfunction
-
-" Activate Neovim's global 'statusline' and  'winbar' if a new window is
-" created.
-"
-function! window_traits#WinBar() abort
-    if g:mistflyWinBar || !has('nvim-0.8') || bufname('%') == '' || &diff
-        return
-    endif
-
-    " Enable global 'statusline'.
-    set laststatus=3
-    " Enable mistfly 'winbar'.
-    let g:mistflyWinBar = v:true
-endfunction

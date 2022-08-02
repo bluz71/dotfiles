@@ -11,9 +11,9 @@ let g:fern#renderer#default#leading = ' '
 let g:fern#renderer#default#leaf_symbol = ' '
 let g:fern#renderer#default#root_symbol = '~ '
 
-noremap <silent> <Leader>d :call window_traits#WinBar()<CR>:Fern . -drawer -width=35 -toggle<CR><C-w>=
-noremap <silent> <Leader>f :call window_traits#WinBar()<CR>:Fern . -drawer -reveal=% -width=35<CR><C-w>=
-noremap <silent> <Leader>. :call window_traits#WinBar()<CR>:Fern %:h -drawer -width=35<CR><C-w>=
+noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
+noremap <silent> <Leader>f :Fern . -drawer -reveal=% -width=35<CR><C-w>=
+noremap <silent> <Leader>. :Fern %:h -drawer -width=35<CR><C-w>=
 
 " Disable Netrw.
 let g:loaded_netrw = 1
