@@ -16,11 +16,10 @@ ln -s dotfiles/tmux.conf    .tmux.conf
 ln -s dotfiles/vim/         .vim
 ln -s dotfiles/vimrc        .vimrc
 
+ln -s ~/dotfiles/nvim/       .config/nvim
+
 mkdir -p .local/share/bash-completion
 ln -s ~/dotfiles/completions .local/share/bash-completion
-
-mkdir -p .config/nvim
-ln -s ~/dotfiles/init.vim .config/nvim/init.vim
 
 mkdir -p scripts
 ln -s ~/dotfiles/git-bvv scripts/git-bvv

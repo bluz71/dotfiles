@@ -1,0 +1,22 @@
+{
+  "HTML boilerplate": {
+    "prefix": "html",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "  <head>",
+      "    <title>$1</title>",
+      "  </head>",
+      "  <body>",
+      "    $2",
+      "  </body>",
+      "</html>"
+    ]
+  },
+  "Script tag": {
+    "prefix": "script",
+    "body": [
+      "<script src=\"$1\"></script>"
+    ]
+  }
+}

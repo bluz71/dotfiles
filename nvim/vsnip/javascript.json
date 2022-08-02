@@ -1,0 +1,88 @@
+{
+  "Console log": {
+    "prefix": "log",
+    "body": [
+      "console.log($1)"
+    ]
+  },
+  "Arrow function": {
+    "prefix": "af",
+    "body": [
+      "const ${1:function} = (${2:args}) => {",
+        "  $3",
+        "}"
+    ]
+  },
+  "Plain function": {
+    "prefix": "fn",
+    "body": [
+      "${1:function} (${2:args}) {",
+      "  $3",
+      "}"
+    ]
+  },
+  "React class component": {
+    "prefix": "reactcc",
+    "body": [
+      "import React, { Component } from 'react'",
+      "import PropTypes from 'prop-types'",
+      "",
+      "class ${1:Component} extends Component {",
+      "  constructor (props) {",
+      "    super(props)",
+      "  }",
+      "",
+      "  render () {",
+      "    return (",
+      "      $2",
+      "    )",
+      "  }",
+      "}",
+      "",
+      "//$1.propTypes = {",
+      "//}",
+      "",
+      "export default $1"
+    ]
+  },
+  "React functional component": {
+    "prefix": "reactfc",
+    "body": [
+      "import React from 'react'",
+      "import PropTypes from 'prop-types'",
+      "",
+      "const ${1:Component} = ({ $2 }) => {",
+      "  $3",
+      "}",
+      "",
+      "//$1.propTypes = {",
+      "//}",
+      "",
+      "export default $1"
+    ]
+  },
+  "Jest boilerplate": {
+    "prefix": "jest",
+    "body": [
+      "import React from 'react'",
+      "import { shallow } from 'enzyme'",
+      "import ${1:Component} from '../../components/$1'",
+      "",
+      "describe('<$1 />', () => {",
+      "  it('renders without crashing', () => {",
+      "    shallow(<$1 />)",
+      "  })",
+      "",
+      "  $2",
+      "})"
+    ]
+  },
+  "Individual test": {
+    "prefix": "it",
+    "body": [
+      "it('$1', () => {",
+      "  $2",
+      "})"
+    ]
+  }
+}
