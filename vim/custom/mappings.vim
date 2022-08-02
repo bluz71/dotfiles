@@ -23,13 +23,6 @@ xnoremap Q :'<,'> :normal @q<CR>
 xnoremap p P
 " Confirm quit.
 noremap <silent> <C-q> :confirm qall<CR>
-if has('nvim')
-    " Make escape work in the Neovim terminal.
-    tnoremap <Esc> <C-\><C-n>
-    " Make Ctrl-i work in Neovim as a separate key combination from TAB. Refer
-    " to https://is.gd/ZT9gzN and to the Alacritty config 'key_bindings'.
-    nnoremap <C-i> <C-i>
-endif
 " Direct changes into the black hole register.
 nnoremap c "_c
 nnoremap C "_C
@@ -83,13 +76,6 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
-if has('nvim')
-    " Use same mappings as above to navigate Neovim terminal splits.
-    tnoremap <A-h> <C-\><C-N><C-w>h
-    tnoremap <A-j> <C-\><C-N><C-w>j
-    tnoremap <A-k> <C-\><C-N><C-w>k
-    tnoremap <A-l> <C-\><C-N><C-w>l
-endif
 " Vertical movements.
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k
@@ -146,22 +132,14 @@ nnoremap <Leader>8           8gt
 nnoremap <Leader>9           9gt
 nnoremap <Leader>=           <C-w>=
 nnoremap <Leader>r           <C-w>r
-if has('nvim')
-    nnoremap <silent> <Leader>T :botright new<CR><C-w>=:terminal<CR>
-endif
 
 "-----------------------------
 " Function key mappings
 "-----------------------------
 " Double up function key mappings with single-quote+number mappings for
 " touchbar Macbooks which have no physical function keys.
-if has('nvim')
-    nnoremap <F1> :TSHighlightCapturesUnderCursor<CR>
-    nnoremap '1   :TSHighlightCapturesUnderCursor<CR>
-else
-    nnoremap <F1> :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
-    nnoremap '1   :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
-endif
+nnoremap <F1> :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
+nnoremap '1   :echo synIDattr(synID(line('.'), col('.'), 1), 'name')<CR>
 nnoremap <F2> :w<CR>
 nnoremap '2   :w<CR>
 nnoremap <F3> :%retab<CR>:%s/\s\+$//<CR>

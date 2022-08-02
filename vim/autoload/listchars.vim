@@ -7,25 +7,15 @@ function! listchars#Toggle() abort
         " Brighten extended list characters.
         setlocal listchars=eol:$,tab:>-,trail:-
         highlight! link NonText WarningMsg 
-        if has("nvim")
-            highlight! link Whitespace WarningMsg
-            :IndentBlanklineDisable
-        else
-            highlight! link SpecialKey WarningMsg
-            setlocal list
-        endif
+        highlight! link SpecialKey WarningMsg
+        setlocal list
         let s:listMode = v:false
     else
         " Dim shortened list characters.
         setlocal listchars=tab:\ \ ,trail:-
         highlight! link NonText LineNr
-        if has("nvim")
-            highlight! link Whitespace Conceal
-            :IndentBlanklineEnable
-        else
-            highlight! link SpecialKey Conceal
-            setlocal nolist
-        endif
+        highlight! link SpecialKey Conceal
+        setlocal nolist
         let s:listMode = v:true
     endif
 endfunction

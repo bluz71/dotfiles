@@ -16,6 +16,7 @@ set colorcolumn=81,82 " Highlight 81 and 82 columns
 set conceallevel=0    " Always show text normally
 set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
+set cryptmethod=blowfish2
 " Highlight the current line in the number column if 'cursorlineopt' exits.
 if exists('&cursorlineopt')
     set cursorline
@@ -37,10 +38,12 @@ set infercase         " Smart casing when completing
 set ignorecase        " Search in case-insensitively
 set incsearch         " Go to search results immediately
 set laststatus=2      " We want a statusline
+set listchars=eol:$,tab:>-,trail:-
 set matchpairs=(:),{:},[:]
 set mouse=a           " Mouse support in the terminal
 set mousehide         " Hide mouse when typing text
 set nobackup          " No backup files
+set nocompatible
 set noexrc            " Disable reading of working directory vimrc files
 set nohlsearch        " Don't highlight search results by default
 set nojoinspaces      " No to double-spaces when joining lines
@@ -75,11 +78,7 @@ set timeoutlen=1500   " Give some time for multi-key mappings
 " behaviours
 set ttimeoutlen=10
 " Set the persistent undo directory on temporary private fast storage.
-if has('nvim')
-    let s:undodir='/tmp/.nvim_undodir_' . $USER
-else
-    let s:undodir='/tmp/.vim_undodir_' . $USER
-endif
+let s:undodir='/tmp/.vim_undodir_' . $USER
 if !isdirectory(s:undodir)
     call mkdir(s:undodir, '', 0700)
 endif
@@ -90,26 +89,7 @@ set viminfo=          " No backups
 set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu          " Nice command completions
 set wildmode=full     " Complete the next full match
-set wrap              " Wrap long lines
-
-" Options specific to Neovim or Vim.
-if has('nvim')
-    set fillchars=horiz:━,horizup:┻,horizdown:┳,vert:┃,vertleft:┨,vertright:┣,verthoriz:╋
-    set laststatus=3
-    set list
-    set listchars=tab:\ \ ,trail:-
-    set shada='200,<50,s10,h
-    " Perform filetype detection via filetype.lua rather than filetype.vim to
-    " improve startup performance. Refer to: https://is.gd/iOtejF
-    let g:do_filetype_lua = 1
-    let g:did_load_filetypes = 0
-    " Set explicit value of $LESS to make git-delta paging nicer in Telescope.
-    let $LESS = '-RS'
-else
-    set nocompatible
-    set cryptmethod=blowfish2
-    set listchars=eol:$,tab:>-,trail:-
-    if has("patch-8.2.4325")
-        set wildoptions=pum
-    endif
+if has("patch-8.2.4325")
+    set wildoptions=pum
 endif
+set wrap              " Wrap long lines

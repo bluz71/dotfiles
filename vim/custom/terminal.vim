@@ -1,7 +1,7 @@
-" Note, the following settings are for terminal Vim only. Neovim and GUI Vim do
-" not require these settings.
+" Note, the following settings are for terminal Vim only. GUI Vim does not
+" require these settings.
 "
-if !has('gui_running') && !has('nvim')
+if !has('gui_running')
     set term=xterm-256color " Vim does not like TERM=alacritty
     set ttyfast             " We have a fast TTY
     set ttymouse=xterm2     " Improve mouse support

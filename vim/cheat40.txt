@@ -266,15 +266,6 @@ Insert comment above     gcO           N
 Insert comment below     gco           N
 Insert eol comment       gcA           N
 }}}
-nvim-cmp Plugin Mappings {{{
-Confirm selection        ‹C-y›        %I
-Close menu               ‹C-e›        %I
-Scroll forward docs      ‹C-f›        %I
-Scroll back docs         ‹C-b›        %I
-}}}
-nvim-autopairs Plugin Mappings {{{
-Fast wrap                ‹A-e›        %I
-}}}
 vsnip Plugin Mappings {{{
 Expand snippet           ‹Ctrl-j›      I
 Jump forward             ‹Ctrl-j›      I
