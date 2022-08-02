@@ -57,11 +57,12 @@ set nrformats=        " No to oct/hex support when doing CTRL-a/x
 set path=**           " File search path
 set pumheight=20      " Height of complete list
 set relativenumber    " Show relative numbers
-set shada='200,<50,s10,h
 set shiftwidth=2      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
 set shortmess+=I      " Don't show intro message
 set signcolumn=number " Render signs in the number column
+" Setup shared-data.
+set shada='200,<50,s10,h
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab          " Tab at the start of line inserts blanks
@@ -90,7 +91,6 @@ endif
 let &undodir=s:undodir
 set undofile          " Maintain undo history
 set updatetime=1000   " Certain plugins use this for CursorHold event triggering
-set viminfo=          " No backups
 set wildcharm=<Tab>   " Defines the trigger for 'wildmenu' in mappings
 set wildmenu          " Nice command completions
 set wildmode=full     " Complete the next full match
