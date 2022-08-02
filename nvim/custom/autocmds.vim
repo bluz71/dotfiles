@@ -38,15 +38,13 @@ augroup CustomEvents
       \     source Session.vim|
       \ endif
 
-    " Neovim behaviours.
-    if has('nvim')
-        " Terminal settings.
-        autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
-        autocmd TermOpen *        startinsert
-        autocmd BufEnter term://* startinsert
-        " Highlight yanks.
-        autocmd TextYankPost *
-          \ silent! lua return (not vim.v.event.visual)
-          \   and vim.highlight.on_yank({higroup='Visual', timeout=300})
-    endif
+    " Terminal settings.
+    autocmd TermOpen *        setlocal conceallevel=0 colorcolumn=0
+    autocmd TermOpen *        startinsert
+    autocmd BufEnter term://* startinsert
+
+    " Highlight yanks.
+    autocmd TextYankPost *
+      \ silent! lua return (not vim.v.event.visual)
+      \   and vim.highlight.on_yank({higroup='Visual', timeout=300})
 augroup END

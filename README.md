@@ -5,7 +5,8 @@ Contained are dotfiles for:
 
 - Bash
 - Readline
-- Vim / Neovim
+- Neovim
+- Vim
 - tmux
 - Git
 - SSH

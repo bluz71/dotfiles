@@ -7,14 +7,8 @@ runtime custom/options.vim
 "===========================================================
 " FUNCTIONS
 "
-" ~/dotfiles/vim/autoload - custom functions
+" ~/dotfiles/nvim/autoload - custom functions
 "===========================================================
-
-
-"===========================================================
-" TERMINAL VIM SETTINGS
-"===========================================================
-runtime custom/terminal.vim
 
 
 "===========================================================
@@ -26,13 +20,8 @@ runtime custom/mappings.vim
 "===========================================================
 " PLUGINS
 "===========================================================
-if has('nvim')
-    " Use packer.nvim to manage plugins in Neovim.
-    lua require('plugin.packer')
-else
-    " Use vim-plug to manage plugins in Vim.
-    runtime custom/plug.vim
-endif
+" Use packer.nvim to manage plugins in Neovim.
+lua require('plugin.packer')
 
 " Load up the match it plugin which provides '%' XML/HTML tag matching.
 runtime macros/matchit.vim

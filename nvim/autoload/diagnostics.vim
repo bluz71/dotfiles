@@ -3,10 +3,6 @@ let g:diagnosticsActive = v:true
 " Toggle Neovim diagnostics.
 "
 function! diagnostics#Toggle() abort
-    if !has('nvim')
-        return
-    endif
-
     if g:diagnosticsActive == v:true
         lua vim.diagnostic.disable()
         " Disable mistfly statusline diagnostic indicator.
