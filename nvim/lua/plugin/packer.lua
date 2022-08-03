@@ -82,15 +82,19 @@ packer.startup(function()
   -- Style plugins
   -----------------------------
   use({
+    "~/projects/public/vim-mistfly-statusline",
+    config = function()
+      require("plugin.mistfly")
+    end,
+  })
+
+  use({
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     config = function()
       require("plugin.indent-blankline")
     end,
   })
-
-  use("~/projects/public/vim-mistfly-statusline")
-  -- ~/dotfiles/vim/plugin/mistfly-statusline.vim
 
   -----------------------------
   -- Behavior plugins
