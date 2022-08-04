@@ -352,7 +352,6 @@ packer.startup(function()
     end,
   })
 
-  -- ~/dotfiles/vim/plugin/tmux-navigator.vim
   use("tpope/vim-obsession")
   -- ~/dotfiles/vim/plugin/obsession.vim
 
