@@ -118,10 +118,21 @@ packer.startup(function()
   use("wellle/targets.vim")
   use("chaoren/vim-wordmotion")
   -- ~/dotfiles/vim/after/plugin/wordmotion.vim
-  use("tommcdo/vim-lion")
-  -- ~/dotfiles/vim/plugin/lion.vim
-  use("rhysd/clever-f.vim")
-  -- ~/dotfiles/vim/plugin/clever-f.vim
+
+  use({
+    "tommcdo/vim-lion",
+    config = function()
+      require("plugin.lion")
+    end,
+  })
+
+  use({
+    "rhysd/clever-f.vim",
+    config = function()
+      require("plugin.clever-f")
+    end,
+  })
+
   use("tpope/vim-surround")
   use("tpope/vim-repeat")
   use("michaeljsmith/vim-indent-object")
@@ -150,8 +161,13 @@ packer.startup(function()
   use("lambdalisue/fern.vim")
   -- ~/dotfiles/vim/plugin/fern.vim
   -- ~/dotfiles/vim/after/ftplugin/fern.vim
-  use("lambdalisue/fern-git-status.vim")
-  -- ~/dotfiles/vim/plugin/fern-git-status.vim
+
+  use({
+    "lambdalisue/fern-git-status.vim",
+    config = function()
+      require("plugin.fern-git-status")
+    end,
+  })
 
   -----------------------------
   -- Treesitter plugins
@@ -313,6 +329,7 @@ packer.startup(function()
 
   -- Speed up Neovim startup time.
   use("lewis6991/impatient.nvim")
+
   -- Workaround for Neovim bug, see:
   --   https://github.com/neovim/neovim/issues/12587
   use("antoinemadec/FixCursorHold.nvim")
@@ -320,14 +337,32 @@ packer.startup(function()
   use("mbbill/undotree")
   -- ~/dotfiles/vim/plugin/undotree.vim
   -- ~/dotfiles/vim/after/ftplugin/undotree.vim
-  use("907th/vim-auto-save")
-  -- ~/dotfiles/vim/plugin/auto-save.vim
-  use("christoomey/vim-tmux-navigator")
+
+  use({
+    "907th/vim-auto-save",
+    config = function()
+      require("plugin.auto-save")
+    end,
+  })
+
+  use({
+    "christoomey/vim-tmux-navigator",
+    config = function()
+      require("plugin.tmux-navigator")
+    end,
+  })
+
   -- ~/dotfiles/vim/plugin/tmux-navigator.vim
   use("tpope/vim-obsession")
   -- ~/dotfiles/vim/plugin/obsession.vim
-  use("lifepillar/vim-cheat40")
-  -- ~/dotfiles/vim/plugin/cheat40.vim
+
+  use({
+    "lifepillar/vim-cheat40",
+    config = function()
+      require("plugin.cheat40")
+    end,
+  })
+
   use("gregsexton/MatchTag")
   use("dstein64/vim-startuptime")
 
