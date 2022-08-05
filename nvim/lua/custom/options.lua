@@ -90,7 +90,7 @@ opt.ttimeoutlen = 10
 -- Set the persistent undo directory on temporary private fast storage.
 local undo_dir = '/tmp/.nvim_undodir_' .. env.USER
 if fn.isdirectory(undo_dir) ~= 1 then
-    fn.mkdir(undo_dir, '', 0700)
+    fn.mkdir(undo_dir, '', "0700")
 end
 opt.undodir = undo_dir
 opt.undofile = true       -- Maintain undo history
