@@ -147,7 +147,7 @@ packer.startup(function()
   -- Filesystem plugins
   -----------------------------
   use("lambdalisue/fern.vim")
-  -- ~/dotfiles/vim/plugin/fern.vim
+  -- ~/dotfiles/nvim/plugin/fern.lua
   -- ~/dotfiles/vim/after/ftplugin/fern.vim
 
   use("lambdalisue/fern-git-status.vim")
@@ -307,7 +307,7 @@ packer.startup(function()
   use("antoinemadec/FixCursorHold.nvim")
 
   use("mbbill/undotree")
-  -- ~/dotfiles/vim/plugin/undotree.vim
+  -- ~/dotfiles/nvim/plugin/undotree.lua
   -- ~/dotfiles/vim/after/ftplugin/undotree.vim
 
   use("907th/vim-auto-save")

@@ -1,5 +1,5 @@
-g = vim.g
-map = vim.keymap.set
+local g = vim.g
+local map = vim.keymap.set
 
 g.tmux_navigator_no_mappings = 1
 
