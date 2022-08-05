@@ -144,7 +144,7 @@ packer.startup(function()
   -----------------------------
   use("lambdalisue/fern.vim")
   -- ~/dotfiles/nvim/plugin/fern.lua
-  -- ~/dotfiles/vim/after/ftplugin/fern.vim
+  -- ~/dotfiles/nvim/after/ftplugin/fern.lua
 
   use("lambdalisue/fern-git-status.vim")
   -- ~/dotfiles/nvim/plugin/fern-git-status.lua
