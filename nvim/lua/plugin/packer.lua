@@ -95,12 +95,8 @@ packer.startup(function()
   -----------------------------
   -- Behavior plugins
   -----------------------------
-  use({
-    "phaazon/hop.nvim",
-    config = function()
-      require("plugin.hop")
-    end,
-  })
+  use("phaazon/hop.nvim")
+  -- ~/dotfiles/nvim/plugin/hop.lua
 
   use({
     "tpope/vim-unimpaired",
@@ -199,12 +195,8 @@ packer.startup(function()
     end,
   })
 
-  use({
-    "windwp/nvim-autopairs",
-    config = function()
-      require("plugin.autopairs")
-    end,
-  })
+  use("windwp/nvim-autopairs")
+  -- ~/dotfiles/nvim/plugin/autopairs.lua
 
   -- Only use pear-tree to complete tags, instead use nvim-autopairs to complete
   -- most standard pairings (parentheses, quotes, etc).
