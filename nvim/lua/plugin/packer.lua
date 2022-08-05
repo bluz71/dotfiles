@@ -119,19 +119,11 @@ packer.startup(function()
   use("chaoren/vim-wordmotion")
   -- ~/dotfiles/vim/after/plugin/wordmotion.vim
 
-  use({
-    "tommcdo/vim-lion",
-    config = function()
-      require("plugin.lion")
-    end,
-  })
+  use("tommcdo/vim-lion")
+  -- ~/dotfiles/nvim/plugin/lion.lua
 
-  use({
-    "rhysd/clever-f.vim",
-    config = function()
-      require("plugin.clever-f")
-    end,
-  })
+  use("rhysd/clever-f.vim")
+  -- ~/dotfiles/nvim/plugin/clever-f.lua
 
   use("tpope/vim-surround")
   use("tpope/vim-repeat")
@@ -218,23 +210,19 @@ packer.startup(function()
     end,
   })
 
-  use({
-    -- Only use pear-tree to complete tags, instead use nvim-autopairs to
-    -- complete most standard pairings (parentheses, quotes, etc).
-    --
-    -- Note, pear-tree does not play well with nvim-cmp when completing
-    -- parentheses (for whatever reason). Hence, the limiting of pear-tree to
-    -- tag-only complation.
-    --
-    -- Also, the nvim-ts-autotag plugin (a tag completion plugin by the same
-    -- author as nvim-autopairs) does not currently support eRuby HTML templates
-    -- because they are not Treesitter compatible (maybe one day). Hence, the
-    -- on-going use of pear-tree for tag completion (for now).
-    "tmsvg/pear-tree",
-    config = function()
-      require("plugin.pear-tree")
-    end,
-  })
+  -- Only use pear-tree to complete tags, instead use nvim-autopairs to complete
+  -- most standard pairings (parentheses, quotes, etc).
+  --
+  -- Note, pear-tree does not play well with nvim-cmp when completing
+  -- parentheses (for whatever reason). Hence, the limiting of pear-tree to
+  -- tag-only complation.
+  --
+  -- Also, the nvim-ts-autotag plugin (a tag completion plugin by the same
+  -- author as nvim-autopairs) does not currently support eRuby HTML templates
+  -- because they are not Treesitter compatible (maybe one day). Hence, the
+  -- on-going use of pear-tree for tag completion (for now).
+  use("tmsvg/pear-tree")
+  -- ~/dotfiles/nvim/plugin/pear-tree.lua
 
   use("RRethy/nvim-treesitter-endwise")
 
@@ -295,19 +283,11 @@ packer.startup(function()
     -- ~/dotfiles/vim/vsnip (custom snippets)
   })
 
-  use({
-    "tpope/vim-projectionist",
-    config = function()
-      require("plugin.projectionist")
-    end,
-  })
+  use("tpope/vim-projectionist")
+  -- ~/dotfiles/nvim/plugin/projectionist.lua
 
-  use({
-    "editorconfig/editorconfig-vim",
-    config = function()
-      require("plugin.editorconfig")
-    end,
-  })
+  use("editorconfig/editorconfig-vim")
+  -- ~/dotfiles/nvim/plugin/editorconfig.lua
 
   use("dart-lang/dart-vim-plugin")
   use("vim-crystal/vim-crystal")
@@ -343,12 +323,8 @@ packer.startup(function()
   use("tpope/vim-obsession")
   -- ~/dotfiles/vim/plugin/obsession.vim
 
-  use({
-    "lifepillar/vim-cheat40",
-    config = function()
-      require("plugin.cheat40")
-    end,
-  })
+  use("lifepillar/vim-cheat40")
+  -- ~/dotfiles/nvim/plugin/cheat40.lua
 
   use("gregsexton/MatchTag")
   use("dstein64/vim-startuptime")

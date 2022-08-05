@@ -1,7 +1,8 @@
 local g = vim.g
+local fn = vim.fn
 local map = vim.keymap.set
 
-if vim.fn.filereadable("config/routes.rb") ~= 0 then
+if fn.filereadable("config/routes.rb") ~= 0 then
   -- This looks like a Rails project.
   g.projectionist_heuristics = {
     ["config/routes.rb"] = {
@@ -50,7 +51,7 @@ if vim.fn.filereadable("config/routes.rb") ~= 0 then
   map("n", "<Leader>es", ":Estylesheets<Space>")
   map("n", "<Leader>et", ":Espec<Space>")
   map("n", "<Leader>ev", ":Eview<Space>")
-elseif vim.fn.filereadable("src/index.js") ~= 0 then
+elseif fn.filereadable("src/index.js") ~= 0 then
   -- This looks like a React project.
   g.projectionist_heuristics = {
     ["src/App.js"] = {
