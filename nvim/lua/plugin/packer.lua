@@ -162,12 +162,8 @@ packer.startup(function()
   -- ~/dotfiles/vim/plugin/fern.vim
   -- ~/dotfiles/vim/after/ftplugin/fern.vim
 
-  use({
-    "lambdalisue/fern-git-status.vim",
-    config = function()
-      require("plugin.fern-git-status")
-    end,
-  })
+  use("lambdalisue/fern-git-status.vim")
+  -- ~/dotfiles/nvim/plugin/fern-git-status.lua
 
   -----------------------------
   -- Treesitter plugins
@@ -338,19 +334,11 @@ packer.startup(function()
   -- ~/dotfiles/vim/plugin/undotree.vim
   -- ~/dotfiles/vim/after/ftplugin/undotree.vim
 
-  use({
-    "907th/vim-auto-save",
-    config = function()
-      require("plugin.auto-save")
-    end,
-  })
+  use("907th/vim-auto-save")
+  -- ~/dotfiles/nvim/plugin/auto-save.lua
 
-  use({
-    "christoomey/vim-tmux-navigator",
-    config = function()
-      require("plugin.tmux-navigator")
-    end,
-  })
+  use("christoomey/vim-tmux-navigator")
+  -- ~/dotfiles/nvim/plugin/tmux-navigator.lua
 
   use("tpope/vim-obsession")
   -- ~/dotfiles/vim/plugin/obsession.vim
