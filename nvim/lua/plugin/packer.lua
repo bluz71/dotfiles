@@ -81,12 +81,8 @@ packer.startup(function()
   -----------------------------
   -- Style plugins
   -----------------------------
-  use({
-    "~/projects/public/vim-mistfly-statusline",
-    config = function()
-      require("plugin.mistfly")
-    end,
-  })
+  use("~/projects/public/vim-mistfly-statusline")
+  -- ~/dotfiles/nvim/plugin/mistfly.lua
 
   use({
     "lukas-reineke/indent-blankline.nvim",
@@ -321,7 +317,7 @@ packer.startup(function()
   -- ~/dotfiles/nvim/plugin/tmux-navigator.lua
 
   use("tpope/vim-obsession")
-  -- ~/dotfiles/vim/plugin/obsession.vim
+  -- ~/dotfiles/nvim/plugin/obsession.lua
 
   use("lifepillar/vim-cheat40")
   -- ~/dotfiles/nvim/plugin/cheat40.lua
