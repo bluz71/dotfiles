@@ -1,4 +1,5 @@
 local g = vim.g
+
 g.mistflyErrorSymbol = "▶"
 g.mistflyWarningSymbol = "▷"
 g.mistflyTabLine = true

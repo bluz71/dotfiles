@@ -3,7 +3,7 @@ local fn = vim.fn
 
 opt_local.colorcolumn = "0"
 opt_local.cursorline = true
-if fn.exists('&cursorlineopt') == 1 then
+if fn.exists("&cursorlineopt") == 1 then
   opt_local.cursorlineopt = "both"
 end
 opt_local.number = false

@@ -1,1 +1,0 @@
-setlocal colorcolumn=0
