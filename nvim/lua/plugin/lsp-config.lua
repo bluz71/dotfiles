@@ -14,7 +14,7 @@ local map = vim.keymap.set
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Mappings.
-  local opts = { buffer = 0 }
+  local opts = { buffer = true }
   map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)

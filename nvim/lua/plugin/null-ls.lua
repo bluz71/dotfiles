@@ -21,7 +21,7 @@ null_ls.setup({
     -- Borrow existing formatting mapping from the LSP configuration. Whether a
     -- filetype is attached to a language server, or not, the following mapping
     -- will work for null-ls.
-    local opts = { buffer = 0 }
+    local opts = { buffer = true }
     map("n", "'f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 8000 })<CR>", opts)
   end,
   sources = {
