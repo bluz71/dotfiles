@@ -13,7 +13,7 @@ if fn.empty(fn.glob(packer_path)) > 0 then
     packer_path,
   })
   print("Bootstrapping Packer, please wait until installation is finished")
-  vim.cmd("packadd packer.nvim")
+  vim.cmd([[packadd packer.nvim]])
 end
 
 if fn.filereadable(packer_compiled_path) == 1 then
