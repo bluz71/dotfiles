@@ -30,8 +30,8 @@ require("plugin.packer")
 -- AUTOCMDS
 -------------------------------------------------------------
 cmd([[runtime custom/autocmds.vim]])
-    -- ~/dotfiles/vim/ftplugin       - file type options, mappings
-    -- ~/dotfiles/vim/after/ftplugin - file type overrides
+    -- ~/dotfiles/nvim/ftplugin       - file type options, mappings
+    -- ~/dotfiles/nvim/after/ftplugin - file type overrides
 
 
 -------------------------------------------------------------
