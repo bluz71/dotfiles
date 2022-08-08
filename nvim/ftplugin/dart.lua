@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 -- Hot reload and restart are actions specific to Flutter projects.
 vim.cmd([[
@@ -15,14 +17,14 @@ vim.cmd([[
   endfunction
 ]])
 
-local opts = { silent = true }
+local opts = { buffer = true, silent = true }
 map("n", "'h", ":call FlutterHotReload()<CR>:echo 'Flutter reloaded'<CR>", opts)
 map("n", "'H", ":call FlutterHotRestart()<CR>:echo 'Flutter restarted'<CR>", opts)
 
 -- Automatically hot-reload Flutter Dart files when saving.
-vim.cmd([[
-  augroup DartTypeEvents
-      autocmd!
-      autocmd BufWritePost *.dart call FlutterHotReload()
-  augroup END
-]])
+local dart_type_events = augroup('highlight_cmds', {})
+autocmd('BufWritePost', {
+  pattern = '*.dart',
+  command = "call FlutterHotReload()",
+  group = dart_type_events,
+})
