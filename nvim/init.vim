@@ -14,6 +14,7 @@ lua require('custom.options')
 "===========================================================
 " MAPPINGS
 "===========================================================
+lua require('custom.mappings')
 runtime custom/mappings.vim
 
 
