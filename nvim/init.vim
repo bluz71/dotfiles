@@ -21,12 +21,7 @@ runtime custom/mappings.vim
 "===========================================================
 " PLUGINS
 "===========================================================
-" Use packer.nvim to manage plugins in Neovim.
 lua require('plugin.packer')
-
-" Load up the match it plugin which provides '%' XML/HTML tag matching.
-runtime macros/matchit.vim
-
 
 "===========================================================
 " AUTOCMDS

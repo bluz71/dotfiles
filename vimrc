@@ -26,7 +26,6 @@ runtime custom/mappings.vim
 "===========================================================
 " PLUGINS
 "===========================================================
-" Use vim-plug to manage plugins in Vim.
 runtime custom/plug.vim
 
 " Load up the match it plugin which provides '%' XML/HTML tag matching.
