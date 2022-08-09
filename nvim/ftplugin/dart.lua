@@ -22,9 +22,9 @@ map("n", "'h", ":call FlutterHotReload()<CR>:echo 'Flutter reloaded'<CR>", opts)
 map("n", "'H", ":call FlutterHotRestart()<CR>:echo 'Flutter restarted'<CR>", opts)
 
 -- Automatically hot-reload Flutter Dart files when saving.
-local dart_type_events = augroup('highlight_cmds', {})
-autocmd('BufWritePost', {
-  pattern = '*.dart',
+local dart_type_events = augroup("DartTypeEvents", {})
+autocmd("BufWritePost", {
+  pattern = "*.dart",
   command = "call FlutterHotReload()",
   group = dart_type_events,
 })
