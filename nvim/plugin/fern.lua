@@ -21,7 +21,7 @@ map("n", "<Leader>.", ":Fern %:h -drawer -width=35<CR><C-w>=", opts)
 local fern_plugin_events = augroup("FernPluginEvents", {})
 autocmd("BufEnter", {
   pattern = "*",
-  command = "call tree#Open()",
   nested = true,
+  command = "call tree#Open()",
   group = fern_plugin_events
 })
