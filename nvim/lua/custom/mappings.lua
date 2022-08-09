@@ -144,3 +144,129 @@ map("n", "<Leader>9", "9gt")
 map("n", "<Leader>=", "<C-w>=")
 map("n", "<Leader>r", "<C-w>r")
 map("n", "<Leader>T", ":botright new<CR><C-w>=:terminal<CR>", silent_opts)
+
+-------------------------------
+-- Function key mappings
+-------------------------------
+map("n", "<F1>", ":TSHighlightCapturesUnderCursor<CR>")
+map("n", "'1", ":TSHighlightCapturesUnderCursor<CR>")
+map("n", "<F2>", ":w<CR>")
+map("n", "'2", ":w<CR>")
+map("n", "<F3>", ":%retab<CR>:%s/\\s\\+$//<CR>")
+map("n", "'3", ":%retab<CR>:%s/\\s\\+$//<CR>")
+map("n", "<F4>", ":%s/ /_<CR>")
+map("n", "'4", ":%s/ /_<CR>")
+map("n", "<F5>", ":call spelling#Toggle()<CR>")
+map("n", "'5", ":call spelling#Toggle()<CR>")
+map("n", "<F6>", ":call diagnostics#Toggle()<CR>")
+map("n", "'6", ":call diagnostics#Toggle()<CR>")
+map("n", "<F7>", ":set lazyredraw!<CR>:call AutoSaveToggle()<CR>")
+map("n", "'7", ":set lazyredraw!<CR>:call AutoSaveToggle()<CR>")
+map("n", "<F8>", ":set wrap!<CR>")
+map("n", "'8", ":set wrap!<CR>")
+map("n", "<F9>", ":set hlsearch!<CR>")
+map("n", "'9", ":set hlsearch!<CR>")
+map("n", "<F10>", ":call listchars#Toggle()<CR>", silent_opts)
+map("n", "'0", ":call listchars#Toggle()<CR>", silent_opts)
+
+-------------------------------
+-- Completion mappings
+-------------------------------
+
+--   ]     - 'tags' file completion
+--   Space - context aware omni completion (via 'omnifunc' setting)
+--   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
+--   d     - dictionary completion (via 'dictionary' setting)
+--   f     - file path completion
+--   l     - line completion (repeat an existing line)
+map("i", "<C-]>", "<C-x><C-]>")
+map("i", "<C-Space>", "<C-x><C-o>")
+map("i", "<C-b>", "<C-x><C-p>")
+map("i", "<C-d>", "<C-x><C-k>")
+map("i", "<C-f>", "<C-x><C-f>")
+map("i", "<C-l>", "<C-x><C-l>")
+--   s - snippet completion
+-- Refer to ~/dotfiles/nvim/lua/vsnip-config.lua:
+
+-------------------------------
+-- Increment and decrement mappings
+-------------------------------
+map("n", "+", "<C-a>")
+map("n", "-", "<C-x>")
+map("x", "+", "g<C-a>")
+map("x", "-", "g<C-x>")
+
+-------------------------------
+-- Readline-like mappings
+-------------------------------
+
+-- Ctrl-a - go to the start of line
+-- Ctrl-e - go to the end of the line
+map("n", "<C-a>", "0")
+map("n", "<C-e>", "$")
+map("i", "<C-a>", "<C-o>0")
+map("i", "<C-e>", "<C-o>$")
+map("c", "<C-a>", "<Home>")
+map("c", "<C-e>", "<End>")
+-- Alt-b  - back a word
+-- Alt-f  - forward a word
+-- Alt-BS - delete backward word
+-- Alt-d  - delete forward word
+map("i", "<A-b>", "<C-Left>")
+map("i", "<A-f>", "<C-Right>")
+map("i", "<A-BS>", "<C-w>")
+map("i", "<A-d>", "<C-o>dw")
+map("c", "<A-b>", "<C-Left>")
+map("c", "<A-f>", "<C-Right>")
+map("c", "<A-BS>", "<C-w>")
+map("c", "<A-d>", "<C-Right><C-w>")
+
+-------------------------------
+-- Grep mappings
+-------------------------------
+map("n", "<Leader>/", ":silent grep<Space>")
+map("n", "gs", ":silent grep <C-r><C-w><CR>")
+map("x", "gs", '"sy:silent grep <C-r>s<CR>')
+
+-------------------------------
+-- Find & replace helpers
+-------------------------------
+
+-- Star search that does not move forward to the next match
+map("n", "g*", ":let @/='\\<'.expand('<cword>').'\\>'<CR>", silent_opts)
+map("x", "g*", '"sy:let @/=@s<CR>', silent_opts)
+
+-- Find that does an immediate replace on the match.
+map("n", "\\c", ":let @/='\\<'.expand('<cword>').'\\>'<CR>cgn")
+map("x", "\\c", '"sy:let @/=@s<CR>cgn')
+
+-- Accept/reject helpers after completing a \c cgn-based find & replace
+-- operation.
+--
+-- Go to the next find match and highlight it.
+map("n", "<CR>", "gnzz")
+-- Accept the change and go to the next match and highlight it.
+map("x", "<CR>", ".<Esc>gnzz", { remap = true })
+-- Reject the change and go to the next match and highlight it.
+map("x", "!", "<Esc>ngnzz")
+
+-- Find and replace within the current file.
+map("n", "\\s", ":%s/<C-r><C-w>//<Left>")
+map("x", "\\s", '"sy:%s/<C-r>s//<Left>')
+
+-- Project-wide find and replace using grep.
+map("n", "\\S", [[
+  :let @s='\\<'.expand('<cword>').'\\>'<CR>
+  :let &grepprg=&grepprg . ' -w'<CR>
+  :silent grep <C-r><C-w><CR>
+  :let &grepprg='rg --vimgrep --smart-case'<CR>
+  :cfdo %s/<C-r>s// \\| update
+  <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+]])
+
+map("x", "\\S", [[
+  "sy\|
+  :silent grep <C-r>s<CR>
+  :cfdo %s/<C-r>s// \\| update
+  <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+]])

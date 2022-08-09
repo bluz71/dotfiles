@@ -18,7 +18,6 @@ require("custom.options")
 -- MAPPINGS
 -------------------------------------------------------------
 require("custom.mappings")
-cmd([[runtime custom/mappings.vim]])
 
 
 -------------------------------------------------------------
