@@ -12,7 +12,7 @@ g.mapleader = ','
 -- General mappings
 -------------------------------
 -- Enter command mode via ';'
-map("n", ";", ":")
+map({ "n", "x" }, ";", ":")
 -- Make dot work on visual line selections.
 map("x", ".", ":norm.<CR>")
 -- U for redo, the opposite of u for undo.
