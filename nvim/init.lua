@@ -38,7 +38,7 @@ cmd([[runtime custom/autocmds.vim]])
 -- COLOR SCHEME
 -------------------------------------------------------------
 if fn.filereadable(fn.expand("~/.colorscheme")) == 1 then
-    cmd("exec 'colorscheme ' . readfile(expand('~/.colorscheme'))[0]")
+  cmd([[colorscheme ]] .. fn.readfile(fn.expand('~/.colorscheme'))[1])
 else
-    cmd.colorscheme("moonfly")
+  cmd([[colorscheme moonfly]])
 end
