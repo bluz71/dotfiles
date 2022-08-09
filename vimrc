@@ -1,48 +1,10 @@
-"===========================================================
-" OPTIONS
-"===========================================================
-runtime custom/options.vim
+runtime custom/options.vim  " Options
+runtime custom/terminal.vim " Terminal Vim Tweaks
+runtime custom/mappings.vim " Mappings
+runtime custom/plug.vim     " Plugin Manager
+runtime custom/autocmds.vim " Auto-Commands
 
-
-"===========================================================
-" FUNCTIONS
-"
-" ~/dotfiles/vim/autoload - custom functions
-"===========================================================
-
-
-"===========================================================
-" TERMINAL VIM SETTINGS
-"===========================================================
-runtime custom/terminal.vim
-
-
-"===========================================================
-" MAPPINGS
-"===========================================================
-runtime custom/mappings.vim
-
-
-"===========================================================
-" PLUGINS
-"===========================================================
-runtime custom/plug.vim
-
-" Load up the match it plugin which provides '%' XML/HTML tag matching.
-runtime macros/matchit.vim
-
-
-"===========================================================
-" AUTOCMDS
-"===========================================================
-runtime custom/autocmds.vim
-    " ~/dotfiles/vim/ftplugin       - file type options, mappings
-    " ~/dotfiles/vim/after/ftplugin - file type overrides
-
-
-"===========================================================
-" COLOR SCHEME
-"===========================================================
+" Colorscheme, load from a dotfile if it exists.
 if filereadable(expand('~/.colorscheme'))
     exec 'colorscheme ' . readfile(expand('~/.colorscheme'))[0]
 else
