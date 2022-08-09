@@ -107,9 +107,13 @@ opt.wrapscan = false      -- Don't wrap searches around
 g.do_filetype_lua = 1
 g.did_load_filetypes = 0
 
--- Disable Netrw since we use an alternate filer.
+-- Disable unused builtin plugins.
+g.loaded_gzip = 1
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+g.loaded_tarPlugin= 1
+g.loaded_zip = 1
+g.loaded_zipPlugin= 1
 
 -- Set explicit value of $LESS to make git-delta paging nicer in Telescope.
 env.LESS = "-RS"

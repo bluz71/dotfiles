@@ -93,3 +93,11 @@ if has("patch-8.2.4325")
     set wildoptions=pum
 endif
 set wrap              " Wrap long lines
+
+" Disable unused builtin plugins.
+let g:loaded_gzip = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_tarPlugin= 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin= 1
