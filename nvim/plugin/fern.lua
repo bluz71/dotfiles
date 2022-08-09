@@ -15,12 +15,6 @@ map("n", "<Leader>d", ":Fern . -drawer -width=35 -toggle<CR><C-w>=", opts)
 map("n", "<Leader>f", ":Fern . -drawer -reveal=% -width=35<CR><C-w>=", opts)
 map("n", "<Leader>.", ":Fern %:h -drawer -width=35<CR><C-w>=", opts)
 
--- Disable Netrw.
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-g.loaded_netrwSettings = 1
-g.loaded_netrwFileHandlers = 1
-
 -- Let fern handle directory paths instead of Netrw.
 vim.cmd([[
   augroup FernPluginEvents
