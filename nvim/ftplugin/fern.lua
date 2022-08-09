@@ -2,7 +2,7 @@ local map = vim.keymap.set
 
 map("n",
     "<Plug>(fern-my-open-expand-collapse)",
-    'fern#smart#leaf("<Plug>(fern-action-open:select)", "<Plug>(fern-action-expand)", "<Plug>(fern-action-collapse)")',
+    "fern#smart#leaf('<Plug>(fern-action-open:select)', '<Plug>(fern-action-expand)', '<Plug>(fern-action-collapse)')",
     { buffer = true, expr = true })
 
 local opts = { buffer = true }
