@@ -1,5 +1,7 @@
 local g = vim.g
 local map = vim.keymap.set
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 g["fern#disable_default_mappings"] = 1
 g["fern#disable_drawer_smart_quit"] = 1
@@ -16,9 +18,10 @@ map("n", "<Leader>f", ":Fern . -drawer -reveal=% -width=35<CR><C-w>=", opts)
 map("n", "<Leader>.", ":Fern %:h -drawer -width=35<CR><C-w>=", opts)
 
 -- Let fern handle directory paths instead of Netrw.
-vim.cmd([[
-  augroup FernPluginEvents
-      autocmd!
-      autocmd BufEnter * ++nested call tree#Open()
-  augroup END
-]])
+local fern_plugin_events = augroup("FernPluginEvents", {})
+autocmd("BufEnter", {
+  pattern = "*",
+  command = "call tree#Open()",
+  nested = true,
+  group = fern_plugin_events
+})
