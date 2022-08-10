@@ -6,7 +6,7 @@ local silent_opts = { silent = true, remap = true }
 -------------------------------
 -- Leader
 -------------------------------
-g.mapleader = ','
+g.mapleader = ","
 
 -------------------------------
 -- General mappings

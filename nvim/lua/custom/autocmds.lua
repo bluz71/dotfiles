@@ -112,6 +112,6 @@ autocmd("BufEnter", {
 -- Highlight yanks.
 autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank({ higroup="Visual", on_visual = false, timeout=300 })
-  end
+    vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
+  end,
 })
