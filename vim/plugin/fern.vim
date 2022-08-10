@@ -2,11 +2,7 @@ let g:fern#disable_default_mappings = 1
 let g:fern#disable_drawer_smart_quit = 1
 let g:fern#mark_symbol = '●'
 let g:fern#renderer#default#collapsed_symbol = '▷ '
-if empty(eval('$VTE_VERSION'))
-    let g:fern#renderer#default#expanded_symbol = '◢ '
-else
-    let g:fern#renderer#default#expanded_symbol = '▼ '
-endif
+let g:fern#renderer#default#expanded_symbol = '◢ '
 let g:fern#renderer#default#leading = ' '
 let g:fern#renderer#default#leaf_symbol = ' '
 let g:fern#renderer#default#root_symbol = '~ '
