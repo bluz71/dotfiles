@@ -65,7 +65,7 @@ map("n", "<Leader>z", "zazz")
 -- Expand all folds.
 map("n", "<Leader>Z", ":set nofoldenable<CR>")
 -- Toggle crosshair, aka cusorcolumn & cursorline.
-map("n", "<Leader>X", ":call crosshair#Toggle()<CR>")
+map("n", "<Leader>X", "<cmd>lua require('util.crosshair').toggle()<CR>")
 -- Maximise the current file into a standalone new tab.
 map("n", "<Leader>m", ":tab split<CR>", silent_opts)
 -- Show introduction message.
