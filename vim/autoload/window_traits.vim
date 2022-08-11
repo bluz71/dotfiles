@@ -4,18 +4,13 @@
 " numbers and sign column.
 "
 function! window_traits#Activity(active) abort
-    if &diff
-        " For diffs, do nothing since we want relativenumbers in all windows.
+    if &diff || &buftype ==# 'nofile'
+        " Do nothing for diffs or 'nofile' buffer types.
         return
     endif
 
     if a:active == v:true " Active window
-        if &buftype ==# 'nofile'
-            " Do not style 'nofile' buffer types.
-            return
-        endif
-
-        set colorcolumn=81,82
+        setlocal colorcolumn=81,82
         if exists('&cursorlineopt')
             setlocal cursorline
         endif
@@ -24,11 +19,6 @@ function! window_traits#Activity(active) abort
             setlocal relativenumber
         endif
     else " Inactive window
-        if &buftype ==# 'nofile'
-            " Do not style 'nofile' buffer types.
-            return
-        endif
-
         setlocal colorcolumn=0
         if exists('&cursorlineopt')
             setlocal nocursorline
