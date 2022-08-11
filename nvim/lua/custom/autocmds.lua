@@ -19,7 +19,9 @@ autocmd("WinLeave", {
 })
 
 autocmd("VimEnter", {
-  command = "call diff#Styling()",
+  callback = function()
+    require('util.diff').styling()
+  end,
   group = custom_events,
 })
 
