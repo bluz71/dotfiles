@@ -166,8 +166,8 @@ map("n", "<F8>", ":set wrap!<CR>")
 map("n", "'8", ":set wrap!<CR>")
 map("n", "<F9>", ":set hlsearch!<CR>")
 map("n", "'9", ":set hlsearch!<CR>")
-map("n", "<F10>", ":call listchars#Toggle()<CR>", silent_opts)
-map("n", "'0", ":call listchars#Toggle()<CR>", silent_opts)
+map("n", "<F10>", "<cmd>lua require('util.listchars').toggle()<CR>")
+map("n", "'0", "<cmd>lua require('util.listchars').toggle()<CR>", silent_opts)
 
 -------------------------------
 -- Completion mappings
