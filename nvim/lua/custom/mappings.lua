@@ -1,6 +1,6 @@
+local expr_opts = { expr = true }
 local g = vim.g
 local map = vim.keymap.set
-local expr_opts = { expr = true }
 local silent_opts = { silent = true, remap = true }
 
 -------------------------------

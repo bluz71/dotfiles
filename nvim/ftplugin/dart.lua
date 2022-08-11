@@ -1,6 +1,6 @@
-local map = vim.keymap.set
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local map = vim.keymap.set
 
 -- Hot reload and restart are actions specific to Flutter projects.
 vim.cmd([[

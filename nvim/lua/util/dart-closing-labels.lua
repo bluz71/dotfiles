@@ -1,6 +1,8 @@
 -- Copied from:
 --   https://github.com/nvim-lua/lsp_extensions.nvim/blob/master/lua/lsp_extensions/dart/closing_labels.lua
 
+local buf_set_virtual_text = vim.api.nvim_buf_set_virtual_text
+
 local M = {}
 
 -- Namespace for the virtual text.
@@ -17,13 +19,7 @@ local render_labels = function(labels)
   for _, label in ipairs(labels) do
     local end_line = label.range["end"].line
     local text = prefix .. label.label
-    vim.api.nvim_buf_set_virtual_text(
-      0,
-      closing_labels_ns,
-      end_line,
-      { { text, highlight } },
-      {}
-    )
+    buf_set_virtual_text(0, closing_labels_ns, end_line, { { text, highlight } }, {})
   end
 end
 

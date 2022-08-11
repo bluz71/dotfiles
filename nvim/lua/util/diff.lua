@@ -1,6 +1,6 @@
 local cmd = vim.cmd
-local opt_local = vim.opt_local
 local highlight = vim.api.nvim_set_hl
+local opt_local = vim.opt_local
 
 local M = {}
 

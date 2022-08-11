@@ -1,7 +1,7 @@
+local env = vim.env
+local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
-local fn = vim.fn
-local env = vim.env
 
 opt.autoindent = true -- Indented text
 opt.autoread = true -- Pick up external changes to files
