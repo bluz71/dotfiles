@@ -11,8 +11,20 @@ noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
 noremap <silent> <Leader>f :Fern . -drawer -reveal=% -width=35<CR><C-w>=
 noremap <silent> <Leader>. :Fern %:h -drawer -width=35<CR><C-w>=
 
+" Open directory tree path.
+"
+function! FernDirectoryOpen() abort
+    let l:path = expand('%:p')
+
+    if !isdirectory(l:path)
+        return
+    endif
+
+    execute 'Fern ' . fnameescape(path)
+endfunction
+
 augroup FernPluginEvents
     autocmd!
     " Let fern handle directory paths instead of Netrw.
-    autocmd BufEnter * ++nested call tree#Open()
+    autocmd BufEnter * ++nested call FernDirectoryOpen()
 augroup END
