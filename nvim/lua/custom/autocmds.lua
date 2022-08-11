@@ -9,18 +9,22 @@ local custom_events = augroup("CustomEvents", {})
 
 -- Style customizations.
 autocmd("WinEnter", {
-  command = "call window_traits#Activity(v:true)",
+  callback = function()
+    require("util.window-traits").activity(true)
+  end,
   group = custom_events,
 })
 
 autocmd("WinLeave", {
-  command = "call window_traits#Activity(v:false)",
+  callback = function()
+    require("util.window-traits").activity(false)
+  end,
   group = custom_events,
 })
 
 autocmd("VimEnter", {
   callback = function()
-    require('util.diff').styling()
+    require("util.diff").styling()
   end,
   group = custom_events,
 })
