@@ -186,7 +186,7 @@ map("i", "<C-d>", "<C-x><C-k>")
 map("i", "<C-f>", "<C-x><C-f>")
 map("i", "<C-l>", "<C-x><C-l>")
 --   s - snippet completion
--- Refer to ~/dotfiles/nvim/lua/vsnip-config.lua:
+-- Refer to ~/dotfiles/nvim/lua/plugin/vsnip.lua:
 
 -------------------------------
 -- Increment and decrement mappings
