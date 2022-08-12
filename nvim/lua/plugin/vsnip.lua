@@ -12,19 +12,18 @@ map("i", "<C-k>", 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-k>"', op
 -- Fill in the 'complete' popup with available snippets for the current filetype.
 vim.cmd([[
   function! VsnipComplete() abort
-      let l:wordToComplete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
-      let l:fromWhere = col('.') - len(l:wordToComplete)
-      let l:containWord = 'stridx(v:val.word, l:wordToComplete)>=0'
-      let l:candidates = vsnip#get_complete_items(bufnr("%"))
-      let l:matches = map(filter(l:candidates, l:containWord),
-                  \  "{
-                  \      'word': v:val.word,
-                  \      'menu': v:val.kind,
-                  \      'dup' : 1,
-                  \   }")
-
-      if !empty(l:matches)
-          call complete(l:fromWhere, l:matches)
+      let l:word_to_complete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
+      let l:contain_word = 'stridx(v:val.word, l:word_to_complete) >= 0'
+      let l:candidates = vsnip#get_complete_items(bufnr('%'))
+      let l:candidates = map(filter(l:candidates, l:contain_word),
+                    \  "{
+                    \      'word': v:val.word,
+                    \      'menu': v:val.kind,
+                    \      'dup' : 1,
+                    \   }")
+      let l:from_where = col('.') - len(l:word_to_complete)
+      if !empty(l:candidates)
+          call complete(l:from_where, l:candidates)
       endif
 
       return ''

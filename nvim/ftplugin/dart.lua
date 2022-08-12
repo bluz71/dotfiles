@@ -5,13 +5,13 @@ local fn = vim.fn
 local map = vim.keymap.set
 
 -- Hot reload and restart are actions specific to Flutter projects.
-function _G.flutter_hot_reload()
+function flutter_hot_reload()
   if fn.isdirectory("ios/Flutter") ~= 0 then
     cmd([[silent execute '!kill -SIGUSR1 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null']])
   end
 end
 
-function _G.flutter_hot_restart()
+function flutter_hot_restart()
   if fn.isdirectory("ios/Flutter") ~= 0 then
     cmd([[silent execute '!kill -SIGUSR2 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null']])
   end
