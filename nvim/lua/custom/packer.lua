@@ -186,10 +186,11 @@ packer.startup(function()
   use({
     "hrsh7th/nvim-cmp",
     requires = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-vsnip",
+      { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+      { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
     },
+    event = 'InsertEnter',
     config = function()
       require("plugin.cmp")
     end,

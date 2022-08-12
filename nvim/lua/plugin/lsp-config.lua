@@ -4,7 +4,7 @@ if vim.opt.diff:get() then
 end
 
 local nvim_lsp = require("lspconfig")
-local cmp_lsp = require("cmp_nvim_lsp")
+local lsp_capabilities = require("util.lsp-capabilities")
 local handlers = require("util.lsp-handlers")
 local dart_closing_labels = require("util.dart-closing-labels")
 local fn = vim.fn
@@ -49,7 +49,7 @@ lsp.handlers["textDocument/signatureHelp"] = handlers.signature_help
 -- The nvim-cmp completion plugin supports most LSP capabilities; we should
 -- notify the language servers about that.
 local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = cmp_lsp.update_capabilities(capabilities)
+capabilities = lsp_capabilities.update_capabilities(capabilities)
 
 -- The Language Servers.
 nvim_lsp.dartls.setup({
