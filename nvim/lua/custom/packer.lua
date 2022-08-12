@@ -109,7 +109,6 @@ packer.startup(function()
   use("nelstrom/vim-visual-star-search")
   use("wellle/targets.vim")
   use("chaoren/vim-wordmotion")
-  -- ~/dotfiles/vim/after/plugin/wordmotion.vim
 
   use("tommcdo/vim-lion")
   -- ~/dotfiles/nvim/plugin/lion.lua
@@ -269,7 +268,7 @@ packer.startup(function()
     config = function()
       require("plugin.vsnip")
     end,
-    -- ~/dotfiles/vim/vsnip (custom snippets)
+    -- ~/dotfiles/nvim/vsnip (custom snippets)
   })
 
   use("tpope/vim-projectionist")
@@ -301,7 +300,7 @@ packer.startup(function()
 
   use("mbbill/undotree")
   -- ~/dotfiles/nvim/plugin/undotree.lua
-  -- ~/dotfiles/vim/after/ftplugin/undotree.vim
+  -- ~/dotfiles/nvim/after/ftplugin/undotree.lua
 
   use("907th/vim-auto-save")
   -- ~/dotfiles/nvim/plugin/auto-save.lua
