@@ -7,26 +7,25 @@ opt.autoindent = true -- Indented text
 opt.autoread = true -- Pick up external changes to files
 opt.autowrite = true -- Write files when navigating with :next/:previous
 opt.background = "dark" -- Dark background by default
-opt.backspace = "indent,eol,start"
 opt.backup = false -- No backup files
 opt.belloff = "all" -- Bells are annoying
 opt.breakindent = true -- Wrap long lines *with* indentation
 opt.breakindentopt = "shift:2"
 -- Copy to/from system clipboard
 if fn.has("unnamedplus") == 1 then
-  opt.clipboard = "unnamed,unnamedplus"
+  opt.clipboard = { "unnamed", "unnamedplus" }
 else
   opt.clipboard = "unnamed"
 end
 opt.colorcolumn = "81,82" -- Highlight 81 and 82 columns
 opt.conceallevel = 0 -- Always show text normally
-opt.complete = ".,w,b" -- Sources for term and line completions
+opt.complete = { ".", "w", "b" } -- Sources for term and line completions
 opt.completeopt = { "menu", "menuone", "noinsert" , "noselect" }
 -- Highlight the current line in the number column if 'cursorlineopt' exits.
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.dictionary = "/usr/share/dict/words"
-opt.diffopt = "filler,internal,algorithm:histogram,indent-heuristic"
+opt.diffopt = { "filler", "internal", "algorithm:histogram", "indent-heuristic" }
 opt.expandtab = true -- Use spaces instead of tabs
 opt.exrc = false -- Disable reading of working directory vimrc files
 -- Lua initialization file
@@ -72,9 +71,7 @@ opt.showmode = false -- No to showing mode in bottom-left corner
 opt.smartcase = true -- Case-smart searching
 opt.smarttab = true -- Tab at the start of line inserts blanks
 -- When spell checking, assume word boundaries include 'CamelCasing'
-if fn.exists("&spelloptions") == 1 then
-  opt.spelloptions = "camel"
-end
+opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
 opt.splitright = true -- Split window to the right
 opt.swapfile = false -- No backup files
