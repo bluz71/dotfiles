@@ -15,7 +15,7 @@ window:
   dynamic_title: false
 
   # GTK theme variant.
-  gtk_theme_variant: dark
+  decorations_theme_variant: dark
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
