@@ -3,7 +3,7 @@ local fn = vim.fn
 
 require("custom.options")  -- Options
 require("custom.mappings") -- Mappings
-require("plugin.packer")   -- Plugin Manager
+require("custom.packer")   -- Plugin Manager
 require("custom.autocmds") -- Auto-commands.
 
 -- Colorscheme, load from a dotfile if it exists.
