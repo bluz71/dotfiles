@@ -203,7 +203,7 @@ packer.startup(function()
   --
   -- Note, pear-tree does not play well with nvim-cmp when completing
   -- parentheses (for whatever reason). Hence, the limiting of pear-tree to
-  -- tag-only complation.
+  -- tag-only completion.
   --
   -- Also, the nvim-ts-autotag plugin (a tag completion plugin by the same
   -- author as nvim-autopairs) does not currently support eRuby HTML templates
