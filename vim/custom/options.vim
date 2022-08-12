@@ -38,7 +38,7 @@ set infercase         " Smart casing when completing
 set ignorecase        " Search in case-insensitively
 set incsearch         " Go to search results immediately
 set laststatus=2      " We want a statusline
-set listchars=eol:$,tab:>-,trail:-
+set listchars=eol:$,tab:<‧>,trail:‧
 set matchpairs=(:),{:},[:]
 set mouse=a           " Mouse support in the terminal
 set mousehide         " Hide mouse when typing text

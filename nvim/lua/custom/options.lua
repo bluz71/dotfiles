@@ -21,7 +21,7 @@ end
 opt.colorcolumn = "81,82" -- Highlight 81 and 82 columns
 opt.conceallevel = 0 -- Always show text normally
 opt.complete = ".,w,b" -- Sources for term and line completions
-opt.completeopt = "menu,menuone,noinsert,noselect"
+opt.completeopt = { "menu", "menuone", "noinsert" , "noselect" }
 -- Highlight the current line in the number column if 'cursorlineopt' exits.
 opt.cursorline = true
 opt.cursorlineopt = "number"
@@ -50,7 +50,7 @@ opt.incsearch = true -- Go to search results immediately
 opt.joinspaces = false -- No to double-spaces when joining lines
 opt.laststatus = 3 -- We want a global statusline
 opt.list = true
-opt.listchars = { tab = "  ", trail = "-" }
+opt.listchars = { tab = "  ", trail = "‧" }
 opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
 opt.mousehide = true -- Hide mouse when typing text
