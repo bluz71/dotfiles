@@ -22,7 +22,7 @@ local lsp_on_attach = function(client)
   map("n", "K", vim.lsp.buf.hover, opts)
   map("n", "gr", vim.lsp.buf.references, opts)
   map("n", "gR", vim.lsp.buf.rename, opts)
-  map("i", "<c-k>", vim.lsp.buf.signature_help, opts)
+  map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 
   -- Formatting is conditional on server capabilities.
   if client.server_capabilities.document_formatting then
