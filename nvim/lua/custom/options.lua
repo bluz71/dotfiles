@@ -23,10 +23,8 @@ opt.conceallevel = 0 -- Always show text normally
 opt.complete = ".,w,b" -- Sources for term and line completions
 opt.completeopt = "menu,menuone,noinsert,noselect"
 -- Highlight the current line in the number column if 'cursorlineopt' exits.
-if fn.exists("&cursorlineopt") == 1 then
-  opt.cursorline = true
-  opt.cursorlineopt = "number"
-end
+opt.cursorline = true
+opt.cursorlineopt = "number"
 opt.dictionary = "/usr/share/dict/words"
 opt.diffopt = "filler,internal,algorithm:histogram,indent-heuristic"
 opt.expandtab = true -- Use spaces instead of tabs
