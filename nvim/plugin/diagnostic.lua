@@ -11,6 +11,6 @@ vim.cmd([[
 ]])
 
 local map = vim.keymap.set
-map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+map("n", "]d", vim.diagnostic.goto_next)
+map("n", "[d", vim.diagnostic.goto_prev)
 map("n", "'d", '<cmd>lua vim.diagnostic.open_float(0, {scope = "line"})<CR>')

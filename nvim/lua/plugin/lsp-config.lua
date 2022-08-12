@@ -15,21 +15,21 @@ local map = vim.keymap.set
 local lsp_on_attach = function(client)
   -- Mappings.
   local opts = { buffer = true }
-  map("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  map("n", "gR", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  map("i", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+  map("n", "ga", vim.lsp.buf.code_action, opts)
+  map("n", "gd", vim.lsp.buf.definition, opts)
+  map("n", "gD", vim.lsp.buf.declaration, opts)
+  map("n", "gi", vim.lsp.buf.implementation, opts)
+  map("n", "K", vim.lsp.buf.hover, opts)
+  map("n", "gr", vim.lsp.buf.references, opts)
+  map("n", "gR", vim.lsp.buf.rename, opts)
+  map("i", "<c-k>", vim.lsp.buf.signature_help, opts)
 
   -- Formatting is conditional on server capabilities.
   if client.server_capabilities.document_formatting then
-    map("n", "'f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+    map("n", "'f", vim.lsp.buf.format, opts)
   end
   if client.server_capabilities.document_range_formatting then
-    map("x", "'f", "<cmd>lua vim.lsp.buf.range_formatting()<CR><Esc>", opts)
+    map("x", "'f", vim.lsp.buf.range_formatting, opts)
   end
 end
 

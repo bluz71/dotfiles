@@ -65,7 +65,7 @@ map("n", "<Leader>z", "zazz")
 -- Expand all folds.
 map("n", "<Leader>Z", ":set nofoldenable<CR>")
 -- Toggle crosshair, aka cusorcolumn & cursorline.
-map("n", "<Leader>X", "<cmd>lua require('util.crosshair').toggle()<CR>")
+map("n", "<Leader>X", require('util.crosshair').toggle)
 -- Maximise the current file into a standalone new tab.
 map("n", "<Leader>m", ":tab split<CR>", silent_opts)
 -- Show introduction message.
@@ -156,18 +156,18 @@ map("n", "<F3>", ":%retab<CR>:%s/\\s\\+$//<CR>")
 map("n", "'3", ":%retab<CR>:%s/\\s\\+$//<CR>")
 map("n", "<F4>", ":%s/ /_<CR>")
 map("n", "'4", ":%s/ /_<CR>")
-map("n", "<F5>", "<cmd>lua require('util.spell').toggle()<CR>")
-map("n", "'5", "<cmd>lua require('util.spell').toggle()<CR>")
-map("n", "<F6>", "<cmd>lua require('util.diagnostic-visibility').toggle()<CR>")
-map("n", "'6", "<cmd>lua require('util.diagnostic-visibility').toggle()<CR>")
+map("n", "<F5>", require('util.spell').toggle)
+map("n", "'5", require('util.spell').toggle)
+map("n", "<F6>", require('util.diagnostic-visibility').toggle)
+map("n", "'6", require('util.diagnostic-visibility').toggle)
 map("n", "<F7>", ":set lazyredraw!<CR>:call AutoSaveToggle()<CR>")
 map("n", "'7", ":set lazyredraw!<CR>:call AutoSaveToggle()<CR>")
 map("n", "<F8>", ":set wrap!<CR>")
 map("n", "'8", ":set wrap!<CR>")
 map("n", "<F9>", ":set hlsearch!<CR>")
 map("n", "'9", ":set hlsearch!<CR>")
-map("n", "<F10>", "<cmd>lua require('util.listchars').toggle()<CR>")
-map("n", "'0", "<cmd>lua require('util.listchars').toggle()<CR>", silent_opts)
+map("n", "<F10>", require('util.listchars').toggle)
+map("n", "'0", require('util.listchars').toggle, silent_opts)
 
 -------------------------------
 -- Completion mappings
