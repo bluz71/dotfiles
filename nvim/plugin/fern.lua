@@ -1,5 +1,7 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.cmd
+local fn = vim.fn
 local g = vim.g
 local map = vim.keymap.set
 
@@ -18,23 +20,21 @@ map("n", "<Leader>f", ":Fern . -drawer -reveal=% -width=35<CR><C-w>=", opts)
 map("n", "<Leader>.", ":Fern %:h -drawer -width=35<CR><C-w>=", opts)
 
 -- Open directory tree path.
-vim.cmd([[
-  function! FernDirectoryOpen() abort
-      let l:path = expand('%:p')
+local fern_directory_open = function()
+  local path = fn.expand("%:p")
 
-      if !isdirectory(l:path)
-          return
-      endif
+  if fn.isdirectory(path) == 0 then
+    return
+  end
 
-      execute 'Fern ' . fnameescape(path)
-  endfunction
-]])
+  cmd([[execute 'Fern ]] .. fn.fnameescape(path) .. "'")
+end
 
 -- Let fern handle directory paths instead of Netrw.
 local fern_plugin_events = augroup("FernPluginEvents", {})
 autocmd("BufEnter", {
   pattern = "*",
   nested = true,
-  command = "call FernDirectoryOpen()",
+  callback = fern_directory_open,
   group = fern_plugin_events
 })

@@ -1,25 +1,25 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.cmd
+local fn = vim.fn
 local map = vim.keymap.set
 
 -- Hot reload and restart are actions specific to Flutter projects.
-vim.cmd([[
-  function! FlutterHotReload() abort
-      if isdirectory('ios/Flutter')
-          silent execute '!kill -SIGUSR1 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null'
-      endif
-  endfunction
+function _G.flutter_hot_reload()
+  if fn.isdirectory("ios/Flutter") ~= 0 then
+    cmd([[silent execute '!kill -SIGUSR1 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null']])
+  end
+end
 
-  function! FlutterHotRestart() abort
-      if isdirectory('ios/Flutter')
-          silent execute '!kill -SIGUSR2 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null'
-      endif
-  endfunction
-]])
+function _G.flutter_hot_restart()
+  if fn.isdirectory("ios/Flutter") ~= 0 then
+    cmd([[silent execute '!kill -SIGUSR2 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null']])
+  end
+end
 
 local opts = { buffer = true, silent = true }
-map("n", "'h", ":call FlutterHotReload()<CR>:echo 'Flutter reloaded'<CR>", opts)
-map("n", "'H", ":call FlutterHotRestart()<CR>:echo 'Flutter restarted'<CR>", opts)
+map("n", "'h", "<cmd>lua flutter_hot_reload()<CR>:echo 'Flutter reloaded'<CR>", opts)
+map("n", "'H", "<cmd>lua flutter_hot_restart()<CR>:echo 'Flutter restarted'<CR>", opts)
 
 -- Automatically hot-reload Flutter Dart files when saving.
 local dart_type_events = augroup("DartTypeEvents", {})
