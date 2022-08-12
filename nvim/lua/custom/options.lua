@@ -52,7 +52,7 @@ opt.incsearch = true -- Go to search results immediately
 opt.joinspaces = false -- No to double-spaces when joining lines
 opt.laststatus = 3 -- We want a global statusline
 opt.list = true
-opt.listchars = "tab:  ,trail:-"
+opt.listchars = { tab = "  ", trail = "-" }
 opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
 opt.mousehide = true -- Hide mouse when typing text

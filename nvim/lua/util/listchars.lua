@@ -10,7 +10,7 @@ local M = {}
 M.toggle = function()
   if g.listcharsVisibility then
     -- Brighten extended list characters.
-    opt_local.listchars = "eol:$,tab:>-,trail:-"
+    opt_local.listchars = { eol = "$", tab = ">-", trail = "-" }
     -- Note, using 'vim.api.nvim_set_hl' does not correctly update the current
     -- screen (for reasons unknown, maybe a bug). Hence, continue using
     -- Vimscript highlight changing code.
@@ -23,7 +23,7 @@ M.toggle = function()
     g.listcharsVisibility = false
   else
     -- Dim shortened list characters.
-    opt_local.listchars = "tab:  ,trail:-"
+    opt_local.listchars = { tab = "  ", trail = "-" }
     cmd([[
       highlight! link NonText LineNr
       highlight! link Whitespace Conceal
