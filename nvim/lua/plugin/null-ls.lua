@@ -22,7 +22,9 @@ null_ls.setup({
     -- filetype is attached to a language server, or not, the following mapping
     -- will work for null-ls.
     local opts = { buffer = true }
-    map("n", "'f", "<cmd>lua vim.lsp.buf.format({ timeout_ms = 8000 })<CR>", opts)
+    map("n", "'f", function()
+      vim.lsp.buf.format({ timeout_ms = 8000 })
+    end, opts)
   end,
   sources = {
     -- Builtin diagnostics.

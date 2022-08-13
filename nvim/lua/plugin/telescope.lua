@@ -44,7 +44,9 @@ telescope.load_extension("fzf")
 -- Mappings.
 local map = vim.keymap.set
 map("n", "<Space><Space>", require('telescope.builtin').find_files)
-map("n", "<Space>.", "<cmd>lua require('telescope.builtin').find_files({cwd = '%:h'})<CR>")
+map("n", "<Space>.", function()
+  require('telescope.builtin').find_files({cwd = '%:h'})
+end)
 map("n", "<Space>,", require('telescope.builtin').buffers)
 map("n", "<Space>'", require('telescope.builtin').current_buffer_fuzzy_find)
 map("n", "<Space>r", require('telescope.builtin').resume)
@@ -54,10 +56,14 @@ map("n", "<Space>h", require('telescope.builtin').help_tags)
 map("n", "<Space>i", require('telescope.builtin').highlights)
 map("n", "<Space>o", require('telescope.builtin').oldfiles)
 map("n", "<Space>]", require('telescope.builtin').tags)
-map("n", "<Space>/", "<cmd>lua require('telescope.builtin').grep_string({search = vim.fn.input('grep ❯ ')})<CR>")
+map("n", "<Space>/", function()
+  require('telescope.builtin').grep_string({search = vim.fn.input('grep ❯ ')})
+end)
 map("n", "<Space>lr", require('telescope.builtin').lsp_references)
 map("n", "<Space>lw", require('telescope.builtin').lsp_document_symbols)
-map("n", "<Space>lW", "<cmd>lua require('telescope.builtin').lsp_workspace_symbols({query = vim.fn.input('LSP Workspace Symbols❯ ')})<CR>")
+map("n", "<Space>lW", function()
+  require('telescope.builtin').lsp_workspace_symbols({query = vim.fn.input('LSP Workspace Symbols❯ ')})
+end)
 
 local opts = { silent = true }
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
