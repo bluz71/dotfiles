@@ -9,7 +9,7 @@ let mapleader = ','
 " Enter command mode via ';'
 noremap ; :
 " Make dot work on visual line selections.
-xnoremap . :norm.<CR>
+xnoremap . :normal .<CR>
 " Y should behave like D and C, from cursor till the end of line.
 noremap Y y$
 " U for redo, the opposite of u for undo.

@@ -14,7 +14,7 @@ g.mapleader = ","
 -- Enter command mode via ';'
 map({ "n", "x" }, ";", ":")
 -- Make dot work on visual line selections.
-map("x", ".", ":norm.<CR>")
+map("x", ".", ":normal .<CR>")
 -- U for redo, the opposite of u for undo.
 map("n", "U", "<C-r>")
 -- 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
