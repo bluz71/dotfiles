@@ -128,26 +128,6 @@ Unique                   sort u     *CVN
 Ignore case              sort i     *CVN
 Numerical                sort n     *CVN
 }}}
-LSP Mappings {{{
-Show hover               K            *N
-Go to definition         gd           *N
-Go to declaration        gD           *N
-Go to implementation     gi           *N
-Find references          gr           *N
-Rename symbol            gR           *N
-Code actions             ga           *N
-Signature help           ‹Ctrl-h›     *I
-Previous Diagnostic      [d           *N
-Next Diagnostic          ]d           *N
-Line Diagnostics         'd           *N
-Formatting               'f          *VN
-}}}
-Treesitter Mappings {{{
-Inner method textobject  im            N
-Around method textobject om            N
-Previous method          [m            N
-Next method              ]m            N
-}}}
 Misc Operations {{{
 One time normal command  ‹Ctrl-o›‹@›   I
 Expression register      ‹Ctrl-r›=‹@›  I
@@ -168,29 +148,16 @@ Substitute in block      :s/\%V‹@›/‹#› V
 Print character value    ga           *N
 }}}
 
-Telescope Plugin Mappings {{{
+fzf Plugin Mappings {{{
 Files                    ‹Spc›‹Spc›    N
-Close                    ‹Esc›         N
-Scroll forward preview   ‹PageDown›    N
-Scroll back preview      ‹PageUp›      N
-Scroll forward results   ‹Ctrl-f›      N
-Scroll back preview      ‹Ctrl-b›      N
-Send to quickfix         ‹Alt-q›       N
-Sibling files            ‹Spc›.       %N
 Buffers                  ‹Spc›,        N
-Delete buffer            ‹Alt-d›       N
-Current buffer search    ‹Spc›'        N
-Resume previous state    ‹Spc›r        N
-Buffer commits           ‹Spc›c        N
-Git status               ‹Spc›g        N
-Vim help                 ‹Spc›h        N
-Highlights               ‹Spc›i        N
-Old files                ‹Spc›o        N
+Delete buffers           ‹Spc›‹BS›     N
+Sibling files            ‹Spc›.       %N
 Project tags             ‹Spc›]        N
-Ripgrep                  ‹Spc›/        N
-LSP references           ‹Spc›lr       N
-LSP document symbols     ‹Spc›lw       N
-LSP workspace symbols    ‹Spc›lW       N
+Git status               ‹Spc›g        N
+Buffer commits           ‹Spc›c        N
+Vim help                 ‹Spc›h        N
+Ripgrep                  ‹Spc›\        N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N
@@ -217,43 +184,6 @@ Toggle dot files         d             N
 Switch into directory    >            *N
 Switch to parent dir     <            *N
 }}}
-gitsigns Plugin Mappings {{{
-Previous hunk            [g            N
-Next hunk                ]g            N
-Stage hunk               '+           @N
-Revert hunk staging      '-           @N
-Preview hunk             'p           @N
-Blame line               'b           @N
-Refresh buffers          'r            N
-}}}
-Unimpaired Plugin Mappings {{{
-Previous file            [a            N
-Next file                ]a            N
-Move selection up        [e           VN
-Move selection down      ]e           VN
-Paste above              [p            N
-Past below               ]p            N
-Paste below with format  =P            N
-Paste above with format  =p            N
-Previous in quickfix     [q            N
-Next in quickfix         ]q            N
-Insert a line above      [‹Spc›        N
-Insert a line below      ]‹Spc›        N
-}}}
-Surround Plugin Mappings {{{
-Change surround          cs‹@›‹#›      N
-Delete surround          ds‹@›         N
-You surround             ys‹M›‹@›      N
-You surround tag         ys‹M›t‹@›     N
-You surround function    ys‹M›f‹@›     N
-You surround line ends   yss‹@›        N
-Visual you surround      S             V
-}}}
-indent-object Plugin Mappings {{{
-Inside indent            ‹O›ii        VN
-Around indent            ‹O›ai        VN
-Around indent & adjacent ‹O›aI        VN
-}}}
 Lion Plugin Mappings {{{
 Align around target      gl‹@›        *V
 }}}
@@ -266,47 +196,9 @@ Insert comment above     gcO           N
 Insert comment below     gco           N
 Insert eol comment       gcA           N
 }}}
-vsnip Plugin Mappings {{{
-Expand snippet           ‹Ctrl-j›      I
-Jump forward             ‹Ctrl-j›      I
-Jump backward            ‹Ctrl-k›      I
-}}}
-Projectionist Plugin Mappings {{{
-Alternate file           ,a            N
-Rails controller files   ,ec           N
-Rails helper files       ,eh           N
-Rails models files       ,em           N
-Rails stylesheet files   ,es           N
-Rails spec files         ,et           N
-Rails view files         ,ev           N
-React component files    ,ec           N
-React stylesheet files   ,es           N
-React test files         ,et           N
-}}}
-vim-test Plugin Mappings {{{
-Run test nearest cursor  'tt           N
-Run file tests           'tf           N
-Run test suite           'ts           N
-Run last test            'tl           N
-}}}
 Undotree Plugin Mappings {{{
 Toggle Undotree          'u           %N
 Exit Undotree            ‹Esc›         N
 Previous undo state      <             N
 Next undo state          >             N
-}}}
-Obsession Plugin Mappings {{{
-Toggle session           'o            N
-Delete session           'O            N
-}}}
-Dart Plugin Mappings {{{
-Hot reload               'h            N
-Hot restart              'H            N
-}}}
-Colorizer Plugin Mapping {{{
-Toggle colorizer         'c            N
-}}}
-Hop Plugin Mappings {{{
-Hop Word                 ''            N
-Hop Line                 '‹Return›     N
 }}}

@@ -36,6 +36,14 @@ Plug 'rhysd/clever-f.vim'
 Plug 'ackyshake/VimCompletesMe'
 
 "-----------------------------
+" Fuzzy finding plugins
+"-----------------------------
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+    " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
+    " ~/dotfiles/vim/after/ftplugin/fzf.vim - options
+
+"-----------------------------
 " Filesystem plugins
 "-----------------------------
 Plug 'lambdalisue/fern.vim'
@@ -54,8 +62,6 @@ Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim
 Plug 'christoomey/vim-tmux-navigator'
     " ~/dotfiles/vim/plugin/tmux-navigator.vim
-Plug 'tpope/vim-obsession'
-    " ~/dotfiles/vim/plugin/obsession.vim
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
