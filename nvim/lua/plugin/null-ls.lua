@@ -35,6 +35,7 @@ null_ls.setup({
         return utils.root_has_file("package.json")
       end,
     }),
+    null_ls.builtins.diagnostics.selene,
     null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.diagnostics.yamllint,
 
