@@ -1,4 +1,3 @@
-local fn = vim.fn
 local opt_local = vim.opt_local
 
 opt_local.colorcolumn = "0"

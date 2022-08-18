@@ -1,7 +1,5 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
-local state = require("telescope.state")
-local action_set = require("telescope.actions.set")
 
 telescope.setup({
   defaults = {
@@ -24,10 +22,6 @@ telescope.setup({
         ["<C-b>"] = actions.results_scrolling_up,
       },
     },
-    -- Declutter leading './' characters.
-    path_display = function(opts, path)
-      return string.gsub(path, "^./", "")
-    end,
     prompt_prefix = "❯ ",
     selection_caret = "▶ ",
     sorting_strategy = "ascending",

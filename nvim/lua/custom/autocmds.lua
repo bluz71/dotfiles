@@ -104,7 +104,7 @@ autocmd("TermOpen", {
   callback = function()
     opt_local.conceallevel = 0
     opt_local.colorcolumn = "0"
-    vim.cmd([[startinsert]])
+    cmd([[startinsert]])
   end,
   group = custom_events,
 })

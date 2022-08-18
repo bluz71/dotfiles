@@ -20,10 +20,10 @@ map("n", "s", "<Plug>(fern-action-open:split)", opts)
 map("n", "v", "<Plug>(fern-action-open:vsplit)", opts)
 map("n", "r", "<Plug>(fern-action-reload)", opts)
 
-local opts = { buffer = true, nowait = true }
-map("n", "d", "<Plug>(fern-action-hidden:toggle)", opts)
-map("n", "<", "<Plug>(fern-action-leave)", opts)
-map("n", ">", "<Plug>(fern-action-enter)", opts)
+local opts_no_wait = { buffer = true, nowait = true }
+map("n", "d", "<Plug>(fern-action-hidden:toggle)", opts_no_wait)
+map("n", "<", "<Plug>(fern-action-leave)", opts_no_wait)
+map("n", ">", "<Plug>(fern-action-enter)", opts_no_wait)
 
 -- Automatically trigger a reload when entering the fern window.
 local fern_type_events = augroup("FernTypeEvents", {})

@@ -7,7 +7,6 @@ local nvim_lsp = require("lspconfig")
 local lsp_capabilities = require("util.lsp-capabilities")
 local handlers = require("util.lsp-handlers")
 local dart_closing_labels = require("util.dart-closing-labels")
-local fn = vim.fn
 local lsp = vim.lsp
 local map = vim.keymap.set
 
