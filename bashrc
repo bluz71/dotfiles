@@ -226,7 +226,7 @@ custom_config() {
 
     # 'zoxide' utility.
     eval "$(zoxide init bash)"
-    export _ZO_MAXAGE='1000'
+    export _ZO_MAXAGE='20000'
     export _ZO_FZF_OPTS='
       --no-sort --height 75% --reverse --margin=0,1 --exit-0 --select-1
       --bind ctrl-f:page-down,ctrl-b:page-up
