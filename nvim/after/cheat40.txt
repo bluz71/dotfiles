@@ -136,7 +136,7 @@ Go to implementation     gi           *N
 Find references          gr           *N
 Rename symbol            gR           *N
 Code actions             ga           *N
-Signature help           ‹Ctrl-h›     *I
+Signature help           ‹Ctrl-k›     *I
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
 Line Diagnostics         'd           *N
