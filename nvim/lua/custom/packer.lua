@@ -122,7 +122,7 @@ packer.startup(function()
   -----------------------------
   use({
     "nvim-telescope/telescope.nvim",
-    commit = "d793de0",
+    branch = "0.1.x",
     requires = { "nvim-lua/plenary.nvim" },
     keys = { "<Space>" },
     config = function()
