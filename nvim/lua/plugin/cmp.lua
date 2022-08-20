@@ -7,21 +7,18 @@ local cmp = require("cmp")
 
 cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
   formatting = {
-    format = function(entry, vim_item)
-      vim_item.menu = ({
+    format = function(entry, item)
+      item.menu = ({
         nvim_lsp = "[L]",
         vsnip = "[S]",
         buffer = "[B]",
       })[entry.source.name]
-      return vim_item
+      return item
     end,
   },
   mapping = {
     ["<C-e>"] = cmp.mapping.close(),
-    ["<C-y>"] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -48,7 +45,6 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
     { name = "nvim_lsp", keyword_length = 3, max_item_count = 10 },
     { name = "vsnip", keyword_length = 3, max_item_count = 5 },
     { name = "buffer", keyword_length = 4, max_item_count = 10 },
-    { name = 'nvim_lsp_signature_help' },
   },
   window = {
     completion = cmp.config.window.bordered({
