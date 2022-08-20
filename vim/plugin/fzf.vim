@@ -1,16 +1,10 @@
-" Display fzf in a floating/popup window if possible.
-if has('patch-8.2.0191')
-    let g:fzf_layout = {
-                \ 'window': {
-                \   'width': 0.9,
-                \   'height': 0.7,
-                \   'highlight': 'fzfBorder',
-                \   'border': 'rounded'
-                \  }
-                \}
-else " Fallback to a split window
-    let g:fzf_layout = { 'window': 'silent botright 16split enew' }
-endif
+" Display fzf in a large popup window.
+let g:fzf_layout = {
+            \ 'window': {
+            \   'width': 0.9,
+            \   'height': 0.8,
+            \  }
+            \}
 
 " Git log format.
 let g:fzf_commits_log_options = '--graph --color=always
@@ -52,7 +46,3 @@ command! BDelete call fzf#run(fzf#wrap({
   \  'sink*': {lines -> execute('bwipeout '.join(map(lines, {_, line -> split(line)[0]})))},
   \  'options': '--multi --prompt "BDelete> "'
   \}))
-
-" Disable preview window for certain commands.
-command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, <bang>0)
-command! -bar -bang -nargs=? -complete=buffer Buffers call fzf#vim#buffers(<q-args>, <bang>0)
