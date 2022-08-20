@@ -190,19 +190,18 @@ packer.startup(function()
   use("windwp/nvim-autopairs")
   -- ~/dotfiles/nvim/plugin/autopairs.lua
 
-  -- Only use pear-tree to complete tags, instead use nvim-autopairs to complete
-  -- most standard pairings (parentheses, quotes, etc).
-  --
-  -- Note, pear-tree does not play well with nvim-cmp when completing
-  -- parentheses (for whatever reason). Hence, the limiting of pear-tree to
-  -- tag-only completion.
-  --
-  -- Also, the nvim-ts-autotag plugin (a tag completion plugin by the same
-  -- author as nvim-autopairs) does not currently support eRuby HTML templates
-  -- because they are not Treesitter compatible (maybe one day). Hence, the
-  -- on-going use of pear-tree for tag completion (for now).
-  use("tmsvg/pear-tree")
-  -- ~/dotfiles/nvim/plugin/pear-tree.lua
+  use("windwp/nvim-ts-autotag")
+
+  -- The nvim-ts-autotag plugin does not currently support eRuby HTML templates
+  -- because they are not Treesitter compatible (maybe one day). Hence, use
+  -- pear-tree to tags in `eruby` files
+  use({
+    "tmsvg/pear-tree",
+    ft = { "eruby" },
+    config = function()
+      require("plugin.pear-tree")
+    end
+  })
 
   use("RRethy/nvim-treesitter-endwise")
 
