@@ -106,9 +106,6 @@ packer.startup(function()
   use("wellle/targets.vim")
   use("chaoren/vim-wordmotion")
 
-  use("tommcdo/vim-lion")
-  -- ~/dotfiles/nvim/plugin/lion.lua
-
   use("rhysd/clever-f.vim")
   -- ~/dotfiles/nvim/plugin/clever-f.lua
 

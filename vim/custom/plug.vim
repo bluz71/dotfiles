@@ -29,8 +29,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'chaoren/vim-wordmotion'
-Plug 'tommcdo/vim-lion'
-    " ~/dotfiles/vim/plugin/lion.vim
 Plug 'rhysd/clever-f.vim'
     " ~/dotfiles/vim/plugin/clever-f.vim
 Plug 'ackyshake/VimCompletesMe'
