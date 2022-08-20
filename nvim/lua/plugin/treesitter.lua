@@ -1,43 +1,23 @@
 local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
+  -- For nvim-ts-context-commentstring plugin.
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
   },
   ensure_installed = {
     "bash", "c", "cpp", "css", "dart", "go", "html", "java", "javascript",
-    "lua", "python", "ruby", "rust", "scss", "toml", "typescript", "vue",
+    "lua", "python", "ruby", "rust", "scss", "toml", "typescript", "vim", "vue",
   },
   highlight = {
     enable = true,
   },
   indent = {
     enable = true,
-    disable = { "ruby", "rust", "yaml" },
+    disable = { "ruby", "rust" },
   },
-  textobjects = {
-    select = {
-      enable = true,
-      disable = { "dart", "ruby" }, -- Temporary fix, see: https://is.gd/E00YDa
-      lookahead = true,
-      keymaps = {
-        ["am"] = "@function.outer",
-        ["im"] = "@function.inner",
-      },
-    },
-    move = {
-      enable = true,
-      disable = { "dart", "ruby" }, -- Temporary fix, see: https://is.gd/E00YDa
-      set_jumps = true,
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-      },
-    },
-  },
+  -- For nvim-treesitter-endwise plugin.
   endwise = {
     enable = true,
   },

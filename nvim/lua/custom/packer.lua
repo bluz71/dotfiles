@@ -147,14 +147,12 @@ packer.startup(function()
   -----------------------------
   use({
     "nvim-treesitter/nvim-treesitter",
-    commit = "07b7221",
+    commit = "2bb9bb7",
     run = ":TSUpdate",
     config = function()
       require("plugin.treesitter")
     end,
   })
-
-  use("nvim-treesitter/nvim-treesitter-textobjects")
 
   use({
     "nvim-treesitter/playground",
