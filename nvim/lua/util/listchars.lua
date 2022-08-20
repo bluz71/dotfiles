@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local g = vim.g
 local opt_local = vim.opt_local
 
@@ -14,7 +13,7 @@ M.toggle = function()
     -- Note, using 'vim.api.nvim_set_hl' does not correctly update the current
     -- screen (for reasons unknown, maybe a bug). Hence, continue using
     -- Vimscript highlight changing code.
-    cmd([[
+    vim.cmd([[
       highlight! link NonText WarningMsg
       highlight! link Whitespace WarningMsg
       IndentBlanklineDisable
@@ -24,7 +23,7 @@ M.toggle = function()
   else
     -- Dim shortened list characters.
     opt_local.listchars = { tab = "  ", trail = "‧" }
-    cmd([[
+    vim.cmd([[
       highlight! link NonText LineNr
       highlight! link Whitespace Conceal
       IndentBlanklineEnable
