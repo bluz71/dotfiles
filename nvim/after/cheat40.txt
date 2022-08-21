@@ -17,14 +17,13 @@ Split horizontally       ,s            N
 Split vertically         ,v            N
 Full width split         ,-            N
 Full height vsplit       ,|            N
-Create new tab           ,t            N
 Close                    ,q            N
-Close current tab        ,Q            N
+Create new tab           ,t            N
+Close current tab        ,T            N
 Close qf/loc/preview     ,c            N
 Switch to numbered tab   ,‹@›          N
 Equalize splits          ,=            N
 Rotate splits            ,r            N
-Full width term split    ,T            N
 }}}
 Navigation Mappings {{{
 Move to the next split   ‹Tab›         N
@@ -128,6 +127,11 @@ Unique                   sort u     *CVN
 Ignore case              sort i     *CVN
 Numerical                sort n     *CVN
 }}}
+Diagnostic Mappings {{{
+Previous Diagnostic      [d           *N
+Next Diagnostic          ]d           *N
+Line Diagnostics         'd           *N
+}}}
 LSP Mappings {{{
 Show hover               K            *N
 Go to definition         gd           *N
@@ -137,9 +141,6 @@ Find references          gr           *N
 Rename symbol            gR           *N
 Code actions             ga           *N
 Signature help           ‹Ctrl-k›     *I
-Previous Diagnostic      [d           *N
-Next Diagnostic          ]d           *N
-Line Diagnostics         'd           *N
 Formatting               'f          *VN
 }}}
 Treesitter Mappings {{{
@@ -318,4 +319,7 @@ Toggle colorizer         'c            N
 Hop Plugin Mappings {{{
 Hop Word                 ''            N
 Hop Line                 '‹Return›     N
+}}}
+FTerm Plugin Mappings {{{
+Toggle Terminal          ‹Alt-t›       N
 }}}
