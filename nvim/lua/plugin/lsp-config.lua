@@ -14,21 +14,21 @@ local map = vim.keymap.set
 local lsp_on_attach = function(client)
   -- Mappings.
   local opts = { buffer = true }
-  map("n", "ga", vim.lsp.buf.code_action, opts)
-  map("n", "gd", vim.lsp.buf.definition, opts)
-  map("n", "gD", vim.lsp.buf.declaration, opts)
-  map("n", "gi", vim.lsp.buf.implementation, opts)
-  map("n", "K", vim.lsp.buf.hover, opts)
-  map("n", "gr", vim.lsp.buf.references, opts)
-  map("n", "gR", vim.lsp.buf.rename, opts)
-  map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+  map("n", "ga", lsp.buf.code_action, opts)
+  map("n", "gd", lsp.buf.definition, opts)
+  map("n", "gD", lsp.buf.declaration, opts)
+  map("n", "gi", lsp.buf.implementation, opts)
+  map("n", "K", lsp.buf.hover, opts)
+  map("n", "gr", lsp.buf.references, opts)
+  map("n", "gR", lsp.buf.rename, opts)
+  map("i", "<C-k>", lsp.buf.signature_help, opts)
 
   -- Formatting is conditional on server capabilities.
   if client.server_capabilities.document_formatting then
-    map("n", "'f", vim.lsp.buf.format, opts)
+    map("n", "'f", lsp.buf.format, opts)
   end
   if client.server_capabilities.document_range_formatting then
-    map("x", "'f", vim.lsp.buf.range_formatting, opts)
+    map("x", "'f", lsp.buf.range_formatting, opts)
   end
 end
 
