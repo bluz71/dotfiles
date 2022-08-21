@@ -4,6 +4,8 @@ if vim.opt.diff:get() then
 end
 
 local gitsigns = require("gitsigns")
+local cmd = vim.cmd
+local map = vim.keymap.set
 
 gitsigns.setup({
   signs = {
@@ -13,16 +15,25 @@ gitsigns.setup({
     topdelete = { hl = "GitSignsDelete", text = "▔" },
     changedelete = { hl = "GitSignsChangeDelete", text = "▍" },
   },
-  keymaps = {
-    buffer = true,
-    ["n ]g"] = '<cmd>lua require"gitsigns".next_hunk({wrap = true})<CR>zz',
-    ["n [g"] = '<cmd>lua require"gitsigns".prev_hunk({wrap = true})<CR>zz',
-    ["n '+"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ["n '-"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-    ["n 'p"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-    ["n 'b"] = '<cmd>lua require"gitsigns".blame_line()<CR>',
-    ["n 'r"] = '<cmd>lua require"gitsigns".refresh()<CR>',
-  },
+  on_attach = function()
+    local gs = package.loaded.gitsigns
+
+    map("n", "]g", function()
+      gs.next_hunk()
+      cmd([[normal zz]])
+    end)
+    map("n", "[g", function()
+      gs.prev_hunk()
+      cmd([[normal zz]])
+    end)
+    map('n', "'+", gs.stage_hunk)
+    map('n', "'-", gs.reset_hunk)
+    map("n", "'p", gs.preview_hunk)
+    map('n', "'b", function()
+      gs.blame_line({ full = true })
+    end)
+    map("n", "'r", gs.refresh)
+  end,
   max_file_length = 100000,
   sign_priority = 6,
 })

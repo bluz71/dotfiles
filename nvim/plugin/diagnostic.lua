@@ -1,4 +1,5 @@
 local cmd = vim.cmd
+local diagnostic = vim.diagnostic
 local sign_define = vim.fn.sign_define
 
 -- Diagnostic symbols for display in the sign column.
@@ -31,13 +32,13 @@ vim.diagnostic.config({
 
 local map = vim.keymap.set
 map("n", "]d", function()
-  vim.diagnostic.goto_next()
+  diagnostic.goto_next()
   cmd([[normal zz]])
 end)
 map("n", "[d", function()
-  vim.diagnostic.goto_prev()
+  diagnostic.goto_prev()
   cmd([[normal zz]])
 end)
 map("n", "'d", function()
-  vim.diagnostic.open_float(0, { scope = "line" })
+  diagnostic.open_float(0, { scope = "line" })
 end)
