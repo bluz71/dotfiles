@@ -282,6 +282,14 @@ packer.startup(function()
     end,
   })
 
+  use({
+    "numtostr/FTerm.nvim",
+    keys = { "<A-t>" },
+    config = function()
+      require("plugin.fterm")
+    end,
+  })
+
   -- Speed up Neovim startup time.
   use("lewis6991/impatient.nvim")
 
