@@ -176,6 +176,7 @@ packer.startup(function()
   -----------------------------
   use({
     "hrsh7th/nvim-cmp",
+    tag = "v0.0.1",
     requires = {
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
