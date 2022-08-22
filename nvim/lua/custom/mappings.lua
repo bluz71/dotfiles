@@ -1,6 +1,7 @@
-local expr_opts = { expr = true }
 local g = vim.g
 local map = vim.keymap.set
+local expr_opts = { expr = true }
+local expr_noreplace_opts = { expr = true, replace_keycodes = false }
 local silent_opts = { silent = true, remap = true }
 
 -------------------------------
@@ -36,10 +37,10 @@ map("n", "c", '"_c')
 map("n", "C", '"_C')
 -- Wild menu is set to popup menu, it is best to invert the meaning of
 -- up/down and left/right keys since this will be more natural
-map("c", "<Up>", "pumvisible() ? '<Left>' : '<Up>'", expr_opts)
-map("c", "<Down>", "pumvisible() ? '<Right>' : '<Down>'", expr_opts)
-map("c", "<Left>", "pumvisible() ? '<Up>' : '<Left>'", expr_opts)
-map("c", "<Right>", "pumvisible() ? '<Down>' : '<Right>'", expr_opts)
+map("c", "<Up>", "pumvisible() ? '<Left>' : '<Up>'", expr_noreplace_opts)
+map("c", "<Down>", "pumvisible() ? '<Right>' : '<Down>'", expr_noreplace_opts)
+map("c", "<Left>", "pumvisible() ? '<Up>' : '<Left>'", expr_noreplace_opts)
+map("c", "<Right>", "pumvisible() ? '<Down>' : '<Right>'", expr_noreplace_opts)
 
 -------------------------------
 -- Helper mappings

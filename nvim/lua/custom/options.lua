@@ -98,11 +98,6 @@ opt.wildmode = "full" -- Complete the next full match
 opt.wrap = true -- Wrap long lines
 opt.wrapscan = false -- Don't wrap searches around
 
--- Perform filetype detection via filetype.lua rather than filetype.vim to
--- improve startup performance. Refer to: https://is.gd/iOtejF
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
-
 -- Disable unused builtin plugins.
 g.loaded_gzip = 1
 g.loaded_netrw = 1
