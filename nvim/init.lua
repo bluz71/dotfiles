@@ -1,4 +1,4 @@
-local cmd = vim.cmd
+local colorscheme = vim.cmd.colorscheme
 local fn = vim.fn
 
 require("custom.options") -- Options
@@ -8,7 +8,7 @@ require("custom.autocmds") -- Auto-commands.
 
 -- Colorscheme, load from a dotfile if it exists.
 if fn.filereadable(fn.expand("~/.colorscheme")) == 1 then
-  cmd([[colorscheme ]] .. fn.readfile(fn.expand("~/.colorscheme"))[1])
+  colorscheme(fn.readfile(fn.expand("~/.colorscheme"))[1])
 else
-  cmd([[colorscheme moonfly]])
+  colorscheme("moonfly")
 end
