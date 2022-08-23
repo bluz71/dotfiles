@@ -25,6 +25,9 @@ null_ls.setup({
     map("n", "'f", function()
       vim.lsp.buf.format({ timeout_ms = 8000 })
     end, opts)
+    -- Disable null-ls attached 'omnifunc' since it causes problems for
+    -- VimCompletesMe, especially Tab-completing in Lua files.
+    vim.opt_local.omnifunc = ""
   end,
   sources = {
     -- Builtin diagnostics.
