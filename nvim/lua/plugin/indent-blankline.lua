@@ -7,6 +7,7 @@ indent_blankline.setup({
   },
   buftype_exclude = { "nofile", "terminal" },
   show_first_indent_level = false,
+  show_foldtext = false,
   show_trailing_blankline_indent = false,
   use_treesitter = true,
 })
