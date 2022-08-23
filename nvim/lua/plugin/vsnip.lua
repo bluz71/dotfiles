@@ -30,4 +30,4 @@ vim.cmd([[
 ]])
 
 -- Insert mode snippet completion mapping - '<Control-s>'.
-map("i", "<C-s>", "<C-r>=VsnipComplete()<CR>")
+map("i", "<C-s>", "<C-r>=VsnipComplete()<CR>", { silent = true})
