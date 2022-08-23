@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local highlight = vim.api.nvim_set_hl
 local opt_local = vim.opt_local
 
@@ -10,7 +9,10 @@ M.styling = function()
     opt_local.colorcolumn = "0"
     highlight(0, "MatchParen", {})
     highlight(0, "Visual", { link = "VisualInDiff" })
-    cmd([[wincmd l]])
+    vim.cmd([[
+      IndentBlanklineDisable!
+      wincmd l
+    ]])
   end
 end
 
