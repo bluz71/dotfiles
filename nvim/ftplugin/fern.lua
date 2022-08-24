@@ -5,7 +5,7 @@ local map = vim.keymap.set
 map("n",
     "<Plug>(fern-my-open-expand-collapse)",
     "fern#smart#leaf('<Plug>(fern-action-open:select)', '<Plug>(fern-action-expand)', '<Plug>(fern-action-collapse)')",
-    { buffer = true, expr = true })
+    { buffer = true, expr = true, replace_keycodes = false })
 
 local opts = { buffer = true }
 map("n", "<CR>", "<Plug>(fern-my-open-expand-collapse)", opts)
