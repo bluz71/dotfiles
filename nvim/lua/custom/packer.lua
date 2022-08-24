@@ -64,15 +64,15 @@ packer.startup(function()
     end,
   })
 
-  --[[ use("catppuccin/nvim") ]]
-  --[[ use("sainnhe/edge") ]]
-  --[[ use("sainnhe/everforest") ]]
-  --[[ use("gruvbox-community/gruvbox") ]]
-  --[[ use("sainnhe/gruvbox-material") ]]
-  --[[ use("EdenEast/nightfox.nvim") ]]
-  --[[ use("shaunsingh/nord.nvim") ]]
-  --[[ use("sainnhe/sonokai") ]]
-  --[[ use("folke/tokyonight.nvim") ]]
+  -- use("catppuccin/nvim")
+  -- use("sainnhe/edge")
+  -- use("sainnhe/everforest")
+  -- use("gruvbox-community/gruvbox")
+  -- use("sainnhe/gruvbox-material")
+  -- use("EdenEast/nightfox.nvim")
+  -- use("shaunsingh/nord.nvim")
+  -- use("sainnhe/sonokai")
+  -- use("folke/tokyonight.nvim")
 
   -----------------------------
   -- Style plugins
