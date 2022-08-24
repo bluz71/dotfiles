@@ -182,6 +182,7 @@ packer.startup(function()
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
     },
+    ft = { "dart", "eruby", "html", "javascript", "ruby", "rust" },
     event = 'InsertEnter',
     config = function()
       require("plugin.cmp")
