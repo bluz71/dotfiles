@@ -15,6 +15,7 @@
 # Ctrl-e/END/fn-right: go to end of line
 # Ctrl-r: search through shell history
 # Ctrl-u: change up a directory
+# Ctrl-b: pop directory
 #
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
@@ -24,6 +25,7 @@
 "\eu": undo
 "\ee": edit-and-execute-command
 "\C-u": "..\n"
+"\C-b": "popd\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.

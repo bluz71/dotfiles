@@ -15,7 +15,7 @@ alias rmrf='/bin/rm -rf'
 alias 664='chmod 664'
 alias 775='chmod 775'
 # -- Navigation aliases --
-alias cd='_f() { echo "Use z instead of cd"; cd "$@"; }; _f'
+alias cd='z'
 alias -- -='command cd -'
 alias ...='command cd ../..'
 alias ....='command cd ../../..'
@@ -225,6 +225,7 @@ custom_config() {
 
     # 'zoxide' utility.
     eval "$(zoxide init bash)"
+    . ~/dotfiles/profile.d/zoxide.sh
     export _ZO_MAXAGE='20000'
     export _ZO_FZF_OPTS='
       --no-sort --height 75% --reverse --margin=0,1 --exit-0 --select-1
@@ -415,8 +416,10 @@ history_truncate() {
     # First, remove duplicates.
     tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
     # Second, remove certain basic commands.
-    sed -e '/^cd/d' -e '/^cp/d' -e '/^ll/d' -e '/^ls/d' -e '/^mk/d' \
-        -e '/^mv/d' -e '/^qmv/d' -e '/^rm/d' -e '/^z/d' -i /tmp/bash_history
+    sed -e '/^cd/d' -e '/^cp/d' -e '/^dr/d' -e '/^fd/d' -e '/^ll/d' \
+        -e '/^ls/d' -e '/^mc/d' \-e '/^mk/d' -e '/^mv/d' -e '/^open/d' \
+        -e '/^qmv/d' -e '/^rg/d'  -e '/^rm/d' -e '/^un/d' -e '/^v /d' \
+        -e '/^yt/d' -e '/^z/d' -i /tmp/bash_history
     # Use 'cp' instead of 'mv' to deal with symlinked ~/.bash_history. Use
     # 'command' to bypass aliases.
     command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
