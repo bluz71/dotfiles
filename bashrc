@@ -17,8 +17,8 @@ alias 775='chmod 775'
 # -- Navigation aliases --
 alias cd='z'
 alias -- -='command cd -'
-alias ...='command cd ../..'
-alias ....='command cd ../../..'
+alias ...='z ../..'
+alias ....='z ../../..'
 alias cf='fzf_change_directory'
 # -- Disk aliases --
 alias df.='df -h .'
