@@ -183,7 +183,7 @@ packer.startup(function()
       { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
     },
     ft = { "dart", "eruby", "html", "javascript", "ruby", "rust" },
-    event = 'InsertEnter',
+    event = "InsertEnter",
     config = function()
       require("plugin.cmp")
     end,
@@ -202,7 +202,7 @@ packer.startup(function()
     ft = { "eruby" },
     config = function()
       require("plugin.pear-tree")
-    end
+    end,
   })
 
   use("RRethy/nvim-treesitter-endwise")
@@ -219,9 +219,7 @@ packer.startup(function()
 
   use({
     "j-hui/fidget.nvim",
-    ft = {
-      "dart", "javascript", "ruby", "rust",
-    },
+    ft = { "dart", "javascript", "ruby", "rust" },
     config = function()
       require("plugin.fidget")
     end,
