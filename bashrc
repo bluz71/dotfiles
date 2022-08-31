@@ -217,7 +217,7 @@ custom_config() {
       --bind ctrl-f:page-down,ctrl-b:page-up
       --bind pgdn:preview-page-down,pgup:preview-page-up
       --prompt="❯ "
-      --color bg+:#262842,fg+:#dadada,hl:#f09479,hl+:#f09479
+      --color bg+:#212437,fg+:#dadada,hl:#f09479,hl+:#f09479
       --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#36c692
       --color prompt:#87afff,pointer:#ff5189,marker:#f09479
     '
