@@ -140,15 +140,15 @@ if [[ $OS = Linux ]]; then
     alias free='free -th'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias mplayer='mplayer $* 2>/dev/null'
-    alias nmdown='nmcli connection down wg0'
-    alias nminfo='nmcli --overview connection show wg0'
     alias nmshow='nmcli connection show'
-    alias nmup='nmcli connection up wg0'
     alias open='xdg-open 2>/dev/null'
     alias scp='/usr/bin/scp -r'
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
     alias updatedb='sudo /usr/bin/updatedb'
+    alias wgdown='nmcli connection down wg0'
+    alias wginfo='nmcli --overview connection show wg0'
+    alias wgup='nmcli connection up wg0'
 elif [[ $OS = Darwin ]]; then
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
@@ -217,7 +217,7 @@ custom_config() {
       --bind ctrl-f:page-down,ctrl-b:page-up
       --bind pgdn:preview-page-down,pgup:preview-page-up
       --prompt="❯ "
-      --color bg+:#262626,fg+:#dadada,hl:#f09479,hl+:#f09479
+      --color bg+:#262842,fg+:#dadada,hl:#f09479,hl+:#f09479
       --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#36c692
       --color prompt:#87afff,pointer:#ff5189,marker:#f09479
     '
