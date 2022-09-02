@@ -165,6 +165,7 @@ key_bindings:
   - { key: P,        mods: Alt,       chars: "\x1bp"                 }
   - { key: Q,        mods: Alt,       chars: "\x1bq"                 }
   - { key: Q,        mods: Control,   chars: "\x11"                  }
+  - { key: R,        mods: Alt,       chars: "\x1br"                 }
   - { key: S,        mods: Alt,       chars: "\x1bs"                 }
   - { key: T,        mods: Alt,       chars: "\x1bt"                 }
   - { key: U,        mods: Alt,       chars: "\x1bu"                 }
