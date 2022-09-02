@@ -146,9 +146,9 @@ if [[ $OS = Linux ]]; then
     alias ssh='/usr/bin/ssh'
     alias ssh-add='/usr/bin/ssh-add'
     alias updatedb='sudo /usr/bin/updatedb'
-    alias wgdown='nmcli connection down wg0'
-    alias wginfo='nmcli --overview connection show wg0'
-    alias wgup='nmcli connection up wg0'
+    alias wg0down='nmcli connection down wg0'
+    alias wg0info='nmcli --overview connection show wg0'
+    alias wg0up='nmcli connection up wg0'
 elif [[ $OS = Darwin ]]; then
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
