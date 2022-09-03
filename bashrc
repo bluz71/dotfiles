@@ -49,6 +49,7 @@ alias lc='_f() { ls "$@" | wc -l; }; _f'
 alias ll='l --long'
 alias ll.='ll -d .*'
 alias lld='ll --list-dirs'
+alias lldt='_f() { ll -r --sort=modified --list-dirs "$@" | less; }; _f'
 alias llfs='find_by_size'
 alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
@@ -230,6 +231,7 @@ custom_config() {
     # 'zoxide' utility.
     eval "$(zoxide init bash)"
     . ~/dotfiles/profile.d/zoxide.sh
+    export _ZO_EXCLUDE_DIRS=$HOME:$HOME/Music/*
     export _ZO_MAXAGE='20000'
     export _ZO_FZF_OPTS='
       --no-sort --height 75% --reverse --margin=0,1 --exit-0 --select-1
