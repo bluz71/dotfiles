@@ -1,4 +1,4 @@
-function! snippet#Complete() abort
+function! snippets#Complete() abort
     let l:word_to_complete = matchstr(strpart(getline('.'), 0, col('.') - 1), '\S\+$')
     let l:contain_word = 'stridx(v:val.word, l:word_to_complete) >= 0'
     let l:candidates = vsnip#get_complete_items(bufnr('%'))

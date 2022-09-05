@@ -184,9 +184,6 @@ Toggle dot files         d             N
 Switch into directory    >            *N
 Switch to parent dir     <            *N
 }}}
-Lion Plugin Mappings {{{
-Align around target      gl‹@›        *V
-}}}
 Comment Plugin Mappings {{{
 Toggle comments          gc           *V
 Toggle block comments    gb           *V

@@ -185,7 +185,7 @@ map("i", "<C-b>", "<C-x><C-p>")
 map("i", "<C-d>", "<C-x><C-k>")
 map("i", "<C-f>", "<C-x><C-f>")
 map("i", "<C-l>", "<C-x><C-l>")
---   s - snippet completion
+--   s - snippets completion
 -- Refer to ~/dotfiles/nvim/lua/plugin/vsnip.lua:
 
 -------------------------------

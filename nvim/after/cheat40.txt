@@ -143,12 +143,6 @@ Code actions             ga           *N
 Signature help           ‹Ctrl-k›     *I
 Formatting               'f          *VN
 }}}
-Treesitter Mappings {{{
-Inner method textobject  im            N
-Around method textobject om            N
-Previous method          [m            N
-Next method              ]m            N
-}}}
 Misc Operations {{{
 One time normal command  ‹Ctrl-o›‹@›   I
 Expression register      ‹Ctrl-r›=‹@›  I
@@ -254,9 +248,6 @@ indent-object Plugin Mappings {{{
 Inside indent            ‹O›ii        VN
 Around indent            ‹O›ai        VN
 Around indent & adjacent ‹O›aI        VN
-}}}
-Lion Plugin Mappings {{{
-Align around target      gl‹@›        *V
 }}}
 Comment Plugin Mappings {{{
 Toggle comments          gc           *V

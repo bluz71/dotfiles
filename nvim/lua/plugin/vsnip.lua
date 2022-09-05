@@ -9,5 +9,5 @@ map("i", "<C-j>", 'vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<C-j>"
 map("i", "<C-k>", 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<C-k>"', opts)
 
 -- Insert mode vsnip completion mapping - '<Control-s>'
--- Refer to ~/dotfiles/nvim/autoload/snippet.vim
-map("i", "<C-s>", "<C-r>=snippet#Complete()<CR>", { silent = true})
+-- Refer to ~/dotfiles/nvim/autoload/snippets.vim
+map("i", "<C-s>", "<C-r>=snippets#Complete()<CR>", { silent = true})
