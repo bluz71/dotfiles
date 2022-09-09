@@ -32,7 +32,8 @@ opt.exrc = false -- Disable reading of working directory vimrc files
 opt.fillchars = {
   horiz = "━", horizup = "┻", horizdown = "┳", vert = "┃", vertleft = "┫",
   vertright = "┣", verthoriz = "╋",
-  foldclose = "▷", foldopen = "▼", foldsep = "┃"
+  foldclose = "▷", foldopen = "▼", foldsep = "┃",
+  diff = "╌"
 }
 opt.foldlevelstart = 20
 opt.foldmethod = "indent" -- Simple and fast
