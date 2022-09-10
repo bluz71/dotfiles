@@ -4,7 +4,6 @@ if vim.opt.diff:get() then
 end
 
 local null_ls = require("null-ls")
-local custom_sources = require("util.null-ls-sources")
 local map = vim.keymap.set
 
 null_ls.setup({
