@@ -269,14 +269,13 @@ packer.startup(function()
   -- ~/dotfiles/nvim/plugin/editorconfig.lua
 
   use("dart-lang/dart-vim-plugin")
-  use("vim-crystal/vim-crystal")
 
   -----------------------------
   -- Misc plugins
   -----------------------------
   use({
-    "norcalli/nvim-colorizer.lua",
-    ft = { "css", "json", "lua", "markdown", "scss", "vim", "yaml" },
+    "NvChad/nvim-colorizer.lua",
+    ft = { "css", "markdown", "scss", "vim" },
     config = function()
       require("plugin.colorizer")
     end,
