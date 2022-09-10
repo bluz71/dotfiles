@@ -43,6 +43,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.yamllint,
 
     -- Builtin formatters.
+    null_ls.builtins.formatting.dart_format,
     null_ls.builtins.formatting.prettier.with({
       filetypes = { "css", "json", "scss", "yml" },
     }),
@@ -55,8 +56,5 @@ null_ls.setup({
         "--indent-width", "2",
       },
     }),
-
-    -- Custom sources.
-    custom_sources.formatting_dartfmt,
   },
 })
