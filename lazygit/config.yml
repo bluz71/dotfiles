@@ -1,0 +1,24 @@
+git:
+  branchLogCmd: 'git log --graph --color=always --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)" {{branchName}} --'
+  paging:
+    colorArg: never
+    pager: delta --paging=never --side-by-side
+
+gui:
+  authorColors:
+    'Dennis B': '#80a0ff'
+    '*': '#ae81ff'
+  theme:
+    activeBorderColor:
+      - blue
+      - bold
+    inactiveBorderColor:
+      - '#444444'
+    selectedLineBgColor:
+      - '#212437'
+
+keybinding:
+  universal:
+    return: 'q'
+    submitEditorText: '<c-c>'
+    appendNewline: '<Enter>'
