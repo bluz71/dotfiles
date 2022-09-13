@@ -1,3 +1,5 @@
+# Configuration documentation: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+#
 git:
   branchLogCmd: 'git log --graph --color=always --date=human --format="%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)" {{branchName}} --'
   paging:
@@ -15,6 +17,8 @@ gui:
     inactiveBorderColor:
       - '#444444'
     selectedLineBgColor:
+      - '#212437'
+    selectedRangeBgColor:
       - '#212437'
 
 keybinding:
