@@ -3,7 +3,6 @@ local map = vim.keymap.set
 
 fterm.setup({
   cmd = "lazygit",
-  ft = "fterm_lazygit",
   dimensions = {
     height = 0.9,
     width = 0.9,
