@@ -1,6 +1,7 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
+local g = vim.g
 local map = vim.keymap.set
 local opt = vim.opt
 local opt_local = vim.opt_local
@@ -120,4 +121,29 @@ autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
   end,
+})
+
+-- Colorscheme overrides.
+autocmd("ColorScheme", {
+  pattern = "nightfly",
+  callback = function()
+    -- Tweak terminal colors to make lazygit look nicer.
+    g.terminal_color_9  = "#fc514e" -- Bright Red
+    g.terminal_color_10 = "#a1cd5e" -- Bright Green
+    g.terminal_color_11 = "#e3d18a" -- Bright Yellow
+    g.terminal_color_13 = "#c792ea" -- Bright Magenta
+  end
+})
+
+autocmd("ColorScheme", {
+  pattern = "moonfly",
+  callback = function()
+    -- Tweak terminal colors to make lazygit look nicer.
+    g.terminal_color_9  = "#ff5454" -- Bright Red
+    g.terminal_color_10 = "#8cc85f" -- Bright Green
+    g.terminal_color_11 = "#e3c78a" -- Bright Yellow
+    g.terminal_color_12 = "#80a0ff" -- Bright Blue
+    g.terminal_color_13 = "#d183e8" -- Bright Magenta
+    g.terminal_color_14 = "#79dac8" -- Bright Cyan
+  end
 })
