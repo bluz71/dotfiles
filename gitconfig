@@ -33,8 +33,11 @@
     coloring = highlightRecent
     date     = human
 [delta]
-    features     = styles
-    syntax-theme = none
+    features                 = styles
+    line-numbers-minus-style = 243
+    line-numbers-plus-style  = 243
+    line-numbers-zero-style  = 243
+    syntax-theme             = none
 [delta "styles"]
     commit-style                 = 3          # yellow
     file-style                   = 11         # pale yellow
