@@ -283,7 +283,7 @@ packer.startup(function()
 
   use({
     "numtostr/FTerm.nvim",
-    keys = { "<A-t>" },
+    keys = { "<A-g>" },
     config = function()
       require("plugin.fterm")
     end,

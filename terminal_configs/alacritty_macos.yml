@@ -157,6 +157,7 @@ key_bindings:
   - { key: D,        mods: Alt|Shift, chars: "\x1bD"                 }
   - { key: E,        mods: Alt,       chars: "\x1be"                 }
   - { key: F,        mods: Alt,       chars: "\x1bf"                 }
+  - { key: G,        mods: Alt,       chars: "\x1bg"                 }
   - { key: F,        mods: Alt|Shift, chars: "\x1bF"                 }
   - { key: H,        mods: Alt,       chars: "\x1bh"                 }
   - { key: J,        mods: Alt,       chars: "\x1bj"                 }
@@ -167,7 +168,6 @@ key_bindings:
   - { key: Q,        mods: Control,   chars: "\x11"                  }
   - { key: R,        mods: Alt,       chars: "\x1br"                 }
   - { key: S,        mods: Alt,       chars: "\x1bs"                 }
-  - { key: T,        mods: Alt,       chars: "\x1bt"                 }
   - { key: U,        mods: Alt,       chars: "\x1bu"                 }
   - { key: V,        mods: Alt,       chars: "\x1bv"                 }
   - { key: W,        mods: Alt,       chars: "\x1bw"                 }
