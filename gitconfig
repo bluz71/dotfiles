@@ -1,136 +1,136 @@
 [user]
-    name  = Dennis B
-    email = bluz71@users.noreply.github.com
+  name  = Dennis B
+  email = bluz71@users.noreply.github.com
 [push]
-    default = simple
+  default = simple
 [core]
-    autocrlf       = input
-    pager          = delta
-    untrackedCache = true
+  autocrlf       = input
+  pager          = delta
+  untrackedCache = true
 [color]
-    ui = auto
+  ui = auto
 [diff]
-    tool       = meld
-    algorithm  = histogram
-    colorMoved = plain
+  tool       = meld
+  algorithm  = histogram
+  colorMoved = plain
 [color "diff"]
-    newMoved = 12 # pale blue
-    oldMoved = 5  # violet
+  newMoved = 12 # pale blue
+  oldMoved = 5  # violet
 [pull]
-    rebase = true
+  rebase = true
 [merge]
-    tool = meld
-    conflictStyle = zdiff3
+  tool = meld
+  conflictStyle = zdiff3
 [difftool]
-    prompt = false
+  prompt = false
 [difftool "vd"]
-    cmd = nvim -d "$LOCAL" "$REMOTE"
+  cmd = nvim -d "$LOCAL" "$REMOTE"
 [mergetool]
-    keepBackup = false
+  keepBackup = false
 [advice]
-    waitingForEditor = false
+  waitingForEditor = false
 [blame]
-    coloring = highlightRecent
-    date     = human
+  coloring = highlightRecent
+  date     = human
 [delta]
-    features                  = decorations
-    line-numbers-left-format  = ""
-    line-numbers-right-format = "│ "
-    syntax-theme              = none
+  features                  = decorations
+  line-numbers-left-format  = ""
+  line-numbers-right-format = "│ "
+  syntax-theme              = none
 [delta "decorations"]
-    commit-style                 = 3          # Yellow
-    file-decoration-style        = 11 ul ol
-    file-style                   = 11         # Bold yellow
-    hunk-header-decoration-style = 4 box      # Blue
-    hunk-header-style            = 253        # White
-    minus-emph-style             = 1 reverse
-    minus-style                  = 1          # Red
-    plus-emph-style              = 2 reverse
-    plus-style                   = 2          # Green
-    zero-style                   = auto
+  commit-style                 = 3          # Yellow
+  file-decoration-style        = 11 ul ol
+  file-style                   = 11         # Bold yellow
+  hunk-header-decoration-style = 4 box      # Blue
+  hunk-header-style            = 253        # White
+  minus-emph-style             = 1 reverse
+  minus-style                  = 1          # Red
+  plus-emph-style              = 2 reverse
+  plus-style                   = 2          # Green
+  zero-style                   = auto
 [help]
-    format = html
+  format = html
 [web]
-    browser = open
+  browser = open
 #[feature]
-#    manyFiles = true
+#  manyFiles = true
 [alias]
     # add
-    aa = add .
-    sg = !git add . -N && git add -p
+  aa = add .
+  sg = !git add . -N && git add -p
     # reset
-    unadd = reset HEAD
+  unadd = reset HEAD
     # commit
-    ci    = commit --verbose
-    unci  = reset --soft HEAD~1
-    amend = commit --amend
+  ci    = commit --verbose
+  unci  = reset --soft HEAD~1
+  amend = commit --amend
     # restore
-    rs  = restore
-    rss = restore --source
+  rs  = restore
+  rss = restore --source
     # branch
-    bb  = bvv # Note, bvv is a custom subcommand, see the 'git-bvv' file.
-    bba = bvv --all
-    bd  = branch -d
-    bD  = branch -D
+  bb  = bvv # Note, bvv is a custom subcommand, see the 'git-bvv' file.
+  bba = bvv --all
+  bd  = branch -d
+  bD  = branch -D
     # switch
-    sw  = switch
-    swc = switch -c
+  sw  = switch
+  swc = switch -c
     # checkout
-    co = checkout
+  co = checkout
     # diff
-    di   = diff
-    dip  = !sh -c 'git di $1~1..$1' -
-    dis  = diff --staged
-    mdi  = difftool
-    mdip = !sh -c 'git difftool $1~1..$1' -
-    mdis = difftool --staged
-    vdi  = difftool -t vd
-    vdip = !sh -c 'git difftool -t vd $1~1..$1' -
-    vdis = difftool -t vd --staged
+  di   = diff
+  dip  = !sh -c 'git di $1~1..$1' -
+  dis  = diff --staged
+  mdi  = difftool
+  mdip = !sh -c 'git difftool $1~1..$1' -
+  mdis = difftool --staged
+  vdi  = difftool -t vd
+  vdip = !sh -c 'git difftool -t vd $1~1..$1' -
+  vdis = difftool -t vd --staged
     # log: #e3c78a (yellow), #ff5454 (red), #36c692 (green), #80a0ff (blue)
-    lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
-    ll  = lla --first-parent
-    llm = !git ll master..HEAD
-    llu = !git ll @{upstream}..HEAD
-    lld = !git ll HEAD..@{upstream}
+  lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
+  ll  = lla --first-parent
+  llm = !git ll master..HEAD
+  llu = !git ll @{upstream}..HEAD
+  lld = !git ll HEAD..@{upstream}
     # reflog
-    rl = reflog
+  rl = reflog
     # show
-    sh = show
+  sh = show
     # fetch
-    fe  = fetch
-    fea = fetch --all --prune
+  fe  = fetch
+  fea = fetch --all --prune
     # merge
-    mg   = merge --ff-only
-    mgs  = merge --ff-only --squash
-    unmg = reset --merge ORIG_HEAD
-    mgt  = mergetool
+  mg   = merge --ff-only
+  mgs  = merge --ff-only --squash
+  unmg = reset --merge ORIG_HEAD
+  mgt  = mergetool
     # rebase
-    rb  = rebase
-    rbc = rebase --continue
-    rbs = rebase --skip
+  rb  = rebase
+  rbc = rebase --continue
+  rbs = rebase --skip
     # push / pull
-    ps = push
-    pl = pull
+  ps = push
+  pl = pull
     # remote
-    rau = remote add upstream
-    rr  = remote -v
-    rro = remote show origin
-    rru = remote show upstream
+  rau = remote add upstream
+  rr  = remote -v
+  rro = remote show origin
+  rru = remote show upstream
     # remote branch
-    bop = push -u origin
-    bod = push origin -d
+  bop = push -u origin
+  bod = push origin -d
     # stash
-    sa = !sh -c 'git stash apply stash@{$1}' -
-    sd = !sh -c 'git stash drop stash@{$1}' -
-    si = !sh -c 'git stash show -p stash@{$1}' -
-    sl = stash list
-    sp = stash pop
-    ss = stash save --include-untracked
+  sa = !sh -c 'git stash apply stash@{$1}' -
+  sd = !sh -c 'git stash drop stash@{$1}' -
+  si = !sh -c 'git stash show -p stash@{$1}' -
+  sl = stash list
+  sp = stash pop
+  ss = stash save --include-untracked
     # bisect
-    bss = bisect start
-    bsb = bisect bad
-    bsg = bisect good
-    bsr = bisect reset
+  bss = bisect start
+  bsb = bisect bad
+  bsg = bisect good
+  bsr = bisect reset
     # misc
-    cloc = !cloc --vcs=git
+  cloc = !cloc --vcs=git
