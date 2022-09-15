@@ -1,0 +1,1 @@
+style File.expand_path("~/dotfiles/linter_configs/mdl_style.rb")
