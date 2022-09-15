@@ -1,14 +1,14 @@
 # Useful pry features.
 #
 #   Shell commands are prepended with a dot:
-#     pry> .ls 
+#     pry> .ls
 #   Shell mode list path in prompt:
 #     pry> shell-mode
-#     pry :~ $ 
+#     pry :~ $
 #   Save an unnamed object to an object:
 #     pry> [1, 2, 3]
 #     pry> x = _
-#     pry> x 
+#     pry> x
 #     [1, 2, 3]
 #   List Rails models:
 #     pry> show-models
