@@ -55,29 +55,29 @@
 #[feature]
 #  manyFiles = true
 [alias]
-    # add
+  # add
   aa = add .
   sg = !git add . -N && git add -p
-    # reset
+  # reset
   unadd = reset HEAD
-    # commit
+  # commit
   ci    = commit --verbose
   unci  = reset --soft HEAD~1
   amend = commit --amend
-    # restore
+  # restore
   rs  = restore
   rss = restore --source
-    # branch
+  # branch
   bb  = bvv # Note, bvv is a custom subcommand, see the 'git-bvv' file.
   bba = bvv --all
   bd  = branch -d
   bD  = branch -D
-    # switch
+  # switch
   sw  = switch
   swc = switch -c
-    # checkout
+  # checkout
   co = checkout
-    # diff
+  # diff
   di   = diff
   dip  = !sh -c 'git di $1~1..$1' -
   dis  = diff --staged
@@ -87,50 +87,50 @@
   vdi  = difftool -t vd
   vdip = !sh -c 'git difftool -t vd $1~1..$1' -
   vdis = difftool -t vd --staged
-    # log: #e3c78a (yellow), #ff5454 (red), #36c692 (green), #80a0ff (blue)
+  # log: #e3c78a (yellow), #ff5454 (red), #36c692 (green), #80a0ff (blue)
   lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
   ll  = lla --first-parent
   llm = !git ll master..HEAD
   llu = !git ll @{upstream}..HEAD
   lld = !git ll HEAD..@{upstream}
-    # reflog
+  # reflog
   rl = reflog
-    # show
+  # show
   sh = show
-    # fetch
+  # fetch
   fe  = fetch
   fea = fetch --all --prune
-    # merge
+  # merge
   mg   = merge --ff-only
   mgs  = merge --ff-only --squash
   unmg = reset --merge ORIG_HEAD
   mgt  = mergetool
-    # rebase
+  # rebase
   rb  = rebase
   rbc = rebase --continue
   rbs = rebase --skip
-    # push / pull
+  # push / pull
   ps = push
   pl = pull
-    # remote
+  # remote
   rau = remote add upstream
   rr  = remote -v
   rro = remote show origin
   rru = remote show upstream
-    # remote branch
+  # remote branch
   bop = push -u origin
   bod = push origin -d
-    # stash
+  # stash
   sa = !sh -c 'git stash apply stash@{$1}' -
   sd = !sh -c 'git stash drop stash@{$1}' -
   si = !sh -c 'git stash show -p stash@{$1}' -
   sl = stash list
   sp = stash pop
   ss = stash save --include-untracked
-    # bisect
+  # bisect
   bss = bisect start
   bsb = bisect bad
   bsg = bisect good
   bsr = bisect reset
-    # misc
+  # misc
   cloc = !cloc --vcs=git
