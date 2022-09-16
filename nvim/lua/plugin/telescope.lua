@@ -22,6 +22,7 @@ telescope.setup({
         ["<C-b>"] = actions.results_scrolling_up,
       },
     },
+    multi_icon = "✚",
     prompt_prefix = "❯ ",
     selection_caret = "▶ ",
     sorting_strategy = "ascending",
