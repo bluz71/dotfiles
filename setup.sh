@@ -30,7 +30,7 @@ mkdir -p .config/alacritty
 
 if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
-    ln -s ~/dotfiles/fonts.conf .config/fontconfig/fonts.conf
+    ln -s ~/dotfiles/misc/fonts.conf .config/fontconfig/fonts.conf
     ln -s ~/dotfiles/terminal_configs/Xresources .Xresources
     mkdir -p .config/alacritty
     ln -s ~/dotfiles/terminal_configs/alacritty_linux.yml .config/alacritty/alacritty.yml
