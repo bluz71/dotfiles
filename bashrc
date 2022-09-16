@@ -218,7 +218,7 @@ custom_config() {
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
       --bind pgdn:preview-page-down,pgup:preview-page-up
-      --marker="▶" --pointer="▶" --prompt="❯ "
+      --marker="✚" --pointer="▶" --prompt="❯ "
       --color bg+:#262626,fg+:#dadada,hl:#f09479,hl+:#f09479
       --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#36c692
       --color prompt:#87afff,pointer:#ff5189,marker:#f09479
