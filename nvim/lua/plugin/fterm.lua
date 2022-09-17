@@ -7,6 +7,7 @@ fterm.setup({
     height = 0.9,
     width = 0.95,
   },
+  ft = "lazygit",
 })
 
 map("n", "<A-g>", fterm.toggle)

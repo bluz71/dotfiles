@@ -9,7 +9,7 @@ local M = {}
 -- In inactive windows disable the following traits: color column, relative line
 -- numbers and sign column.
 M.activity = function(active)
-  if opt.diff:get() or buf_get_option(0, "buftype") == "nofile" then
+  if opt.diff:get() or buf_get_option(0, "buftype") == "nofile" or buf_get_option(0, "filetype") == "lazygit" then
     -- Do nothing for diffs or 'nofile' buffer types.
     return
   end
