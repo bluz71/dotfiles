@@ -9,6 +9,8 @@
   untrackedCache = true
 [color]
   ui = auto
+[commit]
+  verbose = true
 [diff]
   tool       = meld
   algorithm  = histogram
@@ -61,7 +63,7 @@
   # reset
   unadd = reset HEAD
   # commit
-  ci    = commit --verbose
+  ci    = commit
   unci  = reset --soft HEAD~1
   amend = commit --amend
   # restore
