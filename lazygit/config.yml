@@ -33,3 +33,5 @@ keybinding:
     appendNewline: '<enter>'
 
 notARepository: 'skip'
+
+promptToReturnFromSubprocess: false
