@@ -111,3 +111,9 @@ g.loaded_zipPlugin = 1
 
 -- Set explicit value of $LESS to make git-delta paging nicer in Telescope.
 env.LESS = "-RS"
+
+-- Use neovim-remote for floating terminal lazygit edit and commit operations.
+--
+-- Note, install neovim-remote via:
+--   % pip3 install neovim-remote
+env.EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
