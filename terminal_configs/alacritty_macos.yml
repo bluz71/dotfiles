@@ -163,6 +163,7 @@ key_bindings:
   - { key: J,        mods: Alt,       chars: "\x1bj"                 }
   - { key: K,        mods: Alt,       chars: "\x1bk"                 }
   - { key: L,        mods: Alt,       chars: "\x1bl"                 }
+  - { key: N,        mods: Alt,       chars: "\x1bn"                 }
   - { key: P,        mods: Alt,       chars: "\x1bp"                 }
   - { key: Q,        mods: Alt,       chars: "\x1bq"                 }
   - { key: Q,        mods: Control,   chars: "\x11"                  }
