@@ -147,7 +147,7 @@ packer.startup(function()
   -----------------------------
   use({
     "nvim-treesitter/nvim-treesitter",
-    commit = "2bb9bb7",
+    commit = "539bed2",
     run = ":TSUpdate",
     config = function()
       require("plugin.treesitter")
