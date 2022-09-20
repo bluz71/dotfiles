@@ -292,10 +292,6 @@ packer.startup(function()
   -- Speed up Neovim startup time.
   use("lewis6991/impatient.nvim")
 
-  -- Workaround for Neovim bug, see:
-  --   https://github.com/neovim/neovim/issues/12587
-  use("antoinemadec/FixCursorHold.nvim")
-
   use("mbbill/undotree")
   -- ~/dotfiles/nvim/plugin/undotree.lua
   -- ~/dotfiles/nvim/after/ftplugin/undotree.lua
