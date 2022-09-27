@@ -9,6 +9,7 @@ local handlers = require("util.lsp-handlers")
 local dart_closing_labels = require("util.dart-closing-labels")
 local lsp = vim.lsp
 local map = vim.keymap.set
+local opt_local = vim.opt_local
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
@@ -30,6 +31,11 @@ local lsp_on_attach = function(client)
   if client.server_capabilities.document_range_formatting then
     map("x", "'f", lsp.buf.range_formatting, opts)
   end
+
+  -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these options
+  -- cause problems with the VimCompletesMe plugin and 'gq' command.
+  opt_local.omnifunc = ""
+  opt_local.formatexpr = ""
 end
 
 -- Custom on attach function which also disables formatting where null-ls will

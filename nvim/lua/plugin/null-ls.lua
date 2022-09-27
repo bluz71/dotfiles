@@ -5,6 +5,7 @@ end
 
 local null_ls = require("null-ls")
 local map = vim.keymap.set
+local opt_local = vim.opt_local
 
 null_ls.setup({
   should_attach = function(bufnr)
@@ -24,9 +25,10 @@ null_ls.setup({
     map("n", "'f", function()
       vim.lsp.buf.format({ timeout_ms = 8000 })
     end, opts)
-    -- Disable null-ls attached 'omnifunc' since it causes problems for
-    -- VimCompletesMe, especially Tab-completing in Lua files.
-    vim.opt_local.omnifunc = ""
+    -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these
+    -- options cause problems with the VimCompletesMe plugin and 'gq' command.
+    opt_local.omnifunc = ""
+    opt_local.formatexpr = ""
   end,
   sources = {
     -- Builtin diagnostics.
