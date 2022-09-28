@@ -17,6 +17,7 @@ if fn.has("unnamedplus") == 1 then
 else
   opt.clipboard = "unnamed"
 end
+opt.cmdheight = 1
 opt.colorcolumn = "81,82" -- Highlight 81 and 82 columns
 opt.conceallevel = 0 -- Always show text normally
 opt.complete = { ".", "w", "b" } -- Sources for term and line completions
