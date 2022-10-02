@@ -102,7 +102,6 @@ packer.startup(function()
     end,
   })
 
-  use("nelstrom/vim-visual-star-search")
   use("wellle/targets.vim")
   use("chaoren/vim-wordmotion")
 
