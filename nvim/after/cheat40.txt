@@ -312,5 +312,5 @@ Hop Word                 ''            N
 Hop Line                 '‹Return›     N
 }}}
 FTerm Plugin Mappings {{{
-Toggle Lazygit Terminal  ‹Alt-g›       N
+Toggle Lazygit Terminal  ‹Ctrl-g›      N
 }}}

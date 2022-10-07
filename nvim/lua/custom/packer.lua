@@ -274,7 +274,7 @@ packer.startup(function()
   -----------------------------
   use({
     "NvChad/nvim-colorizer.lua",
-    ft = { "css", "markdown", "scss", "vim" },
+    ft = { "css", "markdown", "scss", "vim", "yaml" },
     config = function()
       require("plugin.colorizer")
     end,
@@ -282,7 +282,7 @@ packer.startup(function()
 
   use({
     "numtostr/FTerm.nvim",
-    keys = { "<A-g>" },
+    keys = { "<C-g>" },
     config = function()
       require("plugin.fterm")
     end,

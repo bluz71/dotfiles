@@ -10,5 +10,5 @@ fterm.setup({
   ft = "lazygit",
 })
 
-map("n", "<A-g>", fterm.toggle)
-map("t", "<A-g>", "<C-\\><C-n><cmd>lua require('FTerm').toggle()<CR>")
+map("n", "<C-g>", fterm.toggle)
+map("t", "<C-g>", "<C-\\><C-n><cmd>lua require('FTerm').toggle()<CR>")
