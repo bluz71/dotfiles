@@ -298,9 +298,6 @@ packer.startup(function()
   use("907th/vim-auto-save")
   -- ~/dotfiles/nvim/plugin/auto-save.lua
 
-  use("christoomey/vim-tmux-navigator")
-  -- ~/dotfiles/nvim/plugin/tmux-navigator.lua
-
   use("tpope/vim-obsession")
   -- ~/dotfiles/nvim/plugin/obsession.lua
 

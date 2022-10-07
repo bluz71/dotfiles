@@ -27,10 +27,6 @@ Rotate splits            ,r            N
 }}}
 Navigation Mappings {{{
 Move to the next split   ‹Tab›         N
-Move to the left split   ‹Alt-h›       N
-Move to the split below  ‹Alt-j›       N
-Move to the split above  ‹Alt-k›       N
-Move to the right split  ‹Alt-l›       N
 Move down ten lines      ‹Ctrl-j›      N
 Move up ten lines        ‹Ctrl-k›      N
 Navigate via ‹wildmenu›  ,‹Tab›        N

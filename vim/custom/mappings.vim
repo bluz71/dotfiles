@@ -72,10 +72,6 @@ xnoremap > >gv
 " Navigation mappings
 "-----------------------------
 nnoremap <Tab> <C-w>w
-nnoremap h <C-w>h
-nnoremap j <C-w>j
-nnoremap k <C-w>k
-nnoremap l <C-w>l
 " Vertical movements.
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k

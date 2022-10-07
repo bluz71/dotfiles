@@ -79,15 +79,6 @@ map("x", ">", ">gv")
 -- Navigation mappings
 -------------------------------
 map("n", "<Tab>", "<C-w>w")
-map("n", "<A-h>", "<C-w>h")
-map("n", "<A-j>", "<C-w>j")
-map("n", "<A-k>", "<C-w>k")
-map("n", "<A-l>", "<C-w>l")
--- Use same mappings as above to navigate Neovim terminal splits.
-map("t", "<A-h>", "<C-\\><C-N><C-w>h")
-map("t", "<A-j>", "<C-\\><C-N><C-w>j")
-map("t", "<A-k>", "<C-\\><C-N><C-w>k")
-map("t", "<A-l>", "<C-\\><C-N><C-w>l")
 -- Vertical movements.
 map("n", "<C-j>", "10j")
 map("n", "<C-k>", "10k")

@@ -58,8 +58,6 @@ Plug 'mbbill/undotree'
     " ~/dotfiles/vim/after/ftplugin/undotree.vim
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/plugin/auto-save.vim
-Plug 'christoomey/vim-tmux-navigator'
-    " ~/dotfiles/vim/plugin/tmux-navigator.vim
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
