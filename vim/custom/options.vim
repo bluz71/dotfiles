@@ -17,11 +17,9 @@ set conceallevel=0    " Always show text normally
 set complete=.,w,b    " Sources for term and line completions
 set completeopt=menu,menuone,noinsert,noselect
 set cryptmethod=blowfish2
-" Highlight the current line in the number column if 'cursorlineopt' exits.
-if exists('&cursorlineopt')
-    set cursorline
-    set cursorlineopt=number
-endif
+" Highlight the current line in the number column
+set cursorline
+set cursorlineopt=number
 set dictionary=/usr/share/dict/words
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 set expandtab         " Use spaces instead of tabs
@@ -65,10 +63,12 @@ set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching
 set smarttab          " Tab at the start of line inserts blanks
 " When spell checking, assume word boundaries include 'CamelCasing'
-if exists('&spelloptions')
-    set spelloptions=camel
-endif
+set spelloptions=camel
 set splitbelow        " Split below current window
+" When horizonatally splitting windows keep text stabilized (no auto-scrolling)
+if exists('&splitkeep')
+    set splitkeep=screen
+endif
 set splitright        " Split window to the right
 set tabstop=4         " Tab width
 set termguicolors     " Enable 24-bit color support for terminal Vim

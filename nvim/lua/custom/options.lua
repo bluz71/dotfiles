@@ -1,4 +1,5 @@
 local env = vim.env
+local exists = vim.fn.exists
 local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
@@ -76,6 +77,10 @@ opt.smarttab = true -- Tab at the start of line inserts blanks
 -- When spell checking, assume word boundaries include 'CamelCasing'
 opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
+--When horizonatally splitting windows keep text stabilized (no auto-scrolling)
+if exists('&splitkeep') ~= 0 then
+  opt.splitkeep = "screen"
+end
 opt.splitright = true -- Split window to the right
 opt.swapfile = false -- No backup files
 opt.tabstop = 4 -- Tab width
