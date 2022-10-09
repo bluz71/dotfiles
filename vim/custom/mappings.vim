@@ -14,10 +14,12 @@ xnoremap . :normal .<CR>
 noremap Y y$
 " U for redo, the opposite of u for undo.
 nnoremap U <C-r>
-" 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
-nnoremap Q @q
-" Execute macro 'q' over the visual selection.
-xnoremap Q :'<,'> :normal @q<CR>
+" 'qq' starts and stops a macro recording ('m' register).
+nnoremap <expr> qq len(reg_recording()) > 0 ? 'q' : 'qm'
+" Q runs the macro from the 'm' register.
+nnoremap Q @m
+" Execute macro 'm' over the visual selection.
+xnoremap Q :'<,'> :normal @m<CR>
 " Map 'p' to 'P' in visual mode since 'P' will never yank the pasted-over-text
 " into the unnamed register.
 xnoremap p P

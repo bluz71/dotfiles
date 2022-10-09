@@ -18,10 +18,12 @@ map({ "n", "x" }, ";", ":")
 map("x", ".", ":normal .<CR>")
 -- U for redo, the opposite of u for undo.
 map("n", "U", "<C-r>")
--- 'qq' starts a macro recording, 'q' stops it, Q runs the macro.
-map("n", "Q", "@q")
--- Execute macro 'q' over the visual selection.
-map("x", "Q", ":'<,'> :normal @q<CR>")
+-- 'qq' starts and stops a macro recording ('m' register).
+map("n", "qq", "len(reg_recording()) > 0 ? 'q' : 'qm'", expr_opts)
+-- Q runs the macro from the 'm' register.
+map("n", "Q", "@m")
+-- Execute macro 'm' over the visual selection.
+map("x", "Q", ":'<,'> :normal @m<CR>")
 -- Map 'p' to 'P' in visual mode since 'P' will never yank the pasted-over-text
 -- into the unnamed register.
 map("x", "p", "P")
