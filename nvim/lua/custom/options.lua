@@ -35,7 +35,7 @@ opt.fillchars = {
   horiz = "━", horizup = "┻", horizdown = "┳", vert = "┃", vertleft = "┫",
   vertright = "┣", verthoriz = "╋",
   foldclose = "▷", foldopen = "▼", foldsep = "┃",
-  diff = ""
+  diff = ""
 }
 opt.foldlevelstart = 20
 opt.foldmethod = "indent" -- Simple and fast
