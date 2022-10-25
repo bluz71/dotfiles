@@ -5,7 +5,7 @@ let s:listcharsVisibility = v:true
 function! listchars#Toggle() abort
     if s:listcharsVisibility == v:true
         " Brighten extended list characters.
-        setlocal listchars=eol:$,tab:<‧>,trail:‧
+        setlocal listchars=eol:↵,tab:<‧>,trail:‧
         highlight! link NonText WarningMsg
         highlight! link SpecialKey WarningMsg
         setlocal list
