@@ -89,9 +89,10 @@ colors:
     matches:
       background: '#f09479'
       foreground: '#080808'
-    bar:
-      background: '#e3c78a'
-      foreground: '#080808'
+
+  footer_bar:
+    background: '#e3c78a'
+    foreground: '#080808'
 
   # Normal colors
   normal:
