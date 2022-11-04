@@ -121,6 +121,7 @@ autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
   end,
+  group = custom_events,
 })
 
 -- Colorscheme overrides.
@@ -132,7 +133,8 @@ autocmd("ColorScheme", {
     g.terminal_color_10 = "#a1cd5e" -- Bright Green
     g.terminal_color_11 = "#e3d18a" -- Bright Yellow
     g.terminal_color_13 = "#c792ea" -- Bright Magenta
-  end
+  end,
+  group = custom_events,
 })
 
 autocmd("ColorScheme", {
@@ -145,5 +147,6 @@ autocmd("ColorScheme", {
     g.terminal_color_12 = "#80a0ff" -- Bright Blue
     g.terminal_color_13 = "#d183e8" -- Bright Magenta
     g.terminal_color_14 = "#79dac8" -- Bright Cyan
-  end
+  end,
+  group = custom_events,
 })
