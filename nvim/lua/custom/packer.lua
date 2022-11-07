@@ -58,7 +58,7 @@ packer.startup(function()
   })
 
   use({
-    "~/projects/public/vim-nightfly-guicolors",
+    "~/projects/public/vim-nightfly-colors",
     config = function()
       require("plugin.nightfly")
     end,
