@@ -1,8 +1,8 @@
-runtime custom/options.vim  " Options
-runtime custom/terminal.vim " Terminal Vim Tweaks
-runtime custom/mappings.vim " Mappings
-runtime custom/plug.vim     " Plugin Manager
-runtime custom/autocmds.vim " Auto-commands
+runtime custom/options.vim
+runtime custom/terminal.vim
+runtime custom/mappings.vim
+runtime custom/plug.vim " Plugin Manager
+runtime custom/autocmds.vim
 
 " Colorscheme, load from a dotfile if it exists.
 if filereadable(expand('~/.colorscheme'))
