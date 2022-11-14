@@ -274,7 +274,7 @@ packer.startup(function()
   -----------------------------
   use({
     "NvChad/nvim-colorizer.lua",
-    ft = { "css", "lua", "markdown", "scss", "vim", "yaml" },
+    ft = { "css", "lua", "markdown", "scss", "text", "vim", "yaml" },
     config = function()
       require("plugin.colorizer")
     end,
