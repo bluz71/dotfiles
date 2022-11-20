@@ -1,4 +1,5 @@
 local g = vim.g
+local highlight = vim.api.nvim_set_hl
 local opt_local = vim.opt_local
 
 g.listcharsVisibility = true
@@ -10,24 +11,17 @@ M.toggle = function()
   if g.listcharsVisibility then
     -- Brighten extended list characters.
     opt_local.listchars = { eol = "↵", tab = "<‧>", trail = "‧" }
-    -- Note, using 'vim.api.nvim_set_hl' does not correctly update the current
-    -- screen (for reasons unknown, maybe a bug). Hence, continue using
-    -- Vimscript highlight changing code.
-    vim.cmd([[
-      highlight! link NonText WarningMsg
-      highlight! link Whitespace WarningMsg
-      IndentBlanklineDisable
-    ]])
+    highlight(0, "NonText", { link = "WarningMsg" })
+    highlight(0, "Whitespace", { link = "WarningMsg" })
+    vim.cmd([[ IndentBlanklineDisable ]])
     print("(Brighten) ON")
     g.listcharsVisibility = false
   else
     -- Dim shortened list characters.
     opt_local.listchars = { tab = "  ", trail = "‧" }
-    vim.cmd([[
-      highlight! link NonText LineNr
-      highlight! link Whitespace Conceal
-      IndentBlanklineEnable
-    ]])
+    highlight(0, "NonText", { link = "LineNr" })
+    highlight(0, "Whitespace", { link = "Conceal" })
+    vim.cmd([[ IndentBlanklineEnable ]])
     print("(Brighten) OFF")
     g.listcharsVisibility = true
   end
