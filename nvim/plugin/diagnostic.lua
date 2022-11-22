@@ -3,7 +3,7 @@ local diagnostic = vim.diagnostic
 local sign_define = vim.fn.sign_define
 
 -- Diagnostic symbols for display in the sign column.
-sign_define("DiagnosticSignError", { text = "▶", texthl = "DiagnosticSignError" })
+sign_define("DiagnosticSignError", { text = "▷", texthl = "DiagnosticSignError" })
 sign_define("DiagnosticSignWarn", { text = "△", texthl = "DiagnosticSignWarn" })
 
 -- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
