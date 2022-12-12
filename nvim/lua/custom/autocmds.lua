@@ -51,11 +51,19 @@ autocmd("Syntax", {
   group = custom_events,
 })
 
--- Language, by extension, customizations.
+-- Set filetypes for certain filenames.
 autocmd("BufEnter", {
   pattern = "gitconfig",
   callback = function()
     opt.filetype = "gitconfig"
+  end,
+  group = custom_events,
+})
+
+autocmd("BufEnter", {
+  pattern = "*.html.erb",
+  callback = function()
+    opt.filetype = "eruby"
   end,
   group = custom_events,
 })
