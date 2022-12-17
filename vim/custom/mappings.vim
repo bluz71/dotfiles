@@ -69,6 +69,9 @@ nnoremap <Leader>i :intro<CR>
 " Preserve visual selection when shifting.
 xnoremap < <gv
 xnoremap > >gv
+" Vertically move visual block.
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
 
 "-----------------------------
 " Navigation mappings

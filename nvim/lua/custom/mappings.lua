@@ -76,6 +76,9 @@ map("n", "<Leader>i", ":intro<CR>")
 -- Preserve visual selection when shifting.
 map("x", "<", "<gv")
 map("x", ">", ">gv")
+-- Vertically move visual block.
+map("x", "J", ":m '>+1<CR>gv=gv")
+map("x", "K", ":m '<-2<CR>gv=gv")
 
 -------------------------------
 -- Navigation mappings

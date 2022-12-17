@@ -64,6 +64,8 @@ Expand all folds         ,Z            N
 Crosshair                ,X            N
 Maximise split           ,m            N
 Introduction message     ,i            N
+Move visual block up     K             V
+Move visual block down   J             V
 }}}
 Command Mode Mappings {{{
 Go to start of line      ‹Ctrl-a›      C
