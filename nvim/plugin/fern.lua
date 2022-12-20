@@ -5,13 +5,14 @@ local fn = vim.fn
 local g = vim.g
 local map = vim.keymap.set
 
+g["fern#disable_drawer_hover_popup"] = 1
 g["fern#disable_default_mappings"] = 1
 g["fern#disable_drawer_smart_quit"] = 1
-g["fern#mark_symbol"] = "●"
+g["fern#mark_symbol"] = "*"
 g["fern#renderer#default#collapsed_symbol"] = "▷ "
 g["fern#renderer#default#expanded_symbol"] = "◢ "
 g["fern#renderer#default#leading"] = "▏ "
-g["fern#renderer#default#leaf_symbol"] = "* "
+g["fern#renderer#default#leaf_symbol"] = "● "
 g["fern#renderer#default#root_symbol"] = "~ "
 
 local opts = { silent = true }
