@@ -218,28 +218,29 @@ xnoremap gs "sy:silent grep <C-r>s<CR>
 "-----------------------------
 " Find & replace helpers
 "-----------------------------
-" - Star search that does not move forward to the next match
+
+" Star search that does not move forward to the next match
 nnoremap <silent> g* :let @/='\<'.expand('<cword>').'\>'<CR>
 xnoremap <silent> g* "sy:let @/=@s<CR>
 
-" - Find that does an immediate replace on the match.
+" Find that does an immediate replace on the match.
 nnoremap <silent> \c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 xnoremap <silent> \c "sy:let @/=@s<CR>cgn
 " Accept/reject helpers after completing a \c cgn-based find & replace
 " operation.
 "
-" - Go to the next find match and highlight it.
+" Go to the next find match and highlight it.
 nnoremap <CR> gnzz
-" - Accept the change and go to the next match and highlight it.
+" Accept the change and go to the next match and highlight it.
 xmap <CR> .<Esc>gnzz
-" - Reject the change and go to the next match and highlight it.
+" Reject the change and go to the next match and highlight it.
 xnoremap ! <Esc>ngnzz
 
-" - Find and replace within the current file.
+" Find and replace within the current file.
 nnoremap \s :%s/<C-r><C-w>//<Left>
 xnoremap \s "sy:%s/<C-r>s//<Left>
 
-" - Project-wide find and replace using grep.
+" Project-wide find and replace using grep.
 nnoremap \S
   \ :let @s='\<'.expand('<cword>').'\>'<CR>
   \ :let &grepprg=&grepprg . ' -w'<CR>
