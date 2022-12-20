@@ -251,18 +251,16 @@ map("n", "\\s", ":%s/<C-r><C-w>//<Left>")
 map("x", "\\s", '"sy:%s/<C-r>s//<Left>')
 
 -- Project-wide find and replace using grep.
-map("n", "\\S", [[
-  :let @s='\\<'.expand('<cword>').'\\>'<CR>
-  :let &grepprg=&grepprg . ' -w'<CR>
-  :silent grep <C-r><C-w><CR>
-  :let &grepprg='rg --vimgrep --smart-case'<CR>
-  :cfdo %s/<C-r>s// \\| update
-  <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-]])
+map("n", "\\S",
+    [[:let @s='\<'.expand('<cword>').'\>'<CR>]] ..
+    [[:let &grepprg=&grepprg . ' -w'<CR>]] ..
+    [[:silent grep <C-r><C-w><CR>]] ..
+    [[:let &grepprg='rg --vimgrep --smart-case'<CR>]] ..
+    [[:cfdo %s/<C-r>s// | update]] ..
+    [[<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>]])
 
-map("x", "\\S", [[
-  "sy\|
-  :silent grep <C-r>s<CR>
-  :cfdo %s/<C-r>s// \\| update
-  <Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-]])
+map("x", "\\S",
+    [["sy|]] ..
+    [[:silent grep <C-r>s<CR>]] ..
+    [[:cfdo %s/<C-r>s// | update]] ..
+    [[<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>]])
