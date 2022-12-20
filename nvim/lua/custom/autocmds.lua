@@ -153,7 +153,7 @@ autocmd("ColorScheme", {
     g.terminal_color_10 = "#8cc85f" -- Bright Green
     g.terminal_color_11 = "#e3c78a" -- Bright Yellow
     g.terminal_color_12 = "#80a0ff" -- Bright Blue
-    g.terminal_color_13 = "#d183e8" -- Bright Magenta
+    g.terminal_color_13 = "#cf87e8" -- Bright Magenta
     g.terminal_color_14 = "#79dac8" -- Bright Cyan
   end,
   group = custom_events,

@@ -19,7 +19,7 @@ xterm-moonfly*color3: #e3c78a
 xterm-moonfly*color4: #80a0ff
 
 ! Violet (usually defined as 'Purple')
-xterm-moonfly*color5: #d183e8
+xterm-moonfly*color5: #cf87e8
 
 ! Turquoise (usually defined as 'Cyan')
 xterm-moonfly*color6: #79dac8
