@@ -29,7 +29,7 @@ gitsigns.setup({
     map('n', "'+", gs.stage_hunk)
     map('n', "'-", gs.reset_hunk)
     map("n", "'p", gs.preview_hunk)
-    map('n', "'b", function()
+    map('n', "'gb", function()
       gs.blame_line({ full = true })
     end)
     map("n", "'r", gs.refresh)

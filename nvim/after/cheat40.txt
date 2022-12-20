@@ -139,6 +139,9 @@ Find references          gr           *N
 Rename symbol            gR           *N
 Code actions             ga           *N
 Signature help           ‹Ctrl-k›     *I
+Fuzzy references         ‹Spc›lr       N
+Fuzzy document symbols   ‹Spc›lw       N
+Fuzz workspace symbols   ‹Spc›lW       N
 Formatting               'f          *VN
 }}}
 Misc Operations {{{
@@ -181,9 +184,6 @@ Highlights               ‹Spc›i        N
 Old files                ‹Spc›o        N
 Project tags             ‹Spc›]        N
 Ripgrep                  ‹Spc›/        N
-LSP references           ‹Spc›lr       N
-LSP document symbols     ‹Spc›lw       N
-LSP workspace symbols    ‹Spc›lW       N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N
@@ -216,7 +216,7 @@ Next hunk                ]g            N
 Stage hunk               '+           @N
 Revert hunk staging      '-           @N
 Preview hunk             'p           @N
-Blame line               'b           @N
+Blame line               'gb          @N
 Refresh buffers          'r            N
 }}}
 Unimpaired Plugin Mappings {{{

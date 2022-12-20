@@ -54,13 +54,6 @@ map("n", "<Space>]", require("telescope.builtin").tags)
 map("n", "<Space>/", function()
   require("telescope.builtin").grep_string({ search = vim.fn.input("grep ❯ ") })
 end)
-map("n", "<Space>lr", require("telescope.builtin").lsp_references)
-map("n", "<Space>lw", require("telescope.builtin").lsp_document_symbols)
-map("n", "<Space>lW", function()
-  require("telescope.builtin").lsp_workspace_symbols({
-    query = vim.fn.input("LSP Workspace Symbols❯ "),
-  })
-end)
 
 local opts = { silent = true }
 if vim.fn.filereadable("config/routes.rb") ~= 0 then

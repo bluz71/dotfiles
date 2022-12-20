@@ -24,6 +24,15 @@ local lsp_on_attach = function(client)
   map("n", "gR", lsp.buf.rename, opts)
   map("i", "<C-k>", lsp.buf.signature_help, opts)
 
+  -- Fuzzy mappings using Telescope.
+  map("n", "<Space>lr", require("telescope.builtin").lsp_references)
+  map("n", "<Space>lw", require("telescope.builtin").lsp_document_symbols)
+  map("n", "<Space>lW", function()
+  require("telescope.builtin").lsp_workspace_symbols({
+    query = vim.fn.input("LSP Workspace Symbols❯ "),
+  })
+  end)
+
   -- Formatting is conditional on server capabilities.
   if client.server_capabilities.document_formatting then
     map("n", "'f", lsp.buf.format, opts)
