@@ -62,8 +62,7 @@ lsp.handlers["textDocument/signatureHelp"] = handlers.signature_help
 
 -- The nvim-cmp completion plugin supports most LSP capabilities; we should
 -- notify the language servers about that.
-local capabilities = lsp.protocol.make_client_capabilities()
-capabilities = lsp_capabilities.update_capabilities(capabilities)
+local capabilities = lsp_capabilities.default_capabilities()
 
 -- The Language Servers.
 nvim_lsp.dartls.setup({
