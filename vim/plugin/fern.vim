@@ -1,7 +1,7 @@
 let g:fern#disable_drawer_hover_popup = 1
 let g:fern#disable_default_mappings = 1
 let g:fern#disable_drawer_smart_quit = 1
-let g:fern#mark_symbol = '*'
+let g:fern#mark_symbol = '✚'
 let g:fern#renderer#default#collapsed_symbol = '▷ '
 let g:fern#renderer#default#expanded_symbol = '◢ '
 let g:fern#renderer#default#leading = '▏ '
