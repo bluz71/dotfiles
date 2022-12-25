@@ -14,6 +14,7 @@ gitsigns.setup({
     delete = { hl = "GitSignsDelete", text = "▁" },
     topdelete = { hl = "GitSignsDelete", text = "▔" },
     changedelete = { hl = "GitSignsChangeDelete", text = "▍" },
+    untracked = { hl = "GitSignsUntracked", text = "▎" },
   },
   on_attach = function()
     local gs = package.loaded.gitsigns
