@@ -302,7 +302,10 @@ lazy.setup({
 
   {
     "dstein64/vim-startuptime",
-    cmd = "StartupTime",
+    keys = "'s",
+    config = function()
+      map("n", "'s", ":StartupTime<CR>")
+    end,
   },
 
   {

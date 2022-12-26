@@ -184,6 +184,7 @@ Highlights               ‹Spc›i        N
 Old files                ‹Spc›o        N
 Project tags             ‹Spc›]        N
 Ripgrep                  ‹Spc›/        N
+Colorschemes             ‹Spc›t        N
 Rails controller files   ‹Spc›ec       N
 Rails helper files       ‹Spc›eh       N
 Rails models files       ‹Spc›em       N
@@ -311,4 +312,7 @@ Hop Line                 '‹Return›     N
 }}}
 FTerm Plugin Mappings {{{
 Toggle Lazygit Terminal  ‹Ctrl-g›      N
+}}}
+Startup Plugin Mappings {{{
+Startup time             's            N
 }}}
