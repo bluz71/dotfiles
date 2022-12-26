@@ -134,7 +134,7 @@ lazy.setup({
   {
     "lambdalisue/fern.vim",
     cmd = "Fern",
-    dependencies = { 
+    dependencies = {
       "lambdalisue/fern-git-status.vim"
     },
   },
@@ -249,7 +249,6 @@ lazy.setup({
       "css", "dart", "javascript", "json", "lua", "markdown", "ruby", "rust",
       "scss", "yaml",
     },
-    event = "BufReadPre",
     config = function()
       require("plugin.null-ls")
     end,
@@ -286,7 +285,6 @@ lazy.setup({
   {
     "NvChad/nvim-colorizer.lua",
     ft = { "css", "lua", "markdown", "scss", "text", "vim", "yaml" },
-    event = "BufReadPre",
     config = function()
       require("plugin.colorizer")
     end,
@@ -312,6 +310,7 @@ lazy.setup({
     "lifepillar/vim-cheat40",
     cmd = "Cheat40"
   },
+  -- ~/dotfiles/nvim/plugin/cheat40.lua
 
   "mbbill/undotree",
   -- ~/dotfiles/nvim/plugin/undotree.lua
@@ -323,7 +322,6 @@ lazy.setup({
   "tpope/vim-obsession",
   -- ~/dotfiles/nvim/plugin/obsession.lua
 
-  -- ~/dotfiles/nvim/plugin/cheat40.lua
 
   "gregsexton/MatchTag",
 }, configuration)
