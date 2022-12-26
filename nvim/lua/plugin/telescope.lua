@@ -56,14 +56,9 @@ map("n", "<Space>/", function()
   require("telescope.builtin").grep_string({ search = vim.fn.input("grep ❯ ") })
 end)
 map("n", "<Space>t", function()
-  cmd("Lazy load catppuccin")
-  cmd("Lazy load edge")
-  cmd("Lazy load everforest")
-  cmd("Lazy load gruvbox.nvim")
-  cmd("Lazy load gruvbox-material")
-  cmd("Lazy load nightfox.nvim")
-  cmd("Lazy load nord.nvim")
-  cmd("Lazy load tokyonight.nvim")
+  cmd("Lazy load catppuccin nightfox.nvim tokyonight.nvim") -- Modern themes
+  cmd("Lazy load edge everforest gruvbox-material") -- Sainnhe themes
+  cmd("Lazy load gruvbox.nvim nord.nvim") -- Ported legacy themes
   require("telescope.builtin").colorscheme({ enable_preview = true })
 end)
 
