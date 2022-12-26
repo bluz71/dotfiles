@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 
@@ -53,6 +54,17 @@ map("n", "<Space>o", require("telescope.builtin").oldfiles)
 map("n", "<Space>]", require("telescope.builtin").tags)
 map("n", "<Space>/", function()
   require("telescope.builtin").grep_string({ search = vim.fn.input("grep ❯ ") })
+end)
+map("n", "<Space>t", function()
+  cmd("Lazy load catppuccin")
+  cmd("Lazy load edge")
+  cmd("Lazy load everforest")
+  cmd("Lazy load gruvbox.nvim")
+  cmd("Lazy load gruvbox-material")
+  cmd("Lazy load nightfox.nvim")
+  cmd("Lazy load nord.nvim")
+  cmd("Lazy load tokyonight.nvim")
+  require("telescope.builtin").colorscheme({ enable_preview = true })
 end)
 
 local opts = { silent = true }
