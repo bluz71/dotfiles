@@ -13,6 +13,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 local lazy = require("lazy")
+local view_config = require("lazy.view.config")
 
 -- Configuration.
 local configuration = {
@@ -43,6 +44,11 @@ local configuration = {
     },
   }
 }
+
+-- Change default key mappings; use '<Esc>' for closing and `<Ctrl-f>` for
+-- scrolling (instead of being hijacked for profile filtering).
+view_config.keys.close = "<Esc>"
+view_config.keys.profile_filter = "<C-p>"
 
 -- Plugins.
 lazy.setup({
