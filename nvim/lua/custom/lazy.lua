@@ -34,6 +34,12 @@ local configuration = {
       start = "▷",
       task = "✔ ",
       lazy = "⠤⠤ ",
+      list = {
+        "●",
+        "→",
+        "🞊",
+        "‒",
+      },
     },
   }
 }
