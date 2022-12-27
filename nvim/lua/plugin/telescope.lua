@@ -57,7 +57,7 @@ map("n", "<Space>/", function()
 end)
 map("n", "<Space>t", function()
   cmd("Lazy load catppuccin nightfox.nvim tokyonight.nvim") -- Modern themes
-  cmd("Lazy load edge everforest gruvbox-material") -- Sainnhe themes
+  cmd("Lazy load vim-edge vim-everforest vim-gruvbox-material") -- Sainnhe themes
   cmd("Lazy load gruvbox.nvim nord.nvim") -- Ported legacy themes
   require("telescope.builtin").colorscheme({ enable_preview = true })
 end)

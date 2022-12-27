@@ -1,6 +1,3 @@
-local cmd = vim.cmd
-local map = vim.keymap.set
-
 -- Bootstrap and install lazy.nvim as the Neovim plugin manager.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -61,10 +58,10 @@ lazy.setup({
   },
 
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { "sainnhe/edge", lazy = true },
-  { "sainnhe/everforest", lazy = true },
+  { "sainnhe/edge", name = "vim-edge", lazy = true },
+  { "sainnhe/everforest", name = "vim-everforest", lazy = true },
+  { "sainnhe/gruvbox-material", name = "vim-gruvbox-material", lazy = true },
   { "ellisonleao/gruvbox.nvim", lazy = true },
-  { "sainnhe/gruvbox-material", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
   { "shaunsingh/nord.nvim", lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
@@ -150,7 +147,10 @@ lazy.setup({
     commit = "42ab95d",
     build = ":TSUpdate",
     dependencies = {
-      { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
+      "windwp/nvim-ts-autotag",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
+      { "nvim-treesitter/playground", name = "nvim-ts-playground" },
     },
     event = "BufReadPost",
     config = function()
@@ -163,7 +163,6 @@ lazy.setup({
   -----------------------------
   {
     "numToStr/Comment.nvim",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     event = "BufReadPre",
     config = function()
       require("plugin.comment")
@@ -202,16 +201,6 @@ lazy.setup({
     event = "InsertEnter",
   },
   -- ~/dotfiles/nvim/plugin/autopairs.lua
-
-  { 
-    "windwp/nvim-ts-autotag",
-    event = "BufReadPre",
-  },
-
-  {
-    "RRethy/nvim-treesitter-endwise",
-    event = "BufReadPre",
-  },
 
   -- The nvim-ts-autotag plugin does not currently support eRuby HTML templates
   -- because they are not Treesitter compatible (maybe one day). Hence, use
@@ -302,7 +291,7 @@ lazy.setup({
     "dstein64/vim-startuptime",
     keys = "'s",
     config = function()
-      map("n", "'s", ":StartupTime<CR>")
+      require("plugin.startup")
     end,
   },
 
@@ -327,4 +316,4 @@ lazy.setup({
 }, configuration)
 
 -- Lazy window.
-map("n", "'l", ":Lazy<CR>")
+vim.keymap.set("n", "'l", ":Lazy<CR>")
