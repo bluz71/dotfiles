@@ -61,6 +61,7 @@ Plug '907th/vim-auto-save'
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
+    " ~/dotfiles/vim/plugin/startup.vim - options, mappings
 
 " Finalize vim-plug.
 call plug#end()

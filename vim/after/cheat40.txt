@@ -197,3 +197,6 @@ Exit Undotree            ‹Esc›         N
 Previous undo state      <             N
 Next undo state          >             N
 }}}
+Startup Plugin Mappings {{{
+Startup time             's            N
+}}}
