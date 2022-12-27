@@ -272,7 +272,10 @@ lazy.setup({
   "editorconfig/editorconfig-vim",
   -- ~/dotfiles/nvim/plugin/editorconfig.lua
 
-  "dart-lang/dart-vim-plugin",
+  {
+    "dart-lang/dart-vim-plugin",
+    ft = "dart",
+  },
 
   -----------------------------
   -- Misc plugins
