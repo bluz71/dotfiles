@@ -58,14 +58,14 @@ lazy.setup({
   {
     dir = "~/projects/public/vim-moonfly-colors",
     config = function()
-      require("plugin.moonfly")
+      require("config.moonfly")
     end,
   },
 
   {
     dir = "~/projects/public/vim-nightfly-colors",
     config = function()
-      require("plugin.nightfly")
+      require("config.nightfly")
     end,
   },
 
@@ -90,7 +90,7 @@ lazy.setup({
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
     config = function()
-      require("plugin.indent-blankline")
+      require("config.indent-blankline")
     end,
   },
 
@@ -101,7 +101,7 @@ lazy.setup({
     "tpope/vim-unimpaired",
     keys = { "[", "]" },
     config = function()
-      require("plugin.unimpaired")
+      require("config.unimpaired")
     end,
   },
 
@@ -133,7 +133,7 @@ lazy.setup({
     },
     keys = { "<Space>" },
     config = function()
-      require("plugin.telescope")
+      require("config.telescope")
     end,
   },
 
@@ -166,7 +166,7 @@ lazy.setup({
     },
     event = "BufReadPost",
     config = function()
-      require("plugin.treesitter")
+      require("config.treesitter")
     end,
   },
 
@@ -177,7 +177,7 @@ lazy.setup({
     "numToStr/Comment.nvim",
     event = "BufReadPre",
     config = function()
-      require("plugin.comment")
+      require("config.comment")
     end,
   },
 
@@ -194,7 +194,7 @@ lazy.setup({
     },
     event = "InsertEnter",
     config = function()
-      require("plugin.cmp")
+      require("config.cmp")
     end,
   },
 
@@ -203,7 +203,7 @@ lazy.setup({
     commit = "ceeee48",
     event = "InsertEnter",
     config = function()
-      require("plugin.vsnip")
+      require("config.vsnip")
     end,
   },
   -- ~/dotfiles/nvim/vsnip (custom snippets)
@@ -221,7 +221,7 @@ lazy.setup({
     "tmsvg/pear-tree",
     ft = { "eruby" },
     config = function()
-      require("plugin.pear-tree")
+      require("config.pear-tree")
     end,
   },
 
@@ -232,7 +232,7 @@ lazy.setup({
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     config = function()
-      require("plugin.lsp-config")
+      require("config.lsp-config")
     end,
   },
 
@@ -240,7 +240,7 @@ lazy.setup({
     "j-hui/fidget.nvim",
     ft = { "dart", "javascript", "ruby", "rust" },
     config = function()
-      require("plugin.fidget")
+      require("config.fidget")
     end,
   },
 
@@ -251,7 +251,7 @@ lazy.setup({
       "scss", "yaml",
     },
     config = function()
-      require("plugin.null-ls")
+      require("config.null-ls")
     end,
   },
 
@@ -260,7 +260,7 @@ lazy.setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "BufReadPre",
     config = function()
-      require("plugin.gitsigns")
+      require("config.gitsigns")
     end,
   },
 
@@ -268,7 +268,7 @@ lazy.setup({
     "janko-m/vim-test",
     keys = { "'tt", "'tl", "'tf", "'ts" },
     config = function()
-      require("plugin.vim-test")
+      require("config.vim-test")
     end,
   },
 
@@ -290,7 +290,7 @@ lazy.setup({
     "NvChad/nvim-colorizer.lua",
     ft = { "css", "lua", "markdown", "scss", "text", "vim", "yaml" },
     config = function()
-      require("plugin.colorizer")
+      require("config.colorizer")
     end,
   },
 
@@ -298,7 +298,7 @@ lazy.setup({
     "numtostr/FTerm.nvim",
     keys = { "<C-g>" },
     config = function()
-      require("plugin.fterm")
+      require("config.fterm")
     end,
   },
 
@@ -306,7 +306,7 @@ lazy.setup({
     "dstein64/vim-startuptime",
     keys = "'s",
     config = function()
-      require("plugin.startup")
+      require("config.startup")
     end,
   },
 
