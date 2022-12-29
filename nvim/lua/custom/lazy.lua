@@ -114,7 +114,6 @@ lazy.setup({
   },
 
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
-
   "wellle/targets.vim",
   "chaoren/vim-wordmotion",
   "tpope/vim-surround",
@@ -275,7 +274,6 @@ lazy.setup({
   },
 
   { "dart-lang/dart-vim-plugin", ft = "dart", },
-
   "tpope/vim-projectionist", -- ~/dotfiles/nvim/after/plugin/projectionist.lua
   "editorconfig/editorconfig-vim",
   -- ~/dotfiles/nvim/after/plugin/editorconfig.lua
