@@ -108,7 +108,9 @@ lazy.setup({
   {
     "phaazon/hop.nvim",
     event = "VeryLazy",
-    -- ~/dotfiles/nvim/plugin/hop.lua
+    config = function()
+      require("config.hop")
+    end,
   },
 
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/plugin/clever-f.lua
@@ -209,7 +211,9 @@ lazy.setup({
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    -- ~/dotfiles/nvim/plugin/autopairs.lua
+    config = function()
+      require("config.autopairs")
+    end,
   },
 
   -- The nvim-ts-autotag plugin does not currently support eRuby HTML templates
@@ -304,8 +308,10 @@ lazy.setup({
 
   {
     "lifepillar/vim-cheat40",
-    cmd = "Cheat40"
-    -- ~/dotfiles/nvim/plugin/cheat40.lua
+    cmd = "Cheat40",
+    config = function()
+      require("config.cheat40")
+    end,
   },
 
   "mbbill/undotree", -- ~/dotfiles/nvim/plugin/undotree.lua
