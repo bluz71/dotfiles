@@ -38,15 +38,13 @@ Plug 'ackyshake/VimCompletesMe'
 "-----------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-    " ~/dotfiles/vim/plugin/fzf.vim - options, mappings
-    " ~/dotfiles/vim/after/ftplugin/fzf.vim - options
+    " ~/dotfiles/vim/plugin/fzf.vim
 
 "-----------------------------
 " Filesystem plugins
 "-----------------------------
 Plug 'lambdalisue/fern.vim'
     " ~/dotfiles/vim/plugin/fern.vim
-    " ~/dotfiles/vim/after/ftplugin/fern.vim
 Plug 'lambdalisue/fern-git-status.vim'
     " ~/dotfiles/vim/plugin/fern-git-status.vim
 
@@ -61,7 +59,7 @@ Plug '907th/vim-auto-save'
 Plug 'lifepillar/vim-cheat40'
     " ~/dotfiles/vim/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
-    " ~/dotfiles/vim/plugin/startup.vim - options, mappings
+    " ~/dotfiles/vim/plugin/startup.vim
 
 " Finalize vim-plug.
 call plug#end()
