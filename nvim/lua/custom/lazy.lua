@@ -141,7 +141,7 @@ lazy.setup({
   -----------------------------
   {
     "lambdalisue/fern.vim",
-    cmd = "Fern",
+    event = "VeryLazy",
     dependencies = { "lambdalisue/fern-git-status.vim" },
     config = function()
       require("config.fern")
