@@ -83,7 +83,7 @@ lazy.setup({
   -----------------------------
   {
     dir = "~/projects/public/vim-mistfly-statusline",
-    -- ~/dotfiles/nvim/plugin/mistfly.lua
+    -- ~/dotfiles/nvim/after/plugin/mistfly.lua
   },
 
   {
@@ -113,7 +113,7 @@ lazy.setup({
     end,
   },
 
-  "rhysd/clever-f.vim", -- ~/dotfiles/nvim/plugin/clever-f.lua
+  "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
 
   "wellle/targets.vim",
   "chaoren/vim-wordmotion",
@@ -276,8 +276,9 @@ lazy.setup({
 
   { "dart-lang/dart-vim-plugin", ft = "dart", },
 
-  "tpope/vim-projectionist", -- ~/dotfiles/nvim/plugin/projectionist.lua
-  "editorconfig/editorconfig-vim", -- ~/dotfiles/nvim/plugin/editorconfig.lua
+  "tpope/vim-projectionist", -- ~/dotfiles/nvim/after/plugin/projectionist.lua
+  "editorconfig/editorconfig-vim",
+  -- ~/dotfiles/nvim/after/plugin/editorconfig.lua
 
   -----------------------------
   -- Misc plugins
@@ -314,9 +315,9 @@ lazy.setup({
     end,
   },
 
-  "mbbill/undotree", -- ~/dotfiles/nvim/plugin/undotree.lua
-  "907th/vim-auto-save", -- ~/dotfiles/nvim/plugin/auto-save.lua
-  "tpope/vim-obsession", -- ~/dotfiles/nvim/plugin/obsession.lua
+  "mbbill/undotree", -- ~/dotfiles/nvim/after/plugin/undotree.lua
+  "907th/vim-auto-save", -- ~/dotfiles/nvim/after/plugin/auto-save.lua
+  "tpope/vim-obsession", -- ~/dotfiles/nvim/after/plugin/obsession.lua
   "gregsexton/MatchTag",
 }, configuration)
 
