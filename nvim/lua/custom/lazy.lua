@@ -83,8 +83,8 @@ lazy.setup({
   -----------------------------
   {
     dir = "~/projects/public/vim-mistfly-statusline",
+    -- ~/dotfiles/nvim/plugin/mistfly.lua
   },
-  -- ~/dotfiles/nvim/plugin/mistfly.lua
 
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -108,11 +108,10 @@ lazy.setup({
   {
     "phaazon/hop.nvim",
     event = "VeryLazy",
+    -- ~/dotfiles/nvim/plugin/hop.lua
   },
-  -- ~/dotfiles/nvim/plugin/hop.lua
 
-  "rhysd/clever-f.vim",
-  -- ~/dotfiles/nvim/plugin/clever-f.lua
+  "rhysd/clever-f.vim", -- ~/dotfiles/nvim/plugin/clever-f.lua
 
   "wellle/targets.vim",
   "chaoren/vim-wordmotion",
@@ -143,13 +142,12 @@ lazy.setup({
   {
     "lambdalisue/fern.vim",
     cmd = "Fern",
-    dependencies = {
-      "lambdalisue/fern-git-status.vim"
-    },
+    dependencies = { "lambdalisue/fern-git-status.vim" },
+    config = function()
+      require("config.fern")
+      require("config.fern-git-status")
+    end,
   },
-  -- ~/dotfiles/nvim/plugin/fern.lua
-  -- ~/dotfiles/nvim/after/ftplugin/fern.lua
-  -- ~/dotfiles/nvim/plugin/fern-git-status.lua
 
   -----------------------------
   -- Treesitter plugins
@@ -205,14 +203,14 @@ lazy.setup({
     config = function()
       require("config.vsnip")
     end,
+    -- ~/dotfiles/nvim/vsnip (custom snippets)
   },
-  -- ~/dotfiles/nvim/vsnip (custom snippets)
 
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
+    -- ~/dotfiles/nvim/plugin/autopairs.lua
   },
-  -- ~/dotfiles/nvim/plugin/autopairs.lua
 
   -- The nvim-ts-autotag plugin does not currently support eRuby HTML templates
   -- because they are not Treesitter compatible (maybe one day). Hence, use
@@ -272,16 +270,10 @@ lazy.setup({
     end,
   },
 
-  "tpope/vim-projectionist",
-  -- ~/dotfiles/nvim/plugin/projectionist.lua
+  { "dart-lang/dart-vim-plugin", ft = "dart", },
 
-  "editorconfig/editorconfig-vim",
-  -- ~/dotfiles/nvim/plugin/editorconfig.lua
-
-  {
-    "dart-lang/dart-vim-plugin",
-    ft = "dart",
-  },
+  "tpope/vim-projectionist", -- ~/dotfiles/nvim/plugin/projectionist.lua
+  "editorconfig/editorconfig-vim", -- ~/dotfiles/nvim/plugin/editorconfig.lua
 
   -----------------------------
   -- Misc plugins
@@ -313,20 +305,12 @@ lazy.setup({
   {
     "lifepillar/vim-cheat40",
     cmd = "Cheat40"
+    -- ~/dotfiles/nvim/plugin/cheat40.lua
   },
-  -- ~/dotfiles/nvim/plugin/cheat40.lua
 
-  "mbbill/undotree",
-  -- ~/dotfiles/nvim/plugin/undotree.lua
-  -- ~/dotfiles/nvim/after/ftplugin/undotree.lua
-
-  "907th/vim-auto-save",
-  -- ~/dotfiles/nvim/plugin/auto-save.lua
-
-  "tpope/vim-obsession",
-  -- ~/dotfiles/nvim/plugin/obsession.lua
-
-
+  "mbbill/undotree", -- ~/dotfiles/nvim/plugin/undotree.lua
+  "907th/vim-auto-save", -- ~/dotfiles/nvim/plugin/auto-save.lua
+  "tpope/vim-obsession", -- ~/dotfiles/nvim/plugin/obsession.lua
   "gregsexton/MatchTag",
 }, configuration)
 
