@@ -5,12 +5,12 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--single-branch",
+    "--branch=stable",
     "https://github.com/folke/lazy.nvim.git",
     lazypath,
   })
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
 local view_config = require("lazy.view.config")
