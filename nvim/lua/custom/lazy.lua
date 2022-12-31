@@ -161,7 +161,7 @@ lazy.setup({
       "windwp/nvim-ts-autotag",
       "JoosepAlviste/nvim-ts-context-commentstring",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
-      { "nvim-treesitter/playground", name = "nvim-ts-playground" },
+      { "nvim-treesitter/playground", name = "nvim-ts-playground" }, -- XXX Remove for Neovim 0.9
     },
     event = "BufReadPost",
     config = function()
