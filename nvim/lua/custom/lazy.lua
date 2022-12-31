@@ -5,10 +5,10 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--branch=stable",
     "https://github.com/folke/lazy.nvim.git",
     lazypath,
   })
+  vim.fn.system({ "git", "-C", lazypath, "checkout", "tags/stable" })
 end
 vim.opt.rtp:prepend(lazypath)
 
