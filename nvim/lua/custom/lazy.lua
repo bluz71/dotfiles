@@ -12,6 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local runtime = vim.cmd.runtime
 local lazy = require("lazy")
 local view_config = require("lazy.view.config")
 
@@ -321,3 +322,8 @@ lazy.setup({
 
 -- Lazy window.
 vim.keymap.set("n", "'l", ":Lazy<CR>")
+
+-- Load up the standard matchparen & matchit plugins which lazy.nvim explicitly
+-- does not load.
+runtime("plugin/matchparen.vim")
+runtime("plugin/matchit.vim")
