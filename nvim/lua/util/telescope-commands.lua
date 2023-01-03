@@ -3,8 +3,8 @@ local builtin = require("telescope.builtin")
 
 local M = {}
 
-M.git_bcommits = function(opts)
-  opts = opts or {}
+M.git_bcommits = function()
+  local opts = {}
   opts.previewer = previewers.new_termopen_previewer({
     get_command = function(entry)
       return {
@@ -13,11 +13,11 @@ M.git_bcommits = function(opts)
     end,
   })
 
-  builtin.git_bcommits(opts)
+  builtin.git_bcommits({})
 end
 
-M.git_status = function(opts)
-  opts = opts or {}
+M.git_status = function()
+  local opts = {}
   opts.previewer = previewers.new_termopen_previewer({
     get_command = function(entry)
       if entry.status == "D " then
