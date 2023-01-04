@@ -5,6 +5,7 @@ local sign_define = vim.fn.sign_define
 -- Diagnostic symbols for display in the sign column.
 sign_define("DiagnosticSignError", { text = "▷", texthl = "DiagnosticSignError" })
 sign_define("DiagnosticSignWarn", { text = "△", texthl = "DiagnosticSignWarn" })
+sign_define("DiagnosticSignInfo", { text = "🞆", texthl = "DiagnosticSignInfo" })
 
 -- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
 -- functions.
@@ -17,7 +18,7 @@ vim.diagnostic.config({
   severity_sort = true,
   signs = {
     severity = {
-      min = vim.diagnostic.severity.WARN,
+      min = vim.diagnostic.severity.INFO,
     },
   },
   update_in_insert = false,
@@ -25,7 +26,7 @@ vim.diagnostic.config({
   virtual_text = {
     spacing = 2,
     severity = {
-      min = vim.diagnostic.severity.WARN,
+      min = vim.diagnostic.severity.INFO,
     },
   },
 })
