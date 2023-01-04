@@ -7,6 +7,8 @@ local nvim_lsp = require("lspconfig")
 local lsp_capabilities = require("util.lsp-capabilities")
 local handlers = require("util.lsp-handlers")
 local dart_closing_labels = require("util.dart-closing-labels")
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 local lsp = vim.lsp
 local map = vim.keymap.set
 local opt_local = vim.opt_local
@@ -112,4 +114,18 @@ nvim_lsp.tsserver.setup({
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("package.json"),
+})
+
+-- Standard Ruby LSP is not yet part of nvim-lspconfig, so we need to start it
+-- ourselves.
+autocmd("FileType", {
+  pattern = "ruby",
+  group = augroup("StandardRubyLSP", {}),
+  callback = function()
+    vim.lsp.start {
+      name = "standardrb",
+      cmd = { "standardrb", "--lsp" },
+    }
+    map("n", "'f", lsp.buf.format, { buffer = true })
+  end,
 })

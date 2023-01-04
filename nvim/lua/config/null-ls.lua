@@ -21,10 +21,9 @@ null_ls.setup({
     -- Borrow existing formatting mapping from the LSP configuration. Whether a
     -- filetype is attached to a language server, or not, the following mapping
     -- will work for null-ls.
-    local opts = { buffer = true }
     map("n", "'f", function()
       vim.lsp.buf.format({ timeout_ms = 8000 })
-    end, opts)
+    end, { buffer = true })
     -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these
     -- options cause problems with the VimCompletesMe plugin and 'gq' command.
     opt_local.omnifunc = ""
@@ -40,7 +39,6 @@ null_ls.setup({
       end,
     }),
     null_ls.builtins.diagnostics.selene,
-    null_ls.builtins.diagnostics.standardrb,
     null_ls.builtins.diagnostics.yamllint,
 
     -- Builtin formatters.
@@ -49,7 +47,6 @@ null_ls.setup({
       filetypes = { "css", "json", "scss", "yml" },
     }),
     null_ls.builtins.formatting.prettier_standard,
-    null_ls.builtins.formatting.standardrb,
     null_ls.builtins.formatting.stylua.with({
       extra_args = {
         "--column-width", "100",

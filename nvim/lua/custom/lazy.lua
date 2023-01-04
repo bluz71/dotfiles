@@ -249,8 +249,8 @@ lazy.setup({
   {
     "jose-elias-alvarez/null-ls.nvim",
     ft = {
-      "css", "dart", "javascript", "json", "lua", "markdown", "ruby", "rust",
-      "scss", "yaml",
+      "css", "dart", "javascript", "json", "lua", "markdown", "rust", "scss",
+      "yaml",
     },
     config = function()
       require("config.null-ls")
