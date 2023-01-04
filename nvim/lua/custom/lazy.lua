@@ -323,7 +323,8 @@ lazy.setup({
 -- Lazy window.
 vim.keymap.set("n", "'l", ":Lazy<CR>")
 
--- Load up the standard matchparen & matchit plugins which lazy.nvim explicitly
--- does not load.
-runtime("plugin/matchparen.vim")
+-- Load up the standard matchit, matchparen & shada plugins which lazy.nvim
+-- explicitly is explicitly not loading (possibly a bug).
 runtime("plugin/matchit.vim")
+runtime("plugin/matchparen.vim")
+runtime("plugin/shada.vim")
