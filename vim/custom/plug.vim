@@ -5,6 +5,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Disable unused builtin plugins.
+let g:loaded_gzip = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_remote_plugins = 1
+let g:loaded_tarPlugin= 1
+let g:loaded_zipPlugin= 1
+let g:loaded_2html_plugin = 1
+let g:loaded_tutor_mode_plugin = 1
+
+" Load up the match it plugin which provides '%' XML/HTML tag matching.
+runtime macros/matchit.vim
+
 " Initialize vim-plug.
 call plug#begin('~/.vim/plugged')
 
