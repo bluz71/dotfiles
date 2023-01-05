@@ -282,7 +282,15 @@ lazy.setup({
   -----------------------------
   -- Misc plugins
   -----------------------------
- {
+  {
+    "NvChad/nvim-colorizer.lua",
+    ft = { "css", "lua", "markdown", "scss", "text", "vim", "yaml" },
+    config = function()
+      require("config.colorizer")
+    end,
+  },
+
+  {
     "numtostr/FTerm.nvim",
     keys = { "<C-g>" },
     config = function()
@@ -306,7 +314,6 @@ lazy.setup({
     end,
   },
 
-  "NvChad/nvim-colorizer.lua", -- ~/dotfiles/nvim/after/plugin/colorizer.lua
   "mbbill/undotree", -- ~/dotfiles/nvim/after/plugin/undotree.lua
   "907th/vim-auto-save", -- ~/dotfiles/nvim/after/plugin/auto-save.lua
   "tpope/vim-obsession", -- ~/dotfiles/nvim/after/plugin/obsession.lua
