@@ -1,18 +1,18 @@
 -- Bootstrap and install lazy.nvim as the Neovim plugin manager.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+  print("Bootstrapping lazy.nvim, please wait until installation is finished")
   vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
 
-local runtime = vim.cmd.runtime
 local lazy = require("lazy")
 local view_config = require("lazy.view.config")
 
@@ -44,12 +44,7 @@ local configuration = {
       start = "▷",
       task = "✔ ",
       lazy = "⠤⠤ ",
-      list = {
-        "●",
-        "→",
-        "🞊",
-        "‒",
-      },
+      list = { "●", "→", "🞊", "‒", },
     },
   }
 }
