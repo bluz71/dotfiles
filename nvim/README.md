@@ -10,7 +10,7 @@ Structure
 .
 ├── init.lua        | Neovim initialization file
 ├── after/          | Standard auto-loading 'after' directory
-│     ├── ftplugin/ | After 'filetypes' configs
+│     ├── ftplugin/ | After 'filetype' configs
 │     └── plugin/   | After 'plugin' configs that are NOT lazy-loaded
 ├── autoload/       | Standard 'autoload' directory for Vimscript functions
 ├── ftplugin/       | Standard 'filetype' configs
