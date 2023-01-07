@@ -202,16 +202,6 @@ lazy.setup({
   },
 
   {
-    "hrsh7th/vim-vsnip",
-    commit = "ceeee48",
-    event = "InsertEnter",
-    config = function()
-      require("config.vsnip")
-    end,
-    -- ~/dotfiles/nvim/vsnip (custom snippets)
-  },
-
-  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
@@ -270,6 +260,16 @@ lazy.setup({
   },
 
   {
+    "hrsh7th/vim-vsnip",
+    commit = "ceeee48",
+    event = "InsertEnter",
+    config = function()
+      require("config.vsnip")
+    end,
+    -- ~/dotfiles/nvim/vsnip (custom snippets)
+  },
+
+  {
     "janko-m/vim-test",
     keys = { "'tt", "'tl", "'tf", "'ts" },
     config = function()
@@ -278,8 +278,9 @@ lazy.setup({
   },
 
   { "dart-lang/dart-vim-plugin", ft = "dart", },
-  "tpope/vim-projectionist", -- ~/dotfiles/nvim/after/plugin/projectionist.lua
-  "editorconfig/editorconfig-vim",
+  "tpope/vim-projectionist",
+  -- ~/dotfiles/nvim/after/plugin/projectionist.lua
+  "editorconfig/editorconfig-vim", -- XXX Remove for Neovim 0.9
   -- ~/dotfiles/nvim/after/plugin/editorconfig.lua
 
   -----------------------------
@@ -323,5 +324,5 @@ lazy.setup({
   "gregsexton/MatchTag",
 }, configuration)
 
--- Lazy window.
+-- Lazy floating window.
 vim.keymap.set("n", "'l", ":Lazy<CR>")
