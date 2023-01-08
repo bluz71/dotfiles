@@ -11,6 +11,8 @@
   ui = auto
 [commit]
   verbose = true
+[init]
+  defaultBranch = master
 [diff]
   tool       = meld
   algorithm  = histogram
