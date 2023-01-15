@@ -24,11 +24,11 @@ Components
 ----------
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim) plugin management
-- [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting
-- [LSP](https://github.com/neovim/nvim-lspconfig) configuration for: Dart, HTML, JavaScript, Rust & Ruby
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) for auto-completion
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding
-- [Fern](https://github.com/lambdalisue/fern.vim) for file exploration
+- [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) syntax highlighting
+- [LSP](https://github.com/neovim/nvim-lspconfig) configuration: Dart, HTML, JavaScript, Rust & Ruby
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) auto-completion
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim) fuzzy finding
+- [Fern](https://github.com/lambdalisue/fern.vim) file exploration
 - Lazygit via [FTerm](https://github.com/numtostr/FTerm.nvim)
-- [linefly](https://github.com/bluz71/nvim-linefly) for `statusline`, `tabline` and `winbar`
+- [linefly](https://github.com/bluz71/nvim-linefly) `statusline`, `tabline` and `winbar`
 - [moonfly](https://github.com/bluz71/vim-moonfly-colors) & [nightfly](https://github.com/bluz71/vim-nightfly-colors) colorschemes
