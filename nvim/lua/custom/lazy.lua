@@ -86,8 +86,10 @@ lazy.setup({
   -- Style plugins
   -----------------------------
   {
-    dir = "~/projects/public/vim-mistfly-statusline",
+    -- dir = "~/projects/public/vim-mistfly-statusline",
     -- ~/dotfiles/nvim/after/plugin/mistfly.lua
+    dir = "~/projects/public/nvim-linefly",
+    -- ~/dotfiles/nvim/after/plugin/linefly.lua
   },
 
   {
@@ -159,7 +161,7 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    commit = "42ab95d",
+    tag = "v0.8.1",
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
