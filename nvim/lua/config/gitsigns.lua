@@ -4,8 +4,9 @@ if vim.opt.diff:get() then
 end
 
 local gitsigns = require("gitsigns")
-local cmd = vim.cmd
+local feedkeys = vim.api.nvim_feedkeys
 local map = vim.keymap.set
+local schedule = vim.schedule
 
 gitsigns.setup({
   signs = {
@@ -21,11 +22,15 @@ gitsigns.setup({
 
     map("n", "]g", function()
       gs.next_hunk()
-      cmd([[normal zz]])
+      schedule(function()
+        feedkeys("zz", "n", false)
+      end)
     end)
     map("n", "[g", function()
       gs.prev_hunk()
-      cmd([[normal zz]])
+      schedule(function()
+        feedkeys("zz", "n", false)
+      end)
     end)
     map('n', "'+", gs.stage_hunk)
     map('n', "'-", gs.reset_hunk)
