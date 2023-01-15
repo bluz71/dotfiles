@@ -27,8 +27,8 @@ Components
 - [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting
 - [LSP](https://github.com/neovim/nvim-lspconfig) configuration for: Dart, HTML, JavaScript, Rust & Ruby
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) for auto-completion
-- [Telescape](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding
+- [Telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding
 - [Fern](https://github.com/lambdalisue/fern.vim) for file exploration
-- Lazygit loaded via [FTerm](https://github.com/numtostr/FTerm.nvim)
-- [linefly](https://github.com/bluz71/nvim-linefly) for statusline, tabline and winbar
+- Lazygit via [FTerm](https://github.com/numtostr/FTerm.nvim)
+- [linefly](https://github.com/bluz71/nvim-linefly) for `statusline`, `tabline` and `winbar`
 - [moonfly](https://github.com/bluz71/vim-moonfly-colors) & [nightfly](https://github.com/bluz71/vim-nightfly-colors) colorschemes
