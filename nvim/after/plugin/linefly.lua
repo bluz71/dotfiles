@@ -1,8 +1,8 @@
-local g = vim.g
-
-g.lineflyErrorSymbol = "▷"
-g.lineflyWarningSymbol = "△"
-g.lineflyInformationSymbol = "🞆"
-g.lineflyTabLine = true
-g.lineflyWinBar = true
-g.lineflyWithIndentStatus = true
+vim.g.linefly_options = {
+  error_symbol = "▷",
+  warning_symbol = "△",
+  information_symbol = "🞆",
+  tabline = true,
+  winbar = true,
+  with_indent_status = true,
+}
