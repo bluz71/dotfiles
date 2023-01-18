@@ -36,6 +36,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("possession")
 
 -- Mappings.
 local map = vim.keymap.set
@@ -76,3 +77,6 @@ elseif vim.fn.filereadable("src/index.js") ~= 0 then
   map("n", "<Space>es", ":Telescope find_files cwd=src/styles<CR>", opts)
   map("n", "<Space>et", ":Telescope find_files cwd=src/__tests__/components<CR>", opts)
 end
+
+-- Extension mappings.
+map("n", "<Space>p", require('telescope').extensions.possession.list)

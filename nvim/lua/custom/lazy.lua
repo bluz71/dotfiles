@@ -46,7 +46,7 @@ local configuration = {
       lazy = "⠤⠤ ",
       list = { "●", "→", "🞊", "‒", },
     },
-  }
+  },
 }
 
 -- Change default key mappings; use '<Esc>' for closing and `<Ctrl-f>` for
@@ -133,9 +133,9 @@ lazy.setup({
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    dependencies = { 
+    dependencies = {
       "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     keys = { "<Space>" },
     config = function()
@@ -195,7 +195,7 @@ lazy.setup({
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
-      { "hrsh7th/cmp-vsnip", commit = "1ae05c6"},
+      { "hrsh7th/cmp-vsnip", commit = "1ae05c6" },
     },
     event = "InsertEnter",
     config = function()
@@ -279,7 +279,7 @@ lazy.setup({
     end,
   },
 
-  { "dart-lang/dart-vim-plugin", ft = "dart", },
+  { "dart-lang/dart-vim-plugin", ft = "dart" },
   "tpope/vim-projectionist",
   -- ~/dotfiles/nvim/after/plugin/projectionist.lua
   "editorconfig/editorconfig-vim", -- XXX Remove for Neovim 0.9
@@ -320,9 +320,17 @@ lazy.setup({
     end,
   },
 
+  {
+    "jedrzejboczar/possession.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+    config = function()
+      require("config.possession")
+    end,
+  },
+
   "mbbill/undotree", -- ~/dotfiles/nvim/after/plugin/undotree.lua
   "907th/vim-auto-save", -- ~/dotfiles/nvim/after/plugin/auto-save.lua
-  "tpope/vim-obsession", -- ~/dotfiles/nvim/after/plugin/obsession.lua
   "gregsexton/MatchTag",
 }, configuration)
 

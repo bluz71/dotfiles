@@ -194,6 +194,7 @@ Rails view files         ‹Spc›ev       N
 React component files    ‹Spc›ec       N
 React stylesheet files   ‹Spc›es       N
 React test files         ‹Spc›et       N
+Possession sessions      ‹Spc›p        N
 }}}
 fern Plugin Mapping {{{
 Toggle drawer            ,d            N
@@ -216,8 +217,8 @@ Previous hunk            [g            N
 Next hunk                ]g            N
 Stage hunk               '+           @N
 Revert hunk staging      '-           @N
-Preview hunk             'p           @N
-Blame line               'gb          @N
+Preview hunk             'g           @N
+Blame line               'b           @N
 Refresh buffers          'r            N
 }}}
 Unimpaired Plugin Mappings {{{
@@ -295,10 +296,6 @@ Exit Undotree            ‹Esc›         N
 Previous undo state      <             N
 Next undo state          >             N
 }}}
-Obsession Plugin Mappings {{{
-Toggle session           'o            N
-Delete session           'O            N
-}}}
 Dart Plugin Mappings {{{
 Hot reload               'h            N
 Hot restart              'H            N
@@ -312,6 +309,10 @@ Hop Line                 '‹Return›     N
 }}}
 FTerm Plugin Mappings {{{
 Toggle Lazygit Terminal  ‹Ctrl-g›      N
+}}}
+Possession Plugin Mappings {{{
+Create or save session   'p            N
+Delete session           'P            N
 }}}
 Startup Plugin Mappings {{{
 Startup time             's            N
