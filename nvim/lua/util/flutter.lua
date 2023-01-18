@@ -6,14 +6,14 @@ local M = {}
 M.hot_reload = function()
   if fn.isdirectory("ios/Flutter") ~= 0 then
     cmd([[silent execute '!kill -SIGUSR1 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null']])
-    print("Flutter reloaded!")
+    print("(Flutter) RELOADED")
   end
 end
 
 M.hot_restart = function()
   if fn.isdirectory("ios/Flutter") ~= 0 then
     cmd([[silent execute '!kill -SIGUSR2 $(pgrep -f "[f]lutter_tool.*run") &> /dev/null']])
-    print("Flutter restarted!")
+    print("(Flutter) RESTARTED")
   end
 end
 
