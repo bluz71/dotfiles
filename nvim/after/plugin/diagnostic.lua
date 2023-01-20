@@ -10,7 +10,7 @@ sign_define("DiagnosticSignInfo", { text = "🞆", texthl = "DiagnosticSignInfo"
 
 -- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
 -- functions.
-vim.diagnostic.config({
+diagnostic.config({
   float = {
     show_header = false,
     source = "if_many",
