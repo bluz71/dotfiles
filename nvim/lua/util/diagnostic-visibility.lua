@@ -1,24 +1,29 @@
 local diagnostic = vim.diagnostic
 local g = vim.g
+local tbl_extend = vim.tbl_extend
 
-g.diagnosticVisibility = true
+g.diagnostic_visibility = true
 
 local M = {}
 
 -- Toggle Neovim diagnostic.
 M.toggle = function()
-  if g.diagnosticVisibility then
+  if g.diagnostic_visibility then
     diagnostic.disable()
-    -- Disable mistfly statusline diagnostic indicator.
-    g.mistflyWithNvimDiagnosticStatus = false
+    -- Disable linefly diagnostic indicator.
+    g.linefly_options = tbl_extend("force", g.linefly_options, {
+      with_diagnostic_status = false,
+    })
     print("(Diagnostic) OFF")
-    g.diagnosticVisibility = false
+    g.diagnostic_visibility = false
   else
-    vim.diagnostic.enable()
-    -- Enable mistfly statusline diagnostic indicator.
-    g.mistflyWithNvimDiagnosticStatus = true
+    diagnostic.enable()
+    -- Enable linefly diagnostic indicator.
+    g.linefly_options = tbl_extend("force", g.linefly_options, {
+      with_diagnostic_status = true,
+    })
     print("(Diagnostic) ON")
-    g.diagnosticVisibility = true
+    g.diagnostic_visibility = true
   end
 end
 
