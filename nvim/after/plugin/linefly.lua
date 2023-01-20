@@ -1,5 +1,5 @@
 vim.g.linefly_options = {
-  error_symbol = "▷",
+  error_symbol = "🞆",
   warning_symbol = "△",
   information_symbol = "🞆",
   tabline = true,
