@@ -4,6 +4,8 @@ local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
 
+local is_diff = opt.diff:get()
+
 opt.autoindent = true -- Indented text
 opt.autoread = true -- Pick up external changes to files
 opt.autowrite = true -- Write files when navigating with :next/:previous
@@ -62,30 +64,43 @@ opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
 opt.mousehide = true -- Hide mouse when typing text
 opt.number = true -- Show line numbers
+if fn.has("nvim-0.9") == 1 and not is_diff then
+  opt.numberwidth = 3
+end
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
 opt.path = "**" -- File search path
 opt.pumheight = 20 -- Height of complete list
-opt.relativenumber = true -- Show relative numbers
+if fn.has("nvim-0.9") == 1 and not is_diff then
+  opt.relativenumber = true -- Show relative numbers
+end
 opt.shiftwidth = 2 -- Default indentation amount
 -- Don't show insert mode completion messages nor intro messages.
 opt.shortmess = opt.shortmess + { c = true, I = true }
-opt.signcolumn = "number" -- Render signs in the number column
+if fn.has("nvim-0.9") == 0 then
+  opt.signcolumn = "number" -- Render signs in the number column
+end
 -- Setup shared-data.
 opt.shada = "'200,<50,s10,h"
 opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
 opt.showmode = false -- No to showing mode in bottom-left corner
+if fn.has("nvim-0.9") == 1 and not is_diff then
+  opt.signcolumn = "yes:1"
+end
 opt.smartcase = true -- Case-smart searching
 opt.smarttab = true -- Tab at the start of line inserts blanks
 -- When spell checking, assume word boundaries include 'CamelCasing'
 opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
---When horizonatally splitting windows keep text stabilized (no auto-scrolling)
+-- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
 if exists('&splitkeep') ~= 0 then
   opt.splitkeep = "screen"
 end
 opt.splitright = true -- Split window to the right
+if fn.has("nvim-0.9") == 1 and not is_diff then
+  opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%=%s"
+end
 opt.swapfile = false -- No backup files
 opt.tabstop = 4 -- Tab width
 opt.termguicolors = true -- Enable 24-bit color support for terminal Vim

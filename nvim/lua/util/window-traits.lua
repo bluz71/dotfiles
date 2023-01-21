@@ -10,23 +10,30 @@ local M = {}
 -- numbers and sign column.
 M.activity = function(active)
   if opt.diff:get() or buf_get_option(0, "buftype") == "nofile" or buf_get_option(0, "filetype") == "lazygit" then
-    -- Do nothing for diffs or 'nofile' buffer types.
+    -- Do nothing for diffs and certain special files.
     return
   end
 
   if active then -- Active window
     opt_local.colorcolumn = "81,82"
     opt_local.cursorline = true
-    -- Set relative numbering, except for help files.
+    -- Do not update the number column for help files.
     if buf_get_option(0, "filetype") ~= "help" then
-      opt_local.relativenumber = true
+      if vim.fn.has("nvim-0.9") == 1 then
+        opt_local.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum}%=%s"
+      else
+        opt_local.relativenumber = true
+      end
     end
-    opt_local.signcolumn = "number"
   else -- Inactive window
     opt_local.colorcolumn = "0"
     opt_local.cursorline = false
-    opt_local.relativenumber = false
-    opt_local.signcolumn = "no"
+    if vim.fn.has("nvim-0.9") == 1 then
+      opt_local.statuscolumn = "%=%l%=%s"
+    else
+      opt_local.relativenumber = false
+      opt_local.signcolumn = "no"
+    end
   end
 end
 
