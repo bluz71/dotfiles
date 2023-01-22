@@ -20,7 +20,7 @@ M.activity = function(active)
     -- Do not update the number column for help files.
     if buf_get_option(0, "filetype") ~= "help" then
       if vim.fn.has("nvim-0.9") == 1 then
-        opt_local.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum > 0 ? v:relnum : v:lnum) : ''}%=%s"
+        opt_local.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum == 1 ? '‧ 1' : v:lnum) : ''}%=%s"
       else
         opt_local.relativenumber = true
       end

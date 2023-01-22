@@ -1,7 +1,6 @@
 local env = vim.env
 local exists = vim.fn.exists
 local fn = vim.fn
-local g = vim.g
 local opt = vim.opt
 
 local is_diff = opt.diff:get()
@@ -76,9 +75,6 @@ end
 opt.shiftwidth = 2 -- Default indentation amount
 -- Don't show insert mode completion messages nor intro messages.
 opt.shortmess = opt.shortmess + { c = true, I = true }
-if fn.has("nvim-0.9") == 0 then
-  opt.signcolumn = "number" -- Render signs in the number column
-end
 -- Setup shared-data.
 opt.shada = "'200,<50,s10,h"
 opt.showbreak = "↳" -- Use this to wrap long lines
@@ -87,6 +83,8 @@ opt.showmatch = false -- No jumping jumping cursors when matching pairs
 opt.showmode = false -- No to showing mode in bottom-left corner
 if fn.has("nvim-0.9") == 1 and not is_diff then
   opt.signcolumn = "yes:1"
+elseif fn.has("nvim-0.9") == 0 then
+  opt.signcolumn = "number"
 end
 opt.smartcase = true -- Case-smart searching
 opt.smarttab = true -- Tab at the start of line inserts blanks
@@ -99,7 +97,7 @@ if exists('&splitkeep') ~= 0 then
 end
 opt.splitright = true -- Split window to the right
 if fn.has("nvim-0.9") == 1 and not is_diff then
-  opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum > 0 ? v:relnum : v:lnum) : ''}%=%s"
+  opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum == 1 ? '‧ 1' : v:lnum) : ''}%=%s"
 end
 opt.swapfile = false -- No backup files
 opt.tabstop = 4 -- Tab width
