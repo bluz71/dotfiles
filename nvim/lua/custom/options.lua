@@ -97,7 +97,7 @@ if exists('&splitkeep') ~= 0 then
 end
 opt.splitright = true -- Split window to the right
 if fn.has("nvim-0.9") == 1 and not is_diff then
-  opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum == 1 ? '‧ 1' : v:lnum) : ''}%=%s"
+  opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . ' ' : v:lnum) : ''}%=%s"
 end
 opt.swapfile = false -- No backup files
 opt.tabstop = 4 -- Tab width
