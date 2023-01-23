@@ -15,7 +15,7 @@ M.activity = function(active)
   end
 
   if active then -- Active window
-    opt_local.colorcolumn = "81,82"
+    opt_local.colorcolumn = { 81, 82 }
     opt_local.cursorline = true
     -- Do not update the number column for help files.
     if buf_get_option(0, "filetype") ~= "help" then
@@ -26,7 +26,7 @@ M.activity = function(active)
       end
     end
   else -- Inactive window
-    opt_local.colorcolumn = "0"
+    opt_local.colorcolumn = { 0 }
     opt_local.cursorline = false
     if vim.fn.has("nvim-0.9") == 1 then
       opt_local.statuscolumn = "%=%l%=%s"

@@ -20,7 +20,7 @@ else
   opt.clipboard = "unnamed"
 end
 opt.cmdheight = 1
-opt.colorcolumn = "81,82" -- Highlight 81 and 82 columns
+opt.colorcolumn = { 81, 82 } -- Highlight 81 and 82 columns
 opt.conceallevel = 0 -- Always show text normally
 opt.complete = { ".", "w", "b" } -- Sources for term and line completions
 opt.completeopt = { "menu", "menuone", "noselect" }
@@ -40,7 +40,7 @@ opt.fillchars = {
   horiz = "━", horizup = "┻", horizdown = "┳", vert = "┃", vertleft = "┫",
   vertright = "┣", verthoriz = "╋",
   foldclose = "▷", foldopen = "▼", foldsep = "┃",
-  diff = ""
+  diff = "",
 }
 opt.foldlevelstart = 20
 opt.foldmethod = "indent" -- Simple and fast
@@ -58,7 +58,10 @@ opt.incsearch = true -- Go to search results immediately
 opt.joinspaces = false -- No to double-spaces when joining lines
 opt.laststatus = 3 -- We want a global statusline
 opt.list = true
-opt.listchars = { tab = "  ", trail = "‧" }
+opt.listchars = {
+  tab = "  ", trail = "‧",
+  extends = "»", precedes = "«",
+}
 opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
 opt.mousehide = true -- Hide mouse when typing text
@@ -76,7 +79,7 @@ opt.shiftwidth = 2 -- Default indentation amount
 -- Don't show insert mode completion messages nor intro messages.
 opt.shortmess = opt.shortmess + { c = true, I = true }
 -- Setup shared-data.
-opt.shada = "'200,<50,s10,h"
+opt.shada = { "'300", '<50', 's10', 'h' }
 opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
@@ -92,7 +95,7 @@ opt.smarttab = true -- Tab at the start of line inserts blanks
 opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
 -- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
-if exists('&splitkeep') ~= 0 then
+if exists("&splitkeep") ~= 0 then
   opt.splitkeep = "screen"
 end
 opt.splitright = true -- Split window to the right
