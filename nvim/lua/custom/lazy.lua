@@ -86,8 +86,6 @@ lazy.setup({
   -- Style plugins
   -----------------------------
   {
-    -- dir = "~/projects/public/vim-mistfly-statusline",
-    -- ~/dotfiles/nvim/after/plugin/mistfly.lua
     dir = "~/projects/public/nvim-linefly",
     -- ~/dotfiles/nvim/after/plugin/linefly.lua
   },
