@@ -19,21 +19,14 @@ M.activity = function(active)
     opt_local.cursorline = true
     -- Do not update the number column for help files.
     if buf_get_option(0, "filetype") ~= "help" then
-      if vim.fn.has("nvim-0.9") == 1 then
-        opt_local.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
-      else
-        opt_local.relativenumber = true
-      end
+      opt_local.relativenumber = true
     end
+    opt_local.signcolumn = "number"
   else -- Inactive window
     opt_local.colorcolumn = { 0 }
     opt_local.cursorline = false
-    if vim.fn.has("nvim-0.9") == 1 then
-      opt_local.statuscolumn = "%=%l%=%s"
-    else
-      opt_local.relativenumber = false
-      opt_local.signcolumn = "no"
-    end
+    opt_local.relativenumber = false
+    opt_local.signcolumn = "no"
   end
 end
 
