@@ -80,6 +80,7 @@ lazy.setup({
   { "ellisonleao/gruvbox.nvim", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
   { "shaunsingh/nord.nvim", lazy = true },
+  { "JoosepAlviste/palenightfall.nvim", lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
 
   -----------------------------
