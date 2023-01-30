@@ -2,9 +2,9 @@ local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
   ensure_installed = {
-    "bash", "comment", "cpp", "css", "dart", "elixir", "go", "html", "java",
-    "javascript", "lua", "python", "ruby", "rust", "scala", "scss", "toml",
-    "typescript", "vue"
+    "bash", "c", "comment", "cpp", "css", "dart", "elixir", "go", "help",
+    "html", "java", "javascript", "lua", "python", "ruby", "rust", "scala",
+    "scss", "toml", "typescript", "vim", "vue"
   },
   highlight = {
     enable = true,
