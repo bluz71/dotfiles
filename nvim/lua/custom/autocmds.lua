@@ -97,17 +97,6 @@ autocmd("CursorHold", {
   group = custom_events,
 })
 
--- Auto-load session if it exists.
-autocmd("VimEnter", {
-  nested = true,
-  command = [[
-    if argc() == 0 && filereadable('Session.vim')|
-        source Session.vim|
-    endif
-  ]],
-  group = custom_events,
-})
-
 -- Terminal settings.
 autocmd("TermOpen", {
   callback = function()
