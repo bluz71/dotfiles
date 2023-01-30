@@ -69,6 +69,7 @@ opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
 opt.path = "**" -- File search path
 opt.pumheight = 20 -- Height of complete list
 opt.relativenumber = true -- Show relative numbers
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftwidth = 2 -- Default indentation amount
 -- Don't show insert mode completion messages nor intro messages.
 opt.shortmess = opt.shortmess + { c = true, I = true }
