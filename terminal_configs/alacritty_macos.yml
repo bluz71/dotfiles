@@ -180,6 +180,7 @@ key_bindings:
   - { key: Key8,     mods: Alt,       chars: "\x1b8"                 }
   - { key: Key9,     mods: Alt,       chars: "\x1b9"                 }
   - { key: Period,   mods: Alt,       chars: "\x1b."                 }
+  - { key: Equals,   mods: Alt,       chars: "\x1b="                 }
   - { key: Period,   mods: Alt|Shift, chars: "\x1b>"                 }
   - { key: Comma,    mods: Alt|Shift, chars: "\x1b<"                 }
   - { key: I,        mods: Control,   chars: "\x1b[105;5u"           }
