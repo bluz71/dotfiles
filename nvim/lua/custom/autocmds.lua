@@ -113,9 +113,10 @@ autocmd("BufEnter", {
   group = custom_events,
 })
 
--- Highlight yanks.
+-- Yank event processing.
 autocmd("TextYankPost", {
   callback = function()
+    -- Highlight the selected yank.
     vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
     -- Copy yanked text to tmux paste buffer if tmux is running.
     if vim.env.TMUX and vim.v.operator == "y" then
