@@ -4,7 +4,7 @@ local map = vim.keymap.set
 local sign_define = vim.fn.sign_define
 
 -- Diagnostic symbols for display in the sign column.
-sign_define("DiagnosticSignError", { text = "□", texthl = "DiagnosticSignError" })
+sign_define("DiagnosticSignError", { text = "●", texthl = "DiagnosticSignError" })
 sign_define("DiagnosticSignWarn", { text = "△", texthl = "DiagnosticSignWarn" })
 sign_define("DiagnosticSignInfo", { text = "○", texthl = "DiagnosticSignInfo" })
 
