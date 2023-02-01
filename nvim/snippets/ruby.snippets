@@ -1,0 +1,45 @@
+# Class definition
+snippet cl
+  class ${1:Class}
+    def initialize${2:()}
+      $3
+    end
+  end
+
+#-------------------------------------------------------------------------
+
+# Initialize method
+snippet defi
+  def initialize${1:()}
+    $2
+  end
+
+#-------------------------------------------------------------------------
+
+# Rails controller
+snippet rc
+  # frozen_string_literal: true
+
+  class ${1:Controller} < ApplicationController
+    def index
+      $2
+    end
+  end
+
+#-------------------------------------------------------------------------
+
+# Rails model
+snippet rm
+  # frozen_string_literal: true
+
+  class ${1:Model} < ApplicationRecord
+    $2
+  end
+
+#-------------------------------------------------------------------------
+
+# Individual spec
+snippet it
+  it "$1" do
+    $2
+  end

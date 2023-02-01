@@ -49,12 +49,12 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
   },
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
+      require("snippy").expand_snippet(args.body)
     end,
   },
   sources = {
     { name = "nvim_lsp", keyword_length = 3, max_item_count = 10 },
-    { name = "vsnip", keyword_length = 3, max_item_count = 5 },
+    { name = "snippy", keyword_length = 3, max_item_count = 5 },
     { name = "buffer", keyword_length = 4, max_item_count = 10 },
   },
   window = {

@@ -194,7 +194,7 @@ lazy.setup({
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
-      { "hrsh7th/cmp-vsnip", commit = "1ae05c6" },
+      "dcampos/cmp-snippy",
     },
     event = "InsertEnter",
     config = function()
@@ -261,11 +261,10 @@ lazy.setup({
   },
 
   {
-    "hrsh7th/vim-vsnip",
-    commit = "ceeee48",
+    "dcampos/nvim-snippy",
     event = "InsertEnter",
     config = function()
-      require("config.vsnip")
+      require("config.snippy")
     end,
     -- ~/dotfiles/nvim/vsnip (custom snippets)
   },
