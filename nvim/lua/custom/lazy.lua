@@ -122,8 +122,6 @@ lazy.setup({
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
   "wellle/targets.vim",
   "chaoren/vim-wordmotion",
-  "tpope/vim-surround",
-  "tpope/vim-repeat",
   "michaeljsmith/vim-indent-object",
   "ackyshake/VimCompletesMe",
 
@@ -267,7 +265,7 @@ lazy.setup({
     config = function()
       require("config.snippy")
     end,
-    -- ~/dotfiles/nvim/vsnip (custom snippets)
+    -- ~/dotfiles/nvim/snippets (custom snippets)
   },
 
   {
@@ -278,15 +276,21 @@ lazy.setup({
     end,
   },
 
-  { "dart-lang/dart-vim-plugin", ft = "dart" },
   "tpope/vim-projectionist",
   -- ~/dotfiles/nvim/after/plugin/projectionist.lua
   "editorconfig/editorconfig-vim", -- XXX Remove for Neovim 0.9
   -- ~/dotfiles/nvim/after/plugin/editorconfig.lua
+  { "dart-lang/dart-vim-plugin", ft = "dart" },
 
   -----------------------------
   -- Misc plugins
   -----------------------------
+  {
+    "kylechui/nvim-surround",
+    tag = "v1.0.0",
+    event = "VeryLazy",
+  },
+
   {
     "NvChad/nvim-colorizer.lua",
     ft = { "css", "lua", "markdown", "scss", "text", "vim", "yaml" },
@@ -313,7 +317,7 @@ lazy.setup({
 
   {
     "lifepillar/vim-cheat40",
-    cmd = "Cheat40",
+    event = "VeryLazy",
     config = function()
       require("config.cheat40")
     end,
