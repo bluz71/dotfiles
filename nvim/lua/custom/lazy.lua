@@ -81,6 +81,7 @@ lazy.setup({
   { "EdenEast/nightfox.nvim", lazy = true },
   { "shaunsingh/nord.nvim", lazy = true },
   { "JoosepAlviste/palenightfall.nvim", lazy = true },
+  { 'rose-pine/neovim', name = 'rose-pine', lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
 
   -----------------------------
