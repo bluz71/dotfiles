@@ -144,6 +144,14 @@ Fuzzy document symbols   ‹Spc›lw       N
 Fuzz workspace symbols   ‹Spc›lW       N
 Formatting               'f          *VN
 }}}
+Treesitter Mappings {{{
+Inner func textobject    if          *VN
+Around func textobject   af          *VN
+Inner class textobject   ic          *VN
+Around class textobject  ac          *VN
+Previous method          [m            N
+Next method              ]m            N
+}}}
 Misc Operations {{{
 One time normal command  ‹Ctrl-o›‹@›   I
 Expression register      ‹Ctrl-r›=‹@›  I

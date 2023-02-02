@@ -162,6 +162,7 @@ lazy.setup({
     tag = "v0.8.1",
     build = ":TSUpdate",
     dependencies = {
+      { "nvim-treesitter/nvim-treesitter-textobjects", commit = "6630f41" },
       "windwp/nvim-ts-autotag",
       "JoosepAlviste/nvim-ts-context-commentstring",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
@@ -288,6 +289,9 @@ lazy.setup({
     "kylechui/nvim-surround",
     tag = "v1.0.0",
     event = "VeryLazy",
+    config = function()
+      require("config.surround")
+    end,
   },
 
   {
