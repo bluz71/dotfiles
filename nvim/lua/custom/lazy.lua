@@ -280,7 +280,6 @@ lazy.setup({
   -- ~/dotfiles/nvim/after/plugin/projectionist.lua
   "editorconfig/editorconfig-vim", -- XXX Remove for Neovim 0.9
   -- ~/dotfiles/nvim/after/plugin/editorconfig.lua
-  { "dart-lang/dart-vim-plugin", ft = "dart" },
 
   -----------------------------
   -- Misc plugins
@@ -308,14 +307,6 @@ lazy.setup({
   },
 
   {
-    "dstein64/vim-startuptime",
-    keys = "'s",
-    config = function()
-      require("config.startup")
-    end,
-  },
-
-  {
     "lifepillar/vim-cheat40",
     event = "VeryLazy",
     config = function()
@@ -337,5 +328,8 @@ lazy.setup({
   "gregsexton/MatchTag",
 }, configuration)
 
--- Lazy floating window.
+-- Lazy status window.
 vim.keymap.set("n", "'l", ":Lazy<CR>")
+
+-- Profile tab.
+vim.keymap.set("n", "'s", ":Lazy profile<CR>")

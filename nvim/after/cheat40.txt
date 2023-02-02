@@ -314,6 +314,7 @@ Possession Plugin Mappings {{{
 Create or save session   'p            N
 Delete session           'P            N
 }}}
-Startup Plugin Mappings {{{
-Startup time             's            N
+Lazy Plugin Mappings {{{
+Status window            's            N
+Profile tab              's            N
 }}}
