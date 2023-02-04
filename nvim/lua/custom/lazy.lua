@@ -74,14 +74,10 @@ lazy.setup({
   },
 
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { "sainnhe/edge", name = "vim-edge", lazy = true },
   { "sainnhe/everforest", name = "vim-everforest", lazy = true },
   { "sainnhe/gruvbox-material", name = "vim-gruvbox-material", lazy = true },
-  { "ellisonleao/gruvbox.nvim", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
-  { "shaunsingh/nord.nvim", lazy = true },
   { "JoosepAlviste/palenightfall.nvim", lazy = true },
-  { 'rose-pine/neovim', name = 'rose-pine', lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
 
   -----------------------------
