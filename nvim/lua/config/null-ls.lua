@@ -4,6 +4,7 @@ if vim.opt.diff:get() then
 end
 
 local null_ls = require("null-ls")
+local buf_get_option = vim.api.nvim_buf_get_option
 local map = vim.keymap.set
 local opt_local = vim.opt_local
 
@@ -17,17 +18,19 @@ null_ls.setup({
       return true
     end
   end,
-  on_attach = function()
+  on_attach = function(_, bufnr)
     -- Borrow existing formatting mapping from the LSP configuration. Whether a
     -- filetype is attached to a language server, or not, the following mapping
     -- will work for null-ls.
     map("n", "'f", function()
       vim.lsp.buf.format({ timeout_ms = 8000 })
     end, { buffer = true })
-    -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these
-    -- options cause problems with the VimCompletesMe plugin and 'gq' command.
-    opt_local.omnifunc = ""
-    opt_local.formatexpr = ""
+    if buf_get_option(0, "filetype") == "dart" or buf_get_option(0, "filetype") == "javascript" then
+      -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these
+      -- options cause problems with the VimCompletesMe plugin and 'gq' command.
+      opt_local.omnifunc = ""
+      opt_local.formatexpr = ""
+    end
   end,
   sources = {
     -- Builtin diagnostics.

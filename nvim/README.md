@@ -12,7 +12,6 @@ Structure
 ├── after/          | Standard auto-loading 'after' base directory
 │     ├── ftplugin/ | Auto-loading 'filetype' configs
 │     └── plugin/   | Auto-loading 'plugin' configs
-├── ftplugin/       | Standard 'filetype' configs
 └── lua/            | Lua base directory
       ├── config/   | Plugin configs that ARE lazy-loaded via explicit 'require'
       ├── custom/   | Autocmds, plugin-manager, mappings and options configs
