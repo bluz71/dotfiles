@@ -93,3 +93,7 @@ if has("patch-8.2.4325")
     set wildoptions=pum
 endif
 set wrap              " Wrap long lines
+
+" Don't load the Ruby provider since it needlessly slows down the loading of
+" Ruby files into the editor.
+let g:loaded_ruby_provider = 1
