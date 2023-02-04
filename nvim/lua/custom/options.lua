@@ -120,3 +120,7 @@ env.LESS = "-RS"
 -- Note, install neovim-remote via:
 --   % pip3 install neovim-remote
 env.EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
+
+-- Don't load the Ruby provider since it needlessly slows down the loading of
+-- Ruby files into the editor.
+vim.g.loaded_ruby_provider = 1
