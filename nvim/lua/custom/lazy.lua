@@ -44,7 +44,7 @@ local configuration = {
       start = "▷",
       task = "✔ ",
       lazy = "⠤⠤ ",
-      list = { "●", "→", "🞊", "‒", },
+      list = { "●", "→", "🞊", "‒" },
     },
   },
 }
@@ -237,13 +237,9 @@ lazy.setup({
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = {
-      "css", "dart", "javascript", "json", "lua", "markdown", "rust", "scss",
-      "yaml",
-    },
+    "dense-analysis/ale",
     config = function()
-      require("config.null-ls")
+      require("config.ale")
     end,
   },
 

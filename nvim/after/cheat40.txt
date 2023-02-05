@@ -318,6 +318,9 @@ Hop Line                 '‹Return›     N
 FTerm Plugin Mappings {{{
 Toggle Lazygit Terminal  ‹Ctrl-g›      N
 }}}
+ALE Plugin Mappings {{{
+Run fixer                'f            N
+}}}
 Possession Plugin Mappings {{{
 Create or save session   'p            N
 Delete session           'P            N
