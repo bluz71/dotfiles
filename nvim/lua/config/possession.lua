@@ -18,6 +18,7 @@ map("n", "'p", function()
     end
   end
 end)
+
 map("n", "'P", function()
   local session_name = session.session_name
   if session_name and string.len(session_name) > 0 then

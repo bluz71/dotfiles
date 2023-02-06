@@ -231,9 +231,7 @@ lazy.setup({
   {
     "j-hui/fidget.nvim",
     ft = { "dart", "javascript", "ruby", "rust" },
-    config = function()
-      require("config.fidget")
-    end,
+    opts = { text = { spinner = "dots" } }
   },
 
   {
@@ -281,9 +279,7 @@ lazy.setup({
     "kylechui/nvim-surround",
     tag = "v1.0.0",
     event = "VeryLazy",
-    config = function()
-      require("config.surround")
-    end,
+    config = true,
   },
 
   {
