@@ -10,6 +10,6 @@ snippy.setup({
 })
 
 -- Insert mode snippy completion mapping - '<Control-s>'
-vim.keymap.set.map("i", "<C-s>", function()
+vim.keymap.set("i", "<C-s>", function()
   require('snippy').complete()
 end, { silent = true })
