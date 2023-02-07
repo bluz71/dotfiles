@@ -85,10 +85,15 @@ autocmd("BufEnter", {
   group = custom_events,
 })
 
--- Enable MatchTag plugin for JavaScript files (with JSX).
+-- Enable MatchTag plugin for certain HTML-like filetypes.
 autocmd("FileType", {
-  pattern = "javascript",
+  pattern = { "javascript", "vue" },
   command = "unlet b:did_ftplugin | runtime! ftplugin/html.vim",
+  group = custom_events,
+})
+autocmd("FileType", {
+  pattern = { "astro", "svelte", "vue" },
+  command = "runtime! ftplugin/html.vim",
   group = custom_events,
 })
 
