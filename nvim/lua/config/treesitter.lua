@@ -2,10 +2,11 @@ local treesitter = require("nvim-treesitter.configs")
 
 treesitter.setup({
   ensure_installed = {
-    "bash", "c", "comment", "cpp", "css", "dart", "elixir", "go", "help",
-    "html", "java", "javascript", "lua", "markdown", "markdown_inline",
-    "python", "regex", "ruby", "rust", "scala", "scss", "toml", "typescript",
-    "vim", "vue"
+    "astro", "bash", "c", "clojure", "comment", "cpp", "css", "dart", "elixir",
+    "elm", "embedded_template", "go", "haskell", "help", "html", "java",
+    "javascript", "julia", "lua", "markdown", "markdown_inline", "php",
+    "python", "r", "regex", "ruby", "rust", "scala", "scss", "svelte", "toml",
+    "tsx", "typescript", "vim", "vue",
   },
   highlight = {
     enable = true,
@@ -41,6 +42,10 @@ treesitter.setup({
   -- For nvim-autotag plugin.
   autotag = {
     enable = true,
+    filetypes = {
+      "html", "javascript", "typescript", "svelte", "vue", "astro", "eruby",
+      "embedded_template",
+    },
   },
   -- For nvim-ts-context-commentstring plugin.
   context_commentstring = {

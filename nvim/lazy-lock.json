@@ -31,7 +31,6 @@
   "nvim-ts-endwise": { "branch": "master", "commit": "0cf4601c330cf724769a2394df555a57d5fd3f34" },
   "nvim-ts-playground": { "branch": "master", "commit": "c481c660fa903a0e295902b1765ecfbd6e76a556" },
   "palenightfall.nvim": { "branch": "main", "commit": "78cbf05af268c274b523844fde46a307b7db8167" },
-  "pear-tree": { "branch": "master", "commit": "3bb209d9637d6bd7506040b2fcd158c9a7917db3" },
   "plenary.nvim": { "branch": "master", "commit": "9a0d3bf7b832818c042aaf30f692b081ddd58bd9" },
   "possession.nvim": { "branch": "master", "commit": "e3b2107020e9c804a4015fb1920f0834e349ab31" },
   "targets.vim": { "branch": "master", "commit": "8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d" },

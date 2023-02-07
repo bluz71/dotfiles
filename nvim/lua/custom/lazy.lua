@@ -206,17 +206,6 @@ lazy.setup({
     end,
   },
 
-  -- The nvim-ts-autotag plugin does not currently support eRuby HTML templates
-  -- because they are not Treesitter compatible (maybe one day). Hence, use
-  -- pear-tree to complete tags in `eruby` files
-  {
-    "tmsvg/pear-tree",
-    ft = { "eruby" },
-    config = function()
-      require("config.pear-tree")
-    end,
-  },
-
   -----------------------------
   -- Development plugins
   -----------------------------
