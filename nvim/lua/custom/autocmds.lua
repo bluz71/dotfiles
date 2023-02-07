@@ -44,14 +44,7 @@ autocmd("VimResized", {
   group = custom_events,
 })
 
--- Syntax highlight a minimum of 2,000 lines. This greatly helps scroll
--- performance.
-autocmd("Syntax", {
-  command = "syntax sync minlines=2000",
-  group = custom_events,
-})
-
--- Set filetypes for certain filenames.
+-- Set filetype for certain file-patterns.
 autocmd("BufEnter", {
   pattern = "gitconfig",
   callback = function()
@@ -81,6 +74,21 @@ autocmd("BufEnter", {
   callback = function()
     opt.filetype = "xml"
   end,
+  group = custom_events,
+})
+
+autocmd("BufEnter", {
+  pattern = "*.astro",
+  callback = function()
+    opt.filetype = "astro"
+  end,
+  group = custom_events,
+})
+
+-- Enable MatchTag plugin for JavaScript files (with JSX).
+autocmd("FileType", {
+  pattern = "javascript",
+  command = "unlet b:did_ftplugin | runtime! ftplugin/html.vim",
   group = custom_events,
 })
 
