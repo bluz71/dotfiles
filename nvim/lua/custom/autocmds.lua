@@ -2,6 +2,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
 local g = vim.g
+local highlight = vim.api.nvim_set_hl
 local map = vim.keymap.set
 local opt = vim.opt
 local opt_local = vim.opt_local
@@ -92,7 +93,7 @@ autocmd("FileType", {
   group = custom_events,
 })
 autocmd("FileType", {
-  pattern = { "astro", "svelte", "vue" },
+  pattern = { "astro", "svelte" },
   command = "runtime! ftplugin/html.vim",
   group = custom_events,
 })
@@ -114,7 +115,7 @@ autocmd("CursorHold", {
 autocmd("TermOpen", {
   callback = function()
     opt_local.conceallevel = 0
-    opt_local.colorcolumn = "0"
+    opt_local.colorcolumn = { 0 }
     cmd([[startinsert]])
   end,
   group = custom_events,
@@ -163,6 +164,24 @@ autocmd("ColorScheme", {
     g.terminal_color_12 = "#80a0ff" -- Bright Blue
     g.terminal_color_13 = "#cf87e8" -- Bright Magenta
     g.terminal_color_14 = "#79dac8" -- Bright Cyan
+  end,
+  group = custom_events,
+})
+
+autocmd("ColorScheme", {
+  pattern = "nightfox",
+  callback = function()
+    highlight(0, "FernLeaderSymbol", { link = "NvimTreeIndentMarker" })
+    highlight(0, "FernMarkedLine", { link = "QuickFixLine" })
+  end,
+  group = custom_events,
+})
+
+autocmd("ColorScheme", {
+  pattern = { "catppuccin", "palenightfall", "tokyonight" },
+  callback = function()
+    highlight(0, "FernLeaderSymbol", { link = "LineNr" })
+    highlight(0, "FernMarkedLine", { link = "QuickFixLine" })
   end,
   group = custom_events,
 })
