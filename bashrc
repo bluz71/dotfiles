@@ -84,6 +84,7 @@ alias m='less'
 alias mdi='meld 2>/dev/null'
 alias mux='tmuxinator'
 alias p='bat'
+alias pn='pnpm'
 alias pping='prettyping --nolegend -i 5'
 alias psu='ps -u $USER -f'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
@@ -260,7 +261,9 @@ dev_config() {
         chruby 2.7.3
     fi
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
-        eval "$(fnm env)"
+        eval "$(fnm env --use-on-cd)"
+        export PNPM_HOME="$HOME/.local/share/pnpm"
+        PATH=$PATH:$PNPM_HOME
     fi
     if [[ -x ~/.cargo/bin ]]; then
         PATH=$PATH:~/.cargo/bin
