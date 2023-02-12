@@ -10,3 +10,4 @@ if filereadable(expand('~/.colorscheme'))
 else
     colorscheme moonfly
 endif
+
