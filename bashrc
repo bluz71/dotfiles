@@ -261,7 +261,7 @@ dev_config() {
         chruby 2.7.3
     fi
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
-        eval "$(fnm env --use-on-cd)"
+        eval "$(fnm env)"
         export PNPM_HOME="$HOME/.local/share/pnpm"
         PATH=$PATH:$PNPM_HOME
     fi
