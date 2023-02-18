@@ -1,4 +1,5 @@
 local treesitter = require("nvim-treesitter.configs")
+local buffer = require("util.buffer")
 
 treesitter.setup({
   ensure_installed = {
@@ -11,9 +12,7 @@ treesitter.setup({
   highlight = {
     enable = true,
     disable = function(_, buf)
-      local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
+      if buffer.is_large(buf) then
         return true
       end
     end,
@@ -21,9 +20,7 @@ treesitter.setup({
   indent = {
     enable = true,
     disable = function(lang, buf)
-      local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if lang == "ruby" or lang == "rust" or (ok and stats and stats.size > max_filesize) then
+      if lang == "ruby" or lang == "rust" or buffer.is_large(buf) then
         -- Disable indent for Ruby, Rust files AND also for large files.
         return true
       end
