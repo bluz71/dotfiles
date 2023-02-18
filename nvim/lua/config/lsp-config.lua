@@ -4,9 +4,10 @@ if vim.opt.diff:get() then
 end
 
 local nvim_lsp = require("lspconfig")
-local lsp_capabilities = require("util.lsp-capabilities")
-local handlers = require("util.lsp-handlers")
+local buffer = require("util.buffer")
 local dart_closing_labels = require("util.dart-closing-labels")
+local handlers = require("util.lsp-handlers")
+local lsp_capabilities = require("util.lsp-capabilities")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local lsp = vim.lsp
@@ -15,6 +16,13 @@ local opt_local = vim.opt_local
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
+  -- Disable LSP for files larger than 100KB.
+  if buffer.is_large(0) then
+    print("(LSP) DISABLED, file too large")
+    vim.cmd([[LspStop]])
+    return
+  end
+
   -- Mappings.
   local opts = { buffer = true }
   map("n", "ga", lsp.buf.code_action, opts)
