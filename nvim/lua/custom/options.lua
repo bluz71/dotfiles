@@ -86,7 +86,7 @@ opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
 -- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
 if exists("&splitkeep") ~= 0 then
-  opt.splitkeep = "screen"
+  opt.splitkeep = "topline"
 end
 opt.splitright = true -- Split window to the right
 opt.swapfile = false -- No backup files

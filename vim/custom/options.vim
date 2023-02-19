@@ -67,7 +67,7 @@ set spelloptions=camel
 set splitbelow        " Split below current window
 " When horizonatally splitting windows keep text stabilized (no auto-scrolling)
 if exists('&splitkeep')
-    set splitkeep=screen
+    set splitkeep=topline
 endif
 set splitright        " Split window to the right
 set tabstop=4         " Tab width
