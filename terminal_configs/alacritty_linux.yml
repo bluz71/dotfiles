@@ -14,7 +14,7 @@ window:
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: false
 
-  # GTK theme variant.
+  # Force dark client side decoration.
   decorations_theme_variant: Dark
 
 scrolling:
