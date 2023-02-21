@@ -64,6 +64,8 @@ nnoremap <Leader>Z :set nofoldenable<CR>
 nnoremap <Leader>X :call crosshair#Toggle()<CR>
 " Maximise the current file into a standalone new tab.
 nnoremap <silent> <Leader>m :tab split<CR>
+" Maximize vertical height.
+nnoremap <Leader>+ <C-w>_
 " Show introduction message.
 nnoremap <Leader>i :intro<CR>
 " Preserve visual selection when shifting.
@@ -81,8 +83,6 @@ nnoremap <Up>    <C-W>k
 nnoremap <Down>  <C-W>j
 nnoremap <Left>  <C-W>h
 nnoremap <Right> <C-W>l
-" Maximize vertical height.
-nnoremap <Leader>_ <C-w>_
 " Vertical movements.
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k

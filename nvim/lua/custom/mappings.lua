@@ -71,6 +71,8 @@ map("n", "<Leader>Z", ":set nofoldenable<CR>")
 map("n", "<Leader>X", require('util.crosshair').toggle)
 -- Maximise the current file into a standalone new tab.
 map("n", "<Leader>m", ":tab split<CR>", silent_opts)
+-- Maximize vertical height.
+map("n", "<Leader>+", "<C-w>_")
 -- Show introduction message.
 map("n", "<Leader>i", ":intro<CR>")
 -- Preserve visual selection when shifting.
@@ -88,8 +90,6 @@ map("n", "<Up>", "<C-W>k")
 map("n", "<Down>", "<C-W>j")
 map("n", "<Left>", "<C-W>h")
 map("n", "<Right>", "<C-W>l")
--- Maximize vertical height.
-map("n", "<Leader>_", "<C-w>_")
 -- Vertical movements.
 map("n", "<C-j>", "10j")
 map("n", "<C-k>", "10k")

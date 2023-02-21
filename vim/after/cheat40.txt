@@ -32,7 +32,6 @@ Move to next split up    ‹Up›          N
 Move to next split down  ‹Down›        N
 Move to next split left  ‹Left›        N
 Move to next split right ‹Right›       N
-Maximize vertical height ,_            N
 Move down ten lines      ‹Ctrl-j›      N
 Move up ten lines        ‹Ctrl-k›      N
 Navigate via ‹wildmenu›  ,‹Tab›        N
@@ -69,6 +68,7 @@ Fold                     ,z            N
 Expand all folds         ,Z            N
 Crosshair                ,X            N
 Maximise split           ,m            N
+Maximize vertical height ,+            N
 Introduction message     ,i            N
 Move visual block up     K             V
 Move visual block down   J             V
