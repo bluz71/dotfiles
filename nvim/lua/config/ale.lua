@@ -16,6 +16,7 @@ g.ale_fixers = {
 }
 
 g.ale_linters = {
+  eruby = {'erblint'},
   javascript = {'standard'},
   lua = { "selene" },
   json = { "jsonlint" },
