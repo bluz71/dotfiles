@@ -76,7 +76,11 @@ xnoremap K :m '<-2<CR>gv=gv
 "-----------------------------
 " Navigation mappings
 "-----------------------------
-nnoremap <Tab> <C-w>w
+nnoremap <Tab>   <C-w>w
+nnoremap <Up>    <C-W>k
+nnoremap <Down>  <C-W>j
+nnoremap <Left>  <C-W>h
+nnoremap <Right> <C-W>l
 " Vertical movements.
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k

@@ -84,6 +84,10 @@ map("x", "K", ":m '<-2<CR>gv=gv")
 -- Navigation mappings
 -------------------------------
 map("n", "<Tab>", "<C-w>w")
+map("n", "<Up>", "<C-W>k")
+map("n", "<Down>", "<C-W>j")
+map("n", "<Left>", "<C-W>h")
+map("n", "<Right>", "<C-W>l")
 -- Vertical movements.
 map("n", "<C-j>", "10j")
 map("n", "<C-k>", "10k")
