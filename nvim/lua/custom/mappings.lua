@@ -88,6 +88,8 @@ map("n", "<Up>", "<C-W>k")
 map("n", "<Down>", "<C-W>j")
 map("n", "<Left>", "<C-W>h")
 map("n", "<Right>", "<C-W>l")
+-- Maximize vertical height.
+map("n", "<Leader>_", "<C-w>_")
 -- Vertical movements.
 map("n", "<C-j>", "10j")
 map("n", "<C-k>", "10k")

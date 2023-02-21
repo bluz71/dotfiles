@@ -81,6 +81,8 @@ nnoremap <Up>    <C-W>k
 nnoremap <Down>  <C-W>j
 nnoremap <Left>  <C-W>h
 nnoremap <Right> <C-W>l
+" Maximize vertical height.
+nnoremap <Leader>_ <C-w>_
 " Vertical movements.
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k
