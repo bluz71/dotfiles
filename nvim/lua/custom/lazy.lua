@@ -162,7 +162,6 @@ lazy.setup({
       "windwp/nvim-ts-autotag",
       "JoosepAlviste/nvim-ts-context-commentstring",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
-      { "nvim-treesitter/playground", name = "nvim-ts-playground" }, -- XXX Remove for Neovim 0.9
     },
     event = "BufReadPost",
     config = function()
@@ -258,8 +257,6 @@ lazy.setup({
 
   "tpope/vim-projectionist",
   -- ~/dotfiles/nvim/after/plugin/projectionist.lua
-  "editorconfig/editorconfig-vim", -- XXX Remove for Neovim 0.9
-  -- ~/dotfiles/nvim/after/plugin/editorconfig.lua
 
   -----------------------------
   -- Misc plugins

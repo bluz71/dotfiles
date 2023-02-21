@@ -144,8 +144,12 @@ map("n", "<Leader>r", "<C-w>r")
 -------------------------------
 -- Function key mappings
 -------------------------------
-map("n", "<F1>", ":TSHighlightCapturesUnderCursor<CR>") -- XXX Replace with :Inspect (Neovim 0.9)
-map("n", "'1", ":TSHighlightCapturesUnderCursor<CR>") -- XXX Replace with :Inspect (Neovim 0.9)
+map("n", "<F1>", function()
+  vim.show_pos()
+end)
+map("n", "'1", function()
+  vim.show_pos()
+end)
 map("n", "<F2>", ":w<CR>")
 map("n", "'2", ":w<CR>")
 map("n", "<F3>", ":%retab<CR>:%s/\\s\\+$//<CR>")
