@@ -36,6 +36,11 @@ if &wildoptions =~# 'pum'
     cnoremap <expr> <Left> pumvisible() ? '<Up>' : '<Left>'
     cnoremap <expr> <Right> pumvisible() ? '<Down>' : '<Right>'
 endif
+" Disable arrow keys.
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 "-----------------------------
 " Helper mappings
@@ -79,10 +84,10 @@ xnoremap K :m '<-2<CR>gv=gv
 " Navigation mappings
 "-----------------------------
 nnoremap <Tab>   <C-w>w
-nnoremap <Up>    <C-W>k
-nnoremap <Down>  <C-W>j
-nnoremap <Left>  <C-W>h
-nnoremap <Right> <C-W>l
+nnoremap <S-Up>    <C-W>k
+nnoremap <S-Down>  <C-W>j
+nnoremap <S-Left>  <C-W>h
+nnoremap <S-Right> <C-W>l
 " Vertical movements.
 nnoremap <C-j> 10j
 nnoremap <C-k> 10k

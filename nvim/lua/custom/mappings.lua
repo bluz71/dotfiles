@@ -43,6 +43,11 @@ map("c", "<Up>", "pumvisible() ? '<Left>' : '<Up>'", expr_noreplace_opts)
 map("c", "<Down>", "pumvisible() ? '<Right>' : '<Down>'", expr_noreplace_opts)
 map("c", "<Left>", "pumvisible() ? '<Up>' : '<Left>'", expr_noreplace_opts)
 map("c", "<Right>", "pumvisible() ? '<Down>' : '<Right>'", expr_noreplace_opts)
+-- Disable arrow keys.
+map("n", "<Up>", "<Nop>")
+map("n", "<Down>", "<Nop>")
+map("n", "<Left>", "<Nop>")
+map("n", "<Right>", "<Nop>")
 
 -------------------------------
 -- Helper mappings
@@ -86,10 +91,10 @@ map("x", "K", ":m '<-2<CR>gv=gv")
 -- Navigation mappings
 -------------------------------
 map("n", "<Tab>", "<C-w>w")
-map("n", "<Up>", "<C-W>k")
-map("n", "<Down>", "<C-W>j")
-map("n", "<Left>", "<C-W>h")
-map("n", "<Right>", "<C-W>l")
+map("n", "<S-Up>", "<C-W>k")
+map("n", "<S-Down>", "<C-W>j")
+map("n", "<S-Left>", "<C-W>h")
+map("n", "<S-Right>", "<C-W>l")
 -- Vertical movements.
 map("n", "<C-j>", "10j")
 map("n", "<C-k>", "10k")

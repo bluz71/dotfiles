@@ -26,11 +26,11 @@ Equalize splits          ,=            N
 Rotate splits            ,r            N
 }}}
 Navigation Mappings {{{
-Move to the next split   ‹Tab›         N
-Move to next split up    ‹Up›          N
-Move to next split down  ‹Down›        N
-Move to next split left  ‹Left›        N
-Move to next split right ‹Right›       N
+Move to next split       ‹Tab›         N
+Move to next split up    ‹Shift-Up›    N
+Move to next split down  ‹Shift-Down›  N
+Move to next split left  ‹Shift-Left›  N
+Move to next split right ‹Shift-Right› N
 Move down ten lines      ‹Ctrl-j›      N
 Move up ten lines        ‹Ctrl-k›      N
 Navigate via ‹wildmenu›  ,‹Tab›        N
