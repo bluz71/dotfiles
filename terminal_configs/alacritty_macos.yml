@@ -157,6 +157,7 @@ key_bindings:
   - { key: A,        mods: Alt,       chars: "\x1ba"                 }
   - { key: B,        mods: Alt,       chars: "\x1bb"                 }
   - { key: B,        mods: Alt|Shift, chars: "\x1bB"                 }
+  - { key: C,        mods: Alt,       chars: "\x1bc"                 }
   - { key: D,        mods: Alt,       chars: "\x1bd"                 }
   - { key: D,        mods: Alt|Shift, chars: "\x1bD"                 }
   - { key: E,        mods: Alt,       chars: "\x1be"                 }
