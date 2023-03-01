@@ -94,6 +94,8 @@ if has("patch-8.2.4325")
 endif
 set wrap              " Wrap long lines
 
-" Don't load the Ruby provider since it needlessly slows down the loading of
-" Ruby files into the editor.
+" Don't load the language provider since they needlessly slow down the loading
+" of those same language files into the editor.
+let g:loaded_node_provider = 1
+let g:loaded_python3_provider = 1
 let g:loaded_ruby_provider = 1

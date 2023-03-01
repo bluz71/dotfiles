@@ -1,6 +1,7 @@
 local env = vim.env
 local exists = vim.fn.exists
 local fn = vim.fn
+local g = vim.g
 local opt = vim.opt
 
 opt.autoindent = true -- Indented text
@@ -121,6 +122,8 @@ env.LESS = "-RS"
 --   % pip3 install neovim-remote
 env.EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
 
--- Don't load the Ruby provider since it needlessly slows down the loading of
--- Ruby files into the editor.
-vim.g.loaded_ruby_provider = 1
+-- Don't load the language provider since they needlessly slow down the loading
+-- of those same language files into the editor.
+g.loaded_node_provider = 1
+g.loaded_python3_provider = 1
+g.loaded_ruby_provider = 1
