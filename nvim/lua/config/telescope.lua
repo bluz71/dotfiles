@@ -1,6 +1,8 @@
-local cmd = vim.cmd
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.cmd
 
 telescope.setup({
   defaults = {
@@ -80,3 +82,13 @@ end
 
 -- Extension mappings.
 map("n", "<Space>p", require('telescope').extensions.possession.list)
+
+-- Workaround Telescope highlights bug: https://is.gd/Sjxegs
+autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  callback = function()
+    vim.opt_local.splitkeep = "cursor"
+  end,
+  group = augroup("TelescopePluginEvents", {})
+})
+
