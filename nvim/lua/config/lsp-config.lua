@@ -4,6 +4,7 @@ if vim.opt.diff:get() then
 end
 
 local nvim_lsp = require("lspconfig")
+local nvim_lsp_windows = require("lspconfig.ui.windows")
 local buffer = require("util.buffer")
 local dart_closing_labels = require("util.dart-closing-labels")
 local handlers = require("util.lsp-handlers")
@@ -38,9 +39,9 @@ local lsp_on_attach = function(client)
   map("n", "<Space>lr", require("telescope.builtin").lsp_references)
   map("n", "<Space>lw", require("telescope.builtin").lsp_document_symbols)
   map("n", "<Space>lW", function()
-  require("telescope.builtin").lsp_workspace_symbols({
-    query = vim.fn.input("LSP Workspace Symbols❯ "),
-  })
+    require("telescope.builtin").lsp_workspace_symbols({
+      query = vim.fn.input("LSP Workspace Symbols❯ "),
+    })
   end)
 
   -- Formatting is conditional on server capabilities.
@@ -56,6 +57,9 @@ local lsp_on_attach = function(client)
   opt_local.omnifunc = ""
   opt_local.formatexpr = ""
 end
+
+-- Add border to LSP windows such as `:LspInfo`.
+nvim_lsp_windows.default_options.border = "single"
 
 -- Custom on attach function which also disables formatting where null-ls will
 -- be used to format.
@@ -136,10 +140,10 @@ autocmd("FileType", {
   pattern = "ruby",
   group = augroup("StandardRubyLSP", {}),
   callback = function()
-    vim.lsp.start {
+    vim.lsp.start({
       name = "standardrb",
       cmd = { "standardrb", "--lsp" },
-    }
+    })
     map("n", "'f", lsp.buf.format, { buffer = true })
   end,
 })
