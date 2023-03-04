@@ -119,7 +119,6 @@ lazy.setup({
   "wellle/targets.vim",
   "chaoren/vim-wordmotion",
   "michaeljsmith/vim-indent-object",
-  "ackyshake/VimCompletesMe",
 
   -----------------------------
   -- Fuzzy finding plugins

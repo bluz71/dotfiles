@@ -1,3 +1,4 @@
+local complete = require("util.complete")
 local g = vim.g
 local map = vim.keymap.set
 local expr_opts = { expr = true }
@@ -183,7 +184,9 @@ map("n", "'0", require('util.listchars').toggle, silent_opts)
 -------------------------------
 -- Completion mappings
 -------------------------------
-
+-- Map TAB and SHIFT-TAB to forward and backwards completion.
+map("i", "<Tab>", require('util.complete').tab)
+map("i", "<S-Tab>", require('util.complete').shift_tab)
 --   ]     - 'tags' file completion
 --   Space - context aware omni completion (via 'omnifunc' setting)
 --   b     - keyword completion from the current buffer (<C-n><C-b> to extend)

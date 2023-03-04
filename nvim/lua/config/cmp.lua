@@ -36,7 +36,7 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
       end
     end,
     ["<S-Tab>"] = function(fallback)
-      if pumvisible() == 1 then
+      if pumvisible() ~= 0 then
         feedkeys(replace_termcodes("<C-p>"), "n")
       elseif cmp.visible() then
         cmp.select_prev_item()
