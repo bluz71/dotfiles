@@ -174,6 +174,8 @@ nnoremap <silent> <F10> :call listchars#Toggle()<CR>
 "-----------------------------
 " Completion mappings
 "-----------------------------
+inoremap <Tab>   <C-R>=complete#Tab()<CR>
+inoremap <S-Tab> <C-R>=complete#ShiftTab()<CR>
 "   ]     - 'tags' file completion
 "   Space - context aware omni completion (via 'omnifunc' setting)
 "   b     - keyword completion from the current buffer (<C-n><C-b> to extend)

@@ -43,7 +43,6 @@ Plug 'tpope/vim-commentary'
 Plug 'chaoren/vim-wordmotion'
 Plug 'rhysd/clever-f.vim'
     " ~/dotfiles/vim/plugin/clever-f.vim
-Plug 'ackyshake/VimCompletesMe'
 
 "-----------------------------
 " Fuzzy finding plugins
