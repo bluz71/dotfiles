@@ -69,7 +69,6 @@ alias mux='tmuxinator'
 alias ta='tmux attach'
 alias tls='tmux ls'
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
-alias tstop='tmuxinator stop'
 # -- Vim aliases --
 alias gv='gvim 2> /dev/null'
 alias v='TERM=alacritty nvim'
