@@ -65,7 +65,7 @@ alias td='tree -C -d'
 alias tdl='tree -C -d -L'
 alias tl='tree -C --dirsfirst -L'
 # -- tmux aliases --
-alias mux='tmuxinator'
+alias mux='mux_command'
 alias ta='tmux attach'
 alias tls='tmux ls'
 alias tnew='tmux new -s $(basename $(pwd) | cut -d"." -f1)'
@@ -439,6 +439,15 @@ history_truncate() {
     command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
     echo "After: $(du -shL ~/.bash_history)"
     history -c && history -r
+}
+
+mux_command() {
+    if [[ $# == 1 ]] && [[ $1 == "stop" ]]; then
+        # Automatically stop the current session.
+        tmuxinator stop $(tmux display-message -p '#S')
+    else
+        tmuxinator "$@"
+    fi
 }
 
 navi_cheats() {
