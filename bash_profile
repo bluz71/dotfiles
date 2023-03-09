@@ -21,4 +21,7 @@ if [[ $OS = Darwin ]]; then
     # Homebrew SSH agent is not running, must start it and source it.
     ssh-agent | grep SSH_ >| ~/.ssh-agent-env.sh
     . ~/.ssh-agent-env.sh
+
+    # Start Colima container manager.
+    colima start >& /dev/null &
 fi
