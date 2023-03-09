@@ -22,6 +22,6 @@ if [[ $OS = Darwin ]]; then
     ssh-agent | grep SSH_ >| ~/.ssh-agent-env.sh
     . ~/.ssh-agent-env.sh
 
-    # Start Colima container manager.
-    colima start >& /dev/null &
+    # Start Colima container manager in the background.
+    colima start >& /dev/null & disown
 fi
