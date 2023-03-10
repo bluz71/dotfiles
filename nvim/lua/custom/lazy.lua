@@ -268,7 +268,7 @@ lazy.setup({
 
   {
     "NvChad/nvim-colorizer.lua",
-    event = "VeryLazy",
+    ft = { "css", "lua", "markdown", "scss", "text", "txt", "vim", "yaml" },
     config = function()
       require("config.colorizer")
     end,
