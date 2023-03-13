@@ -94,6 +94,7 @@
   # log: #e3c78a (yellow), #ff5454 (red), #36c692 (green), #80a0ff (blue)
   lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
   ll  = lla --first-parent
+  # For repositories with a main branch, do this 'git push origin master:main'
   llm = !git ll master..HEAD
   llu = !git ll @{upstream}..HEAD
   lld = !git ll HEAD..@{upstream}
