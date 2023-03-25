@@ -89,6 +89,15 @@ lazy.setup({
   },
 
   {
+    "projekt0n/circles.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      icons = { empty = "●", filled = "●", lsp_prefix = "■" },
+    },
+  },
+
+  {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
     config = function()
@@ -217,7 +226,7 @@ lazy.setup({
   {
     "j-hui/fidget.nvim",
     ft = { "dart", "javascript", "ruby", "rust" },
-    opts = { text = { spinner = "dots" } }
+    opts = { text = { spinner = "dots" } },
   },
 
   {
