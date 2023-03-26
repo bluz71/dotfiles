@@ -6,7 +6,7 @@ local get_diagnostic_symbol = function(severity)
 end
 
 vim.g.linefly_options = {
-  active_tab_symbol = "▮",
+  active_tab_symbol = "🬃",
   error_symbol = get_diagnostic_symbol("Error"),
   warning_symbol = get_diagnostic_symbol("Warn"),
   information_symbol = get_diagnostic_symbol("Info"),
