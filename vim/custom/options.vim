@@ -71,7 +71,6 @@ if exists('&splitkeep')
 endif
 set splitright        " Split window to the right
 set tabstop=4         " Tab width
-set termguicolors     " Enable 24-bit color support for terminal Vim
 set textwidth=80      " Standard width before breaking
 set timeoutlen=1500   " Give some time for multi-key mappings
 " Don't set ttimeoutlen to zero otherwise it will break some Vim terminal

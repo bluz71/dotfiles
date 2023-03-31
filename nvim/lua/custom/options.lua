@@ -92,7 +92,6 @@ end
 opt.splitright = true -- Split window to the right
 opt.swapfile = false -- No backup files
 opt.tabstop = 4 -- Tab width
-opt.termguicolors = true -- Enable 24-bit color support for terminal Vim
 opt.textwidth = 80 -- Standard width before breaking
 opt.timeoutlen = 1500 -- Give some time for multi-key mappings
 -- Don't set ttimeoutlen to zero otherwise it will break some Vim terminal
