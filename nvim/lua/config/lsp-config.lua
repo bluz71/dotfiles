@@ -53,7 +53,8 @@ local lsp_on_attach = function(client)
   end
 
   -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these options
-  -- cause problems with the VimCompletesMe plugin and 'gq' command.
+  -- cause problems with my custom-completion mapping along with the 'gq'
+  -- command.
   opt_local.omnifunc = ""
   opt_local.formatexpr = ""
 end
