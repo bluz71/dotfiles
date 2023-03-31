@@ -17,6 +17,9 @@ treesitter.setup({
       end
     end,
   },
+  incremental_selection = {
+    enable = false,
+  },
   indent = {
     enable = true,
     disable = function(lang, buf)

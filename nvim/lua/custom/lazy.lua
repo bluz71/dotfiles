@@ -162,7 +162,7 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.8.1",
+    tag = "v0.8.5.2",
     build = ":TSUpdate",
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects", commit = "6630f41" },
