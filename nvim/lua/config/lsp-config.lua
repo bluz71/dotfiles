@@ -135,6 +135,13 @@ nvim_lsp.tsserver.setup({
   root_dir = nvim_lsp.util.root_pattern("package.json"),
 })
 
+nvim_lsp.tailwindcss.setup({
+  on_attach = lsp_on_attach,
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 300 },
+  root_dir = nvim_lsp.util.root_pattern("tailwind.config.js"),
+})
+
 -- Standard Ruby LSP is not yet part of nvim-lspconfig, so we need to start it
 -- ourselves.
 autocmd("FileType", {
