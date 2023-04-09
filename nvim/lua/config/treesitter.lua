@@ -4,10 +4,10 @@ local buffer = require("util.buffer")
 treesitter.setup({
   ensure_installed = {
     "astro", "bash", "c", "clojure", "cpp", "css", "dart", "elixir", "elm",
-    "embedded_template", "go", "haskell", "help", "html", "java", "javascript",
+    "embedded_template", "go", "haskell", "html", "java", "javascript",
     "julia", "lua", "markdown", "markdown_inline", "php", "python", "r",
     "regex", "ruby", "rust", "scala", "scss", "svelte", "toml", "tsx",
-    "typescript", "vim", "vue",
+    "typescript", "vim", "vimdoc", "vue",
   },
   highlight = {
     enable = true,

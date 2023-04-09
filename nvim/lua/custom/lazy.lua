@@ -162,10 +162,11 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.8.5.2",
+    --tag = "v0.8.5.2",
+    commit = "a57d2a5",
     build = ":TSUpdate",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter-textobjects", commit = "6630f41" },
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
       "windwp/nvim-ts-autotag",
       "JoosepAlviste/nvim-ts-context-commentstring",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
@@ -191,8 +192,7 @@ lazy.setup({
   -- Auto-completion plugins
   -----------------------------
   {
-    "hrsh7th/nvim-cmp",
-    tag = "v0.0.1",
+    "yioneko/nvim-cmp", -- See: https://is.gd/eFWo0W
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
