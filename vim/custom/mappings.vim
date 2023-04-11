@@ -121,6 +121,8 @@ nnoremap ]z zL
 "-----------------------------
 nnoremap <C-Up>   <C-e>
 nnoremap <C-Down> <C-y>
+inoremap <C-Up>   <C-o><C-e>
+inoremap <C-Down> <C-o><C-y>
 
 "-----------------------------
 " Window managment mappings

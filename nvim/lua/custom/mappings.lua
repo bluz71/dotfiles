@@ -129,6 +129,8 @@ map("n", "]z", "zL")
 -------------------------------
 map("n", "<C-Up>", "<C-e>")
 map("n", "<C-Down>", "<C-y>")
+map("i", "<C-Up>", "<C-o><C-e>")
+map("i", "<C-Down>", "<C-o><C-y>")
 
 -------------------------------
 -- Window managment mappings
