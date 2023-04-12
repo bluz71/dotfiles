@@ -48,6 +48,9 @@ set colored-stats on
 set completion-ignore-case on
 # Treat hypen and underscores as equivalent.
 set completion-map-case on
+# The number of completions to display without prompt; when exceeded a
+# prompt-to-display will appear.
+set completion-query-items 200
 # Don't automatically match files beginning with dot.
 set match-hidden-files off
 # Display the common prefix choices on the first completion then cycle the
