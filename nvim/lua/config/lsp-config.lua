@@ -62,7 +62,7 @@ end
 -- Add border to LSP windows such as `:LspInfo`.
 nvim_lsp_windows.default_options.border = "single"
 
--- Custom on attach function which also disables formatting where null-ls will
+-- Custom on attach function which also disables formatting where ALE will
 -- be used to format.
 local lsp_on_attach_no_formatting = function(client)
   client.server_capabilities.document_formatting = false
