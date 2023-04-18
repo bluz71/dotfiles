@@ -473,12 +473,19 @@ path() {
 prompt() {
     # Please first install the seafly Bash prompt.
     #   git clone https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
+    SEAFLY_NORMAL_COLOR=$(tput setaf 4)
+    SEAFLY_GIT_PREFIX=" "
     if [[ -n $HOMEBREW_PREFIX ]]; then
         SEAFLY_PRE_COMMAND="history -a;__zoxide_hook"
     else
         SEAFLY_PRE_COMMAND="history -a"
     fi
-    SEAFLY_GIT_PREFIX=" "
+    SEAFLY_PROMPT_PREFIX="\
+if [[ -f Gemfile ]];\
+  then echo \"($(chruby | grep '*' | cut -d' ' -f3))\";\
+elif [[ -f package.json ]];\
+  then echo \"($(fnm current))\";\
+fi"
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
 
