@@ -482,9 +482,11 @@ prompt() {
     fi
     SEAFLY_PROMPT_PREFIX="\
 if [[ -f Gemfile ]];\
-  then echo \"($(chruby | grep '*' | cut -d' ' -f3))\";\
+  then echo \"(ruby $(chruby | grep '*' | cut -d' ' -f3 | cut -d'-' -f2))\";\
 elif [[ -f package.json ]];\
-  then echo \"($(fnm current))\";\
+  then echo \"(node $(fnm current))\";\
+elif [[ -f Cargo.toml ]];\
+  then echo \"(rust $(rustc -V | cut -d' ' -f2))\";\
 fi"
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
