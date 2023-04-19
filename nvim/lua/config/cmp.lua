@@ -47,11 +47,6 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
     ["<C-f>"] = cmp.mapping.scroll_docs(10),
     ["<C-b>"] = cmp.mapping.scroll_docs(-10),
   },
-  performance = {
-    debounce = 120, -- Double the default value
-    throttle = 60, -- Double the default value
-    fetching_timeout = 150, -- Three-quarters the default value
-  },
   snippet = {
     expand = function(args)
       require("snippy").expand_snippet(args.body)
