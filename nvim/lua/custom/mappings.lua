@@ -1,4 +1,5 @@
 local complete = require("util.complete")
+local current_line = vim.api.nvim_get_current_line
 local g = vim.g
 local map = vim.keymap.set
 local expr_opts = { expr = true }
@@ -35,15 +36,31 @@ map("t", "<Esc>", "<C-\\><C-n>")
 -- Make Ctrl-i work in Neovim as a separate key combination from TAB. Refer
 -- to https://is.gd/ZT9gzN and to the Alacritty config 'key_bindings'.
 map("n", "<C-i>", "<C-i>")
--- Direct changes into the black hole register.
-map("n", "c", '"_c')
-map("n", "C", '"_C')
 -- Wild menu is set to popup menu, it is best to invert the meaning of
 -- up/down and left/right keys since this will be more natural
 map("c", "<Up>", "pumvisible() ? '<Left>' : '<Up>'", expr_noreplace_opts)
 map("c", "<Down>", "pumvisible() ? '<Right>' : '<Down>'", expr_noreplace_opts)
 map("c", "<Left>", "pumvisible() ? '<Up>' : '<Left>'", expr_noreplace_opts)
 map("c", "<Right>", "pumvisible() ? '<Down>' : '<Right>'", expr_noreplace_opts)
+-- Direct changes to the black hole register.
+map("n", "c", '"_c')
+map("n", "C", '"_C')
+-- Also direct deletions of empty lines to the black hole register.
+map("n", "dd", function()
+  if #current_line() == 0 then
+    return '"_dd'
+  else
+    return "dd"
+  end
+end, expr_opts)
+-- Automatically indent the cursor when entering insert mode on an empty line.
+map("n", "i", function()
+  if #current_line() == 0 then
+    return [["_cc]]
+  else
+    return "i"
+  end
+end, expr_opts)
 -- Disable arrow keys.
 map("n", "<Up>", "<Nop>")
 map("n", "<Down>", "<Nop>")
@@ -74,7 +91,7 @@ map("n", "<Leader>z", "zazz")
 -- Expand all folds.
 map("n", "<Leader>Z", ":set nofoldenable<CR>")
 -- Toggle crosshair, aka cusorcolumn & cursorline.
-map("n", "<Leader>X", require('util.crosshair').toggle)
+map("n", "<Leader>X", require("util.crosshair").toggle)
 -- Maximise the current file into a standalone new tab.
 map("n", "<Leader>m", ":tab split<CR>", silent_opts)
 -- Maximize vertical height.
@@ -170,25 +187,25 @@ map("n", "<F3>", ":%retab<CR>:%s/\\s\\+$//<CR>")
 map("n", "'3", ":%retab<CR>:%s/\\s\\+$//<CR>")
 map("n", "<F4>", ":%s/ /_<CR>")
 map("n", "'4", ":%s/ /_<CR>")
-map("n", "<F5>", require('util.spell').toggle)
-map("n", "'5", require('util.spell').toggle)
-map("n", "<F6>", require('util.diagnostic-visibility').toggle)
-map("n", "'6", require('util.diagnostic-visibility').toggle)
+map("n", "<F5>", require("util.spell").toggle)
+map("n", "'5", require("util.spell").toggle)
+map("n", "<F6>", require("util.diagnostic-visibility").toggle)
+map("n", "'6", require("util.diagnostic-visibility").toggle)
 map("n", "<F7>", ":set lazyredraw!<CR>:call AutoSaveToggle()<CR>")
 map("n", "'7", ":set lazyredraw!<CR>:call AutoSaveToggle()<CR>")
 map("n", "<F8>", ":set wrap!<CR>")
 map("n", "'8", ":set wrap!<CR>")
 map("n", "<F9>", ":set hlsearch!<CR>")
 map("n", "'9", ":set hlsearch!<CR>")
-map("n", "<F10>", require('util.listchars').toggle)
-map("n", "'0", require('util.listchars').toggle, silent_opts)
+map("n", "<F10>", require("util.listchars").toggle)
+map("n", "'0", require("util.listchars").toggle, silent_opts)
 
 -------------------------------
 -- Completion mappings
 -------------------------------
 -- Map TAB and SHIFT-TAB to forward and backwards completion.
-map("i", "<Tab>", require('util.complete').tab)
-map("i", "<S-Tab>", require('util.complete').shift_tab)
+map("i", "<Tab>", require("util.complete").tab)
+map("i", "<S-Tab>", require("util.complete").shift_tab)
 --   ]     - 'tags' file completion
 --   Space - context aware omni completion (via 'omnifunc' setting)
 --   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
