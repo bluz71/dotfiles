@@ -1,4 +1,3 @@
-local complete = require("util.complete")
 local current_line = vim.api.nvim_get_current_line
 local g = vim.g
 local map = vim.keymap.set

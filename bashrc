@@ -110,30 +110,50 @@ export LESS_TERMCAP_me=$'\e[0m'        # end bold      - reset
 export LESS_TERMCAP_ue=$'\e[0m'        # end underline - reset
 export LESS_TERMCAP_se=$'\e[0m'        # end standout  - reset
 export LESSHISTFILE=-
+# Sections:
+#   Standard -- no...
+#   Archive - 7za...
+#   Package - deb...
+#   Image - jpg...
+#   Video - avi...
+#   Audio -- flac...
+#   Code -- js...
+#   Configuration -- *akefile...
+#   Template -- erb...
+#   Style -- css...
+#   Markdown -- md...
+#   Document -- pdf...
+#
 # Note:
 #   mi - completion options color (Bash 4.4 and later)
 #   so - completion matching-prefix color (Bash 4.4 and later)
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;81:pi=38;5;43:bd=38;5;212:\
 cd=38;5;225:or=30;48;5;202:ow=38;5;75:so=38;5;252;48;5;0:su=36;48;5;63:\
 ex=38;5;156:mi=38;5;115:\
-*.exe=38;5;156:*.bat=38;5;156:\
-*.tar=38;5;204:*.tgz=38;5;205:*.tbz2=38;5;205:*.zip=38;5;206:*.7z=38;5;206:\
-*.gz=38;5;205:*.bz2=38;5;205:*.rar=38;5;205:\
-*.rpm=38;5;173:*.deb=38;5;173:*.dmg=38;5;173:\
-*.jpg=38;5;141:*.jpeg=38;5;147:*.png=38;5;147:\
-*.mpg=38;5;151:*.mpeg=38;5;151:*.avi=38;5;151:*.mov=38;5;216:*.wmv=38;5;216:\
-*.mp4=38;5;217:*.mkv=38;5;216:\
-*.flac=38;5;223:*.mp3=38;5;218:*.wav=38;5;213:*.ape=38;5;213::*.ogg=38;5;215:\
-*.pdf=38;5;253:*.ods=38;5;224:*.odt=38;5;146:*.doc=38;5;224:*.xls=38;5;146:\
-*.docx=38;5;224:*.xlsx=38;5;146:*.epub=38;5;152:*.mobi=38;5;105:*.m4b=38;5;222:\
-*.conf=38;5;121:\
-*.md=38;5;224:*.markdown=38;5;224:*README=38;5;224:\
-*akefile=38;5;177:*.ico=38;5;140:*package.json=38;5;203:*Gemfile=38;5;11:\
-*Dockerfile=38;5;11:*.iso=38;5;205"
+*.7z=38;2;255;119;153:*.gz=38;2;255;119;153:*.iso=38;2;255;119;153:\
+*.rar=38;2;255;119;153:*.tar=38;2;255;119;153:*.tgz=38;2;255;119;153:\
+*.zip=38;2;255;119;153:\
+*.deb=38;2;255;97;105:*.dmg=38;2;255;97;105:*.rpm=38;2;255;97;105:\
+*.jpg=38;2;180;150;250:*.jpeg=38;2;180;150;250:*.png=38;2;154;150;250:\
+*.avi=38;2;175;215;175:*.m4b=38;2;244;180;180:*.mp4=38;2;244;180;180:\
+*.mkv=38;2;255;190;148:*.mov=38;2;255;164;121:*.mpg=38;2;175;215;175:\
+*.wmv=38;2;255;177;140:\
+*.flac=38;2;255;215;183:*.mp3=38;2;255;175;215:*.wav=38;2;255;169;255:\
+*.js=38;2;180;193;255:*.lua=38;2;180;193;255:*.rb=38;2;180;193;255:\
+*.rs=38;2;180;193;255:*.ts=38;2;180;193;255:\
+*akefile=38;2;95;215;175*.conf=38;2;95;215;175::*package.json=38;2;95;215;175:\
+*pubspec.toml=38;2;95;215;175:*Cargo.toml=38;2;95;215;175:\
+*Gemfile=38;2;95;215;175:\
+*.erb=38;2;140;166;255:*.html=38;2;140;166;255:*.svelte=38;2;140;166;255:\
+*.css=38;2;140;214;255:*.scss=38;2;140;214;255:\
+*.md=38;2;213;218;180:*README=38;2;213;218;180:\
+*.epub=38;2;173;173;231:*.mobi=38;2;173;173;231:*.ods=38;2;173;173;231:\
+*.odt=38;2;173;173;231:\
+*.pdf=38;2;218;218;218"
 export EXA_COLORS="reset:da=38;5;252:sb=38;5;204:sn=38;5;43:\
 uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
-gm=38;5;203:ga=38;5;203:xa=38;5;239:*.ts=00"
+gm=38;5;203:ga=38;5;203:xa=38;5;239"
 export PAGER=less
 
 # What platform are we running on.
@@ -481,13 +501,13 @@ prompt() {
     fi
     SEAFLY_PROMPT_PREFIX="\
 if [[ -f Gemfile ]];\
-  then echo \"(ruby)\";\
+    then echo \"(ruby)\";\
 elif [[ -f package.json ]];\
-  then echo \"(node)\";\
+    then echo \"(node)\";\
 elif [[ -f pubspec.yaml ]];\
-  then echo \"(dart)\";\
+    then echo \"(dart)\";\
 elif [[ -f Cargo.toml ]];\
-  then echo \"(rust)\";\
+    then echo \"(rust)\";\
 fi"
     . ~/.bash-seafly-prompt/command_prompt.bash
 }
