@@ -1,7 +1,7 @@
 # Remove all previous environment defined aliases.
 #
 unalias -a
-
+#
 # Aliases.
 #
 # -- Coreutils aliases --
@@ -15,7 +15,6 @@ alias rmrf='/bin/rm -rf'
 alias 664='chmod 664'
 alias 775='chmod 775'
 # -- Navigation aliases --
-alias cd='_f() { if [[ -d "$@" ]]; then z "$@"; else command cd "$@"; fi }; _f'
 alias -- -='command cd -'
 alias ...='z ../..'
 alias ....='z ../../..'
