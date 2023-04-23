@@ -204,7 +204,7 @@ brew_config() {
         fi
         export HOMEBREW_PREFIX="/opt/homebrew";
         export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-        export HOMEBREW_REPOSITORY="/opt/homebrew/Homebrew"
+        export HOMEBREW_REPOSITORY="/opt/homebrew"
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
     else
