@@ -110,8 +110,8 @@ export LESS_TERMCAP_me=$'\e[0m'        # end bold      - reset
 export LESS_TERMCAP_ue=$'\e[0m'        # end underline - reset
 export LESS_TERMCAP_se=$'\e[0m'        # end standout  - reset
 export LESSHISTFILE=-
-# Sections:
-#   Standard -- no...
+# LS_COLORS Sections:
+#   Standard -- no... (refer to: https://is.gd/6MzI27)
 #   Archive - 7za...
 #   Package - deb...
 #   Image - jpg...
@@ -123,12 +123,11 @@ export LESSHISTFILE=-
 #   Style -- css...
 #   Markdown -- md...
 #   Document -- pdf...
-#
 # Note:
-#   mi - completion options color (Bash 4.4 and later)
-#   so - completion matching-prefix color (Bash 4.4 and later)
-export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;81:pi=38;5;43:bd=38;5;212:\
-cd=38;5;225:or=30;48;5;202:ow=38;5;75:so=38;5;252;48;5;0:su=36;48;5;63:\
+#   mi - completion options color
+#   so - completion matching-prefix color
+export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;117:pi=38;5;43:bd=38;5;212:\
+cd=38;5;219:or=30;48;5;203:ow=38;5;75:so=38;5;252;48;5;0:su=38;5;168:\
 ex=38;5;156:mi=38;5;115:\
 *.7z=38;2;255;119;153:*.gz=38;2;255;119;153:*.iso=38;2;255;119;153:\
 *.rar=38;2;255;119;153:*.tar=38;2;255;119;153:*.tgz=38;2;255;119;153:\
@@ -139,12 +138,12 @@ ex=38;5;156:mi=38;5;115:\
 *.mkv=38;2;255;190;148:*.mov=38;2;255;164;121:*.mpg=38;2;175;215;175:\
 *.wmv=38;2;255;177;140:\
 *.flac=38;2;255;215;183:*.mp3=38;2;255;175;215:*.wav=38;2;255;169;255:\
-*.js=38;2;180;193;255:*.lua=38;2;180;193;255:*.rb=38;2;180;193;255:\
-*.rs=38;2;180;193;255:*.ts=38;2;180;193;255:\
+*.js=38;2;171;184;245:*.lua=38;2;171;184;245:*.rb=38;2;171;184;245:\
+*.rs=38;2;171;184;245:*.ts=38;2;171;184;245:\
 *akefile=38;2;95;215;175:*.conf=38;2;95;215;175::*package.json=38;2;95;215;175:\
 *pubspec.toml=38;2;95;215;175:*Cargo.toml=38;2;95;215;175:\
-*Gemfile=38;2;95;215;175:\
-*.erb=38;2;140;166;255:*.html=38;2;140;166;255:*.svelte=38;2;140;166;255:\
+*Dockerfile=38;2;95;215;175:*Gemfile=38;2;95;215;175:\
+*.erb=38;2;140;214;255:*.html=38;2;140;214;255:*.svelte=38;2;140;214;255:\
 *.css=38;2;140;214;255:*.scss=38;2;140;214;255:\
 *.md=38;2;213;218;180:*README=38;2;213;218;180:\
 *.epub=38;2;173;173;231:*.mobi=38;2;173;173;231:*.ods=38;2;173;173;231:\
