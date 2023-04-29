@@ -242,7 +242,7 @@ custom_config() {
       --bind ctrl-f:page-down,ctrl-b:page-up
       --bind pgdn:preview-page-down,pgup:preview-page-up
       --marker="✚" --pointer="▶" --prompt="❯ "
-      --no-separator --scrollbar="█"
+      --no-separator --scrollbar="█" --border
       --color bg+:#262626,fg+:#dadada,hl:#f09479,hl+:#f09479
       --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#36c692
       --color prompt:#87afff,pointer:#ff5189,marker:#f09479
@@ -258,20 +258,20 @@ custom_config() {
     . ~/dotfiles/profile.d/zoxide.sh
     export _ZO_EXCLUDE_DIRS=$HOME:$HOME/Music/*
     export _ZO_MAXAGE='20000'
-    export _ZO_FZF_OPTS='
-      --no-sort --height 75% --reverse --margin=0,1 --exit-0 --select-1
-      --bind ctrl-f:page-down,ctrl-b:page-up
-      --bind pgdn:preview-page-down,pgup:preview-page-up
-      --prompt="❯ "
-      --no-separator --scrollbar="█"
-      --color bg+:#262626,fg+:#dadada,hl:#f09479,hl+:#f09479
-      --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#36c692
-      --color prompt:#87afff,pointer:#ff5189,marker:#f09479
-      --preview "exa --color=always --group-directories-first --oneline {2..}"
-    '
+    export _ZO_FZF_OPTS="
+      $FZF_DEFAULT_OPTS --no-multi --no-sort  --exit-0 --select-1
+      --preview 'exa --color=always --group-directories-first --oneline {2..}'
+    "
 
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
+
+    # 'fzf-tab-completion' configuration.
+    if [[ -d ~/.fzf-tab-completion ]]; then
+        . ~/.fzf-tab-completion/bash/fzf-bash-completion.sh
+        bind -x '"\C-f": fzf_bash_completion'
+        export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS --height 60% --info=hidden"
+    fi
 }
 
 dev_config() {
