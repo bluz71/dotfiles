@@ -57,8 +57,7 @@ treesitter.setup({
   autotag = {
     enable = true,
     filetypes = {
-      "html", "javascript", "typescript", "svelte", "vue", "astro", "eruby",
-      "embedded_template",
+      "html", "javascript", "typescript", "svelte", "eruby", "embedded_template",
     },
   },
   -- For nvim-ts-context-commentstring plugin.

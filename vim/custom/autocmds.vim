@@ -21,7 +21,6 @@ augroup CustomEvents
 
     " Set filetypes for certain filenames.
     autocmd BufEnter gitconfig set filetype=gitconfig
-    autocmd BufEnter *.html.erb set filetype=eruby
     autocmd BufEnter *.json.jbuilder set filetype=ruby
     autocmd BufEnter fonts.conf set filetype=xml
 

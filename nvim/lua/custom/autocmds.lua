@@ -55,14 +55,6 @@ autocmd("BufEnter", {
 })
 
 autocmd("BufEnter", {
-  pattern = "*.html.erb",
-  callback = function()
-    opt.filetype = "eruby"
-  end,
-  group = custom_events,
-})
-
-autocmd("BufEnter", {
   pattern = "*.json.jbuilder",
   callback = function()
     opt.filetype = "ruby"
