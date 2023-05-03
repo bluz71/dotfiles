@@ -267,6 +267,9 @@ custom_config() {
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
 
     # 'fzf-tab-completion' configuration.
+    #
+    # Installation:
+    #   git clone https://github.com/lincheney/fzf-tab-completion ~/.fzf-tab-completion
     if [[ -d ~/.fzf-tab-completion ]]; then
         . ~/.fzf-tab-completion/bash/fzf-bash-completion.sh
         bind -x '"\C-f": fzf_bash_completion'
