@@ -15,9 +15,9 @@ alias rmrf='/bin/rm -rf'
 alias 664='chmod 664'
 alias 775='chmod 775'
 # -- Navigation aliases --
-alias -- -='command cd -'
-alias ...='z ../..'
-alias ....='z ../../..'
+alias -- -='cd -'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias cf='fzf_change_directory'
 # -- Disk aliases --
 alias df.='df -h .'
@@ -266,15 +266,6 @@ custom_config() {
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
 
-    # 'fzf-tab-completion' configuration.
-    #
-    # Installation:
-    #   git clone https://github.com/lincheney/fzf-tab-completion ~/.fzf-tab-completion
-    if [[ -d ~/.fzf-tab-completion ]]; then
-        . ~/.fzf-tab-completion/bash/fzf-bash-completion.sh
-        bind -x '"\C-f": fzf_bash_completion'
-        export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS --height 60% --info=hidden"
-    fi
 }
 
 dev_config() {
@@ -490,11 +481,15 @@ path() {
     PATH=~/binaries:~/scripts:$PATH
 }
 
-prompt() {
-    # Please first install the seafly Bash prompt.
-    #   git clone https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
+packages() {
+    # bash-seafly-prompt (https://github.com/bluz71/bash-seafly-prompt)
+    #
+    # Install the package if it does not exist.
+    if ! [[ -d ~/.bash-packages/bash-seafly-prompt ]]; then
+        git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-packages/bash-seafly-prompt
+    fi
+
     SEAFLY_NORMAL_COLOR=$(tput setaf 4)
-    SEAFLY_GIT_PREFIX=" "
     if [[ -n $HOMEBREW_PREFIX ]]; then
         SEAFLY_PRE_COMMAND="history -a;__zoxide_hook"
     else
@@ -510,7 +505,17 @@ elif [[ -f pubspec.yaml ]];\
 elif [[ -f Cargo.toml ]];\
     then echo \"(rust)\";\
 fi"
-    . ~/.bash-seafly-prompt/command_prompt.bash
+    . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
+
+    # fzf-tab-completion (https://github.com/lincheney/fzf-tab-completion)
+    #
+    # Install the package if it does not exist.
+    if ! [[ -d ~/.bash-packages/fzf-tab-completion ]]; then
+        git clone --depth 1 https://github.com/lincheney/fzf-tab-completion ~/.bash-packages/fzf-tab-completion
+    fi
+    . ~/.bash-packages/fzf-tab-completion/bash/fzf-bash-completion.sh
+    bind -x '"\C-f": fzf_bash_completion'
+    export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS --height 60% --info=hidden"
 }
 
 shell_config() {
@@ -560,6 +565,6 @@ shell_config() {
 path
 brew_config
 custom_config
+packages
 dev_config
-prompt
 shell_config
