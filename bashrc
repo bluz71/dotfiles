@@ -38,6 +38,7 @@ alias gu='fzf_git_unadd'
 # -- History aliases --
 alias h=history
 alias hg='history | rg'
+alias hr='history -c && history -r'
 alias ht='history_truncate'
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
