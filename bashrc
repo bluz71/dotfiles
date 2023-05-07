@@ -191,9 +191,16 @@ fi
 #
 cd() {
     if [[ $# -eq 0 ]]; then
-        pushd ~ 1>/dev/null
+        # Note, if the current directory is already $HOME, do nothing.
+        if [[ "$PWD" != "$HOME" ]]; then
+            pushd ~ 1>/dev/null
+        fi
     else
-        pushd "$@" 1>/dev/null
+        # Note, if the destination directory is the same as the current
+        # directory, also do nothing.
+        if [[ "$@" != "$PWD" ]]; then
+            pushd "$@" 1>/dev/null
+        fi
     fi
 }
 
