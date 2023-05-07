@@ -15,7 +15,6 @@ alias rmrf='/bin/rm -rf'
 alias 664='chmod 664'
 alias 775='chmod 775'
 # -- Navigation aliases --
-alias cd='pushd 1> /dev/null'
 alias -- -='cd -'
 alias -- ~='cd ~'
 alias ..='cd ..'
@@ -187,6 +186,16 @@ elif [[ $OS = Darwin ]]; then
     alias updatedb='PATH=/usr/bin:$PATH sudo /usr/libexec/locate.updatedb'
 fi
 
+
+# Command override.
+#
+cd() {
+    if [[ $# -eq 0 ]]; then
+        pushd ~ 1>/dev/null
+    else
+        pushd "$@" 1>/dev/null
+    fi
+}
 
 # Functions.
 #
