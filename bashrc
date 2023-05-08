@@ -190,17 +190,15 @@ fi
 # Command override.
 #
 cd() {
+    local target="$@"
     if [[ $# -eq 0 ]]; then
-        # Note, if the current directory is already $HOME, do nothing.
-        if [[ "$PWD" != "$HOME" ]]; then
-            pushd ~ 1>/dev/null
-        fi
-    else
-        # Note, if the destination directory is the same as the current
-        # directory, also do nothing.
-        if [[ "$@" != "$PWD" ]]; then
-            pushd "$@" 1>/dev/null
-        fi
+        target="$HOME"
+    fi
+
+    # Note, if the target directory is the same as the current directory
+    # simply do nothing.
+    if [[ "$target" != "$PWD" ]]; then
+        \builtin pushd -- "$target" 1>/dev/null
     fi
 }
 
@@ -577,6 +575,15 @@ shell_config() {
     if [[ $- =~ i ]]; then
         printf "\e[?1042l"
     fi
+
+    # Alt-<left-arrow>: rotate back in the directory stack.
+    # Note, the use of "\C-x\C-r" will execute the 'pushd' command silently AND
+    # the prompt will be updated (refer to: https://is.gd/302mDr)
+    bind -x '"\C-x\C-r": "pushd +1 &>/dev/null"'
+    bind '"\e[1;3D":"\C-x\C-r\n"'
+    # Alt-<right-arrow>: rotate forward in the directory stack.
+    bind -x '"\C-x\C-s": "pushd -0 &>/dev/null"'
+    bind '"\e[1;3C":"\C-x\C-s\n"'
 }
 
 

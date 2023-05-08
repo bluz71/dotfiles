@@ -25,10 +25,6 @@
 "\eu": undo
 "\ee": edit-and-execute-command
 "\C-u": "..\n"
-# Alt-<left-arrow>: navigate back in the directory stack.
-"\e[1;3D": "pushd +1 1>/dev/null\n"
-# Alt-<right-arrow>: navigate forward in the directory stack.
-"\e[1;3C": "pushd -0 1>/dev/null\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
