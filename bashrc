@@ -194,6 +194,12 @@ cd() {
     if [[ -z "$target" ]]; then
         # Handle 'cd' without arguments; change to the $HOME directory.
         target="$HOME"
+    elif [[ $# == 2 ]]; then
+        # Handle 'autocd' case, that being just a directory name entered without
+        # the preceding 'cd' command. In that instance the first argument will
+        # be '--' with the second argument being the actual target directory;
+        # hence, adjust the target variable accordingly.
+        target="$2"
     fi
 
     # Note, if the target directory is the same as the current directory
