@@ -40,7 +40,6 @@ alias gu='fzf_git_unadd'
 # -- History aliases --
 alias h=history
 alias hg='history | rg'
-alias hr='history -c && history -r'
 alias ht='history_truncate'
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
@@ -458,20 +457,20 @@ grep_edit() {
 
 history_truncate() {
     # Details: https://is.gd/HPAtE5
-    echo "Before: $(du -shL ~/.bash_history)"
+    echo "Before: $(du -shL $HISTFILE)"
     # Remove previous truncation leftovers.
-    command rm -f /tmp/bash_history
+    command rm -f /tmp/history
     # First, remove duplicates.
-    tac ~/.bash_history | awk '!x[$0]++' | tac > /tmp/bash_history
+    tac $HISTFILE | awk '!x[$0]++' | tac > /tmp/history
     # Second, remove certain basic commands.
     sed -e '/^cd/d' -e '/^cp/d' -e '/^dr/d' -e '/^fd/d' -e '/^ll/d' \
         -e '/^ls/d' -e '/^mc/d' \-e '/^mk/d' -e '/^mv/d' -e '/^open/d' \
         -e '/^qmv/d' -e '/^rg/d'  -e '/^rm/d' -e '/^un/d' -e '/^v /d' \
-        -e '/^yt/d' -e '/^z/d' -i /tmp/bash_history
-    # Use 'cp' instead of 'mv' to deal with symlinked ~/.bash_history. Use
+        -e '/^yo/d' -e '/^yt/d' -e '/^z/d' -i /tmp/history
+    # Use 'cp' instead of 'mv' to deal with symlinked ~/.history. Use
     # 'command' to bypass aliases.
-    command cp /tmp/bash_history ~/.bash_history && command rm /tmp/bash_history
-    echo "After: $(du -shL ~/.bash_history)"
+    command cp /tmp/history $HISTFILE && command rm /tmp/history
+    echo "After: $(du -shL $HISTFILE)"
     history -c && history -r
 }
 
@@ -511,9 +510,9 @@ packages() {
 
     SEAFLY_NORMAL_COLOR=$(tput setaf 4)
     if [[ -n $HOMEBREW_PREFIX ]]; then
-        SEAFLY_PRE_COMMAND="history -a;__zoxide_hook"
+        SEAFLY_PRE_COMMAND="history -a;history -n;__zoxide_hook"
     else
-        SEAFLY_PRE_COMMAND="history -a"
+        SEAFLY_PRE_COMMAND="history -a;history -n"
     fi
     SEAFLY_PROMPT_PREFIX="\
 if [[ -f Gemfile ]];\
@@ -541,6 +540,7 @@ fi"
 shell_config() {
     # History settings.
     HISTCONTROL=ignoreboth:erasedups # Erase duplicates
+    HISTFILE=$HOME/.history          # Custom history file
     HISTFILESIZE=99999               # Max size of history file
     HISTIGNORE=?:??                  # Ignore one and two letter commands
     HISTSIZE=99999                   # Amount of history to save
