@@ -94,7 +94,7 @@ alias qmv='qmv -d -f do'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
 alias sudo='sudo '
-alias web='web_search'
+alias www='web_search'
 alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
