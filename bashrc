@@ -94,6 +94,7 @@ alias qmv='qmv -d -f do'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
 alias sudo='sudo '
+alias web='web_search'
 alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
@@ -191,13 +192,13 @@ fi
 cd() {
     local target="$@"
     if [[ -z "$target" ]]; then
-        # Handle 'cd' without arguments; change to $HOME directory.
+        # Handle 'cd' without arguments; change to the $HOME directory.
         target="$HOME"
     fi
 
     # Note, if the target directory is the same as the current directory
     # do nothing since we don't want to needlessly populate the directory stack
-    # with repeated entries.
+    # with repeat entries.
     if [[ "$target" != "$PWD" ]]; then
         \builtin pushd "$target" 1>/dev/null
     fi
@@ -572,20 +573,28 @@ shell_config() {
     # Set the appropriate umask.
     umask 002
 
-    # Disable Alacritty icon bouncing for interactive shells.
-    # Refer to: https://is.gd/8MPdGh
-    if [[ $- =~ i ]]; then
-        printf "\e[?1042l"
-    fi
-
     # Alt-Left: rotate back in the directory stack.
     # Note, the use of "\C-x\C-p" will execute the 'pushd' command silently AND
-    # update the prompt (refer to: https://is.gd/302mDr)
+    # update the prompt (refer to: https://is.gd/302mDr).
     bind -x '"\C-x\C-p": "pushd +1 &>/dev/null"'
     bind '"\e[1;3D":"\C-x\C-p\n"'
     # Alt-Right rotate forward in the directory stack.
     bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
     bind '"\e[1;3C":"\C-x\C-n\n"'
+
+    # Disable Alacritty icon bouncing for interactive shells.
+    # Refer to: https://is.gd/8MPdGh
+    if [[ $- =~ i ]]; then
+        printf "\e[?1042l"
+    fi
+}
+
+web_search() {
+    GREEN=$(tput setaf 79)
+    NC=$(tput sgr0)
+
+    read -p "$(echo -e "Search ${GREEN}➜${NC} ")" search_term
+    open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
 }
 
 
