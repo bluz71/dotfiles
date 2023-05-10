@@ -620,10 +620,11 @@ shell_config() {
 }
 
 web_search() {
+    GOLD=$(tput setaf 222)
     GREEN=$(tput setaf 79)
     NC=$(tput sgr0)
 
-    read -p "$(echo -e "Search ${GREEN}➜${NC} ")" search_term
+    read -p "$(echo -e "${WHITE}Search ${GREEN}➜ ${NC}")" search_term
     open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
 }
 
