@@ -227,11 +227,26 @@ brew_config() {
     . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
 }
 
+bindings() {
+    # Alt-Left: rotate back in the directory stack.
+    #
+    # Note, the use of "\C-x\C-p" intermediary will execute the 'pushd' command
+    # silently AND update the prompt (refer to: https://is.gd/302mDr).
+    bind -x '"\C-x\C-p": "pushd +1 &>/dev/null"'
+    bind '"\e[1;3D":"\C-x\C-p\n"'
+    # Alt-Right rotate forward in the directory stack.
+    bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
+    bind '"\e[1;3C":"\C-x\C-n\n"'
+
+    # Control-o, copy the current command line text to the clipboard.
+    bind -x '"\C-o": "copy_command_line"'
+}
+
 # Automatically push to the directory stack when changing directories.
 #
 cd() {
     local target="$@"
-    if [[ $# == 0 ]]; then
+    if [[ $# -eq 0 ]]; then
         # Handle 'cd' without arguments; change to the $HOME directory.
         target="$HOME"
     elif [[ $1 == "--" ]]; then
@@ -247,6 +262,17 @@ cd() {
     # consecutive repeat entries.
     if [[ "$target" != "$PWD" ]]; then
         builtin pushd "$target" 1>/dev/null
+    fi
+}
+
+copy_command_line() {
+    if [[ -n $TMUX ]]; then
+        echo -n "$READLINE_LINE" | tmux load-buffer -
+    fi
+    if [[ $OS == Linux ]]; then
+        echo -n "$READLINE_LINE" | xclip -selection clipboard -i
+    elif [[ $OS = Darwin ]] && [[ $(uname -m) == arm64 ]]; then
+        echo -n "$READLINE_LINE" | pbcopy
     fi
 }
 
@@ -579,15 +605,6 @@ shell_config() {
     # Set the appropriate umask.
     umask 002
 
-    # Alt-Left: rotate back in the directory stack.
-    # Note, the use of "\C-x\C-p" will execute the 'pushd' command silently AND
-    # update the prompt (refer to: https://is.gd/302mDr).
-    bind -x '"\C-x\C-p": "pushd +1 &>/dev/null"'
-    bind '"\e[1;3D":"\C-x\C-p\n"'
-    # Alt-Right rotate forward in the directory stack.
-    bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
-    bind '"\e[1;3C":"\C-x\C-n\n"'
-
     # Disable Alacritty icon bouncing for interactive shells.
     # Refer to: https://is.gd/8MPdGh
     if [[ $- =~ i ]]; then
@@ -612,3 +629,4 @@ custom_config
 packages
 dev_config
 shell_config
+bindings
