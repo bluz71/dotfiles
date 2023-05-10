@@ -187,29 +187,6 @@ elif [[ $OS = Darwin ]]; then
 fi
 
 
-# Command override.
-#
-cd() {
-    local target="$@"
-    if [[ -z "$target" ]]; then
-        # Handle 'cd' without arguments; change to the $HOME directory.
-        target="$HOME"
-    elif [[ $# == 2 ]]; then
-        # Handle 'autocd' case, that being just a directory name entered without
-        # the preceding 'cd' command. In that instance the first argument will
-        # be '--' with the second argument being the actual target directory;
-        # hence, adjust the target variable accordingly.
-        target="$2"
-    fi
-
-    # Note, if the target directory is the same as the current directory
-    # do nothing since we don't want to needlessly populate the directory stack
-    # with repeat entries.
-    if [[ "$target" != "$PWD" ]]; then
-        \builtin pushd "$target" 1>/dev/null
-    fi
-}
-
 # Functions.
 #
 brew_config() {
@@ -248,6 +225,29 @@ brew_config() {
 
     # 'fzf' utility.
     . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
+}
+
+# Automatically push to the directory stack when changing directories.
+#
+cd() {
+    local target="$@"
+    if [[ $# == 0 ]]; then
+        # Handle 'cd' without arguments; change to the $HOME directory.
+        target="$HOME"
+    elif [[ $1 == "--" ]]; then
+        # Handle 'autocd' shopt, that is just a directory name entered without
+        # a preceding 'cd' command. In that case the first argument will be '--'
+        # with the target directory defined by the remaining arguments.
+        shift
+        target="$@"
+    fi
+
+    # Note, if the target directory is the same as the current directory do
+    # nothing since we don't want to populate the directory stack with
+    # consecutive repeat entries.
+    if [[ "$target" != "$PWD" ]]; then
+        builtin pushd "$target" 1>/dev/null
+    fi
 }
 
 custom_config() {
