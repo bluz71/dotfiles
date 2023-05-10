@@ -29,8 +29,7 @@ alias dus='du_by_size'
 alias d='docker'
 alias dc='docker-compose'
 # -- Git aliases --
-alias g='_f() { if [[ $# == 0 ]]; then git status -sb; else git "$@"; fi }; _f'
-alias g~='command cd "$(git rev-parse --show-toplevel)"'
+alias g~='cd "$(git rev-parse --show-toplevel)"'
 alias ga='fzf_git_add'
 alias gll='fzf_git_log clean'
 alias glla='fzf_git_log all'
@@ -356,7 +355,7 @@ dev_config() {
 }
 
 du_by_size() {
-    if [[ $# == 0 ]]; then
+    if [[ $# -eq 0 ]]; then
         du -sh * | sort -hr | less;
     else
         du -sh "$@" | sort -hr | less;
@@ -364,7 +363,7 @@ du_by_size() {
 }
 
 find_by_size() {
-    if [[ $# == 0 ]]; then
+    if [[ $# -eq 0 ]]; then
         echo "Usage: llfs <size> (e.g. 100k, +1M, +1G)"
     else
         find . -type f -size "$1" -exec exa --long {} \; ;
@@ -378,7 +377,7 @@ fzf_change_directory() {
           --preview 'tree -C {} | head -100'
       )
     if [[ -n $directory ]]; then
-        command cd "$directory"
+        cd "$directory"
     fi
 }
 
@@ -428,7 +427,7 @@ fzf_git_log() {
 }
 
 fzf_git_log_pickaxe() {
-    if [[ $# == 0 ]]; then
+    if [[ $# -eq 0 ]]; then
         echo 'Usage: glS <search-term>'
         return
     fi
@@ -479,8 +478,16 @@ fzf_kill() {
     fi
 }
 
+g() {
+    if [[ $# -eq 0 ]]; then
+        git status -sb
+    else
+        git "$@"
+    fi
+}
+
 grep_edit() {
-    if [[ $# == 0 ]]; then
+    if [[ $# -eq 0 ]]; then
         echo 'Usage: vg <search-term>'
         return
     fi
@@ -499,7 +506,7 @@ history_truncate() {
     sed -e '/^cd/d' -e '/^cp/d' -e '/^dr/d' -e '/^fd/d' -e '/^ll/d' \
         -e '/^ls/d' -e '/^mc/d' \-e '/^mk/d' -e '/^mv/d' -e '/^open/d' \
         -e '/^qmv/d' -e '/^rg/d'  -e '/^rm/d' -e '/^un/d' -e '/^v /d' \
-        -e '/^yo/d' -e '/^yt/d' -e '/^z/d' -i /tmp/history
+        -e '/^you/d' -e '/^yt/d' -e '/^z/d' -i /tmp/history
     # Use 'cp' instead of 'mv' to deal with symlinked ~/.history. Use
     # 'command' to bypass aliases.
     command cp /tmp/history $HISTFILE && command rm /tmp/history
@@ -508,7 +515,7 @@ history_truncate() {
 }
 
 mux_command() {
-    if [[ $# == 1 ]] && [[ $1 == "stop" ]]; then
+    if [[ $# -eq 1 ]] && [[ $1 == "stop" ]]; then
         # Automatically stop the current session.
         tmuxinator stop $(tmux display-message -p '#S')
     else
@@ -520,7 +527,7 @@ navi_cheats() {
     local navi_command='
       navi --print --fzf-overrides "--no-multi --no-height --no-sort"
     '
-    if [[ $# == 0 ]]; then
+    if [[ $# -eq 0 ]]; then
         eval $navi_command
     else
         eval $navi_command --query "$@"
