@@ -7,9 +7,9 @@
   autocrlf       = input
   pager          = delta
   untrackedCache = true
-#  fsmonitor      = true # Enable for large repositories (only)
+#  fsmonitor      = true # Enable only for large repositories
 #[feature]
-#  manyFiles = true # Enable for large repositories (only)
+#  manyFiles = true # Enable only for large repositories
 [color]
   ui = auto
 [commit]
