@@ -124,7 +124,7 @@ autocmd("TextYankPost", {
   callback = function()
     -- Highlight the selected yank.
     vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
-    -- Copy yanked text to tmux paste buffer if tmux is running.
+    -- Copy yanked text to a tmux paste buffer if tmux is active.
     if vim.env.TMUX and vim.v.operator == "y" then
       local _, yank_data = pcall(vim.fn.getreg, "0")
       vim.fn.system({ "tmux", "set-buffer", "-w", yank_data })

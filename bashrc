@@ -77,6 +77,7 @@ alias vim='stty -ixon && vim 2> /dev/null'
 alias be='bundle exec'
 alias bs='br --whale-spotting'
 alias c='clear'
+alias cwd='copy_working_directory'
 alias eq='set -f; _f() { echo $@ | bc; set +f; }; _f'
 alias f='fzf --ansi'
 alias fkill='fzf_kill'
@@ -265,13 +266,26 @@ cd() {
 }
 
 copy_command_line() {
+    if [[ $OS == Linux ]]; then
+        echo -n "$READLINE_LINE" | xclip -selection clipboard -i
+    elif [[ $OS = Darwin ]]; then
+        echo -n "$READLINE_LINE" | pbcopy
+    fi
+    # Also copy command line to a tmux paste buffer if tmux is active.
     if [[ -n $TMUX ]]; then
         echo -n "$READLINE_LINE" | tmux load-buffer -
     fi
+}
+
+copy_working_directory() {
     if [[ $OS == Linux ]]; then
-        echo -n "$READLINE_LINE" | xclip -selection clipboard -i
-    elif [[ $OS = Darwin ]] && [[ $(uname -m) == arm64 ]]; then
-        echo -n "$READLINE_LINE" | pbcopy
+        echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | xclip -selection clipboard -i
+    elif [[ $OS = Darwin ]]; then
+        echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | pbcopy
+    fi
+    # Also copy current directory to a tmux paste buffer if tmux is active.
+    if [[ -n $TMUX ]]; then
+        echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | tmux load-buffer -
     fi
 }
 
@@ -608,6 +622,9 @@ shell_config() {
     # Prevent file overwrite on stdout redirection.
     # Use `>|` to force redirection to an existing file.
     set -o noclobber
+
+    # Only logout if 'Control-d' is executed two consecutive times.
+    export IGNOREEOF=1
 
     # Set the appropriate umask.
     umask 002
