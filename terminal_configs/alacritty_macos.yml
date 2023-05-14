@@ -172,6 +172,7 @@ key_bindings:
   - { key: U,        mods: Alt,       chars: "\x1bu"                 }
   - { key: V,        mods: Alt,       chars: "\x1bv"                 }
   - { key: W,        mods: Alt,       chars: "\x1bw"                 }
+  - { key: X,        mods: Alt,       chars: "\x1bx"                 }
   - { key: Y,        mods: Alt,       chars: "\x1by"                 }
   - { key: Z,        mods: Alt,       chars: "\x1bz"                 }
   - { key: Key1,     mods: Alt,       chars: "\x1b1"                 }
