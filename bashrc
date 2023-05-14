@@ -641,7 +641,7 @@ web_search() {
     GREEN=$(tput setaf 79)
     NC=$(tput sgr0)
 
-    read -p "$(echo -e "${GOLD}Search ${GREEN}➜ ${NC}")" search_term
+    read -ep "$(echo -e "${GOLD}Search ${GREEN}➜ ${NC}")" search_term
     open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
 }
 
