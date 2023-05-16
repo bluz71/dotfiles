@@ -79,7 +79,6 @@ alias bs='br --whale-spotting'
 alias c='clear'
 alias cwd='copy_working_directory'
 alias eq='set -f; _f() { echo $@ | bc; set +f; }; _f'
-alias f='fzf --ansi'
 alias fkill='fzf_kill'
 alias lg='lazygit'
 alias lynx='lynx --accept_all_cookies'
@@ -561,7 +560,6 @@ packages() {
     if ! [[ -d ~/.bash-packages/bash-seafly-prompt ]]; then
         git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-packages/bash-seafly-prompt
     fi
-
     SEAFLY_NORMAL_COLOR=$(tput setaf 4)
     if [[ -n $HOMEBREW_PREFIX ]]; then
         SEAFLY_PRE_COMMAND="history -a;history -n;__zoxide_hook"
@@ -569,14 +567,14 @@ packages() {
         SEAFLY_PRE_COMMAND="history -a;history -n"
     fi
     SEAFLY_PROMPT_PREFIX="\
-if [[ -f Gemfile ]];\
-    then echo \"(ruby)\";\
-elif [[ -f package.json ]];\
-    then echo \"(node)\";\
-elif [[ -f pubspec.yaml ]];\
-    then echo \"(dart)\";\
-elif [[ -f Cargo.toml ]];\
-    then echo \"(rust)\";\
+if [[ -f Gemfile ]]; then\
+    echo \"$(tput setaf 202)●$(tput setaf 217) Ruby\";\
+elif [[ -f package.json ]]; then\
+    echo \"$(tput setaf 79)●$(tput setaf 217) Node\"; \
+elif [[ -f Cargo.toml ]]; then\
+    echo \"$(tput setaf 208)●$(tput setaf 217) Rust\";\
+elif [[ -f pubspec.yaml ]]; then\
+    echo \"$(tput setaf 111)●$(tput setaf 217) Dart\";\
 fi"
     . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
 

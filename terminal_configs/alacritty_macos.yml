@@ -8,7 +8,7 @@ window:
 
   # Window position (changes require restart)
   position:
-    x: 0
+    x: 2
     y: 0
 
   # Window padding (changes require restart)
