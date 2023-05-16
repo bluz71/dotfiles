@@ -192,7 +192,7 @@ lazy.setup({
   -- Auto-completion plugins
   -----------------------------
   {
-    "yioneko/nvim-cmp", -- See: https://is.gd/eFWo0W
+    "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
