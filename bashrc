@@ -568,13 +568,13 @@ packages() {
     fi
     SEAFLY_PROMPT_PREFIX="\
 if [[ -f Gemfile ]]; then\
-    echo \"$(tput setaf 202)●$(tput setaf 217) Ruby\";\
+    echo \"$(tput setaf 202)●$(tput sgr0)\";\
 elif [[ -f package.json ]]; then\
-    echo \"$(tput setaf 79)●$(tput setaf 217) Node\"; \
+    echo \"$(tput setaf 79)●$(tput sgr0)\"; \
 elif [[ -f Cargo.toml ]]; then\
-    echo \"$(tput setaf 208)●$(tput setaf 217) Rust\";\
+    echo \"$(tput setaf 208)●$(tput sgr0)\";\
 elif [[ -f pubspec.yaml ]]; then\
-    echo \"$(tput setaf 111)●$(tput setaf 217) Dart\";\
+    echo \"$(tput setaf 111)●$(tput sgr0)\";\
 fi"
     . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
 
