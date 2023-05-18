@@ -138,7 +138,7 @@ shell:
     - --login
 
 mouse:
-  hide_when_typing: true
+  hide_when_typing: false
 
 key_bindings:
   - { key: Escape,   mods: Control,   action: ToggleViMode           }
