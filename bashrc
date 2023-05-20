@@ -1,7 +1,7 @@
 # Remove all previous environment defined aliases.
 #
 unalias -a
-#
+
 # Aliases.
 #
 # -- Coreutils aliases --
@@ -568,13 +568,13 @@ packages() {
     fi
     SEAFLY_PROMPT_PREFIX="\
 if [[ -f Gemfile ]]; then\
-    echo \"$(tput setaf 202)●$(tput sgr0)\";\
+    echo \"$(tput setaf 1)◢$(tput sgr0)\";\
 elif [[ -f package.json ]]; then\
-    echo \"$(tput setaf 79)●$(tput sgr0)\"; \
+    echo \"$(tput setaf 79)⬢$(tput sgr0)\"; \
 elif [[ -f Cargo.toml ]]; then\
     echo \"$(tput setaf 208)●$(tput sgr0)\";\
 elif [[ -f pubspec.yaml ]]; then\
-    echo \"$(tput setaf 111)●$(tput sgr0)\";\
+    echo \"$(tput setaf 12)◀$(tput sgr0)\";\
 fi"
     . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
 
