@@ -25,7 +25,7 @@ scrolling:
   multiplier: 5
 
 font:
-  # Normal (roman) font face
+  # Normal font face
   normal:
     family: Iosevka Custom
     style: Regular

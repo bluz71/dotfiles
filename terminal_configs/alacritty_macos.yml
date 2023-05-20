@@ -16,6 +16,9 @@ window:
     x: 3
     y: 3
 
+  # Make left Option key behave as Alt
+  option_as_alt: OnlyLeft
+
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: false
 
@@ -33,7 +36,7 @@ font:
   # Enable thin-strokes (https://is.gd/O65P9v):
   #   % defaults write org.alacritty AppleFontSmoothing -int 0
 
-  # Normal (roman) font face
+  # Normal font face
   normal:
     family: Iosevka Custom
     style: Regular
@@ -154,38 +157,5 @@ key_bindings:
   - { key: Minus,    mods: Command,   action: DecreaseFontSize       }
   - { key: Q,        mods: Command,   action: ReceiveChar            }
   - { key: W,        mods: Command,   action: ReceiveChar            }
-  - { key: A,        mods: Alt,       chars: "\x1ba"                 }
-  - { key: B,        mods: Alt,       chars: "\x1bb"                 }
-  - { key: B,        mods: Alt|Shift, chars: "\x1bB"                 }
-  - { key: C,        mods: Alt,       chars: "\x1bc"                 }
-  - { key: D,        mods: Alt,       chars: "\x1bd"                 }
-  - { key: D,        mods: Alt|Shift, chars: "\x1bD"                 }
-  - { key: E,        mods: Alt,       chars: "\x1be"                 }
-  - { key: F,        mods: Alt,       chars: "\x1bf"                 }
-  - { key: F,        mods: Alt|Shift, chars: "\x1bF"                 }
-  - { key: L,        mods: Alt,       chars: "\x1bl"                 }
-  - { key: P,        mods: Alt,       chars: "\x1bp"                 }
-  - { key: Q,        mods: Alt,       chars: "\x1bq"                 }
   - { key: Q,        mods: Control,   chars: "\x11"                  }
-  - { key: R,        mods: Alt,       chars: "\x1br"                 }
-  - { key: S,        mods: Alt,       chars: "\x1bs"                 }
-  - { key: U,        mods: Alt,       chars: "\x1bu"                 }
-  - { key: V,        mods: Alt,       chars: "\x1bv"                 }
-  - { key: W,        mods: Alt,       chars: "\x1bw"                 }
-  - { key: X,        mods: Alt,       chars: "\x1bx"                 }
-  - { key: Y,        mods: Alt,       chars: "\x1by"                 }
-  - { key: Z,        mods: Alt,       chars: "\x1bz"                 }
-  - { key: Key1,     mods: Alt,       chars: "\x1b1"                 }
-  - { key: Key2,     mods: Alt,       chars: "\x1b2"                 }
-  - { key: Key3,     mods: Alt,       chars: "\x1b3"                 }
-  - { key: Key4,     mods: Alt,       chars: "\x1b4"                 }
-  - { key: Key5,     mods: Alt,       chars: "\x1b5"                 }
-  - { key: Key6,     mods: Alt,       chars: "\x1b6"                 }
-  - { key: Key7,     mods: Alt,       chars: "\x1b7"                 }
-  - { key: Key8,     mods: Alt,       chars: "\x1b8"                 }
-  - { key: Key9,     mods: Alt,       chars: "\x1b9"                 }
-  - { key: Period,   mods: Alt,       chars: "\x1b."                 }
-  - { key: Equals,   mods: Alt,       chars: "\x1b="                 }
-  - { key: Period,   mods: Alt|Shift, chars: "\x1b>"                 }
-  - { key: Comma,    mods: Alt|Shift, chars: "\x1b<"                 }
   - { key: I,        mods: Control,   chars: "\x1b[105;5u"           }
