@@ -66,6 +66,6 @@ set mark-symlinked-directories on
 # Keep terminal quiet and clean.
 set bell-style none
 set echo-control-characters off
-# Disable Bash 5.1 highlighted paste feature. 
-# See: https://is.gd/fsgOMe & https://is.gd/Uccmae
+# Disable Bash 5.1 highlighted paste feature.
+# See: https://is.gd/fsgOMe
 set enable-bracketed-paste off
