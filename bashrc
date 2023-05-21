@@ -339,7 +339,9 @@ dev_config() {
 
     if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
         . $HOMEBREW_PREFIX/share/chruby/chruby.sh
-        chruby 3.2.1
+        # 'chruby 3.2.1' is slow, instead set VERSION and PATH explicitly.
+        RUBY_VERSION=3.2.1
+        PATH="$HOME/.gem/ruby/3.2.1/bin:$HOME/.rubies/ruby-3.2.1/bin":$PATH
     fi
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
