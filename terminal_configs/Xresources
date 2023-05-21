@@ -64,7 +64,7 @@ xterm-moonfly*cutToBeginningOfLine: false
 xterm-moonfly*faceName: Iosevka Custom
 xterm-moonfly*faceSize: 12
 xterm-moonfly*fastScroll: true
-xterm-moonfly*foreground: #b2b2b2
+xterm-moonfly*foreground: #bdbdbd
 xterm-moonfly*geometry: 84x55
 xterm-moonfly*highlightColor: #b2ceee
 xterm-moonfly*highlightColorMode: true
