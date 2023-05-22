@@ -338,10 +338,16 @@ dev_config() {
     fi
 
     if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
-        . $HOMEBREW_PREFIX/share/chruby/chruby.sh
-        # 'chruby 3.2.1' is slow, instead set VERSION and PATH explicitly.
-        RUBY_VERSION=3.2.1
-        PATH="$HOME/.gem/ruby/3.2.1/bin:$HOME/.rubies/ruby-3.2.1/bin":$PATH
+        # chruby is slow, instead simply set environment variables explicitly.
+        # . $HOMEBREW_PREFIX/share/chruby/chruby.sh
+        # chruby 3.2.1
+        export RUBY_VERSION=3.2.1
+        export RUBY_ROOT="$HOME/.rubies/ruby-$RUBY_VERSION"
+        export GEM_ROOT="$RUBY_ROOT/lib/ruby/gems/3.2.0"
+        export GEM_HOME="$HOME/.gem/ruby/$RUBY_VERSION"
+        export GEM_PATH="$GEM_HOME:$GEM_ROOT"
+        PATH="$GEM_HOME/bin:$RUBY_ROOT/bin":$PATH
+        hash -r
     fi
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
