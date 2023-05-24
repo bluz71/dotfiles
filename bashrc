@@ -332,6 +332,7 @@ custom_config() {
 
 }
 
+
 dev_config() {
     if [[ -z $HOMEBREW_PREFIX ]]; then
         return
@@ -569,21 +570,14 @@ packages() {
         git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-packages/bash-seafly-prompt
     fi
     SEAFLY_NORMAL_COLOR=$(tput setaf 4)
-    if [[ -n $HOMEBREW_PREFIX ]]; then
-        SEAFLY_PRE_COMMAND="history -a;history -n;__zoxide_hook"
-    else
-        SEAFLY_PRE_COMMAND="history -a;history -n"
-    fi
-    SEAFLY_PROMPT_PREFIX="\
-if [[ -f Gemfile ]]; then\
-    echo \"$(tput setaf 1)◢$(tput sgr0)\";\
-elif [[ -f package.json ]]; then\
-    echo \"$(tput setaf 79)⬢$(tput sgr0)\"; \
-elif [[ -f Cargo.toml ]]; then\
-    echo \"$(tput setaf 208)●$(tput sgr0)\";\
-elif [[ -f pubspec.yaml ]]; then\
-    echo \"$(tput setaf 12)◀$(tput sgr0)\";\
-fi"
+    seafly_pre_command_hook="seafly_pre_command"
+    seafly_prompt_prefix_hook="seafly_prompt_prefix"
+    # Custom colors for prompt prefix; for performance reasons calculate the
+    # colors outside the 'seafly_prompt_prefix' function.
+    export SEAFLY_RUBY_COLOR=$(tput setaf 1)
+    export SEAFLY_NODE_COLOR=$(tput setaf 79)
+    export SEAFLY_RUST_COLOR=$(tput setaf 208)
+    export SEAFLY_DART_COLOR=$(tput setaf 12)
     . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
 
     # fzf-tab-completion (https://github.com/lincheney/fzf-tab-completion)
@@ -595,6 +589,27 @@ fi"
     . ~/.bash-packages/fzf-tab-completion/bash/fzf-bash-completion.sh
     bind -x '"\C-f": fzf_bash_completion'
     export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS --height 60% --info=hidden"
+}
+
+seafly_pre_command() {
+    if [[ -n $HOMEBREW_PREFIX ]]; then
+        history -a && history -n
+        __zoxide_hook
+    else
+        history -a && history -n
+    fi
+}
+
+seafly_prompt_prefix() {
+    if [[ -f Gemfile ]]; then
+        echo "\[$SEAFLY_RUBY_COLOR\]◢"
+    elif [[ -f package.json ]]; then
+        echo "\[$SEAFLY_NODE_COLOR\]⬢"
+    elif [[ -f Cargo.toml ]]; then
+        echo "\[$SEAFLY_RUST_COLOR\]●"
+    elif [[ -f pubspec.yaml ]]; then
+        echo "\[$SEAFLY_DART_COLOR\]◀"
+    fi
 }
 
 shell_config() {
