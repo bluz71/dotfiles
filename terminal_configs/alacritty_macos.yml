@@ -17,7 +17,7 @@ window:
     y: 3
 
   # Make left Option key behave as Alt
-  option_as_alt: OnlyLeft
+  option_as_alt: Both
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: false
