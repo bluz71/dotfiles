@@ -93,7 +93,7 @@ alias qmv='qmv -d -f do'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
 alias sudo='sudo '
-alias www='web_search'
+alias web='web_search'
 alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
@@ -627,16 +627,16 @@ shell_config() {
     # file to be double sure to disable Bash sessions.
     export SHELL_SESSION_HISTORY=0
 
-    # Enable the useful Bash features:
-    #  - autocd, no need to type 'cd' when changing directory
-    #  - cdspell, automatically fix directory typos when changing directory
-    #  - direxpand, automatically expand directory globs when completing
-    #  - dirspell, automatically fix directory typos when completing
-    #  - globstar, ** recursive glob
-    #  - histappend, append to history, don't overwrite
-    #  - histverify, expand, but don't automatically execute, history expansions
-    #  - nocaseglob, case-insensitive globbing
-    #  - no_empty_cmd_completion, don't TAB expand empty lines
+    # Enable useful shell options:
+    #  - autocd - change directory without no need to type 'cd' when changing directory
+    #  - cdspell - automatically fix directory typos when changing directory
+    #  - direxpand - automatically expand directory globs when completing
+    #  - dirspell - automatically fix directory typos when completing
+    #  - globstar - ** recursive glob
+    #  - histappend - append to history, don't overwrite
+    #  - histverify - expand, but don't automatically execute, history expansions
+    #  - nocaseglob - case-insensitive globbing
+    #  - no_empty_cmd_completion - do not TAB expand empty lines
     shopt -s autocd cdspell direxpand dirspell globstar histappend histverify \
         nocaseglob no_empty_cmd_completion
 

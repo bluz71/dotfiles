@@ -24,7 +24,6 @@
 "\eD": "\eF\C-w"
 "\eu": undo
 "\ee": edit-and-execute-command
-"\C-u": "..\n"
 
 # TAB cycles forward through completion choices. Press an arrow key to choose a
 # selection.
@@ -33,10 +32,9 @@ TAB: menu-complete
 # choose a selection.
 "\e[Z": menu-complete-backward
 
-# Up and down arrow will now intelligently complete partially completed
-# commands by searching through the existing history.
-"\e[A": history-search-backward
-"\e[B": history-search-forward
+# Substring history search using UP and DOWN arrow keys.
+"\e[A": history-substring-search-backward
+"\e[B": history-substring-search-forward
 
 # Readline behaviors. Refer to 'man bash' / "Readline Variables" section.
 #
@@ -50,19 +48,19 @@ set completion-map-case on
 # The number of completions to display without prompt; when exceeded a
 # prompt-to-display will appear.
 set completion-query-items 200
+# Automatically add slash to the end of symlinked directories when completing.
+set mark-symlinked-directories on
 # Don't automatically match files beginning with dot.
 set match-hidden-files off
 # Display the common prefix choices on the first completion then cycle the
 # available choices on the next completion.
 set menu-complete-display-prefix on
-# Turn of the completions pager.
+# Turn off the completions pager.
 set page-completions off
 # Immediately display completion matches.
 set show-all-if-ambiguous on
 # Smartly complete items when the cursor is not at the end of the line.
 set skip-completed-text on
-# Automatically add slash to the end of symlinked directories when completing.
-set mark-symlinked-directories on
 # Keep terminal quiet and clean.
 set bell-style none
 set echo-control-characters off
