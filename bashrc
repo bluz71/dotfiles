@@ -618,7 +618,7 @@ shell_config() {
     HISTFILE=$HOME/.history          # Custom history file
     HISTFILESIZE=99999               # Max size of history file
     HISTIGNORE=?:??                  # Ignore one and two letter commands
-    HISTSIZE=99999                   # Amount of history to save
+    HISTSIZE=99999                   # Amount of history to preserve
     # Note, to immediately append to history file refer to the 'prompt'
     # function.
 
