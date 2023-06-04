@@ -157,10 +157,10 @@ gm=38;5;203:ga=38;5;203:xa=38;5;239"
 export PAGER=less
 
 # What platform are we running on.
-export OS=`uname`
+export OS=$(uname)
 
 # Customizations per platform.
-if [[ $OS = Linux ]]; then
+if [[ $OS == Linux ]]; then
     alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -a'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
@@ -176,7 +176,7 @@ if [[ $OS = Linux ]]; then
     alias wg0down='nmcli connection down wg0'
     alias wg0info='nmcli --overview connection show wg0'
     alias wg0up='nmcli connection up wg0'
-elif [[ $OS = Darwin ]]; then
+elif [[ $OS == Darwin ]]; then
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias scp='/opt/homebrew/bin/scp -r'
@@ -199,7 +199,7 @@ brew_config() {
         export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
         PATH=$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
-    elif [[ $OS = Darwin ]] && [[ $(uname -m) == arm64 ]]; then
+    elif [[ $OS == Darwin ]] && [[ $(uname -m) == arm64 ]]; then
         if ! [[ -x $(command -v /opt/homebrew/bin/brew) ]]; then
             echo 'Note: brew is not installed.'
             return
@@ -217,7 +217,7 @@ brew_config() {
     # Manually load Bash Completion, only needed for Mac since we don't brew
     # install Bash Completion in Linux, we use the system supplied version
     # instead.
-    if [[ $OS = Darwin ]]; then
+    if [[ $OS == Darwin ]]; then
         # Source version 2 Bash completions.
         . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
@@ -267,7 +267,7 @@ cd() {
 copy_command_line() {
     if [[ $OS == Linux ]]; then
         echo -n "$READLINE_LINE" | xclip -selection clipboard -i
-    elif [[ $OS = Darwin ]]; then
+    elif [[ $OS == Darwin ]]; then
         echo -n "$READLINE_LINE" | pbcopy
     fi
     # Also copy command line to a tmux paste buffer if tmux is active.
@@ -279,7 +279,7 @@ copy_command_line() {
 copy_working_directory() {
     if [[ $OS == Linux ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | xclip -selection clipboard -i
-    elif [[ $OS = Darwin ]]; then
+    elif [[ $OS == Darwin ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | pbcopy
     fi
     # Also copy current directory to a tmux paste buffer if tmux is active.
@@ -484,9 +484,9 @@ fzf_git_unadd() {
 
 fzf_kill() {
     local pid_col
-    if [[ $OS = Linux ]]; then
+    if [[ $OS == Linux ]]; then
         pid_col=2
-    elif [[ $OS = Darwin ]]; then
+    elif [[ $OS == Darwin ]]; then
         pid_col=3;
     else
         echo 'Error: unknown platform.'
@@ -614,7 +614,7 @@ seafly_prompt_prefix() {
 
 shell_config() {
     # History settings.
-    HISTCONTROL=ignoreboth:erasedups # Erase duplicates
+    HISTCONTROL=ignoreboth:erasedups # Ignore and erase duplicates
     HISTFILE=$HOME/.history          # Custom history file
     HISTFILESIZE=99999               # Max size of history file
     HISTIGNORE=?:??                  # Ignore one and two letter commands
