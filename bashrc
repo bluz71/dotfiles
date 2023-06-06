@@ -199,7 +199,7 @@ brew_config() {
         export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
         PATH=$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
-    elif [[ $OS == Darwin ]] && [[ $(uname -m) == arm64 ]]; then
+    elif [[ $OS == Darwin ]]; then
         if ! [[ -x $(command -v /opt/homebrew/bin/brew) ]]; then
             echo 'Note: brew is not installed.'
             return
@@ -222,8 +222,6 @@ brew_config() {
         . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
-    # 'fzf' utility.
-    . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
 }
 
 bindings() {
@@ -300,7 +298,8 @@ custom_config() {
     # 'broot' function.
     . ~/dotfiles/profile.d/br.sh
 
-    # 'fzf' configuration.
+    # 'fzf' utility.
+    . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
@@ -329,9 +328,7 @@ custom_config() {
 
     # 'bat' configuration.
     export BAT_CONFIG_PATH="$HOME/dotfiles/bat.conf"
-
 }
-
 
 dev_config() {
     if [[ -z $HOMEBREW_PREFIX ]]; then
@@ -558,8 +555,8 @@ navi_cheats() {
 
 path() {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-    export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
     PATH=~/binaries:~/scripts:$PATH
+    MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
 }
 
 packages() {
@@ -613,6 +610,11 @@ seafly_prompt_prefix() {
 }
 
 shell_config() {
+    # First, make sure ~/.history has not been truncated.
+    if [[ $(wc -l ~/.history | awk '{print $1}') -lt 1000 ]]; then
+        echo 'Note: ~/.history appears to be have been truncated.'
+    fi
+
     # History settings.
     HISTCONTROL=ignoreboth:erasedups # Ignore and erase duplicates
     HISTFILE=$HOME/.history          # Custom history file

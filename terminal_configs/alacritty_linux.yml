@@ -123,8 +123,7 @@ cursor:
 
 shell:
   program: /bin/bash
-  args:
-    - --login
+  # program: /home/linuxbrew/.linuxbrew/bin/fish
 
 mouse:
   hide_when_typing: true

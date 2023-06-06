@@ -137,8 +137,7 @@ cursor:
 
 shell:
   program: /opt/homebrew/bin/bash
-  args:
-    - --login
+  # program: /opt/homebrew/bin/fish
 
 mouse:
   hide_when_typing: false
