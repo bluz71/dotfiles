@@ -159,7 +159,7 @@ export PAGER=less
 export OS=$(uname)
 
 # Customizations per platform.
-if [[ $OS == Linux ]]; then
+if [[ $OS == "Linux" ]]; then
     alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -a'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
@@ -175,7 +175,7 @@ if [[ $OS == Linux ]]; then
     alias wg0down='nmcli connection down wg0'
     alias wg0info='nmcli --overview connection show wg0'
     alias wg0up='nmcli connection up wg0'
-elif [[ $OS == Darwin ]]; then
+elif [[ $OS == "Darwin" ]]; then
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias scp='/opt/homebrew/bin/scp -r'
@@ -188,7 +188,7 @@ fi
 # Functions.
 #
 brew_config() {
-    if [[ $OS == Linux ]]; then
+    if [[ $OS == "Linux" ]]; then
         if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew) ]]; then
             echo 'Note: brew is not installed.'
             return
@@ -198,7 +198,7 @@ brew_config() {
         export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
         PATH=$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
-    elif [[ $OS == Darwin ]]; then
+    elif [[ $OS == "Darwin" ]]; then
         if ! [[ -x $(command -v /opt/homebrew/bin/brew) ]]; then
             echo 'Note: brew is not installed.'
             return
@@ -255,9 +255,9 @@ cd() {
 }
 
 copy_command_line() {
-    if [[ $OS == Linux ]]; then
+    if [[ $OS == "Linux" ]]; then
         echo -n "$READLINE_LINE" | xclip -selection clipboard -i
-    elif [[ $OS == Darwin ]]; then
+    elif [[ $OS == "Darwin" ]]; then
         echo -n "$READLINE_LINE" | pbcopy
     fi
     # Also copy command line to a tmux paste buffer if tmux is active.
@@ -267,9 +267,9 @@ copy_command_line() {
 }
 
 copy_working_directory() {
-    if [[ $OS == Linux ]]; then
+    if [[ $OS == "Linux" ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | xclip -selection clipboard -i
-    elif [[ $OS == Darwin ]]; then
+    elif [[ $OS == "Darwin" ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | pbcopy
     fi
     # Also copy current directory to a tmux paste buffer if tmux is active.
@@ -279,16 +279,16 @@ copy_working_directory() {
 }
 
 custom_config() {
+    # Manually load Bash Completion for Linux if necessary.
+    [[ $OS == "Linux" && -z "$BASH_COMPLETION_VERSINFO" ]] && . /etc/profile.d/bash_completion.sh
+
+    # If Homebrew is not setup, just return.
     if [[ -z $HOMEBREW_PREFIX ]]; then
         return
     fi
 
-    # Manually load Bash Completion.
-    if [[ $OS == Linux ]]; then
-        . /etc/profile.d/bash_completion.sh
-    elif [[ $OS == Darwin ]]; then
-        . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
-    fi
+    # Manually load Bash Completion for macOS from Homebrew.
+    [[ $OS == "Darwin" ]] && . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
 
     # Note, custom Bash completions are stored in ~/dotfiles/completions.
     # These are then symlinked to ~/.local/share/bash-completion for automatic
@@ -480,9 +480,9 @@ fzf_git_unadd() {
 
 fzf_kill() {
     local pid_col
-    if [[ $OS == Linux ]]; then
+    if [[ $OS == "Linux" ]]; then
         pid_col=2
-    elif [[ $OS == Darwin ]]; then
+    elif [[ $OS == "Darwin" ]]; then
         pid_col=3;
     else
         echo 'Error: unknown platform.'
