@@ -8,7 +8,6 @@ unalias -a
 alias cp='/bin/cp -iv'
 alias mc='_f() { mkdir -p "$@" && command cd "$@"; }; _f'
 alias mv='/bin/mv -iv'
-alias rd='rmdir -p -v'
 alias rm='/bin/rm -i'
 alias rmrf='/bin/rm -rf'
 # -- Permissions aliases --
@@ -214,13 +213,6 @@ brew_config() {
         return
     fi
 
-    # Manually load Bash Completion, only needed for Mac since we don't brew
-    # install Bash Completion in Linux, we use the system supplied version
-    # instead.
-    if [[ $OS == Darwin ]]; then
-        # Source version 2 Bash completions.
-        . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
-    fi
 
 }
 
@@ -289,6 +281,13 @@ copy_working_directory() {
 custom_config() {
     if [[ -z $HOMEBREW_PREFIX ]]; then
         return
+    fi
+
+    # Manually load Bash Completion.
+    if [[ $OS == Linux ]]; then
+        . /etc/profile.d/bash_completion.sh
+    elif [[ $OS == Darwin ]]; then
+        . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
     fi
 
     # Note, custom Bash completions are stored in ~/dotfiles/completions.
@@ -553,7 +552,7 @@ navi_cheats() {
     fi
 }
 
-path() {
+user_paths() {
     PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
     PATH=~/binaries:~/scripts:$PATH
     MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
@@ -671,7 +670,7 @@ web_search() {
 
 # Set environment.
 #
-path
+user_paths
 brew_config
 custom_config
 packages
