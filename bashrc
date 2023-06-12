@@ -54,7 +54,6 @@ alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
 # -- ripgrep aliases --
 alias rg='rg --smart-case'
-alias rgp='_f() { rg --pretty "$1" | less; }; _f'
 # -- Tree aliases --
 alias t='tree -C --dirsfirst'
 alias td='tree -C -d'
@@ -71,15 +70,12 @@ alias v='TERM=alacritty nvim'
 alias vdi='nvim -d'
 alias vf='fzf_find_edit'
 alias vg='grep_edit'
-alias vim='stty -ixon && vim 2> /dev/null'
 # -- Miscellaneous aliases --
 alias be='bundle exec'
 alias bs='br --whale-spotting'
-alias c='clear'
 alias cwd='copy_working_directory'
 alias eq='set -f; _f() { echo $@ | bc; set +f; }; _f'
 alias fkill='fzf_kill'
-alias lg='lazygit'
 alias lynx='lynx --accept_all_cookies'
 alias m='less'
 alias mdi='meld 2>/dev/null'
@@ -92,7 +88,6 @@ alias qmv='qmv -d -f do'
 alias rs='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
 alias sudo='sudo '
-alias web='web_search'
 alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
@@ -336,19 +331,19 @@ dev_config() {
 
     if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
         # chruby is slow, instead simply set environment variables explicitly.
-        # . $HOMEBREW_PREFIX/share/chruby/chruby.sh
-        # chruby 3.2.1
+        #   . $HOMEBREW_PREFIX/share/chruby/chruby.sh
+        #   chruby 3.2.1
         export RUBY_VERSION=3.2.1
-        export RUBY_ROOT="$HOME/.rubies/ruby-$RUBY_VERSION"
-        export GEM_ROOT="$RUBY_ROOT/lib/ruby/gems/3.2.0"
-        export GEM_HOME="$HOME/.gem/ruby/$RUBY_VERSION"
-        export GEM_PATH="$GEM_HOME:$GEM_ROOT"
-        PATH="$GEM_HOME/bin:$RUBY_ROOT/bin":$PATH
+        export RUBY_ROOT=$HOME/.rubies/ruby-$RUBY_VERSION
+        export GEM_ROOT=$RUBY_ROOT/lib/ruby/gems/3.2.0
+        export GEM_HOME=$HOME/.gem/ruby/$RUBY_VERSION
+        export GEM_PATH=$GEM_HOME:$GEM_ROOT
+        PATH=$GEM_HOME/bin:$RUBY_ROOT/bin:$PATH
         hash -r
     fi
     if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
-        export PNPM_HOME="$HOME/.local/share/pnpm"
+        export PNPM_HOME=$HOME/.local/share/pnpm
         PATH=$PATH:$PNPM_HOME
     fi
     if [[ -x ~/.cargo/bin ]]; then
@@ -393,8 +388,8 @@ fzf_change_directory() {
       fd --type d | \
       fzf --query="$1" --no-multi --select-1 --exit-0 \
           --preview 'tree -C {} | head -100'
-      )
-    if [[ -n $directory ]]; then
+    )
+    if [[ -n "$directory" ]]; then
         cd "$directory"
     fi
 }
@@ -403,8 +398,8 @@ fzf_find_edit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
           --preview 'bat --color=always --line-range :500 {}'
-      )
-    if [[ -n $file ]]; then
+    )
+    if [[ -n "$file" ]]; then
         $EDITOR "$file"
     fi
 }
@@ -412,13 +407,13 @@ fzf_find_edit() {
 fzf_git_add() {
     local selections=$(
       git status --porcelain | \
-      fzf --ansi \
-          --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
-                         git diff --color=always {2} | delta
-                     else
-                         bat --color=always --line-range :500 {2}
-                     fi'
-      )
+        fzf --ansi \
+            --preview 'if (git ls-files --error-unmatch {2} &>/dev/null); then
+                           git diff --color=always {2} | delta
+                       else
+                           bat --color=always --line-range :500 {2}
+                       fi'
+    )
     if [[ -n $selections ]]; then
         local files=$(echo "$selections" | cut -c 4- | tr '\n' ' ')
         git add --verbose $files
@@ -431,16 +426,16 @@ fzf_git_log() {
         command='lla'
     fi
     shift # Consume the first argument of this function
-    local selections=$(
-      git $command --color=always "$@" |
-        fzf --ansi --no-sort --no-height \
+    local selection=$(
+      git $command --color=always "$@" | \
+        fzf --no-multi --ansi --no-sort --no-height \
             --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                        xargs -I@ sh -c 'git show --color=always @' |
                        delta"
-      )
-    if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | sed 's/^[* |]*//' | awk '{print $1}' | tr '\n' ' ')
-        git show $commits
+    )
+    if [[ -n $selection ]]; then
+        local commit=$(echo "$selection" | sed 's/^[* |]*//' | awk '{print $1}' | tr -d '\n')
+        git show $commit
     fi
 }
 
@@ -453,9 +448,9 @@ fzf_git_log_pickaxe() {
       git log --oneline --color=always -S "$@" |
         fzf --ansi --no-sort --no-height \
             --preview 'git show --color=always {1} | delta'
-      )
-    if [[ -n $selections ]]; then
-        local commits=$(echo "$selections" | awk '{print $1}' | tr '\n' ' ')
+    )
+    if [[ -n "$selections" ]]; then
+        local commits=$(echo "$selections" | awk '{print $1}' | tr -d '\n')
         git show $commits
     fi
 }
@@ -465,33 +460,29 @@ fzf_git_reflog() {
       git reflog --color=always "$@" |
         fzf --no-multi --ansi --no-sort --no-height \
             --preview 'git show --color=always {1} | delta'
-      )
-    if [[ -n $selection ]]; then
-        git show $(echo $selection | awk '{print $1}')
+    )
+    if [[ -n "$selection" ]]; then
+        git show $(echo "$selection" | awk '{print $1}')
     fi
 }
 
 fzf_git_unadd() {
     local files=$(git diff --name-only --cached | fzf --ansi)
-    if [[ -n $files ]]; then
-        git unadd $files
+    if [[ -n "$files" ]]; then
+        git unadd "$files"
     fi
 }
 
 fzf_kill() {
-    local pid_col
     if [[ $OS == "Linux" ]]; then
-        pid_col=2
+        local pids=$(ps -f -u $USER | sed 1d | fzf | awk '{print $2}')
     elif [[ $OS == "Darwin" ]]; then
-        pid_col=3;
+        local pids=$(ps -f -u $USER | sed 1d | fzf | awk '{print $3}')
     else
         echo 'Error: unknown platform.'
         return
     fi
-    local pids=$(
-      ps -f -u $USER | sed 1d | fzf | tr -s [:blank:] | cut -d' ' -f"$pid_col"
-      )
-    if [[ -n $pids ]]; then
+    if [[ -n "$pids" ]]; then
         echo "$pids" | xargs kill -9 "$@"
     fi
 }
@@ -550,12 +541,6 @@ navi_cheats() {
     else
         eval $navi_command --query "$@"
     fi
-}
-
-user_paths() {
-    PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-    PATH=~/binaries:~/scripts:$PATH
-    MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
 }
 
 packages() {
@@ -658,13 +643,21 @@ shell_config() {
     fi
 }
 
-web_search() {
+user_paths() {
+    PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
+    PATH=~/binaries:~/scripts:$PATH
+    MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
+}
+
+web() {
     GOLD=$(tput setaf 222)
     GREEN=$(tput setaf 79)
     NC=$(tput sgr0)
 
     read -ep "$(echo -e "${GOLD}Search ${GREEN}➜ ${NC}")" search_term
-    open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
+    if [[ -n "$search_term" ]]; then
+        open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
+    fi
 }
 
 
