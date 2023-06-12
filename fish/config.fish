@@ -325,6 +325,11 @@ function fish_user_key_bindings
     # to work in tmux.
     bind \e\[1\;2D backward-bigword
     bind \e\[1\;2C forward-bigword
+
+    if test -n $HOMEBREW_PREFIX
+        # Enable 'fzf' key bindings.
+        fzf_key_bindings
+    end
 end
 
 function fzf_change_directory

@@ -18,6 +18,8 @@ ln -s ~/dotfiles/nvim/ .config/nvim
 mkdir -p .local/share/bash-completion
 ln -s ~/dotfiles/completions .local/share/bash-completion
 
+ln -s ~/dotfiles/fish/ .config/fish
+
 mkdir -p scripts
 ln -s ~/dotfiles/git-bvv scripts/git-bvv
 
@@ -32,12 +34,10 @@ if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
     ln -s ~/dotfiles/misc/fonts.conf .config/fontconfig/fonts.conf
     ln -s ~/dotfiles/terminal_configs/Xresources .Xresources
-    mkdir -p .config/alacritty
     ln -s ~/dotfiles/terminal_configs/alacritty_linux.yml .config/alacritty/alacritty.yml
     mkdir -p .config/lazygit
     ln -s ~/dotfiles/lazygit/config.yml .config/lazygit/config.yml
 elif [  "$(uname)" = Darwin ]; then
-    mkdir -p .config/alacritty
     ln -s ~/dotfiles/terminal_configs/alacritty_macos.yml .config/alacritty/alacritty.yml
     mkdir -p Library/Application\ Support/lazygit
     ln -s ~/dotfiles/lazygit/config.yml Library/Application\ Support/lazygit/config.yml
