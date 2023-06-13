@@ -1,5 +1,5 @@
 # Disable Fish greeting.
-set fish_greeting ""
+set fish_greeting
 
 # Start with a clean environment.
 set -e PATH
@@ -364,8 +364,8 @@ function fzf_git_add
                        end'
     )
     if test -n "$selections"
-        set -l files (echo "$selections" | cut -c 4- | tr '\n' ' ')
-        echo "$files"
+        set -l additions (string replace --all ' M ' '' $selections)
+        git add --verbose (string split -- " " $additions)
     end
 end
 
@@ -393,14 +393,14 @@ function fzf_git_log_pickaxe
         echo 'Usage: glS <search-term>'
         return
     end
-    set -f selections (
+    set -f selection (
       git log --oneline --color=always -S $argv | \
-        fzf --ansi --no-sort --no-height \
+        fzf --no-multi --ansi --no-sort --no-height \
             --preview 'git show --color=always {1} | delta'
     )
-    if test -n "$selections"
-        set -l commits (echo "$selections" | awk '{print $1}' | tr -d '\n')
-        git show $commits
+    if test -n "$selection"
+        set -l commit (echo "$selection" | awk '{print $1}' | tr -d '\n')
+        git show $commit
     end
 end
 
@@ -416,9 +416,9 @@ function fzf_git_reflog
 end
 
 function fzf_git_unadd
-    set -f files (git diff --name-only --cached | fzf --ansi)
-    if test -n "$files"
-        git unadd "$files"
+    set -f changes (git diff --name-only --cached | fzf --ansi)
+    if test -n "$changes"
+        git unadd $changes
     end
 end
 

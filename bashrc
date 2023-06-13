@@ -415,8 +415,8 @@ fzf_git_add() {
                        fi'
     )
     if [[ -n $selections ]]; then
-        local files=$(echo "$selections" | cut -c 4- | tr '\n' ' ')
-        git add --verbose $files
+        local additions=$(echo $selections | sed 's/M //g')
+        git add --verbose $additions
     fi
 }
 
@@ -444,14 +444,14 @@ fzf_git_log_pickaxe() {
         echo 'Usage: glS <search-term>'
         return
     fi
-    local selections=$(
+    local selection=$(
       git log --oneline --color=always -S "$@" |
-        fzf --ansi --no-sort --no-height \
+        fzf --no-multi --ansi --no-sort --no-height \
             --preview 'git show --color=always {1} | delta'
     )
-    if [[ -n "$selections" ]]; then
-        local commits=$(echo "$selections" | awk '{print $1}' | tr -d '\n')
-        git show $commits
+    if [[ -n "$selection" ]]; then
+        local commit=$(echo "$selection" | awk '{print $1}' | tr -d '\n')
+        git show $commit
     fi
 }
 
@@ -467,9 +467,9 @@ fzf_git_reflog() {
 }
 
 fzf_git_unadd() {
-    local files=$(git diff --name-only --cached | fzf --ansi)
-    if [[ -n "$files" ]]; then
-        git unadd "$files"
+    local changes=$(git diff --name-only --cached | fzf --ansi | tr '\n' ' ')
+    if [[ -n "$changes" ]]; then
+        git reset HEAD $changes
     fi
 }
 
