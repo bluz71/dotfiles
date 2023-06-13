@@ -1,21 +1,18 @@
-# Useful shortcuts; invoke 'bind -p' for full listing:
+# Bindings, invoke 'bind -p' for full listing:
 #
-# Alt-f: move forward a word (punctuation symbols are delimiters) 
-# Alt-b: move backward a word
-# Shift-Left: move forward a BIG word
-# Shift-Right: move backward a BIG word
-# Alt-d: delete forward word
-# Alt-D: delete forward a big word
-# Alt-<backspace>: delete backward word
-# Alt-u: undo last edit
-# Alt-e: edit the current command in $EDITOR and execute
-# Alt-.: append last parameter from previous command
-# Ctrl-a/HOME/fn-left: go to start of line
-# Ctrl-e/END/fn-right: go to end of line
-# Ctrl-r: search through shell history
-# Ctrl-u: change up a directory
-# Ctrl-b: pop directory
-#
+# - Alt-f: move forward a word
+# - Alt-b: move backward a word
+# - Shift-Left: move forward a BIG word
+# - Shift-Right: move backward a BIG word
+# - Alt-d: delete forward word
+# - Alt-<backspace>: delete backward word
+# - Alt-u: undo last edit
+# - Alt-e: edit the current command in $EDITOR and execute
+# - Alt-.: append last parameter from previous command
+# - Ctrl-a/HOME/fn-left: go to start of line
+# - Ctrl-e/END/fn-right: go to end of line
+# - Ctrl-r: reverse history search
+# - Ctrl-u: change up a directory
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\e[1;2D": vi-backward-bigword
