@@ -91,7 +91,6 @@ alias sudo='sudo '
 alias wl='wc -l'
 alias x=exit
 alias ytest='CI=true yarn test --colors'
-alias ?='navi_cheats'
 
 
 # General environment variables.
@@ -504,6 +503,15 @@ grep_edit() {
     $EDITOR $(rg -l "$1")
 }
 
+help() {
+    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
+    if [[ $# -eq 0 ]]; then
+        eval $navi_command
+    else
+        eval $navi_command --query "$@"
+    fi
+}
+
 history_truncate() {
     # Details: https://is.gd/HPAtE5
     echo "Before: $(du -shL $HISTFILE)"
@@ -529,17 +537,6 @@ mux_command() {
         tmuxinator stop $(tmux display-message -p '#S')
     else
         tmuxinator "$@"
-    fi
-}
-
-navi_cheats() {
-    local navi_command='
-      navi --print --fzf-overrides "--no-multi --no-height --no-sort"
-    '
-    if [[ $# -eq 0 ]]; then
-        eval $navi_command
-    else
-        eval $navi_command --query "$@"
     fi
 }
 

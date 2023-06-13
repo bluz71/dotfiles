@@ -89,7 +89,6 @@ alias sudo 'sudo '
 alias wl 'wc -l'
 alias x exit
 alias ytest 'CI=true yarn test --colors'
-# TODO abbr -- ? 'navi_cheats'
 
 # General environment variables.
 #
@@ -452,6 +451,15 @@ function grep_edit
     end
 
     $EDITOR (rg -l $argv)
+end
+
+function help
+    set -f navi_command 'navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
+    if test (count $argv) -eq 0
+        eval $navi_command
+    else
+        eval $navi_command --query $argv
+    end
 end
 
 function lc
