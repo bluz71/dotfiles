@@ -8,6 +8,7 @@ local g = vim.g
 g.ale_fixers = {
   css = { "prettier" },
   dart = { "dart-format" },
+  fish = { "fish_indent" },
   javascript = { "prettier-standard" },
   json = { "prettier" },
   lua = { "stylua" },
