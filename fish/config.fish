@@ -286,12 +286,10 @@ function shell_config
     set -g fish_key_bindings fish_default_key_bindings
 end
 
-function style
+function style_config
     if not status is-interactive
         return
     end
-
-    # Refer to: https://fishshell.com/docs/current/interactive.html#syntax-highlighting
 
     # Syntax highlighting colors.
     set -g fish_color_autosuggestion 626262
@@ -344,4 +342,4 @@ brew_config
 custom_config
 dev_config
 shell_config
-style
+style_config
