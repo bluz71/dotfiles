@@ -18,25 +18,17 @@ abbr 775 'chmod 775'
 # -- Navigation aliases --
 abbr -- - 'cd -'
 abbr -- ~ 'cd ~'
-alias .. 'cd ..'
-alias ... 'cd ../..'
-alias .... 'cd ../../..'
-alias cf fzf_change_directory
+abbr .. 'cd ..'
+abbr ... 'cd ../..'
+abbr .... 'cd ../../..'
 # -- Disk aliases --
 alias df. 'df -h .'
 alias du 'du -b'
-alias dus du_by_size
 # -- Docker aliases --
 alias d docker
 alias dc docker-compose
 # -- Git aliases --
 alias g~ 'cd "$(git rev-parse --show-toplevel)"'
-alias ga fzf_git_add
-alias gll 'fzf_git_log clean'
-alias glla 'fzf_git_log all'
-alias glS fzf_git_log_pickaxe
-alias grl fzf_git_reflog
-alias gu fzf_git_unadd
 # -- History aliases --
 alias h=history
 alias hg='history | rg'
@@ -49,7 +41,6 @@ alias l1d 'l1 --list-dirs'
 alias ll 'l --long'
 alias ll. 'll -d .*'
 alias lld 'll --list-dirs'
-abbr llfs find_by_size
 # -- ripgrep aliases --
 alias rg 'rg --smart-case'
 # -- Tree aliases --
@@ -58,7 +49,6 @@ alias td 'tree -C -d'
 alias tdl 'tree -C -d -L'
 alias tl 'tree -C --dirsfirst -L'
 # -- Tree aliases --
-alias mux mux_command
 alias ta 'tmux attach'
 alias tls 'tmux ls'
 alias tnew 'tmux new -s $(basename $(pwd) | cut -d"." -f1)'
@@ -66,14 +56,10 @@ alias tnew 'tmux new -s $(basename $(pwd) | cut -d"." -f1)'
 alias gv 'gvim 2> /dev/null'
 alias v nvim
 alias vdi 'nvim -d'
-alias vf fzf_find_edit
-alias vg grep_edit
 # -- Miscellaneous aliases --
 alias be 'bundle exec'
 alias bs 'br --whale-spotting'
-alias cwd copy_working_directory
 alias eq math
-alias fkill fzf_kill
 alias lynx 'lynx --accept_all_cookies'
 alias m less
 alias mdi 'meld 2>/dev/null'
@@ -173,6 +159,7 @@ else if test $OS = Darwin
     alias updatedb 'env PATH=/usr/bin $PATH sudo /usr/libexec/locate.updatedb'
 end
 
+
 # Functions.
 #
 function brew_config
@@ -202,18 +189,6 @@ function brew_config
     else
         echo 'Error: unsupported platform'
         return
-    end
-end
-
-function copy_working_directory
-    if test $OS = Linux
-        echo -n (echo $PWD | sed "s|^$HOME|~|") | tr -d "\r\n" | xclip -selection clipboard -i
-    else if test $OS = Darwin
-        echo -n (echo $PWD | sed "s|^$HOME|~|") | tr -d "\r\n" | pbcopy
-    end
-    # Also copy current directory to a tmux paste buffer if tmux is active.
-    if test -n $TMUX
-        echo -n (echo $PWD | sed "s|^$HOME|~|") | tr -d "\r\n" | tmux load-buffer -
     end
 end
 
@@ -303,214 +278,6 @@ function dev_config
     end
 end
 
-function du_by_size
-    if test (count $argv) -eq 0
-        du -sh * | sort -hr | less
-    else
-        du -sh $argv | sort -hr | less
-    end
-end
-
-function find_by_size
-    if test (count $argv) -eq 0
-        echo "Usage: llfs <size> (e.g. 100k, +1M, +1G)"
-    else
-        find . -type f -size $argv -exec exa --long {} \;
-    end
-end
-
-function fish_user_key_bindings
-    # Bindings, invoke 'bind' for full listing:
-    #
-    # - Alt-Left: navigate back in directory history
-    # - Alt-Right: navigate forward in directory history
-    # - Alt-f: move forward a word
-    # - Alt-b: move backward a word
-    # - Shift-Left: move forward a BIG word
-    # - Shift-Right: move backward a BIG word
-    # - Alt-d: delete forward word
-    # - Alt-<backspace>: delete backward word
-    # - Alt-u: undo last edit
-    # - Alt-e: edit the current command in $EDITOR and execute
-    # - Alt-.: append last parameter from previous command
-    # - Ctrl-a/HOME/fn-left: go to start of line
-    # - Ctrl-e/END/fn-right: go to end of line
-    # - Ctrl-r: reverse history search
-    # - Ctrl-u: change up a directory
-
-    # Need to define Shift-Left & Shift-Right as follows for BIG word navigation
-    # to work in tmux.
-    bind \e\[1\;2D backward-bigword
-    bind \e\[1\;2C forward-bigword
-    # Rebind 'undo' to Alt-u.
-    bind \eu undo
-
-    if test -n $HOMEBREW_PREFIX
-        # Enable 'fzf' key bindings.
-        fzf_key_bindings
-    end
-end
-
-function fzf_change_directory
-    set -f directory (
-      fd --type d |
-        fzf --query="$argv" --no-multi --select-1 --exit-0 \
-            --preview 'tree -C {} | head -100'
-      )
-    if test -n "$directory"
-        cd "$directory"
-    end
-end
-
-function fzf_find_edit
-    set -f file (
-      fzf --query="$argv" --no-multi --select-1 --exit-0 \
-          --preview 'bat --color=always --line-range :500 {}'
-      )
-    if test -n "$file"
-        $EDITOR "$file"
-    end
-end
-
-function fzf_git_add
-    set -f selections (
-      git status --porcelain | \
-        fzf --ansi \
-            --preview 'if git ls-files --error-unmatch {2} &>/dev/null
-                         git diff --color=always {2} | delta
-                       else
-                         bat --color=always --line-range :500 {2}
-                       end'
-    )
-    if test -n "$selections"
-        set -l additions (string replace --all ' M ' '' $selections)
-        git add --verbose (string split -- " " $additions)
-    end
-end
-
-function fzf_git_log
-    set -f command ll
-    if test "$1" = all
-        set -f command lla
-    end
-    set -e argv[1] # Consume the first argument of this function
-    set -f selection (
-      git $command --color=always $argv | \
-        fzf --no-multi --ansi --no-sort --no-height \
-            --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
-                       xargs -I@ sh -c 'git show --color=always @' |
-                       delta"
-      )
-    if test -n "$selection"
-        set -l commit (echo "$selection" | sed 's/^[* |]*//' | awk '{print $1}' | tr -d '\n')
-        git show $commit
-    end
-end
-
-function fzf_git_log_pickaxe
-    if test (count $argv) -eq 0
-        echo 'Usage: glS <search-term>'
-        return
-    end
-    set -f selection (
-      git log --oneline --color=always -S $argv | \
-        fzf --no-multi --ansi --no-sort --no-height \
-            --preview 'git show --color=always {1} | delta'
-    )
-    if test -n "$selection"
-        set -l commit (echo "$selection" | awk '{print $1}' | tr -d '\n')
-        git show $commit
-    end
-end
-
-function fzf_git_reflog
-    set -f selection (
-      git reflog --color=always $argv | \
-        fzf --no-multi --ansi --no-sort --no-height \
-            --preview 'git show --color=always {1} | delta'
-    )
-    if test -n "$selection"
-        git show (echo $selection | awk '{print $1}')
-    end
-end
-
-function fzf_git_unadd
-    set -f changes (git diff --name-only --cached | fzf --ansi)
-    if test -n "$changes"
-        git unadd $changes
-    end
-end
-
-function fzf_kill
-    if test $OS = Linux
-        set -f pids (ps -f -u $USER | sed 1d | fzf | awk '{print $2}')
-    else if test $OS = Darwin
-        set -f pids (ps -f -u $USER | sed 1d | fzf | awk '{print $3}')
-    else
-        echo 'Error: unknown platform.'
-        return
-    end
-    echo $pids
-    if test -n "$pids"
-        echo "$pids" | xargs kill -9 $argv
-    end
-end
-
-function g --wraps git
-    if test (count $argv) -eq 0
-        git status -sb
-    else
-        git $argv
-    end
-end
-
-function grep_edit
-    if test (count $argv) -eq 0
-        echo 'Usage: vg <search-term>'
-        return
-    end
-
-    $EDITOR (rg -l $argv)
-end
-
-function help
-    set -f navi_command 'navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
-    if test (count $argv) -eq 0
-        eval $navi_command
-    else
-        eval $navi_command --query $argv
-    end
-end
-
-function lc
-    ls $argv | wc -l
-end
-
-function lldt
-    ll -r --sort=modified --list-dirs $argv | less
-end
-
-function lls
-    ll -r --sort=size $argv | less
-end
-
-function llt
-    ll -r --sort=modified $argv | less
-end
-
-function mc
-    mkdir -p $argv && cd $argv
-end
-
-function mux_command
-    if test (count $argv) -eq 1 -a $argv[1] = stop
-        # Automatically stop the current session.
-        tmuxinator stop (tmux display-message -p '#S')
-    else
-        tmuxinator $argv
-    end
-end
-
 function shell_config
     # Fish has been initialized.
     set -g __fish_initialized 3400
@@ -569,16 +336,6 @@ function user_paths
     set -gx MANPATH /usr/local/man /usr/local/share/man /usr/man /usr/share/man
 end
 
-function web
-    read -p 'set_color ffd787;
-             echo -n "Search ";
-             set_color 5fd7af;
-             echo -n "➜ ";
-             set_color normal' search_term
-    if test -n "$search_term"
-        open "https://duckduckgo.com/?q=$search_term" >/dev/null 2>&1
-    end
-end
 
 # Set environment.
 #
