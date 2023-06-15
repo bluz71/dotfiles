@@ -3,17 +3,13 @@
 
 Contained are dotfiles for:
 
-- Bash
-- Readline
-- Neovim
-- Vim
-- tmux
-- Git
-- SSH
-- Linux fontconfig
-- [markdownlint](https://github.com/DavidAnson/markdownlint)
-- [bat](https://github.com/sharkdp/bat)
-- [yamllint](https://github.com/adrienverge/yamllint)
+- [Bash](https://github.com/bluz71/dotfiles/blob/master/bashrc)
+- [Readline](https://github.com/bluz71/dotfiles/blob/master/inputrc)
+- [Fish](https://github.com/bluz71/dotfiles/tree/master/fish)
+- [Neovim](https://github.com/bluz71/dotfiles/tree/master/nvim)
+- [Vim](https://github.com/bluz71/dotfiles/blob/master/vimrc)
+- [tmux](https://github.com/bluz71/dotfiles/blob/master/tmux.conf)
+- [Git](https://github.com/bluz71/dotfiles/blob/master/gitconfig)
 
 Platforms where these dotfiles are used: macOS with Homebrew and Debian
 derivatives of Linux (Linux Mint and Ubuntu).
