@@ -183,8 +183,8 @@ fi
 #
 brew_config() {
     if [[ $OS == "Linux" ]]; then
-        if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew) ]]; then
-            echo 'Note: brew is not installed.'
+        if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew 2>/dev/null) ]]; then
+            echo 'Note: brew is not available.'
             return
         fi
         export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
@@ -193,8 +193,8 @@ brew_config() {
         PATH=$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
     elif [[ $OS == "Darwin" ]]; then
-        if ! [[ -x $(command -v /opt/homebrew/bin/brew) ]]; then
-            echo 'Note: brew is not installed.'
+        if ! [[ -x $(command -v /opt/homebrew/bin/brew 2>/dev/null) ]]; then
+            echo 'Note: brew is not available.'
             return
         fi
         export HOMEBREW_PREFIX="/opt/homebrew";
