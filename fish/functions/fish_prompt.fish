@@ -1,17 +1,9 @@
-if ! set -q fishfly_prefix_color
-    set -g fishfly_prefix_color (set_color ffafaf)
-end
-
 if not set -q fishfly_normal_color
     set -g fishfly_normal_color (set_color 87afff)
 end
 
 if not set -q fishfly_alert_color
     set -g fishfly_alert_color (set_color ff5f5f)
-end
-
-if not set -q fishfly_host_color
-    set -g fishfly_host_color (set_color eeeeee)
 end
 
 if not set -q fishfly_git_color
@@ -64,13 +56,28 @@ else
     echo "Note: git-status-fly is not available"
 end
 
-function git_status_fly
+function fishfly_prefix
+    # Reset the `fishfly_prefix` environment variable.
+    set -e fishfly_prefix
+
+    if test -f Gemfile
+        set -g fishfly_prefix (set_color --bold ff5454)'◢'
+    else if test -f package.json
+        set -g fishfly_prefix (set_color --bold 5fd7af)'⬢'
+    else if test -f Cargo.toml
+        set -g fishfly_prefix (set_color --bold ff8700)'●'
+    else if test -f pubspec.yaml
+        set -g fishfly_prefix (set_color --bold 74b2ff)'◀'
+    end
+end
+
+function fishfly_git_status
     # The `git-status-fly` command is not available, hence, exit early.
     if not set -q fishfly_git_status_fly
         return
     end
 
-    # Reset `fishfly_git` environment variable.
+    # Reset the `fishfly_git` environment variable.
     set -e fishfly_git
 
     # Run and source `git-status-fly`.
@@ -120,16 +127,23 @@ end
 function fish_prompt
     set -f last_pipestatus $pipestatus
 
-    # Collate Git details, if applicable, for the current directory.
-    git_status_fly
+    # Detect whether we are running inside a known framework, if so a colored
+    # symbol will be displayed.
+    fishfly_prefix
 
-    set -f prompt_connected
+    # Collate Git details, if applicable, for the current directory.
+    fishfly_git_status
+
+    # If we are connected to an external host then display those connection
+    # details in the prompt.
+    set -f fishfly_connected
     if test -n "$SSH_CONNECTION"
-        set -f prompt_connected (prompt_login)
+        set -f fishfly_connected (prompt_login)
     end
 
-    # Normal prompt indicates that the last command ran successfully.
-    # Alert prompt indicates that the last command failed.
+    # Normal prompt symbol color indicates that the last command ran
+    # successfully whilst alert prompt symbol color indicates that the last
+    # command failed.
     set -f prompt_symbol_color $fishfly_normal_color
     for status_code in $last_pipestatus
         if test "$status_code" -ne 0
@@ -138,7 +152,8 @@ function fish_prompt
         end
     end
 
-    echo -n -s $prompt_connected' ' \
+    echo -n -s $fishfly_prefix' ' \
+               $fishfly_connected' ' \
                $fishfly_path_color (prompt_pwd --full-length-dirs=4) \
                ' '$fishfly_git \
                $prompt_symbol_color ' '$fishfly_prompt_symbol \
