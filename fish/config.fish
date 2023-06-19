@@ -164,8 +164,9 @@ end
 #
 function brew_config
     if test $OS = Linux
-        if not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew)
-            echo 'Note: brew is not installed.'
+        if not command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; or \
+           not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null)
+            echo 'Note: brew is not available.'
             return
         end
         set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
@@ -174,8 +175,9 @@ function brew_config
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
     else if test $OS = Darwin
-        if not test -x (command -v /opt/homebrew/bin/brew)
-            echo 'Note: brew is not installed.'
+        if not command -v /opt/homebrew/bin/brew &>/dev/null; or \
+           not test -x (command -v /opt/homebrew/bin/brew &>/dev/null)
+            echo 'Note: brew is not available'
             return
         end
         set -gx HOMEBREW_PREFIX /opt/homebrew
@@ -315,7 +317,7 @@ function style_config
     set -g fish_color_search_match --background=323437
     set -g fish_color_selection --background=323437
     set -g fish_color_status ff5454
-    set -g fish_color_user 87d7af
+    set -g fish_color_user 36c692
     set -g fish_color_valid_path
 
     # Completion pager colors.
