@@ -133,7 +133,6 @@ set -gx PAGER less
 set -gx OS (uname)
 
 if test $OS = Linux
-    set -g SHELL "/home/linuxbrew/.linuxbrew/bin/fish"
     alias ip 'ip --color=auto'
     alias cpa '/bin/cp -i -a'
     alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
@@ -150,7 +149,6 @@ if test $OS = Linux
     alias wg0info 'nmcli --overview connection show wg0'
     alias wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
-    set -g SHELL /opt/homebrew/bin/fish
     alias cpa '/opt/homebrew/bin/gcp -i -a'
     alias ls 'ls --color --classify --human-readable --quoting-style=escape'
     alias scp '/opt/homebrew/bin/scp -r'
@@ -286,6 +284,9 @@ function shell_config
 
     # Use Emacs-style key bindings.
     set -g fish_key_bindings fish_default_key_bindings
+
+    # Explicitly set the SHELL environment variable.
+    set -g SHELL (which fish)
 end
 
 function style_config
