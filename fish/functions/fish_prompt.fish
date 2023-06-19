@@ -1,32 +1,146 @@
-function fish_prompt
-    set -l last_pipestatus $pipestatus
-    set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
-    set -l normal (set_color normal)
-    set -l blue (set_color 87afff)
-    set -q fish_color_status
-    or set -g fish_color_status red
+if ! set -q fishfly_prefix_color
+    set -g fishfly_prefix_color (set_color ffafaf)
+end
 
-    # Color the prompt differently when we're root
-    set -l color_cwd $fish_color_cwd
-    set -l suffix ' ❯'
-    if functions -q fish_is_root_user; and fish_is_root_user
-        if set -q fish_color_cwd_root
-            set color_cwd $fish_color_cwd_root
+if not set -q fishfly_normal_color
+    set -g fishfly_normal_color (set_color 87afff)
+end
+
+if not set -q fishfly_alert_color
+    set -g fishfly_alert_color (set_color ff5f5f)
+end
+
+if not set -q fishfly_host_color
+    set -g fishfly_host_color (set_color eeeeee)
+end
+
+if not set -q fishfly_git_color
+    set -g fishfly_git_color (set_color afafff)
+end
+
+if not set -q fishfly_path_color
+    set -g fishfly_path_color (set_color 87d787)
+end
+
+if not set -q fishfly_no_color
+    set -g fishfly_no_color (set_color normal)
+end
+
+if not set -q fishfly_prompt_symbol
+    set -g fishfly_prompt_symbol '❯'
+end
+
+if not set -q fishfly_git_prefix
+    set -g fishfly_git_prefix ' '
+end
+
+if not set -q fishfly_git_dirty
+    set -g fishfly_git_dirty '✗'
+end
+
+if not set -q fishfly_git_staged
+    set -g fishfly_git_staged '✓'
+end
+
+if not set -q fishfly_git_stash
+    set -g fishfly_git_stash '⚑'
+end
+
+if not set -q fishfly_git_ahead
+    set -g fishfly_git_ahead '↑'
+end
+
+if not set -q fishfly_git_behind
+    set -g fishfly_git_behind '↓'
+end
+
+if not set -q fishfly_git_diverged
+    set -g fishfly_git_diverged '↕'
+end
+
+if command -v git-status-fly &>/dev/null; and test -x (command -v git-status-fly &>/dev/null)
+    set -g fishfly_git_status_fly 1
+else
+    echo "Note: git-status-fly is not available"
+end
+
+function git_status_fly
+    # The `git-status-fly` command is not available, hence, exit early.
+    if not set -q fishfly_git_status_fly
+        return
+    end
+
+    # Reset `fishfly_git` environment variable.
+    set -e fishfly_git
+
+    # Run and source `git-status-fly`.
+    git-status-fly | source
+    test -z "$GSF_REPOSITORY" && return
+
+    # We are in a Git repository.
+    set -f branch $GSF_BRANCH
+    if test "$branch" = HEAD
+        set branch "detached*(git rev-parse --short HEAD 2>/dev/null)"
+    end
+    set branch (string replace -a '\\' '\\\\' $branch) # Escape backslashes
+    set branch (string replace -a '$' '\\$' $branch) # Escape dollars
+
+    set -f dirty
+    set -f staged
+    if test "$branch" != "detached*"
+        test -n "$GSF_DIRTY" && set dirty $fishfly_git_dirty
+        test -n "$GSF_STAGED" && set staged $fishfly_git_staged
+    end
+
+    set stash
+    test -n "$GSF_STASH" && set stash $fishfly_git_stash
+
+    set upstream
+    if test -n $GSF_UPSTREAM
+        if test $GSF_UPSTREAM -eq 2
+            set upstream $fishfly_git_diverged
+        else if test $GSF_UPSTREAM -eq 1
+            set upstream $fishfly_git_ahead
+        else if test $GSF_UPSTREAM -lt 0
+            set upstream $fishfly_git_behind
+        else if test $GSF_UPSTREAM -eq 0
+            set upstream "="
         end
-        set suffix '#'
     end
 
-    # Write pipestatus
-    # If the status was carried over (if no command is issued or if `set` leaves the status untouched), don't bold it.
-    set -l bold_flag --bold
-    set -q __fish_prompt_status_generation; or set -g __fish_prompt_status_generation $status_generation
-    if test $__fish_prompt_status_generation = $status_generation
-        set bold_flag
+    set -f spacer
+    if test -n "$dirty" -o -n "$staged" -o -n "$stash" -o -n "$upstream"
+        set spacer " "
     end
-    set __fish_prompt_status_generation $status_generation
-    set -l status_color (set_color $fish_color_status)
-    set -l statusb_color (set_color $bold_flag $fish_color_status)
-    set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
+    set -g fishfly_git "$fishfly_git_color$fishfly_git_prefix$branch$spacer\
+$fishfly_alert_color$dirty$fishfly_normal_color$staged$upstream\
+$fishfly_git_color$stash"
+end
 
-    echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd --full-length-dirs=4) $normal (fish_vcs_prompt) $normal " "$prompt_status $blue $suffix $normal " "
+function fish_prompt
+    set -f last_pipestatus $pipestatus
+
+    # Collate Git details, if applicable, for the current directory.
+    git_status_fly
+
+    set -f prompt_connected
+    if test -n "$SSH_CONNECTION"
+        set -f prompt_connected (prompt_login)
+    end
+
+    # Normal prompt indicates that the last command ran successfully.
+    # Alert prompt indicates that the last command failed.
+    set -f prompt_symbol_color $fishfly_normal_color
+    for status_code in $last_pipestatus
+        if test "$status_code" -ne 0
+            set prompt_symbol_color $fishfly_alert_color
+            break
+        end
+    end
+
+    echo -n -s $prompt_connected' ' \
+               $fishfly_path_color (prompt_pwd --full-length-dirs=4) \
+               ' '$fishfly_git \
+               $prompt_symbol_color ' '$fishfly_prompt_symbol \
+               $fishfly_no_color ' '
 end
