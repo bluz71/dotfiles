@@ -50,7 +50,7 @@ alias tl 'tree -C --dirsfirst -L'
 # -- Tree aliases --
 alias ta 'tmux attach'
 alias tls 'tmux ls'
-alias tnew 'tmux new -s $(basename $(pwd) | cut -d"." -f1)'
+alias tnew 'tmux new -s (basename $(pwd) | cut -d"." -f1)'
 # -- Vim aliases --
 alias gv 'gvim 2> /dev/null'
 alias v nvim
