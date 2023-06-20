@@ -1,3 +1,5 @@
+# Web search.
+#
 function web
     read -p 'set_color ffd787;
              echo -n "Search ";

@@ -1,3 +1,5 @@
+# fzf find and edit file.
+#
 function vf
     set -f file (
       fzf --query="$argv" --no-multi --select-1 --exit-0 \

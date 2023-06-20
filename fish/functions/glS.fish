@@ -1,3 +1,5 @@
+# fzf git log pickaxe.
+#
 function glS
     if test (count $argv) -eq 0
         echo 'Usage: glS <search-term>'

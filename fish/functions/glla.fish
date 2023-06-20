@@ -1,3 +1,5 @@
+# fzf git log all.
+#
 function glla
     set -f selection (
       git lla --color=always $argv | \

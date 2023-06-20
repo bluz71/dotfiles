@@ -32,7 +32,6 @@ alias g~ 'cd "$(git rev-parse --show-toplevel)"'
 # -- History aliases --
 alias h=history
 alias hg='history | rg'
-# TODO alias ht='history_truncate' Fish history file: ~/.local/share/fish/fish_history
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
 alias l 'exa --color=always --group-directories-first'

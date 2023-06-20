@@ -1,3 +1,5 @@
+# fzf process kill.
+#
 function fkill
     if test $OS = Linux
         set -f pids (ps -f -u $USER | sed 1d | fzf | awk '{print $2}')

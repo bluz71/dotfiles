@@ -1,3 +1,5 @@
+# fzf change directory.
+#
 function cf
     set -f directory (
       fd --type d |

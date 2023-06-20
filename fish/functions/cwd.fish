@@ -1,3 +1,5 @@
+# Copy working directory.
+#
 function cwd
     if test $OS = Linux
         echo -n (echo $PWD | sed "s|^$HOME|~|") | tr -d "\r\n" | xclip -selection clipboard -i

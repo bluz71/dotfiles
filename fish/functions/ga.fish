@@ -1,3 +1,5 @@
+# fzf git add.
+#
 function ga
     set -f selections (
       git status --porcelain | \

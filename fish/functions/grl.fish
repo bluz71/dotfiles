@@ -1,3 +1,5 @@
+# fzf git reflog.
+#
 function grl
     set -f selection (
       git reflog --color=always $argv | \
