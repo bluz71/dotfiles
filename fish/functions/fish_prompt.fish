@@ -124,7 +124,7 @@ $fishfly_alert_color$dirty$fishfly_normal_color$staged$upstream\
 $fishfly_git_color$stash"
 end
 
-function fish_prompt
+function fish_prompt --description 'Fish Prompt'
     set -f last_pipestatus $pipestatus
 
     # Detect whether we are running inside a known framework, if so a colored

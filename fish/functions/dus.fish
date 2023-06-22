@@ -1,6 +1,4 @@
-# Disk usage sorted by size.
-#
-function dus
+function dus --description 'Disk usage sorted by size'
     if test (count $argv) -eq 0
         du -sh * | sort -hr | less
     else

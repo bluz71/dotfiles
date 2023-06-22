@@ -1,6 +1,4 @@
-# Copy working directory.
-#
-function cwd
+function cwd --description 'Copy working directory'
     if test $OS = Linux
         echo -n (echo $PWD | sed "s|^$HOME|~|") | tr -d "\r\n" | xclip -selection clipboard -i
     else if test $OS = Darwin

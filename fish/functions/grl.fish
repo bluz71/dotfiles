@@ -1,6 +1,4 @@
-# fzf git reflog.
-#
-function grl
+function grl --description 'fzf git reflog'
     set -f selection (
       git reflog --color=always $argv | \
         fzf --no-multi --ansi --no-sort --no-height \

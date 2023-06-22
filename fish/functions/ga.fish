@@ -1,6 +1,4 @@
-# fzf git add.
-#
-function ga
+function ga --description 'fzf git add'
     set -f selections (
       git status --porcelain | \
         fzf --ansi \

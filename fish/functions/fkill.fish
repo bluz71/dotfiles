@@ -1,6 +1,4 @@
-# fzf process kill.
-#
-function fkill
+function fkill --description 'fzf process kill'
     if test $OS = Linux
         set -f pids (ps -f -u $USER | sed 1d | fzf | awk '{print $2}')
     else if test $OS = Darwin

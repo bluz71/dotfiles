@@ -1,6 +1,4 @@
-# fzf git log all.
-#
-function glla
+function glla --description 'fzf git log all'
     set -f selection (
       git lla --color=always $argv | \
         fzf --no-multi --ansi --no-sort --no-height \

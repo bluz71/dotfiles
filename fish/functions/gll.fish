@@ -1,6 +1,4 @@
-# fzf git log.
-#
-function gll
+function gll --description 'fzf git log'
     set -f selection (
       git ll --color=always $argv | \
         fzf --no-multi --ansi --no-sort --no-height \

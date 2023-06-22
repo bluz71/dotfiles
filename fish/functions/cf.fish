@@ -1,6 +1,4 @@
-# fzf change directory.
-#
-function cf
+function cf --description 'fzf change directory'
     set -f directory (
       fd --type d |
         fzf --query="$argv" --no-multi --select-1 --exit-0 \

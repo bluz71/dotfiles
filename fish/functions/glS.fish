@@ -1,6 +1,4 @@
-# fzf git log pickaxe.
-#
-function glS
+function glS --description 'fzf git log pickaxe'
     if test (count $argv) -eq 0
         echo 'Usage: glS <search-term>'
         return

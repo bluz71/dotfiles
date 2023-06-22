@@ -1,6 +1,4 @@
-# Web search.
-#
-function web
+function web --description 'Web search'
     read -p 'set_color ffd787;
              echo -n "Search ";
              set_color 5fd7af;
