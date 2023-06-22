@@ -25,6 +25,9 @@ function fish_user_key_bindings
     # Rebind 'undo' to Alt-u.
     bind \eu undo
 
+    # Bind custom fzf_complete function to Ctrl-f.
+    bind \cf fzf_complete
+
     if test -n $HOMEBREW_PREFIX
         # Enable 'fzf' key bindings.
         fzf_key_bindings
