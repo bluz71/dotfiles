@@ -53,7 +53,7 @@ alias tls 'tmux ls'
 alias tnew 'tmux new -s (basename $(pwd) | cut -d"." -f1)'
 # -- Vim aliases --
 alias gv 'gvim 2> /dev/null'
-alias v nvim
+alias v 'TERM=alacritty nvim'
 alias vdi 'nvim -d'
 # -- Miscellaneous aliases --
 alias be 'bundle exec'
