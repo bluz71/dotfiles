@@ -136,8 +136,8 @@ cursor:
   thickness: 0.2
 
 shell:
-  program: /opt/homebrew/bin/bash
-  # program: /opt/homebrew/bin/fish
+  # program: /opt/homebrew/bin/bash
+  program: /opt/homebrew/bin/fish
 
 mouse:
   hide_when_typing: false
