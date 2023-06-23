@@ -638,6 +638,9 @@ shell_config() {
     if [[ $- =~ i ]]; then
         printf "\e[?1042l"
     fi
+
+    # Explicitly set the SHELL environment variable.
+    export SHELL=$(which bash)
 }
 
 user_paths() {
