@@ -132,7 +132,7 @@ set -gx PAGER less
 set -gx OS (uname)
 
 if test $OS = Linux
-    alias ip 'ip --color=auto'
+    alias bash 'SHELL=/bin/bash command bash'
     alias cpa '/bin/cp -i -a'
     alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     alias free 'free -th'
@@ -148,6 +148,7 @@ if test $OS = Linux
     alias wg0info 'nmcli --overview connection show wg0'
     alias wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
+    alias bash 'SHELL=/opt/homebrew/bash command bash'
     alias cpa '/opt/homebrew/bin/gcp -i -a'
     alias ls 'ls --color --classify --human-readable --quoting-style=escape'
     alias scp '/opt/homebrew/bin/scp -r'

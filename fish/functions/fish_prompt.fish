@@ -103,14 +103,14 @@ function fishfly_git_status
     test -n "$GSF_STASH" && set stash $fishfly_git_stash
 
     set upstream
-    if test -n $GSF_UPSTREAM
-        if test $GSF_UPSTREAM -eq 2
+    if test -n "$GSF_UPSTREAM"
+        if test "$GSF_UPSTREAM" -eq 2
             set upstream $fishfly_git_diverged
-        else if test $GSF_UPSTREAM -eq 1
+        else if test "$GSF_UPSTREAM" -eq 1
             set upstream $fishfly_git_ahead
-        else if test $GSF_UPSTREAM -lt 0
+        else if test "$GSF_UPSTREAM" -lt 0
             set upstream $fishfly_git_behind
-        else if test $GSF_UPSTREAM -eq 0
+        else if test "$GSF_UPSTREAM" -eq 0
             set upstream "="
         end
     end
