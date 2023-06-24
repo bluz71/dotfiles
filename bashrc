@@ -38,6 +38,7 @@ alias gu='fzf_git_unadd'
 # -- History aliases --
 alias h=history
 alias hg='history | rg'
+alias hm='history -n'
 alias ht='history_truncate'
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
@@ -571,10 +572,10 @@ packages() {
 
 seafly_pre_command() {
     if [[ -n $HOMEBREW_PREFIX ]]; then
-        history -a && history -n
+        history -a
         __zoxide_hook
     else
-        history -a && history -n
+        history -a
     fi
 }
 
