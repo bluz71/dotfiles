@@ -17,6 +17,7 @@ function fish_user_key_bindings
     # - Ctrl-e/END/fn-right: go to end of line
     # - Ctrl-r: reverse history search
     # - Ctrl-u: change up a directory
+    # - Ctrl-p: append pager
 
     # Need to define Shift-Left & Shift-Right as follows for BIG word navigation
     # to work in tmux inside Alacritty.
@@ -24,6 +25,8 @@ function fish_user_key_bindings
     bind \e\[1\;2C forward-bigword
     # Rebind 'undo' to Alt-u.
     bind \eu undo
+    # Rebind 'pager' to Ctrl-p.
+    bind \cp __fish_paginate
 
     # Bind custom fzf_complete function to Ctrl-f.
     bind \cf fzf_complete
