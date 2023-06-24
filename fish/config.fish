@@ -286,6 +286,12 @@ function shell_config
 
     # Explicitly set the SHELL environment variable.
     set -gx SHELL (which fish)
+
+    # Disable Alacritty icon bouncing for interactive shells.
+    # Refer to: https://is.gd/8MPdGh
+    if status is-interactive
+        printf "\e[?1042l"
+    end
 end
 
 function style_config

@@ -634,14 +634,14 @@ shell_config() {
     # Set the appropriate umask.
     umask 002
 
+    # Explicitly set the SHELL environment variable.
+    export SHELL=$(which bash)
+
     # Disable Alacritty icon bouncing for interactive shells.
     # Refer to: https://is.gd/8MPdGh
     if [[ $- =~ i ]]; then
         printf "\e[?1042l"
     fi
-
-    # Explicitly set the SHELL environment variable.
-    export SHELL=$(which bash)
 }
 
 user_paths() {
