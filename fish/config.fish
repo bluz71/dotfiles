@@ -30,8 +30,9 @@ alias dc docker-compose
 # -- Git aliases --
 alias g~ 'cd "$(git rev-parse --show-toplevel)"'
 # -- History aliases --
-alias h=history
-alias hg='history | rg'
+abbr h history
+abbr hd 'history delete'
+abbr hm 'history merge'
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
 alias l 'exa --color=always --group-directories-first'
