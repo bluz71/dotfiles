@@ -57,7 +57,7 @@ alias gv 'gvim 2> /dev/null'
 alias v 'TERM=alacritty nvim'
 alias vdi 'nvim -d'
 # -- Miscellaneous aliases --
-alias be 'bundle exec'
+abbr be 'bundle exec'
 alias bs 'br --whale-spotting'
 alias eq math
 alias lynx 'lynx --accept_all_cookies'
@@ -75,6 +75,8 @@ alias sudo 'sudo '
 alias wl 'wc -l'
 alias x exit
 alias ytest 'CI=true yarn test --colors'
+# -- Bang bang abbreviation
+abbr !! --position anywhere --function last_history_item
 
 # General environment variables.
 #
@@ -275,6 +277,10 @@ function dev_config
         set -gx DART_SDK /usr/local/flutter/bin/cache/dart-sdk
         fish_add_path --path --append $DART_SDK/bin
     end
+end
+
+function last_history_item
+    echo $history[1]
 end
 
 function shell_config
