@@ -25,10 +25,10 @@ abbr .... 'cd ../../..'
 alias df. 'df -h .'
 alias du 'du -b'
 # -- Docker aliases --
-alias d docker
-alias dc docker-compose
+abbr d docker
+abbr dc docker-compose
 # -- Git aliases --
-alias g~ 'cd "$(git rev-parse --show-toplevel)"'
+alias g~ 'cd (git rev-parse --show-toplevel)'
 # -- History aliases --
 abbr h history
 abbr hd 'history delete'
@@ -61,11 +61,10 @@ abbr be 'bundle exec'
 alias bs 'br --whale-spotting'
 alias eq math
 alias lynx 'lynx --accept_all_cookies'
-alias m less
 alias mdi 'meld 2>/dev/null'
 alias p bat
-alias pn pnpm
-alias px pnpx
+abbr pn pnpm
+abbr px pnpx
 alias pping 'prettyping --nolegend -i 5'
 alias psu 'ps -u $USER -f'
 alias qmv 'qmv -d -f do'
