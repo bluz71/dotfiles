@@ -1,7 +1,7 @@
-
 function fish_user_key_bindings
     # Bindings, invoke 'bind' for full listing:
     #
+    # - Ctrl-s: toggle completion search
     # - Alt-Left: navigate back in directory history
     # - Alt-Right: navigate forward in directory history
     # - Alt-f: move forward a word
@@ -18,7 +18,6 @@ function fish_user_key_bindings
     # - Ctrl-r: reverse history search
     # - Ctrl-u: change up a directory
     # - Ctrl-p: append pager
-    # - Ctrl-f: searchable completion
 
     # Need to define Shift-Left & Shift-Right as follows for BIG word navigation
     # to work in tmux inside Alacritty.
@@ -28,8 +27,6 @@ function fish_user_key_bindings
     bind \eu undo
     # Rebind 'pager' to Ctrl-p.
     bind \cp __fish_paginate
-    # Rebind 'complete-and-serch' to Ctrl-f.
-    bind \cf complete-and-search
 
     if test -n "$HOMEBREW_PREFIX"
         # Enable 'fzf' key bindings.

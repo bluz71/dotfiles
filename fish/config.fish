@@ -193,7 +193,7 @@ function brew_config
 end
 
 function custom_config
-    if test -z $HOMEBREW_PREFIX
+    if test -z "$HOMEBREW_PREFIX"
         return
     end
 
@@ -232,11 +232,11 @@ function custom_config
 end
 
 function dev_config
-    if test -z $HOMEBREW_PREFIX
+    if test -z "$HOMEBREW_PREFIX"
         return
     end
 
-    if test -f $HOMEBREW_PREFIX/share/chruby/chruby.sh
+    if test -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh"
         # chruby is slow, instead simply set environment variables explicitly.
         #   . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         #   chruby 3.2.1
@@ -248,7 +248,7 @@ function dev_config
         fish_add_path --path $GEM_HOME/bin $RUBY_ROOT/bin
     end
 
-    if test -x $HOMEBREW_PREFIX/bin/fnm
+    if test -x "$HOMEBREW_PREFIX/bin/fnm"
         fnm env | source
         set -gx PNPM_HOME $HOME/.local/share/pnpm
         fish_add_path --path --append $PNPM_HOME
