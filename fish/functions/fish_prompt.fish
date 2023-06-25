@@ -1,5 +1,5 @@
-if not set -q fishfly_normal_color
-    set -g fishfly_normal_color (set_color 87afff)
+if not set -q fishfly_success_color
+    set -g fishfly_success_color (set_color 87afff)
 end
 
 if not set -q fishfly_alert_color
@@ -120,7 +120,7 @@ function fishfly_git_status
         set spacer " "
     end
     set -g fishfly_git "$fishfly_git_color$fishfly_git_prefix$branch$spacer\
-$fishfly_alert_color$dirty$fishfly_normal_color$staged$upstream\
+$fishfly_alert_color$dirty$fishfly_success_color$staged$upstream\
 $fishfly_git_color$stash"
 end
 
@@ -141,10 +141,10 @@ function fish_prompt --description 'Fish Prompt'
         set -f fishfly_connected (prompt_login)
     end
 
-    # Normal prompt symbol color indicates that the last command ran
-    # successfully whilst alert prompt symbol color indicates that the last
+    # Success prompt symbol color indicates that the last command ran
+    # without issue whilst alert prompt symbol color indicates that the last
     # command failed.
-    set -f prompt_symbol_color $fishfly_normal_color
+    set -f prompt_symbol_color $fishfly_success_color
     for status_code in $last_pipestatus
         if test "$status_code" -ne 0
             set prompt_symbol_color $fishfly_alert_color
