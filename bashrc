@@ -558,16 +558,6 @@ packages() {
     export SEAFLY_RUST_COLOR=$(tput setaf 208)
     export SEAFLY_DART_COLOR=$(tput setaf 12)
     . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
-
-    # fzf-tab-completion (https://github.com/lincheney/fzf-tab-completion)
-    #
-    # Install the package if it does not exist.
-    if ! [[ -d ~/.bash-packages/fzf-tab-completion ]]; then
-        git clone --depth 1 https://github.com/lincheney/fzf-tab-completion ~/.bash-packages/fzf-tab-completion
-    fi
-    . ~/.bash-packages/fzf-tab-completion/bash/fzf-bash-completion.sh
-    bind -x '"\C-f": fzf_bash_completion'
-    export FZF_COMPLETION_OPTS="$FZF_DEFAULT_OPTS --height 60% --info=hidden"
 }
 
 seafly_pre_command() {

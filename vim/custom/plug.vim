@@ -32,7 +32,7 @@ Plug 'bluz71/vim-nightfly-colors'
 " Style plugins
 "-----------------------------
 Plug 'bluz71/vim-mistfly-statusline'
-    " ~/dotfiles/vim/plugin/mistfly-statusline.vim
+    " ~/dotfiles/vim/after/plugin/mistfly-statusline.vim
 
 "-----------------------------
 " Behavior plugins
@@ -42,35 +42,35 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'chaoren/vim-wordmotion'
 Plug 'rhysd/clever-f.vim'
-    " ~/dotfiles/vim/plugin/clever-f.vim
+    " ~/dotfiles/vim/after/plugin/clever-f.vim
 
 "-----------------------------
 " Fuzzy finding plugins
 "-----------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-    " ~/dotfiles/vim/plugin/fzf.vim
+    " ~/dotfiles/vim/after/plugin/fzf.vim
 
 "-----------------------------
 " Filesystem plugins
 "-----------------------------
 Plug 'lambdalisue/fern.vim'
-    " ~/dotfiles/vim/plugin/fern.vim
+    " ~/dotfiles/vim/after/plugin/fern.vim
 Plug 'lambdalisue/fern-git-status.vim'
-    " ~/dotfiles/vim/plugin/fern-git-status.vim
+    " ~/dotfiles/vim/after/plugin/fern-git-status.vim
 
 "-----------------------------
 " Misc plugins
 "-----------------------------
 Plug 'mbbill/undotree'
-    " ~/dotfiles/vim/plugin/undotree.vim
-    " ~/dotfiles/vim/after/ftplugin/undotree.vim
+    " ~/dotfiles/vim/after/plugin/undotree.vim
+    " ~/dotfiles/vim/after/after/ftplugin/undotree.vim
 Plug '907th/vim-auto-save'
-    " ~/dotfiles/vim/plugin/auto-save.vim
+    " ~/dotfiles/vim/after/plugin/auto-save.vim
 Plug 'lifepillar/vim-cheat40'
-    " ~/dotfiles/vim/plugin/cheat40.vim
+    " ~/dotfiles/vim/after/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
-    " ~/dotfiles/vim/plugin/startup.vim
+    " ~/dotfiles/vim/after/plugin/startup.vim
 
 " Finalize vim-plug.
 call plug#end()
