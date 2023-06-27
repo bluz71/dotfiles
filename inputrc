@@ -1,7 +1,7 @@
 # Bindings, invoke 'bind -p' for full listing:
 #
-# - Alt-f: move forward a word
-# - Alt-b: move backward a word
+# - Ctrl-Right / Alt-f: move forward a word
+# - Ctrl-Left / Alt-b: move backward a word
 # - Shift-Left: move forward a BIG word
 # - Shift-Right: move backward a BIG word
 # - Alt-d: delete forward word
