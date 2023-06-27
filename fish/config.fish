@@ -59,7 +59,6 @@ alias vdi 'nvim -d'
 # -- Miscellaneous aliases --
 abbr be 'bundle exec'
 alias bs 'br --whale-spotting'
-alias eq math
 alias lynx 'lynx --accept_all_cookies'
 alias mdi 'meld 2>/dev/null'
 alias p bat
@@ -72,7 +71,7 @@ alias rs 'rsync --archive --human-readable --info=progress2 --verbose'
 alias src '. ~/.config/fish/config.fish'
 alias sudo 'sudo '
 alias wl 'wc -l'
-alias x exit
+abbr x exit
 alias ytest 'CI=true yarn test --colors'
 # -- Bang bang abbreviation
 abbr !! --position anywhere --function last_history_item
