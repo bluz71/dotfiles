@@ -154,6 +154,7 @@ export OS=$(uname)
 
 # Customizations per platform.
 if [[ $OS == "Linux" ]]; then
+    export SHELL='/bin/bash'
     alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -a'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
@@ -170,6 +171,7 @@ if [[ $OS == "Linux" ]]; then
     alias wg0info='nmcli --overview connection show wg0'
     alias wg0up='nmcli connection up wg0'
 elif [[ $OS == "Darwin" ]]; then
+    export SHELL='/opt/homebrew/bin/bash'
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias scp='/opt/homebrew/bin/scp -r'
@@ -620,11 +622,8 @@ shell_config() {
     # Only logout if 'Control-d' is executed two consecutive times.
     export IGNOREEOF=1
 
-    # Set the appropriate umask.
+    # Set preferred umask.
     umask 002
-
-    # Explicitly set the SHELL environment variable.
-    export SHELL=$(which bash)
 
     # Disable Alacritty icon bouncing for interactive shells.
     # Refer to: https://is.gd/8MPdGh
