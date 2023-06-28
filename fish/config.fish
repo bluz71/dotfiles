@@ -53,7 +53,7 @@ alias v 'TERM=alacritty nvim'
 alias vdi 'nvim -d'
 # -- Miscellaneous aliases --
 abbr be 'bundle exec'
-alias bs 'br --whale-spotting'
+abbr bs 'br --whale-spotting'
 alias lynx 'lynx --accept_all_cookies'
 alias mdi 'meld 2>/dev/null'
 alias p bat
@@ -62,10 +62,9 @@ abbr px pnpx
 alias pping 'prettyping --nolegend -i 5'
 alias psu 'ps -u $USER -f'
 alias qmv 'qmv -d -f do'
-alias rs 'rsync --archive --human-readable --info=progress2 --verbose'
-alias src '. ~/.config/fish/config.fish'
-alias sudo 'sudo '
-alias wl 'wc -l'
+abbr --position anywhere rs 'rsync -ahv --info=progress2'
+abbr src '. ~/.config/fish/config.fish'
+abbr wl 'wc -l'
 abbr x exit
 alias ytest 'CI=true yarn test --colors'
 # -- Bang bang abbreviation
@@ -150,7 +149,7 @@ else if test $OS = Darwin
     alias scp '/opt/homebrew/bin/scp -r'
     alias ssh /opt/homebrew/bin/ssh
     alias ssh-add /opt/homebrew/bin/ssh-add
-    alias updatedb 'env PATH=/usr/bin $PATH sudo /usr/libexec/locate.updatedb'
+    alias updatedb 'set -g PATH /usr/bin $PATH; sudo /usr/libexec/locate.updatedb'
 end
 
 
