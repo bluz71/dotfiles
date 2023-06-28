@@ -7,11 +7,6 @@ set -e MANPATH
 
 # Aliases and abbreviations.
 #
-# -- Coreutils aliases --
-alias cp '/bin/cp -iv'
-alias mv '/bin/mv -iv'
-alias rm '/bin/rm -i'
-alias rmrf '/bin/rm -rf'
 # -- Permissions aliases --
 abbr 664 'chmod 664'
 abbr 775 'chmod 775'
@@ -22,7 +17,7 @@ abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr .... 'cd ../../..'
 # -- Disk aliases --
-alias df. 'df -h .'
+abbr df. 'df -h .'
 alias du 'du -b'
 # -- Docker aliases --
 abbr d docker
