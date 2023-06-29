@@ -10,6 +10,7 @@ function ga --description 'fzf git add'
     )
     if test -n "$selections"
         set -l additions (string replace --all ' M ' '' $selections)
+        set -l additions (string replace --all '?? ' '' $additions)
         git add --verbose (string split -- " " $additions)
     end
 end

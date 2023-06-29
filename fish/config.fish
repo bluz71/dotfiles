@@ -23,7 +23,6 @@ alias du 'du -b'
 abbr d docker
 abbr dc docker-compose
 # -- Git aliases --
-alias g~ 'cd (git rev-parse --show-toplevel)'
 # -- History aliases --
 abbr h history
 abbr hd 'history delete'
@@ -36,14 +35,12 @@ alias l1d 'l1 --list-dirs'
 alias ll 'l --long'
 alias ll. 'll -d .*'
 alias lld 'll --list-dirs'
-# -- ripgrep aliases --
-alias rg 'rg --smart-case'
 # -- Tree aliases --
 alias t 'tree -C --dirsfirst'
 alias td 'tree -C -d'
 alias tdl 'tree -C -d -L'
 alias tl 'tree -C --dirsfirst -L'
-# -- Tree aliases --
+# -- tmux aliases --
 alias ta 'tmux attach'
 alias tls 'tmux ls'
 alias tnew 'tmux new -s (basename $(pwd) | cut -d"." -f1)'
@@ -66,7 +63,6 @@ abbr --position anywhere rs 'rsync -ahv --info=progress2'
 abbr src '. ~/.config/fish/config.fish'
 abbr wl 'wc -l'
 abbr x exit
-alias ytest 'CI=true yarn test --colors'
 # -- Bang bang abbreviation
 abbr !! --position anywhere --function last_history_item
 
@@ -130,18 +126,18 @@ if test $OS = Linux
     set -gx SHELL '/bin/fish'
     alias cpa '/bin/cp -i -a'
     alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
-    alias free 'free -th'
+    abbr free 'free -th'
     alias ls 'ls --color --classify --human-readable --quoting-style=escape'
     alias mplayer 'mplayer $argv 2>/dev/null'
-    alias nmshow 'nmcli connection show'
+    abbr nmshow 'nmcli connection show'
     alias open 'xdg-open 2>/dev/null'
     alias scp '/usr/bin/scp -r'
     alias ssh /usr/bin/ssh
     alias ssh-add /usr/bin/ssh-add
     alias updatedb 'sudo /usr/bin/updatedb'
-    alias wg0down 'nmcli connection down wg0'
-    alias wg0info 'nmcli --overview connection show wg0'
-    alias wg0up 'nmcli connection up wg0'
+    abbr wg0down 'nmcli connection down wg0'
+    abbr wg0info 'nmcli --overview connection show wg0'
+    abbr wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
     set -gx SHELL '/opt/homebrew/bin/fish'
     alias cpa '/opt/homebrew/bin/gcp -i -a'

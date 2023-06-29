@@ -416,7 +416,7 @@ fzf_git_add() {
                        fi'
     )
     if [[ -n $selections ]]; then
-        local additions=$(echo $selections | sed 's/M //g')
+        local additions=$(echo $selections | sed 's/M //g' | sed 's/?? //g')
         git add --verbose $additions
     fi
 }
