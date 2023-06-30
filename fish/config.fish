@@ -7,51 +7,48 @@ set -e MANPATH
 
 # Aliases and abbreviations.
 #
-# -- Permissions aliases --
+# -- Permissions abbreviations --
 abbr 664 'chmod 664'
 abbr 775 'chmod 775'
-# -- Navigation aliases --
+# -- Navigation abbreviations --
 abbr -- - 'cd -'
 abbr -- ~ 'cd ~'
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr .... 'cd ../../..'
-# -- Disk aliases --
+# -- Disk abbreviations --
 abbr df. 'df -h .'
 alias du 'du -b'
-# -- Docker aliases --
+# -- Docker abbreviations --
 abbr d docker
 abbr dc docker-compose
-# -- Git aliases --
-# -- History aliases --
+# -- History abbreviations --
 abbr h history
 abbr hd 'history delete'
 abbr hm 'history merge'
-# -- List aliases --
-alias dir='ls -l --group-directories-first'
+# -- List abbreviations --
 alias l 'exa --color=always --group-directories-first'
 alias l1 'l --oneline'
 alias l1d 'l1 --list-dirs'
 alias ll 'l --long'
 alias ll. 'll -d .*'
-alias lld 'll --list-dirs'
-# -- Tree aliases --
+alias ls 'ls --color --classify --human-readable --quoting-style=escape'
+# -- Tree abbreviations --
 alias t 'tree -C --dirsfirst'
 alias td 'tree -C -d'
 alias tdl 'tree -C -d -L'
 alias tl 'tree -C --dirsfirst -L'
-# -- tmux aliases --
-alias ta 'tmux attach'
-alias tls 'tmux ls'
-alias tnew 'tmux new -s (basename $(pwd) | cut -d"." -f1)'
-# -- Vim aliases --
+# -- tmux abbreviations --
+abbr ta 'tmux attach'
+abbr tls 'tmux ls'
+# -- Vim abbreviations --
 alias gv 'gvim 2> /dev/null'
 alias v 'TERM=alacritty nvim'
 alias vdi 'nvim -d'
-# -- Miscellaneous aliases --
+# -- Miscellaneous abbreviations --
 abbr be 'bundle exec'
 abbr bs 'br --whale-spotting'
-alias lynx 'lynx --accept_all_cookies'
+abbr lynx 'lynx --accept_all_cookies'
 alias mdi 'meld 2>/dev/null'
 alias p bat
 abbr pn pnpm
@@ -127,7 +124,6 @@ if test $OS = Linux
     alias cpa '/bin/cp -i -a'
     alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
-    alias ls 'ls --color --classify --human-readable --quoting-style=escape'
     abbr nmshow 'nmcli connection show'
     alias open 'xdg-open 2>/dev/null'
     alias scp '/usr/bin/scp -r'
@@ -140,7 +136,6 @@ if test $OS = Linux
 else if test $OS = Darwin
     set -gx SHELL '/opt/homebrew/bin/fish'
     alias cpa '/opt/homebrew/bin/gcp -i -a'
-    alias ls 'ls --color --classify --human-readable --quoting-style=escape'
     alias scp '/opt/homebrew/bin/scp -r'
     alias ssh /opt/homebrew/bin/ssh
     alias ssh-add /opt/homebrew/bin/ssh-add

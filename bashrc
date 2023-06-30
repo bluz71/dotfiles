@@ -53,6 +53,7 @@ alias lldt='_f() { ll -r --sort=modified --list-dirs "$@" | less; }; _f'
 alias llfs='find_by_size'
 alias lls='_f() { ll -r --sort=size "$@" | less; }; _f'
 alias llt='_f() { ll -r --sort=modified "$@" | less; }; _f'
+alias ls='ls --color --classify --human-readable --quoting-style=escape'
 # -- ripgrep aliases --
 alias rg='rg --smart-case'
 # -- Tree aliases --
@@ -159,7 +160,6 @@ if [[ $OS == "Linux" ]]; then
     alias cpa='/bin/cp -i -a'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
     alias free='free -th'
-    alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias mplayer='mplayer $* 2>/dev/null'
     alias nmshow='nmcli connection show'
     alias open='xdg-open 2>/dev/null'
@@ -173,7 +173,6 @@ if [[ $OS == "Linux" ]]; then
 elif [[ $OS == "Darwin" ]]; then
     export SHELL='/opt/homebrew/bin/bash'
     alias cpa='/opt/homebrew/bin/gcp -i -a'
-    alias ls='ls --color --classify --human-readable --quoting-style=escape'
     alias scp='/opt/homebrew/bin/scp -r'
     alias ssh='/opt/homebrew/bin/ssh'
     alias ssh-add='/opt/homebrew/bin/ssh-add'
