@@ -128,7 +128,6 @@ if test $OS = Linux
     alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
     alias ls 'ls --color --classify --human-readable --quoting-style=escape'
-    alias mplayer 'mplayer $argv 2>/dev/null'
     abbr nmshow 'nmcli connection show'
     alias open 'xdg-open 2>/dev/null'
     alias scp '/usr/bin/scp -r'
@@ -267,10 +266,6 @@ function dev_config
         set -gx DART_SDK /usr/local/flutter/bin/cache/dart-sdk
         fish_add_path --path --append $DART_SDK/bin
     end
-end
-
-function last_history_item
-    echo $history[1]
 end
 
 function shell_config

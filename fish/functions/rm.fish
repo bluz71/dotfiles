@@ -1,3 +1,3 @@
 function rm --description 'Verbose and interactive remove'
-    command /bin/rm -iv $argv
+    command /bin/rm -i $argv
 end
