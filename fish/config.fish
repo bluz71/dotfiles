@@ -5,7 +5,7 @@ set fish_greeting
 set -e PATH
 set -e MANPATH
 
-# Aliases and abbreviations.
+# Abbreviations and aliases
 #
 # -- Permissions abbreviations --
 abbr 664 'chmod 664'
@@ -50,7 +50,7 @@ abbr be 'bundle exec'
 abbr bs 'br --whale-spotting'
 abbr lynx 'lynx --accept_all_cookies'
 alias mdi 'meld 2>/dev/null'
-alias p bat
+abbr p bat
 abbr pn pnpm
 abbr px pnpx
 alias pping 'prettyping --nolegend -i 5'
@@ -121,24 +121,17 @@ set -gx OS (uname)
 
 if test $OS = Linux
     set -gx SHELL '/bin/fish'
-    alias cpa '/bin/cp -i -a'
     alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
+    alias mplayer 'mplayer $argv 2>/dev/null'
     abbr nmshow 'nmcli connection show'
     alias open 'xdg-open 2>/dev/null'
-    alias scp '/usr/bin/scp -r'
-    alias ssh /usr/bin/ssh
-    alias ssh-add /usr/bin/ssh-add
     alias updatedb 'sudo /usr/bin/updatedb'
     abbr wg0down 'nmcli connection down wg0'
     abbr wg0info 'nmcli --overview connection show wg0'
     abbr wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
     set -gx SHELL '/opt/homebrew/bin/fish'
-    alias cpa '/opt/homebrew/bin/gcp -i -a'
-    alias scp '/opt/homebrew/bin/scp -r'
-    alias ssh /opt/homebrew/bin/ssh
-    alias ssh-add /opt/homebrew/bin/ssh-add
     alias updatedb 'set -g PATH /usr/bin $PATH; sudo /usr/libexec/locate.updatedb'
 end
 
