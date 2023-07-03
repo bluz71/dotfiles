@@ -155,9 +155,6 @@ function custom_config
         return
     end
 
-    # TODO 'broot' function.
-    # . ~/dotfiles/profile.d/br.sh
-
     # 'fzf' configuration.
     . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
     set -xg FZF_DEFAULT_OPTS '
