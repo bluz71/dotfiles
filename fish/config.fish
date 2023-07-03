@@ -5,7 +5,7 @@ set fish_greeting
 set -e PATH
 set -e MANPATH
 
-# Abbreviations and aliases
+# Abbreviations
 #
 # -- Permissions abbreviations --
 abbr 664 'chmod 664'
@@ -16,9 +16,6 @@ abbr -- ~ 'cd ~'
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr .... 'cd ../../..'
-# -- Disk abbreviations --
-abbr df. 'df -h .'
-alias du 'du -b'
 # -- Docker abbreviations --
 abbr d docker
 abbr dc docker-compose
@@ -33,29 +30,17 @@ alias l1d 'l1 --list-dirs'
 alias ll 'l --long'
 alias ll. 'll -d .*'
 alias ls 'ls --color --classify --human-readable --quoting-style=escape'
-# -- Tree abbreviations --
-alias t 'tree -C --dirsfirst'
-alias td 'tree -C -d'
-alias tdl 'tree -C -d -L'
-alias tl 'tree -C --dirsfirst -L'
 # -- tmux abbreviations --
 abbr ta 'tmux attach'
 abbr tls 'tmux ls'
-# -- Vim abbreviations --
-alias gv 'gvim 2> /dev/null'
-alias v 'TERM=alacritty nvim'
-alias vdi 'nvim -d'
 # -- Miscellaneous abbreviations --
 abbr be 'bundle exec'
 abbr bs 'br --whale-spotting'
+abbr df. 'df -h .'
 abbr lynx 'lynx --accept_all_cookies'
-alias mdi 'meld 2>/dev/null'
-abbr p bat
+abbr mdi 'meld'
 abbr pn pnpm
 abbr px pnpx
-alias pping 'prettyping --nolegend -i 5'
-alias psu 'ps -u $USER -f'
-alias qmv 'qmv -d -f do'
 abbr --position anywhere rs 'rsync -ahv --info=progress2'
 abbr src '. ~/.config/fish/config.fish'
 abbr wl 'wc -l'
@@ -121,18 +106,18 @@ set -gx OS (uname)
 
 if test $OS = Linux
     set -gx SHELL '/bin/fish'
-    alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
-    alias mplayer 'mplayer $argv 2>/dev/null'
     abbr nmshow 'nmcli connection show'
-    alias open 'xdg-open 2>/dev/null'
-    alias updatedb 'sudo /usr/bin/updatedb'
+    abbr updatedb 'sudo /usr/bin/updatedb'
     abbr wg0down 'nmcli connection down wg0'
     abbr wg0info 'nmcli --overview connection show wg0'
     abbr wg0up 'nmcli connection up wg0'
+    alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
+    alias mplayer 'mplayer 2>/dev/null'
+    alias open 'xdg-open 2>/dev/null'
 else if test $OS = Darwin
     set -gx SHELL '/opt/homebrew/bin/fish'
-    alias updatedb 'set -g PATH /usr/bin $PATH; sudo /usr/libexec/locate.updatedb'
+    abbr locate 'mdfind -name'
 end
 
 
