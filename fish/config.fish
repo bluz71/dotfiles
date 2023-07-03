@@ -48,12 +48,12 @@ abbr !! --position anywhere --function last_history_item
 #
 set -gx EDITOR nvim
 set -gx LESS '-F -Q -M -R -X -i -g -s -x4 -z-2'
-set -gx LESS_TERMCAP_md \e'[00;34m' # bold mode     - blue
-set -gx LESS_TERMCAP_us \e'[00;32m' # underline     - green
+set -gx LESS_TERMCAP_md \e'[00;34m'    # bold mode     - blue
+set -gx LESS_TERMCAP_us \e'[00;32m'    # underline     - green
 set -gx LESS_TERMCAP_so \e'[00;40;33m' # standout      - yellow on grey
-set -gx LESS_TERMCAP_me \e'[0m' # end bold      - reset
-set -gx LESS_TERMCAP_ue \e'[0m' # end underline - reset
-set -gx LESS_TERMCAP_se \e'[0m' # end standout  - reset
+set -gx LESS_TERMCAP_me \e'[0m'        # end bold      - reset
+set -gx LESS_TERMCAP_ue \e'[0m'        # end underline - reset
+set -gx LESS_TERMCAP_se \e'[0m'        # end standout  - reset
 set -gx LESSHISTFILE -
 # LS_COLORS Sections:
 #   Standard -- no... (refer to: https://is.gd/6MzI27)
