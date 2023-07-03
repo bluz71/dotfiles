@@ -1,3 +1,3 @@
-function pping --description 'Pretty pingoverride'
+function pping --description 'Pretty ping override'
     prettyping --nolegend -i 5 $argv
 end

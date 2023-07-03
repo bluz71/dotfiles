@@ -41,7 +41,7 @@ abbr lynx 'lynx --accept_all_cookies'
 abbr mdi 'meld'
 abbr pn pnpm
 abbr px pnpx
-abbr --position anywhere rs 'rsync -ahv --info=progress2'
+abbr rs 'rsync -ahv --info=progress2'
 abbr src '. ~/.config/fish/config.fish'
 abbr wl 'wc -l'
 abbr x exit
@@ -106,15 +106,14 @@ set -gx OS (uname)
 
 if test $OS = Linux
     set -gx SHELL '/bin/fish'
+    abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
+    abbr mplayer 'mplayer 2>/dev/null'
     abbr nmshow 'nmcli connection show'
     abbr updatedb 'sudo /usr/bin/updatedb'
     abbr wg0down 'nmcli connection down wg0'
     abbr wg0info 'nmcli --overview connection show wg0'
     abbr wg0up 'nmcli connection up wg0'
-    alias dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
-    alias mplayer 'mplayer 2>/dev/null'
-    alias open 'xdg-open 2>/dev/null'
 else if test $OS = Darwin
     set -gx SHELL '/opt/homebrew/bin/fish'
     abbr locate 'mdfind -name'
