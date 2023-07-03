@@ -24,12 +24,8 @@ abbr h history
 abbr hd 'history delete'
 abbr hm 'history merge'
 # -- List abbreviations --
-alias l 'exa --color=always --group-directories-first'
-alias l1 'l --oneline'
-alias l1d 'l1 --list-dirs'
-alias ll 'l --long'
-alias ll. 'll -d .*'
-alias ls 'ls --color --classify --human-readable --quoting-style=escape'
+abbr l1 'exa --oneline'
+abbr ll. 'll -d .*'
 # -- tmux abbreviations --
 abbr ta 'tmux attach'
 abbr tls 'tmux ls'
