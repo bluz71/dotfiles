@@ -7,6 +7,8 @@ set -e MANPATH
 
 # Abbreviations
 #
+# -- Bang bang abbreviation
+abbr !! --position anywhere --function last_history_item
 # -- Permissions abbreviations --
 abbr 664 'chmod 664'
 abbr 775 'chmod 775'
@@ -38,12 +40,10 @@ abbr lynx 'lynx --accept_all_cookies'
 abbr mdi 'meld'
 abbr pn pnpm
 abbr px pnpx
-abbr rs 'rsync -ahv --info=progress2'
+abbr --position anywhere rsync 'rsync -ahv --info=progress2'
 abbr src '. ~/.config/fish/config.fish'
 abbr wl 'wc -l'
 abbr x exit
-# -- Bang bang abbreviation
-abbr !! --position anywhere --function last_history_item
 
 # General environment variables.
 #
