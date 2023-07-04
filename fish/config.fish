@@ -23,6 +23,7 @@ abbr dc docker-compose
 abbr h history
 abbr hd 'history delete'
 abbr hm 'history merge'
+abbr ht 'history_truncate'
 # -- List abbreviations --
 abbr l1 'exa --oneline'
 abbr ll. 'll -d .*'
