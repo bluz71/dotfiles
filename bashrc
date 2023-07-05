@@ -219,9 +219,6 @@ bindings() {
     # Alt-Right rotate forward in the directory stack.
     bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
     bind '"\e[1;3C":"\C-x\C-n\n"'
-
-    # Control-o, copy the current command line text to the clipboard.
-    bind -x '"\C-o": "copy_command_line"'
 }
 
 # Automatically push to the directory stack when changing directories.
@@ -244,18 +241,6 @@ cd() {
     # consecutive repeat entries.
     if [[ "$target" != "$PWD" ]]; then
         builtin pushd "$target" 1>/dev/null
-    fi
-}
-
-copy_command_line() {
-    if [[ $OS == "Linux" ]]; then
-        echo -n "$READLINE_LINE" | xclip -selection clipboard -i
-    elif [[ $OS == "Darwin" ]]; then
-        echo -n "$READLINE_LINE" | pbcopy
-    fi
-    # Also copy command line to a tmux paste buffer if tmux is active.
-    if [[ -n $TMUX ]]; then
-        echo -n "$READLINE_LINE" | tmux load-buffer -
     fi
 }
 
