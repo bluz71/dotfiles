@@ -97,6 +97,7 @@ uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
 gm=38;5;203:ga=38;5;203:xa=38;5;239"
 set -gx PAGER less
+set -gx MANPAGER 'nvim +Man!'
 
 # What platform are we running on.
 set -gx OS (uname)

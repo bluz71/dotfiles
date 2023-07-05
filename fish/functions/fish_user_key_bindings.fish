@@ -9,16 +9,17 @@ function fish_user_key_bindings
     # - Shift-Right: move backward a BIG word
     # - Alt-d: delete forward word
     # - Alt-<backspace>: delete backward word
+    # - Ctrl-u: kill line
     # - Alt-u: undo last edit
     # - Alt-e: edit the current command in $EDITOR and execute
     # - Alt-.: append last parameter from previous command
     # - Ctrl-a/HOME/fn-left: go to start of line
     # - Ctrl-e/END/fn-right: go to end of line
     # - Ctrl-r: reverse history search
-    # - Ctrl-u: change up a directory
     # - Ctrl-p: append pager
     # - Alt-s: prepend 'sudo'
     # - Ctrl-s: toggle completion search
+    # - Ctrl-Alt-w: whatis current token
 
     # Need to define Shift-Left & Shift-Right as follows for BIG word navigation
     # to work in tmux inside Alacritty.
@@ -28,10 +29,18 @@ function fish_user_key_bindings
     bind \eu undo
     # Rebind 'pager' to Ctrl-p.
     bind \cp __fish_paginate
+    # Rebind 'whatis' to Ctrl-Alt-w.
+    bind \e\cw __fish_whatis_current_token
 
     # Require consecutive 'Ctrl-d's to exit.
     bind \cd delete-char
     bind \cd\cd delete-or-exit
+
+    # Unbind unwanted default bindings.
+    bind \el ''
+    bind \eo ''
+    bind \cw ''
+    bind \eh ''
 
     if test -n "$HOMEBREW_PREFIX"
         # Enable 'fzf' key bindings.

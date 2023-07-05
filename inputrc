@@ -6,13 +6,13 @@
 # - Shift-Right: move backward a BIG word
 # - Alt-d: delete forward word
 # - Alt-<backspace>: delete backward word
+# - Ctrl-u: kill line
 # - Alt-u: undo last edit
 # - Alt-e: edit the current command in $EDITOR and execute
 # - Alt-.: append last parameter from previous command
 # - Ctrl-a/HOME/fn-left: go to start of line
 # - Ctrl-e/END/fn-right: go to end of line
 # - Ctrl-r: reverse history search
-# - Ctrl-u: change up a directory
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
 "\e[1;2D": vi-backward-bigword

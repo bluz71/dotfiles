@@ -82,7 +82,7 @@ alias px='pnpx'
 alias pping='prettyping --nolegend -i 5'
 alias psu='ps -u $USER -f'
 alias qmv='qmv -d -f do'
-alias rs='rsync --archive --human-readable --info=progress2 --verbose'
+alias rsync='rsync --archive --human-readable --info=progress2 --verbose'
 alias src='. ~/.bashrc'
 alias sudo='sudo '
 alias wl='wc -l'
@@ -145,6 +145,7 @@ uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
 gm=38;5;203:ga=38;5;203:xa=38;5;239"
 export PAGER=less
+export MANPAGER='nvim +Man!'
 
 # What platform are we running on.
 export OS=$(uname)
