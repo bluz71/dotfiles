@@ -68,6 +68,7 @@ alias vdi='nvim -d'
 alias vf='fzf_find_edit'
 alias vg='grep_edit'
 # -- Miscellaneous aliases --
+alias b='bat'
 alias be='bundle exec'
 alias bs='br --whale-spotting'
 alias cwd='copy_working_directory'

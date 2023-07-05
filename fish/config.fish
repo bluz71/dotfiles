@@ -33,6 +33,7 @@ abbr ll. 'll -d .*'
 abbr ta 'tmux attach'
 abbr tls 'tmux ls'
 # -- Miscellaneous abbreviations --
+abbr b 'bat'
 abbr be 'bundle exec'
 abbr bs 'br --whale-spotting'
 abbr df. 'df -h .'
