@@ -531,15 +531,10 @@ packages() {
     if ! [[ -d ~/.bash-packages/bash-seafly-prompt ]]; then
         git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-packages/bash-seafly-prompt
     fi
-    SEAFLY_SUCCESS_COLOR=$(tput setaf 4)
     seafly_pre_command_hook="seafly_pre_command"
     seafly_prompt_prefix_hook="seafly_prompt_prefix"
     # Custom colors for prompt prefix; for performance reasons calculate the
     # colors outside the 'seafly_prompt_prefix' function.
-    export SEAFLY_RUBY_COLOR=$(tput setaf 1)
-    export SEAFLY_NODE_COLOR=$(tput setaf 79)
-    export SEAFLY_RUST_COLOR=$(tput setaf 208)
-    export SEAFLY_DART_COLOR=$(tput setaf 12)
     . ~/.bash-packages/bash-seafly-prompt/command_prompt.bash
 }
 
@@ -554,13 +549,13 @@ seafly_pre_command() {
 
 seafly_prompt_prefix() {
     if [[ -f Gemfile ]]; then
-        echo "\[$SEAFLY_RUBY_COLOR\]◢"
+        echo "\e[38;5;1m◢"
     elif [[ -f package.json ]]; then
-        echo "\[$SEAFLY_NODE_COLOR\]⬢"
+        echo "\e[38;5;79m⬢"
     elif [[ -f Cargo.toml ]]; then
-        echo "\[$SEAFLY_RUST_COLOR\]●"
+        echo "\e[38;5;208m●"
     elif [[ -f pubspec.yaml ]]; then
-        echo "\[$SEAFLY_DART_COLOR\]◀"
+        echo "\e[38;5;12m◀"
     fi
 }
 
