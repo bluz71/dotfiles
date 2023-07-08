@@ -531,6 +531,7 @@ packages() {
     if ! [[ -d ~/.bash-packages/bash-seafly-prompt ]]; then
         git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-packages/bash-seafly-prompt
     fi
+    SEAFLY_SUCCESS_COLOR=$(echo -ne '\e[38;5;4m')
     seafly_pre_command_hook="seafly_pre_command"
     seafly_prompt_prefix_hook="seafly_prompt_prefix"
     # Custom colors for prompt prefix; for performance reasons calculate the
