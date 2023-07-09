@@ -3,10 +3,10 @@
 
 Contained are dotfiles for:
 
+- [Neovim](https://github.com/bluz71/dotfiles/tree/master/nvim)
+- [Fish](https://github.com/bluz71/dotfiles/tree/master/fish)
 - [Bash](https://github.com/bluz71/dotfiles/blob/master/bashrc)
 - [Readline](https://github.com/bluz71/dotfiles/blob/master/inputrc)
-- [Fish](https://github.com/bluz71/dotfiles/tree/master/fish)
-- [Neovim](https://github.com/bluz71/dotfiles/tree/master/nvim)
 - [Vim](https://github.com/bluz71/dotfiles/blob/master/vimrc)
 - [tmux](https://github.com/bluz71/dotfiles/blob/master/tmux.conf)
 - [Git](https://github.com/bluz71/dotfiles/blob/master/gitconfig)
