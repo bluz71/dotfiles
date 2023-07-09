@@ -23,8 +23,8 @@ treesitter.setup({
   indent = {
     enable = true,
     disable = function(lang, buf)
-      if lang == "ruby" or lang == "rust" or buffer.is_large(buf) then
-        -- Disable indent for Ruby, Rust files AND also for large files.
+      if lang == "html" or lang == "ruby" or lang == "rust" or buffer.is_large(buf) then
+        -- Disable indent for HTML, Ruby, Rust files AND also for large files.
         return true
       end
     end,
