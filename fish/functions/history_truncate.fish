@@ -1,5 +1,6 @@
 function history_truncate --description 'Truncate history'
-    echo "Before: $(du -shL ~/.local/share/fish/fish_history)"
+    set -f before "Before: $(du -shL ~/.local/share/fish/fish_history)"
     history delete --prefix 'cd ' 'cp' 'fd ' 'mc ' 'mp' 'mv ' 'open ' 'qmv ' 'rg ' 'rm ' 'you' 'yt-dl'
+    echo $before
     echo "After: $(du -shL ~/.local/share/fish/fish_history)"
 end

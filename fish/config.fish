@@ -33,12 +33,12 @@ abbr ll. 'll -d .*'
 abbr ta 'tmux attach'
 abbr tls 'tmux ls'
 # -- Miscellaneous abbreviations --
-abbr b 'bat'
 abbr be 'bundle exec'
 abbr bs 'br --whale-spotting'
 abbr df. 'df -h .'
 abbr lynx 'lynx --accept_all_cookies'
 abbr mdi 'meld'
+abbr p 'bat'
 abbr pn pnpm
 abbr px pnpx
 abbr --position anywhere rsync 'rsync -ahv --info=progress2'
