@@ -209,41 +209,6 @@ brew_config() {
 
 }
 
-bindings() {
-    # Alt-Left: rotate back in the directory stack.
-    #
-    # Note, the use of "\C-x\C-p" intermediary will execute the 'pushd' command
-    # silently AND update the prompt (refer to: https://is.gd/302mDr).
-    bind -x '"\C-x\C-p": "pushd +1 &>/dev/null"'
-    bind '"\e[1;3D":"\C-x\C-p\n"'
-    # Alt-Right rotate forward in the directory stack.
-    bind -x '"\C-x\C-n": "pushd -0 &>/dev/null"'
-    bind '"\e[1;3C":"\C-x\C-n\n"'
-}
-
-# Automatically push to the directory stack when changing directories.
-#
-cd() {
-    local target="$@"
-    if [[ $# -eq 0 ]]; then
-        # Handle 'cd' without arguments; change to the $HOME directory.
-        target="$HOME"
-    elif [[ $1 == "--" ]]; then
-        # Handle 'autocd' shopt, that is just a directory name entered without
-        # a preceding 'cd' command. In that case the first argument will be '--'
-        # with the target directory defined by the remaining arguments.
-        shift
-        target="$@"
-    fi
-
-    # Note, if the target directory is the same as the current directory do
-    # nothing since we don't want to populate the directory stack with
-    # consecutive repeat entries.
-    if [[ "$target" != "$PWD" ]]; then
-        builtin pushd "$target" 1>/dev/null
-    fi
-}
-
 copy_working_directory() {
     if [[ $OS == "Linux" ]]; then
         echo -n ${PWD/#$HOME/\~} | tr -d "\r\n" | xclip -selection clipboard -i
@@ -295,7 +260,6 @@ custom_config() {
 
     # 'zoxide' utility.
     eval "$(zoxide init bash)"
-    . ~/dotfiles/profile.d/zoxide.sh
     export _ZO_EXCLUDE_DIRS=$HOME:$HOME/Music/*
     export _ZO_MAXAGE='20000'
     export _ZO_FZF_OPTS="
@@ -636,4 +600,3 @@ custom_config
 packages
 dev_config
 shell_config
-bindings
