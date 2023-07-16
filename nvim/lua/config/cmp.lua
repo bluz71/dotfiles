@@ -12,7 +12,7 @@ local replace_termcodes = function(key)
   return vim.api.nvim_replace_termcodes(key, true, true, true)
 end
 
-cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust" }, {
+cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust", "svelte" }, {
   formatting = {
     format = function(entry, item)
       item.menu = ({
