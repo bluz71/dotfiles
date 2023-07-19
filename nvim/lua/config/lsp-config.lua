@@ -71,6 +71,11 @@ local lsp_on_attach_no_formatting = function(client)
   lsp_on_attach(client)
 end
 
+-- Custom on attach function which disable LSP semantic highlighting.
+-- local lsp_on_attach_no_semantic_highlights = function(client)
+--   client.server_capabilities.semanticTokensProvider = nil
+-- end
+
 -- Global handlers.
 lsp.handlers["textDocument/hover"] = handlers.hover
 lsp.handlers["textDocument/signatureHelp"] = handlers.signature_help
