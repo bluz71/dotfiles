@@ -225,7 +225,8 @@ lazy.setup({
 
   {
     "j-hui/fidget.nvim",
-    ft = { "dart", "javascript", "ruby", "rust" },
+    tag = "legacy",
+    ft = { "dart", "javascript", "ruby", "rust", "svelte", "typescript" },
     opts = { text = { spinner = "dots" } },
   },
 
