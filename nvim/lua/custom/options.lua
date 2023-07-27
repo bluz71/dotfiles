@@ -74,7 +74,7 @@ opt.shiftwidth = 2 -- Default indentation amount
 -- Setup shared-data.
 opt.shada = { "'300", '<50', 's10', 'h' }
 -- Don't show insert mode completion messages nor intro messages.
-opt.shortmess = opt.shortmess + { c = true, I = true }
+opt.shortmess = opt.shortmess + { c = true, C = true, I = true }
 opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
