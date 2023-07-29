@@ -57,7 +57,6 @@ set pumheight=20      " Height of complete list
 set relativenumber    " Show relative numbers
 set shiftwidth=2      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
-set shortmess+=C      " Don't show insert mode completion messages
 set shortmess+=I      " Don't show intro message
 set signcolumn=number " Render signs in the number column
 set showbreak=↳       " Use this to wrap long lines
