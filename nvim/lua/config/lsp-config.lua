@@ -131,6 +131,7 @@ nvim_lsp.svelte.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
+  root_dir = nvim_lsp.util.root_pattern("svelte.config.js"),
 })
 
 nvim_lsp.tsserver.setup({
