@@ -19,7 +19,7 @@ local view_config = require("lazy.view.config")
 -- Configuration.
 local configuration = {
   install = {
-    colorscheme = { "moonfly" },
+    colorscheme = { "nightfly" },
   },
   performance = {
     rtp = {
