@@ -57,7 +57,11 @@ set pumheight=20      " Height of complete list
 set relativenumber    " Show relative numbers
 set shiftwidth=2      " Default indentation amount
 set shortmess+=c      " Don't show insert mode completion messages
+set shortmess+=s      " Don't show TOP/BOTTOM search messages
+set shortmess+=F      " Don't show file info when editing
 set shortmess+=I      " Don't show intro message
+set shortmess+=S      " Don't show search count
+set shortmess+=W      " Don't show written message
 set signcolumn=number " Render signs in the number column
 set showbreak=↳       " Use this to wrap long lines
 set smartcase         " Case-smart searching

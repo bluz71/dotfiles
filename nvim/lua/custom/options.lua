@@ -73,8 +73,10 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftwidth = 2 -- Default indentation amount
 -- Setup shared-data.
 opt.shada = { "'300", '<50', 's10', 'h' }
--- Don't show insert mode completion messages nor intro messages.
-opt.shortmess = opt.shortmess + { c = true, C = true, I = true }
+-- Don't show certain messages.
+opt.shortmess = opt.shortmess + {
+  c = true, s = true, C = true, F = true, I = true, S = true, W = true
+}
 opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
