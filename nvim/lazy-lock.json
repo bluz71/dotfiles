@@ -39,8 +39,6 @@
   "undotree": { "branch": "master", "commit": "0e11ba7325efbbb3f3bebe06213afa3e7ec75131" },
   "vim-auto-save": { "branch": "master", "commit": "2e3e54ea4c0fc946c21b0a4ee4c1c295ba736ee8" },
   "vim-cheat40": { "branch": "master", "commit": "ae237b02f9031bc82a8ad9202bffee2bcef71ed1" },
-  "vim-everforest": { "branch": "master", "commit": "b8ef2d0bde98645250a8997393aefba38e8c6ff3" },
-  "vim-gruvbox-material": { "branch": "master", "commit": "b17daceec6ed9a5fb46e0f293f2ac666c90e5459" },
   "vim-indent-object": { "branch": "master", "commit": "5c5b24c959478929b54a9e831a8e2e651a465965" },
   "vim-projectionist": { "branch": "master", "commit": "e292c4e33b2c44074c47c06e8ce8b309fd8099bc" },
   "vim-test": { "branch": "master", "commit": "63d317c2f6c34e561987d4ab0aa003d8391c4033" },
