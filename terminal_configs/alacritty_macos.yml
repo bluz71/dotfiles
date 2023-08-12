@@ -156,5 +156,7 @@ key_bindings:
   - { key: Minus,    mods: Command,   action: DecreaseFontSize       }
   - { key: Q,        mods: Command,   action: ReceiveChar            }
   - { key: W,        mods: Command,   action: ReceiveChar            }
-  - { key: Q,        mods: Control,   chars: "\x11"                  }
+  - { key: C,        mods: Control,   action: Copy                   }
   - { key: I,        mods: Control,   chars: "\x1b[105;5u"           }
+  - { key: K,        mods: Control,   chars: "\x03"                  }
+  - { key: Q,        mods: Control,   chars: "\x11"                  }
