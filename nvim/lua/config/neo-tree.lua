@@ -3,6 +3,7 @@ local neo_tree = require("neo-tree")
 neo_tree.setup({
   enable_diagnostics = false,
   git_status_async = false, -- Needed for git status watching to work (see neo-tree 724)
+  log_level = "warn",
   popup_border_style = "single",
   use_default_mappings = false,
   default_component_configs = {
@@ -23,8 +24,8 @@ neo_tree.setup({
     },
     icon = {
       folder_closed = "▷",
-      folder_open = "◢",
       folder_empty = "□",
+      folder_open = "◢",
     },
     name = {
       use_git_status_colors = false,
@@ -49,9 +50,8 @@ neo_tree.setup({
   git_status = {
     window = {
       mappings = {
-        ["gu"] = "git_unstage_file",
         ["ga"] = "git_add_file",
-        ["gr"] = "git_revert_file",
+        ["gu"] = "git_unstage_file",
       },
     },
   },
