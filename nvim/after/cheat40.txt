@@ -209,21 +209,10 @@ React stylesheet files   ‹Spc›es       N
 React test files         ‹Spc›et       N
 Possession sessions      ‹Spc›p        N
 }}}
-fern Plugin Mapping {{{
+Neo-tree Plugin Mappings {{{
 Toggle drawer            ,d            N
 Find & reveal file       ,f           %N
-Mark current line        m            *N
-Create new file          N            *N
-Create new directory     K            *N
-Delete marked entries    D            *N
-Move file                M            *N
-Rename file(s)           R            *N
-Open in a split          s            *N
-Open in a vsplit         v            *N
-Reload current directory r            *N
-Toggle dot files         d             N
-Switch into directory    >            *N
-Switch to parent dir     <            *N
+Help                     ?             N
 }}}
 gitsigns Plugin Mappings {{{
 Previous hunk            [g            N

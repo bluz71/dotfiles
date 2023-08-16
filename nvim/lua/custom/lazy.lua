@@ -146,12 +146,23 @@ lazy.setup({
   -- Filesystem plugins
   -----------------------------
   {
-    "lambdalisue/fern.vim",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+      {
+        "s1n7ax/nvim-window-picker",
+        version = "2.*",
+        config = function()
+          require("config.window-picker")
+        end,
+      },
+    },
     event = "VeryLazy",
-    dependencies = { "lambdalisue/fern-git-status.vim" },
     config = function()
-      require("config.fern")
-      require("config.fern-git-status")
+      require("config.neo-tree")
     end,
   },
 
