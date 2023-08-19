@@ -91,6 +91,7 @@ function fishfly_git_status
     end
     set branch (string replace -a '\\' '\\\\' $branch) # Escape backslashes
     set branch (string replace -a '$' '\\$' $branch) # Escape dollars
+    set branch (string shorten -m 30 $branch) # Truncate long branch names
 
     set -f dirty
     set -f staged
