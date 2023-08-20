@@ -27,6 +27,9 @@ neo_tree.setup({
       folder_empty = "□",
       folder_open = "◢",
     },
+    modified = {
+      symbol = "■",
+    },
     name = {
       use_git_status_colors = false,
     },
