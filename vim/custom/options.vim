@@ -22,6 +22,7 @@ set cursorline
 set cursorlineopt=number
 set dictionary=/usr/share/dict/words
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+set encoding=utf-8    " Correctly display Unicode symbols when using SSH
 set expandtab         " Use spaces instead of tabs
 set foldlevelstart=20
 set foldmethod=indent " Simple and fast
