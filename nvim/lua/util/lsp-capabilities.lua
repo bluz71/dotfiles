@@ -16,7 +16,7 @@ M.default_capabilities = function()
           tagSupport = {
             valueSet = {
               1, -- Deprecated
-            }
+            },
           },
           insertReplaceSupport = true,
           resolveSupport = {
@@ -24,13 +24,19 @@ M.default_capabilities = function()
               "documentation",
               "detail",
               "additionalTextEdits",
+              "sortText",
+              "filterText",
+              "insertText",
+              "textEdit",
+              "insertTextFormat",
+              "insertTextMode",
             },
           },
           insertTextModeSupport = {
             valueSet = {
               1, -- asIs
               2, -- adjustIndentation
-            }
+            },
           },
           labelDetailsSupport = true,
         },
@@ -38,13 +44,20 @@ M.default_capabilities = function()
         insertTextMode = 1,
         completionList = {
           itemDefaults = {
-            'commitCharacters',
-            'editRange',
-            'insertTextFormat',
-            'insertTextMode',
-            'data',
-          }
-        }
+            "commitCharacters",
+            "editRange",
+            "insertTextFormat",
+            "insertTextMode",
+            "data",
+          },
+        },
+      },
+    },
+    -- Disable client-side watch-files for now, it is slow (see Neovim #23291).
+    -- Remove this workaround when #23291 is resolved.
+    workspace = {
+      didChangeWatchedFiles = {
+        dynamicRegistration = false,
       },
     },
   }
