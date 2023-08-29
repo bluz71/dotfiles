@@ -7,6 +7,12 @@ neo_tree.setup({
   popup_border_style = "single",
   use_default_mappings = false,
   default_component_configs = {
+    -- Disable file columns (size, modified, etc), they are not needed and it
+    -- degrades performance slightly.
+    file_size = { enabled = false },
+    type = { enabled = false },
+    last_modified = { enabled = false },
+    created = { enabled = false },
     git_status = {
       symbols = {
         -- Change type
