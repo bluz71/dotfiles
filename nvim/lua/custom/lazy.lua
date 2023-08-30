@@ -171,11 +171,10 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.1",
-    --commit = "a57d2a5",
+    -- tag = "v0.9.1",
+    commit = "f2778bd",
     build = ":TSUpdate",
     dependencies = {
-      { "nvim-treesitter/nvim-treesitter-textobjects" },
       "windwp/nvim-ts-autotag",
       "JoosepAlviste/nvim-ts-context-commentstring",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },

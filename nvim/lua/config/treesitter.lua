@@ -35,29 +35,6 @@ treesitter.setup({
     end,
   },
 
-  -- For nvim-treesitter-textobjects plugin.
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["if"] = "@function.inner",
-        ["af"] = "@function.outer",
-        ["ic"] = "@class.inner",
-        ["ac"] = "@class.outer",
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        ["]m"] = "@function.outer",
-      },
-      goto_previous_start = {
-        ["[m"] = "@function.outer",
-      },
-    },
-  },
   -- For nvim-autotag plugin.
   autotag = {
     enable = true,
