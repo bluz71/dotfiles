@@ -94,5 +94,5 @@ neo_tree.setup({
 
 local map = vim.keymap.set
 local opts = { silent = true }
-map("n", "<Leader>d", ":Neotree toggle<CR>", opts)
-map("n", "<Leader>f", ":Neotree reveal<CR>", opts)
+map("n", "<Leader>d", ":Neotree toggle<CR><C-w>=", opts)
+map("n", "<Leader>f", ":Neotree reveal<CR><C-w>=", opts)
