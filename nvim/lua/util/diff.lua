@@ -8,7 +8,6 @@ M.styling = function()
   if vim.opt.diff:get() then
     opt_local.colorcolumn = "0"
     highlight(0, "MatchParen", {})
-    highlight(0, "Visual", { link = "VisualInDiff" })
     vim.cmd([[
       IndentBlanklineDisable!
       wincmd l
