@@ -40,7 +40,6 @@ set laststatus=2      " We want a statusline
 set listchars=eol:$,tab:<‧>,trail:‧
 set matchpairs=(:),{:},[:]
 set mouse=a           " Mouse support in the terminal
-set mousehide         " Hide mouse when typing text
 set nobackup          " No backup files
 set nocompatible
 set noexrc            " Disable reading of working directory vimrc files

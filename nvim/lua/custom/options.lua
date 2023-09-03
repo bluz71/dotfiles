@@ -63,7 +63,6 @@ opt.listchars = {
 }
 opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
-opt.mousehide = true -- Hide mouse when typing text
 opt.number = true -- Show line numbers
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
 opt.path = "**" -- File search path
