@@ -96,10 +96,17 @@ nvim_lsp.dartls.setup({
   root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
 })
 
+nvim_lsp.eslint.setup({
+  -- pnpm install @typescript-eslint/eslint-plugin@latest --save-dev
+  on_attach = lsp_on_attach,
+  capabilities = capabilities,
+  filetypes = { "typescript" },
+  flags = { debounce_text_changes = 300 },
+})
+
 nvim_lsp.html.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
-  cmd = { "vscode-html-language-server", "--stdio" },
   filetypes = { "eruby", "html" },
   flags = { debounce_text_changes = 300 },
 })
@@ -128,6 +135,8 @@ nvim_lsp.solargraph.setup({
 })
 
 nvim_lsp.svelte.setup({
+  -- pnpm install typescript-svelte-plugin --save-dev
+  -- Refer to: https://is.gd/jFrFWI
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
