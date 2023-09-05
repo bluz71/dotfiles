@@ -134,6 +134,7 @@ Diagnostic Mappings {{{
 Previous Diagnostic      [d           *N
 Next Diagnostic          ]d           *N
 Line Diagnostics         'd           *N
+Location List            'D           *N
 }}}
 LSP Mappings {{{
 Show hover               K            *N
