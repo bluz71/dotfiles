@@ -153,6 +153,7 @@ nvim_lsp.tsserver.setup({
 nvim_lsp.tailwindcss.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
+  filetypes = { "eruby", "html", "svelte" },
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("tailwind.config.js"),
 })
