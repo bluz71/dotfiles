@@ -5,9 +5,9 @@
 # This command will substitute '/dev/null' usage with '/dev/zero'. Use of
 # '/dev/null' results in Neovim read errors when run on macOS.
 
-if [ "$1" == "/dev/null" ]; then
+if [ "$1" = "/dev/null" ]; then
     nvim -d /dev/zero "$2"
-elif [ "$2" == "/dev/null" ]; then
+elif [ "$2" = "/dev/null" ]; then
     nvim -d "$1" /dev/zero
 else
     nvim -d "$1" "$2"
