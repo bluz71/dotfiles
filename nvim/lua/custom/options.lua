@@ -116,7 +116,7 @@ opt.wrapscan = false -- Don't wrap searches around
 -- Set explicit value of $LESS to make git-delta paging nicer in Telescope.
 env.LESS = "-RS"
 
--- Use neovim-remote for floating terminal lazygit edit and commit operations.
+-- For lazygit edit and commit operations use neovim-remote.
 --
 -- Note, install neovim-remote via:
 --   % pip3 install neovim-remote

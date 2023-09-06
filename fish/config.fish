@@ -50,7 +50,15 @@ abbr x exit
 
 # General environment variables.
 #
-set -gx EDITOR nvim
+if test -z "$NVIM"
+    set -gx EDITOR nvim
+else
+    # For Neovim lazygit edit and commit operations use neovim-remote.
+    #
+    # Note, install neovim-remote via:
+    #   % pip3 install neovim-remote
+    set -gx EDITOR 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
+end
 set -gx LESS '-F -Q -M -R -X -i -g -s -x4 -z-2'
 set -gx LESS_TERMCAP_md \e'[00;34m'    # bold mode     - blue
 set -gx LESS_TERMCAP_us \e'[00;32m'    # underline     - green
