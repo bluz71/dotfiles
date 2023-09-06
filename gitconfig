@@ -31,7 +31,7 @@
 [difftool]
   prompt = false
 [difftool "vd"]
-  cmd = nvim -d "$LOCAL" "$REMOTE"
+  cmd = git-vdiff "$LOCAL" "$REMOTE"
 [mergetool]
   keepBackup = false
 [advice]

@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+
 # Custom Git command: git bvv
 #
 # An enhanced version of the 'git branch -vv' command.

@@ -22,6 +22,7 @@ ln -s ~/dotfiles/fish/ .config/fish
 
 mkdir -p scripts
 ln -s ~/dotfiles/git-bvv scripts/git-bvv
+ln -s ~/dotfiles/git-vdiff scripts/git-vdiff
 
 ln -s dotfiles/linter_configs/mdlrc .mdlrc
 
