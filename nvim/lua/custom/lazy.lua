@@ -87,12 +87,11 @@ lazy.setup({
   },
 
   {
-    "projekt0n/circles.nvim",
+    "nvim-tree/nvim-web-devicons",
     event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      icons = { empty = "●", filled = "●", lsp_prefix = "■" },
-    },
+    config = function()
+      require("config.devicons")
+    end
   },
 
   {
@@ -150,7 +149,6 @@ lazy.setup({
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
       {
         "s1n7ax/nvim-window-picker",
@@ -171,8 +169,8 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    -- tag = "v0.9.1",
-    commit = "f2778bd",
+    tag = "v0.9.1",
+    -- commit = "f2778bd",
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
