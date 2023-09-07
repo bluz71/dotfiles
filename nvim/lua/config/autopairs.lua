@@ -4,7 +4,7 @@ local cond = require('nvim-autopairs.conds')
 
 npairs.setup({
   disable_filetype = { "text", "txt", "TelescopePrompt" },
-  fast_wrap = {},
+  ignored_next_char = [=[[%w%%%'%(%[%{%"%.%`%$%,%/%■]]=],
 })
 
 npairs.add_rules({

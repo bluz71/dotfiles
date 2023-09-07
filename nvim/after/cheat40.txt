@@ -267,9 +267,6 @@ Close menu               ‹C-e›        %I
 Scroll forward docs      ‹C-f›        %I
 Scroll back docs         ‹C-b›        %I
 }}}
-nvim-autopairs Plugin Mappings {{{
-Fast wrap                ‹A-e›        %I
-}}}
 vsnip Plugin Mappings {{{
 Expand snippet           ‹Ctrl-j›      I
 Jump forward             ‹Ctrl-j›      I
