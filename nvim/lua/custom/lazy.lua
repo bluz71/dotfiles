@@ -230,13 +230,6 @@ lazy.setup({
   },
 
   {
-    "j-hui/fidget.nvim",
-    tag = "legacy",
-    ft = { "dart", "javascript", "ruby", "rust", "svelte", "typescript" },
-    opts = { text = { spinner = "dots" } },
-  },
-
-  {
     "dense-analysis/ale",
     config = function()
       require("config.ale")

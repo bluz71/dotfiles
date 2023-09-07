@@ -16,18 +16,6 @@ diagnostic.config({
     source = "if_many",
     border = "single",
   },
-  -- TODO: Enable for Neovim 0.10
-  -- prefix = function(message)
-  --   if message.severity == diagnostic.severity.ERROR then
-  --     return "■"
-  --   elseif message.severity == diagnostic.severity.WARN then
-  --     return "△"
-  --   elseif message.severity == diagnostic.severity.INFO then
-  --     return "○"
-  --   else
-  --     return "■"
-  --   end
-  -- end,
   severity_sort = true,
   signs = {
     severity = {
@@ -37,6 +25,17 @@ diagnostic.config({
   update_in_insert = false,
   underline = false,
   virtual_text = {
+    -- prefix = function(message)
+    --   if message.severity == diagnostic.severity.ERROR then
+    --     return "■"
+    --   elseif message.severity == diagnostic.severity.WARN then
+    --     return "△"
+    --   elseif message.severity == diagnostic.severity.INFO then
+    --     return "○"
+    --   else
+    --     return "■"
+    --   end
+    -- end,
     spacing = 2,
     severity = {
       min = vim.diagnostic.severity.INFO,
