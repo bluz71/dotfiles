@@ -84,7 +84,10 @@ lsp.handlers["textDocument/signatureHelp"] = handlers.signature_help
 -- notify the language servers about that.
 local capabilities = lsp_capabilities.default_capabilities()
 
--- The Language Servers.
+--------------------------
+-- The Language Servers --
+--------------------------
+
 nvim_lsp.dartls.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
@@ -96,14 +99,15 @@ nvim_lsp.dartls.setup({
   root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
 })
 
+-- pnpm install @typescript-eslint/eslint-plugin@latest --save-dev
 nvim_lsp.eslint.setup({
-  -- pnpm install @typescript-eslint/eslint-plugin@latest --save-dev
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   filetypes = { "typescript" },
   flags = { debounce_text_changes = 300 },
 })
 
+-- pnpm add -g vscode-langservers-extracted
 nvim_lsp.html.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
@@ -126,23 +130,36 @@ nvim_lsp.rust_analyzer.setup({
   },
 })
 
+-- gem install solargraph
+-- solargraph clear
+-- solargraph download-core
+-- solargraph bundle
 nvim_lsp.solargraph.setup({
-  on_attach = lsp_on_attach_no_formatting,
+  on_attach = lsp_on_attach_no_formatting, -- Use standardrb for formatting
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   single_file_support = true, -- Allow LSP to work in standalone Ruby scripts
   settings = { solargraph = { diagnostics = false } },
 })
 
+-- gem install standard
+nvim_lsp.standardrb.setup({
+  on_attach = lsp_on_attach,
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 300 },
+})
+
+-- pnpm install -g svelte-language-server
+-- pnpm install typescript-svelte-plugin --save-dev
+-- Refer to: https://is.gd/jFrFWI
 nvim_lsp.svelte.setup({
-  -- pnpm install typescript-svelte-plugin --save-dev
-  -- Refer to: https://is.gd/jFrFWI
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("svelte.config.js"),
 })
 
+-- pnpm add -g typescript typescript-language-server
 nvim_lsp.tsserver.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
@@ -150,24 +167,11 @@ nvim_lsp.tsserver.setup({
   root_dir = nvim_lsp.util.root_pattern("package.json"),
 })
 
+-- pnpm add -g @tailwindcss/language-server
 nvim_lsp.tailwindcss.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   filetypes = { "eruby", "html", "svelte" },
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("tailwind.config.js"),
-})
-
--- Standard Ruby LSP is not yet part of nvim-lspconfig, so we need to start it
--- ourselves.
-autocmd("FileType", {
-  pattern = "ruby",
-  group = augroup("StandardRubyLSP", {}),
-  callback = function()
-    vim.lsp.start({
-      name = "standardrb",
-      cmd = { "standardrb", "--lsp" },
-    })
-    map("n", "'f", lsp.buf.format, { buffer = true })
-  end,
 })
