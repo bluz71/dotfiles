@@ -83,6 +83,9 @@ opt.showmode = false -- No to showing mode in bottom-left corner
 opt.signcolumn = "number"
 opt.smartcase = true -- Case-smart searching
 opt.smarttab = true -- Tab at the start of line inserts blanks
+if fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true -- Scroll by screen line
+end
 -- When spell checking, assume word boundaries include 'CamelCasing'
 opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
