@@ -27,7 +27,7 @@ abbr dc docker-compose
 abbr h history
 abbr hd 'history delete'
 abbr hm 'history merge'
-abbr ht 'history_truncate'
+abbr ht history_truncate
 # -- List abbreviations --
 abbr l1 'exa --oneline'
 abbr ll. 'll -d .*'
@@ -39,8 +39,8 @@ abbr be 'bundle exec'
 abbr bs 'br --whale-spotting'
 abbr df. 'df -h .'
 abbr lynx 'lynx --accept_all_cookies'
-abbr mdi 'meld'
-abbr p 'bat'
+abbr mdi meld
+abbr p bat
 abbr pn pnpm
 abbr px pnpx
 abbr --position anywhere rsync 'rsync -ahv --info=progress2'
@@ -114,7 +114,7 @@ set -gx MANPAGER 'nvim +Man!'
 set -gx OS (uname)
 
 if test $OS = Linux
-    set -gx SHELL '/bin/fish'
+    set -gx SHELL /bin/fish
     abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
     abbr mplayer 'mplayer 2>/dev/null'
@@ -124,7 +124,8 @@ if test $OS = Linux
     abbr wg0info 'nmcli --overview connection show wg0'
     abbr wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
-    set -gx SHELL '/opt/homebrew/bin/fish'
+    set -gx SHELL /opt/homebrew/bin/fish
+    set -gx PGGSSENCMODE disable # Reference: https://is.gd/flzYH7
     abbr locate 'mdfind -name'
 end
 

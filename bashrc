@@ -170,6 +170,7 @@ if [[ $OS == "Linux" ]]; then
     alias wg0up='nmcli connection up wg0'
 elif [[ $OS == "Darwin" ]]; then
     export SHELL='/opt/homebrew/bin/bash'
+    export PGGSSENCMODE='disable' # Reference: https://is.gd/flzYH7
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias locate='mdfind -name'
     alias scp='/opt/homebrew/bin/scp -r'
