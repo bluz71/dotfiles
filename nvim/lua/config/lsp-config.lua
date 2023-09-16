@@ -60,11 +60,11 @@ end
 -- Add border to LSP windows such as `:LspInfo`.
 nvim_lsp_windows.default_options.border = "single"
 
--- Custom on attach function which also disables formatting where ALE will
+-- Custom on attach function which disables formatting where ALE will instead
 -- be used to format.
 local lsp_on_attach_no_formatting = function(client)
-  client.server_capabilities.document_formatting = false
-  client.server_capabilities.document_range_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 
   lsp_on_attach(client)
 end
@@ -107,7 +107,7 @@ nvim_lsp.eslint.setup({
 
 -- pnpm add -g vscode-langservers-extracted
 nvim_lsp.html.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   filetypes = { "eruby", "html" },
   flags = { debounce_text_changes = 300 },
@@ -166,6 +166,12 @@ nvim_lsp.tsserver.setup({
 })
 
 -- pnpm add -g @tailwindcss/language-server
+-- pnpm install -D prettier prettier-plugin-tailwindcss
+--
+--   // prettier.config.js
+--   module.exports = {
+--     plugins: ['prettier-plugin-tailwindcss'],
+--   }
 nvim_lsp.tailwindcss.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
