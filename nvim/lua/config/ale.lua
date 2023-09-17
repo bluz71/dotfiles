@@ -1,9 +1,10 @@
+local g = vim.g
+
 -- Do not load up plugin when in diff mode.
 if vim.opt.diff:get() then
+  g.ale_enabled = false
   return
 end
-
-local g = vim.g
 
 g.ale_fixers = {
   css = { "prettier" },
@@ -12,6 +13,7 @@ g.ale_fixers = {
   html = { "prettier" },
   javascript = { "prettier-standard" },
   json = { "prettier" },
+  jsonc = { "prettier" },
   lua = { "stylua" },
   scss = { "prettier" },
   yml = { "prettier" },

@@ -1,5 +1,11 @@
+local cmd = vim.cmd
+local lsp = vim.lsp
+local map = vim.keymap.set
+local opt_local = vim.opt_local
+
 -- Do not load up plugin when in diff mode.
 if vim.opt.diff:get() then
+  cmd([[LspStop]])
   return
 end
 
@@ -9,16 +15,13 @@ local buffer = require("util.buffer")
 local dart_closing_labels = require("util.dart-closing-labels")
 local handlers = require("util.lsp-handlers")
 local lsp_capabilities = require("util.lsp-capabilities")
-local lsp = vim.lsp
-local map = vim.keymap.set
-local opt_local = vim.opt_local
 
 -- Custom on attach function.
 local lsp_on_attach = function(client)
   -- Disable LSP for files larger than 100KB.
   if buffer.is_large(0) then
     print("(LSP) DISABLED, file too large")
-    vim.cmd([[LspStop]])
+    cmd([[LspStop]])
     return
   end
 
@@ -151,7 +154,7 @@ nvim_lsp.standardrb.setup({
 -- pnpm install typescript-svelte-plugin --save-dev
 -- Refer to: https://is.gd/jFrFWI
 nvim_lsp.svelte.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("svelte.config.js"),
