@@ -11,11 +11,13 @@ g.ale_fixers = {
   dart = { "dart-format" },
   fish = { "fish_indent" },
   html = { "prettier" },
-  javascript = { "prettier-standard" },
+  javascript = { "standard" },
   json = { "prettier" },
   jsonc = { "prettier" },
   lua = { "stylua" },
   scss = { "prettier" },
+  svelte = { "prettier" },
+  typescript = { "prettier" },
   yml = { "prettier" },
 }
 
