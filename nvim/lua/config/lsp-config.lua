@@ -102,9 +102,9 @@ nvim_lsp.dartls.setup({
 
 -- pnpm install @typescript-eslint/eslint-plugin@latest --save-dev
 nvim_lsp.eslint.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
-  filetypes = { "typescript" },
+  filetypes = { "svelte", "typescript" },
   flags = { debounce_text_changes = 300 },
 })
 
