@@ -588,7 +588,7 @@ web() {
 
     read -ep "$(echo -e "${GOLD}Search ${GREEN}➜ ${NC}")" search_term
     if [[ -n "$search_term" ]]; then
-        open "https://duckduckgo.com/?q=${search_term}" &>/dev/null
+        open "https://search.brave.com/search?q=${search_term}" &>/dev/null
     fi
 }
 

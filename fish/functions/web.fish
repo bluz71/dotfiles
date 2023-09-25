@@ -5,6 +5,6 @@ function web --description 'Web search'
              echo -n "➜ ";
              set_color normal' search_term
     if test -n "$search_term"
-        open "https://duckduckgo.com/?q=$search_term" >/dev/null 2>&1
+        open "https://search.brave.com/search?q=$search_term" >/dev/null 2>&1
     end
 end
