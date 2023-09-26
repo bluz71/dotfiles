@@ -11,7 +11,7 @@ g.ale_fixers = {
   dart = { "dart-format" },
   fish = { "fish_indent" },
   html = { "prettier" },
-  javascript = { "standard" },
+  javascript = { "standard" }, -- PR - conform.nvim
   json = { "prettier" },
   jsonc = { "prettier" },
   lua = { "stylua" },
@@ -23,10 +23,10 @@ g.ale_fixers = {
 
 g.ale_linters = {
   eruby = {'erblint'},
-  javascript = {'standard'},
+  javascript = {'standard'}, -- PR - nvim-lint
   lua = { "selene" },
   json = { "jsonlint" },
-  markdown = { "mdl" },
+  markdown = { "mdl" }, -- PR - nvim-lint
   yaml = { "yamllint" },
 }
 
