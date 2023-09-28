@@ -176,7 +176,7 @@ nvim_lsp.tsserver.setup({
 --     plugins: ['prettier-plugin-tailwindcss'],
 --   }
 nvim_lsp.tailwindcss.setup({
-  on_attach = lsp_on_attach,
+  on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   filetypes = { "eruby", "html", "svelte" },
   flags = { debounce_text_changes = 300 },
