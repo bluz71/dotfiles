@@ -9,9 +9,10 @@ local map = vim.keymap.set
 conform.setup({
   formatters_by_ft = {
     css = { "prettier" },
-    dart = { "dart-format" },
+    dart = { "dart_format" },
     fish = { "fish_indent" },
     html = { "prettier" },
+    javascript = { "standardjs" },
     json = { "prettier" },
     jsonc = { "prettier" },
     lua = { "stylua" },
@@ -22,6 +23,6 @@ conform.setup({
   },
 })
 
-map("n", "'F", function()
+map("n", "'f", function()
   conform.format({ async = true, lsp_fallback = true, timeout_ms = 8000 })
 end, { silent = true })
