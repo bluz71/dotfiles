@@ -237,6 +237,13 @@ lazy.setup({
   },
 
   {
+    "stevearc/conform.nvim",
+    config = function()
+      require("config.conform")
+    end,
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "BufReadPre",

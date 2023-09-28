@@ -44,14 +44,7 @@ local lsp_on_attach = function(client)
       query = vim.fn.input("LSP Workspace Symbols❯ "),
     })
   end)
-
-  -- Formatting is conditional on server capabilities.
-  if client.server_capabilities.documentFormattingProvider then
-    map("n", "'f", lsp.buf.format, opts)
-  end
-  if client.server_capabilities.documentFormattingProvider then
-    map("x", "'f", lsp.buf.range_formatting, opts)
-  end
+  -- Note, LSP formatting will be handled by the conform.nvim plugin.
 
   -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these options
   -- cause problems with my custom-completion mapping along with the 'gq'
