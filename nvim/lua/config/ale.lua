@@ -18,8 +18,8 @@ g.ale_linters = {
 }
 
 g.ale_completion_enabled = 0
+g.ale_disable_lsp = 1
 g.ale_echo_cursor = 0
-g.ale_fix_on_save = 0
 g.ale_hover_cursor = 0
 g.ale_lint_on_enter = 0
 g.ale_lint_on_filetype_changed = 0
