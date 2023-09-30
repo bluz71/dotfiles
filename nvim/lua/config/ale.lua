@@ -10,10 +10,10 @@ g.ale_fixers = {}
 
 g.ale_linters = {
   eruby = { "erblint" },
-  javascript = { "standard" }, -- PR - nvim-lint
+  javascript = { "standard" },
   lua = { "selene" },
   json = { "jsonlint" },
-  markdown = { "mdl" }, -- PR - nvim-lint
+  markdown = { "mdl" },
   yaml = { "yamllint" },
 }
 

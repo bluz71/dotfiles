@@ -9,7 +9,7 @@ M.styling = function()
     opt_local.colorcolumn = "0"
     highlight(0, "MatchParen", {})
     vim.cmd([[
-      IndentBlanklineDisable!
+      IBLDisable
       wincmd l
     ]])
   end
