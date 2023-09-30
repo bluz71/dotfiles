@@ -71,56 +71,56 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background:        '#080808'
-    foreground:        '#bdbdbd'
-    bright_foreground: '#eeeeee'
+    background: "#080808"
+    foreground: "#bdbdbd"
+    bright_foreground: "#eeeeee"
 
   # Cursor colors
   cursor:
-    text:   '#080808'
-    cursor: '#8e8e8e'
+    text: "#080808"
+    cursor: "#8e8e8e"
 
   # Vi mode cursor colors
   vi_mode_cursor:
-    text:   '#080808'
-    cursor: '#e3c78a'
+    text: "#080808"
+    cursor: "#e3c78a"
 
   # Selection colors
   selection:
-    text:       '#080808'
-    background: '#b2ceee'
+    text: "#080808"
+    background: "#b2ceee"
 
   # Search colors
   search:
     matches:
-      background: '#f09479'
-      foreground: '#080808'
+      background: "#f09479"
+      foreground: "#080808"
 
   footer_bar:
-    background: '#e3c78a'
-    foreground: '#080808'
+    background: "#e3c78a"
+    foreground: "#080808"
 
   # Normal colors
   normal:
-    black:   '#323437'
-    red:     '#ff5454'
-    green:   '#8cc85f'
-    yellow:  '#e3c78a'
-    blue:    '#80a0ff'
-    magenta: '#cf87e8'
-    cyan:    '#79dac8'
-    white:   '#c6c6c6'
+    black: "#323437"
+    red: "#ff5454"
+    green: "#8cc85f"
+    yellow: "#e3c78a"
+    blue: "#80a0ff"
+    magenta: "#cf87e8"
+    cyan: "#79dac8"
+    white: "#c6c6c6"
 
   # Bright colors
   bright:
-    black:   '#949494'
-    red:     '#ff5189'
-    green:   '#36c692'
-    yellow:  '#c2c292'
-    blue:    '#74b2ff'
-    magenta: '#ae81ff'
-    cyan:    '#85dc85'
-    white:   '#e4e4e4'
+    black: "#949494"
+    red: "#ff5189"
+    green: "#36c692"
+    yellow: "#c2c292"
+    blue: "#74b2ff"
+    magenta: "#ae81ff"
+    cyan: "#85dc85"
+    white: "#e4e4e4"
 
 selection:
   save_to_clipboard: true
@@ -143,20 +143,20 @@ mouse:
   hide_when_typing: false
 
 key_bindings:
-  - { key: Escape,   mods: Control,   action: ToggleViMode           }
-  - { key: Return,   mods: Command,   action: ToggleSimpleFullscreen }
-  - { key: C,        mods: Command,   action: Copy                   }
-  - { key: V,        mods: Command,   action: Paste                  }
-  - { key: N,        mods: Command,   action: SpawnNewInstance       }
-  - { key: Up,       mods: Command,   action: ScrollPageUp           }
-  - { key: Down,     mods: Command,   action: ScrollPageDown         }
-  - { key: Left,     mods: Command,   action: ScrollToTop            }
-  - { key: Right,    mods: Command,   action: ScrollToBottom         }
-  - { key: Equals,   mods: Command,   action: IncreaseFontSize       }
-  - { key: Minus,    mods: Command,   action: DecreaseFontSize       }
-  - { key: Q,        mods: Command,   action: ReceiveChar            }
-  - { key: W,        mods: Command,   action: ReceiveChar            }
-  - { key: C,        mods: Control,   action: Copy                   }
-  - { key: I,        mods: Control,   chars: "\x1b[105;5u"           }
-  - { key: K,        mods: Control,   chars: "\x03"                  }
-  - { key: Q,        mods: Control,   chars: "\x11"                  }
+  - {key: Escape, mods: Control, action: ToggleViMode}
+  - {key: Return, mods: Command, action: ToggleSimpleFullscreen}
+  - {key: C, mods: Command, action: Copy}
+  - {key: V, mods: Command, action: Paste}
+  - {key: N, mods: Command, action: SpawnNewInstance}
+  - {key: Up, mods: Command, action: ScrollPageUp}
+  - {key: Down, mods: Command, action: ScrollPageDown}
+  - {key: Left, mods: Command, action: ScrollToTop}
+  - {key: Right, mods: Command, action: ScrollToBottom}
+  - {key: Equals, mods: Command, action: IncreaseFontSize}
+  - {key: Minus, mods: Command, action: DecreaseFontSize}
+  - {key: Q, mods: Command, action: ReceiveChar}
+  - {key: W, mods: Command, action: ReceiveChar}
+  - {key: C, mods: Control, action: Copy}
+  - {key: I, mods: Control, chars: "\x1b[105;5u"}
+  - {key: K, mods: Control, chars: "\x03"}
+  - {key: Q, mods: Control, chars: "\x11"}

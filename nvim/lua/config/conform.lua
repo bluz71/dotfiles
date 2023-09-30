@@ -19,7 +19,7 @@ conform.setup({
     scss = { "prettier" },
     svelte = { "prettier" },
     typescript = { "prettier" },
-    yml = { "prettier" },
+    yaml = { "prettier" },
   },
 })
 
