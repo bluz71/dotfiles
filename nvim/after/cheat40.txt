@@ -148,7 +148,6 @@ Signature help           ‹Ctrl-k›     *I
 Fuzzy references         ‹Spc›lr       N
 Fuzzy document symbols   ‹Spc›lw       N
 Fuzz workspace symbols   ‹Spc›lW       N
-Formatting               'f          *VN
 }}}
 Treesitter Mappings {{{
 Inner func textobject    if          *VN
@@ -262,12 +261,9 @@ Insert comment below     gco           N
 Insert eol comment       gcA           N
 }}}
 nvim-cmp Plugin Mappings {{{
-Confirm selection        ‹C-y›        %I
-Close menu               ‹C-e›        %I
-Scroll forward docs      ‹C-f›        %I
-Scroll back docs         ‹C-b›        %I
+Confirm selection        ‹CR›         %I
 }}}
-vsnip Plugin Mappings {{{
+nvim-snippy Plugin Mappings {{{
 Expand snippet           ‹Ctrl-j›      I
 Jump forward             ‹Ctrl-j›      I
 Jump backward            ‹Ctrl-k›      I
@@ -310,8 +306,8 @@ Hop Line                 '‹Return›     N
 FTerm Plugin Mappings {{{
 Toggle Lazygit Terminal  ‹Ctrl-g›      N
 }}}
-ALE Plugin Mappings {{{
-Run fixer                'f            N
+Conform Plugin Mappings {{{
+Run formatter            'f            N
 }}}
 Possession Plugin Mappings {{{
 Create or save session   'p            N

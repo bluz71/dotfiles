@@ -5,13 +5,6 @@ end
 
 local cmp = require("cmp")
 
--- Helpers for the traditional pop-up completion menu.
-local feedkeys = vim.fn.feedkeys
-local pumvisible = vim.fn.pumvisible
-local replace_termcodes = function(key)
-  return vim.api.nvim_replace_termcodes(key, true, true, true)
-end
-
 cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust", "svelte", "typescript" }, {
   formatting = {
     format = function(entry, item)
@@ -24,28 +17,21 @@ cmp.setup.filetype({ "dart", "eruby", "html", "javascript", "ruby", "rust", "sve
     end,
   },
   mapping = {
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-    ["<Tab>"] = function(fallback)
-      if pumvisible() == 1 then
-        feedkeys(replace_termcodes("<C-n>"), "n")
-      elseif cmp.visible() then
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
         cmp.select_next_item()
       else
         fallback()
       end
-    end,
-    ["<S-Tab>"] = function(fallback)
-      if pumvisible() ~= 0 then
-        feedkeys(replace_termcodes("<C-p>"), "n")
-      elseif cmp.visible() then
+    end, { "i" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
-    end,
-    ["<C-f>"] = cmp.mapping.scroll_docs(10),
-    ["<C-b>"] = cmp.mapping.scroll_docs(-10),
+    end, { "i" }),
   },
   snippet = {
     expand = function(args)
