@@ -32,13 +32,12 @@ gitsigns.setup({
         feedkeys("zz", "n", false)
       end)
     end)
-    map('n', "'+", gs.stage_hunk)
-    map('n', "'-", gs.reset_hunk)
+    map("n", "'+", gs.stage_hunk)
+    map("n", "'-", gs.reset_hunk)
     map("n", "'g", gs.preview_hunk)
-    map('n', "'b", function()
+    map("n", "'b", function()
       gs.blame_line({ full = true })
     end)
-    map("n", "'r", gs.refresh)
   end,
   max_file_length = 100000,
   sign_priority = 6,

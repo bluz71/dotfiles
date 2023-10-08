@@ -148,6 +148,7 @@ Signature help           ‹Ctrl-k›     *I
 Fuzzy references         ‹Spc›lr       N
 Fuzzy document symbols   ‹Spc›lw       N
 Fuzz workspace symbols   ‹Spc›lW       N
+Restart Language Servers 'r            N
 }}}
 Treesitter Mappings {{{
 Inner func textobject    if          *VN
@@ -221,7 +222,6 @@ Stage hunk               '+           @N
 Revert hunk staging      '-           @N
 Preview hunk             'g           @N
 Blame line               'b           @N
-Refresh buffers          'r            N
 }}}
 Unimpaired Plugin Mappings {{{
 Previous file            [a            N
