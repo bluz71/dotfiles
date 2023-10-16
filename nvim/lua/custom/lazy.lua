@@ -231,9 +231,9 @@ lazy.setup({
   },
 
   {
-    "dense-analysis/ale",
+    "mfussenegger/nvim-lint",
     config = function()
-      require("config.ale")
+      require("config.lint")
     end,
   },
 
