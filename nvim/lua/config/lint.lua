@@ -4,6 +4,7 @@ if vim.opt.diff:get() then
 end
 
 local lint = require("lint")
+local linters = require("lint").linters
 local buffer = require("util.buffer")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -18,8 +19,7 @@ lint.linters_by_ft = {
 }
 
 -- Custom linter arguments.
-local markdownlint = lint.linters.markdownlint
-markdownlint.args = {
+linters.markdownlint.args = {
   "--config",
   "~/dotfiles/linter_configs/markdownlint.json",
   "--disable",
