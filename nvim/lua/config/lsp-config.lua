@@ -17,7 +17,7 @@ local handlers = require("util.lsp-handlers")
 local lsp_capabilities = require("util.lsp-capabilities")
 
 -- Custom on attach function.
-local lsp_on_attach = function(client)
+local lsp_on_attach = function()
   -- Disable LSP for files larger than 100KB.
   if buffer.is_large(0) then
     print("(LSP) DISABLED, file too large")
@@ -65,7 +65,7 @@ local lsp_on_attach_no_formatting = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 
-  lsp_on_attach(client)
+  lsp_on_attach()
 end
 
 -- Custom on attach function which disable LSP semantic highlighting.
