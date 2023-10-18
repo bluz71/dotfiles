@@ -59,7 +59,7 @@ map("n", "<Space>/", function()
   require("telescope.builtin").grep_string({ search = vim.fn.input("grep ❯ ") })
 end)
 map("n", "<Space>t", function()
-  cmd("Lazy load catppuccin nightfox.nvim palenightfall.nvim tokyonight.nvim")
+  cmd("Lazy load catppuccin kanagawa.nvim nightfox.nvim tokyonight.nvim")
   require("telescope.builtin").colorscheme({ enable_preview = true })
 end)
 
