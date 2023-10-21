@@ -1,5 +1,6 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local builtin = require("telescope.builtin")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
@@ -42,30 +43,30 @@ telescope.load_extension("possession")
 
 -- Mappings.
 local map = vim.keymap.set
-map("n", "<Space><Space>", require("telescope.builtin").find_files)
+map("n", "<Space><Space>", builtin.find_files)
 map("n", "<Space>.", function()
-  require("telescope.builtin").find_files({ cwd = "%:h" })
+  builtin.find_files({ cwd = "%:h" })
 end)
 map("n", "<Space>,", function()
-  require("telescope.builtin").buffers({
+  builtin.buffers({
     sort_mru = true,
     ignore_current_buffer = true,
   })
 end)
-map("n", "<Space>'", require("telescope.builtin").current_buffer_fuzzy_find)
-map("n", "<Space>r", require("telescope.builtin").resume)
+map("n", "<Space>'", builtin.current_buffer_fuzzy_find)
+map("n", "<Space>r", builtin.resume)
 map("n", "<Space>c", require("util.telescope-commands").git_bcommits)
 map("n", "<Space>g", require("util.telescope-commands").git_status)
-map("n", "<Space>h", require("telescope.builtin").help_tags)
-map("n", "<Space>i", require("telescope.builtin").highlights)
-map("n", "<Space>o", require("telescope.builtin").oldfiles)
-map("n", "<Space>]", require("telescope.builtin").tags)
+map("n", "<Space>h", builtin.help_tags)
+map("n", "<Space>i", builtin.highlights)
+map("n", "<Space>o", builtin.oldfiles)
+map("n", "<Space>]", builtin.tags)
 map("n", "<Space>/", function()
-  require("telescope.builtin").grep_string({ search = vim.fn.input("grep ❯ ") })
+  builtin.grep_string({ search = vim.fn.input("grep ❯ ") })
 end)
 map("n", "<Space>t", function()
   cmd("Lazy load catppuccin kanagawa.nvim nightfox.nvim tokyonight.nvim")
-  require("telescope.builtin").colorscheme({ enable_preview = true })
+  builtin.colorscheme({ enable_preview = true })
 end)
 
 local opts = { silent = true }
