@@ -46,7 +46,12 @@ map("n", "<Space><Space>", require("telescope.builtin").find_files)
 map("n", "<Space>.", function()
   require("telescope.builtin").find_files({ cwd = "%:h" })
 end)
-map("n", "<Space>,", require("telescope.builtin").buffers)
+map("n", "<Space>,", function()
+  require("telescope.builtin").buffers({
+    sort_mru = true,
+    ignore_current_buffer = true,
+  })
+end)
 map("n", "<Space>'", require("telescope.builtin").current_buffer_fuzzy_find)
 map("n", "<Space>r", require("telescope.builtin").resume)
 map("n", "<Space>c", require("util.telescope-commands").git_bcommits)
@@ -79,7 +84,7 @@ elseif vim.fn.filereadable("src/index.js") ~= 0 then
 end
 
 -- Extension mappings.
-map("n", "<Space>p", require('telescope').extensions.possession.list)
+map("n", "<Space>p", require("telescope").extensions.possession.list)
 
 -- Workaround Telescope highlights bug: https://is.gd/Sjxegs
 autocmd("User", {
@@ -87,6 +92,5 @@ autocmd("User", {
   callback = function()
     vim.opt_local.splitkeep = "cursor"
   end,
-  group = augroup("TelescopePluginEvents", {})
+  group = augroup("TelescopePluginEvents", {}),
 })
-
