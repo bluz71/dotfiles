@@ -1,2 +1,2 @@
 setlocal complete+=k
-setlocal formatoptions=tqln
+setlocal formatoptions=tqn

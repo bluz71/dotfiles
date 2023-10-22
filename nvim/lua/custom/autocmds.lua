@@ -133,6 +133,17 @@ autocmd("TextYankPost", {
   group = custom_events,
 })
 
+-- Override filetype specific 'formatoptions'.
+autocmd("FileType", {
+  callback = function()
+    -- Enable preferred options.
+    opt_local.formatoptions:prepend("t")
+    -- Disable unwanted options.
+    opt_local.formatoptions:remove({ "r", "o", "l" })
+  end,
+  group = custom_events,
+})
+
 -- Colorscheme overrides.
 autocmd("ColorScheme", {
   pattern = "nightfly",
