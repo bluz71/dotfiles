@@ -11,7 +11,7 @@ local autocmd = vim.api.nvim_create_autocmd
 
 lint.linters_by_ft = {
   eruby = { "erblint" },
-  javascript = { "standard" },
+  javascript = { "standardjs" },
   lua = { "selene" },
   json = { "jsonlint" },
   markdown = { "markdownlint" },
