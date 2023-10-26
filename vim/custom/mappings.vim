@@ -90,7 +90,9 @@ nnoremap <S-Left>  <C-W>h
 nnoremap <S-Right> <C-W>l
 " Vertical movements.
 nnoremap <C-j> 10j
-nnoremap <C-k> 10k
+" Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
+" 'Control-k', hence this mapping actually is 'Control-k' (k for up).
+nnoremap <C-c> 10k
 " Move vertically by visual line unless preceded by a count. If a movement is
 " greater than 5 then automatically add to the jumplist.
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'

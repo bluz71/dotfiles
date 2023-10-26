@@ -114,7 +114,9 @@ map("n", "<S-Left>", "<C-W>h")
 map("n", "<S-Right>", "<C-W>l")
 -- Vertical movements.
 map("n", "<C-j>", "10j")
-map("n", "<C-k>", "10k")
+-- Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
+-- 'Control-k', hence this mapping actually is 'Control-k' (k for up).
+map("n", "<C-c>", "10k")
 -- Move vertically by visual line unless preceded by a count. If a movement is
 -- greater than 5 then automatically add to the jumplist.
 map("n", "j", "v:count ? (v:count > 5 ? \"m'\" . v:count : '') . 'j' : 'gj'", expr_opts)
