@@ -1,4 +1,5 @@
 local treesitter = require("nvim-treesitter.configs")
+local commentstring = require("ts_context_commentstring")
 local buffer = require("util.buffer")
 
 treesitter.setup({
@@ -41,13 +42,13 @@ treesitter.setup({
       "html", "javascript", "typescript", "svelte", "eruby", "embedded_template",
     },
   },
-  -- For nvim-ts-context-commentstring plugin.
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
   -- For nvim-treesitter-endwise plugin.
   endwise = {
     enable = true,
   },
+})
+
+-- For nvim-ts-context-commentstring plugin.
+commentstring.setup({
+  enable_autocmd = false,
 })
