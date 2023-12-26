@@ -8,6 +8,7 @@ local map = vim.keymap.set
 
 conform.setup({
   formatters_by_ft = {
+    astro = { "prettier" },
     css = { "prettier" },
     dart = { "dart_format" },
     fish = { "fish_indent" },

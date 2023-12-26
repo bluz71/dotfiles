@@ -85,6 +85,20 @@ local capabilities = lsp_capabilities.default_capabilities()
 -- The Language Servers --
 --------------------------
 
+-- pnpm install -g @astrojs/language-server
+-- pnpm install -D prettier prettier-plugin-astro
+--
+--   // prettier.config.js
+--   module.exports = {
+--     plugins: ['prettier-plugin-astro'],
+--   }
+nvim_lsp.astro.setup({
+  on_attach = lsp_on_attach_no_formatting,
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 300 },
+  root_dir = nvim_lsp.util.root_pattern("astro.config.mjs"),
+})
+
 -- pnpm add -g vscode-langservers-extracted
 nvim_lsp.cssls.setup({
   on_attach = lsp_on_attach_no_formatting,
