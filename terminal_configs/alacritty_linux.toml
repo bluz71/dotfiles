@@ -1,5 +1,3 @@
-live_config_reload = true
-
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -53,12 +51,12 @@ thickness = 0.2
 unfocused_hollow = true
 
 [font]
-size = 11.5
 bold = { family = "Iosevka Custom", style = "Regular" }
 glyph_offset = { x = 0, y = 0 }
 italic = { family = "Iosevka Custom", style = "Italic" }
 normal = { family = "Iosevka Custom", style = "Regular" }
 offset = { x = 0, y = 0 }
+size = 11.5
 
 [keyboard]
 bindings = [
@@ -91,6 +89,6 @@ program = "/bin/fish"
 
 [window]
 decorations_theme_variant = "Dark"
-dynamic_title = false
 dimensions = { columns = 90, lines = 52 }
+dynamic_title = false
 padding = { x = 4, y = 2 }
