@@ -35,11 +35,11 @@ if [ "$(uname)" = Linux ]; then
     mkdir -p .config/fontconfig
     ln -s ~/dotfiles/misc/fonts.conf .config/fontconfig/fonts.conf
     ln -s ~/dotfiles/terminal_configs/Xresources .Xresources
-    ln -s ~/dotfiles/terminal_configs/alacritty_linux.yml .config/alacritty/alacritty.yml
+    ln -s ~/dotfiles/terminal_configs/alacritty_linux.toml .config/alacritty/alacritty.toml
     mkdir -p .config/lazygit
     ln -s ~/dotfiles/lazygit/config.yml .config/lazygit/config.yml
 elif [  "$(uname)" = Darwin ]; then
-    ln -s ~/dotfiles/terminal_configs/alacritty_macos.yml .config/alacritty/alacritty.yml
+    ln -s ~/dotfiles/terminal_configs/alacritty_macos.toml .config/alacritty/alacritty.toml
     mkdir -p Library/Application\ Support/lazygit
     ln -s ~/dotfiles/lazygit/config.yml Library/Application\ Support/lazygit/config.yml
 fi

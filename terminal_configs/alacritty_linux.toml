@@ -1,0 +1,96 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#949494"
+blue = "#74b2ff"
+cyan = "#85dc85"
+green = "#36c692"
+magenta = "#ae81ff"
+red = "#ff5189"
+white = "#e4e4e4"
+yellow = "#c2c292"
+
+[colors.cursor]
+cursor = "#8e8e8e"
+text = "#080808"
+
+[colors.footer_bar]
+background = "#e3c78a"
+foreground = "#080808"
+
+[colors.normal]
+black = "#323437"
+blue = "#80a0ff"
+cyan = "#79dac8"
+green = "#8cc85f"
+magenta = "#cf87e8"
+red = "#ff5454"
+white = "#c6c6c6"
+yellow = "#e3c78a"
+
+[colors.primary]
+background = "#080808"
+bright_foreground = "#eeeeee"
+foreground = "#bdbdbd"
+
+[colors.search.matches]
+background = "#f09479"
+foreground = "#080808"
+
+[colors.selection]
+background = "#b2ceee"
+text = "#080808"
+
+[colors.vi_mode_cursor]
+cursor = "#e3c78a"
+text = "#080808"
+
+[cursor]
+thickness = 0.2
+unfocused_hollow = true
+
+[font]
+size = 11.5
+bold = { family = "Iosevka Custom", style = "Regular" }
+glyph_offset = { x = 0, y = 0 }
+italic = { family = "Iosevka Custom", style = "Italic" }
+normal = { family = "Iosevka Custom", style = "Regular" }
+offset = { x = 0, y = 0 }
+
+[keyboard]
+bindings = [
+  { key = "Escape", mods = "Control", action = "ToggleViMode" },
+  { key = "Return", mods = "Alt", action = "ToggleFullscreen" },
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "Up", mods = "Control|Shift", action = "ScrollPageUp" },
+  { key = "Down", mods = "Control|Shift", action = "ScrollPageDown" },
+  { key = "Left", mods = "Control|Shift", action = "ScrollToTop" },
+  { key = "Right", mods = "Control|Shift", action = "ScrollToBottom" },
+  { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+  { key = "C", mods = "Control", action = "Copy" },
+  { key = "I", mods = "Control", chars = "\u001B[105;5u" },
+  { key = "K", mods = "Control", chars = "\u0003" },
+]
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+multiplier = 5
+
+[shell]
+# program = "/bin/bash"
+program = "/bin/fish"
+
+[window]
+decorations_theme_variant = "Dark"
+dynamic_title = false
+dimensions = { columns = 90, lines = 52 }
+padding = { x = 4, y = 2 }
