@@ -4,6 +4,7 @@ local map = vim.keymap.set
 local expr_opts = { expr = true }
 local expr_noreplace_opts = { expr = true, replace_keycodes = false }
 local silent_opts = { silent = true, remap = true }
+local v = vim.v
 
 -------------------------------
 -- Leader
@@ -54,6 +55,10 @@ map("n", "dd", function()
 end, expr_opts)
 -- Automatically indent the cursor when entering insert mode on an empty line.
 map("n", "i", function()
+  -- For counted insert just execute a standard "insert" operation.
+  if v.count > 0 then
+    return "i"
+  end
   if #current_line() == 0 then
     return [["_cc]]
   else
