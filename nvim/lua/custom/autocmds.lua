@@ -170,3 +170,11 @@ autocmd("ColorScheme", {
   end,
   group = custom_events,
 })
+
+autocmd({ "BufEnter", "BufWritePost", "TextChanged", "InsertLeave" }, {
+  group = custom_events,
+  pattern = { "*.astro", "*.html" },
+  callback = function()
+    require("util.conceal-attributes").fold()
+  end,
+})
