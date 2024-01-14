@@ -124,7 +124,7 @@ nvim_lsp.dartls.setup({
 nvim_lsp.eslint.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
-  filetypes = { "svelte", "typescript" },
+  filetypes = { "astro", "typescript" },
   flags = { debounce_text_changes = 300 },
 })
 
@@ -168,16 +168,6 @@ nvim_lsp.standardrb.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
-})
-
--- pnpm install -g svelte-language-server
--- pnpm install typescript-svelte-plugin --save-dev
--- Refer to: https://is.gd/jFrFWI
-nvim_lsp.svelte.setup({
-  on_attach = lsp_on_attach_no_formatting,
-  capabilities = capabilities,
-  flags = { debounce_text_changes = 300 },
-  root_dir = nvim_lsp.util.root_pattern("svelte.config.js"),
 })
 
 -- pnpm add -g typescript typescript-language-server
