@@ -86,12 +86,6 @@ local capabilities = lsp_capabilities.default_capabilities()
 --------------------------
 
 -- pnpm install -g @astrojs/language-server
--- pnpm install -D prettier prettier-plugin-astro
---
---   // prettier.config.js
---   module.exports = {
---     plugins: ['prettier-plugin-astro'],
---   }
 nvim_lsp.astro.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,

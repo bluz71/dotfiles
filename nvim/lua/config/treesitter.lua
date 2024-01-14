@@ -39,7 +39,7 @@ treesitter.setup({
   autotag = {
     enable = true,
     filetypes = {
-      "html", "javascript", "typescript", "svelte", "astro", "eruby", "embedded_template",
+      "astro", "embedded_template", "eruby", "html", "javascript", "svelte", "typescript"
     },
   },
   -- For nvim-treesitter-endwise plugin.
