@@ -12,7 +12,6 @@ end
 local nvim_lsp = require("lspconfig")
 local nvim_lsp_windows = require("lspconfig.ui.windows")
 local buffer = require("util.buffer")
-local dart_closing_labels = require("util.dart-closing-labels")
 local handlers = require("util.lsp-handlers")
 local lsp_capabilities = require("util.lsp-capabilities")
 
@@ -108,9 +107,6 @@ nvim_lsp.dartls.setup({
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
   init_options = { closingLabels = true },
-  handlers = {
-    ["dart/textDocument/publishClosingLabels"] = dart_closing_labels.handler(),
-  },
   root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
 })
 
