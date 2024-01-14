@@ -1,8 +1,8 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
+local fn = vim.fn
 local g = vim.g
-local highlight = vim.api.nvim_set_hl
 local map = vim.keymap.set
 local opt = vim.opt
 local opt_local = vim.opt_local
@@ -80,12 +80,12 @@ autocmd("BufEnter", {
 
 -- Enable MatchTag plugin for certain HTML-like filetypes.
 autocmd("FileType", {
-  pattern = { "javascript", "vue" },
+  pattern = { "javascript" },
   command = "unlet b:did_ftplugin | runtime! ftplugin/html.vim",
   group = custom_events,
 })
 autocmd("FileType", {
-  pattern = { "astro", "svelte" },
+  pattern = { "astro" },
   command = "runtime! ftplugin/html.vim",
   group = custom_events,
 })
@@ -126,8 +126,8 @@ autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
     -- Copy yanked text to a tmux paste buffer if tmux is active.
     if vim.env.TMUX and vim.v.operator == "y" then
-      local _, yank_data = pcall(vim.fn.getreg, "0")
-      vim.fn.system({ "tmux", "set-buffer", yank_data })
+      local _, yank_data = pcall(fn.getreg, "0")
+      fn.system({ "tmux", "set-buffer", yank_data })
     end
   end,
   group = custom_events,
@@ -167,24 +167,6 @@ autocmd("ColorScheme", {
     g.terminal_color_12 = "#80a0ff" -- Bright Blue
     g.terminal_color_13 = "#cf87e8" -- Bright Magenta
     g.terminal_color_14 = "#79dac8" -- Bright Cyan
-  end,
-  group = custom_events,
-})
-
-autocmd("ColorScheme", {
-  pattern = "nightfox",
-  callback = function()
-    highlight(0, "FernLeaderSymbol", { link = "NvimTreeIndentMarker" })
-    highlight(0, "FernMarkedLine", { link = "QuickFixLine" })
-  end,
-  group = custom_events,
-})
-
-autocmd("ColorScheme", {
-  pattern = { "catppuccin", "palenightfall", "tokyonight" },
-  callback = function()
-    highlight(0, "FernLeaderSymbol", { link = "LineNr" })
-    highlight(0, "FernMarkedLine", { link = "QuickFixLine" })
   end,
   group = custom_events,
 })
