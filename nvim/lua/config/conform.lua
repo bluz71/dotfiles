@@ -18,7 +18,6 @@ conform.setup({
     jsonc = { "prettier" },
     lua = { "stylua" },
     scss = { "prettier" },
-    svelte = { "prettier" },
     typescript = { "prettier" },
     yaml = { "prettier" },
   },
