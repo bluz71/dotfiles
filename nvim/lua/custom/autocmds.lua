@@ -154,8 +154,6 @@ autocmd("ColorScheme", {
     g.terminal_color_10 = "#a1cd5e" -- Bright Green
     g.terminal_color_11 = "#e3d18a" -- Bright Yellow
     g.terminal_color_13 = "#c792ea" -- Bright Magenta
-    -- Tweak Conceal highlight when "Inline Fold" is active.
-    highlight(0, "Conceal", { link = "Visual" })
   end,
   group = custom_events,
 })
@@ -170,16 +168,6 @@ autocmd("ColorScheme", {
     g.terminal_color_12 = "#80a0ff" -- Bright Blue
     g.terminal_color_13 = "#cf87e8" -- Bright Magenta
     g.terminal_color_14 = "#79dac8" -- Bright Cyan
-    -- Tweak Conceal highlight when "Inline Fold" is active.
-    highlight(0, "Conceal", { link = "Visual" })
   end,
   group = custom_events,
-})
-
-autocmd({ "BufEnter", "BufWritePost", "TextChanged", "InsertLeave" }, {
-  group = custom_events,
-  pattern = { "*.astro", "*.html" },
-  callback = function()
-    require("util.conceal-attributes").fold()
-  end,
 })
