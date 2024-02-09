@@ -50,6 +50,8 @@ text = "#080808"
 thickness = 0.2
 unfocused_hollow = true
 
+# Enable thin font strokes on macOS (https://is.gd/O65P9v):
+#   % defaults write org.alacritty AppleFontSmoothing -int 0
 [font]
 bold = { family = "Iosevka Custom", style = "Regular" }
 glyph_offset = { x = 0, y = 1 }
