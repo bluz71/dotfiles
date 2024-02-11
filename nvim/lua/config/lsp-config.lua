@@ -85,6 +85,7 @@ local capabilities = lsp_capabilities.default_capabilities()
 --------------------------
 
 -- pnpm install -g @astrojs/language-server
+-- pnpm install -D eslint eslint-plugin-astro
 nvim_lsp.astro.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,

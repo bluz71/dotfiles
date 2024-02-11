@@ -15,10 +15,16 @@ M.activity = function(active)
   end
 
   if active then -- Active window
-    opt_local.colorcolumn = { 81, 82 }
+    local ft = buf_get_option(0, "filetype")
+    if ft == "astro" or ft == "lua" then
+      -- User wider colorcolumn for specific filetypes.
+      opt_local.colorcolumn = { 101, 102 }
+    else
+      opt_local.colorcolumn = { 81, 82 }
+    end
     opt_local.cursorline = true
     -- Do not update the number column for help files.
-    if buf_get_option(0, "filetype") ~= "help" then
+    if ft ~= "help" then
       opt_local.relativenumber = true
     end
     opt_local.signcolumn = "number"
