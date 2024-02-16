@@ -10,7 +10,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 lint.linters_by_ft = {
-  eruby = { "erblint" },
+  eruby = { "erb_lint" },
   javascript = { "standardjs" },
   lua = { "selene" },
   json = { "jsonlint" },
