@@ -135,7 +135,6 @@ lazy.setup({
   },
 
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
-  "chaoren/vim-wordmotion",
   "michaeljsmith/vim-indent-object",
 
   -----------------------------
@@ -174,6 +173,16 @@ lazy.setup({
     config = function()
       require("config.neo-tree")
     end,
+  },
+
+  {
+    "otavioschwanck/arrow.nvim",
+    keys = { "<C-Left>" },
+    opts = {
+      show_icons = true,
+      global_bookmarks = true,
+      leader_key = "<C-Left>"
+    }
   },
 
   -----------------------------
