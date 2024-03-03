@@ -122,8 +122,13 @@ lazy.setup({
     end,
   },
 
+  {
+    "echasnovski/mini.ai",
+    version = '*',
+    config = true
+  },
+
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
-  "wellle/targets.vim",
   "chaoren/vim-wordmotion",
   "michaeljsmith/vim-indent-object",
 
