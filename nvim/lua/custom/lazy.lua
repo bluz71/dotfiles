@@ -129,6 +129,11 @@ lazy.setup({
     config = true
   },
 
+  {
+    "chaoren/vim-wordmotion",
+    event = "VeryLazy",
+  },
+
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
   "chaoren/vim-wordmotion",
   "michaeljsmith/vim-indent-object",
