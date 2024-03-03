@@ -125,6 +125,7 @@ lazy.setup({
   {
     "echasnovski/mini.ai",
     version = '*',
+    event = "VeryLazy",
     config = true
   },
 
