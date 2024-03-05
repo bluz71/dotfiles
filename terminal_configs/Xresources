@@ -37,7 +37,7 @@ xterm-moonfly*color9: #ff5189
 xterm-moonfly*color10: #36c692
 
 ! Khaki (usually defined as 'Bold Yellow')
-xterm-moonfly*color11: #c2c292
+xterm-moonfly*color11: #c6c684
 
 ! Sky (usually defined as 'Bold Blue')
 xterm-moonfly*color12: #74b2ff
