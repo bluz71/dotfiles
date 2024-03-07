@@ -12,7 +12,7 @@ treesitter.setup({
     "astro", "bash", "clojure", "cpp", "css", "dart", "elixir", "elm",
     "embedded_template", "go", "haskell", "html", "java", "javascript", "julia",
     "markdown", "markdown_inline", "php", "python", "r", "regex", "ruby",
-    "rust", "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue",
+    "rust", "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue", "zig"
   },
   highlight = {
     enable = true,
