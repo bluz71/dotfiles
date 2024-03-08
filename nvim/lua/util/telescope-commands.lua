@@ -59,8 +59,10 @@ M.themes = function()
     "tokyonight-storm", "torte", "vim", "wildcharm", "zaibatsu", "zellner",
   }
 
-  -- Filter themes, ignore the above listed themes.
+  -- Save existing completion.
   local target = fn.getcompletion
+
+  -- Filter themes, ignore the above listed themes.
   fn.getcompletion = function()
     return vim.tbl_filter(function(color)
       return not vim.tbl_contains(themes_to_ignore, color)
@@ -68,6 +70,9 @@ M.themes = function()
   end
 
   builtin.colorscheme({ enable_preview = true })
+
+  -- Reset original completion.
+  fn.getcompletion = target
 end
 
 return M
