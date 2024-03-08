@@ -171,3 +171,18 @@ autocmd("ColorScheme", {
   end,
   group = custom_events,
 })
+
+autocmd("ColorScheme", {
+  pattern = "default",
+  callback = function()
+    highlight(0, "ColorColumn", { link = "Folded" })
+    highlight(0, "FloatBorder", { link = "WinSeparator" })
+    highlight(0, "NeoTreeDirectoryIcon", { link = "SignColumn" })
+    highlight(0, "NeoTreeDirectoryName", { link = "Identifier" })
+    highlight(0, "NeoTreeRootName", { link = "String" })
+    highlight(0, "NonText", { link = "SignColumn" })
+    highlight(0, "NormalFloat", { link = "Normal" })
+    highlight(0, "TelescopeBorder", { link = "WinSeparator" })
+  end,
+  group = custom_events,
+})
