@@ -64,10 +64,7 @@ map("n", "<Space>]", builtin.tags)
 map("n", "<Space>/", function()
   builtin.grep_string({ search = vim.fn.input("grep ❯ ") })
 end)
-map("n", "<Space>t", function()
-  cmd("Lazy load catppuccin kanagawa.nvim nightfox.nvim tokyonight.nvim")
-  builtin.colorscheme({ enable_preview = true })
-end)
+map("n", "<Space>t", require("util.telescope-commands").themes)
 
 local opts = { silent = true }
 if vim.fn.filereadable("config/routes.rb") ~= 0 then

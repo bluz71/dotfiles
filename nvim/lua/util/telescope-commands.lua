@@ -1,5 +1,6 @@
 local previewers = require("telescope.previewers")
 local builtin = require("telescope.builtin")
+local fn = vim.fn
 
 local M = {}
 
@@ -43,6 +44,30 @@ M.git_status = function()
   }
 
   builtin.git_status(opts)
+end
+
+M.themes = function()
+  -- Load up lazy-loaded plugin themes.
+  vim.cmd("Lazy load catppuccin kanagawa.nvim nightfox.nvim tokyonight.nvim")
+
+  local themes_to_ignore = {
+    "blue", "catppuccin-frappe", "catppuccin-latte", "carbonfox", "catppuccin-macchiato",
+    "catppuccin-mocha", "darkblue", "dawnfox", "dayfox", "default", "delek", "desert", "duskfox",
+    "elflord", "evening", "industry", "kanagawa-lotus", "kanagawa-dragon", "kanagawa-wave",
+    "koehler", "lunaperche", "morning", "murphy", "nordfox", "pablo", "peachpuff", "quiet", "ron",
+    "shine", "slate", "sorbet", "terafox", "tokyonight-day", "tokyonight-moon", "tokyonight-night",
+    "tokyonight-storm", "torte", "vim", "wildcharm", "zaibatsu", "zellner",
+  }
+
+  -- Filter themes, ignore the above listed themes.
+  local target = fn.getcompletion
+  fn.getcompletion = function()
+    return vim.tbl_filter(function(color)
+      return not vim.tbl_contains(themes_to_ignore, color)
+    end, target("", "color"))
+  end
+
+  builtin.colorscheme({ enable_preview = true })
 end
 
 return M
