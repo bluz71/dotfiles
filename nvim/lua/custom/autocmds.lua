@@ -176,6 +176,7 @@ autocmd("ColorScheme", {
   pattern = "default",
   callback = function()
     highlight(0, "ColorColumn", { link = "Folded" })
+    highlight(0, "Comment", { fg = "NvimLightGrey4", italic = true })
     highlight(0, "FloatBorder", { link = "WinSeparator" })
     highlight(0, "NeoTreeDirectoryIcon", { link = "SignColumn" })
     highlight(0, "NeoTreeDirectoryName", { link = "Identifier" })
