@@ -67,8 +67,6 @@ Plug 'mbbill/undotree'
     " ~/dotfiles/vim/after/after/ftplugin/undotree.vim
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/after/plugin/auto-save.vim
-Plug 'lifepillar/vim-cheat40'
-    " ~/dotfiles/vim/after/plugin/cheat40.vim
 Plug 'dstein64/vim-startuptime'
     " ~/dotfiles/vim/after/plugin/startup.vim
 
