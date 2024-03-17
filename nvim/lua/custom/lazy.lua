@@ -319,11 +319,11 @@ lazy.setup({
     end,
   },
 
-  {
-    "lifepillar/vim-cheat40",
-    event = "VeryLazy",
+  { 
+    "smartinellimarco/nvcheatsheet.nvim",
+    keys = { "<F12>" },
     config = function()
-      require("config.cheat40")
+      require("config.cheatsheet")
     end,
   },
 
