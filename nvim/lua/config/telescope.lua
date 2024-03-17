@@ -3,7 +3,6 @@ local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
-local cmd = vim.cmd
 
 telescope.setup({
   defaults = {
@@ -54,7 +53,6 @@ map("n", "<Space>,", function()
   })
 end)
 map("n", "<Space>'", builtin.current_buffer_fuzzy_find)
-map("n", "<Space>r", builtin.resume)
 map("n", "<Space>c", require("util.telescope-commands").git_bcommits)
 map("n", "<Space>g", require("util.telescope-commands").git_status)
 map("n", "<Space>h", builtin.help_tags)
@@ -69,15 +67,11 @@ map("n", "<Space>t", require("util.telescope-commands").themes)
 local opts = { silent = true }
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
   map("n", "<Space>ec", ":Telescope find_files cwd=app/controllers<CR>", opts)
-  map("n", "<Space>eh", ":Telescope find_files cwd=app/helpers<CR>", opts)
-  map("n", "<Space>ei", ":Telescope find_files cwd=config/initializers<CR>", opts)
   map("n", "<Space>em", ":Telescope find_files cwd=app/models<CR>", opts)
-  map("n", "<Space>es", ":Telescope find_files cwd=app/assets/styles<CR>", opts)
   map("n", "<Space>et", ":Telescope find_files cwd=spec<CR>", opts)
   map("n", "<Space>ev", ":Telescope find_files cwd=app/views<CR>", opts)
 elseif vim.fn.filereadable("src/index.js") ~= 0 then
   map("n", "<Space>ec", ":Telescope find_files cwd=src/components<CR>", opts)
-  map("n", "<Space>es", ":Telescope find_files cwd=src/styles<CR>", opts)
   map("n", "<Space>et", ":Telescope find_files cwd=src/__tests__/components<CR>", opts)
 end
 
