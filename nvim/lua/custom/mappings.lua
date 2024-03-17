@@ -12,6 +12,51 @@ local v = vim.v
 g.mapleader = ","
 
 -------------------------------
+-- Window managment mappings
+-------------------------------
+map("n", "<Leader>s", "<C-w>s")
+map("n", "<Leader>v", "<C-w>v")
+map("n", "<Leader>-", ":botright new<CR><C-w>=", silent_opts)
+map("n", "<Leader>|", ":botright vnew<CR><C-w>=", silent_opts)
+map("n", "<Leader>q", "<C-w>c")
+map("n", "<Leader>c", ":cclose<CR>:lclose<CR>:pclose<CR>", silent_opts)
+map("n", "<Leader>t", ":$tabnew<CR>", silent_opts)
+map("n", "<Leader>T", ":tabclose<CR>", silent_opts)
+map("n", "<Leader>1", "1gt")
+map("n", "<Leader>2", "2gt")
+map("n", "<Leader>3", "3gt")
+map("n", "<Leader>4", "4gt")
+map("n", "<Leader>5", "5gt")
+map("n", "<Leader>6", "6gt")
+map("n", "<Leader>7", "7gt")
+map("n", "<Leader>8", "8gt")
+map("n", "<Leader>9", "9gt")
+map("n", "<Leader>=", "<C-w>=")
+map("n", "<Leader>r", "<C-w>r")
+
+-------------------------------
+-- Navigation mappings
+-------------------------------
+map("n", "<Tab>", "<C-w>w")
+map("n", "<S-Up>", "<C-W>k")
+map("n", "<S-Down>", "<C-W>j")
+map("n", "<S-Left>", "<C-W>h")
+map("n", "<S-Right>", "<C-W>l")
+-- Vertical movements.
+map("n", "<C-j>", "10j")
+-- Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
+-- 'Control-k', hence this mapping actually is 'Control-k' (k for up).
+map("n", "<C-c>", "10k")
+-- Move vertically by visual line unless preceded by a count. If a movement is
+-- greater than 5 then automatically add to the jumplist.
+map("n", "j", "v:count ? (v:count > 5 ? \"m'\" . v:count : '') . 'j' : 'gj'", expr_opts)
+map("n", "k", "v:count ? (v:count > 5 ? \"m'\" . v:count : '') . 'k' : 'gk'", expr_opts)
+-- Navigate buffers via 'wildmenu'.
+map("n", "<Leader><Tab>", ":buffer<Space><Tab>")
+-- Alternate the last two files.
+map("n", "<Backspace>", "<C-^>")
+
+-------------------------------
 -- General mappings
 -------------------------------
 -- Enter command mode via ';'
@@ -110,28 +155,6 @@ map("x", "J", ":m '>+1<CR>gv=gv")
 map("x", "K", ":m '<-2<CR>gv=gv")
 
 -------------------------------
--- Navigation mappings
--------------------------------
-map("n", "<Tab>", "<C-w>w")
-map("n", "<S-Up>", "<C-W>k")
-map("n", "<S-Down>", "<C-W>j")
-map("n", "<S-Left>", "<C-W>h")
-map("n", "<S-Right>", "<C-W>l")
--- Vertical movements.
-map("n", "<C-j>", "10j")
--- Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
--- 'Control-k', hence this mapping actually is 'Control-k' (k for up).
-map("n", "<C-c>", "10k")
--- Move vertically by visual line unless preceded by a count. If a movement is
--- greater than 5 then automatically add to the jumplist.
-map("n", "j", "v:count ? (v:count > 5 ? \"m'\" . v:count : '') . 'j' : 'gj'", expr_opts)
-map("n", "k", "v:count ? (v:count > 5 ? \"m'\" . v:count : '') . 'k' : 'gk'", expr_opts)
--- Navigate buffers via 'wildmenu'.
-map("n", "<Leader><Tab>", ":buffer<Space><Tab>")
--- Alternate the last two files.
-map("n", "<Backspace>", "<C-^>")
-
--------------------------------
 -- Paired mappings
 -------------------------------
 map("n", "{", "{zz")
@@ -156,27 +179,25 @@ map("i", "<C-Up>", "<C-o><C-e>")
 map("i", "<C-Down>", "<C-o><C-y>")
 
 -------------------------------
--- Window managment mappings
+-- Completion mappings
 -------------------------------
-map("n", "<Leader>s", "<C-w>s")
-map("n", "<Leader>v", "<C-w>v")
-map("n", "<Leader>-", ":botright new<CR><C-w>=", silent_opts)
-map("n", "<Leader>|", ":botright vnew<CR><C-w>=", silent_opts)
-map("n", "<Leader>q", "<C-w>c")
-map("n", "<Leader>c", ":cclose<CR>:lclose<CR>:pclose<CR>", silent_opts)
-map("n", "<Leader>t", ":$tabnew<CR>", silent_opts)
-map("n", "<Leader>T", ":tabclose<CR>", silent_opts)
-map("n", "<Leader>1", "1gt")
-map("n", "<Leader>2", "2gt")
-map("n", "<Leader>3", "3gt")
-map("n", "<Leader>4", "4gt")
-map("n", "<Leader>5", "5gt")
-map("n", "<Leader>6", "6gt")
-map("n", "<Leader>7", "7gt")
-map("n", "<Leader>8", "8gt")
-map("n", "<Leader>9", "9gt")
-map("n", "<Leader>=", "<C-w>=")
-map("n", "<Leader>r", "<C-w>r")
+-- Map TAB and SHIFT-TAB to forward and backwards completion.
+map("i", "<Tab>", require("util.complete").tab)
+map("i", "<S-Tab>", require("util.complete").shift_tab)
+--   ]     - 'tags' file completion
+--   Space - context aware omni completion (via 'omnifunc' setting)
+--   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
+--   d     - dictionary completion (via 'dictionary' setting)
+--   f     - file path completion
+--   l     - line completion (repeat an existing line)
+map("i", "<C-]>", "<C-x><C-]>")
+map("i", "<C-Space>", "<C-x><C-o>")
+map("i", "<C-b>", "<C-x><C-p>")
+map("i", "<C-d>", "<C-x><C-k>")
+map("i", "<C-f>", "<C-x><C-f>")
+map("i", "<C-l>", "<C-x><C-l>")
+--   s - snippets completion
+-- Refer to ~/dotfiles/nvim/lua/plugin/vsnip.lua:
 
 -------------------------------
 -- Function key mappings
@@ -207,27 +228,6 @@ map("n", "<F10>", require("util.listchars").toggle)
 map("n", "'0", require("util.listchars").toggle, silent_opts)
 
 -------------------------------
--- Completion mappings
--------------------------------
--- Map TAB and SHIFT-TAB to forward and backwards completion.
-map("i", "<Tab>", require("util.complete").tab)
-map("i", "<S-Tab>", require("util.complete").shift_tab)
---   ]     - 'tags' file completion
---   Space - context aware omni completion (via 'omnifunc' setting)
---   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
---   d     - dictionary completion (via 'dictionary' setting)
---   f     - file path completion
---   l     - line completion (repeat an existing line)
-map("i", "<C-]>", "<C-x><C-]>")
-map("i", "<C-Space>", "<C-x><C-o>")
-map("i", "<C-b>", "<C-x><C-p>")
-map("i", "<C-d>", "<C-x><C-k>")
-map("i", "<C-f>", "<C-x><C-f>")
-map("i", "<C-l>", "<C-x><C-l>")
---   s - snippets completion
--- Refer to ~/dotfiles/nvim/lua/plugin/vsnip.lua:
-
--------------------------------
 -- Increment and decrement mappings
 -------------------------------
 map("n", "+", "<C-a>")
@@ -236,7 +236,7 @@ map("x", "+", "g<C-a>")
 map("x", "-", "g<C-x>")
 
 -------------------------------
--- Readline-like mappings
+-- Command Readline-like mappings
 -------------------------------
 
 -- Ctrl-a - go to the start of line

@@ -11,7 +11,7 @@ cheatsheet.setup({
     "                                      ",
   },
   keymaps = {
-    ["Windows Mapping"] = {
+    ["Windows Management Mapping"] = {
       { "Split horizontally", ",s" },
       { "Split vertically", ",v" },
       { "Full width split", ",-" },
@@ -19,7 +19,7 @@ cheatsheet.setup({
       { "Close", ",q" },
       { "Create new tab", ",t" },
       { "Close current tab", ",T" },
-      { "Close qf/loc/preview", ",c" },
+      { "Close quickfix/loc/preview", ",c" },
       { "Switch to numbered tab", ",‹num›" },
       { "Equalize splits", ",=" },
       { "Rotate splits", ",r" },
@@ -34,20 +34,6 @@ cheatsheet.setup({
       { "Move up ten lines", "‹Ctrl-k›" },
       { "Navigate via ‹wildmenu›", ",‹Tab›" },
       { "Alternate last file", "‹Backspace›" },
-    },
-    ["Paired Mappings"] = {
-      { "Previous change", "[c" },
-      { "Next change", "]c" },
-      { "Previous jump position", "[j" },
-      { "Next jump position", "]j" },
-      { "Previous spelling error", "[s" },
-      { "Next spelling error", "]s" },
-      { "Scroll left", "[z" },
-      { "Scroll right", "]z" },
-    },
-    ["Screen Mappings"] = {
-      { "Scroll screen up", "‹Ctrl-Up›" },
-      { "Scroll screen down", "‹Ctrl-Down›" },
     },
     ["Helper Mappings"] = {
       { "Redo change", "U" },
@@ -71,13 +57,19 @@ cheatsheet.setup({
       { "Move visual block up", "K" },
       { "Move visual block down", "J" },
     },
-    ["Command Mode Mappings"] = {
-      { "Go to start of line", "‹Ctrl-a›" },
-      { "Go to end of line", "‹Ctrl-e›" },
-      { "Move back word", "‹Alt-b›" },
-      { "Move forward word", "‹Alt-f›" },
-      { "Delete word backward", "‹Alt-BS›" },
-      { "Delete word forward", "‹Alt-d›" },
+    ["Paired Mappings"] = {
+      { "Previous change", "[c" },
+      { "Next change", "]c" },
+      { "Previous jump position", "[j" },
+      { "Next jump position", "]j" },
+      { "Previous spelling error", "[s" },
+      { "Next spelling error", "]s" },
+      { "Scroll left", "[z" },
+      { "Scroll right", "]z" },
+    },
+    ["Scroll Mappings"] = {
+      { "Scroll screen up", "‹Ctrl-Up›" },
+      { "Scroll screen down", "‹Ctrl-Down›" },
     },
     ["Completion Mappings"] = {
       { "Tags file", "‹Ctrl-]›" },
@@ -100,11 +92,19 @@ cheatsheet.setup({
       { "Search highlighting", "F9 / '9" },
       { "Show special chars", "F10 / '0" },
     },
+    ["Command Mode Mappings"] = {
+      { "Go to start of line", "‹Ctrl-a›" },
+      { "Go to end of line", "‹Ctrl-e›" },
+      { "Move back word", "‹Alt-b›" },
+      { "Move forward word", "‹Alt-f›" },
+      { "Delete word backward", "‹Alt-BS›" },
+      { "Delete word forward", "‹Alt-d›" },
+    },
     ["Grep Mappings"] = {
       { "Search prompt", ",/" },
       { "Search current", "gs" },
     },
-    ["Star/Find/Replace Mappings"] = {
+    ["Find & Replace Mappings"] = {
       { "Stationary star search", "g*" },
       { "Star search change", "\\c" },
       { "Accept prev change", "‹Enter›" },
@@ -158,6 +158,9 @@ cheatsheet.setup({
       { "Print character value", "ga" },
     },
 
+    ["Arrow Plugin Mappings"] = {
+      { "Toggle arrow", "‹Ctrl-Left›" },
+    },
     ["Comment Plugin Mappings"] = {
       { "Toggle comments", "gc" },
       { "Toggle block comments", "gb" },
@@ -249,7 +252,6 @@ cheatsheet.setup({
       { "Vim help", "‹Spc›h" },
       { "Highlights", "‹Spc›i" },
       { "Old files", "‹Spc›o" },
-      { "Project tags", "‹Spc›]" },
       { "Ripgrep", "‹Spc›/" },
       { "Colorschemes", "‹Spc›t" },
       { "Rails controller files", "‹Spc›ec" },

@@ -4,6 +4,51 @@
 let mapleader = ','
 
 "-----------------------------
+" Window managment mappings
+"-----------------------------
+nnoremap          <Leader>s  <C-w>s
+nnoremap          <Leader>v  <C-w>v
+nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
+nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
+nnoremap <silent> <Leader>t  :$tabnew<CR>
+nnoremap          <Leader>q  <C-w>c
+nnoremap <silent> <Leader>Q  :tabclose<CR>
+nnoremap <silent> <Leader>c  :cclose<CR>:lclose<CR>:pclose<CR>
+nnoremap <Leader>1           1gt
+nnoremap <Leader>2           2gt
+nnoremap <Leader>3           3gt
+nnoremap <Leader>4           4gt
+nnoremap <Leader>5           5gt
+nnoremap <Leader>6           6gt
+nnoremap <Leader>7           7gt
+nnoremap <Leader>8           8gt
+nnoremap <Leader>9           9gt
+nnoremap <Leader>=           <C-w>=
+nnoremap <Leader>r           <C-w>r
+
+"-----------------------------
+" Navigation mappings
+"-----------------------------
+nnoremap <Tab>   <C-w>w
+nnoremap <S-Up>    <C-W>k
+nnoremap <S-Down>  <C-W>j
+nnoremap <S-Left>  <C-W>h
+nnoremap <S-Right> <C-W>l
+" Vertical movements.
+nnoremap <C-j> 10j
+" Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
+" 'Control-k', hence this mapping actually is 'Control-k' (k for up).
+nnoremap <C-c> 10k
+" Move vertically by visual line unless preceded by a count. If a movement is
+" greater than 5 then automatically add to the jumplist.
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+" Navigate buffers via 'wildmenu'.
+nnoremap <Leader><Tab> :buffer<Space><Tab>
+" Alternate the last two files.
+nnoremap <Backspace> <C-^>
+
+"-----------------------------
 " General mappings
 "-----------------------------
 " Enter command mode via ';'
@@ -81,28 +126,6 @@ xnoremap J :m '>+1<CR>gv=gv
 xnoremap K :m '<-2<CR>gv=gv
 
 "-----------------------------
-" Navigation mappings
-"-----------------------------
-nnoremap <Tab>   <C-w>w
-nnoremap <S-Up>    <C-W>k
-nnoremap <S-Down>  <C-W>j
-nnoremap <S-Left>  <C-W>h
-nnoremap <S-Right> <C-W>l
-" Vertical movements.
-nnoremap <C-j> 10j
-" Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
-" 'Control-k', hence this mapping actually is 'Control-k' (k for up).
-nnoremap <C-c> 10k
-" Move vertically by visual line unless preceded by a count. If a movement is
-" greater than 5 then automatically add to the jumplist.
-nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-" Navigate buffers via 'wildmenu'.
-nnoremap <Leader><Tab> :buffer<Space><Tab>
-" Alternate the last two files.
-nnoremap <Backspace> <C-^>
-
-"-----------------------------
 " Paired mappings
 "-----------------------------
 nnoremap {  {zz
@@ -127,27 +150,22 @@ inoremap <C-Up>   <C-o><C-e>
 inoremap <C-Down> <C-o><C-y>
 
 "-----------------------------
-" Window managment mappings
+" Completion mappings
 "-----------------------------
-nnoremap          <Leader>s  <C-w>s
-nnoremap          <Leader>v  <C-w>v
-nnoremap <silent> <Leader>-  :botright new<CR><C-w>=
-nnoremap <silent> <Leader>\| :botright vnew<CR><C-w>=
-nnoremap <silent> <Leader>t  :$tabnew<CR>
-nnoremap          <Leader>q  <C-w>c
-nnoremap <silent> <Leader>Q  :tabclose<CR>
-nnoremap <silent> <Leader>c  :cclose<CR>:lclose<CR>:pclose<CR>
-nnoremap <Leader>1           1gt
-nnoremap <Leader>2           2gt
-nnoremap <Leader>3           3gt
-nnoremap <Leader>4           4gt
-nnoremap <Leader>5           5gt
-nnoremap <Leader>6           6gt
-nnoremap <Leader>7           7gt
-nnoremap <Leader>8           8gt
-nnoremap <Leader>9           9gt
-nnoremap <Leader>=           <C-w>=
-nnoremap <Leader>r           <C-w>r
+inoremap <Tab>   <C-R>=complete#Tab()<CR>
+inoremap <S-Tab> <C-R>=complete#ShiftTab()<CR>
+"   ]     - 'tags' file completion
+"   Space - context aware omni completion (via 'omnifunc' setting)
+"   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
+"   d     - dictionary completion (via 'dictionary' setting)
+"   f     - file path completion
+"   l     - line completion (repeat an existing line)
+inoremap <C-]>     <C-x><C-]>
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-b>     <C-x><C-p>
+inoremap <C-d>     <C-x><C-k>
+inoremap <C-f>     <C-x><C-f>
+inoremap <C-l>     <C-x><C-l>
 
 "-----------------------------
 " Function key mappings
@@ -176,24 +194,6 @@ nnoremap <silent> '0    :call listchars#Toggle()<CR>
 nnoremap <silent> <F10> :call listchars#Toggle()<CR>
 
 "-----------------------------
-" Completion mappings
-"-----------------------------
-inoremap <Tab>   <C-R>=complete#Tab()<CR>
-inoremap <S-Tab> <C-R>=complete#ShiftTab()<CR>
-"   ]     - 'tags' file completion
-"   Space - context aware omni completion (via 'omnifunc' setting)
-"   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
-"   d     - dictionary completion (via 'dictionary' setting)
-"   f     - file path completion
-"   l     - line completion (repeat an existing line)
-inoremap <C-]>     <C-x><C-]>
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-b>     <C-x><C-p>
-inoremap <C-d>     <C-x><C-k>
-inoremap <C-f>     <C-x><C-f>
-inoremap <C-l>     <C-x><C-l>
-
-"-----------------------------
 " Increment and decrement mappings
 "-----------------------------
 nnoremap + <C-a>
@@ -202,7 +202,7 @@ xnoremap + g<C-a>
 xnoremap - g<C-x>
 
 "-----------------------------
-" Readline-like mappings
+" Command Readline-like mappings
 "-----------------------------
 " - Ctrl-a - go to the start of line
 " - Ctrl-e - go to the end of the line
