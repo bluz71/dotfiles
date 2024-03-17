@@ -9,5 +9,3 @@ colorizer.setup({
     names = false,
   },
 })
-
-vim.keymap.set("n", "'c", ":ColorizerToggle<CR>", { silent = true })
