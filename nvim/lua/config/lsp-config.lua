@@ -28,8 +28,6 @@ local lsp_on_attach = function()
   local opts = { buffer = true }
   map("n", "ga", lsp.buf.code_action, opts)
   map("n", "gd", lsp.buf.definition, opts)
-  map("n", "gD", lsp.buf.declaration, opts)
-  map("n", "gi", lsp.buf.implementation, opts)
   map("n", "K", lsp.buf.hover, opts)
   map("n", "gr", lsp.buf.references, opts)
   map("n", "gR", lsp.buf.rename, opts)

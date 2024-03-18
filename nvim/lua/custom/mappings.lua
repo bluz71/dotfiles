@@ -132,9 +132,6 @@ map("n", "cp", "yap<S-}>p")
 map("n", "qp", "gqip$")
 -- Format current line.
 map("n", "qj", "gqj")
--- Paste from the yank register
-map("n", "<Leader>p", '"0p')
-map("n", "<Leader>P", '"0P')
 -- Fold the current indent.
 map("n", "<Leader>z", "zazz")
 -- Expand all folds.
@@ -184,13 +181,11 @@ map("i", "<C-Down>", "<C-o><C-y>")
 -- Map TAB and SHIFT-TAB to forward and backwards completion.
 map("i", "<Tab>", require("util.complete").tab)
 map("i", "<S-Tab>", require("util.complete").shift_tab)
---   ]     - 'tags' file completion
 --   Space - context aware omni completion (via 'omnifunc' setting)
---   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
+--   b     - keyword completion from the current buffer (<C-b><C-n> to extend)
 --   d     - dictionary completion (via 'dictionary' setting)
 --   f     - file path completion
 --   l     - line completion (repeat an existing line)
-map("i", "<C-]>", "<C-x><C-]>")
 map("i", "<C-Space>", "<C-x><C-o>")
 map("i", "<C-b>", "<C-x><C-p>")
 map("i", "<C-d>", "<C-x><C-k>")

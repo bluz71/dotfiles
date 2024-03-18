@@ -103,9 +103,6 @@ nnoremap cp yap<S-}>p
 nnoremap qp gqip$
 " Format current line.
 nnoremap qj gqj
-" Paste from the yank register
-noremap <Leader>p "0p
-noremap <Leader>P "0P
 " Fold the current indent.
 nnoremap <Leader>z zazz
 " Expand all folds.
@@ -154,13 +151,11 @@ inoremap <C-Down> <C-o><C-y>
 "-----------------------------
 inoremap <Tab>   <C-R>=complete#Tab()<CR>
 inoremap <S-Tab> <C-R>=complete#ShiftTab()<CR>
-"   ]     - 'tags' file completion
 "   Space - context aware omni completion (via 'omnifunc' setting)
-"   b     - keyword completion from the current buffer (<C-n><C-b> to extend)
+"   b     - keyword completion from the current buffer (<C-b><C-n> to extend)
 "   d     - dictionary completion (via 'dictionary' setting)
 "   f     - file path completion
 "   l     - line completion (repeat an existing line)
-inoremap <C-]>     <C-x><C-]>
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-b>     <C-x><C-p>
 inoremap <C-d>     <C-x><C-k>
