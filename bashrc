@@ -193,6 +193,7 @@ brew_config() {
         export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
         PATH=$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/share/man:$MANPATH
+        export HOMEBREW_AUTO_UPDATE_SECS=7200
     elif [[ $OS == "Darwin" ]]; then
         if ! [[ -x $(command -v /opt/homebrew/bin/brew 2>/dev/null) ]]; then
             echo 'Note: brew is not available.'
@@ -203,6 +204,7 @@ brew_config() {
         export HOMEBREW_REPOSITORY="/opt/homebrew"
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
+        export HOMEBREW_AUTO_UPDATE_SECS=7200
     else
         echo 'Error: unsupported platform'
         return
