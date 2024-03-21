@@ -38,7 +38,7 @@ alias hm='history -n'
 alias ht='history_truncate'
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
-alias l='exa --color=always --group-directories-first'
+alias l='eza --color=always --group-directories-first'
 alias l1='l --oneline'
 alias lc='_f() { ls "$@" | wc -l; }; _f'
 alias ll='l --long'
@@ -142,10 +142,10 @@ ex=38;5;156:mi=38;5;115:\
 *.epub=38;2;173;173;231:*.mobi=38;2;173;173;231:*.ods=38;2;173;173;231:\
 *.odt=38;2;173;173;231:\
 *.pdf=38;2;218;218;218"
-export EXA_COLORS="reset:da=38;5;252:sb=38;5;204:sn=38;5;43:\
+export EZA_COLORS="reset:da=38;5;252:sb=38;5;204:sn=38;5;43:\
 uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
-gm=38;5;203:ga=38;5;203:xa=38;5;239"
+gm=38;5;203:ga=38;5;203:xa=38;5;239:mp=3;38;5;111"
 export PAGER=less
 export MANPAGER='nvim +Man!'
 
@@ -268,7 +268,7 @@ custom_config() {
     export _ZO_MAXAGE='20000'
     export _ZO_FZF_OPTS="
       $FZF_DEFAULT_OPTS --no-multi --no-sort  --exit-0 --select-1
-      --preview 'exa --color=always --group-directories-first --oneline {2..}'
+      --preview 'eza --color=always --group-directories-first --oneline {2..}'
     "
 
     # 'bat' configuration.
@@ -330,7 +330,7 @@ find_by_size() {
     if [[ $# -eq 0 ]]; then
         echo "Usage: llfs <size> (e.g. 100k, +1M, +1G)"
     else
-        find . -type f -size "$1" -exec exa --long {} \; ;
+        find . -type f -size "$1" -exec eza --long {} \; ;
     fi
 }
 

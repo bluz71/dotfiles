@@ -29,7 +29,7 @@ abbr hd 'history delete'
 abbr hm 'history merge'
 abbr ht history_truncate
 # -- List abbreviations --
-abbr l1 'exa --oneline'
+abbr l1 'eza --oneline'
 abbr ll. 'll -d .*'
 # -- tmux abbreviations --
 abbr ta 'tmux attach'
@@ -104,10 +104,10 @@ ex=38;5;156:mi=38;5;115:\
 *.epub=38;2;173;173;231:*.mobi=38;2;173;173;231:*.ods=38;2;173;173;231:\
 *.odt=38;2;173;173;231:\
 *.pdf=38;2;218;218;218"
-set -gx EXA_COLORS "reset:da=38;5;252:sb=38;5;204:sn=38;5;43:\
+set -gx EZA_COLORS "reset:da=38;5;252:sb=38;5;204:sn=38;5;43:\
 uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
-gm=38;5;203:ga=38;5;203:xa=38;5;239"
+gm=38;5;203:ga=38;5;203:xa=38;5;239:mp=3;38;5;111"
 set -gx PAGER less
 set -gx MANPAGER 'nvim +Man!'
 
@@ -196,7 +196,7 @@ function custom_config
     set -xg _ZO_MAXAGE 20000
     set -xg _ZO_FZF_OPTS "
       $FZF_DEFAULT_OPTS --no-multi --no-sort --exit-0 --select-1
-      --preview 'exa --color=always --group-directories-first --oneline {2..}'
+      --preview 'eza --color=always --group-directories-first --oneline {2..}'
     "
 
     # 'bat' configuration.

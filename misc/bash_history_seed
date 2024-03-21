@@ -71,7 +71,7 @@ flutter upgrade
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 brew untap homebrew/homebrew-dupes
 time dartfmt --dry-run --set-exit-if-changed **/*.dart
-exa --all --long --modified --group --color-scale --git
+eza --all --long --modified --group --color-scale --git
 standardrb $(git diff --cached --name-only --diff-filter=ACM | grep ".rb$")
 rspec ./spec/system/removing_comments_spec.rb:44
 brew info chromedriver
@@ -129,7 +129,7 @@ mintreport
 brew deps -1 --installed
 npm uninstall -g prettier
 v cheat40.txt
-brew install exa
+brew install eza
 brew remove flac media-info
 yarn add bulma
 npm uninstall -g standard
@@ -172,7 +172,7 @@ brew search coreutils
 whois https://crg.cc
 fd -r md 2017
 g init .
-exa --all
+eza --all
 rails c -e development
 flutter analyze
 rspec ./spec/system/clearance/visitor_signs_up_spec.rb:12
@@ -259,7 +259,7 @@ broot --only-folders -I
 npm install -g typescript
 npm install -g sass-lint
 emulator -avd Nexus_6_API_28
-exa --all --long --modified
+eza --all --long --modified
 g help ll
 yarn add --exact bootswatch@3.3.5
 7za e sc8Il8c5n6qROk4u6de07p6a.7z
@@ -301,7 +301,7 @@ man rmdir
 brew info tree
 brew remove bash-completion
 tic -o ~/.terminfo tmux-256color.terminfo
-exa --all --long --color-scale --git
+eza --all --long --color-scale --git
 npm run build
 yarn add popper.js
 git bisect start
@@ -368,7 +368,7 @@ gem install mdl
 ytest --no-color
 rmdir images/
 ping -i 5 1.1.1.1 2>&1 | tee output.txt
-exa --all --long --modified --group --git
+eza --all --long --modified --group --git
 du -sh wallpapers
 brew info mad
 flutter doctor --android-licenses
@@ -451,8 +451,8 @@ rails c -e production
 be rspec spec/models/artist_spec.rb
 dpkg --list | rg system | rg reports
 du -sh '.'[a-z]*
-exa --all --long --modified --group -T
-exa --all --long --modified --group --color-scale
+eza --all --long --modified --group -T
+eza --all --long --modified --group --color-scale
 defaults write com.google.Chrome NSRequiresAquaSystemAppearance -bool Yes
 systemctl show -p Wants -p After mnt-server.mount
 gem install pry -v 0.11.3
@@ -481,7 +481,7 @@ bundle update selenium-webdriver
 brew install macvim
 sudo systemctl stop wakeup-nas2
 cat wakeup-nas2.service
-exa --all --long --modified --group
+eza --all --long --modified --group
 systemctl status remote-fs-pre.target
 yarn install bulmaswatch
 yarn start
@@ -595,7 +595,7 @@ g rso
 p ~/dotfiles/bashrc
 g bd my-feature
 yarn install @creativebulma/bulma-tooltip
-exa --list-dirs
+eza --list-dirs
 yarn upgrade caniuse-lite browserslist
 bundle update rubocop
 bundle
@@ -630,7 +630,7 @@ flutter run -d all
 make MENUCONFIG_COLOR=mono menuconfig
 echo $EDITOR 
 dart --version
-exa --all --long --modified --color-scale --git
+eza --all --long --modified --color-scale --git
 export PROMPT_COMMAND="prompt_command; history -a"
 be standardrb app/controllers/
 be standardrb spec/requests/removing_comments_spec.rb
@@ -672,7 +672,7 @@ vdi file{1,2}.cc
 npm install -g typescript-language-server
 g bvv
 rubocop --help
-exa --all --long
+eza --all --long
 pry
 eq 1500 * 70
 npm install -g create-react-app
@@ -701,7 +701,7 @@ rspec ./spec/system/clearance/visitor_resets_password_spec.rb:14
 pping 1.1.1.1
 yarn upgrade serialize-javascript
 yarn upgrade react react-dom
-exa --list-dirs *
+eza --list-dirs *
 alias c='cd'
 be standardrb app/models/track.rb
 g ll
@@ -812,7 +812,7 @@ npm uninstall stylelint -g
 apt-cache search ext4
 cat .git/hooks/pre-push
 g fetch
-exa --all --long --modified --group --color-scale --git -TL2
+eza --all --long --modified --group --color-scale --git -TL2
 brew uses --installed xvid
 npm install -g npm
 dus .linuxbrew/
@@ -824,7 +824,7 @@ echo $COMMAND_PROMPT
 npm install -g javascript-typescript-langserver
 yarn lisrt
 cat .bash-seafly-prompt/command_prompt.bash
-exa --long --color-scale --git
+eza --long --color-scale --git
 export GTK_THEME=Adwaita
 yarn install jquery
 eq 1099 - 769
@@ -918,7 +918,7 @@ bundle update fivemat
 brew tap dart-lang/dart
 fc-list | rg iosevka
 g bod dependabot/npm_and_yarn/handlebars-4.5.3
-exa --oneline
+eza --oneline
 yarn add --exact react-router-dom@4.3.1
 dartfmt --dry-run --set-exit-if-changed lib/main.dart lib/main.dart
 flutter update

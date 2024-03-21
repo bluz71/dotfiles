@@ -1,3 +1,3 @@
-function exa --description 'exa override'
-    command exa --color=always --group-directories-first $argv
+function eza --description 'eza override'
+    command eza --color=always --group-directories-first $argv
 end
