@@ -13,7 +13,7 @@ conform.setup({
     dart = { "dart_format" },
     fish = { "fish_indent" },
     html = { "prettier" },
-    javascript = { "standardjs" },
+    javascript = { "prettier" },
     json = { "prettier" },
     jsonc = { "prettier" },
     lua = { "stylua" },

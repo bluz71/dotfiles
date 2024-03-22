@@ -109,11 +109,10 @@ nvim_lsp.dartls.setup({
   root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
 })
 
--- pnpm install @typescript-eslint/eslint-plugin@latest --save-dev
 nvim_lsp.eslint.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
-  filetypes = { "astro", "typescript" },
+  filetypes = { "astro", "javascript", "typescript" },
   flags = { debounce_text_changes = 300 },
 })
 
