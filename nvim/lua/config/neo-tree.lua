@@ -2,7 +2,6 @@ local neo_tree = require("neo-tree")
 
 neo_tree.setup({
   enable_diagnostics = false,
-  git_status_async = false, -- Needed for git status watching to work (see neo-tree 724)
   log_level = "warn",
   popup_border_style = "single",
   use_default_mappings = false,
