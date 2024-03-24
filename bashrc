@@ -318,6 +318,15 @@ dev_config() {
     fi
 }
 
+doc() {
+    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
+    if [[ $# -eq 0 ]]; then
+        eval $navi_command
+    else
+        eval $navi_command --query "$@"
+    fi
+}
+
 du_by_size() {
     if [[ $# -eq 0 ]]; then
         du -sh * | sort -hr | less;
@@ -452,15 +461,6 @@ grep_edit() {
     fi
 
     $EDITOR $(rg -l "$1")
-}
-
-help() {
-    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
-    if [[ $# -eq 0 ]]; then
-        eval $navi_command
-    else
-        eval $navi_command --query "$@"
-    fi
 }
 
 history_truncate() {

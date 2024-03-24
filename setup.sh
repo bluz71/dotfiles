@@ -29,6 +29,9 @@ ln -s dotfiles/linter_configs/mdlrc .mdlrc
 mkdir -p .config/yamllint
 ln -s ~/dotfiles/linter_configs/yamllint .config/yamllint/config
 
+mkdir -p .config/navi
+ln -s ~/dotfiles/misc/navi.yaml .config/navi/config.yaml
+
 mkdir -p .config/alacritty
 
 if [ "$(uname)" = Linux ]; then

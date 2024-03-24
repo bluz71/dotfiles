@@ -1,0 +1,7 @@
+style:
+  tag:
+    width_percentage: 15
+  comment:
+    width_percentage: 30
+  snippet:
+    width_percentage: 55
