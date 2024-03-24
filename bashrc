@@ -38,7 +38,7 @@ alias hm='history -n'
 alias ht='history_truncate'
 # -- List aliases --
 alias dir='ls -l --group-directories-first'
-alias l='eza --color=always --group-directories-first'
+alias l='eza --color=always --color-scale-mode=fixed --group-directories-first'
 alias l1='l --oneline'
 alias lc='_f() { ls "$@" | wc -l; }; _f'
 alias ll='l --long'
@@ -268,7 +268,7 @@ custom_config() {
     export _ZO_MAXAGE='20000'
     export _ZO_FZF_OPTS="
       $FZF_DEFAULT_OPTS --no-multi --no-sort  --exit-0 --select-1
-      --preview 'eza --color=always --group-directories-first --oneline {2..}'
+      --preview 'eza --color=always --color-scale-mode=fixed --group-directories-first --oneline {2..}'
     "
 
     # 'bat' configuration.

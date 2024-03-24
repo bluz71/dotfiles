@@ -196,7 +196,7 @@ function custom_config
     set -xg _ZO_MAXAGE 20000
     set -xg _ZO_FZF_OPTS "
       $FZF_DEFAULT_OPTS --no-multi --no-sort --exit-0 --select-1
-      --preview 'eza --color=always --group-directories-first --oneline {2..}'
+      --preview 'eza --color=always --color-scale-mode=fixed --group-directories-first --oneline {2..}'
     "
 
     # 'bat' configuration.
