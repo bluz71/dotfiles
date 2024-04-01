@@ -50,6 +50,11 @@ cmp.setup.filetype({ "astro", "css", "dart", "eruby", "html", "javascript", "rub
     { name = "snippy", keyword_length = 3, max_item_count = 5 },
     { name = "buffer", keyword_length = 4, max_item_count = 10 },
   },
+  view = {
+    entries = {
+      follow_cursor = true,
+    }
+  },
   window = {
     completion = cmp.config.window.bordered({}),
     documentation = false,
