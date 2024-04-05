@@ -21,8 +21,6 @@ augroup CustomEvents
 
     " Set filetypes for certain filenames.
     autocmd BufEnter gitconfig set filetype=gitconfig
-    autocmd BufEnter *.json.jbuilder set filetype=ruby
-    autocmd BufEnter fonts.conf set filetype=xml
 
     " Automatically open the quickfix window after executing a grep operation.
     autocmd QuickFixCmdPost grep cwindow
