@@ -9,6 +9,7 @@ end
 require("custom.options")
 require("custom.mappings")
 require("custom.autocmds")
+require("custom.filetypes")
 require("custom.lazy") -- Plugin Manager
 
 -- Colorscheme, load from a dotfile if it exists.

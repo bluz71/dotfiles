@@ -46,39 +46,6 @@ autocmd("VimResized", {
   group = custom_events,
 })
 
--- Set filetype for certain file-patterns.
-autocmd("BufEnter", {
-  pattern = "gitconfig",
-  callback = function()
-    opt.filetype = "gitconfig"
-  end,
-  group = custom_events,
-})
-
-autocmd("BufEnter", {
-  pattern = "*.json.jbuilder",
-  callback = function()
-    opt.filetype = "ruby"
-  end,
-  group = custom_events,
-})
-
-autocmd("BufEnter", {
-  pattern = "fonts.conf",
-  callback = function()
-    opt.filetype = "xml"
-  end,
-  group = custom_events,
-})
-
-autocmd("BufEnter", {
-  pattern = "*.astro",
-  callback = function()
-    opt.filetype = "astro"
-  end,
-  group = custom_events,
-})
-
 -- Enable MatchTag plugin for certain HTML-like filetypes.
 autocmd("FileType", {
   pattern = { "javascript" },
