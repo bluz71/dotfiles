@@ -1,2 +1,5 @@
 std="lua51+nvim"
-mixed_table="allow"
+
+[rules]
+global_usage = "allow"
+mixed_table = "allow"
