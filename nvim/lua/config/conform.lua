@@ -10,7 +10,6 @@ conform.setup({
   formatters_by_ft = {
     astro = { "prettier" },
     css = { "prettier" },
-    dart = { "dart_format" },
     fish = { "fish_indent" },
     html = { "prettier" },
     javascript = { "prettier" },

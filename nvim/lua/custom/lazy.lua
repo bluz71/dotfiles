@@ -15,11 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy = require("lazy")
 local view_config = require("lazy.view.config")
+local map = vim.keymap.set
 
 -- Configuration.
 local configuration = {
   install = {
-    colorscheme = { "nightfly" },
+    colorscheme = { "moonfly" },
   },
   performance = {
     rtp = {
@@ -91,7 +92,7 @@ lazy.setup({
     event = "VeryLazy",
     config = function()
       require("config.devicons")
-    end
+    end,
   },
 
   {
@@ -124,9 +125,9 @@ lazy.setup({
 
   {
     "echasnovski/mini.ai",
-    version = '*',
+    version = "*",
     event = "VeryLazy",
-    config = true
+    config = true,
   },
 
   {
@@ -181,8 +182,8 @@ lazy.setup({
     opts = {
       show_icons = true,
       global_bookmarks = true,
-      leader_key = "<C-Left>"
-    }
+      leader_key = "<C-Left>",
+    },
   },
 
   -----------------------------
@@ -265,6 +266,13 @@ lazy.setup({
   },
 
   {
+    "williamboman/mason.nvim",
+    config = function()
+      require("config.mason")
+    end,
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     event = "BufReadPre",
@@ -319,7 +327,7 @@ lazy.setup({
     end,
   },
 
-  { 
+  {
     "smartinellimarco/nvcheatsheet.nvim",
     keys = { "<F12>" },
     config = function()
@@ -342,7 +350,7 @@ lazy.setup({
 }, configuration)
 
 -- Lazy status window.
-vim.keymap.set("n", "'l", ":Lazy<CR>")
+map("n", "'l", ":Lazy<CR>")
 
 -- Profile tab.
-vim.keymap.set("n", "'s", ":Lazy profile<CR>")
+map("n", "'s", ":Lazy profile<CR>")

@@ -82,7 +82,6 @@ local capabilities = lsp_capabilities.default_capabilities()
 -- The Language Servers --
 --------------------------
 
--- pnpm install -g @astrojs/language-server
 -- pnpm install -D eslint eslint-plugin-astro
 nvim_lsp.astro.setup({
   on_attach = lsp_on_attach_no_formatting,
@@ -91,7 +90,6 @@ nvim_lsp.astro.setup({
   root_dir = nvim_lsp.util.root_pattern("astro.config.mjs"),
 })
 
--- pnpm add -g vscode-langservers-extracted
 nvim_lsp.cssls.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
@@ -101,14 +99,6 @@ nvim_lsp.cssls.setup({
   },
 })
 
-nvim_lsp.dartls.setup({
-  on_attach = lsp_on_attach_no_formatting,
-  capabilities = capabilities,
-  flags = { debounce_text_changes = 300 },
-  init_options = { closingLabels = true },
-  root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
-})
-
 nvim_lsp.eslint.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
@@ -116,7 +106,6 @@ nvim_lsp.eslint.setup({
   flags = { debounce_text_changes = 300 },
 })
 
--- pnpm add -g vscode-langservers-extracted
 nvim_lsp.html.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
@@ -158,7 +147,6 @@ nvim_lsp.standardrb.setup({
   flags = { debounce_text_changes = 300 },
 })
 
--- pnpm add -g typescript typescript-language-server
 nvim_lsp.tsserver.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
@@ -166,7 +154,6 @@ nvim_lsp.tsserver.setup({
   root_dir = nvim_lsp.util.root_pattern("package.json"),
 })
 
--- pnpm add -g @tailwindcss/language-server
 -- pnpm install -D prettier prettier-plugin-tailwindcss
 --
 --   // prettier.config.js
