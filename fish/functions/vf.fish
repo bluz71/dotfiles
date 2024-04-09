@@ -4,6 +4,6 @@ function vf --description 'fzf find and edit file'
           --preview 'bat --color=always --line-range :500 {}'
       )
     if test -n "$file"
-        $EDITOR "$file"
+        v "$file"
     end
 end

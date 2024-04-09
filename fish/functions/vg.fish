@@ -3,5 +3,5 @@ function vg --description 'Grep and edit files'
         echo 'Usage: vg <search-term>'
         return
     end
-    $EDITOR (rg -l $argv)
+    v (rg -l $argv)
 end
