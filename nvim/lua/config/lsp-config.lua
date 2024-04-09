@@ -106,6 +106,13 @@ nvim_lsp.eslint.setup({
   flags = { debounce_text_changes = 300 },
 })
 
+-- nvim_lsp.gopls.setup({
+--   on_attach = lsp_on_attach,
+--   capabilities = capabilities,
+--   flags = { debounce_text_changes = 300 },
+--   settings = { gopls = { semanticTokens = true } },
+-- })
+
 nvim_lsp.html.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
