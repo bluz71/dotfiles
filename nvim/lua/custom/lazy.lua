@@ -178,7 +178,6 @@ lazy.setup({
 
   {
     "otavioschwanck/arrow.nvim",
-    commit = "9712f85",
     keys = { "<C-Left>" },
     opts = {
       show_icons = true,

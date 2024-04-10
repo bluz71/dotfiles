@@ -19,7 +19,6 @@ alias -- ~='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias cf='fzf_change_directory'
 # -- Docker aliases --
 alias d='docker'
 alias dc='docker-compose'
@@ -66,7 +65,6 @@ alias gv='gvim 2>/dev/null'
 alias v='TERM=alacritty nvim'
 alias vdi='nvim -d'
 alias vf='fzf_find_edit'
-alias vg='grep_edit'
 # -- Miscellaneous aliases --
 alias be='bundle exec'
 alias bs='br --whale-spotting'
@@ -343,17 +341,6 @@ find_by_size() {
     fi
 }
 
-fzf_change_directory() {
-    local directory=$(
-      fd --type d | \
-      fzf --query="$1" --no-multi --select-1 --exit-0 \
-          --preview 'tree -C {} | head -100'
-    )
-    if [[ -n "$directory" ]]; then
-        cd "$directory"
-    fi
-}
-
 fzf_find_edit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
@@ -452,15 +439,6 @@ g() {
     else
         git "$@"
     fi
-}
-
-grep_edit() {
-    if [[ $# -eq 0 ]]; then
-        echo 'Usage: vg <search-term>'
-        return
-    fi
-
-    $EDITOR $(rg -l "$1")
 }
 
 history_truncate() {
