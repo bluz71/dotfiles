@@ -24,7 +24,7 @@ abbr .... 'cd ../../..'
 abbr d docker
 abbr dc docker-compose
 # -- History abbreviations --
-abbr h history
+abbr hi history
 abbr hd 'history delete'
 abbr hm 'history merge'
 abbr ht history_truncate

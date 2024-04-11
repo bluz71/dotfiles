@@ -1,4 +1,4 @@
-function doc --description 'Navi help'
+function h --description 'Navi help'
     set -f navi_command 'navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
     if test (count $argv) -eq 0
         eval $navi_command

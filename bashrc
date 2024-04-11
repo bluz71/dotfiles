@@ -31,7 +31,7 @@ alias glS='fzf_git_log_pickaxe'
 alias grl='fzf_git_reflog'
 alias gu='fzf_git_unadd'
 # -- History aliases --
-alias h=history
+alias hi=history
 alias hg='history | rg'
 alias hm='history -n'
 alias ht='history_truncate'
@@ -316,15 +316,6 @@ dev_config() {
     fi
 }
 
-doc() {
-    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
-    if [[ $# -eq 0 ]]; then
-        eval $navi_command
-    else
-        eval $navi_command --query "$@"
-    fi
-}
-
 du_by_size() {
     if [[ $# -eq 0 ]]; then
         du -sh * | sort -hr | less;
@@ -438,6 +429,15 @@ g() {
         git status -sb
     else
         git "$@"
+    fi
+}
+
+h() {
+    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
+    if [[ $# -eq 0 ]]; then
+        eval $navi_command
+    else
+        eval $navi_command --query "$@"
     fi
 }
 
