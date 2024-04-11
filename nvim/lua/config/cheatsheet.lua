@@ -189,6 +189,9 @@ cheatsheet.setup({
       { "Show Lazy status window", "'l" },
       { "Show Lazy Profile tab", "'s" },
     },
+    ["Mason Plugin Mappings"] = {
+      { "Show Mason status window", "'m" },
+    },
     ["Neo-tree Plugin Mappings"] = {
       { "Toggle drawer", ",d" },
       { "Find & reveal file", ",f" },
