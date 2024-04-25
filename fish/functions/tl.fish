@@ -1,3 +1,3 @@
-function tt --description 'tree directories-only'
-    tree -C -d $argv
+function tl --description 'tree depth'
+    tree -C --dirsfirst -L $argv
 end
