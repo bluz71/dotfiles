@@ -101,23 +101,23 @@ export LESS_TERMCAP_ue=$'\e[0m'        # end underline - reset
 export LESS_TERMCAP_se=$'\e[0m'        # end standout  - reset
 export LESSHISTFILE=-
 # LS_COLORS (refer to: https://is.gd/6MzI27)
-#  mi - completion options color
-#  so - completion matching-prefix color
+#   mi - completion options color
+#   so - completion matching-prefix color
 export LS_COLORS="no=00:fi=00:di=38;5;111:ln=38;5;117:pi=38;5;43:bd=38;5;212:\
 cd=38;5;219:or=30;48;5;203:ow=38;5;75:so=38;5;252;48;5;0:su=38;5;168:\
 ex=38;5;156:mi=38;5;115:\
 *.avi=38;2;175;215;175:*.mpg=38;2;175;215;175:*.mp4=38;2;244;180;180:\
 *.epub=38;2;200;200;246:*.dsf=38;2;255;175;215:*.conf=38;2;95;215;175:\
-*.astro=38;2;85;205;205:*.md=38;2;213;218;180:*README=38;2;213;218;180:\
+*.astro=38;2;80;215;215:*.md=38;2;213;218;180:*README=38;2;213;218;180:\
 *.pdf=38;2;218;218;218"
 # EZA_COLORS (refer to: man eza_colors)
 export EZA_COLORS="da=38;5;252:sb=38;5;204:sn=38;5;43:xa=8:\
 uu=38;5;245:un=38;5;241:ur=38;5;223:uw=38;5;223:ux=38;5;223:ue=38;5;223:\
 gr=38;5;153:gw=38;5;153:gx=38;5;153:tr=38;5;175:tw=38;5;175:tx=38;5;175:\
 gm=38;5;203:ga=38;5;203:mp=3;38;5;111:im=38;2;180;150;250:vi=38;2;255;190;148:\
-mu=38;2;255;175;215:lo=38;2;255;215;183:cr=38;2;110;186;186:\
+mu=38;2;255;175;215:lo=38;2;255;215;183:cr=38;2;240;160;240:\
 do=38;2;200;200;246:co=38;2;255;119;153:tm=38;2;148;148;148:\
-cm=38;2;230;150;210:bu=38;2;95;215;175:sc=38;2;85;205;205"
+cm=38;2;230;150;210:bu=38;2;95;215;175:sc=38;2;80;215;215"
 export PAGER=less
 export MANPAGER='nvim +Man!'
 
