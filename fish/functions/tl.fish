@@ -1,3 +1,3 @@
 function tl --description 'tree depth'
-    tree -C --dirsfirst -L $argv
+    eza --tree --group-directories-first -L $argv
 end

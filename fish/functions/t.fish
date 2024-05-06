@@ -1,3 +1,3 @@
 function t --description 'tree shortcut'
-    tree -C --dirsfirst $argv
+    eza --tree --group-directories-first $argv
 end

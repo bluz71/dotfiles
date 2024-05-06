@@ -51,10 +51,10 @@ alias ls='ls --color --classify --human-readable --quoting-style=escape'
 # -- ripgrep aliases --
 alias rg='rg --smart-case'
 # -- Tree aliases --
-alias t='tree -C --dirsfirst'
+alias t='eza --tree --group-directories-first'
 alias td='tree -C -d'
 alias tdl='tree -C -d -L'
-alias tl='tree -C --dirsfirst -L'
+alias tl='eza --tree --group-directories-first -L'
 # -- tmux aliases --
 alias mux='mux_command'
 alias ta='tmux attach'
