@@ -191,28 +191,16 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.1",
-    -- commit = "f2778bd",
+    -- tag = "v0.9.1",
+    commit = "00a8cfd",
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
-      "JoosepAlviste/nvim-ts-context-commentstring",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
     },
     event = "BufReadPost",
     config = function()
       require("config.treesitter")
-    end,
-  },
-
-  -----------------------------
-  -- Comment plugins
-  -----------------------------
-  {
-    "numToStr/Comment.nvim",
-    event = "BufReadPre",
-    config = function()
-      require("config.comment")
     end,
   },
 

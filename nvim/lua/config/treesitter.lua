@@ -1,5 +1,4 @@
 local treesitter = require("nvim-treesitter.configs")
-local commentstring = require("ts_context_commentstring")
 local buffer = require("util.buffer")
 
 treesitter.setup({
@@ -9,10 +8,9 @@ treesitter.setup({
   -- Neovim 0.10 ships: bash, c, lua, markdown, markdown_inline, python, vim &
   --                    vimdoc parsers
   ensure_installed = {
-    "astro", "bash", "clojure", "cpp", "css", "dart", "elixir", "elm",
-    "embedded_template", "go", "haskell", "html", "java", "javascript", "julia",
-    "markdown", "markdown_inline", "php", "python", "r", "regex", "ruby",
-    "rust", "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue", "zig"
+    "astro", "clojure", "cpp", "css", "dart", "elixir", "elm", "embedded_template", "go", "haskell",
+    "html", "java", "javascript", "julia", "php", "r", "regex", "ruby", "rust", "scala", "scss",
+    "svelte", "toml", "tsx", "typescript", "vue", "zig"
   },
   highlight = {
     enable = true,
@@ -46,9 +44,4 @@ treesitter.setup({
   endwise = {
     enable = true,
   },
-})
-
--- For nvim-ts-context-commentstring plugin.
-commentstring.setup({
-  enable_autocmd = false,
 })

@@ -52,10 +52,10 @@ M.themes = function()
 
   local themes_to_ignore = {
     "blue", "catppuccin-frappe", "catppuccin-latte", "carbonfox", "catppuccin-macchiato",
-    "catppuccin-mocha", "darkblue", "dawnfox", "dayfox", "default", "delek", "desert", "duskfox",
-    "elflord", "evening", "industry", "kanagawa-lotus", "kanagawa-dragon", "kanagawa-wave",
-    "koehler", "lunaperche", "morning", "murphy", "nordfox", "pablo", "peachpuff", "quiet", "ron",
-    "shine", "slate", "sorbet", "terafox", "tokyonight-day", "tokyonight-moon", "tokyonight-night",
+    "catppuccin-mocha", "darkblue", "dawnfox", "dayfox", "delek", "desert", "duskfox", "elflord",
+    "evening", "industry", "kanagawa-lotus", "kanagawa-dragon", "kanagawa-wave", "koehler",
+    "lunaperche", "morning", "murphy", "nordfox", "pablo", "peachpuff", "quiet", "ron", "shine",
+    "slate", "sorbet", "terafox", "tokyonight-day", "tokyonight-moon", "tokyonight-night",
     "tokyonight-storm", "torte", "vim", "wildcharm", "zaibatsu", "zellner",
   }
 

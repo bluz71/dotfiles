@@ -27,11 +27,7 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.dictionary = "/usr/share/dict/words"
-if fn.has("nvim-0.9") == 1 then
-  opt.diffopt = { "filler", "internal", "algorithm:histogram", "indent-heuristic", "linematch:60" }
-else
-  opt.diffopt = { "filler", "internal", "algorithm:histogram", "indent-heuristic" }
-end
+opt.diffopt = { "filler", "internal", "algorithm:histogram", "indent-heuristic", "linematch:60" }
 opt.expandtab = true -- Use spaces instead of tabs
 opt.exrc = false -- Disable reading of working directory vimrc files
 -- Lua initialization file
@@ -125,7 +121,7 @@ env.LESS = "-RS"
 --   % pip3 install neovim-remote
 env.EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
 
--- Don't load the language provider since they needlessly slow down the loading
+-- Don't load these language providers since they needlessly slow down the loading
 -- of those same language files into the editor.
 g.loaded_node_provider = 1
 g.loaded_python3_provider = 1

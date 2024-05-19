@@ -25,17 +25,17 @@ diagnostic.config({
   update_in_insert = false,
   underline = false,
   virtual_text = {
-    -- prefix = function(message)
-    --   if message.severity == diagnostic.severity.ERROR then
-    --     return "■"
-    --   elseif message.severity == diagnostic.severity.WARN then
-    --     return "△"
-    --   elseif message.severity == diagnostic.severity.INFO then
-    --     return "○"
-    --   else
-    --     return "■"
-    --   end
-    -- end,
+    prefix = function(message)
+      if message.severity == diagnostic.severity.ERROR then
+        return "■"
+      elseif message.severity == diagnostic.severity.WARN then
+        return "△"
+      elseif message.severity == diagnostic.severity.INFO then
+        return "○"
+      else
+        return "■"
+      end
+    end,
     spacing = 2,
     severity = {
       min = vim.diagnostic.severity.INFO,

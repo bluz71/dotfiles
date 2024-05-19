@@ -116,6 +116,11 @@ cheatsheet.setup({
       { "Ignore case", ":sort i" },
       { "Numerical", ":sort n" },
     },
+    ["Comment Mappings"] = {
+      { "Toggle comments of visual selection", "gc" },
+      { "Toggle line comment", "gcc" },
+      { "Toggle comments", "gc‹motion›" },
+    },
     ["Diagnostic Mappings"] = {
       { "Previous Diagnostic", "[d" },
       { "Next Diagnostic", "]d" },
@@ -155,12 +160,6 @@ cheatsheet.setup({
 
     ["Arrow Plugin Mappings"] = {
       { "Toggle Arrow window", "‹Ctrl-Left›" },
-    },
-    ["Comment Plugin Mappings"] = {
-      { "Toggle comments of visual selection", "gc" },
-      { "Toggle block comments of visual selection", "gb" },
-      { "Toggle line comment", "gcc" },
-      { "Toggle comments", "gc‹motion›" },
     },
     ["Conform Plugin Mappings"] = {
       { "Run formatter", "'f" },
