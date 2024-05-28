@@ -9,7 +9,7 @@ local M = {}
 -- Toggle Neovim diagnostic.
 M.toggle = function()
   if g.diagnostic_visibility then
-    diagnostic.disable()
+    diagnostic.enable(not diagnostic.is_enabled())
     -- Disable linefly diagnostic indicator.
     g.linefly_options = tbl_extend("force", g.linefly_options, {
       with_diagnostic_status = false,
@@ -17,7 +17,7 @@ M.toggle = function()
     print("(Diagnostic) OFF")
     g.diagnostic_visibility = false
   else
-    diagnostic.enable()
+    diagnostic.enable(not diagnostic.is_enabled())
     -- Enable linefly diagnostic indicator.
     g.linefly_options = tbl_extend("force", g.linefly_options, {
       with_diagnostic_status = true,
@@ -25,6 +25,7 @@ M.toggle = function()
     print("(Diagnostic) ON")
     g.diagnostic_visibility = true
   end
+  vim.cmd([[redrawstatus!]])
 end
 
 return M
