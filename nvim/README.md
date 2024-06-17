@@ -23,7 +23,7 @@ Components
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim) plugin management
 - [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter) syntax highlighting
-- [LSP](https://github.com/neovim/nvim-lspconfig) configuration: Dart, HTML, JavaScript, Rust & Ruby
+- [LSP](https://github.com/neovim/nvim-lspconfig) configuration
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) auto-completion
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim) fuzzy finding
 - [Neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) file exploration

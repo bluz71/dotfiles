@@ -217,20 +217,6 @@ function dev_config
         set -gx GOPATH ~/projects/go
         fish_add_path --path --append $GOPATH/bin
     end
-
-    if test -d /usr/local/Android/Sdk
-        set -gx ANDROID_SDK_ROOT /usr/local/Android/Sdk
-        fish_add_path --path --append $PATH $ANDROID_SDK_ROOT/emulator
-    else if test -d ~/Library/Android/Sdk
-        set -gx ANDROID_SDK_ROOT ~/Library/Android/Sdk
-        fish_add_path --path --append $ANDROID_SDK_ROOT/emulator
-    end
-
-    if test -d /usr/local/flutter/bin
-        fish_add_path --path --append /usr/local/flutter/bin
-        set -gx DART_SDK /usr/local/flutter/bin/cache/dart-sdk
-        fish_add_path --path --append $DART_SDK/bin
-    end
 end
 
 function shell_config

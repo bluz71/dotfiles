@@ -5,7 +5,7 @@ end
 
 local cmp = require("cmp")
 
-cmp.setup.filetype({ "astro", "css", "dart", "eruby", "html", "javascript", "ruby", "rust", "typescript" }, {
+cmp.setup.filetype({ "astro", "css", "eruby", "html", "javascript", "ruby", "rust", "typescript" }, {
   formatting = {
     format = function(entry, item)
       item.menu = ({
