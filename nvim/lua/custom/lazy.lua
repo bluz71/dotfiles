@@ -31,6 +31,7 @@ local configuration = {
     },
   },
   ui = {
+    backdrop = 100,
     border = "single",
     icons = {
       cmd = "❯",
