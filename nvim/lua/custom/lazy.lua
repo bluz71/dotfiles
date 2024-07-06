@@ -22,6 +22,11 @@ local configuration = {
   install = {
     colorscheme = { "moonfly" },
   },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
+  local_spec = false,
   performance = {
     rtp = {
       disabled_plugins = {
