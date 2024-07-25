@@ -9,6 +9,7 @@ local map = vim.keymap.set
 local schedule = vim.schedule
 
 gitsigns.setup({
+  culhl = true,
   signs = {
     add = { text = "┃" },
     change = { text = "┃" },
