@@ -201,10 +201,9 @@ lazy.setup({
     commit = "00a8cfd",
     build = ":TSUpdate",
     dependencies = {
-      "windwp/nvim-ts-autotag",
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
     },
-    event = "BufReadPost",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("config.treesitter")
     end,
@@ -232,6 +231,12 @@ lazy.setup({
     config = function()
       require("config.autopairs")
     end,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPost", "BufNewFile" },
+    config = true,
   },
 
   -----------------------------
