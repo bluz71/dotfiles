@@ -179,8 +179,8 @@ nnoremap <F5> :call spelling#Toggle()<CR>
 nnoremap '5   :call spelling#Toggle()<CR>
 nnoremap <F6> :call diagnostics#Toggle()<CR>
 nnoremap '6   :call diagnostics#Toggle()<CR>
-nnoremap <F7> :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
-nnoremap '7   :set lazyredraw!<CR>:call AutoSaveToggle()<CR>
+nnoremap <F7> :set lazyredraw!<CR>:set autoread!<CR>:call AutoSaveToggle()<CR>
+nnoremap '7   :set lazyredraw!<CR>:set autoread!<CR>:call AutoSaveToggle()<CR>
 nnoremap <F8> :set wrap!<CR>
 nnoremap '8   :set wrap!<CR>
 nnoremap <F9> :set hlsearch!<CR>
