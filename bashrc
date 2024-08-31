@@ -128,7 +128,7 @@ export OS=$(uname)
 if [[ $OS == "Linux" ]]; then
     export SHELL='/bin/bash'
     alias ip='ip --color=auto'
-    alias cpa='/bin/cp -i -a'
+    alias cpa='/bin/cp -i -dR --preserve=ownership,timestamps'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
     alias free='free -th'
     alias mplayer='mplayer 2>/dev/null'
