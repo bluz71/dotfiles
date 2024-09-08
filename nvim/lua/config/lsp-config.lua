@@ -153,7 +153,7 @@ nvim_lsp.standardrb.setup({
   flags = { debounce_text_changes = 300 },
 })
 
-nvim_lsp.tsserver.setup({
+nvim_lsp.ts_ls.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
