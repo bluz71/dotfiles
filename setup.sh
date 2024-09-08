@@ -47,6 +47,6 @@ elif [  "$(uname)" = Darwin ]; then
     ln -s ~/dotfiles/terminal_configs/alacritty_macos.toml .config/alacritty/alacritty.toml
     mkdir -p Library/Application\ Support/lazygit
     ln -s ~/dotfiles/lazygit/config.yml Library/Application\ Support/lazygit/config.yml
-    mkdir -p Library/Application Support/inlyne
-    ln -s ~/dotfiles/misc/inlyne.toml Library/Application Support/inlyne/inlyne.toml
+    mkdir -p Library/Application\ Support/inlyne
+    ln -s ~/dotfiles/misc/inlyne.toml Library/Application\ Support/inlyne/inlyne.toml
 fi
