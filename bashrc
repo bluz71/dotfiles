@@ -82,7 +82,10 @@ alias pping='prettyping --nolegend -i 5'
 alias psu='ps -u $USER -f'
 alias qmv='qmv -d -f do'
 alias rsync='rsync --archive --human-readable --info=progress2 --verbose'
+alias scp='/usr/bin/scp -r'
 alias src='. ~/.bashrc'
+alias ssh='/usr/bin/ssh'
+alias ssh-add='/usr/bin/ssh-add'
 alias sudo='sudo '
 alias wl='wc -l'
 alias x=exit
@@ -134,9 +137,6 @@ if [[ $OS == "Linux" ]]; then
     alias mplayer='mplayer 2>/dev/null'
     alias nmshow='nmcli connection show'
     alias open='xdg-open 2>/dev/null'
-    alias scp='/usr/bin/scp -r'
-    alias ssh='/usr/bin/ssh'
-    alias ssh-add='/usr/bin/ssh-add'
     alias updatedb='sudo /usr/bin/updatedb'
     alias wg0down='nmcli connection down wg0'
     alias wg0info='nmcli --overview connection show wg0'
@@ -146,9 +146,6 @@ elif [[ $OS == "Darwin" ]]; then
     export PGGSSENCMODE='disable' # Reference: https://is.gd/flzYH7
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias locate='mdfind -name'
-    alias scp='/opt/homebrew/bin/scp -r'
-    alias ssh='/opt/homebrew/bin/ssh'
-    alias ssh-add='/opt/homebrew/bin/ssh-add'
 fi
 
 
