@@ -4,7 +4,6 @@
 if !has('gui_running')
     set term=xterm-256color " Vim does not like TERM=alacritty
     set ttyfast             " We have a fast TTY
-    set ttymouse=xterm2     " Improve mouse support
 
     " if tmux
     if &term ==# 'tmux-256color'
