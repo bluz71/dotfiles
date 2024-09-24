@@ -166,9 +166,10 @@ function custom_config
       --bind pgdn:preview-page-down,pgup:preview-page-up
       --marker="✚" --pointer="▶" --prompt="❯ "
       --no-separator --scrollbar="█" --border
-      --color bg+:#262626,fg+:#dadada,hl:#f09479,hl+:#f09479
-      --color border:#303030,info:#cfcfb0,header:#80a0ff,spinner:#36c692
-      --color prompt:#87afff,pointer:#ff5189,marker:#f09479
+      --color bg:#080808,bg+:#262626,border:#303030,fg:#b2b2b2,fg+:#dadada
+      --color gutter:#262626,header:#80a0ff,hl:#f09479,hl+:#f09479
+      --color info:#cfcfb0,marker:#f09479,pointer:#ff5189,prompt:#87afff
+      --color spinner:#36c692
     '
     set -xg FZF_DEFAULT_COMMAND 'fd --type f --color=never'
     set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
