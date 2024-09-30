@@ -67,10 +67,10 @@ alias vdi='nvim -d'
 alias vf='fzf_find_edit'
 # -- Miscellaneous aliases --
 alias be='bundle exec'
-alias bs='br --whale-spotting'
 alias cwd='copy_working_directory'
 alias df.='df -h .'
-alias dus='du_by_size'
+alias dust='dust -r'
+alias dust1='dust -d 1'
 alias fkill='fzf_kill'
 alias lynx='lynx --accept_all_cookies'
 alias math='set -f; _f() { echo $@ | bc; set +f; }; _f'
@@ -210,9 +210,6 @@ custom_config() {
     # These are then symlinked to ~/.local/share/bash-completion for automatic
     # lazy-loading. Refer to: https://is.gd/CV7ufa
 
-    # 'broot' function.
-    . ~/dotfiles/profile.d/br.sh
-
     # 'fzf' utility.
     . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
     export FZF_DEFAULT_OPTS='
@@ -273,14 +270,6 @@ dev_config() {
     if [[ -d ~/projects/go ]]; then
         export GOPATH=~/projects/go
         PATH=$PATH:$GOPATH/bin
-    fi
-}
-
-du_by_size() {
-    if [[ $# -eq 0 ]]; then
-        du -sh * | sort -hr | less;
-    else
-        du -sh "$@" | sort -hr | less;
     fi
 }
 

@@ -36,7 +36,6 @@ abbr ta 'tmux attach'
 abbr tls 'tmux ls'
 # -- Miscellaneous abbreviations --
 abbr be 'bundle exec'
-abbr bs 'br --whale-spotting'
 abbr df. 'df -h .'
 abbr lynx 'lynx --accept_all_cookies'
 abbr mdi meld
