@@ -119,6 +119,13 @@ nvim_lsp.html.setup({
   flags = { debounce_text_changes = 300 },
 })
 
+-- gem install ruby-lsp ruby-lsp-rails
+nvim_lsp.ruby_lsp.setup({
+  on_attach = lsp_on_attach_no_formatting, -- Use standardrb for formatting
+  capabilities = capabilities,
+  flags = { debounce_text_changes = 300 },
+})
+
 nvim_lsp.rust_analyzer.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
@@ -134,23 +141,10 @@ nvim_lsp.rust_analyzer.setup({
   },
 })
 
--- gem install solargraph
--- solargraph clear
--- solargraph download-core
--- solargraph bundle
-nvim_lsp.solargraph.setup({
-  on_attach = lsp_on_attach_no_formatting, -- Use standardrb for formatting
-  capabilities = capabilities,
-  flags = { debounce_text_changes = 300 },
-  single_file_support = true, -- Allow LSP to work in standalone Ruby scripts
-  settings = { solargraph = { diagnostics = false } },
-})
-
--- gem install standard
+-- gem install standard standard-rails
 nvim_lsp.standardrb.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
-  flags = { debounce_text_changes = 300 },
 })
 
 nvim_lsp.ts_ls.setup({
@@ -160,12 +154,6 @@ nvim_lsp.ts_ls.setup({
   root_dir = nvim_lsp.util.root_pattern("package.json"),
 })
 
--- pnpm install -D prettier prettier-plugin-tailwindcss
---
---   // prettier.config.js
---   module.exports = {
---     plugins: ['prettier-plugin-tailwindcss'],
---   }
 nvim_lsp.tailwindcss.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
