@@ -198,9 +198,9 @@ function dev_config
         # chruby is slow, instead simply set environment variables explicitly.
         #   . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         #   chruby 3.2.5
-        set -gx RUBY_VERSION 3.2.5
+        set -gx RUBY_VERSION 3.3.4
         set -gx RUBY_ROOT $HOME/.rubies/ruby-$RUBY_VERSION
-        set -gx GEM_ROOT $RUBY_ROOT/lib/ruby/gems/3.2.0
+        set -gx GEM_ROOT $RUBY_ROOT/lib/ruby/gems/3.3.0
         set -gx GEM_HOME $HOME/.gem/ruby/$RUBY_VERSION
         set -gx GEM_PATH $GEM_HOME $GEM_ROOT
         fish_add_path --path $GEM_HOME/bin $RUBY_ROOT/bin
