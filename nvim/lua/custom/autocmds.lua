@@ -82,6 +82,14 @@ autocmd("TermOpen", {
 })
 
 autocmd("BufEnter", {
+  pattern = "*.html.theo",
+  callback = function()
+    opt.filetype = "html"
+  end,
+  group = custom_events,
+})
+
+autocmd("BufEnter", {
   pattern = "term://*",
   command = "startinsert",
   group = custom_events,
