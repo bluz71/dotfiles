@@ -16,7 +16,7 @@ M.activity = function(active)
 
   if active then -- Active window
     local ft = buf_get_option(0, "filetype")
-    if ft == "astro" or ft == "lua" then
+    if ft == "astro" or ft == "eruby" or ft == "lua" then
       -- User wider colorcolumn for specific filetypes.
       opt_local.colorcolumn = { 101, 102 }
     else

@@ -312,7 +312,7 @@ lazy.setup({
 
   {
     "NvChad/nvim-colorizer.lua",
-    ft = { "css", "html", "lua", "markdown", "scss", "text", "tmux", "toml", "txt", "vim", "yaml" },
+    ft = { "css", "eruby", "html", "lua", "markdown", "scss", "text", "tmux", "toml", "txt", "vim", "yaml" },
     config = function()
       require("config.colorizer")
     end,

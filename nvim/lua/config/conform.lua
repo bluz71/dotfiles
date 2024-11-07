@@ -10,6 +10,7 @@ conform.setup({
   formatters_by_ft = {
     astro = { "prettier" },
     css = { "prettier" },
+    eruby = { "rustywind", "erb_format" },
     fish = { "fish_indent" },
     html = { "prettier" },
     javascript = { "prettier" },
@@ -19,6 +20,15 @@ conform.setup({
     scss = { "prettier" },
     typescript = { "prettier" },
     yaml = { "prettier" },
+  },
+  formatters = {
+    erb_format = {
+      args = {
+        "--stdin",
+        "--print-width",
+        "100",
+      },
+    },
   },
 })
 
