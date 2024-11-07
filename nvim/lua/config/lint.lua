@@ -10,6 +10,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 lint.linters_by_ft = {
+  eruby = { "erb_lint" },
   lua = { "selene" },
   json = { "jsonlint" },
   markdown = { "markdownlint" },
@@ -17,6 +18,7 @@ lint.linters_by_ft = {
 
 -- Custom linter arguments.
 linters.markdownlint.args = {
+  "--stdin",
   "--config",
   "~/dotfiles/linter_configs/markdownlint.json",
   "--disable",
