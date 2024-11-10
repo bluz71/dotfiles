@@ -9,6 +9,7 @@ npairs.setup({
 
 npairs.add_rules({
   Rule("|", "|", { "ruby" }):with_move(cond.done()),
+  Rule("<%", " %>", { "eruby" }):with_move(cond.done()),
 })
 
 -- Auto-complete LSP function & method parentheses via nvim-cmp plugin.
