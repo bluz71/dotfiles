@@ -10,13 +10,14 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 lint.linters_by_ft = {
-  eruby = { "erb_lint" },
+  eruby = { "htmlhint_erb" },
+  html = { "htmlhint" },
   lua = { "selene" },
   json = { "jsonlint" },
   markdown = { "markdownlint" },
 }
 
--- Custom linter arguments.
+-- Custom linter arguments for 'markdownlint'.
 linters.markdownlint.args = {
   "--stdin",
   "--config",
@@ -31,6 +32,20 @@ linters.markdownlint.args = {
   "MD041", -- allow non-headers on the first line, e.g. meta section
   "MD046", -- allow mixed code-block styles
   "--",
+}
+
+-- Custom linter for eRuby files, based on htmlhint with ERB tags stripped out.
+lint.linters.htmlhint_erb = {
+  cmd = "htmlhint-erb",
+  stdin = true,
+  stream = "stdout",
+  ignore_exitcode = true,
+  parser = require("lint.parser").from_pattern(
+    ".*: line (%d+), col (%d+), (%a+) %- (.+)",
+    { "lnum", "col", "severity", "message" },
+    { vim.diagnostic.severity.ERROR },
+    { source = "htmlhint-erb" }
+  ),
 }
 
 -- Trigger linting on the following buffer events.
