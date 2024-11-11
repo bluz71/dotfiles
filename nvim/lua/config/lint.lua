@@ -10,8 +10,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 lint.linters_by_ft = {
-  eruby = { "htmlhint_erb" },
-  html = { "htmlhint" },
+  eruby = { "htmlhint" },
   lua = { "selene" },
   json = { "jsonlint" },
   markdown = { "markdownlint" },
@@ -34,9 +33,9 @@ linters.markdownlint.args = {
   "--",
 }
 
--- Custom linter for eRuby files, based on htmlhint with ERB tags stripped out.
-lint.linters.htmlhint_erb = {
-  cmd = "htmlhint-erb",
+-- Custom linter for eRuby files, uses htmlhint with ERB tags stripped out.
+lint.linters.htmlhint = {
+  cmd = "htmlhint-erb", -- PATH script: sed 's/<%[^>]*%>//g' $1 | htmlhint stdin -f compact | head -n 1
   stdin = true,
   stream = "stdout",
   ignore_exitcode = true,
@@ -44,7 +43,7 @@ lint.linters.htmlhint_erb = {
     ".*: line (%d+), col (%d+), (%a+) %- (.+)",
     { "lnum", "col", "severity", "message" },
     { vim.diagnostic.severity.ERROR },
-    { source = "htmlhint-erb" }
+    { source = "htmlhint" }
   ),
 }
 
