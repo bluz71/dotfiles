@@ -10,7 +10,7 @@ conform.setup({
   formatters_by_ft = {
     astro = { "prettier" },
     css = { "prettier" },
-    eruby = { "rustywind", "erb_format" },
+    eruby = { "erb_format", "rustywind" },
     fish = { "fish_indent" },
     html = { "prettier" },
     javascript = { "prettier" },
@@ -32,6 +32,8 @@ conform.setup({
     rustywind = {
       args = {
         "--stdin",
+        "--vite-css",
+        "http://localhost:3333/vite-dev/entrypoints/styles.css",
         "--custom-regex",
         "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
       },
