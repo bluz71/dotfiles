@@ -12,10 +12,12 @@ mason.setup({
   --   css-lsp
   --   eslint-lsp
   --   html-lsp
+  --   htmlhint
   --   jsonlint
   --   markdownlint
   --   prettier
   --   rust-analyzer
+  --   rustywind
   --   selene
   --   stylua
   --   tailwindcss-language-server
