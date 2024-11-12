@@ -35,7 +35,7 @@ linters.markdownlint.args = {
 
 -- Custom linter for eRuby files, uses htmlhint with ERB tags stripped out.
 lint.linters.htmlhint = {
-  cmd = "htmlhint-erb", -- PATH script: sed 's/<%[^>]*%>//g' $1 | htmlhint stdin -f compact | head -n 1
+  cmd = "htmlhint-erb", -- PATH script: sed -z 's/<%[^>]*%>//g' $1 | htmlhint stdin -f compact | head -n 1
   stdin = true,
   stream = "stdout",
   ignore_exitcode = true,

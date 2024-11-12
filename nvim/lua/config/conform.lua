@@ -29,6 +29,13 @@ conform.setup({
         "100",
       },
     },
+    rustywind = {
+      args = {
+        "--stdin",
+        "--custom-regex",
+        "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
+      },
+    },
   },
 })
 
