@@ -93,8 +93,12 @@ nvim_lsp.cssls.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
   flags = { debounce_text_changes = 300 },
-  handlers = {
-    ["textDocument/publishDiagnostics"] = function() end,
+  settings = {
+    css = {
+      lint = {
+        unknownAtRules = "ignore",
+      },
+    },
   },
 })
 
