@@ -160,4 +160,13 @@ nvim_lsp.tailwindcss.setup({
   filetypes = { "astro", "eruby", "html" },
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("tailwind.config.js"),
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
+        },
+      },
+    },
+  },
 })

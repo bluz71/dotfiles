@@ -32,8 +32,6 @@ conform.setup({
     rustywind = {
       args = {
         "--stdin",
-        "--vite-css",
-        "http://localhost:3333/vite-dev/entrypoints/styles.css",
         "--custom-regex",
         "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
       },
