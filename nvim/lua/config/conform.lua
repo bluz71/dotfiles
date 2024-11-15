@@ -32,6 +32,8 @@ conform.setup({
     rustywind = {
       args = {
         "--stdin",
+        "--output-css-file",
+        ".tailwind-output.css",
         "--custom-regex",
         "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
       },
