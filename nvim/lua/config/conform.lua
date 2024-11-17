@@ -35,7 +35,7 @@ conform.setup({
         "--output-css-file",
         ".tailwind-output.css",
         "--custom-regex",
-        "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
+        "(?:class:[\\s\\n]*|class=)['\"]([^'\"]+)['\"]",
       },
     },
   },
