@@ -46,18 +46,6 @@ autocmd("VimResized", {
   group = custom_events,
 })
 
--- Enable MatchTag plugin for certain HTML-like filetypes.
-autocmd("FileType", {
-  pattern = { "javascript" },
-  command = "unlet b:did_ftplugin | runtime! ftplugin/html.vim",
-  group = custom_events,
-})
-autocmd("FileType", {
-  pattern = { "astro" },
-  command = "runtime! ftplugin/html.vim",
-  group = custom_events,
-})
-
 -- Automatically open the quickfix window after executing a grep operation.
 autocmd("QuickFixCmdPost", {
   pattern = "grep",
