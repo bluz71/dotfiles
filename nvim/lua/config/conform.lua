@@ -10,7 +10,13 @@ conform.setup({
   formatters_by_ft = {
     astro = { "prettier" },
     css = { "prettier" },
-    eruby = { "erb_format", "rustywind" },
+    eruby = function()
+      if vim.fn.filereadable("tailwind.config.js") == 1 then
+        return { "erb_format", "rustywind" }
+      else
+        return { "erb_format" }
+      end
+    end,
     fish = { "fish_indent" },
     html = { "prettier" },
     javascript = { "prettier" },
