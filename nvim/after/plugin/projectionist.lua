@@ -6,23 +6,23 @@ if fn.filereadable("config/routes.rb") ~= 0 then
   -- This looks like a Rails project.
   g.projectionist_heuristics = {
     ["config/routes.rb"] = {
-      ["app/views/*.json.jbuilder"] = {
-        ["type"] = "builder",
-        ["alternate"] = "app/controllers/{dirname}_controller.rb",
-      },
       ["app/controllers/*_controller.rb"] = {
         ["type"] = "controller",
         ["alternate"] = "app/models/{singular}.rb",
       },
-      ["app/javascript/*.js"] = {
-        ["type"] = "javascript",
+      ["app/components/*_component.rb"] = {
+        ["type"] = "component",
+        ["alternate"] = "app/components/{singular}_component.html.erb",
+      },
+      ["app/components/*_component.html.erb"] = {
+        ["alternate"] = "app/components/{singular}_component.rb",
+      },
+      ["app/frontend/entrypoints/*"] = {
+        ["type"] = "frontend",
       },
       ["app/models/*.rb"] = {
         ["type"] = "model",
         ["alternate"] = "app/controllers/{plural}_controller.rb",
-      },
-      ["spec/*.rb"] = {
-        ["type"] = "spec",
       },
       ["app/views/*.html.erb"] = {
         ["type"] = "view",
@@ -32,11 +32,10 @@ if fn.filereadable("config/routes.rb") ~= 0 then
   }
 
   map("n", "<Leader>a", ":A<CR>")
-  map("n", "<Leader>eb", ":Ebuilder<Space>")
   map("n", "<Leader>ec", ":Econtroller<Space>")
-  map("n", "<Leader>ej", ":Ejavascript<Space>")
+  map("n", "<Leader>ef", ":Efrontend<Space>")
   map("n", "<Leader>em", ":Emodel<Space>")
-  map("n", "<Leader>et", ":Espec<Space>")
+  map("n", "<Leader>eo", ":Ecomponent<Space>")
   map("n", "<Leader>ev", ":Eview<Space>")
 elseif fn.filereadable("src/index.js") ~= 0 then
   -- This looks like a React project.
@@ -54,6 +53,6 @@ elseif fn.filereadable("src/index.js") ~= 0 then
   }
 
   map("n", "<Leader>a", ":A<CR>")
-  map("n", "<Leader>ec", ":Ecomponent<Space>")
+  map("n", "<Leader>eo", ":Ecomponent<Space>")
   map("n", "<Leader>et", ":Etest<Space>")
 end

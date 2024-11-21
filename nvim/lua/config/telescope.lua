@@ -65,12 +65,15 @@ map("n", "<Space>t", require("util.telescope-commands").themes)
 
 local opts = { silent = true }
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
+  -- This looks like a Rails project.
   map("n", "<Space>ec", ":Telescope find_files cwd=app/controllers<CR>", opts)
+  map("n", "<Space>ef", ":Telescope find_files cwd=app/frontend/entrypoints<CR>", opts)
   map("n", "<Space>em", ":Telescope find_files cwd=app/models<CR>", opts)
-  map("n", "<Space>et", ":Telescope find_files cwd=spec<CR>", opts)
+  map("n", "<Space>eo", ":Telescope find_files cwd=app/components<CR>", opts)
   map("n", "<Space>ev", ":Telescope find_files cwd=app/views<CR>", opts)
 elseif vim.fn.filereadable("src/index.js") ~= 0 then
-  map("n", "<Space>ec", ":Telescope find_files cwd=src/components<CR>", opts)
+  -- This looks like a React project.
+  map("n", "<Space>eo", ":Telescope find_files cwd=src/components<CR>", opts)
   map("n", "<Space>et", ":Telescope find_files cwd=src/__tests__/components<CR>", opts)
 end
 
