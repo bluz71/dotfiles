@@ -168,7 +168,7 @@ nvim_lsp.tailwindcss.setup({
     tailwindCSS = {
       experimental = {
         classRegex = {
-          "(?:class:\\s|class=)['\"]([^'\"]+)['\"]",
+          "(?:class:[\\s\\n]*|class=)['\"]([^'\"]+)['\"]",
         },
       },
     },
