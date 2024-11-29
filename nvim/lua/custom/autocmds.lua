@@ -70,9 +70,9 @@ autocmd("TermOpen", {
 })
 
 autocmd("BufEnter", {
-  pattern = "*.html.theo",
+  pattern = "pryrc",
   callback = function()
-    opt.filetype = "html"
+    opt.filetype = "ruby"
   end,
   group = custom_events,
 })

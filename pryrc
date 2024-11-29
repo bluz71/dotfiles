@@ -1,10 +1,9 @@
 # Useful pry features.
 #
-#   Help:
+#   Usage:
 #     pry> help
 #     pry> ls String
 #     pry> show-doc String#downcase
-#
 #   Shell commands are prepended with a dot:
 #     pry> .ls
 #   Shell mode list path in prompt:
