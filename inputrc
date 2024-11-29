@@ -29,8 +29,10 @@ TAB: menu-complete
 "\e[Z": menu-complete-backward
 
 # Substring history search using UP and DOWN arrow keys.
-"\e[A": history-substring-search-backward
-"\e[B": history-substring-search-forward
+$if bash
+  "\e[A": history-substring-search-backward
+  "\e[B": history-substring-search-forward
+$endif
 
 # Readline behaviors. Refer to 'man bash' / "Readline Variables" section.
 #
