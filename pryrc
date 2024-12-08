@@ -73,12 +73,10 @@ end
 
 # Setup aliases.
 #
-if defined?(PryByebug)
-  Pry::Commands.alias_command "b", "break"
-  Pry::Commands.alias_command "c", "continue"
-  Pry::Commands.alias_command "f", "finish"
-  Pry::Commands.alias_command "n", "next"
-  Pry::Commands.alias_command "s", "step"
-end
+Pry::Commands.alias_command "b", "break"
+Pry::Commands.alias_command "c", "continue"
+Pry::Commands.alias_command "f", "finish"
+Pry::Commands.alias_command "n", "next"
+Pry::Commands.alias_command "s", "step"
 Pry::Commands.alias_command "src", "show-source"
 Pry::Commands.alias_command "doc", "show-doc"

@@ -154,9 +154,9 @@ function fish_prompt --description 'Fish Prompt'
     end
 
     echo -n -s $fishfly_prefix' ' \
-               $fishfly_connected' ' \
-               $fishfly_path_color (prompt_pwd --full-length-dirs=4) \
-               ' '$fishfly_git \
-               $prompt_symbol_color ' '$fishfly_prompt_symbol \
-               $fishfly_no_color ' '
+        $fishfly_connected' ' \
+        $fishfly_path_color (prompt_pwd --full-length-dirs=4) \
+        ' '$fishfly_git \
+        $prompt_symbol_color ' '$fishfly_prompt_symbol \
+        $fishfly_no_color ' '
 end
