@@ -58,6 +58,9 @@ opt.listchars = {
   extends = "»", precedes = "«",
 }
 opt.matchpairs = "(:),{:},[:]"
+if exists("&messagesopt") ~= 0 then
+  opt.messagesopt = { wait = 500, history = 500 }
+end
 opt.mouse = "a" -- Mouse support in the terminal
 opt.number = true -- Show line numbers
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
@@ -79,16 +82,12 @@ opt.showmode = false -- No to showing mode in bottom-left corner
 opt.signcolumn = "number"
 opt.smartcase = true -- Case-smart searching
 opt.smarttab = true -- Tab at the start of line inserts blanks
-if fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true -- Scroll by screen line
-end
+opt.smoothscroll = true -- Scroll by screen line
 -- When spell checking, assume word boundaries include 'CamelCasing'
 opt.spelloptions = "camel"
 opt.splitbelow = true -- Split below current window
 -- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
-if exists("&splitkeep") ~= 0 then
-  opt.splitkeep = "topline"
-end
+opt.splitkeep = "topline"
 opt.splitright = true -- Split window to the right
 opt.swapfile = false -- No backup files
 opt.tabstop = 4 -- Tab width
