@@ -4,6 +4,7 @@ if vim.opt.diff:get() then
 end
 
 local conform = require("conform")
+local filereadable = vim.fn.filereadable
 local map = vim.keymap.set
 
 conform.setup({
@@ -11,10 +12,10 @@ conform.setup({
     astro = { "prettier" },
     css = { "prettier" },
     eruby = function()
-      if vim.fn.filereadable("tailwind.config.js") == 1 then
-        return { "erb_format", "rustywind" }
+      if filereadable(".prettierrc.json") == 1 and filereadable("tailwind.config.js") == 1 then
+        return { "prettier", "rustywind" }
       else
-        return { "erb_format" }
+        return {} -- Do nothing for legacy Rails projects
       end
     end,
     fish = { "fish_indent" },
@@ -28,13 +29,6 @@ conform.setup({
     yaml = { "prettier" },
   },
   formatters = {
-    erb_format = {
-      args = {
-        "--stdin",
-        "--print-width",
-        "100",
-      },
-    },
     rustywind = {
       args = {
         "--stdin",
