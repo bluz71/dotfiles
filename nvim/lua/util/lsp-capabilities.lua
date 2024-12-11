@@ -22,14 +22,10 @@ M.default_capabilities = function()
           resolveSupport = {
             properties = {
               "documentation",
-              "detail",
               "additionalTextEdits",
-              "sortText",
-              "filterText",
-              "insertText",
-              "textEdit",
               "insertTextFormat",
               "insertTextMode",
+              "command",
             },
           },
           insertTextModeSupport = {
