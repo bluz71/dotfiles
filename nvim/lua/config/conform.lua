@@ -12,8 +12,8 @@ conform.setup({
     astro = { "prettier" },
     css = { "prettier" },
     eruby = function()
-      if filereadable(".prettierrc.json") == 1 and filereadable("tailwind.config.js") == 1 then
-        return { "prettier", "rustywind" }
+      if filereadable(".prettierrc.json") == 1 then
+        return { "prettier" }
       else
         return {} -- Do nothing for legacy Rails projects
       end
@@ -27,17 +27,6 @@ conform.setup({
     scss = { "prettier" },
     typescript = { "prettier" },
     yaml = { "prettier" },
-  },
-  formatters = {
-    rustywind = {
-      args = {
-        "--stdin",
-        "--output-css-file",
-        ".tailwind-output.css",
-        "--custom-regex",
-        "(?:class:[\\s\\n]*|class=)['\"]([^'\"]+)['\"]",
-      },
-    },
   },
 })
 

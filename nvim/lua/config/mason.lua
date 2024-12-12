@@ -17,7 +17,6 @@ mason.setup({
   --   markdownlint
   --   prettier
   --   rust-analyzer
-  --   rustywind
   --   selene
   --   stylua
   --   tailwindcss-language-server
