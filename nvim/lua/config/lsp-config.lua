@@ -127,6 +127,7 @@ nvim_lsp.html.setup({
 nvim_lsp.ruby_lsp.setup({
   on_attach = lsp_on_attach_no_formatting, -- Use standardrb for formatting
   capabilities = capabilities,
+  filetypes = { "ruby" },
   flags = { debounce_text_changes = 300 },
 })
 
@@ -149,6 +150,7 @@ nvim_lsp.rust_analyzer.setup({
 nvim_lsp.standardrb.setup({
   on_attach = lsp_on_attach,
   capabilities = capabilities,
+  filetypes = { "ruby" },
 })
 
 nvim_lsp.ts_ls.setup({
