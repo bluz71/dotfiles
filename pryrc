@@ -73,7 +73,6 @@ end
 
 # Setup aliases.
 #
-Pry::Commands.alias_command "b", "break"
 Pry::Commands.alias_command "c", "continue"
 Pry::Commands.alias_command "f", "finish"
 Pry::Commands.alias_command "n", "next"
