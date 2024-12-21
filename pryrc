@@ -22,6 +22,7 @@
 require "pry-byebug"
 require "pry-doc"
 require "hirb"
+require "amazing_print"
 
 # Enable Hirb for nicer object display, especially table-based objects.
 #
