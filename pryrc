@@ -19,10 +19,10 @@
 #   Show Rails routes:
 #     pry> show-routes
 
-require "pry-byebug"
 require "pry-doc"
-require "hirb"
+require "pry-byebug"
 require "amazing_print"
+require "hirb"
 
 # Enable Hirb for nicer object display, especially table-based objects.
 #
