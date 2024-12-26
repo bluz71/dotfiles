@@ -213,7 +213,8 @@ lazy.setup({
   -- Auto-completion plugins
   -----------------------------
   {
-    "hrsh7th/nvim-cmp",
+    "iguanacucumber/magazine.nvim",
+    name = "nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
