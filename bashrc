@@ -31,7 +31,7 @@ alias glS='fzf_git_log_pickaxe'
 alias grl='fzf_git_reflog'
 alias gu='fzf_git_unadd'
 # -- History aliases --
-alias hi=history
+alias h=history
 alias hg='history | rg'
 alias hm='history -n'
 alias ht='history_truncate'
@@ -180,6 +180,15 @@ brew_config() {
     fi
 
 
+}
+
+cheat() {
+    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
+    if [[ $# -eq 0 ]]; then
+        eval $navi_command
+    else
+        eval $navi_command --query "$@"
+    fi
 }
 
 copy_working_directory() {
@@ -378,15 +387,6 @@ g() {
         git status -sb
     else
         git "$@"
-    fi
-}
-
-h() {
-    local navi_command='navi --print --fzf-overrides "--no-multi --no-height --no-sort"'
-    if [[ $# -eq 0 ]]; then
-        eval $navi_command
-    else
-        eval $navi_command --query "$@"
     fi
 }
 
