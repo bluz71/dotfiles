@@ -10,13 +10,6 @@ if fn.filereadable("config/routes.rb") ~= 0 then
         ["type"] = "controller",
         ["alternate"] = "app/models/{singular}.rb",
       },
-      ["app/components/*_component.rb"] = {
-        ["type"] = "component",
-        ["alternate"] = "app/components/{singular}_component.html.erb",
-      },
-      ["app/components/*_component.html.erb"] = {
-        ["alternate"] = "app/components/{singular}_component.rb",
-      },
       ["app/frontend/entrypoints/*"] = {
         ["type"] = "frontend",
       },
@@ -24,13 +17,19 @@ if fn.filereadable("config/routes.rb") ~= 0 then
         ["type"] = "model",
         ["alternate"] = "app/controllers/{plural}_controller.rb",
       },
+      ["app/components/*_component.rb"] = {
+        ["type"] = "component",
+        ["alternate"] = "app/components/{singular}_component.html.erb",
+      },
+      ["app/components/*_component.html.erb"] = {
+        ["alternate"] = "app/components/{singular}_component.rb",
+      },
       ["app/views/*.html.erb"] = {
         ["type"] = "view",
         ["alternate"] = "app/controllers/{dirname}_controller.rb",
       },
     },
   }
-
   map("n", "<Leader>a", ":A<CR>")
   map("n", "<Leader>ec", ":Econtroller<Space>")
   map("n", "<Leader>ef", ":Efrontend<Space>")
@@ -51,7 +50,6 @@ elseif fn.filereadable("src/index.js") ~= 0 then
       },
     },
   }
-
   map("n", "<Leader>a", ":A<CR>")
   map("n", "<Leader>eo", ":Ecomponent<Space>")
   map("n", "<Leader>et", ":Etest<Space>")
