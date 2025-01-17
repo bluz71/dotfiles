@@ -9,8 +9,8 @@ treesitter.setup({
   --                    vimdoc parsers
   ensure_installed = {
     "astro", "clojure", "cpp", "css", "dart", "elixir", "elm", "embedded_template", "go", "haskell",
-    "html", "java", "javascript", "julia", "php", "r", "regex", "ruby", "rust", "scala", "scss",
-    "svelte", "toml", "tsx", "typescript", "vue", "zig"
+    "html", "java", "javascript", "json", "julia", "odin", "php", "r", "regex", "ruby", "rust",
+    "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue", "zig"
   },
   highlight = {
     enable = true,
