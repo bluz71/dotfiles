@@ -10,6 +10,7 @@ local map = vim.keymap.set
 conform.setup({
   formatters_by_ft = {
     astro = { "prettier" },
+    crystal = { "crystal" },
     css = { "prettier" },
     eruby = function()
       if filereadable(".prettierrc.json") == 1 then
