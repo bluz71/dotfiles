@@ -50,10 +50,10 @@ if not set -q fishfly_git_diverged
     set -g fishfly_git_diverged '↕'
 end
 
-if command -v git-status-fly &>/dev/null; and test -x (command -v git-status-fly &>/dev/null)
-    set -g fishfly_git_status_fly 1
+if command -v git-status-snap &>/dev/null; and test -x (command -v git-status-snap &>/dev/null)
+    set -g fishfly_git_status_snap 1
 else
-    echo "Note: git-status-fly is not available"
+    echo "Note: git-status-snap is not available"
 end
 
 function fishfly_prefix
@@ -72,16 +72,16 @@ function fishfly_prefix
 end
 
 function fishfly_git_status
-    # The `git-status-fly` command is not available, hence, exit early.
-    if not set -q fishfly_git_status_fly
+    # The `git-status-snap` command is not available, hence, exit early.
+    if not set -q fishfly_git_status_snap
         return
     end
 
     # Reset the `fishfly_git` environment variable.
     set -e fishfly_git
 
-    # Run and source `git-status-fly`.
-    git-status-fly | source
+    # Run and source `git-status-snap`.
+    git-status-snap | source
     test -z "$GSF_REPOSITORY" && return
 
     # We are in a Git repository.
