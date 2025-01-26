@@ -71,7 +71,7 @@ function fishfly_prefix
     end
 end
 
-function fishfly_git_status
+function fishfly_git_status_parser
     # The `git-status-snap` command is not available, hence, exit early.
     if not set -q fishfly_git_status_snap
         return
@@ -133,7 +133,7 @@ function fish_prompt --description 'Fish Prompt'
     fishfly_prefix
 
     # Collate Git details, if applicable, for the current directory.
-    fishfly_git_status
+    fishfly_git_status_parser
 
     # If we are connected to an external host then display those connection
     # details in the prompt.
