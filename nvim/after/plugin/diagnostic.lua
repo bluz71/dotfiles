@@ -3,10 +3,16 @@ local diagnostic = vim.diagnostic
 local map = vim.keymap.set
 local sign_define = vim.fn.sign_define
 
--- Diagnostic symbols for display in the sign column.
-sign_define("DiagnosticSignError", { text = "■", texthl = "DiagnosticSignError" })
-sign_define("DiagnosticSignWarn", { text = "△", texthl = "DiagnosticSignWarn" })
-sign_define("DiagnosticSignInfo", { text = "○", texthl = "DiagnosticSignInfo" })
+-- Diagnostic style in the number/sign column.
+if vim.fn.has("nvim-0.11") == 1 then
+  sign_define("DiagnosticSignError", { numhl = "DiagnosticSignError", culhl = "BufferVisibleERROR" })
+  sign_define("DiagnosticSignWarn", { numhl = "DiagnosticSignWarn", culhl = "BufferVisibleWARN" })
+  sign_define("DiagnosticSignInfo", { numhl = "DiagnosticSignInfo", culhl = "BufferVisibleINFO" })
+else
+  sign_define("DiagnosticSignError", { text = "■", texthl = "DiagnosticSignError" })
+  sign_define("DiagnosticSignWarn", { text = "△", texthl = "DiagnosticSignWarn" })
+  sign_define("DiagnosticSignInfo", { text = "○", texthl = "DiagnosticSignInfo" })
+end
 
 -- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
 -- functions.

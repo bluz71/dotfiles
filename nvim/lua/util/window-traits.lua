@@ -1,4 +1,5 @@
 local buf_get_option = vim.api.nvim_buf_get_option
+local fn = vim.fn
 local opt = vim.opt
 local opt_local = vim.opt_local
 
@@ -27,12 +28,16 @@ M.activity = function(active)
     if ft ~= "help" then
       opt_local.relativenumber = true
     end
-    opt_local.signcolumn = "number"
+    if fn.has("nvim-0.11") ~= 1 then
+      opt_local.signcolumn = "number"
+    end
   else -- Inactive window
     opt_local.colorcolumn = { 0 }
     opt_local.cursorline = false
     opt_local.relativenumber = false
-    opt_local.signcolumn = "no"
+    if fn.has("nvim-0.11") ~= 1 then
+      opt_local.signcolumn = "no"
+    end
   end
 end
 
