@@ -1,21 +1,7 @@
 local cmd = vim.cmd
 local diagnostic = vim.diagnostic
 local map = vim.keymap.set
-local sign_define = vim.fn.sign_define
 
--- Diagnostic style in the number/sign column.
-if vim.fn.has("nvim-0.11") == 1 then
-  sign_define("DiagnosticSignError", { numhl = "DiagnosticSignError", culhl = "BufferVisibleERROR" })
-  sign_define("DiagnosticSignWarn", { numhl = "DiagnosticSignWarn", culhl = "BufferVisibleWARN" })
-  sign_define("DiagnosticSignInfo", { numhl = "DiagnosticSignInfo", culhl = "BufferVisibleINFO" })
-else
-  sign_define("DiagnosticSignError", { text = "■", texthl = "DiagnosticSignError" })
-  sign_define("DiagnosticSignWarn", { text = "△", texthl = "DiagnosticSignWarn" })
-  sign_define("DiagnosticSignInfo", { text = "○", texthl = "DiagnosticSignInfo" })
-end
-
--- Preferred global diagnostic style for 'vim.diagnostic.*' displaying
--- functions.
 diagnostic.config({
   float = {
     show_header = false,
@@ -24,8 +10,23 @@ diagnostic.config({
   },
   severity_sort = true,
   signs = {
+    -- culhl = {
+    --   [vim.diagnostic.severity.ERROR] = "BufferVisibleERROR",
+    --   [vim.diagnostic.severity.WARN] = "BufferVisibleWARN",
+    --   [vim.diagnostic.severity.INFO] = "BufferVisibleINFO",
+    -- },
+    -- numhl = {
+    --   [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+    --   [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+    --   [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+    -- },
     severity = {
       min = vim.diagnostic.severity.INFO,
+    },
+    text = {
+      [vim.diagnostic.severity.ERROR] = "■",
+      [vim.diagnostic.severity.WARN] = "△",
+      [vim.diagnostic.severity.INFO] = "○",
     },
   },
   update_in_insert = false,
