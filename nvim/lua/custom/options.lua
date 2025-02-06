@@ -27,7 +27,7 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.dictionary = "/usr/share/dict/words"
-opt.diffopt = { "filler", "internal", "algorithm:histogram", "indent-heuristic", "linematch:60" }
+opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "linematch:60" }
 opt.expandtab = true -- Use spaces instead of tabs
 opt.exrc = false -- Disable reading of working directory vimrc files
 -- Lua initialization file
@@ -73,7 +73,7 @@ opt.relativenumber = true -- Show relative numbers
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftwidth = 2 -- Default indentation amount
 -- Setup shared-data.
-opt.shada = { "'300", '<50', 's10', 'h' }
+opt.shada = { "'300", "<50", "s10", "h" }
 -- Don't show certain messages.
 opt.shortmess = opt.shortmess + {
   c = true, s = true, C = true, F = true, I = true, S = true, W = true

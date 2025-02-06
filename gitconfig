@@ -19,6 +19,7 @@
 [diff]
   tool       = meld
   algorithm  = histogram
+  indentHeuristic = true
   colorMoved = plain
 [color "diff"]
   newMoved = 12 # pale blue
