@@ -194,6 +194,7 @@ cheatsheet.setup({
     ["Neo-tree Plugin Mappings"] = {
       { "Toggle drawer", ",d" },
       { "Find & reveal file", ",f" },
+      { "Navigate up file drawer", "‹Backspace›"},
       { "Help", "?" },
     },
     ["nvim-snippy Plugin Mappings"] = {
