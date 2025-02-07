@@ -122,7 +122,7 @@ function brew_config
         set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew"
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
-        set -gx HOMEBREW_AUTO_UPDATE_SECS 7200
+        set -gx HOMEBREW_NO_AUTO_UPDATE 1
     else if test $OS = Darwin
         if not command -v /opt/homebrew/bin/brew &>/dev/null; or \
            not test -x (command -v /opt/homebrew/bin/brew &>/dev/null)
@@ -137,7 +137,7 @@ function brew_config
         fish_add_path --path $HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman $HOMEBREW_PREFIX/share/man $MANPATH
-        set -gx HOMEBREW_AUTO_UPDATE_SECS 7200
+        set -gx HOMEBREW_NO_AUTO_UPDATE 1
     else
         echo 'Error: unsupported platform'
         return
