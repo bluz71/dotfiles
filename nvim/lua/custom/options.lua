@@ -1,7 +1,8 @@
 local env = vim.env
-local exists = vim.fn.exists
+-- local exists = vim.fn.exists
 local fn = vim.fn
 local g = vim.g
+local git_repo = vim.env.GSF_REPOSITORY
 local opt = vim.opt
 
 opt.autoindent = true -- Indented text
@@ -63,7 +64,7 @@ opt.matchpairs = "(:),{:},[:]"
 -- end
 opt.mouse = "a" -- Mouse support in the terminal
 opt.number = true -- Show line numbers
-if fn.has("nvim-0.11") == 1 then
+if fn.has("nvim-0.11") == 1 and git_repo == "1" then
   opt.numberwidth = 3
 end
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
@@ -82,7 +83,7 @@ opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
 opt.showmode = false -- No to showing mode in bottom-left corner
-if fn.has("nvim-0.11") == 1 then
+if fn.has("nvim-0.11") == 1 and git_repo == "1" then
   opt.signcolumn = "yes:1"
 else
   opt.signcolumn = "number"
@@ -96,7 +97,7 @@ opt.splitbelow = true -- Split below current window
 -- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
 opt.splitkeep = "topline"
 opt.splitright = true -- Split window to the right
-if fn.has("nvim-0.11") == 1 then
+if fn.has("nvim-0.11") == 1 and git_repo == "1" then
   opt.statuscolumn = "%l%s"
 end
 opt.swapfile = false -- No backup files
