@@ -165,7 +165,7 @@ nvim_lsp.tailwindcss.setup({
   capabilities = capabilities,
   filetypes = { "astro", "eruby", "html" },
   flags = { debounce_text_changes = 300 },
-  root_dir = nvim_lsp.util.root_pattern("tailwind.config.js"),
+  root_dir = nvim_lsp.util.root_pattern("vite.config.js"),
   settings = {
     tailwindCSS = {
       experimental = {
