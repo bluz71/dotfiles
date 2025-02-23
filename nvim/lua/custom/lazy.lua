@@ -147,26 +147,14 @@ lazy.setup({
   -- Fuzzy finding plugins
   -----------------------------
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    },
-    keys = { "<Space>" },
-    config = function()
-      require("config.telescope")
-    end,
-  },
-
-  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    keys = { "<Space>" },
     config = function()
       require("config.snacks")
     end
   },
-
 
   -----------------------------
   -- Filesystem plugins
@@ -341,15 +329,6 @@ lazy.setup({
     keys = { "<F12>" },
     config = function()
       require("config.cheatsheet")
-    end,
-  },
-
-  {
-    "jedrzejboczar/possession.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
-    config = function()
-      require("config.possession")
     end,
   },
 

@@ -13,15 +13,15 @@ snacks.setup({
         file = "● ",
       },
       git = {
-        enabled   = true,
-        commit    = " ",
-        staged    = "▲",
-        added     = "✚",
-        deleted   = "━",
-        ignored   = "‼ ",
-        modified  = "●",
-        renamed   = "○",
-        unmerged  = "▼ ",
+        added = "✚",
+        commit = " ",
+        deleted = "━",
+        enabled = true,
+        ignored = "‼ ",
+        modified = "●",
+        renamed = "○",
+        staged = "▲",
+        unmerged = "▼ ",
         untracked = "?",
       },
       ui = {
@@ -77,40 +77,43 @@ snacks.setup({
 
 -- Mappings.
 local map = vim.keymap.set
-map("n", "<A-q>", function()
-  Snacks.picker.actions.qflist(picker)
-end)
-map("n", "``", function()
+map("n", "<Space><Space>", function()
   Snacks.picker.files()
 end)
-map("n", "`,", function()
-  Snacks.picker.buffers({ layout = "select" })
-end)
-map("n", "`/", function()
-  Snacks.picker.grep()
-end)
-map("n", "`.", function()
-  Snacks.picker.grep_word()
-end)
-map("n", "`b", function()
-  Snacks.picker.git_log_line({ title = "Git Blame" })
-end)
-map("n", "`c", function()
-  Snacks.picker.git_log_file()
-end)
-map("n", "`g", function()
-  Snacks.picker.git_status()
-end)
-map("n", "`h", function()
-  Snacks.picker.help()
-end)
-map("n", "`i", function()
-  Snacks.picker.highlights()
-end)
-map("n", "`s", function()
+map("n", "<Space>s", function()
   Snacks.picker.smart()
 end)
-map("n", "`t", function()
+map("n", "<Space>.", function()
+  Snacks.picker.files({ cwd = vim.fn.expand("%:h"), layout = "select" })
+end)
+map("n", "<Space>,", function()
+  Snacks.picker.buffers({ layout = "select" })
+end)
+map("n", "<Space>/", function()
+  Snacks.picker.grep()
+end)
+map("n", "<Space>*", function()
+  Snacks.picker.grep_word()
+end)
+map("n", "<Space>b", function()
+  Snacks.picker.git_log_line({ title = "Git Blame" })
+end)
+map("n", "<Space>c", function()
+  Snacks.picker.git_log_file()
+end)
+map("n", "<Space>g", function()
+  Snacks.picker.git_status()
+end)
+map("n", "<Space>h", function()
+  Snacks.picker.help()
+end)
+map("n", "<Space>i", function()
+  Snacks.picker.highlights()
+end)
+map("n", "<Space>r", function()
+  Snacks.picker.lsp_references()
+end)
+map("n", "<Space>t", function()
   -- Colorschmes to ignore.
   vim.opt_local.wildignore = {
     "**/colors/blue.vim", "**/colors/darkblue.vim", "**/colors/delek.vim", "**/colors/desert.vim",
@@ -126,29 +129,29 @@ map("n", "`t", function()
   Snacks.picker.colorschemes({ layout = "simple", title = "Themes" })
 end)
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
-  map("n", "`ec", function()
+  map("n", "<Space>ec", function()
     Snacks.picker.files({ cwd = "app/controllers", layout = "select" })
   end)
-  map("n", "`ef", function()
+  map("n", "<Space>ef", function()
     Snacks.picker.files({ cwd = "app/frontend/entrypoints", layout = "select" })
   end)
-  map("n", "`em", function()
+  map("n", "<Space>em", function()
     Snacks.picker.files({ cwd = "app/frontend/models", layout = "select" })
   end)
-  map("n", "`eo", function()
+  map("n", "<Space>eo", function()
     Snacks.picker.files({ cwd = "app/components", layout = "select" })
   end)
-  map("n", "`et", function()
+  map("n", "<Space>et", function()
     Snacks.picker.files({ cwd = "test", layout = "select" })
   end)
-  map("n", "`ev", function()
+  map("n", "<Space>ev", function()
     Snacks.picker.files({ cwd = "app/views", layout = "select" })
   end)
 elseif vim.fn.filereadable("src/index.js") ~= 0 then
-  map("n", "`eo", function()
+  map("n", "<Space>eo", function()
     Snacks.picker.files({ cwd = "src/components", layout = "select" })
   end)
-  map("n", "`et", function()
+  map("n", "<Space>et", function()
     Snacks.picker.files({ cwd = "src/__tests__/components", layout = "select" })
   end)
 end
