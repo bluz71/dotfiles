@@ -9,7 +9,7 @@ snacks.setup({
     },
     theme = {
       activeBorderColor = { fg = "Directory" },
-    }
+    },
   },
   picker = {
     prompt = "❯ ",
@@ -88,7 +88,7 @@ snacks.setup({
 -- Mappings.
 local map = vim.keymap.set
 map("n", "<C-g>", function()
-  Snacks.lazygit()
+  Snacks.lazygit({ win = { backdrop = false } })
 end)
 map("n", "<Space><Space>", function()
   Snacks.picker.files()
