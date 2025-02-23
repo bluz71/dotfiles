@@ -134,7 +134,6 @@ cheatsheet.setup({
       { "Rename symbol", "gR" },
       { "Code actions", "ga" },
       { "Signature help", "‹Ctrl-k›" },
-      { "Restart Language Servers", "'r" },
     },
     ["Misc Operations"] = {
       { "One time normal command", "‹Ctrl-o›‹command›" },
@@ -170,7 +169,7 @@ cheatsheet.setup({
       { "Stage hunk", "'+" },
       { "Revert hunk staging", "'-" },
       { "Preview hunk", "'g" },
-      { "Blame line", "'b" },
+      { "Refresh signs", "'r" },
     },
     ["Hop Plugin Mappings"] = {
       { "Hop Word", "''" },

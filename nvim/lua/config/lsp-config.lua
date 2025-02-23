@@ -41,9 +41,6 @@ local lsp_on_attach = function()
   opt_local.formatexpr = ""
 end
 
--- Global mappings.
-map("n", "'r", ":LspRestart<CR>", { silent = true })
-
 -- Add border to LSP windows such as `:LspInfo`.
 nvim_lsp_windows.default_options.border = "single"
 
