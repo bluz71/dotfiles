@@ -218,7 +218,7 @@ cheatsheet.setup({
       { "You surround line ends", "yss‹sur›" },
       { "Visual you surround", "S" },
     },
-    ["Snacks Picker Plugin Mappings"] = {
+    ["Snacks Plugin Mappings"] = {
       { "Open Lazygit", "‹Ctrl-g›" },
       { "Files", "‹Spc›‹Spc›" },
       { "Smart Files", "‹Spc›s" },

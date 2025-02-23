@@ -122,18 +122,6 @@ opt.wildmode = "full" -- Complete the next full match
 opt.wrap = true -- Wrap long lines
 opt.wrapscan = false -- Don't wrap searches around
 
--- Set explicit value of $LESS to make git-delta paging nicer in Telescope.
-env.LESS = "-RS"
-
--- For lazygit edit and commit operations use neovim-remote.
---
--- Note, install neovim-remote via:
---   % pip3 install neovim-remote # Linux
---   % pipx install neovim-remote # macOS
-env.EDITOR = 'nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
--- Use this when Neovim supports '--remote-tab-wait'
--- env.EDITOR = 'nvim --server $NVIM --remote-tab-wait +"set bufhidden=delete"'
-
 -- Don't load these language providers since they needlessly slow down the loading
 -- of those same language files into the editor.
 g.loaded_node_provider = 1
