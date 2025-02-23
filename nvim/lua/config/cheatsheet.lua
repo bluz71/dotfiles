@@ -160,9 +160,6 @@ cheatsheet.setup({
     ["Conform Plugin Mappings"] = {
       { "Run formatter", "'f" },
     },
-    ["FTerm Plugin Mappings"] = {
-      { "Toggle Lazygit Terminal", "‹Ctrl-g›" },
-    },
     ["gitsigns Plugin Mappings"] = {
       { "Previous hunk", "[g" },
       { "Next hunk", "]g" },
@@ -222,6 +219,7 @@ cheatsheet.setup({
       { "Visual you surround", "S" },
     },
     ["Snacks Picker Plugin Mappings"] = {
+      { "Open Lazygit", "‹Ctrl-g›" },
       { "Files", "‹Spc›‹Spc›" },
       { "Smart Files", "‹Spc›s" },
       { "Close", "‹Esc›" },

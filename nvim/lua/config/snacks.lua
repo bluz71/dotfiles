@@ -1,6 +1,16 @@
 local snacks = require("snacks")
 
 snacks.setup({
+  lazygit = {
+    config = {
+      gui = {
+        nerdFontsVersion = "",
+      },
+    },
+    theme = {
+      activeBorderColor = { fg = "Directory" },
+    }
+  },
   picker = {
     prompt = "❯ ",
     previewers = {
@@ -77,6 +87,9 @@ snacks.setup({
 
 -- Mappings.
 local map = vim.keymap.set
+map("n", "<C-g>", function()
+  Snacks.lazygit()
+end)
 map("n", "<Space><Space>", function()
   Snacks.picker.files()
 end)

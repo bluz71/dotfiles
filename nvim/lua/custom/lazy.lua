@@ -317,14 +317,6 @@ lazy.setup({
   },
 
   {
-    "numtostr/FTerm.nvim",
-    keys = { "<C-g>" },
-    config = function()
-      require("config.fterm")
-    end,
-  },
-
-  {
     "smartinellimarco/nvcheatsheet.nvim",
     keys = { "<F12>" },
     config = function()
