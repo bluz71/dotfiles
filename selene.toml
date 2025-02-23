@@ -3,3 +3,4 @@ std="lua51+nvim"
 [rules]
 global_usage = "allow"
 mixed_table = "allow"
+globals = "Snacks"

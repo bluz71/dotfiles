@@ -30,8 +30,7 @@ local configuration = {
   performance = {
     rtp = {
       disabled_plugins = {
-        "gzip", "netrwPlugin", "rplugin", "tarPlugin", "tohtml", "tutor",
-        "zipPlugin",
+        "gzip", "netrwPlugin", "rplugin", "tarPlugin", "tohtml", "tutor", "zipPlugin",
       },
     },
   },
@@ -158,6 +157,16 @@ lazy.setup({
       require("config.telescope")
     end,
   },
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      require("config.snacks")
+    end
+  },
+
 
   -----------------------------
   -- Filesystem plugins

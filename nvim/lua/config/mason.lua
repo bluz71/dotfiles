@@ -22,6 +22,7 @@ mason.setup({
   --   tailwindcss-language-server
   --   typescript-language-server
   ui = {
+    backdrop = 100,
     border = "single",
     height = 0.8,
     width = 0.8,

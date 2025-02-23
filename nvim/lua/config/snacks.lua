@@ -1,0 +1,154 @@
+local snacks = require("snacks")
+
+snacks.setup({
+  picker = {
+    prompt = "❯ ",
+    previewers = {
+      git = {
+        native = true,
+      },
+    },
+    icons = {
+      files = {
+        file = "● ",
+      },
+      git = {
+        enabled   = true,
+        commit    = " ",
+        staged    = "▲",
+        added     = "✚",
+        deleted   = "━",
+        ignored   = "‼ ",
+        modified  = "●",
+        renamed   = "○",
+        unmerged  = "▼ ",
+        untracked = "?",
+      },
+      ui = {
+        live = "▶ ",
+        selected = "✚ ",
+        unselected = "  ",
+      },
+    },
+    win = {
+      input = {
+        keys = {
+          ["<Esc>"] = { "close", mode = { "n", "i" } },
+          ["<PageUp>"] = { "preview_scroll_up", mode = { "i", "n" } },
+          ["<PageDown>"] = { "preview_scroll_down", mode = { "i", "n" } },
+          ["<C-b>"] = { "list_scroll_up", mode = { "i", "n" } },
+          ["<C-f>"] = { "list_scroll_down", mode = { "i", "n" } },
+          ["<A-q>"] = { "qflist", mode = { "i", "n" } },
+          ["<A-d>"] = { "bufdelete", mode = { "n", "i" } },
+        },
+      },
+    },
+    layouts = {
+      simple = {
+        layout = {
+          backdrop = false,
+          width = 0.4,
+          min_width = 50,
+          height = 0.5,
+          min_height = 20,
+          box = "vertical",
+          border = "rounded",
+          title = "{title}",
+          title_pos = "center",
+          { win = "input", height = 1, border = "bottom" },
+          { win = "list", border = "none" },
+          { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+        },
+      },
+      default = {
+        layout = {
+          backdrop = false,
+        },
+      },
+      select = {
+        layout = {
+          height = 0.5,
+          width = 0.3,
+        },
+      },
+    },
+  },
+})
+
+-- Mappings.
+local map = vim.keymap.set
+map("n", "<A-q>", function()
+  Snacks.picker.actions.qflist(picker)
+end)
+map("n", "``", function()
+  Snacks.picker.files()
+end)
+map("n", "`,", function()
+  Snacks.picker.buffers({ layout = "select" })
+end)
+map("n", "`/", function()
+  Snacks.picker.grep()
+end)
+map("n", "`.", function()
+  Snacks.picker.grep_word()
+end)
+map("n", "`b", function()
+  Snacks.picker.git_log_line({ title = "Git Blame" })
+end)
+map("n", "`c", function()
+  Snacks.picker.git_log_file()
+end)
+map("n", "`g", function()
+  Snacks.picker.git_status()
+end)
+map("n", "`h", function()
+  Snacks.picker.help()
+end)
+map("n", "`i", function()
+  Snacks.picker.highlights()
+end)
+map("n", "`s", function()
+  Snacks.picker.smart()
+end)
+map("n", "`t", function()
+  -- Colorschmes to ignore.
+  vim.opt_local.wildignore = {
+    "**/colors/blue.vim", "**/colors/darkblue.vim", "**/colors/delek.vim", "**/colors/desert.vim",
+    "**/colors/elflord.vim", "**/colors/evening.vim", "**/colors/habamax.vim",
+    "**/colors/industry.vim", "**/colors/koehler.vim", "**/colors/lunaperche.vim",
+    "**/colors/morning.vim", "**/colors/murphy.vim", "**/colors/pablo.vim",
+    "**/colors/peachpuff.vim", "**/colors/quiet.vim", "**/colors/ron.vim", "**/colors/shine.vim",
+    "**/colors/slate.vim", "**/colors/sorbet.vim", "**/colors/torte.vim", "**/colors/vim.lua",
+    "**/colors/wildcharm.vim", "**/colors/zaibatsu.vim", "**/colors/zellner.vim",
+    "**/colors/catppuccin-*", "**/colors/kanagawa-*", "**/colors/carbonfox*", "**/colors/d*fox*",
+    "**/colors/nordfox*", "**/colors/t*fox*", "**/colors/tokyonight-*",
+  }
+  Snacks.picker.colorschemes({ layout = "simple", title = "Themes" })
+end)
+if vim.fn.filereadable("config/routes.rb") ~= 0 then
+  map("n", "`ec", function()
+    Snacks.picker.files({ cwd = "app/controllers", layout = "select" })
+  end)
+  map("n", "`ef", function()
+    Snacks.picker.files({ cwd = "app/frontend/entrypoints", layout = "select" })
+  end)
+  map("n", "`em", function()
+    Snacks.picker.files({ cwd = "app/frontend/models", layout = "select" })
+  end)
+  map("n", "`eo", function()
+    Snacks.picker.files({ cwd = "app/components", layout = "select" })
+  end)
+  map("n", "`et", function()
+    Snacks.picker.files({ cwd = "test", layout = "select" })
+  end)
+  map("n", "`ev", function()
+    Snacks.picker.files({ cwd = "app/views", layout = "select" })
+  end)
+elseif vim.fn.filereadable("src/index.js") ~= 0 then
+  map("n", "`eo", function()
+    Snacks.picker.files({ cwd = "src/components", layout = "select" })
+  end)
+  map("n", "`et", function()
+    Snacks.picker.files({ cwd = "src/__tests__/components", layout = "select" })
+  end)
+end
