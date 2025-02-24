@@ -19,7 +19,6 @@ snacks.setup({
       enabled = false,
     },
     scope = {
-      enabled = true,
       only_current = true,
     },
     chunk = {
