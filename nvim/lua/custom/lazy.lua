@@ -100,15 +100,6 @@ lazy.setup({
     end,
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    event = "BufReadPre",
-    config = function()
-      require("config.indent-blankline")
-    end,
-  },
-
   -----------------------------
   -- Behavior plugins
   -----------------------------

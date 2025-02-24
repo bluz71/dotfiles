@@ -8,10 +8,8 @@ M.styling = function()
   if vim.opt.diff:get() then
     opt_local.colorcolumn = "0"
     highlight(0, "MatchParen", {})
-    vim.cmd([[
-      IBLDisable
-      wincmd l
-    ]])
+    Snacks.indent.disable()
+    vim.cmd([[ wincmd l ]])
   end
 end
 

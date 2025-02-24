@@ -1,4 +1,7 @@
 local snacks = require("snacks")
+local buffer = require("util.buffer")
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 snacks.setup({
   lazygit = {
@@ -9,6 +12,19 @@ snacks.setup({
     },
     theme = {
       activeBorderColor = { fg = "Directory" },
+    },
+  },
+  indent = {
+    animate = {
+      enabled = false,
+    },
+    scope = {
+      enabled = true,
+      only_current = true,
+    },
+    chunk = {
+      enabled = true,
+      only_current = true,
     },
   },
   picker = {
@@ -168,3 +184,13 @@ elseif vim.fn.filereadable("src/index.js") ~= 0 then
     Snacks.picker.files({ cwd = "src/__tests__/components", layout = "select" })
   end)
 end
+
+-- Disable Snacks indent for files larger than 100K in size.
+autocmd("BufEnter", {
+  callback = function()
+    if buffer.is_large(0) then
+      Snacks.indent.disable()
+    end
+  end,
+  group = augroup("SnacksPluginEvents", {})
+})

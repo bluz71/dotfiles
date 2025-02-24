@@ -13,7 +13,7 @@ M.toggle = function()
     opt_local.listchars = { eol = "↵", tab = "<‧>", trail = "‧" }
     highlight(0, "NonText", { link = "WarningMsg" })
     highlight(0, "Whitespace", { link = "WarningMsg" })
-    vim.cmd([[IBLDisable]])
+    Snacks.indent.disable()
     print("(Brighten) ON")
     g.listcharsVisibility = false
   else
@@ -21,7 +21,7 @@ M.toggle = function()
     opt_local.listchars = { tab = "  ", trail = "‧" }
     highlight(0, "NonText", { link = "LineNr" })
     highlight(0, "Whitespace", { link = "Conceal" })
-    vim.cmd([[IBLEnable]])
+    Snacks.indent.enable()
     print("(Brighten) OFF")
     g.listcharsVisibility = true
   end
