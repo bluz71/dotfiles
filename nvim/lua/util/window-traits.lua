@@ -14,7 +14,6 @@ M.activity = function(active)
     opt.diff:get()
     or buf_get_option(0, "buftype") == "nofile"
     or buf_get_option(0, "buftype") == "prompt"
-    or buf_get_option(0, "filetype") == "lazygit"
   then
     -- Do nothing for diffs and certain special files.
     return
