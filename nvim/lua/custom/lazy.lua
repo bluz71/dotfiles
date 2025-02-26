@@ -139,7 +139,6 @@ lazy.setup({
   -----------------------------
   {
     "folke/snacks.nvim",
-    commit = "4ce197b",
     priority = 1000,
     lazy = false,
     keys = { "<Space>" },
