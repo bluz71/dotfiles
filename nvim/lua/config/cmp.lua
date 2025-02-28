@@ -56,7 +56,7 @@ cmp.setup.filetype({ "astro", "css", "eruby", "html", "javascript", "ruby", "rus
     }
   },
   window = {
-    completion = cmp.config.window.bordered({}),
+    completion = cmp.config.window.bordered(),
     documentation = false,
   },
 })

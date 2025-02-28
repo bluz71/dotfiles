@@ -144,7 +144,7 @@ lazy.setup({
     keys = { "<Space>" },
     config = function()
       require("config.snacks")
-    end
+    end,
   },
 
   -----------------------------

@@ -19,11 +19,7 @@ snacks.setup({
       enabled = false,
     },
     scope = {
-      only_current = true,
-    },
-    chunk = {
-      enabled = true,
-      only_current = true,
+      enabled = false
     },
   },
   picker = {
