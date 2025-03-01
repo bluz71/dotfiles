@@ -10,9 +10,9 @@ trap 'rm -f "$empty_file"' EXIT
 #
 # This command will substitute '/dev/null' usage with '$empty_file'.
 if [ "$1" = "/dev/null" ]; then
-    NVIM_DISABLE_LSP=1 nvim -d "$empty_file" "$2"
+    NVIM_GIT_DIFF=1 nvim -d "$empty_file" "$2"
 elif [ "$2" = "/dev/null" ]; then
-    NVIM_DISABLE_LSP=1 nvim -d "$1" "$empty_file"
+    NVIM_GIT_DIFF=1 nvim -d "$1" "$empty_file"
 else
-    NVIM_DISABLE_LSP=1 nvim -d "$1" "$2"
+    NVIM_GIT_DIFF=1 nvim -d "$1" "$2"
 fi

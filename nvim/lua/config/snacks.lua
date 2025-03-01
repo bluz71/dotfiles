@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Do not load up plugin when in diff mode.
-if vim.opt.diff:get() or vim.env.NVIM_DISABLE_LSP == "1" then
+if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF== "1" then
   return
 end
 
