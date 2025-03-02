@@ -103,13 +103,11 @@ nnoremap cp yap<S-}>p
 nnoremap qp gqip$
 " Format current line.
 nnoremap qj gqj
-" Fold the current indent.
+" Toggle current fold
 nnoremap <Leader>z zazz
 " Expand all folds.
 nnoremap <Leader>Z :set nofoldenable<CR>
-" Toggle crosshair, aka cusorcolumn & cursorline.
-nnoremap <Leader>X :call crosshair#Toggle()<CR>
-" Maximise the current file into a standalone new tab.
+" Maximise the current buffer into a tab.
 nnoremap <silent> <Leader>m :tab split<CR>
 " Maximize vertical height.
 nnoremap <Leader>+ <C-w>_

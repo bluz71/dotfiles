@@ -78,9 +78,6 @@ map("x", "p", "P")
 map("n", "<C-q>", ":confirm qall<CR>", silent_opts)
 -- Make escape work in the Neovim terminal.
 map("t", "<Esc>", "<C-\\><C-n>")
--- Make Ctrl-i work in Neovim as a separate key combination from TAB. Refer
--- to https://is.gd/ZT9gzN and to the Alacritty config 'key_bindings'.
-map("n", "<C-i>", "<C-i>")
 -- Wild menu is set to popup menu, it is best to invert the meaning of
 -- up/down and left/right keys since this will be more natural
 map("c", "<Up>", "pumvisible() ? '<Left>' : '<Up>'", expr_noreplace_opts)
@@ -132,13 +129,13 @@ map("n", "cp", "yap<S-}>p")
 map("n", "qp", "gqip$")
 -- Format current line.
 map("n", "qj", "gqj")
--- Fold the current indent.
+-- Toggle current fold.
 map("n", "<Leader>z", "zazz")
 -- Expand all folds.
 map("n", "<Leader>Z", ":set nofoldenable<CR>")
 -- Toggle crosshair, aka cusorcolumn & cursorline.
-map("n", "<Leader>X", require("util.crosshair").toggle)
--- Maximise the current file into a standalone new tab.
+map("n", "<Leader>x", require("util.crosshair").toggle)
+-- Maximise the current buffer into a tab.
 map("n", "<Leader>m", ":tab split<CR>", silent_opts)
 -- Maximize vertical height.
 map("n", "<Leader>+", "<C-w>_")

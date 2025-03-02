@@ -24,7 +24,12 @@ snacks.setup({
       enabled = false,
     },
     scope = {
-      enabled = false
+      enabled = true,
+      only_current = true,
+    },
+    chunk = {
+      enabled = true,
+      only_current = true,
     },
   },
   picker = {
@@ -101,10 +106,16 @@ snacks.setup({
   },
 })
 
+-- Disable scope indent guide immediately, use '<Ctrl-s>' mapping to toggle this indent guide.
+vim.g.snacks_scope = false
+
 -- Mappings.
 local map = vim.keymap.set
 map("n", "<C-g>", function()
   Snacks.lazygit({ win = { backdrop = false } })
+end)
+map("n", "<C-s>", function()
+  vim.g.snacks_scope = not vim.g.snacks_scope
 end)
 map("n", "<Space><Space>", function()
   Snacks.picker.files()

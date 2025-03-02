@@ -35,7 +35,7 @@ opt.exrc = false -- Disable reading of working directory vimrc files
 opt.fillchars = {
   horiz = "━", horizup = "┻", horizdown = "┳", vert = "┃", vertleft = "┫",
   vertright = "┣", verthoriz = "╋",
-  foldclose = "▷", foldopen = "▼", foldsep = "┃",
+  fold = "━", foldclose = "▷", foldopen = "▼", foldsep = "┃",
   diff = "",
 }
 opt.foldlevelstart = 20
