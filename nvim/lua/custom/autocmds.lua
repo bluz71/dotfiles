@@ -3,6 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
 local fn = vim.fn
 local g = vim.g
+local getreg = vim.fn.getreg
 local highlight = vim.api.nvim_set_hl
 local map = vim.keymap.set
 local opt = vim.opt
@@ -90,12 +91,12 @@ autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "Visual", on_visual = false, timeout = 300 })
     -- Copy yanked text to a tmux paste buffer if tmux is active.
     if vim.env.TMUX and vim.v.operator == "y" then
-      local yanked_text = vim.fn.getreg('"')
+      local yanked_text = getreg('"')
       fn.system({ "tmux", "set-buffer", yanked_text })
     end
-    -- Copy yanked text from remote host to local clipboard when in an SSH tunnel.
+    -- Copy yanked text from remote host to local clipboard via OSC 52 when in an SSH tunnel.
     if vim.env.SSH_CONNECTION and vim.v.operator == "y" then
-      local yanked_text = vim.fn.getreg('"')
+      local yanked_text = getreg('"')
       require("util.osc52").copy(yanked_text)
     end
   end,
