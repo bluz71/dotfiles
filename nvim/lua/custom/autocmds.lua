@@ -91,7 +91,7 @@ autocmd("TextYankPost", {
     -- Copy yanked text to a tmux paste buffer if tmux is active.
     if vim.env.TMUX and vim.v.operator == "y" then
       local yanked_text = vim.fn.getreg('"')
-      fn.system({ "tmux", "set-buffer", yank_text })
+      fn.system({ "tmux", "set-buffer", yanked_text })
     end
     -- Copy yanked text from remote host to local clipboard when in an SSH tunnel.
     if vim.env.SSH_CONNECTION and vim.v.operator == "y" then
