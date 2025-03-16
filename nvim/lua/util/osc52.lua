@@ -1,7 +1,7 @@
 local M = {}
 
 -- Note, this function exists only because I could not get Neovim's native OSC 52 to work. Maybe in
--- future I can remove this, see: https://neovim.io/doc/user/provider.html#clipboard-osc52
+-- future this can removed, see: https://neovim.io/doc/user/provider.html#clipboard-osc52
 M.copy = function(text)
   -- Convert to base64 as required by OSC 52.
   local encoded = vim.base64.encode(text)
