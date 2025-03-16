@@ -13,11 +13,14 @@ opt.backup = false -- No backup files
 opt.belloff = "all" -- Bells are annoying
 opt.breakindent = true -- Wrap long lines *with* indentation
 opt.breakindentopt = "shift:2"
--- Copy to/from system clipboard
-if fn.has("unnamedplus") == 1 then
-  opt.clipboard = { "unnamed", "unnamedplus" }
-else
-  opt.clipboard = "unnamed"
+-- Enable copy to/from local system clipboard
+if not vim.env.SSH_CONNECTION then
+  if fn.has("unnamedplus") == 1 then
+    opt.clipboard = { "unnamed", "unnamedplus" }
+  else
+    opt.clipboard = "unnamed"
+  end
+  -- Note, SSH connections will use OSC 52 copy.
 end
 opt.cmdheight = 1
 opt.colorcolumn = { 81, 82 } -- Highlight 81 and 82 columns
