@@ -122,6 +122,9 @@ opt.updatetime = 1000 -- Certain plugins use this for CursorHold event triggerin
 opt.wildcharm = fn.char2nr("	")
 opt.wildmenu = true -- Nice command completions
 opt.wildmode = "full" -- Complete the next full match
+if fn.has("nvim-0.11") == 1 then
+  opt.winborder = "single"
+end
 opt.wrap = true -- Wrap long lines
 opt.wrapscan = false -- Don't wrap searches around
 
