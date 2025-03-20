@@ -176,7 +176,7 @@ if vim.fn.filereadable("config/routes.rb") ~= 0 then
     Snacks.picker.files({ cwd = "app/frontend/entrypoints", layout = "select" })
   end)
   map("n", "<Space>em", function()
-    Snacks.picker.files({ cwd = "app/frontend/models", layout = "select" })
+    Snacks.picker.files({ cwd = "app/models", layout = "select" })
   end)
   map("n", "<Space>eo", function()
     Snacks.picker.files({ cwd = "app/components", layout = "select" })
