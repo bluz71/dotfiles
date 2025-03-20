@@ -169,6 +169,7 @@ map("n", "<Space>t", function()
   Snacks.picker.colorschemes({ layout = "simple", title = "Themes" })
 end)
 if vim.fn.filereadable("config/routes.rb") ~= 0 then
+  -- This looks like a Rails project.
   map("n", "<Space>ec", function()
     Snacks.picker.files({ cwd = "app/controllers", layout = "select" })
   end)
@@ -188,6 +189,7 @@ if vim.fn.filereadable("config/routes.rb") ~= 0 then
     Snacks.picker.files({ cwd = "app/views", layout = "select" })
   end)
 elseif vim.fn.filereadable("src/index.js") ~= 0 then
+  -- This looks like a React project.
   map("n", "<Space>eo", function()
     Snacks.picker.files({ cwd = "src/components", layout = "select" })
   end)
