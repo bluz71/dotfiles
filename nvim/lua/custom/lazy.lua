@@ -222,12 +222,6 @@ lazy.setup({
     end,
   },
 
-  {
-    "windwp/nvim-ts-autotag",
-    event = { "InsertEnter" },
-    config = true,
-  },
-
   -----------------------------
   -- Development plugins
   -----------------------------
