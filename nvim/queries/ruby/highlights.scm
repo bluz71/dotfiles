@@ -6,5 +6,5 @@
                . (string
                    (string_content) @type)
                (_)*)
-  (#eq? @_method "component")
+  (#match? @_method "^(component|components)$")
   (#match? @type "^[A-Z][A-Za-z0-9]*(::[A-Z][A-Za-z0-9]*)*$"))
