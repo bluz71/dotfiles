@@ -12,7 +12,6 @@ end
 local nvim_lsp = require("lspconfig")
 local nvim_lsp_windows = require("lspconfig.ui.windows")
 local buffer = require("util.buffer")
-local handlers = require("util.lsp-handlers")
 local lsp_capabilities = require("util.lsp-capabilities")
 
 -- Custom on attach function.
@@ -57,10 +56,6 @@ end
 -- local lsp_on_attach_no_semantic_highlights = function(client)
 --   client.server_capabilities.semanticTokensProvider = nil
 -- end
-
--- Global handlers.
-lsp.handlers["textDocument/hover"] = handlers.hover
-lsp.handlers["textDocument/signatureHelp"] = handlers.signature_help
 
 -- The nvim-cmp completion plugin supports most LSP capabilities; we should
 -- notify the language servers about that.
