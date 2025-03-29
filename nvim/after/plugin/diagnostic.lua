@@ -10,23 +10,23 @@ diagnostic.config({
   },
   severity_sort = true,
   signs = {
-    -- culhl = {
-    --   [vim.diagnostic.severity.ERROR] = "BufferVisibleERROR",
-    --   [vim.diagnostic.severity.WARN] = "BufferVisibleWARN",
-    --   [vim.diagnostic.severity.INFO] = "BufferVisibleINFO",
-    -- },
-    -- numhl = {
-    --   [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-    --   [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-    --   [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-    -- },
+    culhl = {
+      [vim.diagnostic.severity.ERROR] = "BufferVisibleERROR",
+      [vim.diagnostic.severity.WARN] = "BufferVisibleWARN",
+      [vim.diagnostic.severity.INFO] = "BufferVisibleINFO",
+    },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+      [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+    },
     severity = {
       min = vim.diagnostic.severity.INFO,
     },
     text = {
-      [vim.diagnostic.severity.ERROR] = "■",
-      [vim.diagnostic.severity.WARN] = "△",
-      [vim.diagnostic.severity.INFO] = "○",
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
     },
   },
   update_in_insert = false,

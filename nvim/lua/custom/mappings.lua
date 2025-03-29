@@ -3,7 +3,7 @@ local g = vim.g
 local map = vim.keymap.set
 local expr_opts = { expr = true }
 local expr_noreplace_opts = { expr = true, replace_keycodes = false }
-local silent_opts = { silent = true, remap = true }
+local silent_opts = { silent = true }
 local v = vim.v
 
 -------------------------------
@@ -159,6 +159,10 @@ map("n", "[c", "[czz")
 map("n", "]c", "]czz")
 map("n", "[j", "<C-o>zz")
 map("n", "]j", "<C-i>zz")
+map("n", "[p", "O<Esc>p")
+map("n", "]p", "o<Esc>p")
+map("n", "[q", ":cprevious<CR>zz", silent_opts)
+map("n", "]q", ":cnext<CR>zz", silent_opts)
 map("n", "[s", "[szz")
 map("n", "]s", "]szz")
 map("n", "[z", "zH")
@@ -217,7 +221,7 @@ map("n", "'8", ":set wrap!<CR>")
 map("n", "<F9>", ":set hlsearch!<CR>")
 map("n", "'9", ":set hlsearch!<CR>")
 map("n", "<F10>", require("util.listchars").toggle)
-map("n", "'0", require("util.listchars").toggle, silent_opts)
+map("n", "'0", require("util.listchars").toggle)
 
 -------------------------------
 -- Increment and decrement mappings

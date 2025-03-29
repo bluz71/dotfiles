@@ -104,14 +104,6 @@ lazy.setup({
   -- Behavior plugins
   -----------------------------
   {
-    "tpope/vim-unimpaired",
-    keys = { "[", "]" },
-    config = function()
-      require("config.unimpaired")
-    end,
-  },
-
-  {
     "smoka7/hop.nvim",
     event = "VeryLazy",
     config = function()
