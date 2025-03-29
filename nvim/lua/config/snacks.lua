@@ -161,8 +161,9 @@ map("n", "<Space>t", function()
     "**/colors/industry.vim", "**/colors/koehler.vim", "**/colors/lunaperche.vim",
     "**/colors/morning.vim", "**/colors/murphy.vim", "**/colors/pablo.vim",
     "**/colors/peachpuff.vim", "**/colors/quiet.vim", "**/colors/ron.vim", "**/colors/shine.vim",
-    "**/colors/slate.vim", "**/colors/sorbet.vim", "**/colors/torte.vim", "**/colors/vim.lua",
-    "**/colors/wildcharm.vim", "**/colors/zaibatsu.vim", "**/colors/zellner.vim",
+    "**/colors/slate.vim", "**/colors/sorbet.vim", "**/colors/torte.vim", "**/colors/unokai.vim",
+    "**/colors/vim.lua", "**/colors/wildcharm.vim", "**/colors/zaibatsu.vim",
+    "**/colors/zellner.vim",
     "**/colors/catppuccin-*", "**/colors/kanagawa-*", "**/colors/carbonfox*", "**/colors/d*fox*",
     "**/colors/nordfox*", "**/colors/t*fox*", "**/colors/tokyonight-*",
   }
