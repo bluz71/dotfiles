@@ -32,6 +32,7 @@ diagnostic.config({
   update_in_insert = false,
   underline = false,
   virtual_text = {
+    current_line = true,
     prefix = function(message)
       if message.severity == diagnostic.severity.ERROR then
         return "■"
