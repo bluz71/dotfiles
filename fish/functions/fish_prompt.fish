@@ -61,7 +61,7 @@ function fishfly_prefix
     set -e fishfly_prefix
 
     if test -f Gemfile
-        set -g fishfly_prefix (set_color --bold ff5454)'◢'
+        set -g fishfly_prefix (set_color --bold ff5d5d)'◢'
     else if test -f package.json
         set -g fishfly_prefix (set_color --bold 5fd7af)'⬢'
     else if test -f Cargo.toml

@@ -252,7 +252,7 @@ function style_config
     set -g fish_color_cwd 87d787
     set -g fish_color_cwd_root ff5189
     set -g fish_color_end 949494
-    set -g fish_color_error ff5454
+    set -g fish_color_error ff5d5d
     set -g fish_color_escape 949494
     set -g fish_color_history_current c6c6c6 --background=323437
     set -g fish_color_host e4e4e4
@@ -267,7 +267,7 @@ function style_config
     set -g fish_color_redirection 8cc85f
     set -g fish_color_search_match --background=323437
     set -g fish_color_selection --background=323437
-    set -g fish_color_status ff5454
+    set -g fish_color_status ff5d5d
     set -g fish_color_user 36c692
     set -g fish_color_valid_path
 

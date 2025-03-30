@@ -95,8 +95,8 @@
   vdis = difftool -t vd --staged
   # log
   #
-  # #e3c78a (yellow), #ff5454 (red), #36c692 (green), #80a0ff (blue)
-  lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5454)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
+  # #e3c78a (yellow), #ff5d5d (red), #36c692 (green), #80a0ff (blue)
+  lla = "log --graph --date=human --format='%C(#e3c78a)%h%C(#ff5d5d)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)'"
   ll  = lla --first-parent
   # Handle repositories that use either 'master' or 'main' as their primary
   # branch.
