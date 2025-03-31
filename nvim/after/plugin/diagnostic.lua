@@ -1,5 +1,6 @@
 local cmd = vim.cmd
 local diagnostic = vim.diagnostic
+local feedkeys = vim.api.nvim_feedkeys
 local map = vim.keymap.set
 
 diagnostic.config({
@@ -53,11 +54,11 @@ diagnostic.config({
 
 map("n", "]d", function()
   diagnostic.goto_next()
-  cmd([[normal zz]])
+  feedkeys("zz", "n", false)
 end)
 map("n", "[d", function()
   diagnostic.goto_prev()
-  cmd([[normal zz]])
+  feedkeys("zz", "n", false)
 end)
 map("n", "'d", function()
   diagnostic.open_float(0, { scope = "line" })

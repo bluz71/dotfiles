@@ -62,9 +62,6 @@ opt.listchars = {
   extends = "»", precedes = "«",
 }
 opt.matchpairs = "(:),{:},[:]"
-if fn.exists("&messagesopt") ~= 0 then
-  opt.messagesopt = "wait:500,history:500"
-end
 opt.mouse = "a" -- Mouse support in the terminal
 opt.number = true -- Show line numbers
 if fn.has("nvim-0.11") == 1 and git_repo == "1" and not opt.diff:get() then
