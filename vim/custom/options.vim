@@ -15,7 +15,7 @@ endif
 set colorcolumn=81,82 " Highlight 81 and 82 columns
 set conceallevel=0    " Always show text normally
 set complete=.,w,b    " Sources for term and line completions
-set completeopt=menu,menuone,noinsert,noselect
+set completeopt=menuone,noselect
 set cryptmethod=blowfish2
 " Highlight the current line in the number column
 set cursorline
