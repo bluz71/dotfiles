@@ -58,6 +58,8 @@ cheatsheet.setup({
     ["Paired Mappings"] = {
       { "Previous file", "[a" },
       { "Next file", "]a" },
+      { "Previous buffer", "[b" },
+      { "Next buffer", "]b" },
       { "Previous change", "[c" },
       { "Next change", "]c" },
       { "Previous jump position", "[j" },
@@ -83,7 +85,7 @@ cheatsheet.setup({
       { "Dictionary", "‹Ctrl-d›" },
       { "File path", "‹Ctrl-f›" },
       { "Line", "‹Ctrl-l›" },
-      { "Snippets", "‹Ctrl-s›" },
+      { "Snippets", "‹Ctrl-t›" },
     },
     ["Function Key Mappings"] = {
       { "Show highlight group", "F1 / '1" },
@@ -138,10 +140,10 @@ cheatsheet.setup({
     ["LSP Mappings"] = {
       { "Show hover", "K" },
       { "Go to definition", "gd" },
-      { "Find references", "gr" },
-      { "Rename symbol", "gR" },
-      { "Code actions", "ga" },
-      { "Signature help", "‹Ctrl-k›" },
+      { "Find references", "grr" },
+      { "Rename symbol", "grn" },
+      { "Code actions", "gra" },
+      { "Signature help", "‹Ctrl-s›" },
     },
     ["Misc Operations"] = {
       { "One time normal command", "‹Ctrl-o›‹command›" },

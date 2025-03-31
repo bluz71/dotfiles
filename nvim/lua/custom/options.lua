@@ -26,7 +26,7 @@ opt.cmdheight = 1
 opt.colorcolumn = { 81, 82 } -- Highlight 81 and 82 columns
 opt.conceallevel = 0 -- Always show text normally
 opt.complete = { ".", "w", "b" } -- Sources for term and line completions
-opt.completeopt = { "menu", "menuone", "noselect" }
+opt.completeopt = { "fuzzy", "menu", "menuone", "noselect" }
 -- Highlight the current line in the number column.
 opt.cursorline = true
 opt.cursorlineopt = "number"

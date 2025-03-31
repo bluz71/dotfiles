@@ -23,13 +23,13 @@ local lsp_on_attach = function()
     return
   end
 
-  -- Mappings.
-  local opts = { buffer = true }
-  map("n", "ga", lsp.buf.code_action, opts)
-  map("n", "gd", lsp.buf.definition, opts)
-  map("n", "gr", lsp.buf.references, opts)
-  map("n", "gR", lsp.buf.rename, opts)
-  map("i", "<C-k>", lsp.buf.signature_help, opts)
+  -- Default LSP mappings provided by Neovim itself.
+  --   K        - Hover
+  --   gd       - go to definition
+  --   grr      - references
+  --   grn      - rename
+  --   gra      - code action
+  --   ‹Ctrl-k› - signature help
 
   -- Note, LSP formatting will be handled by the conform.nvim plugin.
 
