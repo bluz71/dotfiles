@@ -85,7 +85,7 @@ cheatsheet.setup({
       { "Dictionary", "‹Ctrl-d›" },
       { "File path", "‹Ctrl-f›" },
       { "Line", "‹Ctrl-l›" },
-      { "Snippets", "‹Ctrl-t›" },
+      { "Snippets", "‹Ctrl-s›" },
     },
     ["Function Key Mappings"] = {
       { "Show highlight group", "F1 / '1" },
@@ -143,7 +143,7 @@ cheatsheet.setup({
       { "Find references", "grr" },
       { "Rename symbol", "grn" },
       { "Code actions", "gra" },
-      { "Signature help", "‹Ctrl-s›" },
+      { "Signature help", "‹Ctrl-t›" },
     },
     ["Misc Operations"] = {
       { "One time normal command", "‹Ctrl-o›‹command›" },
@@ -203,7 +203,6 @@ cheatsheet.setup({
     ["nvim-snippy Plugin Mappings"] = {
       { "Expand snippet", "‹Ctrl-j›" },
       { "Jump forward", "‹Ctrl-j›" },
-      { "Jump backward", "‹Ctrl-k›" },
     },
     ["Possession Plugin Mappings"] = {
       { "Create or save session", "'p" },

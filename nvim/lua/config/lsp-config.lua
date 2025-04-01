@@ -28,10 +28,11 @@ local lsp_on_attach = function()
   --   grr      - references
   --   grn      - rename
   --   gra      - code action
-  --   ‹Ctrl-k› - signature help
+  --   ‹Ctrl-t› - signature help
   --
   -- Custom mappings.
   map("n", "gd", lsp.buf.definition, { buffer = true })
+  map("i", "<C-t>", lsp.buf.signature_help, { buffer = true })
 
   -- Note, LSP formatting will be handled by the conform.nvim plugin.
 
