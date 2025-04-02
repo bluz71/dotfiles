@@ -122,7 +122,7 @@ map("i", "<C-v>", "<C-r>+")
 -- Begin a new line above the current cursor position.
 map("i", "<C-u>", "<C-o>O")
 -- Fix syntax and redraw the screen.
-map("n", "<C-l>", ":syntax sync fromstart<CR>:redraw<CR>")
+map("n", "<C-l>", ":TSBufDisable highlight<CR>:TSBufEnable highlight<CR>:redraw<CR>")
 -- Clone paragraph.
 map("n", "cp", "yap<S-}>p")
 -- Format current paragraph in normal mode.
