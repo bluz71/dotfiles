@@ -14,7 +14,11 @@ local nvim_lsp_windows = require("lspconfig.ui.windows")
 local buffer = require("util.buffer")
 local lsp_capabilities = require("util.lsp-capabilities")
 
--- Custom on attach function.
+------------------------------
+-- The On Attach Functions  --
+------------------------------
+
+-- Default on attach function.
 local lsp_on_attach = function()
   -- Disable LSP for files larger than 100KB.
   if buffer.is_large(0) then
@@ -29,10 +33,10 @@ local lsp_on_attach = function()
   --   grn      - rename
   --   gra      - code action
   --
-  -- Custom mappings.
+  -- Custom mappings:
   map("n", "gd", lsp.buf.definition, { buffer = true })
-  -- Note, in my Alacritty terminal config I have 'Control-c' re-mapped to
-  -- 'Control-k', hence this mapping actually is 'Control-k'.
+  -- Note, in my Alacritty terminal config I have 'Control-c' re-mapped to 'Control-k', hence this
+  -- mapping actually is 'Control-k'.
   map("i", "<C-c>", lsp.buf.signature_help, { buffer = true })
 
   -- Note, LSP formatting will be handled by the conform.nvim plugin.
@@ -44,11 +48,8 @@ local lsp_on_attach = function()
   opt_local.formatexpr = ""
 end
 
--- Add border to LSP windows such as `:LspInfo`.
-nvim_lsp_windows.default_options.border = "single"
-
--- Custom on attach function which disables formatting where Conform will instead
--- be used to format.
+-- Custom on attach function which disables LSP formatting where Conform running command line
+-- formatter will instead be used.
 local lsp_on_attach_no_formatting = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
@@ -59,23 +60,29 @@ end
 -- Custom on attach function which disable LSP semantic highlighting.
 -- local lsp_on_attach_no_semantic_highlights = function(client)
 --   client.server_capabilities.semanticTokensProvider = nil
+--
+--   lsp_on_attach()
 -- end
 
--- The nvim-cmp completion plugin supports most LSP capabilities; we should
--- notify the language servers about that.
-local capabilities = lsp_capabilities.default_capabilities()
+-- Tailwind LSP on attach which disables formatting and trigger characters.
+local tailwind_lsp_on_attach = function(client)
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
+  -- Tailwind LSP trigger characters are annoying, disable them.
+  -- Note, to list current trigger characters run this command:
+  --   :lua print(vim.inspect(vim.lsp.buf_get_clients()[1].server_capabilities.completionProvider.triggerCharacters))
+  client.server_capabilities.completionProvider.triggerCharacters = {}
+
+  lsp_on_attach()
+end
 
 --------------------------
 -- The Language Servers --
 --------------------------
 
--- pnpm install -D eslint eslint-plugin-astro
-nvim_lsp.astro.setup({
-  on_attach = lsp_on_attach_no_formatting,
-  capabilities = capabilities,
-  flags = { debounce_text_changes = 300 },
-  root_dir = nvim_lsp.util.root_pattern("astro.config.mjs"),
-})
+-- The nvim-cmp completion plugin supports most LSP capabilities; we should notify the language
+-- servers about that.
+local capabilities = lsp_capabilities.default_capabilities()
 
 nvim_lsp.cssls.setup({
   on_attach = lsp_on_attach_no_formatting,
@@ -93,7 +100,7 @@ nvim_lsp.cssls.setup({
 nvim_lsp.eslint.setup({
   on_attach = lsp_on_attach_no_formatting,
   capabilities = capabilities,
-  filetypes = { "astro", "javascript", "typescript" },
+  filetypes = { "javascript", "typescript" },
   flags = { debounce_text_changes = 300 },
 })
 
@@ -149,8 +156,7 @@ nvim_lsp.ts_ls.setup({
 })
 
 nvim_lsp.tailwindcss.setup({
-  on_attach = lsp_on_attach_no_formatting,
-  capabilities = capabilities,
+  on_attach = tailwind_lsp_on_attach,
   filetypes = { "astro", "eruby", "html" },
   flags = { debounce_text_changes = 300 },
   root_dir = nvim_lsp.util.root_pattern("vite.config.js"),
