@@ -28,11 +28,12 @@ local lsp_on_attach = function()
   --   grr      - references
   --   grn      - rename
   --   gra      - code action
-  --   ‹Ctrl-t› - signature help
   --
   -- Custom mappings.
   map("n", "gd", lsp.buf.definition, { buffer = true })
-  map("i", "<C-t>", lsp.buf.signature_help, { buffer = true })
+  -- Note, in my Alacritty terminal config I have 'Control-c' re-mapped to
+  -- 'Control-k', hence this mapping actually is 'Control-k'.
+  map("i", "<C-c>", lsp.buf.signature_help, { buffer = true })
 
   -- Note, LSP formatting will be handled by the conform.nvim plugin.
 

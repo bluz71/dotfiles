@@ -36,7 +36,7 @@ nnoremap <S-Left>  <C-W>h
 nnoremap <S-Right> <C-W>l
 " Vertical movements.
 nnoremap <C-j> 10j
-" Note, in my terminal config, Alacritty, I have 'Control-c' re-mapped to
+" Note, in my Alacritty terminal config I have 'Control-c' re-mapped to
 " 'Control-k', hence this mapping actually is 'Control-k' (k for up).
 nnoremap <C-c> 10k
 " Move vertically by visual line unless preceded by a count. If a movement is

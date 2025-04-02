@@ -143,7 +143,7 @@ cheatsheet.setup({
       { "Find references", "grr" },
       { "Rename symbol", "grn" },
       { "Code actions", "gra" },
-      { "Signature help", "‹Ctrl-t›" },
+      { "Signature help", "‹Ctrl-k›" },
     },
     ["Misc Operations"] = {
       { "One time normal command", "‹Ctrl-o›‹command›" },
@@ -200,13 +200,14 @@ cheatsheet.setup({
       { "Navigate up file drawer", "‹Backspace›"},
       { "Help", "?" },
     },
-    ["nvim-snippy Plugin Mappings"] = {
-      { "Expand snippet", "‹Ctrl-j›" },
-      { "Jump forward", "‹Ctrl-j›" },
+    ["nvim-cmp"] = {
+      { "Accept current completion item", "‹Ctrl-y›" },
+      { "Close completion window", "‹Ctrl-e›" },
+      { "Select next item", "‹Tab›" },
+      { "Select previous item", "‹Shift-Tab›" },
     },
-    ["Possession Plugin Mappings"] = {
-      { "Create or save session", "'p" },
-      { "Delete session", "'P" },
+    ["nvim-snippy Plugin Mappings"] = {
+      { "Expand snippet or jump forward", "‹Ctrl-j›" },
     },
     ["Projectionist Plugin Mappings"] = {
       { "Alternate file", ",a" },

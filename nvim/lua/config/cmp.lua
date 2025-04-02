@@ -18,6 +18,11 @@ cmp.setup.filetype({ "astro", "css", "eruby", "html", "javascript", "ruby", "rus
   },
   mapping = {
     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-e>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.close()
+      end
+    end, { "i" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
