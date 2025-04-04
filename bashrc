@@ -177,8 +177,6 @@ brew_config() {
         echo 'Error: unsupported platform'
         return
     fi
-
-
 }
 
 cheat() {
