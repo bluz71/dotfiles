@@ -58,7 +58,7 @@ opt.joinspaces = false -- No to double-spaces when joining lines
 opt.laststatus = 3 -- We want a global statusline
 opt.list = true
 opt.listchars = {
-  tab = "  ", trail = "‧",
+  tab = "  ", trail = "⋅",
   extends = "»", precedes = "«",
 }
 opt.matchpairs = "(:),{:},[:]"

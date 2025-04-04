@@ -100,6 +100,13 @@ lazy.setup({
     end,
   },
 
+  {
+    "mcauley-penney/visual-whitespace.nvim",
+    opts = {
+      space_char = "⋅",
+    },
+  },
+
   -----------------------------
   -- Behavior plugins
   -----------------------------
