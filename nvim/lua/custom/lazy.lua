@@ -80,7 +80,6 @@ lazy.setup({
   },
 
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { "rebelot/kanagawa.nvim", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
 
@@ -102,7 +101,9 @@ lazy.setup({
 
   {
     "mcauley-penney/visual-whitespace.nvim",
+    event = "VeryLazy",
     opts = {
+      nl_char = '',
       space_char = "⋅",
     },
   },
