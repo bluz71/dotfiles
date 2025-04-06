@@ -8,7 +8,6 @@ local map = vim.keymap.set
 
 mason.setup({
   -- Install these tools through the Mason interface:
-  --   astro-language-server
   --   css-lsp
   --   eslint-lsp
   --   html-lsp
