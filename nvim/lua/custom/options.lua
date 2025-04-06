@@ -64,7 +64,7 @@ opt.listchars = {
 opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
 opt.number = true -- Show line numbers
-if fn.has("nvim-0.11") == 1 and git_repo == "1" and not opt.diff:get() then
+if git_repo == "1" and not opt.diff:get() then
   opt.numberwidth = 3
 end
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
@@ -83,10 +83,10 @@ opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
 opt.showmode = false -- No to showing mode in bottom-left corner
-if fn.has("nvim-0.11") == 1 and git_repo == "1" and not opt.diff:get() then
+if git_repo == "1" and not opt.diff:get() then
   opt.signcolumn = "yes:1"
 else
-  opt.signcolumn = "number"
+  opt.signcolumn = "no"
 end
 opt.smartcase = true -- Case-smart searching
 opt.smarttab = true -- Tab at the start of line inserts blanks
@@ -97,7 +97,7 @@ opt.splitbelow = true -- Split below current window
 -- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
 opt.splitkeep = "topline"
 opt.splitright = true -- Split window to the right
-if fn.has("nvim-0.11") == 1 and git_repo == "1" and not opt.diff:get() then
+if git_repo == "1" and not opt.diff:get() then
   opt.statuscolumn = "%l%s"
 end
 opt.swapfile = false -- No backup files
@@ -119,9 +119,7 @@ opt.updatetime = 1000 -- Certain plugins use this for CursorHold event triggerin
 opt.wildcharm = fn.char2nr("	")
 opt.wildmenu = true -- Nice command completions
 opt.wildmode = "full" -- Complete the next full match
-if fn.has("nvim-0.11") == 1 then
-  opt.winborder = "single"
-end
+opt.winborder = "single" -- Prefer bordered floating windows
 opt.wrap = true -- Wrap long lines
 opt.wrapscan = false -- Don't wrap searches around
 

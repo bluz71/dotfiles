@@ -28,20 +28,11 @@ M.activity = function(active)
       opt_local.colorcolumn = { 81, 82 }
     end
     opt_local.cursorline = true
-    -- Do not update the number column for help files.
-    if ft ~= "help" then
-      opt_local.relativenumber = true
-    end
-    if fn.has("nvim-0.11") ~= 1 then
-      opt_local.signcolumn = "number"
-    end
+    opt_local.relativenumber = true
   else -- Inactive window
     opt_local.colorcolumn = { 0 }
     opt_local.cursorline = false
     opt_local.relativenumber = false
-    if fn.has("nvim-0.11") ~= 1 then
-      opt_local.signcolumn = "no"
-    end
   end
 end
 
