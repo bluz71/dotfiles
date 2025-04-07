@@ -17,6 +17,7 @@ snacks.setup({
     },
     theme = {
       activeBorderColor = { fg = "Directory" },
+      inactiveBorderColor = { fg = "FloatBorder2" },
     },
   },
   indent = {
