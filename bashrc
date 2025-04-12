@@ -408,7 +408,9 @@ history_truncate() {
 
 mux_command() {
     if [[ $# -eq 1 ]] && [[ $1 == "stop" ]]; then
-        # Automatically stop the current session.
+        # First stop any running containers.
+        docker container stop $(docker container ls --quiet) >/dev/null 2>&1
+        # Now stop the current session.
         tmuxinator stop $(tmux display-message -p '#S')
     else
         tmuxinator "$@"
