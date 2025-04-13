@@ -37,34 +37,18 @@ Plug 'bluz71/vim-mistfly-statusline'
 "-----------------------------
 " Behavior plugins
 "-----------------------------
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'chaoren/vim-wordmotion'
-Plug 'rhysd/clever-f.vim'
-    " ~/dotfiles/vim/after/plugin/clever-f.vim
-
-"-----------------------------
-" Fuzzy finding plugins
-"-----------------------------
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-    " ~/dotfiles/vim/after/plugin/fzf.vim
 
 "-----------------------------
 " Filesystem plugins
 "-----------------------------
 Plug 'lambdalisue/fern.vim'
     " ~/dotfiles/vim/after/plugin/fern.vim
-Plug 'lambdalisue/fern-git-status.vim'
-    " ~/dotfiles/vim/after/plugin/fern-git-status.vim
 
 "-----------------------------
 " Misc plugins
 "-----------------------------
-Plug 'mbbill/undotree'
-    " ~/dotfiles/vim/after/plugin/undotree.vim
-    " ~/dotfiles/vim/after/after/ftplugin/undotree.vim
 Plug '907th/vim-auto-save'
     " ~/dotfiles/vim/after/plugin/auto-save.vim
 Plug 'dstein64/vim-startuptime'
