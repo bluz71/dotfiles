@@ -78,6 +78,8 @@ map("x", "p", "P")
 map("n", "<C-q>", ":confirm qall<CR>", silent_opts)
 -- Make escape work in the Neovim terminal.
 map("t", "<Esc>", "<C-\\><C-n>")
+-- In visual mode only search within visual selection.
+map("x", "/", "<Esc>/\\%V")
 -- Wild menu is set to popup menu, it is best to invert the meaning of
 -- up/down and left/right keys since this will be more natural
 map("c", "<Up>", "pumvisible() ? '<Left>' : '<Up>'", expr_noreplace_opts)
@@ -123,6 +125,8 @@ map("i", "<C-v>", "<C-r>+")
 map("i", "<C-u>", "<C-o>O")
 -- Fix syntax and redraw the screen.
 map("n", "<C-l>", ":TSBufDisable highlight<CR>:TSBufEnable highlight<CR>:redraw<CR>")
+-- Clone line and comment it out.
+map("n", "ycc", "yygccp", { remap = true })
 -- Clone paragraph.
 map("n", "cp", "yap<S-}>p")
 -- Format current paragraph in normal mode.
