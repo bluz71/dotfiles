@@ -1,4 +1,4 @@
--- Bootstrap and install lazy.nvim as the Neovim plugin manager.
+-- ,Bootstrap and install lazy.nvim as the Neovim plugin manager.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   print("Bootstrapping lazy.nvim, please wait until installation is finished")
@@ -103,8 +103,12 @@ lazy.setup({
     "mcauley-penney/visual-whitespace.nvim",
     event = "VeryLazy",
     opts = {
-      nl_char = '',
-      space_char = "⋅",
+      fileformat_chars = {
+        unix = "",
+      },
+      list_chars = {
+        space = "⋅",
+      },
     },
   },
 
