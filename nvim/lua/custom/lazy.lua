@@ -80,6 +80,7 @@ lazy.setup({
   },
 
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
+  { "neanias/everforest-nvim", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
 
