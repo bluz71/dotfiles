@@ -4,7 +4,6 @@ if vim.opt.diff:get() then
 end
 
 local mason = require("mason")
-local map = vim.keymap.set
 
 mason.setup({
   -- Install these tools through the Mason interface:
@@ -28,4 +27,4 @@ mason.setup({
   },
 })
 
-map("n", "'m", ":Mason<CR>")
+vim.keymap.set("n", "'m", ":Mason<CR>")

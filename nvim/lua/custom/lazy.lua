@@ -105,6 +105,8 @@ lazy.setup({
     event = "VeryLazy",
     opts = {
       fileformat_chars = {
+        dos = "",
+        mac = "",
         unix = "",
       },
       list_chars = {
