@@ -179,10 +179,6 @@ cheatsheet.setup({
       { "Preview hunk", "'g" },
       { "Refresh signs", "'r" },
     },
-    ["Hop Plugin Mappings"] = {
-      { "Hop Word", "''" },
-      { "Hop Line", "'‹Return›" },
-    },
     ["indent-object Plugin Mappings"] = {
       { "Inside indent", "ii" },
       { "Around indent", "ai" },

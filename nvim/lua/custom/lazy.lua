@@ -80,7 +80,6 @@ lazy.setup({
   },
 
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
-  { "neanias/everforest-nvim", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
   { "folke/tokyonight.nvim", lazy = true },
 
@@ -118,14 +117,6 @@ lazy.setup({
   -----------------------------
   -- Behavior plugins
   -----------------------------
-  {
-    "smoka7/hop.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("config.hop")
-    end,
-  },
-
   {
     "echasnovski/mini.ai",
     version = "*",
@@ -255,7 +246,7 @@ lazy.setup({
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     config = function()
       require("config.mason")
     end,
