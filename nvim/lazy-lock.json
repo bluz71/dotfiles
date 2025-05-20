@@ -7,7 +7,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   "cmp-snippy": { "branch": "master", "commit": "6e39210aa3a74e2bf6462f492eaf0d436cd2b7d3" },
   "conform.nvim": { "branch": "master", "commit": "a4bb5d6c4ae6f32ab13114e62e70669fa67745b9" },
-  "gitsigns.nvim": { "branch": "main", "commit": "39e0d1cd44eafed5f30c372e377ab1cb1781ec9f" },
+  "gitsigns.nvim": { "branch": "main", "commit": "ee0606259ee5d5dd40398be26755048e8965086e" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "mason.nvim": { "branch": "main", "commit": "1aceba8bc158b5aaf90649077cad06744bc23ac4" },
   "mini.ai": { "branch": "main", "commit": "ebb04799794a7f94628153991e6334c3304961b8" },
@@ -35,5 +35,5 @@
   "vim-projectionist": { "branch": "master", "commit": "5ff7bf79a6ef741036d2038a226bcb5f8b1cd296" },
   "vim-test": { "branch": "master", "commit": "b0c3e13249699a522c8b472ff79eff40d2935476" },
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
-  "visual-whitespace.nvim": { "branch": "main", "commit": "adffb699f3a873b5d532720a540be27e13a10d4e" }
+  "visual-whitespace.nvim": { "branch": "main", "commit": "4b1fbb01409aa0bd0d5680f3c5db6628adfa3392" }
 }
