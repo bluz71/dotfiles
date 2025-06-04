@@ -3,9 +3,8 @@ local lsp = vim.lsp
 local map = vim.keymap.set
 local opt_local = vim.opt_local
 
--- Do not load up plugin when in diff mode.
+-- Do not load up LSP when in diff mode.
 if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF == "1" then
-  cmd([[LspStop]])
   return
 end
 
