@@ -8,9 +8,9 @@ treesitter.setup({
   -- Neovim 0.10 ships: bash, c, lua, markdown, markdown_inline, python, vim &
   --                    vimdoc parsers
   ensure_installed = {
-    "astro", "clojure", "cpp", "css", "dart", "elixir", "elm", "embedded_template", "go", "haskell",
-    "html", "java", "javascript", "json", "julia", "odin", "php", "r", "regex", "ruby", "rust",
-    "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue", "zig"
+    "astro", "clojure", "cpp", "css", "dart", "elixir", "elm", "embedded_template", "fish", "go",
+    "haskell", "html", "java", "javascript", "json", "julia", "odin", "php", "r", "regex", "ruby",
+    "rust", "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue", "zig"
   },
   highlight = {
     enable = true,
