@@ -190,15 +190,11 @@ function custom_config
 end
 
 function dev_config
-    if test -z "$HOMEBREW_PREFIX"
-        return
-    end
-
     if test -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh"
         # chruby is slow, instead simply set environment variables explicitly.
         #   . $HOMEBREW_PREFIX/share/chruby/chruby.sh
-        #   chruby 3.4.4
-        set -gx RUBY_VERSION 3.4.4
+        #   chruby 3.4.5
+        set -gx RUBY_VERSION 3.4.5
         set -gx RUBY_ROOT $HOME/.rubies/ruby-$RUBY_VERSION
         set -gx GEM_ROOT $RUBY_ROOT/lib/ruby/gems/3.4.0
         set -gx GEM_HOME $HOME/.gem/ruby/$RUBY_VERSION
