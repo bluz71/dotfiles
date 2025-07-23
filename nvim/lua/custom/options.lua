@@ -31,7 +31,11 @@ opt.completeopt = { "fuzzy", "menuone", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.dictionary = "/usr/share/dict/words"
-opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "linematch:60" }
+if fn.has("nvim-0.12") == 1 then
+  opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "inline:char" }
+else
+  opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "linematch:60" }
+end
 opt.expandtab = true -- Use spaces instead of tabs
 opt.exrc = false -- Disable reading of working directory vimrc files
 -- Lua initialization file
