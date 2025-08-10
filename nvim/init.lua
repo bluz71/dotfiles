@@ -4,9 +4,6 @@ local fn = vim.fn
 -- Enable the Lua loader byte-compilation cache.
 vim.loader.enable()
 
--- Temporarily disable Neovim 0.11 deprecation warnings.
-vim.deprecate = function() end
-
 require("custom.options")
 require("custom.mappings")
 require("custom.autocmds")
