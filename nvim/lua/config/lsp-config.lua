@@ -18,6 +18,8 @@ local nvim_lsp = require("lspconfig")
 local buffer = require("util.buffer")
 local lsp_capabilities = require("util.lsp-capabilities")
 
+-- NOTE, use :checkhealth vim.lsp to run LSP healthchecks.
+
 ---------------------------
 -- Attach Functionality  --
 ---------------------------
