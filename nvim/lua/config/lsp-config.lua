@@ -75,9 +75,9 @@ autocmd("LspAttach", {
   group = augroup("CustomLspEvent", {}),
 })
 
-----------------------------------------
--- The Language Server Configurations --
-----------------------------------------
+------------------------------------
+-- Configure the Language Servers --
+------------------------------------
 
 -- The nvim-cmp completion plugin supports most LSP capabilities; we should notify the language
 -- servers about that.
