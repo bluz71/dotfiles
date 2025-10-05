@@ -42,6 +42,7 @@ abbr mdi meld
 abbr p bat
 abbr pn pnpm
 abbr px pnpx
+abbr --position anywhere rmrf 'rm -rf'
 abbr --position anywhere rsync 'rsync -ahv --info=progress2'
 abbr src '. ~/.config/fish/config.fish'
 abbr wl 'wc -l'
