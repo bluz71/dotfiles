@@ -21,6 +21,16 @@ function fish_user_key_bindings
     # - Ctrl-s: toggle completion search
     # - Ctrl-Alt-w: whatis current token
 
+    # Override Fish 4.X bindings. Swap certain alt and ctrl bindings, I prefer
+    # alt bindings to operate on words whilst ctrl bindings should work on BIG
+    # words (aka tokens).
+    bind alt-left backward-word
+    bind ctrl-left prevd-or-backward-token
+    bind alt-right forward-word
+    bind ctrl-right nextd-or-forward-token
+    bind alt-backspace backward-kill-word
+    bind ctrl-backspace backward-kill-token
+
     # Need to define Shift-Left & Shift-Right as follows for BIG word navigation
     # to work in tmux inside Alacritty.
     bind \e\[1\;2D backward-bigword
