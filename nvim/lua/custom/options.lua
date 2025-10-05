@@ -42,7 +42,7 @@ opt.exrc = false -- Disable reading of working directory vimrc files
 opt.fillchars = {
   horiz = "━", horizup = "┻", horizdown = "┳", vert = "┃", vertleft = "┫",
   vertright = "┣", verthoriz = "╋",
-  fold = "━", foldclose = "▷", foldopen = "▼", foldsep = "┃",
+  fold = "━", foldclose = "▷", foldopen = "▼", foldsep = "┃", -- foldinner = " ", Neovim 0.12 option --
   diff = "",
 }
 opt.foldlevelstart = 20
