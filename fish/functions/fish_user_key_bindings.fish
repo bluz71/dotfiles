@@ -1,12 +1,12 @@
 function fish_user_key_bindings
     # Bindings, invoke 'bind' for full listing:
     #
-    # - Alt-Left: navigate back in directory history
-    # - Alt-Right: navigate forward in directory history
-    # - Ctrl-Left / Alt-b: move backward a word
-    # - Ctrl-Right / Alt-f: move forward a word
-    # - Shift-Left: move forward a BIG word
-    # - Shift-Right: move backward a BIG word
+    # - Alt-Left: navigate back in directory history (if command empty)
+    # - Alt-Right: navigate forward in directory history (if command empty)
+    # - Alt-Left: move backward a word (if command populated)
+    # - Alt-Right: move forward a word (if command populated)
+    # - Ctrl-Left: move forward a BIG word
+    # - Ctrl-Right: move backward a BIG word
     # - Alt-d: delete forward word
     # - Alt-<backspace>: delete backward word
     # - Ctrl-u: kill line
@@ -21,13 +21,12 @@ function fish_user_key_bindings
     # - Ctrl-s: toggle completion search
     # - Ctrl-Alt-w: whatis current token
 
-    # Override Fish 4.X bindings. Swap certain alt and ctrl bindings, I prefer
-    # alt bindings to operate on words whilst ctrl bindings should work on BIG
-    # words (aka tokens).
-    bind alt-left backward-word
-    bind ctrl-left prevd-or-backward-token
-    bind alt-right forward-word
-    bind ctrl-right nextd-or-forward-token
+    # Override Fish 4.X bindings. Preference alt bindings to operate on words
+    # whilst ctrl bindings should work on BIG words (aka tokens).
+    bind alt-left prevd-or-backward-word
+    bind ctrl-left backward-token
+    bind alt-right nextd-or-forward-word
+    bind ctrl-right forward-token
     bind alt-backspace backward-kill-word
     bind ctrl-backspace backward-kill-token
 
