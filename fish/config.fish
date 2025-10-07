@@ -9,7 +9,7 @@ set -e MANPATH
 #
 # -- Bang bang abbreviation
 abbr !! --position anywhere --function last_history_item
-# -- Parent directory expansion
+# -- Parent directory expansion abbreviation
 abbr ../ --position anywhere --function parent_directory
 # -- Permissions abbreviations --
 abbr 664 'chmod 664'
