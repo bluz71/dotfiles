@@ -91,7 +91,7 @@ multiplier = 5
 [selection]
 save_to_clipboard = true
 
-[shell]
+[terminal.shell]
 # program = "/opt/homebrew/bin/bash"
 program = "/opt/homebrew/bin/fish"
 
