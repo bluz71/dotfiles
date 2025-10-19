@@ -96,7 +96,6 @@ if test $OS = Linux
     set -gx SHELL /bin/fish
     abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
-    abbr mplayer 'mplayer 2>/dev/null'
     abbr nmshow 'nmcli connection show'
     abbr updatedb 'sudo /usr/bin/updatedb'
     abbr wg0down 'nmcli connection down wg0'
