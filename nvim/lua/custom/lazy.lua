@@ -300,7 +300,7 @@ lazy.setup({
   },
 
   {
-    "smartinellimarco/nvcheatsheet.nvim",
+    "Zeioth/nvcheatsheet.nvim",
     keys = { "<F12>" },
     config = function()
       require("config.cheatsheet")
