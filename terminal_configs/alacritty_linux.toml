@@ -82,7 +82,7 @@ hide_when_typing = true
 history = 10000
 multiplier = 5
 
-[shell]
+[terminal.shell]
 # program = "/bin/bash"
 program = "/bin/fish"
 
