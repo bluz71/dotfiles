@@ -35,7 +35,6 @@ abbr ll. 'll -d .*'
 abbr ta 'tmux attach'
 abbr tls 'tmux ls'
 # -- Miscellaneous abbreviations --
-abbr apt nala
 abbr be 'bundle exec'
 abbr df. 'df -h .'
 abbr ff fastfetch
