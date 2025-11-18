@@ -4,6 +4,9 @@ git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-
 
 cd ~
 ln -s dotfiles/bash_profile .bash_profile
+if [ -e .bashrc ]; then
+    mv .bashrc .bashrc.bak
+fi
 ln -s dotfiles/bashrc .bashrc
 ln -s dotfiles/gitconfig .gitconfig
 ln -s dotfiles/gvimrc .gvimrc
