@@ -62,8 +62,8 @@ size = 11.5
 bindings = [
   { key = "Escape", mods = "Control", action = "ToggleViMode" },
   { key = "Return", mods = "Alt", action = "ToggleFullscreen" },
-  { key = "C", mods = "Super", action = "Copy" },
-  { key = "V", mods = "Super", action = "Paste" },
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "V", mods = "Control|Shift", action = "Paste" },
   { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
   { key = "Up", mods = "Control|Shift", action = "ScrollPageUp" },
   { key = "Down", mods = "Control|Shift", action = "ScrollPageDown" },
@@ -71,6 +71,7 @@ bindings = [
   { key = "Right", mods = "Control|Shift", action = "ScrollToBottom" },
   { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
   { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+  { key = "C", mods = "Control", action = "Copy" },
   { key = "I", mods = "Control", chars = "\u001B[105;5u" },
   { key = "K", mods = "Control", chars = "\u0003" },
 ]
