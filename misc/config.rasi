@@ -15,7 +15,7 @@ window {
   border-color: #3a3a3a;
   border-radius: 10px;
   orientation: vertical;
-  width: 25%;
+  width: 20%;
 }
 
 mainbox {
