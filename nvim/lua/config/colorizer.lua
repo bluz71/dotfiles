@@ -9,7 +9,7 @@ colorizer.setup({
     html = {
       mode = "virtualtext", names = true, tailwind = true, virtualtext_inline = true,
     },
-    "lua", "markdown", "text", "tmux", "toml", "txt", "vim", "yaml",
+    "lua", "markdown", "rasi", "text", "tmux", "toml", "txt", "vim", "yaml",
   },
   user_default_options = {
     mode = "background",

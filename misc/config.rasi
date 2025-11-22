@@ -1,0 +1,78 @@
+@theme "/dev/null"
+
+//-------------------------------------------------------------------------
+// Layout
+//-------------------------------------------------------------------------
+
+configuration {
+  display-drun: "Launch:";
+  drun-display-format: "{name}";
+  font: "Source Sans Pro Regular 14";	
+  show-icons: true;
+}
+
+window { 
+  border-color: #3a3a3a;
+  border-radius: 10px;
+  orientation: vertical;
+  width: 25%;
+}
+
+mainbox {
+  children: [inputbar, listview];
+}
+
+//-------------------------------------------------------------------------
+// STYLING
+//-------------------------------------------------------------------------
+
+* {
+  bg: #212121;
+  background-color: @bg;
+  border: 1;
+}
+
+element {
+  border-radius: 5px;
+  padding: 4 12;
+  text-color: #e4e4e4;
+}
+
+element selected {
+  background-color: #4d5d8d;
+  text-color: #fff;
+}
+
+element-icon {
+  alignment: vertical;
+  background-color: inherit;
+  padding: 0 6 0 0;
+  size: 24px;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+}
+
+entry {
+  padding: 11 6 0 0;
+  text-color: #e4e4e4;
+}
+
+inputbar {
+  padding: 10 0 0;
+} 
+
+listview {
+  border: 0 10 6 10;
+  columns: 1;
+  lines: 15;
+  padding: 8 0;
+}
+
+prompt {
+  font: "Source Sans Pro SemiBold 15";	
+  padding: 10 6 0 10;
+  text-color: #80a0ff;
+}
