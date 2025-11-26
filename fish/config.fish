@@ -279,8 +279,7 @@ function style_config
 end
 
 function user_paths
-    fish_add_path --path /usr/local/bin /bin /usr/bin /sbin /usr/sbin
-    fish_add_path --path ~/binaries ~/scripts
+    set -gx PATH /usr/local/bin /usr/bin /usr/sbin ~/binaries ~/scripts
     set -gx MANPATH /usr/local/man /usr/local/share/man /usr/man /usr/share/man
 end
 

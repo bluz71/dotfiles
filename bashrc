@@ -500,9 +500,8 @@ shell_config() {
 }
 
 user_paths() {
-    PATH=/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin
-    PATH=~/binaries:~/scripts:$PATH
-    MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
+    export PATH=/usr/local/bin:/usr/bin:/usr/sbin:~/binaries:~/scripts
+    export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
 }
 
 web() {
