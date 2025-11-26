@@ -4,7 +4,9 @@
 #   http://mochtu.de/2015/01/06/securing-ssh-connections/
 # Background: 
 #   https://stribika.github.io/2015/01/04/secure-secure-shell.html
-#   http://chr4.org/blog/2014/09/13/howto-secure-openssh-newer-versions/
+#   http://chr4.org/blog/2014/09/13/howto-secure-openssh-newer-versions
+# Updates:
+#   https://thinglab.org/2025/08/openssh_post_quantum_kex
 #
 # NOTE, use the following commands when dealing with hashed known_hosts:
 #   % ssh-keygen -F myhost # Find myhost in known_hosts
@@ -18,7 +20,7 @@ Host github.com
 
 Host *
   Ciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes128-ctr
-  KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+  KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
   MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
   UseRoaming no
 

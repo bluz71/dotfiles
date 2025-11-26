@@ -5,6 +5,8 @@
 # Background information: 
 #   https://stribika.github.io/2015/01/04/secure-secure-shell.html
 #   http://chr4.org/blog/2014/09/13/howto-secure-openssh-newer-versions/
+# Updates:
+#   https://thinglab.org/2025/08/openssh_post_quantum_kex
 #
 # NOTE: Please comment out ALL HostKey directives at the top of the sshd_config
 # file. We only want to support Ed25519.
@@ -14,5 +16,5 @@ PasswordAuthentication no
 UseDNS no
 HostKey /etc/ssh/ssh_host_ed25519_key
 Ciphers chacha20-poly1305@openssh.com
-KexAlgorithms curve25519-sha256@libssh.org
+KexAlgorithms mlkem768x25519-sha256,sntrup761x25519-sha512,sntrup761x25519-sha512@openssh.com,curve25519-sha256@libssh.org
 MACs hmac-sha2-256-etm@openssh.com
