@@ -279,7 +279,7 @@ function style_config
 end
 
 function user_paths
-    set -gx PATH /usr/local/bin /usr/bin /usr/sbin ~/binaries ~/scripts
+    set -gx PATH ~/binaries ~/scripts /usr/local/bin /usr/bin /usr/sbin
     set -gx MANPATH /usr/local/man /usr/local/share/man /usr/man /usr/share/man
 end
 
