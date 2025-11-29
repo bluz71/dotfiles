@@ -95,6 +95,11 @@ set -gx OS (uname)
 
 if test $OS = Linux
     set -gx SHELL /bin/fish
+    if test -f /etc/arch-release
+        set -gx DISTRO Arch
+    else if test -f /etc/debian_version
+        set -gx DISTRO Debian
+    end
     abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
     abbr nmshow 'nmcli connection show'
@@ -108,13 +113,11 @@ else if test $OS = Darwin
     abbr locate 'mdfind -name'
 end
 
-
 # Functions.
 #
 function brew_config
-    if test $OS = Linux
-        if not command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; or \
-           not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null)
+    if test $OS = Linux; and test $DISTRO = Debian
+        if not command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; or not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null)
             echo 'Note: brew is not available.'
             return
         end
@@ -125,8 +128,7 @@ function brew_config
         set -gx MANPATH $HOMEBREW_PREFIX/share/man $MANPATH
         set -gx HOMEBREW_NO_AUTO_UPDATE 1
     else if test $OS = Darwin
-        if not command -v /opt/homebrew/bin/brew &>/dev/null; or \
-           not test -x (command -v /opt/homebrew/bin/brew &>/dev/null)
+        if not command -v /opt/homebrew/bin/brew &>/dev/null; or not test -x (command -v /opt/homebrew/bin/brew &>/dev/null)
             echo 'Note: brew is not available'
             return
         end
@@ -139,6 +141,8 @@ function brew_config
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman $HOMEBREW_PREFIX/share/man $MANPATH
         set -gx HOMEBREW_NO_AUTO_UPDATE 1
+    else if test $OS = Linux; and test $DISTRO = Arch
+        return
     else
         echo 'Error: unsupported platform'
         return

@@ -130,6 +130,11 @@ export OS=$(uname)
 # Customizations per platform.
 if [[ $OS == "Linux" ]]; then
     export SHELL='/bin/bash'
+    if [ -f /etc/arch-release ]; then
+        export DISTRO='Arch'
+    elif [ -f /etc/debian_version ]; then
+        export DISTRO='Debian'
+    fi
     alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -dR --preserve=ownership,timestamps'
     alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
@@ -150,7 +155,7 @@ fi
 # Functions.
 #
 brew_config() {
-    if [[ $OS == "Linux" ]]; then
+    if [[ $OS == "Linux" ]] && [[ $DISTRO == "Debian"  ]]; then
         if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew 2>/dev/null) ]]; then
             echo 'Note: brew is not available.'
             return
@@ -172,6 +177,8 @@ brew_config() {
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
         export HOMEBREW_NO_AUTO_UPDATE=1
+    elif [[ $OS == "Linux" ]] && [[ $DISTRO == "Arch"  ]]; then
+        return
     else
         echo 'Error: unsupported platform'
         return
