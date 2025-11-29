@@ -96,9 +96,9 @@ set -gx OS (uname)
 if test $OS = Linux
     set -gx SHELL /bin/fish
     if test -f /etc/arch-release
-        set -gx DISTRO Arch
+        set -gx OS_NAME Arch
     else if test -f /etc/debian_version
-        set -gx DISTRO Debian
+        set -gx OS_NAME Debian
     end
     abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
@@ -109,6 +109,7 @@ if test $OS = Linux
     abbr wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
     set -gx SHELL /opt/homebrew/bin/fish
+    set -gx OS_NAME $OS
     set -gx PGGSSENCMODE disable # Reference: https://is.gd/flzYH7
     abbr locate 'mdfind -name'
 end
@@ -150,10 +151,6 @@ function brew_config
 end
 
 function custom_config
-    if test -z "$HOMEBREW_PREFIX"
-        return
-    end
-
     # Manually load Fish completions from Homebrew on Linux.
     #
     # Note, this is not needed on macOS because we are using Homebrew's Fish.
@@ -163,7 +160,9 @@ function custom_config
     end
 
     # 'fzf' configuration.
-    . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
+    if test -f "$HOMEBREW_PREFIX"
+        . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
+    end
     set -xg FZF_DEFAULT_OPTS '
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up

@@ -48,7 +48,7 @@ function fish_user_key_bindings
     bind ctrl-w ''
     bind ctrl-h ''
 
-    if test -n "$HOMEBREW_PREFIX"
+    if test -n "$HOMEBREW_PREFIX"; or test $OS_NAME = Arch
         # Enable 'fzf' key bindings.
         fzf_key_bindings
     end
