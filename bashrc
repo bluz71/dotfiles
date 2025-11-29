@@ -504,7 +504,11 @@ shell_config() {
 }
 
 user_paths() {
-    export PATH=~/binaries:~/scripts:/usr/local/bin:/usr/bin:/usr/sbin
+    if [[ $OS == "Linux" ]]; then
+        export PATH=~/binaries:~/scripts:/usr/local/bin:/usr/bin:/usr/sbin
+    elif [[ $OS == "Darwin" ]]; then
+        export PATH=~/binaries:~/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+    fi
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
 }
 
