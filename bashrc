@@ -220,6 +220,7 @@ custom_config() {
 
     # 'fzf' utility.
     [[ -f $HOMEBREW_PREFIX ]] && . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
+    [[ $OS_NAME == "Arch" ]] && . /usr/share/fzf/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
