@@ -286,7 +286,6 @@ function user_paths
     else if test $OS = Darwin
         set -gx PATH ~/binaries ~/scripts /usr/local/bin /usr/bin /bin /usr/sbin /sbin
     end
-    set -gx PATH ~/binaries ~/scripts /usr/local/bin /usr/bin /usr/sbin
     set -gx MANPATH /usr/local/man /usr/local/share/man /usr/man /usr/share/man
 end
 
