@@ -155,13 +155,15 @@ function custom_config
     #
     # Note, this is not needed on macOS because we are using Homebrew's Fish.
     # On Debian we are using the system Fish, hence the need for this sourcing.
+    #
+    # On Arch Linux Homebrew is not used, only system packages are used.
     if test $OS_NAME = Debian; and test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
         set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
     end
 
     # 'fzf' configuration.
     test -n "$HOMEBREW_PREFIX"; and . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
-    # Note, Arch Linux automatically sources the fzf_key_bindings.fish file.
+    # Note, Arch Linux automatically sources the system fzf_key_bindings.fish file.
     set -xg FZF_DEFAULT_OPTS '
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
