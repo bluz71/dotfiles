@@ -109,7 +109,7 @@ if test $OS = Linux
     abbr wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
     set -gx SHELL /opt/homebrew/bin/fish
-    set -gx OS_NAME $OS
+    set -gx OS_NAME macOS
     set -gx PGGSSENCMODE disable # Reference: https://is.gd/flzYH7
     abbr locate 'mdfind -name'
 end
@@ -117,7 +117,7 @@ end
 # Functions.
 #
 function brew_config
-    if test $OS = Linux; and test $DISTRO = Debian
+    if test $OS = Linux; and test $OS_NAME = Debian
         if not command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; or not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null)
             echo 'Note: brew is not available.'
             return
@@ -142,7 +142,7 @@ function brew_config
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman $HOMEBREW_PREFIX/share/man $MANPATH
         set -gx HOMEBREW_NO_AUTO_UPDATE 1
-    else if test $OS = Linux; and test $DISTRO = Arch
+    else if test $OS_NAME = Arch
         return
     else
         echo 'Error: unsupported platform'

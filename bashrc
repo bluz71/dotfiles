@@ -146,7 +146,7 @@ if [[ $OS == "Linux" ]]; then
     alias wg0up='nmcli connection up wg0'
 elif [[ $OS == "Darwin" ]]; then
     export SHELL='/opt/homebrew/bin/bash'
-    export OS_NAME="$OS"
+    export OS_NAME='macOS'
     export PGGSSENCMODE='disable' # Reference: https://is.gd/flzYH7
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias locate='mdfind -name'
@@ -178,7 +178,7 @@ brew_config() {
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
         export HOMEBREW_NO_AUTO_UPDATE=1
-    elif [[ $OS == "Linux" ]] && [[ $OS_NAME == "Arch"  ]]; then
+    elif [[ $OS_NAME == "Arch"  ]]; then
         return
     else
         echo 'Error: unsupported platform'
