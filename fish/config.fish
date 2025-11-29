@@ -151,18 +151,16 @@ function brew_config
 end
 
 function custom_config
-    # Manually load Fish completions from Homebrew on Linux.
+    # Manually load Fish completions from Homebrew on Debian systems.
     #
     # Note, this is not needed on macOS because we are using Homebrew's Fish.
-    # On Linux we are using the system Fish, hence the need for this sourcing.
-    if test $OS = Linux; and test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
+    # On Debian we are using the system Fish, hence the need for this sourcing.
+    if test $OS_NAME = Debian; and test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
         set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
     end
 
     # 'fzf' configuration.
-    if test -f "$HOMEBREW_PREFIX"
-        . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
-    end
+    test -f "$HOMEBREW_PREFIX"; and . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
     set -xg FZF_DEFAULT_OPTS '
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
