@@ -219,7 +219,7 @@ custom_config() {
     # lazy-loading. Refer to: https://is.gd/CV7ufa
 
     # 'fzf' utility.
-    [[ -f $HOMEBREW_PREFIX ]] && . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
+    [[ -n $HOMEBREW_PREFIX ]] && . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
     [[ $OS_NAME == "Arch" ]] && . /usr/share/fzf/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse --margin=0,1

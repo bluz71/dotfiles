@@ -160,7 +160,8 @@ function custom_config
     end
 
     # 'fzf' configuration.
-    test -f "$HOMEBREW_PREFIX"; and . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
+    test -n "$HOMEBREW_PREFIX"; and . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.fish
+    # Note, Arch Linux automatically sources the fzf_key_bindings.fish file.
     set -xg FZF_DEFAULT_OPTS '
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
