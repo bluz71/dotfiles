@@ -96,9 +96,9 @@ set -gx OS (uname)
 if test $OS = Linux
     set -gx SHELL /bin/fish
     if test -f /etc/arch-release
-        set -gx OS_NAME Arch
+        set -gx OS_KIND Arch
     else if test -f /etc/debian_version
-        set -gx OS_NAME Debian
+        set -gx OS_KIND Debian
     end
     abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
@@ -109,7 +109,7 @@ if test $OS = Linux
     abbr wg0up 'nmcli connection up wg0'
 else if test $OS = Darwin
     set -gx SHELL /opt/homebrew/bin/fish
-    set -gx OS_NAME macOS
+    set -gx OS_KIND macOS
     set -gx PGGSSENCMODE disable # Reference: https://is.gd/flzYH7
     abbr locate 'mdfind -name'
 end
@@ -117,7 +117,7 @@ end
 # Functions.
 #
 function brew_config
-    if test $OS = Linux; and test $OS_NAME = Debian
+    if test $OS = Linux; and test $OS_KIND = Debian
         if not command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; or not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null)
             echo 'Note: brew is not available.'
             return
@@ -142,7 +142,7 @@ function brew_config
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman $HOMEBREW_PREFIX/share/man $MANPATH
         set -gx HOMEBREW_NO_AUTO_UPDATE 1
-    else if test $OS_NAME = Arch
+    else if test $OS_KIND = Arch
         return
     else
         echo 'Error: unsupported platform'
@@ -157,7 +157,7 @@ function custom_config
     # On Debian we are using the system Fish, hence the need for this sourcing.
     #
     # On Arch Linux Homebrew is not used, only system packages are used.
-    if test $OS_NAME = Debian; and test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
+    if test $OS_KIND = Debian; and test -d $HOMEBREW_PREFIX/share/fish/vendor_completions.d
         set -p fish_complete_path $HOMEBREW_PREFIX/share/fish/vendor_completions.d
     end
 

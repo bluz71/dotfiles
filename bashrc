@@ -131,9 +131,9 @@ export OS=$(uname)
 if [[ $OS == "Linux" ]]; then
     export SHELL='/bin/bash'
     if [ -f /etc/arch-release ]; then
-        export OS_NAME='Arch'
+        export OS_KIND='Arch'
     elif [ -f /etc/debian_version ]; then
-        export OS_NAME='Debian'
+        export OS_KIND='Debian'
     fi
     alias ip='ip --color=auto'
     alias cpa='/bin/cp -i -dR --preserve=ownership,timestamps'
@@ -146,7 +146,7 @@ if [[ $OS == "Linux" ]]; then
     alias wg0up='nmcli connection up wg0'
 elif [[ $OS == "Darwin" ]]; then
     export SHELL='/opt/homebrew/bin/bash'
-    export OS_NAME='macOS'
+    export OS_KIND='macOS'
     export PGGSSENCMODE='disable' # Reference: https://is.gd/flzYH7
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias locate='mdfind -name'
@@ -156,7 +156,7 @@ fi
 # Functions.
 #
 brew_config() {
-    if [[ $OS == "Linux" ]] && [[ $OS_NAME == "Debian"  ]]; then
+    if [[ $OS == "Linux" ]] && [[ $OS_KIND == "Debian"  ]]; then
         if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew 2>/dev/null) ]]; then
             echo 'Note: brew is not available.'
             return
@@ -178,7 +178,7 @@ brew_config() {
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
         export HOMEBREW_NO_AUTO_UPDATE=1
-    elif [[ $OS_NAME == "Arch"  ]]; then
+    elif [[ $OS_KIND == "Arch"  ]]; then
         return
     else
         echo 'Error: unsupported platform'
@@ -220,7 +220,7 @@ custom_config() {
 
     # 'fzf' utility.
     [[ -n $HOMEBREW_PREFIX ]] && . $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash
-    [[ $OS_NAME == "Arch" ]] && . /usr/share/fzf/key-bindings.bash
+    [[ $OS_KIND == "Arch" ]] && . /usr/share/fzf/key-bindings.bash
     export FZF_DEFAULT_OPTS='
       --height 75% --multi --reverse --margin=0,1
       --bind ctrl-f:page-down,ctrl-b:page-up
