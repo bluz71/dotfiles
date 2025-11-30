@@ -208,9 +208,6 @@ copy_working_directory() {
 }
 
 custom_config() {
-    # Manually load Bash Completion for Linux if necessary.
-    [[ $OS == "Linux" && -z "$BASH_COMPLETION_VERSINFO" ]] && . /etc/profile.d/bash_completion.sh
-
     # Manually load Bash Completion for macOS from Homebrew.
     [[ $OS == "Darwin" ]] && . $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh
 
