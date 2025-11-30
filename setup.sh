@@ -54,3 +54,9 @@ elif [  "$(uname)" = Darwin ]; then
     mkdir -p Library/Application\ Support/lazygit
     ln -s ~/dotfiles/lazygit/config.yml Library/Application\ Support/lazygit/config.yml
 fi
+
+if [ -f "/etc/arch-release" ]; then
+    ln -s ~/dotfiles/profile .xprofile
+elif [ -f "/etc/debian_version" ]; then
+    ln -s ~/dotfiles/profile .profile
+fi
