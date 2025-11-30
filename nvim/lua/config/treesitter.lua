@@ -3,14 +3,11 @@ local buffer = require("util.buffer")
 
 treesitter.setup({
   -- No need to ensure_installed the following parsers.
-  --
-  -- Neovim 0.9 ships: c, lua, vim & vimdoc parsers
-  -- Neovim 0.10 ships: bash, c, lua, markdown, markdown_inline, python, vim &
-  --                    vimdoc parsers
   ensure_installed = {
-    "astro", "clojure", "cpp", "css", "dart", "elixir", "elm", "embedded_template", "fish", "go",
-    "haskell", "html", "java", "javascript", "json", "julia", "odin", "php", "r", "regex", "ruby",
-    "rust", "scala", "scss", "svelte", "toml", "tsx", "typescript", "vue", "zig"
+    "astro", "bash", "c", "clojure", "cpp", "css", "dart", "elixir", "elm", "embedded_template",
+    "fish", "go", "haskell", "html", "java", "javascript", "json", "julia", "lua", "markdown",
+    "markdown_inline", "odin", "php", "python", "r", "regex", "ruby", "rust", "scala", "scss",
+    "svelte", "toml", "tsx", "typescript", "vim", "vimdoc", "vue", "zig"
   },
   highlight = {
     enable = true,
