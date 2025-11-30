@@ -416,7 +416,7 @@ mux_command() {
     fi
 }
 
-packages() {
+prompt() {
     # bash-seafly-prompt (https://github.com/bluz71/bash-seafly-prompt)
     #
     # Install the package if it does not exist.
@@ -528,7 +528,7 @@ web() {
 #
 user_paths
 brew_config
+prompt
 custom_config
-packages
 dev_config
 shell_config
