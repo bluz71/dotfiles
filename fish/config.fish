@@ -195,7 +195,7 @@ function custom_config
 end
 
 function dev_config
-    if test -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh"
+    if test -f "$HOMEBREW_PREFIX/share/chruby/chruby.sh"; or test -f /usr/share/chruby/chruby.sh
         # chruby is slow, instead simply set environment variables explicitly.
         #   . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         #   chruby 3.3.9

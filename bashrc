@@ -249,7 +249,7 @@ custom_config() {
 }
 
 dev_config() {
-    if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
+    if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh || -f /usr/share/chruby/chruby.sh ]]; then
         # chruby is slow, instead simply set environment variables explicitly.
         # . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         # chruby 3.3.9
