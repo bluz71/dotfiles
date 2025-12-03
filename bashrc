@@ -249,7 +249,7 @@ custom_config() {
 }
 
 dev_config() {
-    if [[ -f $HOMEBREW_PREFIX/share/chruby/chruby.sh || -f /usr/share/chruby/chruby.sh ]]; then
+    if [[ -f /usr/share/chruby/chruby.sh || -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
         # chruby is slow, instead simply set environment variables explicitly.
         # . $HOMEBREW_PREFIX/share/chruby/chruby.sh
         # chruby 3.3.9
@@ -261,7 +261,7 @@ dev_config() {
         PATH=$GEM_HOME/bin:$RUBY_ROOT/bin:$PATH
         hash -r
     fi
-    if [[ -x $HOMEBREW_PREFIX/bin/fnm ]]; then
+    if [[ -x /usr/bin/fnm || -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
         export PNPM_HOME=$HOME/.local/share/pnpm
         PATH=$PATH:$PNPM_HOME
