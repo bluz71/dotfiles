@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-seafly-prompt
+git clone --depth 1 https://github.com/bluz71/bash-seafly-prompt ~/.bash-packages/bash-seafly-prompt
 
 cd ~
 ln -s dotfiles/bash_profile .bash_profile
@@ -26,8 +26,6 @@ ln -s ~/dotfiles/fish/ .config/fish
 mkdir -p scripts
 ln -s ~/dotfiles/git-bvv scripts/git-bvv
 ln -s ~/dotfiles/git-vdiff scripts/git-vdiff
-
-ln -s dotfiles/linter_configs/mdlrc .mdlrc
 
 mkdir -p .config/yamllint
 ln -s ~/dotfiles/linter_configs/yamllint .config/yamllint/config
