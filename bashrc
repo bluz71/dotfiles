@@ -136,10 +136,10 @@ if [[ $OS == "Linux" ]]; then
         export OS_KIND='Debian'
     fi
     alias ip='ip --color=auto'
-    alias cpa='/bin/cp -i -dR --preserve=ownership,timestamps'
-    alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
+    alias cpa='/usr/bin/cp -i -dR --preserve=ownership,timestamps'
     alias free='free -th'
     alias nmshow='nmcli connection show'
+    alias open='xdg-open'
     alias updatedb='sudo /usr/bin/updatedb'
     alias wg0down='nmcli connection down wg0'
     alias wg0info='nmcli --overview connection show wg0'
@@ -150,6 +150,10 @@ elif [[ $OS == "Darwin" ]]; then
     export PGGSSENCMODE='disable' # Reference: https://is.gd/flzYH7
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias locate='mdfind -name'
+fi
+
+if [[ $OS_KIND == "Debian" ]]; then
+    alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
 fi
 
 

@@ -100,7 +100,6 @@ if test $OS = Linux
     else if test -f /etc/debian_version
         set -gx OS_KIND Debian
     end
-    abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     abbr free 'free -th'
     abbr nmshow 'nmcli connection show'
     abbr updatedb 'sudo /usr/bin/updatedb'
@@ -112,6 +111,10 @@ else if test $OS = Darwin
     set -gx OS_KIND macOS
     set -gx PGGSSENCMODE disable # Reference: https://is.gd/flzYH7
     abbr locate 'mdfind -name'
+end
+
+if test $OS_KIND = Debian
+    abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
 end
 
 # Functions.
