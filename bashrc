@@ -132,8 +132,10 @@ if [[ $OS == "Linux" ]]; then
     export SHELL='/bin/bash'
     if [ -f /etc/arch-release ]; then
         export OS_KIND='Arch'
+        export SUDO_PROMPT="$(tput setaf 1 bold)%p$(tput sgr0)"
     elif [ -f /etc/debian_version ]; then
         export OS_KIND='Debian'
+        alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
     fi
     alias ip='ip --color=auto'
     alias cpa='/usr/bin/cp -i -dR --preserve=ownership,timestamps'
@@ -150,10 +152,6 @@ elif [[ $OS == "Darwin" ]]; then
     export PGGSSENCMODE='disable' # Reference: https://is.gd/flzYH7
     alias cpa='/opt/homebrew/bin/gcp -i -a'
     alias locate='mdfind -name'
-fi
-
-if [[ $OS_KIND == "Debian" ]]; then
-    alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
 fi
 
 

@@ -97,8 +97,10 @@ if test $OS = Linux
     set -gx SHELL /bin/fish
     if test -f /etc/arch-release
         set -gx OS_KIND Arch
+        set -gx SUDO_PROMPT (set_color red --bold)"%p"(set_color normal)
     else if test -f /etc/debian_version
         set -gx OS_KIND Debian
+        abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
     end
     abbr free 'free -th'
     abbr nmshow 'nmcli connection show'
@@ -113,9 +115,6 @@ else if test $OS = Darwin
     abbr locate 'mdfind -name'
 end
 
-if test $OS_KIND = Debian
-    abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
-end
 
 # Functions.
 #
