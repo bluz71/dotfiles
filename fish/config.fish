@@ -38,6 +38,7 @@ abbr tls 'tmux ls'
 abbr be 'bundle exec'
 abbr df. 'df -h .'
 abbr ff fastfetch
+abbr ff13 'fastfetch -c examples/13'
 abbr lynx 'lynx --accept_all_cookies'
 abbr mdi meld
 abbr p bat
