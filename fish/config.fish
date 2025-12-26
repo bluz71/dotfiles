@@ -37,8 +37,6 @@ abbr tls 'tmux ls'
 # -- Miscellaneous abbreviations --
 abbr be 'bundle exec'
 abbr df. 'df -h .'
-abbr ff 'fastfetch --color cyan --logo-color-1 green --logo-color-2 white'
-abbr ff13 'fastfetch --color cyan --logo-color-1 green --logo-color-2 white -c examples/13'
 abbr lynx 'lynx --accept_all_cookies'
 abbr mdi meld
 abbr p bat
