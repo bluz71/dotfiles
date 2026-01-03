@@ -8,7 +8,7 @@ configuration {
   display-drun: "Launch:";
   display-window: "Window:";
   drun-display-format: "{name}";
-  font: "Source Sans Pro Regular 14";	
+  font: "Maple Mono Normal NL Regular 13";	
   show-icons: true;
 }
 
@@ -73,7 +73,7 @@ listview {
 }
 
 prompt {
-  font: "Source Sans Pro SemiBold 15";	
+  font: "Maple Mono Normal NL SemiBold 13.5";	
   padding: 10 6 0 10;
   text-color: #80a0ff;
 }
