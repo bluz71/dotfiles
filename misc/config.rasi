@@ -6,6 +6,7 @@
 
 configuration {
   display-drun: "Launch:";
+  display-window: "Window:";
   drun-display-format: "{name}";
   font: "Source Sans Pro Regular 14";	
   show-icons: true;
