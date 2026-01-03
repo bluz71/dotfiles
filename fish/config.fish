@@ -39,6 +39,7 @@ abbr be 'bundle exec'
 abbr df. 'df -h .'
 abbr lynx 'lynx --accept_all_cookies'
 abbr mdi meld
+abbr mpva 'mpv --no-audio-display'
 abbr p bat
 abbr pn pnpm
 abbr px pnpx
@@ -118,7 +119,10 @@ end
 # Functions.
 #
 function brew_config
-    if test $OS = Linux; and test $OS_KIND = Debian
+    if test $OS_KIND = Arch
+        # No need to use Homebrew on Arch Linux.
+        return
+    else if test $OS_KIND = Debian
         if not command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; or not test -x (command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null)
             echo 'Note: brew is not available.'
             return
@@ -143,8 +147,6 @@ function brew_config
         fish_add_path --path $HOMEBREW_PREFIX/bin
         set -gx MANPATH $HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman $HOMEBREW_PREFIX/share/man $MANPATH
         set -gx HOMEBREW_NO_AUTO_UPDATE 1
-    else if test $OS_KIND = Arch
-        return
     else
         echo 'Error: unsupported platform'
         return

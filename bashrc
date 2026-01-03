@@ -76,6 +76,7 @@ alias fkill='fzf_kill'
 alias lynx='lynx --accept_all_cookies'
 alias math='set -f; _f() { echo $@ | bc; set +f; }; _f'
 alias mdi='meld'
+alias mpva='mpv --no-audio-display'
 alias p='bat'
 alias pn='pnpm'
 alias px='pnpx'
@@ -159,7 +160,10 @@ fi
 # Functions.
 #
 brew_config() {
-    if [[ $OS == "Linux" ]] && [[ $OS_KIND == "Debian"  ]]; then
+    if [[ $OS_KIND == "Arch"  ]]; then
+        # No need to use Homebrew on Arch Linux.
+        return
+    elif [[ $OS_KIND == "Debian"  ]]; then
         if ! [[ -x $(command -v /home/linuxbrew/.linuxbrew/bin/brew 2>/dev/null) ]]; then
             echo 'Note: brew is not available.'
             return
@@ -181,8 +185,6 @@ brew_config() {
         PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-tar/libexec/gnubin:$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$HOMEBREW_PREFIX/bin:$PATH
         MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$HOMEBREW_PREFIX/share/man:$MANPATH
         export HOMEBREW_NO_AUTO_UPDATE=1
-    elif [[ $OS_KIND == "Arch"  ]]; then
-        return
     else
         echo 'Error: unsupported platform'
         return
