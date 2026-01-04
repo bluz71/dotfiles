@@ -39,7 +39,7 @@ abbr be 'bundle exec'
 abbr df. 'df -h .'
 abbr lynx 'lynx --accept_all_cookies'
 abbr mdi meld
-abbr mpva 'mpv --no-audio-display'
+abbr mpa 'mpv --no-audio-display'
 abbr p bat
 abbr pn pnpm
 abbr px pnpx
