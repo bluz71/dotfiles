@@ -1,3 +1,6 @@
+; inherits: ruby
+
+;; My custom ERB injections.
 ((call
   method: (identifier) @method
   (#eq? @method "erb_template"))
