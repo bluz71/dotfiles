@@ -183,8 +183,8 @@ lazy.setup({
   -----------------------------
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.10.0",
-    -- commit = "3de418e",
+    -- tag = "v0.10.0",
+    commit = "5a7e563",
     build = ":TSUpdate",
     dependencies = {
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
