@@ -10,11 +10,25 @@ treesitter.install({
   "scala", "scss", "svelte", "tmux", "toml", "tsx", "typescript", "vim", "vimdoc", "vue", "zig",
 })
 
+-- Add Crystal Tree-sitter parser which is currently resides outside of the nvim-treesitter plugin.
+autocmd("User", {
+  pattern = "TSUpdate",
+  callback = function()
+    require('nvim-treesitter.parsers').crystal = {
+      install_info = {
+        url = "https://github.com/crystal-lang-tools/tree-sitter-crystal",
+        queries = "queries/nvim",
+      },
+    }
+  end,
+})
+vim.treesitter.language.register("crystal", { "cr" })
+
 autocmd("FileType", {
   pattern = {
-    "astro", "c", "clojure", "cpp", "css", "dart", "elixir", "eruby", "fish", "gitcommit", "go",
-    "haskell", "html", "java", "javascript", "json", "julia", "lua", "markdown", "php", "python",
-    "r", "ruby", "rust", "scala", "scss", "sh", "svelte", "tmux", "toml", "typescript",
+    "astro", "c", "clojure", "cpp", "crystal", "css", "dart", "elixir", "eruby", "fish", "gitcommit",
+    "go", "haskell", "html", "java", "javascript", "json", "julia", "lua", "markdown", "php",
+    "python", "r", "ruby", "rust", "scala", "scss", "sh", "svelte", "tmux", "toml", "typescript",
     "typescriptreact", "vim", "vue", "zig",
   },
   callback = function(event)
