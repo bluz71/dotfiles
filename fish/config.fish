@@ -291,7 +291,7 @@ function user_paths
         set -gx PATH ~/.local/bin ~/scripts /usr/local/bin /usr/bin /usr/sbin
     else if test $OS = Darwin
         # However, in macOS /bin and /sbin are still distint.
-        set -gx PATH ~/binaries ~/scripts /usr/local/bin /usr/bin /bin /usr/sbin /sbin
+        set -gx PATH ~/.local/bin ~/scripts /usr/local/bin /usr/bin /bin /usr/sbin /sbin
     end
     set -gx MANPATH /usr/local/man /usr/local/share/man /usr/man /usr/share/man
 end

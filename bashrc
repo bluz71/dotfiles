@@ -511,7 +511,7 @@ user_paths() {
         export PATH=~/.local/bin:~/scripts:/usr/local/bin:/usr/bin:/usr/sbin
     elif [[ $OS == "Darwin" ]]; then
         # However, in macOS /bin and /sbin are still distint.
-        export PATH=~/binaries:~/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+        export PATH=~/.local/bin:~/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
     fi
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man
 }
