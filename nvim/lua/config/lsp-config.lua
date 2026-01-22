@@ -122,6 +122,7 @@ lsp_config("tailwindcss", {
 lsp_enable({
   "cssls",
   "eslint",
+  "herb_ls",
   "html",
   "ruby_lsp",
   "rust_analyzer",

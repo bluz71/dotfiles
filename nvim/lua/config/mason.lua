@@ -9,8 +9,8 @@ mason.setup({
   -- Install these tools through the Mason interface:
   --   css-lsp
   --   eslint-lsp
+  --   herb-language-server
   --   html-lsp
-  --   htmlhint
   --   jsonlint
   --   markdownlint
   --   prettier

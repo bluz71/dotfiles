@@ -12,13 +12,6 @@ conform.setup({
     astro = { "prettier" },
     crystal = { "crystal" },
     css = { "prettier" },
-    eruby = function()
-      if filereadable(".prettierrc.json") == 1 then
-        return { "prettier" }
-      else
-        return {} -- Do nothing for legacy Rails projects
-      end
-    end,
     fish = { "fish_indent" },
     html = { "prettier" },
     javascript = { "prettier" },
