@@ -97,7 +97,7 @@ alias ytest='CI=true yarn test --colors'
 # General environment variables.
 #
 export EDITOR=nvim
-export LESS='-F -Q -M -R -X -i -g -s -x4 -z-2'
+export LESS='-F -Q -M -R -X -i -g -s -x4'
 export LESS_TERMCAP_md=$'\e[00;34m'    # bold mode     - blue
 export LESS_TERMCAP_us=$'\e[00;32m'    # underline     - green
 export LESS_TERMCAP_so=$'\e[00;40;33m' # standout      - yellow on grey

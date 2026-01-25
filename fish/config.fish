@@ -63,7 +63,7 @@ else
     # Use this when Neovim supports '--remote-tab-wait'
     # set -gx EDITOR 'nvim --server $NVIM --remote-tab-wait +"set bufhidden=delete"'
 end
-set -gx LESS '-F -Q -M -R -X -i -g -s -x4 -z-2'
+set -gx LESS '-F -Q -M -R -X -i -g -s -x4'
 set -gx LESS_TERMCAP_md \e'[00;34m'    # bold mode     - blue
 set -gx LESS_TERMCAP_us \e'[00;32m'    # underline     - green
 set -gx LESS_TERMCAP_so \e'[00;40;33m' # standout      - yellow on grey
