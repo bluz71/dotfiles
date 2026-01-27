@@ -61,6 +61,11 @@ autocmd("LspAttach", {
       client.server_capabilities.documentRangeFormattingProvider = false
     end
 
+    -- Disable LSP semantic token highlights for Ruby LSP.
+    if client.name == "ruby_lsp" then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+
     -- Tailwind LSP trigger characters are annoying, disable them.
     --
     -- Note, to list current trigger characters run this command:
