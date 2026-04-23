@@ -135,6 +135,8 @@ if [[ $OS == "Linux" ]]; then
     if [ -f /etc/arch-release ]; then
         export OS_KIND='Arch'
         export SUDO_PROMPT="$(tput setaf 1 bold)%p$(tput sgr0)"
+        alias dockerstart='sudo rc-service docker start'
+        alias pacclear='paccache -rk1 && paccache -ruk0 && paru -Scca --noconfirm'
     elif [ -f /etc/debian_version ]; then
         export OS_KIND='Debian'
         alias dr14_tmeter='/usr/local/dr14_t.meter/dr14_tmeter'
