@@ -98,6 +98,8 @@ if test $OS = Linux
     if test -f /etc/arch-release
         set -gx OS_KIND Arch
         set -gx SUDO_PROMPT (set_color red --bold)"%p"(set_color normal)
+        abbr dockerstart 'sudo rc-service docker start'
+        abbr pacclear 'paccache -rk1 && paccache -ruk0 && paru -Scca --noconfirm'
     else if test -f /etc/debian_version
         set -gx OS_KIND Debian
         abbr dr14_tmeter '/usr/local/dr14_t.meter/dr14_tmeter'
