@@ -1,13 +1,11 @@
 # Configuration documentation: https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 
 disableStartupPopups: true
-
 git:
   branchLogCmd: 'git log --graph --color=always --date=human --format="%C(#e3c78a)%h%C(#ff5d5d)%d%C(reset) - %C(#36c692)(%ad)%C(reset) %s %C(#80a0ff){%an}%C(reset)" {{branchName}} --'
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --side-by-side
-
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --side-by-side
 gui:
   authorColors:
     'Dennis B': blue
@@ -25,14 +23,11 @@ gui:
       - black
     selectedRangeBgColor:
       - black
-
 keybinding:
   universal:
     return: 'q'
     submitEditorText: '<c-c>'
     appendNewline: '<enter>'
     quit: '<esc>'
-
 notARepository: 'skip'
-
 promptToReturnFromSubprocess: false
