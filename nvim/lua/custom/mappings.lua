@@ -1,6 +1,7 @@
 local current_line = vim.api.nvim_get_current_line
 local g = vim.g
 local map = vim.keymap.set
+local packadd = vim.cmd.packadd
 local expr_opts = { expr = true }
 local expr_noreplace_opts = { expr = true, replace_keycodes = false }
 local silent_opts = { silent = true }
@@ -114,6 +115,11 @@ map("n", "<Up>", "<Nop>")
 map("n", "<Down>", "<Nop>")
 map("n", "<Left>", "<Nop>")
 map("n", "<Right>", "<Nop>")
+-- Undo plugin mapping.
+map("n", "<Leader>u", function()
+  packadd("nvim.undotree")
+  require("undotree").open()
+end)
 
 -------------------------------
 -- Helper mappings

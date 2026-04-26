@@ -310,7 +310,6 @@ lazy.setup({
     end,
   },
 
-  "mbbill/undotree", -- ~/dotfiles/nvim/after/plugin/undotree.lua
   "907th/vim-auto-save", -- ~/dotfiles/nvim/after/plugin/auto-save.lua
   "gregsexton/MatchTag",
 }, configuration)

@@ -257,11 +257,8 @@ cheatsheet.setup({
       { "React component files", "‹Spc›eo" },
       { "React test files", "‹Spc›et" },
     },
-    ["Undotree Plugin Mappings"] = {
+    ["Undotree Plugin Mapping"] = {
       { "Toggle Undotree", "'u" },
-      { "Exit Undotree", "‹Esc›" },
-      { "Previous undo state", "<" },
-      { "Next undo state", "> " },
     },
     ["vim-test Plugin Mappings"] = {
       { "Run test nearest cursor", "'tt" },
