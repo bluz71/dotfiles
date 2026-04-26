@@ -31,18 +31,14 @@ opt.completeopt = { "fuzzy", "menuone", "noselect" }
 opt.cursorline = true
 opt.cursorlineopt = "number"
 opt.dictionary = "/usr/share/dict/words"
-if fn.has("nvim-0.12") == 1 then
-  opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "inline:char" }
-else
-  opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "linematch:60" }
-end
+opt.diffopt = { "internal", "filler", "algorithm:histogram", "indent-heuristic", "inline:char" }
 opt.expandtab = true -- Use spaces instead of tabs
 opt.exrc = false -- Disable reading of working directory vimrc files
 -- Lua initialization file
 opt.fillchars = {
   horiz = "━", horizup = "┻", horizdown = "┳", vert = "┃", vertleft = "┫",
   vertright = "┣", verthoriz = "╋",
-  fold = "━", foldclose = "▷", foldopen = "▼", foldsep = "┃", -- foldinner = " ", Neovim 0.12 option --
+  fold = "━", foldclose = "▷", foldopen = "▼", foldsep = "┃", foldinner = " ",
   diff = "",
 }
 opt.foldlevelstart = 20
