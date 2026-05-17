@@ -4,6 +4,9 @@ local fn = vim.fn
 -- Enable the Lua loader byte-compilation cache.
 vim.loader.enable()
 
+-- Enable Neovim 0.12 UI2.
+require("vim._core.ui2").enable({})
+
 require("custom.options")
 require("custom.mappings")
 require("custom.autocmds")

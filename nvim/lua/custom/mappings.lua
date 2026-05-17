@@ -110,16 +110,18 @@ map("n", "i", function()
     return "i"
   end
 end, expr_opts)
--- Disable arrow keys.
-map("n", "<Up>", "<Nop>")
-map("n", "<Down>", "<Nop>")
-map("n", "<Left>", "<Nop>")
-map("n", "<Right>", "<Nop>")
 -- Undo plugin mapping.
 map("n", "<Leader>u", function()
   packadd("nvim.undotree")
   require("undotree").open()
 end)
+-- Enter UI2 window.
+map("n", "<C-Enter>", "g<")
+-- Disable arrow keys.
+map("n", "<Up>", "<Nop>")
+map("n", "<Down>", "<Nop>")
+map("n", "<Left>", "<Nop>")
+map("n", "<Right>", "<Nop>")
 
 -------------------------------
 -- Helper mappings
