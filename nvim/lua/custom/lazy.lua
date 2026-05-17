@@ -151,6 +151,7 @@ lazy.setup({
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    commit = "84c75e7",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
