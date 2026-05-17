@@ -31,7 +31,7 @@ autocmd("LspAttach", {
     -- Disable LSP for files larger than 100KB.
     if buffer.is_large(0) then
       print("(LSP) DISABLED, file too large")
-      cmd([[LspStop]])
+      cmd([[lsp stop]])
       return
     end
 
@@ -59,6 +59,11 @@ autocmd("LspAttach", {
     then
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
+    end
+
+    -- Enable virtual text document color for supported language servers.
+    if client:supports_method("textDocument/documentColor") then
+      lsp.document_color.enable(true, { bufnr = 0 }, { style = "virtual" })
     end
 
     -- Disable LSP semantic token highlights for Ruby LSP.

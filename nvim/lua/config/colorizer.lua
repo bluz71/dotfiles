@@ -2,7 +2,6 @@ local colorizer = require("colorizer")
 
 colorizer.setup({
   filetypes = {
-    "css",
     eruby = {
       mode = "virtualtext", names = true, tailwind = true, virtualtext_inline = true,
     },
@@ -14,6 +13,6 @@ colorizer.setup({
   user_default_options = {
     mode = "background",
     names = false,
-    virtualtext = "▮",
+    virtualtext = "",
   },
 })

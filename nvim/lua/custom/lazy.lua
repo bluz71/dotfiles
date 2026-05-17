@@ -30,7 +30,7 @@ local configuration = {
   performance = {
     rtp = {
       disabled_plugins = {
-        "gzip", "netrwPlugin", "rplugin", "tarPlugin", "tohtml", "tutor", "zipPlugin",
+        "gzip", "netrwPlugin", "rplugin", "tarPlugin", "tutor", "zipPlugin",
       },
     },
   },
@@ -294,8 +294,7 @@ lazy.setup({
   {
     "catgoose/nvim-colorizer.lua",
     ft = {
-      "css", "eruby", "html", "lua", "markdown", "rasi", "text", "tmux", "toml", "txt", "vim",
-      "yaml",
+      "eruby", "html", "lua", "markdown", "rasi", "text", "tmux", "toml", "txt", "vim", "yaml",
     },
     config = function()
       require("config.colorizer")
