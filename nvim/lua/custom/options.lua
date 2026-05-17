@@ -69,10 +69,8 @@ if git_repo == "1" and not opt.diff:get() then
 end
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
 opt.path = "**" -- File search path
-if fn.has("nvim-0.12") == 1 then
-  opt.pumborder = "single"
-end
-opt.pumheight = 20 -- Height of complete list
+opt.pumborder = "rounded" -- Enable border for the completion menu
+opt.pumheight = 20 -- Maximum height of the completion menu
 opt.relativenumber = true -- Show relative numbers
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftwidth = 2 -- Default indentation amount

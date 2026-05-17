@@ -74,9 +74,8 @@ autocmd("LspAttach", {
       client.server_capabilities.completionProvider.triggerCharacters = {}
     end
 
-    -- Disable Neovim LSP-set 'omnifunc' and 'formatexpr' options; these options cause problems with
-    -- my custom-completion mapping along with the 'gq' command.
-    bo.omnifunc = ""
+    -- Disable Neovim LSP auto-enabled 'formatexpr' option, it causes problems with the 'gq' format
+    -- command.
     bo.formatexpr = ""
   end,
   group = augroup("CustomLspEvent", {}),
