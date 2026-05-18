@@ -13,6 +13,6 @@ colorizer.setup({
   user_default_options = {
     mode = "background",
     names = false,
-    virtualtext = "⯀ ",
+    virtualtext = "▮",
   },
 })
