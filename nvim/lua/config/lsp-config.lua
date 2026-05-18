@@ -63,7 +63,7 @@ autocmd("LspAttach", {
 
     -- Enable virtual text document color for supported language servers.
     if client:supports_method("textDocument/documentColor") then
-      lsp.document_color.enable(true, { bufnr = 0 }, { style = "virtual" })
+      lsp.document_color.enable(true, { bufnr = 0 }, { style = "⯀ " })
     end
 
     -- Disable LSP semantic token highlights for Ruby LSP.
