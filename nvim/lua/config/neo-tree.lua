@@ -21,7 +21,7 @@ neo_tree.setup({
         renamed = "○",
         -- Status type
         untracked = "?",
-        ignored = "‼",
+        ignored = "◌",
         unstaged = "▼",
         staged = "▲",
         conflict = "✖",
@@ -43,6 +43,7 @@ neo_tree.setup({
     hijack_netrw_behavior = "open_default",
     use_libuv_file_watcher = true,
     filtered_items = {
+      hide_gitignored = false,
       show_hidden_count = false,
     },
     window = {
