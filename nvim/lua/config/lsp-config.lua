@@ -16,7 +16,6 @@ end
 
 local nvim_lsp = require("lspconfig")
 local buffer = require("util.buffer")
-local lsp_capabilities = require("util.lsp-capabilities")
 
 -- NOTE, use :checkhealth vim.lsp to run LSP healthchecks.
 
@@ -90,9 +89,11 @@ autocmd("LspAttach", {
 -- Configure the Language Servers --
 ------------------------------------
 
--- The nvim-cmp completion plugin supports most LSP capabilities; we should notify the language
--- servers about that.
-local capabilities = lsp_capabilities.default_capabilities()
+-- Notify language servers about the LSP capabilities that Neovim supports.
+local capabilities = lsp.protocol.make_client_capabilities()
+-- Disable client-side watch-files for now, it is slow (see Neovim #23291).
+-- Remove this workaround when #23291 is resolved.
+capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
 lsp_config("*", {
   capabilities = capabilities,
