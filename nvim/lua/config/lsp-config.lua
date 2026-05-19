@@ -35,7 +35,7 @@ autocmd("LspAttach", {
     end
 
     -- Default LSP mappings provided by Neovim itself:
-    --   K        - Hover
+    --   K        - hover
     --   grr      - references
     --   grn      - rename
     --   gra      - code action

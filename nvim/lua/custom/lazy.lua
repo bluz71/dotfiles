@@ -119,9 +119,16 @@ lazy.setup({
   -----------------------------
   {
     "echasnovski/mini.ai",
-    version = "*",
+    version = false,
     event = "VeryLazy",
-    config = true,
+    opts = {
+      mappings = {
+        around_next = 'aN',
+        inside_next = 'iN',
+        around_last = 'aL',
+        inside_last = 'iL',
+      },
+    },
   },
 
   {
