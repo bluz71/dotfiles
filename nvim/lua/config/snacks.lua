@@ -35,24 +35,27 @@ snacks.setup({
   picker = {
     prompt = "❯ ",
     previewers = {
+      diff = {
+        style = "syntax",
+      },
       git = {
         native = true,
       },
     },
     icons = {
       files = {
-        file = "● ",
+        file = "●",
       },
       git = {
         added = "✚",
-        commit = " ",
+        commit = "",
         deleted = "━",
         enabled = true,
-        ignored = "‼ ",
+        ignored = "○",
         modified = "●",
         renamed = "○",
         staged = "▲",
-        unmerged = "▼ ",
+        unmerged = "▼",
         untracked = "?",
       },
       ui = {
