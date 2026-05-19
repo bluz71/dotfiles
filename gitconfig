@@ -33,6 +33,8 @@
   prompt = false
 [difftool "vd"]
   cmd = git-vdiff "$LOCAL" "$REMOTE"
+[difftool "vdd"]
+  cmd =nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"
 [mergetool]
   keepBackup = false
 [advice]
@@ -91,6 +93,7 @@
   mdip = !sh -c 'git difftool $1~1..$1' -
   mdis = difftool --staged
   vdi  = difftool -t vd
+  vdd  = difftool --dir-diff -t vdd
   vdip = !sh -c 'git difftool -t vd $1~1..$1' -
   vdis = difftool -t vd --staged
   # log
