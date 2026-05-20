@@ -25,8 +25,8 @@ end
 opt.cmdheight = 1
 opt.colorcolumn = { 81, 82 } -- Highlight 81 and 82 columns
 opt.conceallevel = 0 -- Always show text normally
-opt.complete = { ".", "w", "b" } -- Sources for term and line completions
-opt.completeopt = { "fuzzy", "menuone", "noselect" }
+opt.complete = { ".^15", "w^15", "b^15" } -- Sources for completion
+opt.completeopt = { "fuzzy", "menuone", "noselect" } -- Completion behavior
 -- Highlight the current line in the number column.
 opt.cursorline = true
 opt.cursorlineopt = "number"
@@ -71,6 +71,7 @@ opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
 opt.path = "**" -- File search path
 opt.pumborder = "rounded" -- Enable border for the completion menu
 opt.pumheight = 20 -- Maximum height of the completion menu
+opt.pummaxwidth = 50 -- Maximum width of the completion menu
 opt.relativenumber = true -- Show relative numbers
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftwidth = 2 -- Default indentation amount
