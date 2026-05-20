@@ -96,6 +96,7 @@
   vdd  = difftool --dir-diff -t vdd
   vdip = !sh -c 'git difftool -t vd $1~1..$1' -
   vdis = difftool -t vd --staged
+  vdds = difftool --dir-diff -t vdd --staged
   # log
   #
   # #e3c78a (yellow), #ff5d5d (red), #36c692 (green), #80a0ff (blue)
