@@ -137,7 +137,6 @@ lazy.setup({
   },
 
   "rhysd/clever-f.vim", -- ~/dotfiles/nvim/after/plugin/clever-f.lua
-  "michaeljsmith/vim-indent-object",
 
   -----------------------------
   -- Fuzzy finding plugins

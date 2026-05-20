@@ -181,11 +181,6 @@ cheatsheet.setup({
       { "Preview hunk", "'g" },
       { "Refresh signs", "'r" },
     },
-    ["indent-object Plugin Mappings"] = {
-      { "Inside indent", "ii" },
-      { "Around indent", "ai" },
-      { "Around indent & adjacent", "aI" },
-    },
     ["Lazy Plugin Mappings"] = {
       { "Show Lazy status window", "'l" },
       { "Show Lazy Profile tab", "'s" },
