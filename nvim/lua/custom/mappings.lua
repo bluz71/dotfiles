@@ -115,8 +115,8 @@ map("n", "<Leader>u", function()
   packadd("nvim.undotree")
   require("undotree").open()
 end)
--- Enter UI2 list window.
-map("n", "gl", "g<")
+-- Show UI2 messages in a buffer.
+map("n", "<C-m>", "g<")
 -- Disable arrow keys.
 map("n", "<Up>", "<Nop>")
 map("n", "<Down>", "<Nop>")

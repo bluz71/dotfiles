@@ -56,7 +56,7 @@ cheatsheet.setup({
       { "Move visual block up", "K" },
       { "Move visual block down", "J" },
       { "Launch Undotree", ",u" },
-      { "Enter UI2 list window", "gl" },
+      { "Show UI2 messages", "‹Ctrl-m›" },
     },
     ["Paired Mappings"] = {
       { "Previous file", "[a" },
