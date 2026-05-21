@@ -26,9 +26,16 @@ autocmd("WinLeave", {
   group = custom_events,
 })
 
-autocmd("VimEnter", {
+autocmd("OptionSet", {
+  pattern = "diff",
   callback = function()
-    require("util.diff").styling()
+    if opt.diff:get() then
+      -- Disable certain styles and behaviors when running in diff mode.
+      opt_local.colorcolumn = "0"
+      vim.schedule(function()
+        cmd([[ NoMatchParen ]])
+      end)
+    end
   end,
   group = custom_events,
 })

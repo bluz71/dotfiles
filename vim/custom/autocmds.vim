@@ -7,7 +7,6 @@ augroup CustomEvents
     " Style customizations.
     autocmd WinEnter * call window_traits#Activity(v:true)
     autocmd WinLeave * call window_traits#Activity(v:false)
-    autocmd VimEnter * call diff#Styling()
 
     " Restore default Enter/Return behaviour for the command line window.
     autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>

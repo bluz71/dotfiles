@@ -1,8 +1,3 @@
--- Do not load up plugin when in diff mode.
-if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF== "1" then
-  return
-end
-
 local gitsigns = require("gitsigns")
 local feedkeys = vim.api.nvim_feedkeys
 local map = vim.keymap.set
