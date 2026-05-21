@@ -1,3 +1,8 @@
+-- Do not load up LSP when in diff mode.
+if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF == "1" then
+  return
+end
+
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local bo = vim.bo
@@ -8,11 +13,6 @@ local lsp = vim.lsp
 local lsp_config = vim.lsp.config
 local lsp_enable = vim.lsp.enable
 local map = vim.keymap.set
-
--- Do not load up LSP when in diff mode.
-if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF == "1" then
-  return
-end
 
 local nvim_lsp = require("lspconfig")
 local buffer = require("util.buffer")
