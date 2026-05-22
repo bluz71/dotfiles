@@ -67,7 +67,7 @@ opt.listchars = {
 opt.matchpairs = "(:),{:},[:]"
 opt.mouse = "a" -- Mouse support in the terminal
 opt.number = true -- Show line numbers
-if git_repo == "1" and not vim.env.NVIM_GIT_DIFF == "1" then
+if git_repo == "1" and vim.env.NVIM_GIT_DIFF ~= "1" then
   opt.numberwidth = 3
 end
 opt.nrformats = "" -- No to oct/hex support when doing CTRL-a/x
@@ -88,7 +88,7 @@ opt.showbreak = "↳" -- Use this to wrap long lines
 opt.showcmd = false -- No to showing command in bottom-right corner
 opt.showmatch = false -- No jumping jumping cursors when matching pairs
 opt.showmode = false -- No to showing mode in bottom-left corner
-if git_repo == "1" and not vim.env.NVIM_GIT_DIFF == "1" then
+if git_repo == "1" and vim.env.NVIM_GIT_DIFF ~= "1" then
   opt.signcolumn = "yes:1"
 else
   opt.signcolumn = "no"
@@ -102,7 +102,7 @@ opt.splitbelow = true -- Split below current window
 -- When horizonatally splitting windows keep text stabilized (no auto-scrolling)
 opt.splitkeep = "topline"
 opt.splitright = true -- Split window to the right
-if git_repo == "1" and not vim.env.NVIM_GIT_DIFF == "1" then
+if git_repo == "1" and vim.env.NVIM_GIT_DIFF ~= "1" then
   opt.statuscolumn = "%l%s"
 end
 opt.swapfile = false -- No backup files
