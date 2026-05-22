@@ -1,5 +1,5 @@
 -- Do not load up plugin when in git diff mode.
-if vim.env.NVIM_GIT_DIFF== "1" then
+if vim.env.NVIM_GIT_DIFF == "1" then
   return
 end
 
