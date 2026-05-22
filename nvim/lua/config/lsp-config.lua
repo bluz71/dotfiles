@@ -1,5 +1,5 @@
--- Do not load up LSP when in diff mode.
-if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF == "1" then
+-- Do not load up LSP when in git diff mode.
+if vim.env.NVIM_GIT_DIFF == "1" then
   return
 end
 

@@ -1,12 +1,12 @@
+-- Do not load up plugin when in git diff mode.
+if vim.env.NVIM_GIT_DIFF== "1" then
+  return
+end
+
 local snacks = require("snacks")
 local buffer = require("util.buffer")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
-
--- Do not load up plugin when in diff mode.
-if vim.opt.diff:get() or vim.env.NVIM_GIT_DIFF== "1" then
-  return
-end
 
 snacks.setup({
   lazygit = {

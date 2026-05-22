@@ -20,8 +20,12 @@ gitsigns.setup({
     untracked = { text = "┇" },
   },
   on_attach = function()
-    local gs = package.loaded.gitsigns
+    -- Do not attach GitSigns when in git diff mode.
+    if vim.env.NVIM_GIT_DIFF == "1" then
+      return false
+    end
 
+    local gs = package.loaded.gitsigns
     map("n", "]g", function()
       gs.next_hunk()
       schedule(function()
