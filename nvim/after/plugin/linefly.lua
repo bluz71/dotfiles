@@ -6,6 +6,7 @@ vim.g.linefly_options = {
   tabline = true,
   winbar = true,
   with_lsp_status = true,
+  with_progress_status = true,
   with_search_count = true,
   with_spell_status = true,
   with_indent_status = true,
