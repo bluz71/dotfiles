@@ -25,7 +25,7 @@ M.toggle = function()
     print("(Diagnostic) ON")
     g.diagnostic_visibility = true
   end
-  vim.cmd([[redrawstatus!]])
+  vim.cmd.redrawstatus({ bang = true })
 end
 
 return M
