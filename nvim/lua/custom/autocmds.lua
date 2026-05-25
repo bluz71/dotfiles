@@ -33,7 +33,7 @@ autocmd("OptionSet", {
       -- Disable certain styles and behaviors when running in diff mode.
       opt_local.colorcolumn = "0"
       vim.schedule(function()
-        cmd([[ NoMatchParen ]])
+        cmd.NoMatchParen()
       end)
     end
   end,
