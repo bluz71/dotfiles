@@ -1,11 +1,15 @@
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 local current_line = vim.api.nvim_get_current_line
 local g = vim.g
 local map = vim.keymap.set
+local opt = vim.opt
 local packadd = vim.cmd.packadd
+local v = vim.v
 local expr_opts = { expr = true }
 local expr_noreplace_opts = { expr = true, replace_keycodes = false }
 local silent_opts = { silent = true }
-local v = vim.v
+local completion_events = augroup("CompletionEvents", { clear = false })
 
 -------------------------------
 -- Leader
@@ -202,6 +206,20 @@ map("i", "<S-Tab>", require("util.complete").shift_tab)
 map("i", "<C-Space>", "<C-x><C-o>")
 map("i", "<C-b>", "<C-x><C-p>")
 map("i", "<C-d>", "<C-x><C-k>")
+map("i", "<C-d>", function()
+  -- Add in fuzzy completion just for this dictionary completion mapping. Fuzzy
+  -- completion causes issues with other completions, especially line completion,
+  -- hence let's limit it to just the completion that benefits from it.
+  opt.completeopt:append("fuzzy")
+  autocmd("CompleteDone", {
+    once = true,
+    callback = function()
+      opt.completeopt:remove("fuzzy")
+    end,
+    group = completion_events,
+  })
+  return "<C-x><C-k>"
+end, expr_opts)
 map("i", "<C-f>", "<C-x><C-f>")
 map("i", "<C-l>", "<C-x><C-l>")
 --   s - snippets completion
