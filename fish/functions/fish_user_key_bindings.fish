@@ -36,6 +36,9 @@ function fish_user_key_bindings
     bind ctrl-p __fish_paginate
     # Rebind 'whatis' to Ctrl-Alt-w.
     bind ctrl-alt-w __fish_whatis_current_token
+    # Restore Fish 3.x Ctrl-c behaviour; print ^C and keep the current command
+    # line visible, rather than clearing it.
+    bind ctrl-c __fish_cancel_commandline
 
     # Require consecutive 'Ctrl-d's to exit.
     bind ctrl-d,ctrl-d delete-or-exit
