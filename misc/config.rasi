@@ -14,7 +14,7 @@ configuration {
 
 window { 
   border-color: #3a3a3a;
-  border-radius: 10px;
+  border-radius: 16px;
   orientation: vertical;
   width: 20%;
 }
@@ -35,7 +35,7 @@ mainbox {
 
 element {
   border-radius: 5px;
-  padding: 4 12;
+  padding: 12 12;
   text-color: #e4e4e4;
 }
 
@@ -47,8 +47,8 @@ element selected {
 element-icon {
   alignment: vertical;
   background-color: inherit;
-  padding: 0 8 0 0;
-  size: 28px;
+  padding: 0 16 0 12;
+  size: 48px;
 }
 
 element-text {
