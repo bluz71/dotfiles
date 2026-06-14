@@ -215,7 +215,7 @@ function dev_config
     if test -x /usr/bin/fnm; or test -x "$HOMEBREW_PREFIX/bin/fnm"
         fnm env | source
         set -gx PNPM_HOME $HOME/.local/share/pnpm
-        fish_add_path --path --append $PNPM_HOME
+        fish_add_path --path --append $PNPM_HOME/bin
     end
 
     if test -x ~/.cargo/bin

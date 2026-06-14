@@ -271,7 +271,7 @@ dev_config() {
     if [[ -x /usr/bin/fnm || -x $HOMEBREW_PREFIX/bin/fnm ]]; then
         eval "$(fnm env)"
         export PNPM_HOME=$HOME/.local/share/pnpm
-        PATH=$PATH:$PNPM_HOME
+        PATH=$PATH:$PNPM_HOME/bin
     fi
     if [[ -x ~/.cargo/bin ]]; then
         PATH=$PATH:~/.cargo/bin
