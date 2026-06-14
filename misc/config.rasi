@@ -8,7 +8,7 @@ configuration {
   display-drun: "Launch:";
   display-window: "Window:";
   drun-display-format: "{name}";
-  font: "Maple Mono Normal NL Regular 13";	
+  font: "Maple Mono Normal NL Regular 11";	
   show-icons: true;
 }
 
@@ -47,8 +47,8 @@ element selected {
 element-icon {
   alignment: vertical;
   background-color: inherit;
-  padding: 0 6 0 0;
-  size: 24px;
+  padding: 0 8 0 0;
+  size: 28px;
 }
 
 element-text {
@@ -73,7 +73,7 @@ listview {
 }
 
 prompt {
-  font: "Maple Mono Normal NL SemiBold 13.5";	
+  font: "Maple Mono Normal NL SemiBold 11.5";	
   padding: 10 6 0 10;
   text-color: #80a0ff;
 }
