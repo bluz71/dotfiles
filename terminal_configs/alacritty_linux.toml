@@ -89,6 +89,6 @@ program = "/bin/fish"
 
 [window]
 decorations_theme_variant = "Dark"
-dimensions = { columns = 90, lines = 52 }
+dimensions = { columns = 92, lines = 57 }
 dynamic_title = false
 padding = { x = 4, y = 2 }
