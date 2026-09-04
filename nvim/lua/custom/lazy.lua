@@ -191,11 +191,11 @@ lazy.setup({
     "nvim-treesitter/nvim-treesitter",
     -- tag = "v0.10.0",
     -- commit = "5a7e563",
+    lazy = false,
     build = ":TSUpdate",
     dependencies = {
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
     },
-    event = { "VeryLazy" },
     config = function()
       require("config.treesitter")
     end,
