@@ -195,7 +195,7 @@ lazy.setup({
     dependencies = {
       { "RRethy/nvim-treesitter-endwise", name = "nvim-ts-endwise" },
     },
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "VeryLazy" },
     config = function()
       require("config.treesitter")
     end,

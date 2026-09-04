@@ -7,7 +7,7 @@ treesitter.install({
   "astro", "bash", "c", "clojure", "cpp", "css", "dart", "diff", "elixir", "embedded_template",
   "fish", "git_rebase", "gitcommit", "go", "haskell", "html", "java", "javascript", "json", "julia",
   "lua", "markdown", "markdown_inline", "php", "python", "r", "rbs", "regex", "ruby", "rust",
-  "scala", "scss", "svelte", "tmux", "toml", "tsx", "typescript", "vim", "vimdoc", "vue", "zig",
+  "scala", "scss", "svelte", "toml", "tsx", "typescript", "vim", "vimdoc", "vue", "zig",
 })
 
 -- Add Crystal Tree-sitter parser which is currently resides outside of the nvim-treesitter plugin.
