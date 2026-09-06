@@ -67,6 +67,7 @@ lazy.setup({
   -----------------------------
   {
     dir = "~/projects/public/vim-moonfly-colors",
+    lazy = true,
     config = function()
       require("config.moonfly")
     end,
@@ -74,6 +75,7 @@ lazy.setup({
 
   {
     dir = "~/projects/public/vim-nightfly-colors",
+    lazy = true,
     config = function()
       require("config.nightfly")
     end,
