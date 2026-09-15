@@ -259,8 +259,8 @@ dev_config() {
     if [[ -f /usr/share/chruby/chruby.sh || -f $HOMEBREW_PREFIX/share/chruby/chruby.sh ]]; then
         # chruby is slow, instead simply set environment variables explicitly.
         # . $HOMEBREW_PREFIX/share/chruby/chruby.sh
-        # chruby 4.0.2
-        export RUBY_VERSION=4.0.2
+        # chruby 4.0.7
+        export RUBY_VERSION=4.0.7
         export RUBY_ROOT=$HOME/.rubies/ruby-$RUBY_VERSION
         export GEM_ROOT=$RUBY_ROOT/lib/ruby/gems/4.0.0
         export GEM_HOME=$HOME/.gem/ruby/$RUBY_VERSION
